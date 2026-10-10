@@ -1,0 +1,7 @@
+interface:
+  display_name: "V1 Frontend Acceptance Testing"
+  short_description: "Prepare and execute approved frontend acceptance"
+  default_prompt: "Use $v1-frontend-acceptance-testing to prepare the requested frontend acceptance plan without executing it."
+
+policy:
+  allow_implicit_invocation: false

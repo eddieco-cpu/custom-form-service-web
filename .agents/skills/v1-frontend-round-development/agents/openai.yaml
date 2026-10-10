@@ -1,0 +1,7 @@
+interface:
+  display_name: "V1 Frontend Round Development"
+  short_description: "Plan and verify authorized frontend rounds"
+  default_prompt: "Use $v1-frontend-round-development to prepare the explicitly requested frontend round plan."
+
+policy:
+  allow_implicit_invocation: false

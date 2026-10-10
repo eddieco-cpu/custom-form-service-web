@@ -1,0 +1,138 @@
+# V1 Frontend — UI、Interaction
+
+版本／日期：1.0／2026-10-10。狀態：規格初版，待 Owner review。前置：[00](00-v1-frontend-overview.md)；頁面功能以 01～04 為準。
+
+## 1. 套件與視覺基準
+
+Nuxt UI＋Tailwind。初版採亮色介面，白色／淺灰背景、藍色主操作、灰色次要文字、卡片與细邊框；刪除等危險操作使用警示色。
+
+文字以繁體中文為主；API enum 不直接作 UI 主標籤。題目／Options／姓名／答案當一般文字呈現，保留換行，不當 HTML 執行。
+
+頁面有明確標題、內容區與操作區；相同動作沿用相同標籤、loading 與成功提示。主要操作與刪除分開，減少誤點。
+
+## 2. Layout 與頁寬
+
+| 項目 | 初版基準 |
+| --- | --- |
+| Header | 頂部固定；桌面高 64px，手機 56px；内容預留相同高度 |
+| 外層 | 最大 1280px、置中 |
+| 首頁／列表 | 最大 1280px |
+| 編輯器 | 最大 960px |
+| 填答／統計 | 最大 800px |
+| Profile | 最大 640px |
+| 登入／註冊 | 最大 440px |
+| 手機內容 | 左右各 16px；卡片與長文字適應寬度 |
+
+桌面 Header 置入四個 nav＋avatar；低於 1024px 用選單按鈕展開 nav，avatar 保留。公開統計與登入狀態共用相同結構。
+
+未登入 Avatar 顯示未登入且不可點；nav 點擊導登入返回。初始化中／未知／停用的特殊呈現依 01／04。
+
+## 3. 手機列表、編輯器與操作
+
+- 我的表單桌面採表格，手機採卡片；欄位語意一致，次要設定／時間換行呈現。
+- 編輯器每題為卡片：題型、title、description、required、config、Options 與排序／刪除；根設定保持可見，不因小螢幕隱藏必要控制。
+- 拖曳使用手柄，避免輸入欄位或頁面捲動誤觸；手机與鍵盤的上下移動備用操作與拖曳同樣產生排序。
+- 手機編輯器底部固定保存／發布主要操作區，預留內容及 safe-area 空間；刪除與預覽另放次要操作區。new 不顯示發布。
+- 題目、長 Option label、UUID 與統計長文字可換行；不製造整頁水平溢位。Stars 保持每列十顆，尺寸依寬度縮放但保留可辨識控制。
+
+## 4. 根設定與題型控制
+
+| 設定／類型 | 控制與標籤 |
+| --- | --- |
+| status | badge：草稿／已發布／已關閉；不可編輯 |
+| responseMode | radio：單次填答／可多次填答 |
+| responseIdentity | radio：匿名／具名；說明匿名仍需登入，具名統計可依 Visibility 顯示姓名 |
+| resultVisibility | radio：僅建立者／填答者／所有人；new 未選，既有立即更新 |
+| Deadline | 可選的截止日期與時間，台北時區輸入；無設定顯示未設定 |
+| text variant | input／textarea；填答時用對應控制 |
+| number | 原始數值文字輸入＋數字鍵盤提示；不藉 HTML 預設 step 阻擋合法小數 |
+| single_choice | radio／select；顯示 label、model 綁 Option ID |
+| multiple_choice | checkbox／multi_select；model 是 Option ID 集合 |
+| rating | Stars／Range，旁邊明確顯示未作答或目前分數；規則見 03 |
+
+Published／Closed 的定義控制顯示唯讀內容。Owner Visibility 可編輯的例外須在視覺上清楚，不讓使用者以為定義仍可保存。
+
+可選 config 未輸入則顯示未設定／不限制，送出省略 key；不暗中加入 0、100、null 或其他未設定值。
+
+## 5. 表單驗證與 API 明細
+
+使用 Zod＋UForm 作表單整合，文字長度／Unicode trim／精確數值用共用 adapter。required 標示清楚，錯誤與欄位 label 有可讀關聯。
+
+前端提交時驗證，失敗不發 API；顯示欄位下訊息並捲到／聚焦第一個錯誤。已顯示錯誤可隨修正更新，不因每次 keypress 跳整頁 Dialog。
+
+API 驗證錯誤顯示主要錯誤 Dialog 與可定位的欄位訊息。Delta／Answer 的 details.path 通過送出快照映射到正確題目／選項；未知位置仍在摘要顯示。
+
+Password 保留原輸入，不 trim；email 依正式 trim／lowercase；displayName 非空 ≤100 Code Points，Form title 非空 ≤200，Option value≤255。Question title／Option label 只依正式有效性驗證，不自行設定欄位專屬 maxlength。
+
+不新增「至少回答一題」或「multiple 必須改答案才能再提交」驗證。發布與保存使用不同完整性規則；預覽占位文字不參與保存。
+
+## 6. 時間顯示與輸入
+
+顯示時區統一 Asia/Taipei；API 收送仍 UTC ISO 8601。
+
+| 資料 | 顯示 |
+| --- | --- |
+| 完整 datetime | yyyy-MM-dd HH:mm:ss，24 小時制；例如 2026-10-10 18:30:00 |
+| 只有日期的 UI 呈現 | yyyy-MM-dd |
+| submissionDeadlineAt=null | 未設定 |
+| 非 null Deadline | 編輯／Form 頁「截止時間」；統計頁「表定截止時間」 |
+| Form 到期仍 Published | 保留已發布 status，另顯示已截止 |
+
+Header／頁面可说明時間為台北時間，不在每個欄位重複冗長文字。Deadline 輸入必須形成合法日期與時間，不能接受不完整值後偷偷填成另一個時間。
+
+顯示到秒不代表丟棄原 API 微秒。原字串與可見輸入分開保存；Deadline 未修改時省略 PATCH，或保留原精度；真正修改才依使用者選的本地時間產生新 UTC 值，詳見 06。
+
+截止提示可以使用本機時間更新，不輪詢 API；最終提交／發布期限依 Server 判定。
+
+## 7. Dialog 規則
+
+| Dialog | 可關閉方式 | 特殊規則 |
+| --- | --- | --- |
+| Preview | 關閉預覽、×、遮罩 | Esc 不關閉；再次開啟清空試填、捲回頂 |
+| 提交成功 | 完成、× | 不自動關閉；兩者皆保留答案，不改 URL |
+| 操作中 Auth 錯誤 | 關閉、× | Esc／遮罩不關閉；之後 dirty 確認再導 login |
+| 一般操作錯誤／結果不明 | 關閉、× | 不自動關閉；按對應錯誤分支，不由遮罩觸發需要導航的流程 |
+| 發布／關閉／刪除／清除 Options 確認 | 確認／取消、× 視為取消 | 請求進行中禁止重複確認；未確認不執行 API／本地破壞動作 |
+
+Dirty 離頁使用原生 window.confirm；關閉／刷新由 beforeunload 原生提示，不改成需額外操作的本地恢復對話框。
+
+Preview 桌面 90vw × 90vh；手機寬 calc(100vw - 4px)，高優先 calc(100dvh - 4px)，fallback calc(100vh - 4px)，四邊約各 2px。仍為置中 Dialog，不切換成另一個 page 或滿頁 URL。
+
+Dialog 標題／關閉與底部操作保留可達，Body 自己捲動；鎖背景捲動、管理焦點並在關閉後回触發控制。
+
+## 8. 提示文案基準
+
+| 情境 | 文案／行為 |
+| --- | --- |
+| 新建保存成功 | 草稿已建立 |
+| 既有 Draft 保存成功 | 已保存 |
+| Profile 保存成功 | 個人資訊已更新 |
+| Visibility 成功 | 結果可見性已更新 |
+| 發布／關閉成功 | 表單已發布／表單已關閉 |
+| 刪除成功 | 表單已刪除，再回列表 |
+| 複製成功 | 填答連結已複製／統計連結已複製 |
+| 提交成功 | 提交成功 Dialog，完成後留表單頁 |
+| 本人無紀錄 | 您從未填答過 |
+| 已停用登入 | 帳號已停用，無法登入 |
+| 不存在 | 找不到表單 |
+| UUID 無效 | 連結無效 |
+| 統計未開放／無權 | 統計尚未開放／您沒有查看此統計的權限 |
+| 結果不明 | 未能確認操作結果，操作可能已完成；依 04 提示核對方法 |
+
+已提交但沒查過 Server 答案的本地值，標示為本次未成功提交的輸入，不能顯示成「我的已提交答案」。公開統計無姓名就是匿名 Item，不假造未知姓名。
+
+## 9. Loading、空白、重試
+
+首次載入顯示中性 loading，不把缺資料顯示為 404／未登入。清單刷新保留原資料與 loading 提示，成功才替換。
+
+受保護頁 Auth 初始化未知在原 URL 提供重試；統計自己的讀取不等待 Header。读取錯誤可手動重試；寫入結果不明的 loading 必須結束，按 04 限制不安全重送。
+
+空表單清單、篩選無結果、本人無紀錄、零填答統計、optional 未作答是不同狀態。Preview「（暫無內容）」只在 Preview 出現，不拿來替代正式空資料或作 payload。
+
+## 10. 可操作性與一致性
+
+控制有清楚 label、鍵盤可達與可辨識 disabled／loading；Dialog 焦點、Stars 分數／Range 目前答案、0 radio 互斥具有可讀語意。
+
+Readonly 的單選／多選／評分用相同答案呈現，不提供可以誤以為修改的控制；查看 Latest 可替換答案但不增加歷史清單。
+
+長統計名單與自由文字完整換行顯示；不使用省略號當作唯一可讀內容，也不靠 color alone 表示錯誤／狀態。頭像失敗回預設 icon，不影響登入資料與功能。
