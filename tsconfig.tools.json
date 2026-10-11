@@ -1,0 +1,12 @@
+{
+  "extends": "./.nuxt/tsconfig.node.json",
+  "files": [".nuxt/nuxt.node.d.ts"],
+  "compilerOptions": {
+    "strict": true,
+    "noEmit": true,
+    "allowJs": true,
+    "checkJs": true
+  },
+  "include": ["*.config.ts", "*.config.mjs", "tests/**/*.ts", "scripts/**/*.ts", "scripts/**/*.mjs"],
+  "exclude": ["node_modules", ".nuxt", ".output", "backend-ref"]
+}

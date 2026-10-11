@@ -414,6 +414,14 @@ F0 有限收尾已提交：`54ac4482dba6442408864971a2ef11a871c441f3`；提交�
 
 **F0 accepted；F1 計畫待 review，開發未開始；F2～F10 未開始。** 初始化／install／npm ci／lint／typecheck／build／unit／Browser／正式驗收 NOT RUN；backend-ref 未改動、後端驗收未重跑。下一步等待 F1 本版核准與明確開發指令。
 
+### 9.4 F1 授權開發與交付（2026-10-11）
+
+Owner 明確通過 F1 計畫 review，指示局部補明 URL 覆寫的 dev／built preview／純靜態差異及 UI 內建本地圖示後直接開發。已完成 [F1 計畫 v1.1](F1_Implementation_Plan.md) 修訂、Nuxt CSR 工程骨架／lockfile／scripts，並交付 [F1 Development Report](F1_Development_Report.md) 與去敏開發自測證據。
+
+install／npm ci／lint／涵蓋 app、tests、工具組態的 strict typecheck／build／Vitest／Chromium smoke 均實際完成，結果與已解決的初次失敗見報告；5 組不同啟動／建置條件最終 PASS。SSR=false、無 BFF；URL runtime／建置語意及 Toast／Dialog client bundle 已確認。backend-ref manifest 108 筆相符，沒有後端驗收、API 業務操作、DB 或服務設定修改。
+
+**F0 accepted；F1 開發完成，待 code review；F1 未 accepted，F2～F10 未開始。** 本次變更與報告為單一目的本機提交，實際 SHA 見 Git log／交付回報；不推送，正式 AI／人工驗收 NOT RUN。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

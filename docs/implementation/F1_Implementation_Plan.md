@@ -2,10 +2,11 @@
 
 | 項目 | 本次紀錄 |
 | --- | --- |
-| 版本／日期／狀態 | 1.0／2026-10-11（Asia/Taipei）；**F1 計畫待 review** |
-| 授權 | 僅 F1 規劃；尚未授權初始化、安裝、應用實作或正式驗收 |
+| 版本／日期／狀態 | 1.1／2026-10-11（Asia/Taipei）；Owner 已通過 review，依本次指示局部補明後直接開發 |
+| 授權 | 已授權 F1 初始化、安裝、骨架與必要開發自測／提交；未授權正式驗收或 F2，不設定 F1 accepted、不推送 |
 | 前置 | F0 已獲 Owner accepted；工程方向確認，版本僅候選，F2 精確數值 gate 保留 |
 | 前端基準 | `master`／`54ac4482dba6442408864971a2ef11a871c441f3`（F0 收尾提交）；提交後乾淨，仍只有文件，沒有 package.json／lockfile／應用 |
+| F1 開發接手基準 | `b485d3e9c3c20457d1373a0fd6fd054a51891595`（v1.0 計畫提交）；接手時乾淨，v1.1 修訂與實作同一目的提交 |
 | 後端來源 | 2026-10-11 唯讀快照／`7591633137c5a6f57c1fce8e1ba19ab394015880`；R10 accepted、R11 結果待 Owner 確認是來源時間點狀態，本次未重跑或取得更新確認 |
 
 ## 1. 目標與來源
@@ -42,6 +43,7 @@
 | 型別 | typescript `5.9.3`、vue-tsc `3.3.13`、@types/node `24.19.2`、@types/sortablejs `1.15.9` |
 | lint | eslint `10.12.0`、@nuxt/eslint `1.17.0` |
 | 自測 | vitest `5.0.3`、@playwright/test `1.64.0`；Chromium bundle 於獲授權後安裝並記實際版本 |
+| 本地圖示（v1.1） | @iconify-json/lucide `1.2.142`，F1 以 npm 官方 metadata 核對並安裝；UI 內建圖示及明確指定圖示納入 client bundle，provider=none／fallback=false／serverBundle=false |
 | F2 留用候選 | lossless-json `4.3.1` 在 F2 加入並驗證；F1 不需要數值傳輸套件來完成工程 smoke |
 
 UI 使用其 Nuxt／Tailwind 整合，不疊舊 Tailwind module；不新增 Pinia、日期庫、HTTP wrapper 或 Nuxt test-utils。若實際安裝要求明確 Vue／router peer，由 Nuxt 相容範圍選定並記錄，不預先虛構解析值。
@@ -59,11 +61,26 @@ UI 使用其 Nuxt／Tailwind 整合，不疊舊 Tailwind module；不新增 Pini
 | lint | `eslint .`；涵蓋 app、config、tests，排除生成產物 |
 | typecheck | `nuxt typecheck`；strict 檢查，包含測試／工具組態（未被 Nuxt 納入者以專用 tsconfig 接入） |
 | build | `nuxt build`；CSR production build |
+| generate（v1.1） | `nuxt generate`；純靜態 smoke 所需 HTML／client 產物，不作部署授權 |
 | preview | `nuxt preview --host localhost --port 3000`；僅提供 build 產物，沒有 BFF |
 | test:unit | `vitest run`；一次執行，後續輪次沿用 |
 | test:e2e | `playwright test`；built preview 上的 foundation smoke |
 
 README 記 `npm ci`、`npm run dev` 及各驗證 script。`npm run test:e2e` 前完成 build；Playwright webServer 啟動 `npm run preview`、`reuseExistingServer: false`，避免拿不明既有服務當結果。API Base URL 使用 public config；F1 沒有 API client，credentials／retry／30s timeout 在 F2 實作，真實 Cookie／CORS 在 F3 證明。
+
+### 4.1 API Base URL 覆寫 smoke（Owner 局部補明）
+
+使用公開測試 URL `http://localhost:5000/api/f1-smoke`，僅讀取瀏覽器 public config，不對它發請求。每組依序啟停本輪建立的前端 process，不操作既有後端；清除本輪 process 環境覆寫後恢復預設產物。記錄命令、注入階段、模式、Browser 讀得的 URL 與結果。
+
+| 執行模式 | 注入階段／操作步驟與判準 |
+| --- | --- |
+| dev | 先在啟動 process 的環境設定 `NUXT_PUBLIC_API_BASE_URL`，再 `npm run dev`；Browser 完整載入讀 config。預設與覆寫各啟動一次，覆寫應生效；不是對已啟動 process 改環境 |
+| built preview | 先以預設環境 `npm run build`，再只在 preview process 啟動前注入測試 URL、`npm run preview`。實測是否由本版 CSR 產物／Nitro 提供 runtime 覆寫，記錄實際值；若 prerender HTML 仍保留 build 值，明列限制，改在 build 階段注入後重建，再 preview 證明覆寫。不得把 preview 的 .env 載入或靜態快取混當 runtime 證據 |
+| 純靜態 .output/public | 在 build／generate 階段注入 URL，再由無 Nuxt runtime 的本地靜態 server 提供產物；Browser 應讀到建置值。只在靜態 server 啟動階段改環境不應改已建置 config，需重新建置；此 smoke 僅驗產物語意，不授權部署 |
+
+### 4.2 所有內建圖示均本地化（Owner 局部補明）
+
+本地 SVG／client bundle 要求同時涵蓋 Toast 的狀態／關閉／loading 圖示與 Dialog 關閉圖示，不只頁面按鈕。若用 Nuxt Icon，將實際使用圖示明確納入 client bundle、停用 server icon bundle／API fallback；必要本地 icon collection 版本在安裝時 pin 並記 lockfile。Browser 從首次載入監聽到 Toast／Dialog 開關結束，斷言沒有外部請求，也沒有同 origin 的圖示 API endpoint 請求；檢查圖示實際渲染，不能靠阻擋請求後顯示空圖示求 PASS。
 
 ## 5. 必要自測、案例與證據
 
@@ -86,8 +103,12 @@ F1 Browser 使用本地工程 fixture，無 API 攔截假成功、Cookie／stora
 
 獲授權開發後交付工程骨架、lockfile、可重現 scripts、必要自測證據、`F1_Development_Report.md` 與單一目的提交；完成判準是上述必要檢查實際成功，缺口如實列出。開發交付後停於待 code review／後續指令，不自動展開正式驗收、F2 或設定 F1 accepted。
 
-本次實際交付僅本計畫與進度紀錄；應用初始化、套件安裝、lint／typecheck／build／unit／Browser、正式 AI／人工驗收均 **NOT RUN**。F0 收尾 commit 為 `54ac4482dba6442408864971a2ef11a871c441f3`；依 Owner 後續指示，F1 計畫及 README／總計畫進度一併納入本次文件提交，實際 SHA 見 Git log／交付回報；不推送。
+### 6.1 v1.0 規劃交付紀錄（歷史）
+
+v1.0 交付僅本計畫與進度紀錄；當時應用初始化、套件安裝、lint／typecheck／build／unit／Browser、正式 AI／人工驗收均 **NOT RUN**。F0 收尾 commit 為 `54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 規劃 commit 為 `b485d3e9c3c20457d1373a0fd6fd054a51891595`；未推送。
 
 本次文件自查：相對檔案連結、控制字元、最終換行及 `git diff --check` **PASS**；backend-ref manifest 108 筆唯讀 hash 核對 **PASS**。這些不是產品／後端驗收或相容性執行證據。
 
-**目前停止點：F1 計畫待 review。等待本版方案核准與明確開發指令。**
+v1.0 規劃與文件檢查紀錄如上，當時尚未授權開發。v1.1 依 Owner 本次指示補 §4.1／§4.2 後直接開發；實際安裝、自測與提交結果另見 [F1 Development Report](F1_Development_Report.md)。
+
+**本次開發停止點：F1 開發完成，待 code review。**

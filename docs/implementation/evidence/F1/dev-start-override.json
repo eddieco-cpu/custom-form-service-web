@@ -1,0 +1,35 @@
+{
+  "mode": "dev",
+  "injectionStage": "dev-process-start",
+  "expectedUrl": "http://localhost:5000/api/f1-smoke",
+  "actualUrl": "http://localhost:5000/api/f1-smoke",
+  "errors": [],
+  "unexpectedRequests": [],
+  "iconStyles": [
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+      "width": 20
+    }
+  ],
+  "browser": "156.0.8078.4",
+  "requestCount": 881,
+  "requestOrigins": [
+    "http://localhost:3000"
+  ],
+  "requestPathSamples": [
+    "http://localhost:3000/",
+    "http://localhost:3000/_nuxt/@fs/C:/Users/user/Desktop/custom-form-service-web/app/assets/css/main.css",
+    "http://localhost:3000/_nuxt/C:/Users/user/Desktop/custom-form-service-web/node_modules/nuxt/dist/app/entry.async.js",
+    "http://localhost:3000/_nuxt/@vite/client",
+    "http://localhost:3000/_nuxt/@id/__x00__vite/modulepreload-polyfill.js"
+  ],
+  "note": "Request list condensed from captured Browser attachment; errors/unexpectedRequests and rendered icon evidence retained."
+}

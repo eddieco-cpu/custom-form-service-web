@@ -6,9 +6,46 @@
 
 目前進度（2026-10-11）：Owner 已確認 **F0 accepted**，見 [F0 Alignment Report](docs/implementation/F0_Alignment_Report.md) 與 [總計畫 §9.2](docs/implementation/V1_Frontend_Implementation_Plan.md#92-f0-owner-確認與有限收尾2026-10-11)。工程方向已確認；版本表為候選安裝基準，F1 實測相容性，F2 保留精確數值可行性 gate。本次只授權 F0 文件收尾／提交及 F1 規劃，未初始化或安裝。
 
-F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`，未推送。已交付 [F1 精簡實作計畫](docs/implementation/F1_Implementation_Plan.md) v1.0；計畫與進度一併納入本次文件提交，實際 SHA 見 Git log。目前停於 **F1 計畫待 review**，開發未開始。
+F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 commit：`b485d3e9c3c20457d1373a0fd6fd054a51891595`。Owner 已通過 F1 review 並授權開發；[修訂版計畫 v1.1](docs/implementation/F1_Implementation_Plan.md) 與 [F1 開發報告](docs/implementation/F1_Development_Report.md) 記錄本次範圍與證據。目前 **F1 開發完成，待 code review**；未 accepted，F2 未開始，未推送。
 
 後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
+
+## 本機工程與 F1 自測
+
+使用 Node **24.21.0**／npm **11.19.0**；`.nvmrc`、packageManager 與 lockfile 記錄基準。現有 repo 執行：
+
+```powershell
+npm ci
+npm run dev
+```
+
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。目前只有工程就緒頁、Toast／Dialog smoke，沒有帳號／表單或 API client；`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+
+```powershell
+npm run lint
+npm run typecheck
+npm run test:unit
+npm run build
+npx playwright install chromium
+npm run test:e2e
+```
+
+typecheck 實際執行 Nuxt app／generated project 檢查與 `tsc -p tsconfig.tools.json`，涵蓋 tests、TS／MJS 工具組態與靜態 probe script。E2E 在 built preview 上啟動 Chromium；需先 build、關閉自己啟動的 dev 並確保 3000 沒有其他服務。Playwright 不重用不明服務，也不停止既有後端。這些是開發自測，正式 AI／人工驗收未執行。
+
+覆寫 smoke 用以下方式在 **process 啟動前** 注入；測試 URL 僅被讀取，不會發 API 請求：
+
+```powershell
+$env:NUXT_PUBLIC_API_BASE_URL = 'http://localhost:5000/api/f1-smoke'
+$env:F1_EXPECT_API_BASE_URL = 'http://localhost:5000/api/f1-smoke'
+$env:F1_INJECTION_STAGE = 'preview-process-start'
+npm run test:e2e
+```
+
+預設 `F1_SMOKE_MODE=preview`，實測可在預設 build 上 runtime 覆寫；dev 則先設 `$env:F1_SMOKE_MODE='dev'` 再執行同一 test。每次命令結束後移除本輪設定的 `NUXT_PUBLIC_API_BASE_URL`、`F1_EXPECT_API_BASE_URL`、`F1_INJECTION_STAGE`、`F1_SMOKE_MODE` 環境變數，再執行預設命令。
+
+純靜態 smoke 先在指定 URL 的環境執行 `npm run generate`，再設定 `F1_SMOKE_MODE=static` 執行 E2E；本地 `scripts/static-smoke-server.mjs` 只提供 `.output/public`。靜態 server 啟動時的環境不能改 generate 時的 config，變更 URL 必須重建。`nuxt build` 預設是 CSR＋前端 Nitro renderer，`.output/public` 沒有入口 HTML，不能把它單獨當完整靜態站；generate 後若要回到 built preview，清除覆寫再 `npm run build`。上述靜態 server 是本機產物 probe，不是部署／BFF。
+
+[F1 自測證據](docs/implementation/F1_Development_Report.md#4-必要自測與實際結果) 包含 Browser public config／network 摘要、圖示渲染證據及手機截圖；原始 Playwright report／trace 在 ignored `output/playwright/`。依賴與生成產物不提交；`backend-ref/` 維持唯讀。
 
 ## 1. 文件清單
 

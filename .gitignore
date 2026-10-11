@@ -2,3 +2,15 @@
 ## 為本專案的參考資料，請勿修改或刪除
 
 backend-ref/
+
+node_modules/
+.nuxt/
+.output/
+dist/
+.env
+.env.*
+!.env.example
+output/playwright/
+playwright-report/
+test-results/
+*.tsbuildinfo

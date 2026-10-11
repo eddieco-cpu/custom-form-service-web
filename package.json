@@ -1,0 +1,39 @@
+{
+  "name": "custom-form-service-web",
+  "private": true,
+  "type": "module",
+  "packageManager": "npm@11.19.0",
+  "engines": {
+    "node": "24.21.0",
+    "npm": "11.19.0"
+  },
+  "scripts": {
+    "postinstall": "nuxt prepare",
+    "dev": "nuxt dev --host localhost --port 3000",
+    "lint": "eslint .",
+    "typecheck": "nuxt typecheck && tsc --noEmit -p tsconfig.tools.json",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview --host localhost --port 3000",
+    "test:unit": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "dependencies": {
+    "@nuxt/ui": "4.11.3",
+    "nuxt": "4.6.1",
+    "tailwindcss": "4.3.3",
+    "vue-draggable-plus": "0.6.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "1.2.142",
+    "@nuxt/eslint": "1.17.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/sortablejs": "1.15.9",
+    "eslint": "10.12.0",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "vue-tsc": "3.3.13"
+  }
+}

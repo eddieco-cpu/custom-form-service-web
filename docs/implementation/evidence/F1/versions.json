@@ -1,0 +1,38 @@
+{
+  "node": "24.21.0",
+  "npm": "11.19.0",
+  "lockfileVersion": 3,
+  "lockfileSha256": "245333FCDDFEF57088AE2F13D909A89E06235BD5A93102021C0DBE15FBFF3432",
+  "dependencies": {
+    "@nuxt/ui": "4.11.3",
+    "nuxt": "4.6.1",
+    "tailwindcss": "4.3.3",
+    "vue-draggable-plus": "0.6.1",
+    "zod": "4.6.5"
+  },
+  "devDependencies": {
+    "@iconify-json/lucide": "1.2.142",
+    "@nuxt/eslint": "1.17.0",
+    "@playwright/test": "1.64.0",
+    "@types/node": "24.19.2",
+    "@types/sortablejs": "1.15.9",
+    "eslint": "10.12.0",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "vue-tsc": "3.3.13"
+  },
+  "resolved": {
+    "vue": "3.5.43",
+    "vueRouter": "5.4.0",
+    "vite": "8.3.4",
+    "nitropack": "2.13.4",
+    "nuxtIcon": "2.5.1"
+  },
+  "chromium": "156.0.8078.4",
+  "clientIconBundle": {
+    "count": 43,
+    "provider": "none",
+    "fallbackToApi": false,
+    "serverBundle": false
+  }
+}

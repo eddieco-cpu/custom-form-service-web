@@ -1,0 +1,43 @@
+{
+  "mode": "preview",
+  "injectionStage": "none",
+  "expectedUrl": "http://localhost:5000/api/v1",
+  "actualUrl": "http://localhost:5000/api/v1",
+  "requestUrls": [
+    "http://localhost:3000/",
+    "http://localhost:3000/_nuxt/entry.Bp1-h2T2.css",
+    "http://localhost:3000/_nuxt/D_njopzy.js",
+    "http://localhost:3000/_nuxt/CHIQU55u.js",
+    "http://localhost:3000/_nuxt/DC3Tigql.js",
+    "http://localhost:3000/_nuxt/Bm-LPnNZ.js",
+    "http://localhost:3000/_nuxt/BqKLTRQj.js",
+    "http://localhost:3000/_nuxt/T_GzkrMX.js",
+    "http://localhost:3000/_nuxt/DK3Fl9T5.js",
+    "http://localhost:3000/_nuxt/VSS9hRh3.js",
+    "http://localhost:3000/_nuxt/BDNMzG2s.js",
+    "http://localhost:3000/_nuxt/error-404.DpKY_dMl.css",
+    "http://localhost:3000/_nuxt/DHEflCYZ.js",
+    "http://localhost:3000/_nuxt/error-500.CmR4p1fc.css",
+    "http://localhost:3000/_nuxt/DZNp_01n.js",
+    "http://localhost:3000/_nuxt/ChLkONPb.js",
+    "http://localhost:3000/_nuxt/VSS9hRh3.js",
+    "http://localhost:3000/_nuxt/BDNMzG2s.js"
+  ],
+  "errors": [],
+  "unexpectedRequests": [],
+  "iconStyles": [
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+      "width": 20
+    }
+  ],
+  "browser": "156.0.8078.4"
+}
