@@ -7,6 +7,7 @@ const command = mode === 'static'
 
 export default defineConfig({
   testDir: './tests/e2e',
+  testMatch: 'foundation-smoke.spec.ts',
   fullyParallel: false,
   workers: 1,
   timeout: 60_000,

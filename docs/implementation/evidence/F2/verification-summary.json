@@ -1,0 +1,692 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "round": "F2",
+  "stage": "development complete; awaiting code review",
+  "frontendParent": "a2599215adbc4cf916d53b7d2fcfeb1c67e212d6",
+  "f1Status": "P3 delivered; local re-review and formal acceptance pending; not accepted",
+  "sources": {
+    "f2Plan": "1.0",
+    "f0": "1.1",
+    "totalPlan": "1.3",
+    "manifestEntries": 108,
+    "backendSnapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestMatches": 108,
+    "agents": "1.1"
+  },
+  "environment": {
+    "npm": "11.19.0",
+    "vitest": "5.0.3",
+    "nuxtUi": "4.11.3",
+    "typescript": "5.9.3",
+    "losslessJson": "4.3.1",
+    "node": "24.21.0",
+    "playwright": "1.64.0",
+    "nuxt": "4.6.1",
+    "chromium": "156.0.8078.4"
+  },
+  "simulation": {
+    "api": "synthetic raw JSON fixture; mocked unit fetch / Playwright interception with native browser fetch",
+    "f3": "NOT STARTED",
+    "formalAiAcceptance": "NOT RUN",
+    "dbPersistence": "NOT RUN",
+    "realApi": "NOT RUN",
+    "cookieCors": "NOT RUN",
+    "manualAcceptance": "NOT RUN"
+  },
+  "unit": {
+    "passed": 78,
+    "failed": 0,
+    "total": 78,
+    "files": [
+      {
+        "passed": 27,
+        "cases": [
+          {
+            "fullName": "direct-resource client (mock fetch) includes credentials, serializes exact numbers, and decodes direct receipt",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) handles 204 without reading the body",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) accepts typed request interfaces and classifies failed 204 decoders as contract failures",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 400",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 401",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 403",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 404",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 409",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 500",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: ",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: <html>error</html>",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"data\":{\"count\":1}}",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":\"1\"}",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":null}",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":2147483648}",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) rejects local lossy body and base escape before any fetch",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) times out body reads, aborts signal, finishes timer, and retries zero times",
+            "status": "passed"
+          },
+          {
+            "fullName": "direct-resource client (mock fetch) network and abort results distinguish sent from never dispatched",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors decodes text definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors decodes number definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors decodes rating definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors decodes single_choice definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors decodes multiple_choice definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors validates resource nullable, enums, raw config, page and zero count",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors preserves anonymous absence / identified empty array and rejects null/missing roots",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors different contexts keep Auth, normal no-response, statistics and form absence distinct",
+            "status": "passed"
+          },
+          {
+            "fullName": "DTO / contextual errors maps immutable request positions by namespace, preserving unmapped details",
+            "status": "passed"
+          }
+        ],
+        "file": "api-client.spec.ts"
+      },
+      {
+        "passed": 5,
+        "cases": [
+          {
+            "fullName": "Unicode / candidate semantics trims only White_Space edges, preserving internal spaces, FEFF and ZWSP",
+            "status": "passed"
+          },
+          {
+            "fullName": "Unicode / candidate semantics counts code points without normalization and keeps passwords byte-for-byte",
+            "status": "passed"
+          },
+          {
+            "fullName": "Unicode / candidate semantics ASCII email lowercases while non-ASCII casing belongs to server",
+            "status": "passed"
+          },
+          {
+            "fullName": "exact datetime / baseline retains fraction and compares offset-equivalent instants",
+            "status": "passed"
+          },
+          {
+            "fullName": "exact datetime / baseline crosses days and validates leap years without JS rollover",
+            "status": "passed"
+          }
+        ],
+        "file": "common-adapters.spec.ts"
+      },
+      {
+        "passed": 36,
+        "cases": [
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 9007199254740993 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0.123456789012345678901234567890123456789 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e80 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-101 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e400 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted -1e401 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e131071 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-16383 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0e1073741823 without native numbers",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) numeric equality 1 = 1.0",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) numeric equality 1.0 = 1e0",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) numeric equality -0 = 0",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) numeric equality 1000e-3 = 1",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order 9007199254740993 < 9007199254740994",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order 1e80 < 100000000000000000000000000000000000000000000000000000000000000000000000000000001",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order 0 < 1e-101",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order 1e400 < 1e401",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order -1e401 < -1e400",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order -2 < -1",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) fixed expected order 0.1 < 0.1000000000000000000001",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) compares inclusive bounds precisely and distinguishes unanswered from zero",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 01",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding +1",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding .1",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1.",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding NaN",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding Infinity",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1,2",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e131072",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e-16384",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e1073741824",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e-1073741824",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0.00e-16382",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) checks original fractional capacity before trimming trailing zeros",
+            "status": "passed"
+          },
+          {
+            "fullName": "F2 exact number feasibility gate (synthetic) only converts validated native integers; prevents accidental lossy serialization",
+            "status": "passed"
+          }
+        ],
+        "file": "exact-number-gate.spec.ts"
+      },
+      {
+        "passed": 9,
+        "cases": [
+          {
+            "fullName": "request ownership ignores late data/errors and old finally cannot clear new loading",
+            "status": "passed"
+          },
+          {
+            "fullName": "request ownership invalidates resource even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "fullName": "request ownership invalidates session even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "fullName": "request ownership invalidates unmount even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "fullName": "write lifecycle locks same Form, permits another Form, snapshots before async, releases on all exits",
+            "status": "passed"
+          },
+          {
+            "fullName": "write lifecycle keeps unknown lock across rejected/cancelled/stale reconciliation, unlocks only adoption",
+            "status": "passed"
+          },
+          {
+            "fullName": "write lifecycle Latest/list adoption does not clear multiple/create duplicate risk",
+            "status": "passed"
+          },
+          {
+            "fullName": "write lifecycle does not apply stale outcomes; local snapshot errors release loading and lease",
+            "status": "passed"
+          },
+          {
+            "fullName": "discard permits cancel blocks; redirect shares one permit; next navigation/action asks again",
+            "status": "passed"
+          }
+        ],
+        "file": "scoped-state.spec.ts"
+      },
+      {
+        "passed": 1,
+        "cases": [
+          {
+            "fullName": "Zod / Vitest tooling smoke parses a typed synthetic fixture and reports the invalid field path",
+            "status": "passed"
+          }
+        ],
+        "file": "tooling-smoke.spec.ts"
+      }
+    ]
+  },
+  "browser": {
+    "finalStats": {
+      "startTime": "2026-10-11T14:05:45.551Z",
+      "duration": 64741.595,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "status": "passed",
+        "durationMs": 7646,
+        "title": "numeric gate: native fetch raw DTOs and exact outgoing tokens"
+      },
+      {
+        "status": "passed",
+        "durationMs": 2959,
+        "title": "pending mutual exclusion, unknown lock, cancelled adoption and modal close paths"
+      },
+      {
+        "status": "passed",
+        "durationMs": 1865,
+        "title": "stale response/error/session and old finally do not update current page"
+      },
+      {
+        "status": "passed",
+        "durationMs": 7944,
+        "title": "dirty route updates, replacement, one action redirect, history and reload prompts"
+      },
+      {
+        "status": "passed",
+        "durationMs": 32874,
+        "title": "native network failure and 30000ms timeout preserve input and never retry write"
+      },
+      {
+        "status": "passed",
+        "durationMs": 1677,
+        "title": "read failure keeps page and manual retry recovers"
+      }
+    ],
+    "firstStats": {
+      "startTime": "2026-10-11T14:00:39.331Z",
+      "duration": 141161.923,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 2,
+      "flaky": 0
+    }
+  },
+  "exactGate": {
+    "bodyContent": "unquoted JSON number token",
+    "invalidCapacityRequests": 0,
+    "validPosts": 11,
+    "browserResult": "PASS",
+    "fixedOrder": "1e80 < 100000000000000000000000000000000000000000000000000000000000000000000000000000001",
+    "invalidCapacityCandidates": 4,
+    "unitCases": 36,
+    "capturedRequestBodies": [
+      "{\"value\":0.123456789012345678901234567890123456789}",
+      "{\"value\":9007199254740993}",
+      "{\"value\":1e-101}",
+      "{\"value\":1e400}",
+      "{\"value\":1e80}",
+      "{\"value\":100000000000000000000000000000000000000000000000000000000000000000000000000000001}",
+      "{\"value\":-0}",
+      "{\"value\":0.1000000000000000000001}",
+      "{\"value\":1e131071}",
+      "{\"value\":1e-16383}",
+      "{\"value\":0e1073741823}"
+    ]
+  },
+  "installation": {
+    "lockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+    "warnings": {
+      "audit": {
+        "low": 1,
+        "high": 7,
+        "critical": 7
+      },
+      "installScripts": 6,
+      "scope": "observed npm output; no audit fix or upgrades performed"
+    },
+    "originalNpmCi": "FAIL EPERM; unresolved",
+    "cleanNpmCi": "PASS",
+    "restoredOriginalNpmInstall": "PASS",
+    "cleanLockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+  },
+  "commands": [
+    {
+      "result": "FAIL",
+      "cause": "ENOTCACHED cache-only environment",
+      "sha256": "b23b9e5e8c3609b91bb8037ee9aa5eac994f7e7034e52949b7b3caf5c1c4773b",
+      "path": "output/playwright/f2/commands/metadata-first.log",
+      "file": "metadata-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "519f90900d483a8254d14c336f866623cad8543701780ad412a796b3243b6e09",
+      "path": "output/playwright/f2/commands/metadata-retry.log",
+      "file": "metadata-retry.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "ENOTCACHED cache-only environment",
+      "sha256": "be29f55965a78db935c358c0c079d5d4f647a8c7702e9637829d16787557d36b",
+      "path": "output/playwright/f2/commands/install-first.log",
+      "file": "install-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "3d5cd92259a35af079d1d82ff5734f25b6bf068dd54779166db0d7e79206a290",
+      "path": "output/playwright/f2/commands/install-retry.log",
+      "file": "install-retry.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "EPERM unlink locked native unrs binding; original directory unresolved",
+      "sha256": "d1724dff4de9d4ce8021e1950d7f1ca3fc3f51be225fe1f44ddd52d3f2aa33c9",
+      "path": "output/playwright/f2/commands/ci-first.log",
+      "file": "ci-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "695867ec67abd62c1973cfcbb9478a9d9c99d764e48e71d6e72eead981b3e0c6",
+      "path": "output/playwright/f2/commands/restore-install.log",
+      "file": "restore-install.log"
+    },
+    {
+      "result": "PASS",
+      "path": "output/playwright/f2/commands/ci-clean.log",
+      "sha256": "529fda6189d6239d43a7dd30ccb6ba23639b158680a2afc8d204a7aace6c76fd",
+      "scope": "clean copy only",
+      "file": "ci-clean.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "spawn EPERM before test execution",
+      "sha256": "8a0fcfad0ea93a6cf7f144b309eea021c9ca367edfebc65413a3e0f4f49fd68b",
+      "path": "output/playwright/f2/commands/gate-unit-first.log",
+      "file": "gate-unit-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "0c9d0fb3b59563fc4dbb051ed2a62a12f78f4b99e5969077872bdf8c7a9aa8bb",
+      "path": "output/playwright/f2/commands/gate-unit-retry.log",
+      "file": "gate-unit-retry.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "two intentional control regexes and three fixture component names",
+      "sha256": "a17e8f09d159dc5a497a98cb95551b9eda0c9a4fd15dbea45672d2435bf3b856",
+      "path": "output/playwright/f2/commands/lint-first.log",
+      "file": "lint-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "path": "output/playwright/f2/commands/lint-delivery.log",
+      "file": "lint-delivery.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "mock inferred empty parameter tuple",
+      "sha256": "58fcedfe47b96cd6a2976bcfe85adf187c406bbea21e6eb98a146ad437ab69e4",
+      "path": "output/playwright/f2/commands/typecheck-first.log",
+      "file": "typecheck-first.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "da29ed6d7c15a7286eb1e137a877243c7671cf81b01ea3c40c358463158a5558",
+      "path": "output/playwright/f2/commands/typecheck-delivery.log",
+      "file": "typecheck-delivery.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "missing fixture tsconfig",
+      "sha256": "8585c14f08ab85e0207c1923d9d99c407b72e9696599258b436952ad7611ccd6",
+      "path": "output/playwright/f2/commands/harness-typecheck-first.log",
+      "file": "harness-typecheck-first.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "blocked/stale kind union cannot narrow",
+      "sha256": "d1ea00a0d503566657328e13dcc1951bf5749964e26aa522894d89299e731a5a",
+      "path": "output/playwright/f2/commands/harness-typecheck-retry.log",
+      "file": "harness-typecheck-retry.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+      "path": "output/playwright/f2/commands/harness-typecheck-complete.log",
+      "file": "harness-typecheck-complete.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "226e6430d71e35b7687e90b4e63c0f21f2a390642a0644992fafb7acd680d557",
+      "path": "output/playwright/f2/commands/build-complete.log",
+      "file": "build-complete.log"
+    },
+    {
+      "result": "PASS",
+      "sha256": "eab80f691b2d5e6ecd5c242b180ff52b57ef1f114873b1f59f822d3ae0cd86b1",
+      "path": "output/playwright/f2/commands/unit-delivery.log",
+      "file": "unit-delivery.log"
+    },
+    {
+      "result": "FAIL",
+      "cause": "Close dialog locator mismatch and missing sticky user activation for reload",
+      "sha256": "4ee0bcdb6b3acbc110b71dff178f5578874f2183fe44401e9ccf1308b5a49511",
+      "path": "output/playwright/f2/commands/browser-first.log",
+      "file": "browser-first.log"
+    },
+    {
+      "result": "PASS",
+      "path": "output/playwright/f2/commands/browser-retry.log",
+      "sha256": "73f91ec6ff1ed478b3ddd58538619e71abb5cf4573d8d8a31d3e0bcba7e51e02",
+      "cases": 5,
+      "file": "browser-retry.log"
+    },
+    {
+      "result": "PASS",
+      "path": "output/playwright/f2/commands/browser-final.log",
+      "sha256": "424dd50a40a6165818a50e5c436d96ea2f008483e72a11b0422ad7f5074f386a",
+      "cases": 6,
+      "file": "browser-final.log"
+    },
+    {
+      "result": "PASS",
+      "path": "output/playwright/f2/commands/gate-browser-delivery.log",
+      "sha256": "40345cdc06c7ecdd40ce35085dc9a300481ea2416afb810cc1ca4215e9f23227",
+      "cases": 1,
+      "file": "gate-browser-delivery.log"
+    }
+  ],
+  "rawReports": [
+    {
+      "sha256": "e5765005268c659d4b844c245c02c5588cd716e4826a3b11710e92265bf8151b",
+      "path": "output/playwright/f2/gate-unit-retry.json"
+    },
+    {
+      "sha256": "fbec3946f8d2bacd7d47b18a8de33bd94f0c3f5f8aae66174fba1c2f29af3a60",
+      "path": "output/playwright/f2/unit-first.json"
+    },
+    {
+      "sha256": "edb36f1ee7de93275cc0260e9e837f7b4c7008490d71d7c84aff256f5050ccf2",
+      "path": "output/playwright/f2/unit-final.json"
+    },
+    {
+      "sha256": "923c617e0b0038729a712a56a72dacf8cd579cb3d1fd6faa6f0f1823e5a2df91",
+      "path": "output/playwright/f2/unit-complete.json"
+    },
+    {
+      "sha256": "4233b485f5c705876228095d12a95fdb0e2f9393715d10a2cbd8f6026c81260c",
+      "path": "output/playwright/f2/unit-delivery.json"
+    },
+    {
+      "sha256": "364caa16a561812ff78ba2a4376fef207f8ead834f861ef58aa86daedd5ce1a6",
+      "path": "output/playwright/f2/browser-first.json"
+    },
+    {
+      "sha256": "5a80525c7d90d2023238fb2bd8b3e8178d1f79a34b3218bf8858ef461e870ede",
+      "path": "output/playwright/f2/browser-retry.json"
+    },
+    {
+      "sha256": "5b618bb2646e968d3ea015c0ac35f22937c2d1cb5479f6301e556f4a53412ee4",
+      "path": "output/playwright/f2/browser-final.json"
+    },
+    {
+      "sha256": "2d12e4d08aae23a00e80057c33367123270d3ac7d728ec410d39d84788ec7f79",
+      "path": "output/playwright/f2/gate-browser-bodies.json"
+    },
+    {
+      "sha256": "719a8dda8c70c7345ad80e9ea48ec80afef838cf2ba434c06b63c338f41f943f",
+      "path": "output/playwright/f2/gate-browser-delivery.json"
+    },
+    {
+      "sha256": "7469f0fdce6ffa864edaad1e57bd2fd36980ee8cf38f131d1d8947689805f9d0",
+      "path": "output/playwright/f2/backend-manifest-check.json"
+    }
+  ],
+  "preservedFirstBrowserArtifacts": [
+    {
+      "sha256": "dfdb20e1f3b894f6c4b16916cca120f9582e88d2faccd88528e42c63dd579ad9",
+      "path": "output/playwright/f2/browser-first-artifacts/f2-common-dirty-route-upda-63518--history-and-reload-prompts-chromium/error-context.md"
+    },
+    {
+      "sha256": "c85c693dbec884712a2d565da447b46a919b7b16085168184433419d5b2da796",
+      "path": "output/playwright/f2/browser-first-artifacts/f2-common-dirty-route-upda-63518--history-and-reload-prompts-chromium/trace.zip"
+    },
+    {
+      "sha256": "c38013d6ac07994c4e58f11420c9efcec7e421f5b41210d83fdd42d24c5ed5d7",
+      "path": "output/playwright/f2/browser-first-artifacts/f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium/error-context.md"
+    },
+    {
+      "sha256": "d96b2a398c6ae5a3f5f988bd787c86cf791787a900211fca2e8606722bb4515d",
+      "path": "output/playwright/f2/browser-first-artifacts/f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium/trace.zip"
+    }
+  ],
+  "documentCheck": {
+    "firstNoteSha256": "a4a70d7e68356f7e7c8fea17be3536ec503cd2024a90506a945b8dc935b09d5f",
+    "noteKind": "derived note from tool output, not raw transcript",
+    "correctedResult": "PASS",
+    "firstIssue": "empty README parent caused Join-Path errors",
+    "firstResult": "INVALID CHECK"
+  }
+}

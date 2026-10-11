@@ -6,7 +6,7 @@
 
 目前進度（2026-10-11）：Owner 已確認 **F0 accepted**，見 [F0 Alignment Report](docs/implementation/F0_Alignment_Report.md) 與 [總計畫 §9.2](docs/implementation/V1_Frontend_Implementation_Plan.md#92-f0-owner-確認與有限收尾2026-10-11)。工程方向已確認；版本表為候選安裝基準，F1 實測相容性，F2 保留精確數值可行性 gate。本次只授權 F0 文件收尾／提交及 F1 規劃，未初始化或安裝。
 
-F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 commit：`b485d3e9c3c20457d1373a0fd6fd054a51891595`。Owner 已通過 F1 review 並授權開發；[修訂版計畫 v1.1](docs/implementation/F1_Implementation_Plan.md) 與 [F1 開發報告](docs/implementation/F1_Development_Report.md) 保留開發紀錄。[獨立 review](docs/review/F1_Code_Review_Report_20261011.md) 無阻擋缺陷，Owner 授權的 Dialog close icon 斷言補正與新五組 smoke 證據見 [P3 補正報告](docs/implementation/F1_P3_Correction_Report.md)。目前 **F1 P3 補正完成，待局部複核**；未 accepted，正式驗收／F2 未開始，未推送。原目錄 npm ci 的 EPERM 保留於 review，本次未重跑安裝或升級套件。
+F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 commit：`b485d3e9c3c20457d1373a0fd6fd054a51891595`。Owner 已通過 F1 review 並授權開發；[修訂版計畫 v1.1](docs/implementation/F1_Implementation_Plan.md) 與 [F1 開發報告](docs/implementation/F1_Development_Report.md) 保留開發紀錄。[獨立 review](docs/review/F1_Code_Review_Report_20261011.md) 無阻擋缺陷，Owner 授權的 Dialog close icon 斷言補正與新五組 smoke 證據見 [P3 補正報告](docs/implementation/F1_P3_Correction_Report.md)。目前 **F1 P3 補正已交付，待局部複核及正式驗收，尚未 accepted**；未推送。原目錄 npm ci 的 EPERM 保留於 review；F2 本輪的重現與恢復紀錄見下方 F2 節，沒有升級既有套件。
 
 後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
 
@@ -19,7 +19,7 @@ npm ci
 npm run dev
 ```
 
-前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。目前只有工程就緒頁、Toast／Dialog smoke，沒有帳號／表單或 API client；`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。產品目前仍是工程就緒頁、Toast／Dialog smoke；F2 已建立共用 API／資料／狀態機制，帳號與表單產品流程留後續輪次；`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
 
 ```powershell
 npm run lint
@@ -46,6 +46,23 @@ npm run test:e2e
 純靜態 smoke 先在指定 URL 的環境執行 `npm run generate`，再設定 `F1_SMOKE_MODE=static` 執行 E2E；本地 `scripts/static-smoke-server.mjs` 只提供 `.output/public`。靜態 server 啟動時的環境不能改 generate 時的 config，變更 URL 必須重建。`nuxt build` 預設是 CSR＋前端 Nitro renderer，`.output/public` 沒有入口 HTML，不能把它單獨當完整靜態站；generate 後若要回到 built preview，清除覆寫再 `npm run build`。上述靜態 server 是本機產物 probe，不是部署／BFF。
 
 [F1 自測證據](docs/implementation/F1_Development_Report.md#4-必要自測與實際結果) 包含 Browser public config／network 摘要、圖示渲染證據及手機截圖；原始 Playwright report／trace 在 ignored `output/playwright/`。依賴與生成產物不提交；`backend-ref/` 維持唯讀。
+
+## F2 共用基礎與隔離自測
+
+Owner 已核准 [F2 計畫](docs/implementation/F2_Implementation_Plan.md) v1.0 並授權開發。交付見 [F2 開發報告](docs/implementation/F2_Development_Report.md)：**F2 開發完成、待 code review**。上述 F0／F1 段落保留歷史授權；目前 **F1 P3 補正已交付，待局部複核及正式驗收，F1 尚未 accepted**。不開始正式驗收或 F3。
+
+```powershell
+npm run test:unit
+npm run lint
+npm run typecheck
+npm run build
+node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f2/browser
+npm run test:e2e -- --config=playwright.f2.config.ts
+```
+
+F2 使用獨立 Nuxt CSR fixture（`tests/fixtures/f2/browser`），需空閒 localhost:3000；輸出在 ignored `output/playwright/f2/`。F1 預設 E2E config 明確只選原 foundation smoke，原案例與證據未改。F2 Browser 使用原生 fetch＋合成 raw JSON 攔截；PASS 只證明前端處理，真實 API／Cookie／DB 整合未執行。`lossless-json` 固定 4.3.1；一般 Number 使用 `ExactNumber` 與 `stringifyExactJson`，避免 Number()、JSON 深複製或原生 JSON.stringify 失真。
+
+原工作目錄 npm ci 的 native binding EPERM 本輪重現；乾淨副本依同一 package-lock 安裝通過。首次失敗、修正與限制詳見報告／去敏摘要，沒有停止不明程序或刪除 locked remnants。
 
 ## 1. 文件清單
 

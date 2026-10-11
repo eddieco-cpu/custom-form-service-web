@@ -138,3 +138,9 @@ harness 隔離載入實際共用程式，主 build 無測試 route／proxy；啟
 文件自查：相對檔案連結無缺失、控制字元 0、最終換行及新檔 `git diff --no-index --check` 通過；Git 變更範圍僅本計畫。此為文件檢查，沒有執行 gate。
 
 **F0 accepted；F1 P3 補正已交付，待局部複核及正式驗收，F1 尚未 accepted；F2 計畫待 review，開發未開始；不展開 F3。** 等待本版計畫 review、必要依賴確認與明確開發指令。
+
+## 7. Owner 開發授權與交付（2026-10-11）
+
+以上 v1.0 為原規劃／停止點的歷史紀錄；計畫提交為 `a2599215adbc4cf916d53b7d2fcfeb1c67e212d6`。Owner 隨後明確確認本版 review 通過並授權依此開發、精確數值 gate、必要自測與單一目的提交，未要求 F1 accepted 作為本次先行工作的前置。實作與實際檢查見 [F2 Development Report](F2_Development_Report.md)。本次沒有改變核准的範圍或產品契約。
+
+目前 **F2 開發完成、待 code review**；F1 P3 仍待局部複核及正式驗收、尚未 accepted。正式驗收 NOT RUN；不開始 F3。

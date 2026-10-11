@@ -430,6 +430,14 @@ F1 開發提交為 `317b25f55549b30673a02e15254358b86da4652d`，獨立 review �
 
 **F0 accepted；F1 P3 補正完成，待局部複核；F1 未 accepted，正式驗收／F2～F10 未開始。** 本次為單一目的本機提交，實際 SHA 見 Git log／交付回報；不推送。
 
+### 9.6 F2 計畫核准、授權開發與交付（2026-10-11）
+
+Owner 明確通過 [F2 計畫 v1.0](F2_Implementation_Plan.md) review，授權依本版開發及單一目的提交；計畫提交為 `a2599215adbc4cf916d53b7d2fcfeb1c67e212d6`。完成共用 native fetch Client、typed DTO／decoder、精確數值／Unicode／時間 helper、請求隔離、寫入互斥／未知結果政策、dirty 導航保護與錯誤元件，交付 [F2 Development Report](F2_Development_Report.md) 及去敏證據。
+
+精確數值 unit／Browser gate、必要 unit／Browser、lint／strict typecheck／build 實際通過。原目錄 npm ci EPERM 重現並保留，乾淨副本 npm ci 通過；詳見報告的首次失敗與修正紀錄。Browser 使用合成 raw JSON fixture／攔截，真實 API／Cookie／DB 整合及正式 AI／人工驗收 NOT RUN。backend-ref manifest 108 筆相符；未改規格、後端快照或 F1 P3 歷史證據。
+
+**F0 accepted；F1 P3 補正已交付，待局部複核及正式驗收，F1 尚未 accepted；F2 開發完成、待 code review；F3～F10 未開始。** 本次為單一目的本機提交，實際 SHA 見 Git log／交付回報；未推送、未開始正式驗收。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
