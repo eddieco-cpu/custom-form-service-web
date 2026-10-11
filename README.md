@@ -6,6 +6,8 @@
 
 目前進度（2026-10-11）：Owner 已確認 **F0 accepted**，見 [F0 Alignment Report](docs/implementation/F0_Alignment_Report.md) 與 [總計畫 §9.2](docs/implementation/V1_Frontend_Implementation_Plan.md#92-f0-owner-確認與有限收尾2026-10-11)。工程方向已確認；版本表為候選安裝基準，F1 實測相容性，F2 保留精確數值可行性 gate。本次只授權 F0 文件收尾／提交及 F1 規劃，未初始化或安裝。
 
+F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`，未推送。已交付 [F1 精簡實作計畫](docs/implementation/F1_Implementation_Plan.md) v1.0；計畫與進度一併納入本次文件提交，實際 SHA 見 Git log。目前停於 **F1 計畫待 review**，開發未開始。
+
 後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
 
 ## 1. 文件清單

@@ -408,6 +408,12 @@ F0 的交付是 Alignment 報告及工程決議 review，不要求為純文件�
 | 驗證／Git | 本次僅文件檢查及 F0 收尾提交；應用與後端測試 NOT RUN，實際 SHA 見 Git log／交付回報；不推送 |
 | 停止點 | F1 計畫交付後停於 **F1 計畫待 review**；未授權正式驗收 |
 
+### 9.3 F1 規劃交付（2026-10-11）
+
+F0 有限收尾已提交：`54ac4482dba6442408864971a2ef11a871c441f3`；提交後工作樹乾淨，沒有推送。接續交付 [F1 精簡實作計畫](F1_Implementation_Plan.md) v1.0，含初始化檔案、候選必要依賴、scripts、驗證方式與停止點。本次只產出計畫與 README／本節進度；依 Owner 後續提交指示，一併納入單一目的文件提交，實際 SHA 見 Git log／交付回報。
+
+**F0 accepted；F1 計畫待 review，開發未開始；F2～F10 未開始。** 初始化／install／npm ci／lint／typecheck／build／unit／Browser／正式驗收 NOT RUN；backend-ref 未改動、後端驗收未重跑。下一步等待 F1 本版核准與明確開發指令。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
