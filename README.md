@@ -4,6 +4,10 @@
 
 本組文件整合前端已定案內容，並採用後端 2026-10-10 的 Statistics v1.1 修訂內容。02／06 維持 v1.1，其他規格維持 v1.0；總實作計畫 v1.3 補測試選擇原則，AGENTS 為 v1.1。Round 分工不變。可放入未來獨立前端 repo，作為各 Round 實作計畫的來源。
 
+目前進度（2026-10-11）：Owner 已確認 **F0 accepted**，見 [F0 Alignment Report](docs/implementation/F0_Alignment_Report.md) 與 [總計畫 §9.2](docs/implementation/V1_Frontend_Implementation_Plan.md#92-f0-owner-確認與有限收尾2026-10-11)。工程方向已確認；版本表為候選安裝基準，F1 實測相容性，F2 保留精確數值可行性 gate。本次只授權 F0 文件收尾／提交及 F1 規劃，未初始化或安裝。
+
+後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
+
 ## 1. 文件清單
 
 | 順序 | 文件 | 內容 |

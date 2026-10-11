@@ -381,6 +381,33 @@ F0 的交付是 Alignment 報告及工程決議 review，不要求為純文件�
 
 下一步：Owner review 本次前端 AGENTS、development／acceptance Skills；確認前端工作目錄與後端來源可讀後，指定 Codex 先產出 F0 Alignment 與工程決議。個別輪次的 code／正式驗收維持明確指令與 review 流程。
 
+### 9.1 F0 接手進度（2026-10-11）
+
+本節保留 F0 初次交付紀錄；目前狀態見 §9.2。不更動 Round 分工或正式規格。
+
+| 項目 | 本次狀態 |
+| --- | --- |
+| 授權／交付 | Owner 明確指定只執行 F0；已產出 [F0 Alignment Report](F0_Alignment_Report.md)，工程決議待 review |
+| 前端 repo | `C:\Users\user\Desktop\custom-form-service-web`；master／`c655916f3bf322299b3dbefc9537decf3124834c`；接手時乾淨，只有文件，未初始化應用 |
+| 後端來源 | `backend-ref/` 唯讀快照，來源 SHA `7591633137c5a6f57c1fce8e1ba19ab394015880`；108 筆 manifest 相符 |
+| R10／R11 | 快照記錄 R10 已實作且 accepted；R11 歷史 AI 結果待 Owner 確認、人工未執行；本次不代填後端 accepted |
+| 本機唯讀檢查 | Node 24.21.0／npm 11.19.0；API health／readiness／OpenAPI 200，17 非 Google 操作及 Statistics 九欄位已列；未證明 live Git SHA 或 Browser Cookie／完整串接 |
+| 套件／測試 | 官方精確版本 metadata 已核對；install／build／unit／Browser／正式驗收 NOT RUN；沒有服務啟停、設定或 DB 修改 |
+| Git 交付 | 僅 F0 報告與本進度追加，未建立新 commit／push |
+| 停止點 | **F0 Alignment 待 Owner review**；未 accepted；F1～F10 未開始，下一輪仍由 Owner 指定 |
+
+### 9.2 F0 Owner 確認與有限收尾（2026-10-11）
+
+| 項目 | 目前狀態 |
+| --- | --- |
+| F0 | **accepted**；Owner 本次明確確認 F0 review 通過，有限收尾見 [F0 報告 §11](F0_Alignment_Report.md#11-owner-accepted-與有限收尾2026-10-11) |
+| 工程決議 | 同意工程方向；版本表為候選安裝基準，實際相容性由 F1 install／npm ci／lint／typecheck／build／Browser smoke 與 lockfile 證明 |
+| F2 gate | 保留精確數值可行性 gate；不依賴 LosslessNumber 隱式轉換或一般 JS number 運算保存精度 |
+| 後端來源時間點 | 沿用 2026-10-11 匯出的 SHA `7591633137c5a6f57c1fce8e1ba19ab394015880`；R10 accepted、R11 結果待 Owner 確認均為快照狀態，本次沒有新後端確認來源、未重跑驗收 |
+| 授權／接續 | F0 文件收尾及單一目的提交；接續僅 F1 精簡計畫，尚未授權初始化／安裝／實作；F2～F10 未開始 |
+| 驗證／Git | 本次僅文件檢查及 F0 收尾提交；應用與後端測試 NOT RUN，實際 SHA 見 Git log／交付回報；不推送 |
+| 停止點 | F1 計畫交付後停於 **F1 計畫待 review**；未授權正式驗收 |
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
