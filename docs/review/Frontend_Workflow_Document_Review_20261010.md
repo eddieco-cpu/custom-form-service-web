@@ -1,6 +1,6 @@
 # 前端協作文件核對與交接紀錄
 
-版本／日期：1.0／2026-10-10。此報告記錄文件與工作流程核對，不是 F0～F10 的開發、自測或正式驗收結果。
+版本／日期：1.1／2026-10-10。本版於 §6 記錄 Owner 指定的分輪測試選擇回補；§1～§5 保留初版紀錄。此報告不是 F0～F10 的開發、自測或正式驗收結果。
 
 ## 1. 本次範圍與核准紀錄
 
@@ -40,7 +40,7 @@ Owner 已明確表示 Frontend Implementation Plan「我沒問題」，記錄總
 
 本次只核對這兩種「準備計畫」情境；未測試真實開發、正式驗收執行、Browser 或後端行為，也不以此推定 F3／F9 已 ready。
 
-## 4. Skills 保存與限制
+## 4. 初版 Skills 保存與限制
 
 兩個 Skills 已完成本地單一目的提交，Git 剩餘狀態為 clean。同步返回 HTTP 422；另以唯讀方式核對遠端，尚未包含本次提交，故不宣稱已安裝／同步成功。本次完整下載包仍含兩個可放入未來前端 repo 的 Skill 目錄。
 
@@ -53,3 +53,16 @@ Skills 提交：development `77c190d`、acceptance `8d60a8c`。這些是協作 S
 3. F1 才依核准 F0 決議初始化前端工程；各輪依總計畫的 review／實作／驗收授權執行。
 
 前端業務 repo 仍未初始化；F0～F10 全部 not started。npm install／build／unit、live API、正式 Browser／AI／人工驗收均未執行。
+
+## 6. v1.1 — 分輪測試選擇回補
+
+Owner 本次明確要求更新 Skills 與 AGENTS。AGENTS v1.1 保存共用原則；development Skill 要求當輪實作計畫說明必要自測的選用理由，acceptance Skill 要求正式計畫選擇必要方法與伴檔。總計畫 v1.3 的 §8.1 與 README／完整包同步。
+
+- 依交付、受影響行為與風險選擇，不強制每輪全部使用 Vitest、Playwright 或人工驗證。
+- 計畫交代方法、驗證目標、選用理由；不適用層級可省略並簡述原因，不為湊格式建立測試或伴檔。
+- Browser 需求依行為判斷；沒有新頁面不代表 Cookie／CORS、導航、beforeunload 無需驗證。
+- 總計畫當輪的必要檢查仍適用；缺前置的必要驗證記 BLOCKED／NOT RUN，不改列不適用。
+
+實際核對：兩個 Skills 的 quick_validate、metadata／副本一致性、Markdown 連結／格式、產品規格未變與 F0～F10 進度未變均 PASS。這次局部修訂沒有重跑 §3 的隔離情境，也沒有執行前端程式或 Browser 測試。
+
+本版協作 Skills 本地提交 `80b7d4a`，Git clean；同步仍返回 HTTP 422，沒有宣稱安裝／同步成功。完整包中的 repo-local Skills 已更新，可用於未來前端 repo。

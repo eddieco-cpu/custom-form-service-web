@@ -2,13 +2,13 @@
 
 | 項目 | 內容 |
 | --- | --- |
-| 版本／日期 | 1.2／2026-10-10 |
-| 狀態 | 總實作計畫已通過 Owner review；本版更新核准紀錄與協作文件交付狀態 |
+| 版本／日期 | 1.3／2026-10-10 |
+| 狀態 | 總實作計畫已通過 Owner review；本版依 Owner 指示回補分輪測試選擇原則 |
 | 已核准輸入 | 前端 00～07：02／06 為本次回補的 v1.1，其餘 v1.0；Owner 已確認規格並授權本次工程提醒／資料語意回補 |
 | 目標 | 本機 Email／Password 前端可完成建立、管理、填答與查看統計 |
 | Repo | 前後端分開；前端 repo 尚待建立／指定 |
 | 執行單位 | 前端 F0～F10；與後端 R0～R11、G1 分開編號 |
-| 本次交付 | 記錄 Owner 對 v1.1 總計畫的核准；交付前端 AGENTS／Skills 初版，Round 分工不變 |
+| 本次交付 | 分輪測試方法／理由與不適用原則；同步 AGENTS／Skills，Round 分工不變 |
 
 ## 1. 計畫權責與規格基準
 
@@ -57,8 +57,8 @@
 | 文件／位置 | 責任 | 本次狀態 |
 | --- | --- | --- |
 | docs/specs/00～07 | 已核准頁面／互動／前端工程規格 | 已交付並通過本次 Owner review |
-| docs/implementation/V1_Frontend_Implementation_Plan.md | Round Scope、依賴與進度 | v1.1 已通過 Owner review；v1.2 記錄本次狀態 |
-| AGENTS.md | Source of truth、授權、停止點、資料／Git 保護、驗證與回報 | v1.0 初版已交付，待 Owner review |
+| docs/implementation/V1_Frontend_Implementation_Plan.md | Round Scope、依賴與進度 | v1.1 已通過 Owner review；v1.3 依 Owner 指示補測試選擇原則 |
+| AGENTS.md | Source of truth、授權、停止點、資料／Git 保護、驗證與回報 | v1.1 已交付，待 Owner review |
 | .agents/skills/v1-frontend-round-development/SKILL.md | Round 計畫、開發自測、review 修正與開發報告 | 初版已交付，待 Owner review |
 | .agents/skills/v1-frontend-acceptance-testing/SKILL.md | 前端驗收計畫、Browser／人工步驟、實際結果與證據 | 初版已交付，待 Owner review |
 | docs/implementation/Fn_Implementation_Plan.md | 當輪具體檔案、方案、驗證、風險 | 指定當輪時產出 |
@@ -340,6 +340,8 @@ F0 的交付是 Alignment 報告及工程決議 review，不要求為純文件�
 
 ### 8.1 驗證強度
 
+下表提供測試層級的選擇基準，不是要求每輪全部執行。依當輪交付、受影響行為與風險選用，實作／驗收計畫說明方法、目標及理由；不適用層級可省略並簡述原因。Browser 需求依需驗證的行為判斷，不只看是否新增頁面。各 Round 明列的必要驗證仍適用，前置缺失記 BLOCKED／NOT RUN，不改列不適用。
+
 | 層級 | 何時使用 |
 | --- | --- |
 | lint／typecheck／build | 程式交付的必要基礎；命令以 F1 最終 scripts 為準 |
@@ -370,7 +372,7 @@ F0 的交付是 Alignment 報告及工程決議 review，不要求為純文件�
 | 項目 | 2026-10-10 本次狀態 |
 | --- | --- |
 | 前端規格 00～07 | Owner review 通過 |
-| 本總實作計畫 | Owner 已明確確認 v1.1；v1.2 更新核准及交付紀錄，工作分配不變 |
+| 本總實作計畫 | Owner 已明確確認 v1.1；v1.3 依本次指示補分輪測試選擇原則，工作分配不變 |
 | 前端 AGENTS／兩個 Skills | 本次初版已交付，待 Owner review |
 | 前端 repo | 尚待建立／指定；本次未初始化 |
 | F0～F10 | 全部 not started |
@@ -391,6 +393,8 @@ F0 的交付是 Alignment 報告及工程決議 review，不要求為純文件�
 - 本次 9 項提醒與 F0～F10／§7.1 對應、variant 的新建／既有邊界、Email 相容要求，以及 README／完整包一致。
 
 v1.2 記錄 Owner 對 v1.1 的核准，更新 AGENTS／Skills 的初版交付狀態；§4～§8 的開發分工、工程提醒與產品規則不變。
+
+v1.3 依 Owner 指示於 §8.1 與 AGENTS／兩個 Skills 明列選用理由、不適用層級可省略、Browser 行為判斷與必要驗證受阻的區別。未更動 Round 分工、產品規格或授權停止點。
 
 本計畫的產製只做文件核對，沒有 npm install／build／unit／E2E、live API 或前端業務 repo 初始化／提交；Skills 的格式與工作流程檢查另記於本次協作文件核對報告，不能代替正式程式證據。
 

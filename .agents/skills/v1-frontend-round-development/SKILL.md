@@ -19,7 +19,7 @@ description: Prepare F0 alignment or a named F0–F10 implementation plan for th
    - 目標、範圍與相關規格章節／版本。
    - 前置依賴、已確認與待確認事項、受阻工作。
    - 預計檔案與具體工程設計；重要取捨及對外行為。
-   - 必要自測／Browser／fixture 或真實 API、測資與預期證據。
+   - 依 AGENTS 分輪原則選擇必要驗證：方法、目標、選用及不適用層級的理由；測資、fixture／真實 API 與預期證據。
    - 交付、完成判準、目前授權與停止點。
 4. 交付計畫，按 AGENTS 等待當輪方案核准及開發指令。計畫準備不初始化 Nuxt、安裝業務依賴或改 app code；必要一次性工程 probe 只在已授權範圍進行並明列結果。
 
@@ -29,7 +29,7 @@ F0 改產出 `docs/implementation/F0_Alignment_Report.md`。按總計畫 F0 核�
 
 1. 讀取目前核准的當輪計畫與既有授權；只實作該範圍。發現契約衝突時按 AGENTS 暫停受影響部分，繼續可獨立完成的工作。
 2. 依總計畫次序完成共用資料語意及必要驗證，再接 UI。使用當輪已核准的型別、parser、基準／Delta 與狀態方案；不要以介面初值回填既有原始資料或默默改契約。
-3. 完成必要 lint／typecheck／build、受影響 unit 及 Browser 自測，標明真實 API 或模擬。按測試內容保護合成測資與敏感證據。自測不需正式驗收計畫核准。
+3. 完成核准當輪計畫及總計畫要求的必要檢查，依交付與風險選用 lint／typecheck／build、unit、Browser 或人工自測，不機械式跑所有層級。依待驗證行為判斷 Browser 需求，不只看有無新頁面；標明真實 API 或模擬。按測試內容保護合成測資與敏感證據。自測不需正式驗收計畫核准。
 4. 檢查 diff 與 Git 狀態；按 AGENTS 與既有指示提交本輪已驗證變更。
 5. 產出 `docs/implementation/Fn_Development_Report.md`：變更及原因、來源／前後端版本、實際命令與結果、主要證據、缺口、SHA／Git 狀態、停止點。沒有執行的檢查記 NOT RUN；依賴不可用記 BLOCKED。
 
