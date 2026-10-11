@@ -1,0 +1,235 @@
+{
+  "date": "2026-10-11",
+  "timezone": "Asia/Taipei",
+  "purpose": "Independent F1 code review; local engineering smoke only, no business API integration or formal acceptance",
+  "base": "b485d3e9c3c20457d1373a0fd6fd054a51891595",
+  "head": "317b25f55549b30673a02e15254358b86da4652d",
+  "verificationWorkspace": "output/playwright/review/workspace/",
+  "node": "v24.21.0",
+  "npm": "11.19.0",
+  "lockfileSha256": "245333fcddfef57088ae2f13d909a89e06235bd5a93102021c0dbe15fbff3432",
+  "backendSnapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendManifest": {
+    "entries": 108,
+    "mismatches": 0
+  },
+  "checks": {
+    "originalNpmCi": "FAIL: Windows EPERM unlink native module (also after escalation)",
+    "cleanSnapshotNpmCi": "PASS: 982 packages; postinstall nuxt prepare",
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "toolsListFiles": "PASS: configs, unit/e2e specs, static smoke server",
+    "unit": "PASS: 1 file / 1 test",
+    "build": "PASS",
+    "generate": "PASS: 4 routes"
+  },
+  "browserCases": [
+    {
+      "name": "preview-default",
+      "status": "passed",
+      "durationMs": 1389,
+      "mode": "preview",
+      "injectionStage": "none",
+      "expectedUrl": "http://localhost:5000/api/v1",
+      "actualUrl": "http://localhost:5000/api/v1",
+      "requestCount": 18,
+      "requestOrigins": [
+        "http://localhost:3000"
+      ],
+      "errors": [],
+      "unexpectedRequests": [],
+      "iconStyles": [
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 20
+        }
+      ],
+      "browser": "156.0.8078.4",
+      "rawReport": "output/playwright/review/workspace/output/playwright/review-preview-default.json"
+    },
+    {
+      "name": "preview-override",
+      "status": "passed",
+      "durationMs": 1407,
+      "mode": "preview",
+      "injectionStage": "preview-process-start-default-build",
+      "expectedUrl": "http://localhost:5000/api/f1-smoke",
+      "actualUrl": "http://localhost:5000/api/f1-smoke",
+      "requestCount": 18,
+      "requestOrigins": [
+        "http://localhost:3000"
+      ],
+      "errors": [],
+      "unexpectedRequests": [],
+      "iconStyles": [
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 20
+        }
+      ],
+      "browser": "156.0.8078.4",
+      "rawReport": "output/playwright/review/workspace/output/playwright/review-preview-override.json"
+    },
+    {
+      "name": "dev-default",
+      "status": "passed",
+      "durationMs": 8280,
+      "mode": "dev",
+      "injectionStage": "none",
+      "expectedUrl": "http://localhost:5000/api/v1",
+      "actualUrl": "http://localhost:5000/api/v1",
+      "requestCount": 882,
+      "requestOrigins": [
+        "http://localhost:3000"
+      ],
+      "errors": [],
+      "unexpectedRequests": [],
+      "iconStyles": [
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 20
+        }
+      ],
+      "browser": "156.0.8078.4",
+      "rawReport": "output/playwright/review/workspace/output/playwright/review-dev-default.json"
+    },
+    {
+      "name": "dev-override",
+      "status": "passed",
+      "durationMs": 11032,
+      "mode": "dev",
+      "injectionStage": "dev-process-start",
+      "expectedUrl": "http://localhost:5000/api/f1-smoke",
+      "actualUrl": "http://localhost:5000/api/f1-smoke",
+      "requestCount": 882,
+      "requestOrigins": [
+        "http://localhost:3000"
+      ],
+      "errors": [],
+      "unexpectedRequests": [],
+      "iconStyles": [
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 20
+        }
+      ],
+      "browser": "156.0.8078.4",
+      "rawReport": "output/playwright/review/workspace/output/playwright/review-dev-override.json"
+    },
+    {
+      "name": "static",
+      "status": "passed",
+      "durationMs": 1554,
+      "mode": "static",
+      "injectionStage": "generate-build-then-static-server-start",
+      "expectedUrl": "http://localhost:5000/api/f1-smoke",
+      "actualUrl": "http://localhost:5000/api/f1-smoke",
+      "requestCount": 18,
+      "requestOrigins": [
+        "http://localhost:3000"
+      ],
+      "errors": [],
+      "unexpectedRequests": [],
+      "iconStyles": [
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+          "width": 20
+        },
+        {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 20
+        }
+      ],
+      "browser": "156.0.8078.4",
+      "rawReport": "output/playwright/review/workspace/output/playwright/review-static.json"
+    }
+  ],
+  "dialogRuntimeDiagnostic": {
+    "normal": {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+      "width": 19.57745361328125,
+      "height": 19.57745361328125
+    },
+    "blank": {
+      "mask": "none",
+      "width": 19.83917236328125,
+      "height": 19.83917236328125
+    },
+    "blankIconVisibilityAssertion": "PASS",
+    "closeAndFocusAfterBlankIcon": "PASS",
+    "requests": [
+      "http://localhost:3000/",
+      "http://localhost:3000/_nuxt/entry.Bp1-h2T2.css",
+      "http://localhost:3000/_nuxt/D_njopzy.js",
+      "http://localhost:3000/_nuxt/CHIQU55u.js",
+      "http://localhost:3000/_nuxt/DC3Tigql.js",
+      "http://localhost:3000/_nuxt/Bm-LPnNZ.js",
+      "http://localhost:3000/_nuxt/BqKLTRQj.js",
+      "http://localhost:3000/_nuxt/T_GzkrMX.js",
+      "http://localhost:3000/_nuxt/DK3Fl9T5.js",
+      "http://localhost:3000/_nuxt/VSS9hRh3.js",
+      "http://localhost:3000/_nuxt/BDNMzG2s.js",
+      "http://localhost:3000/_nuxt/error-404.DpKY_dMl.css",
+      "http://localhost:3000/_nuxt/DHEflCYZ.js",
+      "http://localhost:3000/_nuxt/error-500.CmR4p1fc.css",
+      "http://localhost:3000/_nuxt/DZNp_01n.js",
+      "http://localhost:3000/_nuxt/ChLkONPb.js",
+      "http://localhost:3000/_nuxt/VSS9hRh3.js",
+      "http://localhost:3000/_nuxt/BDNMzG2s.js"
+    ],
+    "serverChecks": [
+      {
+        "path": "/api/v1/users/me",
+        "status": 404,
+        "type": "application/octet-stream"
+      },
+      {
+        "path": "/..%5c..%5cpackage.json",
+        "status": 403,
+        "type": null
+      },
+      {
+        "path": "/favicon.svg",
+        "status": 200,
+        "type": "image/svg+xml"
+      }
+    ],
+    "browser": "156.0.8078.4"
+  }
+}
