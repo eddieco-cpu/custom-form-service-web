@@ -96,3 +96,11 @@ Node `24.21.0`／npm `11.19.0`。F0 候選直接版本皆可安裝，沒有更�
 本次單一目的提交包含 F1 骨架、lockfile、修訂計畫、本報告與自測證據、README／總計畫進度；生成目錄、node_modules、env 與原始 trace 排除，backend-ref 保持唯讀。提交前核對 staged diff，提交後核對 HEAD／工作樹；實際 SHA 與剩餘狀態由本次交付訊息確認，不推送。
 
 **停止於「F1 開發完成，待 code review」。F1 未 accepted；不展開正式驗收或 F2。**
+
+## 8. P3 補正追加紀錄（2026-10-11）
+
+§1～7 與 `evidence/F1/` 保留原開發交付時的紀錄；[獨立 review](../review/F1_Code_Review_Report_20261011.md) 與其證據保持原樣。Owner 確認沒有阻擋缺陷，並授權局部補正 Dialog close icon 斷言。原 case 的 Dialog 圖示只檢查可見，未取得其 SVG mask／非零尺寸；這項缺口沒有由歷史 PASS 證明。
+
+本次新增 Dialog 開啟後 close icon 的本地 SVG data mask 與寬、高大於 0 斷言，加入新 Browser attachment；保留原 network／操作／焦點與其餘檢查。lint／涵蓋 app、tests、工具組態的 typecheck／build／generate 與原五組 smoke 均 PASS，新證據另存，見 [F1 P3 補正報告](F1_P3_Correction_Report.md)。原目錄 npm ci EPERM 仍如 review 記錄，本次沒有重跑安裝、停止其他 process 或升級套件。
+
+目前停止於 **F1 P3 補正完成，待局部複核**；F1 未 accepted，未開始正式驗收或 F2，未推送。

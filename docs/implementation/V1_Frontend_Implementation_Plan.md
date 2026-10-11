@@ -422,6 +422,14 @@ install／npm ci／lint／涵蓋 app、tests、工具組態的 strict typecheck�
 
 **F0 accepted；F1 開發完成，待 code review；F1 未 accepted，F2～F10 未開始。** 本次變更與報告為單一目的本機提交，實際 SHA 見 Git log／交付回報；不推送，正式 AI／人工驗收 NOT RUN。
 
+### 9.5 F1 review 與 P3 局部補正（2026-10-11）
+
+F1 開發提交為 `317b25f55549b30673a02e15254358b86da4652d`，獨立 review 紀錄提交為 `613ced62008f459c5e74afc7489c6f843968cae2`。Owner 確認 [獨立 review](../review/F1_Code_Review_Report_20261011.md) 沒有阻擋缺陷，授權局部補正 P3 Dialog close icon 的本地 SVG mask／非零尺寸斷言，保留原 network／操作／焦點檢查與歷史證據。
+
+已交付 [F1 P3 補正報告](F1_P3_Correction_Report.md) 與新證據；lint／typecheck／build／generate 及原五組 smoke 均 PASS。只修改既有 Browser case 與必要報告／進度，未改產品或套件、未重跑 npm ci；原目錄 EPERM 與原 review 結果如實保留。backend-ref 108 筆 manifest 相符，後端狀態仍是原快照時間點，未重跑後端驗收。
+
+**F0 accepted；F1 P3 補正完成，待局部複核；F1 未 accepted，正式驗收／F2～F10 未開始。** 本次為單一目的本機提交，實際 SHA 見 Git log／交付回報；不推送。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

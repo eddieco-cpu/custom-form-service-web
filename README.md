@@ -6,7 +6,7 @@
 
 目前進度（2026-10-11）：Owner 已確認 **F0 accepted**，見 [F0 Alignment Report](docs/implementation/F0_Alignment_Report.md) 與 [總計畫 §9.2](docs/implementation/V1_Frontend_Implementation_Plan.md#92-f0-owner-確認與有限收尾2026-10-11)。工程方向已確認；版本表為候選安裝基準，F1 實測相容性，F2 保留精確數值可行性 gate。本次只授權 F0 文件收尾／提交及 F1 規劃，未初始化或安裝。
 
-F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 commit：`b485d3e9c3c20457d1373a0fd6fd054a51891595`。Owner 已通過 F1 review 並授權開發；[修訂版計畫 v1.1](docs/implementation/F1_Implementation_Plan.md) 與 [F1 開發報告](docs/implementation/F1_Development_Report.md) 記錄本次範圍與證據。目前 **F1 開發完成，待 code review**；未 accepted，F2 未開始，未推送。
+F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 commit：`b485d3e9c3c20457d1373a0fd6fd054a51891595`。Owner 已通過 F1 review 並授權開發；[修訂版計畫 v1.1](docs/implementation/F1_Implementation_Plan.md) 與 [F1 開發報告](docs/implementation/F1_Development_Report.md) 保留開發紀錄。[獨立 review](docs/review/F1_Code_Review_Report_20261011.md) 無阻擋缺陷，Owner 授權的 Dialog close icon 斷言補正與新五組 smoke 證據見 [P3 補正報告](docs/implementation/F1_P3_Correction_Report.md)。目前 **F1 P3 補正完成，待局部複核**；未 accepted，正式驗收／F2 未開始，未推送。原目錄 npm ci 的 EPERM 保留於 review，本次未重跑安裝或升級套件。
 
 後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
 

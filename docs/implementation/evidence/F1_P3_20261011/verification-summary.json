@@ -1,0 +1,88 @@
+{
+  "purpose": "F1 P3 correction development self-test; not formal acceptance",
+  "date": "2026-10-11",
+  "timezone": "Asia/Taipei",
+  "baselineCommit": "613ced62008f459c5e74afc7489c6f843968cae2",
+  "node": "v24.21.0",
+  "npm": "11.19.0",
+  "installed": {
+    "nuxt": "4.6.1",
+    "@nuxt/ui": "4.11.3",
+    "vite": "8.3.4",
+    "vue": "3.5.43",
+    "nitropack": "2.13.4",
+    "@playwright/test": "1.64.0",
+    "typescript": "5.9.3"
+  },
+  "browser": "156.0.8078.4",
+  "lockfileSha256": "245333FCDDFEF57088AE2F13D909A89E06235BD5A93102021C0DBE15FBFF3432",
+  "checks": [
+    {
+      "command": "npm run lint",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "PASS",
+      "exitCode": 0,
+      "scope": "Nuxt app checker and tsc --noEmit -p tsconfig.tools.json"
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "exitCode": 0,
+      "phase": "default build before preview"
+    },
+    {
+      "command": "npm run generate",
+      "status": "PASS",
+      "exitCode": 0,
+      "buildEnvironment": {
+        "NUXT_PUBLIC_API_BASE_URL": "http://localhost:5000/api/f1-smoke"
+      }
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "exitCode": 0,
+      "phase": "restore default build after static smoke"
+    },
+    {
+      "command": "npm ci / npm install",
+      "status": "NOT RUN",
+      "reason": "Preserve historical original-directory EPERM; no dependency changes or process cleanup"
+    },
+    {
+      "command": "npm run test:unit",
+      "status": "NOT RUN",
+      "reason": "Only Browser assertion/evidence changed; no affected unit behavior"
+    }
+  ],
+  "smokeEvidence": [
+    "preview-default.json",
+    "preview-runtime-override.json",
+    "dev-default.json",
+    "dev-start-override.json",
+    "static-build-value-retained.json"
+  ],
+  "history": {
+    "originalRunnerReport": "output/playwright/results.json",
+    "originalRunnerSha256Before": "CDB5058CA287B7EAE24BCFA3B6D56830F6710ABC35F83AF83D479480C7F4393C",
+    "reviewRecordUnchanged": true,
+    "originalTrackedEvidenceUnchanged": true,
+    "originalRunnerSha256After": "CDB5058CA287B7EAE24BCFA3B6D56830F6710ABC35F83AF83D479480C7F4393C",
+    "npmCiEperm": "Historical FAIL retained in docs/review/F1_Code_Review_Report_20261011.md; not rerun or resolved by this correction"
+  },
+  "backend": {
+    "apiOrBackendAcceptance": "NOT RUN",
+    "snapshotDate": "2026-10-11",
+    "sourceCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestMatchedFiles": 108
+  },
+  "port3000ListenerCount": 0,
+  "finalBuild": "default URL, node-server CSR",
+  "stage": "F1 P3 補正完成，待局部複核",
+  "accepted": false,
+  "push": "NOT RUN"
+}

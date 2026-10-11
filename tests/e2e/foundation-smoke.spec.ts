@@ -50,7 +50,16 @@ test('CSR, local UI icons, feedback, responsive layout and public config', async
   await expect(dialog).toBeVisible()
   await expect(dialog.getByRole('heading', { name: '本地對話框測試' })).toBeVisible()
   const close = dialog.getByRole('button', { name: '關閉', exact: true })
-  await expect(close.locator('[class*="i-lucide-"]')).toBeVisible()
+  const closeIcon = close.locator('[class*="i-lucide-"]')
+  await expect(closeIcon).toBeVisible()
+  const dialogCloseIconStyle = await closeIcon.evaluate(element => {
+    const style = getComputedStyle(element)
+    const rect = element.getBoundingClientRect()
+    return { mask: style.maskImage, width: rect.width, height: rect.height }
+  })
+  expect(dialogCloseIconStyle.mask).toContain('data:image/svg+xml')
+  expect(dialogCloseIconStyle.width).toBeGreaterThan(0)
+  expect(dialogCloseIconStyle.height).toBeGreaterThan(0)
   await close.click()
   await expect(dialog).not.toBeVisible()
   await expect(trigger).toBeFocused()
@@ -61,7 +70,7 @@ test('CSR, local UI icons, feedback, responsive layout and public config', async
   }
   await page.screenshot({ path: testInfo.outputPath('foundation-mobile.png'), fullPage: true })
   await testInfo.attach('public-config-and-network', {
-    body: JSON.stringify({ mode: process.env.F1_SMOKE_MODE ?? 'preview', injectionStage: process.env.F1_INJECTION_STAGE ?? 'none', expectedUrl, actualUrl, requestUrls, errors, unexpectedRequests, iconStyles, browser: page.context().browser()?.version() }, null, 2),
+    body: JSON.stringify({ mode: process.env.F1_SMOKE_MODE ?? 'preview', injectionStage: process.env.F1_INJECTION_STAGE ?? 'none', expectedUrl, actualUrl, requestUrls, errors, unexpectedRequests, iconStyles, dialogCloseIconStyle, browser: page.context().browser()?.version() }, null, 2),
     contentType: 'application/json',
   })
   expect(errors).toEqual([])

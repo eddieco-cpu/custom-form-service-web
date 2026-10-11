@@ -1,0 +1,46 @@
+{
+  "mode": "static",
+  "injectionStage": "generate-build-then-static-server-start",
+  "expectedUrl": "http://localhost:5000/api/f1-smoke",
+  "actualUrl": "http://localhost:5000/api/f1-smoke",
+  "errors": [],
+  "unexpectedRequests": [],
+  "iconStyles": [
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='M12 16v-4m0-4h.01'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='12' r='10'/%3E%3Cpath d='m16 9l-5.5 5.5L8 12'/%3E%3C/g%3E%3C/svg%3E\")",
+      "width": 20
+    },
+    {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+      "width": 20
+    }
+  ],
+  "dialogCloseIconStyle": {
+    "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+    "width": 19.4415283203125,
+    "height": 19.44146728515625
+  },
+  "browser": "156.0.8078.4",
+  "requestCount": 18,
+  "requestOrigins": [
+    "http://localhost:3000"
+  ],
+  "requestSamples": [
+    "http://localhost:3000/",
+    "http://localhost:3000/_nuxt/entry.Bp1-h2T2.css",
+    "http://localhost:3000/_nuxt/D_njopzy.js",
+    "http://localhost:3000/_nuxt/CHIQU55u.js",
+    "http://localhost:3000/_nuxt/DC3Tigql.js"
+  ],
+  "condition": "static-build-value-retained",
+  "status": "passed",
+  "startedAt": "2026-10-11T13:09:26.081Z",
+  "durationMs": 1469,
+  "sourceReport": "output/playwright/f1-p3/static-build-value-retained/results.json",
+  "sourceReportSha256": "1FD2801E624A1AC40BFE5669A2D11D2AB353E387BF5E3333DAD601970F7556C7",
+  "evidencePurpose": "F1 P3 correction development self-test; not formal acceptance"
+}
