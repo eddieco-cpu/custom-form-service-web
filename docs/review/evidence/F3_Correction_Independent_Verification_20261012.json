@@ -1,0 +1,1965 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "kind": "F3-independent-local-correction-re-review",
+  "target": "ed2817b25d99763fdcc6c2d826ee29db60dc1707",
+  "baseline": "b9f052a41165fb7a7552f0dc827f85f97bc887ec",
+  "actualHead": "43c725e9c0664743b445b98abb5114c0f675945c",
+  "targetToHeadProductTestDiff": "",
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "playwright": "1.64.0",
+    "chromium": "156.0.8078.4",
+    "nuxt": "4.6.1",
+    "nuxtUI": "4.11.3"
+  },
+  "sourceVersions": {
+    "f3Plan": "1.0",
+    "totalPlan": "1.3",
+    "frontend": "01/04/05 v1.0; 06 v1.1",
+    "backendSnapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "liveBackendSha": "UNCONFIRMED; no live API used in this correction"
+  },
+  "engineering": [
+    {
+      "command": "npm run lint",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "PASS",
+      "exitCode": 0,
+      "coverage": "Nuxt + tsc tools strict"
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "exitCode": 0,
+      "note": "Fresh build before built regression"
+    },
+    {
+      "command": "npm run test:unit",
+      "status": "PASS",
+      "exitCode": 0,
+      "tests": 136,
+      "files": 6
+    },
+    {
+      "command": "git diff --check b9f052a ed2817b",
+      "status": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "startup": {
+    "unitSandbox": "NOT RUN: spawn EPERM before tests; approved unsandboxed rerun PASS. No product failure or approval rejection in this task."
+  },
+  "commands": [
+    "npx playwright test --config output/playwright/f3-correction-review/dev.config.ts",
+    "npx playwright test --config output/playwright/f3-correction-review/built.config.ts",
+    "npx playwright test --config output/playwright/f3-correction-review/f2.config.ts --grep 'pending mutual exclusion|Latest retains Auth|dirty route updates'"
+  ],
+  "configs": [
+    {
+      "path": "output/playwright/f3-correction-review/dev.config.ts",
+      "sha256": "3e0b1c0c9bed9d6bfdc138283999abe9d8482b0d24ef2a39f3bdf4663851a280",
+      "text": "import { defineConfig } from '@playwright/test'\nimport { fileURLToPath } from 'node:url'\nimport base from '../../../playwright.f3-corrections.config'\nconst root = fileURLToPath(new URL('../../../', import.meta.url))\nexport default defineConfig({ ...base, testDir: `${root}/tests/e2e`,\n  outputDir: fileURLToPath(new URL('./dev-artifacts', import.meta.url)),\n  reporter: [['list'], ['json', { outputFile: fileURLToPath(new URL('./dev-results.json', import.meta.url)) }]],\n  webServer: { ...base.webServer as object, cwd: root },\n})\n"
+    },
+    {
+      "path": "output/playwright/f3-correction-review/built.config.ts",
+      "sha256": "420bfba084c96ffe514147aad293a6fd3403aa903f6d37889191b4220eeafdb2",
+      "text": "import { defineConfig } from '@playwright/test'\nimport { fileURLToPath } from 'node:url'\nimport base from '../../../playwright.feedback.config'\nconst root = fileURLToPath(new URL('../../../', import.meta.url))\nexport default defineConfig({ ...base, testDir: `${root}/tests/e2e`,\n  outputDir: fileURLToPath(new URL('./built-artifacts', import.meta.url)),\n  reporter: [['list'], ['json', { outputFile: fileURLToPath(new URL('./built-results.json', import.meta.url)) }]],\n  webServer: { ...base.webServer as object, cwd: root },\n})\n"
+    },
+    {
+      "path": "output/playwright/f3-correction-review/f2.config.ts",
+      "sha256": "7469aaf42f55dc8a66109cf08c149b520c4b5ba2909cdc61cabac3c583ebc001",
+      "text": "import { defineConfig } from '@playwright/test'\nimport { fileURLToPath } from 'node:url'\nimport base from '../../../playwright.f2.config'\nconst root = fileURLToPath(new URL('../../../', import.meta.url))\nexport default defineConfig({ ...base, testDir: `${root}/tests/e2e`,\n  use: { ...base.use, trace: 'off' },\n  outputDir: fileURLToPath(new URL('./f2-artifacts', import.meta.url)),\n  reporter: [['list'], ['json', { outputFile: fileURLToPath(new URL('./f2-results.json', import.meta.url)) }]],\n  webServer: { ...base.webServer as object, cwd: root },\n})\n"
+    }
+  ],
+  "runs": [
+    {
+      "kind": "dev",
+      "path": "output/playwright/f3-correction-review/dev-results.json",
+      "sha256": "298fe13bd7c41efefeb7eaa19e9a375172d940e42321180928cd8fb0d32873ae",
+      "stats": {
+        "startTime": "2026-10-12T08:21:55.571Z",
+        "duration": 65010.092,
+        "expected": 38,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+          "file": "f3-browser.spec.ts",
+          "line": 33,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 4074,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+          "file": "f3-browser.spec.ts",
+          "line": 64,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1102,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile",
+          "file": "f3-browser.spec.ts",
+          "line": 76,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1080,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B04 public fixture independent of me pending",
+          "file": "f3-browser.spec.ts",
+          "line": 88,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1066,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B04 public fixture independent of me disabled",
+          "file": "f3-browser.spec.ts",
+          "line": 88,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 982,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 401",
+          "file": "f3-browser.spec.ts",
+          "line": 88,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 931,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 500",
+          "file": "f3-browser.spec.ts",
+          "line": 88,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 950,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+          "file": "f3-browser.spec.ts",
+          "line": 105,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1496,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "file": "f3-browser.spec.ts",
+          "line": 127,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 2551,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+          "file": "f3-browser.spec.ts",
+          "line": 148,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1397,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "file": "f3-browser.spec.ts",
+          "line": 165,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1575,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "file": "f3-browser.spec.ts",
+          "line": 180,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1453,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "file": "f3-browser.spec.ts",
+          "line": 180,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1411,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "file": "f3-browser.spec.ts",
+          "line": 180,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1443,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "file": "f3-browser.spec.ts",
+          "line": 180,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1444,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "file": "f3-browser.spec.ts",
+          "line": 212,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 2277,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+          "file": "f3-browser.spec.ts",
+          "line": 232,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1227,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B13 late reconciliation after leaving preserves the newer page and shared User",
+          "file": "f3-browser.spec.ts",
+          "line": 247,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1599,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+          "file": "f3-browser.spec.ts",
+          "line": 262,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1303,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash",
+          "file": "f3-browser.spec.ts",
+          "line": 277,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 4343,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 GET adopts B; next unknown B write remains locked after SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 23,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1881,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "remount-gate",
+                      "data": {
+                        "adoption": "GET",
+                        "me": 2,
+                        "patch": 2,
+                        "saveDisabled": true,
+                        "reconciliationVisible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 PATCH adopts B; next unknown B write remains locked after SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 23,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1547,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "remount-gate",
+                      "data": {
+                        "adoption": "PATCH",
+                        "me": 1,
+                        "patch": 2,
+                        "saveDisabled": true,
+                        "reconciliationVisible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Profile footer restores the enabled save trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 64,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1269,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "close-focus",
+                      "data": {
+                        "tag": "BODY",
+                        "text": "自建表單建立表單我的表單個人資訊首頁身分 A個人資訊User ID11111111-1111-4111-8111-111111111111Emailcorrection-a@example.test姓名保存[[]]window.__NUXT__={};window.__NUXT__.config={public:{apiBaseUrl:\"http://localhost:5000/api/v1\"},app:{baseURL:\"/\",buildId:\"dev\",buildAssetsDir:\"/_nuxt/\",cdnURL:\"\"}}[{\"serverRendered\":1},false]",
+                        "connected": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Profile × restores the enabled save trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 64,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1321,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "close-focus",
+                      "data": {
+                        "tag": "BODY",
+                        "text": "自建表單建立表單我的表單個人資訊首頁身分 A個人資訊User ID11111111-1111-4111-8111-111111111111Emailcorrection-a@example.test姓名保存[[]]window.__NUXT__={};window.__NUXT__.config={public:{apiBaseUrl:\"http://localhost:5000/api/v1\"},app:{baseURL:\"/\",buildId:\"dev\",buildAssetsDir:\"/_nuxt/\",cdnURL:\"\"}}[{\"serverRendered\":1},false]",
+                        "connected": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth footer dirty cancel focuses available heading",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1307,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth footer dirty accept focuses destination",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1316,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth × dirty cancel focuses available heading",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1314,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth × dirty accept focuses destination",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1331,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 登入 Dialog restores submit trigger and preserves input",
+          "file": "f3-corrections.spec.ts",
+          "line": 102,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1287,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 註冊 Dialog restores submit trigger and preserves input",
+          "file": "f3-corrections.spec.ts",
+          "line": 102,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1310,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Logout footer restores original popover trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 118,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1432,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Logout × restores fallback after trigger unmount",
+          "file": "f3-corrections.spec.ts",
+          "line": 118,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1425,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 unknown Profile focuses reconciliation when save is disabled",
+          "file": "f3-corrections.spec.ts",
+          "line": 137,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1329,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 keyboard submit returns focus to the original input",
+          "file": "f3-corrections.spec.ts",
+          "line": 147,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1277,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 cancelled candidate B cannot switch key or clear unknown on SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 155,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1541,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 Profile bootstrap retry adopts a session before unknown write and SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 175,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1464,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+          "file": "f3-reconciliation.spec.ts",
+          "line": 2,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1687,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+          "file": "f3-reconciliation.spec.ts",
+          "line": 27,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1335,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "built",
+      "path": "output/playwright/f3-correction-review/built-results.json",
+      "sha256": "6d178f0fd7ba2ec5a03d8e8e988bc3c0c55923f2c386a13b575f6afc004184c0",
+      "stats": {
+        "startTime": "2026-10-12T08:23:29.491Z",
+        "duration": 16473.620000000003,
+        "expected": 17,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-R1 GET adopts B; next unknown B write remains locked after SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 23,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1179,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "remount-gate",
+                      "data": {
+                        "adoption": "GET",
+                        "me": 2,
+                        "patch": 2,
+                        "saveDisabled": true,
+                        "reconciliationVisible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 PATCH adopts B; next unknown B write remains locked after SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 23,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 846,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "remount-gate",
+                      "data": {
+                        "adoption": "PATCH",
+                        "me": 1,
+                        "patch": 2,
+                        "saveDisabled": true,
+                        "reconciliationVisible": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Profile footer restores the enabled save trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 64,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 571,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "close-focus",
+                      "data": {
+                        "tag": "BODY",
+                        "text": "自建表單建立表單我的表單個人資訊首頁身分 A個人資訊User ID11111111-1111-4111-8111-111111111111Emailcorrection-a@example.test姓名保存window.__NUXT__={};window.__NUXT__.config={public:{apiBaseUrl:\"http://localhost:5000/api/v1\"},app:{baseURL:\"/\",buildId:\"5c5cd441-7717-4612-b6ac-c83f6d566ce5\",buildAssetsDir:\"/_nuxt/\",cdnURL:\"\"}}[{\"serverRendered\":1},false]",
+                        "connected": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Profile × restores the enabled save trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 64,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 539,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "close-focus",
+                      "data": {
+                        "tag": "BODY",
+                        "text": "自建表單建立表單我的表單個人資訊首頁身分 A個人資訊User ID11111111-1111-4111-8111-111111111111Emailcorrection-a@example.test姓名保存window.__NUXT__={};window.__NUXT__.config={public:{apiBaseUrl:\"http://localhost:5000/api/v1\"},app:{baseURL:\"/\",buildId:\"5c5cd441-7717-4612-b6ac-c83f6d566ce5\",buildAssetsDir:\"/_nuxt/\",cdnURL:\"\"}}[{\"serverRendered\":1},false]",
+                        "connected": true
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth footer dirty cancel focuses available heading",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 532,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth footer dirty accept focuses destination",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 614,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth × dirty cancel focuses available heading",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 570,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Auth × dirty accept focuses destination",
+          "file": "f3-corrections.spec.ts",
+          "line": 80,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 609,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 登入 Dialog restores submit trigger and preserves input",
+          "file": "f3-corrections.spec.ts",
+          "line": 102,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 571,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 註冊 Dialog restores submit trigger and preserves input",
+          "file": "f3-corrections.spec.ts",
+          "line": 102,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 615,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Logout footer restores original popover trigger",
+          "file": "f3-corrections.spec.ts",
+          "line": 118,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 675,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 Logout × restores fallback after trigger unmount",
+          "file": "f3-corrections.spec.ts",
+          "line": 118,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 697,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 unknown Profile focuses reconciliation when save is disabled",
+          "file": "f3-corrections.spec.ts",
+          "line": 137,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 570,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R2 keyboard submit returns focus to the original input",
+          "file": "f3-corrections.spec.ts",
+          "line": 147,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 500,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 cancelled candidate B cannot switch key or clear unknown on SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 155,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 737,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F3-R1 Profile bootstrap retry adopts a session before unknown write and SPA remount",
+          "file": "f3-corrections.spec.ts",
+          "line": 175,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 748,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "built CSR shell and product Toast/Dialog lifecycle, focus, local icons and network (synthetic API)",
+          "file": "foundation-smoke.spec.ts",
+          "line": 3,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 1828,
+                  "errors": [],
+                  "attachments": [
+                    {
+                      "name": "public-config-and-network",
+                      "data": {
+                        "expectedUrl": "http://localhost:5000/api/v1",
+                        "actualUrl": "http://localhost:5000/api/v1",
+                        "me": 1,
+                        "patch": 3,
+                        "errors": [],
+                        "expectedHttpErrors": [
+                          "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                          "Failed to load resource: the server responded with a status of 403 (Forbidden)"
+                        ],
+                        "unexpected": [],
+                        "iconStyles": [
+                          {
+                            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cg fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2'%3E%3Ccircle cx='12' cy='8' r='5'/%3E%3Cpath d='M20 21a8 8 0 0 0-16 0'/%3E%3C/g%3E%3C/svg%3E\")",
+                            "width": 20,
+                            "height": 20
+                          }
+                        ],
+                        "feedbackIcons": [
+                          {
+                            "kind": "toast",
+                            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+                            "width": 20,
+                            "height": 20
+                          },
+                          {
+                            "kind": "dialog-footer",
+                            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+                            "width": 19.2646484375,
+                            "height": 19.26458740234375
+                          },
+                          {
+                            "kind": "dialog-×",
+                            "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+                            "width": 19.44219970703125,
+                            "height": 19.442230224609375
+                          }
+                        ],
+                        "browser": "156.0.8078.4",
+                        "api": "isolated synthetic interception"
+                      }
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "kind": "f2",
+      "path": "output/playwright/f3-correction-review/f2-results.json",
+      "sha256": "7ef89016d8e2b0f42b8c146b5e1e486ae1c0f0e8c46dde9998d59f3af94bd8c5",
+      "stats": {
+        "startTime": "2026-10-12T08:24:05.777Z",
+        "duration": 18148.835,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "pending mutual exclusion, unknown lock, cancelled adoption and modal close paths",
+          "file": "f2-common.spec.ts",
+          "line": 42,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 4466,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "dirty route updates, replacement, one action redirect, history and reload prompts",
+          "file": "f2-common.spec.ts",
+          "line": 106,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 5937,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "Latest retains Auth and RESPONSE_NOT_FOUND classifications without replacing answers",
+          "file": "f2-common.spec.ts",
+          "line": 182,
+          "tests": [
+            {
+              "status": "expected",
+              "expectedStatus": "passed",
+              "results": [
+                {
+                  "status": "passed",
+                  "durationMs": 2030,
+                  "errors": [],
+                  "attachments": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "historicalAudit": {
+    "path": "docs/test-results/evidence/F3_Corrections_20261012/verification-summary.json",
+    "sha256": "66e7b8540b12858383905bc6915ff3e31012276d7c733799aa4d0b312b98204a",
+    "sources": [
+      {
+        "path": "app/app.config.ts",
+        "sha256": "df8f3db56279dfd3055b5b44b8d4740e493b6c6c0bbaf9596b4d8c33b5ca03e5",
+        "currentSha256": "df8f3db56279dfd3055b5b44b8d4740e493b6c6c0bbaf9596b4d8c33b5ca03e5",
+        "match": true
+      },
+      {
+        "path": "app/app.vue",
+        "sha256": "13835503911e6a2082b5903ac57125c369a9eafd21c430522377db26d6a4d702",
+        "currentSha256": "13835503911e6a2082b5903ac57125c369a9eafd21c430522377db26d6a4d702",
+        "match": true
+      },
+      {
+        "path": "app/assets/css/main.css",
+        "sha256": "75acf11858b4f9ab4bddb6f20f2baaf1fc02e5ef03c3702543f9242c96886da6",
+        "currentSha256": "75acf11858b4f9ab4bddb6f20f2baaf1fc02e5ef03c3702543f9242c96886da6",
+        "match": true
+      },
+      {
+        "path": "app/components/AppHeader.vue",
+        "sha256": "20ae9ba4ec629a09393adf3b9a29357850ca5ca00b06f3192946782d20a57ce5",
+        "currentSha256": "20ae9ba4ec629a09393adf3b9a29357850ca5ca00b06f3192946782d20a57ce5",
+        "match": true
+      },
+      {
+        "path": "app/components/UpcomingPage.vue",
+        "sha256": "46f63fc5e96e3cd11299878310a7e3095ec1b50cae98b62ab2493e1d35da8210",
+        "currentSha256": "46f63fc5e96e3cd11299878310a7e3095ec1b50cae98b62ab2493e1d35da8210",
+        "match": true
+      },
+      {
+        "path": "app/components/UserAvatar.vue",
+        "sha256": "a38e45d0d819cf50893a30db4161ac0c2ba7aa54f98a2ac0ef649ffbbb320f9e",
+        "currentSha256": "a38e45d0d819cf50893a30db4161ac0c2ba7aa54f98a2ac0ef649ffbbb320f9e",
+        "match": true
+      },
+      {
+        "path": "app/components/auth/AuthGate.vue",
+        "sha256": "28c508b18de45ab57cb69bc3a008397a0a0633239d98d70c2d4efee436d51f2a",
+        "currentSha256": "28c508b18de45ab57cb69bc3a008397a0a0633239d98d70c2d4efee436d51f2a",
+        "match": true
+      },
+      {
+        "path": "app/components/feedback/ActionErrorDialog.vue",
+        "sha256": "21bb7134035ba62bb9f30603245cd7fdf68878a51e035b466dd97ebfa2d4f2ef",
+        "currentSha256": "21bb7134035ba62bb9f30603245cd7fdf68878a51e035b466dd97ebfa2d4f2ef",
+        "match": true
+      },
+      {
+        "path": "app/components/feedback/FoundationFeedback.vue",
+        "sha256": "0006e7edcdeaaba00fa4dc273db8b648f2889ffc1dc9b38d470689df0e8ebabb",
+        "currentSha256": "0006e7edcdeaaba00fa4dc273db8b648f2889ffc1dc9b38d470689df0e8ebabb",
+        "match": true
+      },
+      {
+        "path": "app/components/feedback/ReadError.vue",
+        "sha256": "631baa381d3056f92d85c342d7e44976e67f2eb8c31a4d2c469d54d281061184",
+        "currentSha256": "631baa381d3056f92d85c342d7e44976e67f2eb8c31a4d2c469d54d281061184",
+        "match": true
+      },
+      {
+        "path": "app/composables/useActiveDirtyScope.ts",
+        "sha256": "808865269c908ea94e802e4f7026a25f55e4580b54737387d10289d16f080c24",
+        "currentSha256": "808865269c908ea94e802e4f7026a25f55e4580b54737387d10289d16f080c24",
+        "match": true
+      },
+      {
+        "path": "app/composables/useAuth.ts",
+        "sha256": "cc66e427718d1d7cc128b7f31f04e8ee4969246dd8efdac3399482d926c1f59b",
+        "currentSha256": "cc66e427718d1d7cc128b7f31f04e8ee4969246dd8efdac3399482d926c1f59b",
+        "match": true
+      },
+      {
+        "path": "app/composables/useDialogFocus.ts",
+        "sha256": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4",
+        "currentSha256": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4",
+        "match": true
+      },
+      {
+        "path": "app/composables/useDirtyScope.ts",
+        "sha256": "c0b015cbc89238541f8829e744515d1583187a17b6d6b012c8122b425438b3e5",
+        "currentSha256": "c0b015cbc89238541f8829e744515d1583187a17b6d6b012c8122b425438b3e5",
+        "match": true
+      },
+      {
+        "path": "app/composables/useOperationState.ts",
+        "sha256": "f78c188fa4ae4b335c456fab043cab68d66ba09e768d08fec14071bae99f9dd7",
+        "currentSha256": "f78c188fa4ae4b335c456fab043cab68d66ba09e768d08fec14071bae99f9dd7",
+        "match": true
+      },
+      {
+        "path": "app/composables/useRequestScope.ts",
+        "sha256": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db",
+        "currentSha256": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/decoders.ts",
+        "sha256": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c",
+        "currentSha256": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/error.ts",
+        "sha256": "09ecc1883223517a3fa579fe459ce7cdee2d6f0f051a66c1b3b4fa03b6ac437e",
+        "currentSha256": "09ecc1883223517a3fa579fe459ce7cdee2d6f0f051a66c1b3b4fa03b6ac437e",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/form.ts",
+        "sha256": "f30547a64f6fb636ab52ea00b748efe4c80d5af65685bc64cdc20728e4e5cc2c",
+        "currentSha256": "f30547a64f6fb636ab52ea00b748efe4c80d5af65685bc64cdc20728e4e5cc2c",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/response.ts",
+        "sha256": "cd214fcc0628ddceb81304deb85ea22e79ce3dd2ac5f1851e80ba288898625ec",
+        "currentSha256": "cd214fcc0628ddceb81304deb85ea22e79ce3dd2ac5f1851e80ba288898625ec",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/result.ts",
+        "sha256": "eede7a90b0f9cb863fb8eaa172664ceca4fab2d6c90d9f111f5b646d45a91743",
+        "currentSha256": "eede7a90b0f9cb863fb8eaa172664ceca4fab2d6c90d9f111f5b646d45a91743",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/statistics.ts",
+        "sha256": "c6de5c309750201fb5a73cd429b8382b90493e53e06646ce3888602aea98a9f5",
+        "currentSha256": "c6de5c309750201fb5a73cd429b8382b90493e53e06646ce3888602aea98a9f5",
+        "match": true
+      },
+      {
+        "path": "app/domain/api/user.ts",
+        "sha256": "3230227fb2d202cc9633c6996762a4714dd77b60b2ceba370855a9b4f2bdbe54",
+        "currentSha256": "3230227fb2d202cc9633c6996762a4714dd77b60b2ceba370855a9b4f2bdbe54",
+        "match": true
+      },
+      {
+        "path": "app/domain/auth-input.ts",
+        "sha256": "cba8d3df4096687de41f0a9993a48f304c5b4ee07507d5880758c12e7408f015",
+        "currentSha256": "cba8d3df4096687de41f0a9993a48f304c5b4ee07507d5880758c12e7408f015",
+        "match": true
+      },
+      {
+        "path": "app/domain/auth-state.ts",
+        "sha256": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c",
+        "currentSha256": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c",
+        "match": true
+      },
+      {
+        "path": "app/domain/dirty-scope.ts",
+        "sha256": "092ae9b631e464d772a11dacacf2dccba1d989fda6dba98b3ef37016ebb8aa23",
+        "currentSha256": "092ae9b631e464d772a11dacacf2dccba1d989fda6dba98b3ef37016ebb8aa23",
+        "match": true
+      },
+      {
+        "path": "app/domain/error-presentation.ts",
+        "sha256": "95918766a831dcc90fc30283b1a8b90edb2acbc918abf43ec5f0cf08da5b8f69",
+        "currentSha256": "95918766a831dcc90fc30283b1a8b90edb2acbc918abf43ec5f0cf08da5b8f69",
+        "match": true
+      },
+      {
+        "path": "app/domain/models.ts",
+        "sha256": "9b753c79edb3c448c31c3e27dc2183e3be18a2313457fc3d0e5e00858a2e0be3",
+        "currentSha256": "9b753c79edb3c448c31c3e27dc2183e3be18a2313457fc3d0e5e00858a2e0be3",
+        "match": true
+      },
+      {
+        "path": "app/domain/operation-state.ts",
+        "sha256": "6703b11cace636389aba45317dc1e8099a8599b270016099ac4a214df2de9fce",
+        "currentSha256": "6703b11cace636389aba45317dc1e8099a8599b270016099ac4a214df2de9fce",
+        "match": true
+      },
+      {
+        "path": "app/domain/request-scope.ts",
+        "sha256": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c",
+        "currentSha256": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c",
+        "match": true
+      },
+      {
+        "path": "app/layouts/default.vue",
+        "sha256": "593e8219dfabb615bebf3bd336c395628c75f63f16e1fc9bca847966115c7ab3",
+        "currentSha256": "593e8219dfabb615bebf3bd336c395628c75f63f16e1fc9bca847966115c7ab3",
+        "match": true
+      },
+      {
+        "path": "app/middleware/auth.ts",
+        "sha256": "3760eb76c6cc84e5bf687e0f7dff42e45a7c383592ba32faa87feb240b945e66",
+        "currentSha256": "3760eb76c6cc84e5bf687e0f7dff42e45a7c383592ba32faa87feb240b945e66",
+        "match": true
+      },
+      {
+        "path": "app/middleware/guest.ts",
+        "sha256": "bb8725d92e4e20eb8533ca104fe09d393a82dea51a4bfb94a5b9e5c77e5c88e1",
+        "currentSha256": "bb8725d92e4e20eb8533ca104fe09d393a82dea51a4bfb94a5b9e5c77e5c88e1",
+        "match": true
+      },
+      {
+        "path": "app/pages/forms/[formId]/edit.vue",
+        "sha256": "6a0adc2c1a829a71bd0a79af72139268a155a0cfaee927d19ff52dc47c1b01df",
+        "currentSha256": "6a0adc2c1a829a71bd0a79af72139268a155a0cfaee927d19ff52dc47c1b01df",
+        "match": true
+      },
+      {
+        "path": "app/pages/forms/[formId]/index.vue",
+        "sha256": "1a4b9e13eabfe06dc43b683a8be04d2c49da2171025de791d2a0dff0de747c1a",
+        "currentSha256": "1a4b9e13eabfe06dc43b683a8be04d2c49da2171025de791d2a0dff0de747c1a",
+        "match": true
+      },
+      {
+        "path": "app/pages/forms/[formId]/statistics.vue",
+        "sha256": "fd643e9413cc0897a98d08f3be6f03f55dcabb42bba365afe7ec675880cb4a39",
+        "currentSha256": "fd643e9413cc0897a98d08f3be6f03f55dcabb42bba365afe7ec675880cb4a39",
+        "match": true
+      },
+      {
+        "path": "app/pages/forms/index.vue",
+        "sha256": "455f7854290cc107666badac1413fd5ffc8f8b3b1ca0d414ed431fcda9c9bdc1",
+        "currentSha256": "455f7854290cc107666badac1413fd5ffc8f8b3b1ca0d414ed431fcda9c9bdc1",
+        "match": true
+      },
+      {
+        "path": "app/pages/forms/new.vue",
+        "sha256": "8f5b585ed613926755e0a0d5ed31658e5524d5408c9238285941cc116d1d4a31",
+        "currentSha256": "8f5b585ed613926755e0a0d5ed31658e5524d5408c9238285941cc116d1d4a31",
+        "match": true
+      },
+      {
+        "path": "app/pages/index.vue",
+        "sha256": "31e3b3bd33d5b7f0a672cd14f61647aa1b0e7121a805a1f7041dbd8860040887",
+        "currentSha256": "31e3b3bd33d5b7f0a672cd14f61647aa1b0e7121a805a1f7041dbd8860040887",
+        "match": true
+      },
+      {
+        "path": "app/pages/login.vue",
+        "sha256": "4ca6bb7af9fdd440e3af08e3553e351677c881f5ff7882e73f62ca6aeb8678dc",
+        "currentSha256": "4ca6bb7af9fdd440e3af08e3553e351677c881f5ff7882e73f62ca6aeb8678dc",
+        "match": true
+      },
+      {
+        "path": "app/pages/profile.vue",
+        "sha256": "ff02abc80c389aa8f66f783b994cd8ea291b77832c5530f76402e515832b11db",
+        "currentSha256": "ff02abc80c389aa8f66f783b994cd8ea291b77832c5530f76402e515832b11db",
+        "match": true
+      },
+      {
+        "path": "app/plugins/auth.client.ts",
+        "sha256": "9f05d167f29d8288673c7c43df6c581559d941d3019f35387e07c7b29e9f411e",
+        "currentSha256": "9f05d167f29d8288673c7c43df6c581559d941d3019f35387e07c7b29e9f411e",
+        "match": true
+      },
+      {
+        "path": "app/services/api-client.ts",
+        "sha256": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65",
+        "currentSha256": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65",
+        "match": true
+      },
+      {
+        "path": "app/services/auth.ts",
+        "sha256": "cf2a1674f83870424379b5c97d01b4d3225479e758335e6b86afe41a46fca1d1",
+        "currentSha256": "cf2a1674f83870424379b5c97d01b4d3225479e758335e6b86afe41a46fca1d1",
+        "match": true
+      },
+      {
+        "path": "app/services/user.ts",
+        "sha256": "af29e7290f313ddfd33d6c09efef9e877e78946ac3cfeb1d918fa83e4e9ba870",
+        "currentSha256": "af29e7290f313ddfd33d6c09efef9e877e78946ac3cfeb1d918fa83e4e9ba870",
+        "match": true
+      },
+      {
+        "path": "app/utils/datetime.ts",
+        "sha256": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c",
+        "currentSha256": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c",
+        "match": true
+      },
+      {
+        "path": "app/utils/exact-json.ts",
+        "sha256": "3c0f7d94301a911a0bafcdc2841d798de4d10ab18fb0d823a245223da65bf411",
+        "currentSha256": "3c0f7d94301a911a0bafcdc2841d798de4d10ab18fb0d823a245223da65bf411",
+        "match": true
+      },
+      {
+        "path": "app/utils/exact-number.ts",
+        "sha256": "8ba9e1095de16c3dec706ef76e55288ed82a0dcb5f37a02f3cde4ac6156c942a",
+        "currentSha256": "8ba9e1095de16c3dec706ef76e55288ed82a0dcb5f37a02f3cde4ac6156c942a",
+        "match": true
+      },
+      {
+        "path": "app/utils/redirect.ts",
+        "sha256": "98ee687833608c548e1f45ef3567c041c5ab2f686fe694a7ad3ad1b84f34e20e",
+        "currentSha256": "98ee687833608c548e1f45ef3567c041c5ab2f686fe694a7ad3ad1b84f34e20e",
+        "match": true
+      },
+      {
+        "path": "app/utils/unicode.ts",
+        "sha256": "9fcfb45b1ed393ea2f5d248df757b5919c21ac636d43f42a5707cbb8d407b19c",
+        "currentSha256": "9fcfb45b1ed393ea2f5d248df757b5919c21ac636d43f42a5707cbb8d407b19c",
+        "match": true
+      },
+      {
+        "path": "nuxt.config.ts",
+        "sha256": "b55fc24a2587a2104b814cb7650cffc4d490cb4f6ccf861084c8f49c8c397499",
+        "currentSha256": "b55fc24a2587a2104b814cb7650cffc4d490cb4f6ccf861084c8f49c8c397499",
+        "match": true
+      },
+      {
+        "path": "package-lock.json",
+        "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+        "currentSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+        "match": true
+      },
+      {
+        "path": "package.json",
+        "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25",
+        "currentSha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25",
+        "match": true
+      },
+      {
+        "path": "playwright.f3-corrections.config.ts",
+        "sha256": "a1a75c9b443fef3de01029849177ad554afb31baf498c2e04afc3b34edfdc30a",
+        "currentSha256": "a1a75c9b443fef3de01029849177ad554afb31baf498c2e04afc3b34edfdc30a",
+        "match": true
+      },
+      {
+        "path": "playwright.feedback.config.ts",
+        "sha256": "cecf6410835e4f8c1b7f2ad51729ca8217682dd0c3f87c5f03aea380b15f6b86",
+        "currentSha256": "cecf6410835e4f8c1b7f2ad51729ca8217682dd0c3f87c5f03aea380b15f6b86",
+        "match": true
+      },
+      {
+        "path": "tests/e2e/f3-browser.spec.ts",
+        "sha256": "32ece284961ca1c3549113eefd9c6c39c2e533722e0fc6737f4c6716e174703a",
+        "currentSha256": "32ece284961ca1c3549113eefd9c6c39c2e533722e0fc6737f4c6716e174703a",
+        "match": true
+      },
+      {
+        "path": "tests/e2e/f3-corrections.spec.ts",
+        "sha256": "27e31968463a6eb22f76a67d34d9f7f9f8b2588d8c659cec116dd855523d6c1e",
+        "currentSha256": "27e31968463a6eb22f76a67d34d9f7f9f8b2588d8c659cec116dd855523d6c1e",
+        "match": true
+      },
+      {
+        "path": "tests/e2e/f3-reconciliation.spec.ts",
+        "sha256": "74aac02c644972dc7068137c479d284d0e0d22f49274cb00cf04ce84a0306150",
+        "currentSha256": "74aac02c644972dc7068137c479d284d0e0d22f49274cb00cf04ce84a0306150",
+        "match": true
+      },
+      {
+        "path": "tests/e2e/foundation-smoke.spec.ts",
+        "sha256": "75d7b35dc6f82d03c2ce7032e3640441c3554cc8d83dc2b19d11e0e05462fe78",
+        "currentSha256": "75d7b35dc6f82d03c2ce7032e3640441c3554cc8d83dc2b19d11e0e05462fe78",
+        "match": true
+      }
+    ],
+    "runs": [
+      {
+        "path": "output/playwright/f3-corrections/reproduction-results.json",
+        "recordedSha256": "69f649308934df5e15c4cabee62c2ee040fc16298097b172a8d1aeec218c1395",
+        "currentSha256": "69f649308934df5e15c4cabee62c2ee040fc16298097b172a8d1aeec218c1395",
+        "match": true,
+        "interpretation": "Original HEAD product defects: 4 FAIL"
+      },
+      {
+        "path": "output/playwright/f3-corrections/attempt-1-results.json",
+        "recordedSha256": "10eafdbc99d183605a329bddcd48a7cb4c82081466ba976dac0fb99c739adbd4",
+        "currentSha256": "10eafdbc99d183605a329bddcd48a7cb4c82081466ba976dac0fb99c739adbd4",
+        "match": true,
+        "interpretation": "32 PASS / 5 FAIL: test synchronization/selectors and Popover focus classification"
+      },
+      {
+        "path": "output/playwright/f3-corrections/before-bootstrap-results.json",
+        "recordedSha256": "d72ef4f35ad4acd5942fb74ffb0fac2f6c55118836e4b0b6b5da46838e5029b3",
+        "currentSha256": "d72ef4f35ad4acd5942fb74ffb0fac2f6c55118836e4b0b6b5da46838e5029b3",
+        "match": true,
+        "interpretation": "Complete synthetic F3 before initial-adoption audit: 37 PASS"
+      },
+      {
+        "path": "output/playwright/f3-corrections/results.json",
+        "recordedSha256": "9fbf8d482555b1eb72f1327322d078bb7c5e14531ad60983285383d33fc474eb",
+        "currentSha256": "9fbf8d482555b1eb72f1327322d078bb7c5e14531ad60983285383d33fc474eb",
+        "match": true,
+        "interpretation": "Final complete synthetic F3: 38 PASS"
+      },
+      {
+        "path": "output/playwright/f3-corrections/built-attempt-1-results.json",
+        "recordedSha256": "bb7d31c8dbb00cdbb84f5aa12f3c46a5690a533ba63f7736cf50ec8a02bd14cf",
+        "currentSha256": "bb7d31c8dbb00cdbb84f5aa12f3c46a5690a533ba63f7736cf50ec8a02bd14cf",
+        "match": true,
+        "interpretation": "Built R1/R2 15 PASS; Feedback Toast selector FAIL"
+      },
+      {
+        "path": "output/playwright/f3-corrections/built-attempt-2-results.json",
+        "recordedSha256": "9fd46b20467218d18104640d7350ab5a0b3f042f90da82fe0b2f4344bc23b8d0",
+        "currentSha256": "9fd46b20467218d18104640d7350ab5a0b3f042f90da82fe0b2f4344bc23b8d0",
+        "match": true,
+        "interpretation": "Built R1/R2 15 PASS; Feedback evaluate variable FAIL"
+      },
+      {
+        "path": "output/playwright/f3-corrections/built-attempt-3-results.json",
+        "recordedSha256": "0526b85da471efe9ff73b7156c7218a76a87886151c154898adae488d138301b",
+        "currentSha256": "0526b85da471efe9ff73b7156c7218a76a87886151c154898adae488d138301b",
+        "match": true,
+        "interpretation": "Feedback console classification FAIL; controlled 403 diagnostics"
+      },
+      {
+        "path": "output/playwright/f3-corrections/built-feedback-before-bootstrap-results.json",
+        "recordedSha256": "2f8e45dcc32670b323868042e200fa96bb893837a1eb6aa7e4acf4baae2b85c5",
+        "currentSha256": "2f8e45dcc32670b323868042e200fa96bb893837a1eb6aa7e4acf4baae2b85c5",
+        "match": true,
+        "interpretation": "Feedback local rerun before initial-adoption audit: 1 PASS"
+      },
+      {
+        "path": "output/playwright/f3-corrections/built-results.json",
+        "recordedSha256": "d37a2228df89d210a61d7e23c0cee8ed2b58711b62e1f4ac8838aaaf8c0cd18b",
+        "currentSha256": "d37a2228df89d210a61d7e23c0cee8ed2b58711b62e1f4ac8838aaaf8c0cd18b",
+        "match": true,
+        "interpretation": "Final built R1/R2 and Feedback: 17 PASS"
+      },
+      {
+        "path": "output/playwright/f3-corrections/output/playwright/f3-corrections/f2-results.json",
+        "recordedSha256": "bcbc7be9d19ed26eecba744a30444d5e7a1e506c996506579de3e846dddb0276",
+        "currentSha256": "bcbc7be9d19ed26eecba744a30444d5e7a1e506c996506579de3e846dddb0276",
+        "match": true,
+        "interpretation": "Affected F2 Dialog compatibility: 1 PASS"
+      }
+    ],
+    "note": "59 source byte hashes and 10 raw result hashes match. Final 38/17 PASS are after final fixes; earlier failures retained. Historical built files replaced by this independent fresh build, not revalidated as old build."
+  },
+  "independentBuiltFiles": [
+    {
+      "path": ".output/public/_nuxt/9TbNOGjS.js",
+      "sha256": "db2dbbf84a4a42a1b107c73a9bed88991b0e70faca6da7c74696f3351b602ad0"
+    },
+    {
+      "path": ".output/public/_nuxt/BCKz2uHu.js",
+      "sha256": "34a7b48590e15e479b066d430bd5786cf3e2158fbab4c2531aadd3c839303201"
+    },
+    {
+      "path": ".output/public/_nuxt/BDNMzG2s.js",
+      "sha256": "27e87fe62aa760227b7529576953d8314891fd2aec28e0a3f03aece406f2d7d7"
+    },
+    {
+      "path": ".output/public/_nuxt/Bg8JRGMS.js",
+      "sha256": "2f14136a6476cd331a1a6db57466431ac7a5ce19b361957496eedf8791eb21e1"
+    },
+    {
+      "path": ".output/public/_nuxt/Bi81RR42.js",
+      "sha256": "ab2ea2ef4208c17d4dbdeab9866e034380f28aae825968db3edd95d80d1993b3"
+    },
+    {
+      "path": ".output/public/_nuxt/BIh4ajIP.js",
+      "sha256": "5bddd8b49f595a5046859d05d776fd854019f281bcc45196e809de89a57c3ed4"
+    },
+    {
+      "path": ".output/public/_nuxt/Bpv7zR_U.js",
+      "sha256": "5865dbce47c25e1e303d06d99ab3ff6fef60579931781298456086c39ce99e2b"
+    },
+    {
+      "path": ".output/public/_nuxt/BS9kxUNl.js",
+      "sha256": "82078c96f3b71eabced387e350b09ecc53b13adaf8946d74fa50f73220d8222a"
+    },
+    {
+      "path": ".output/public/_nuxt/BtvRN05N.js",
+      "sha256": "4e7575d4129b28370a8d78d3775415556e912f41d09c5f4e3b255500b4f6b5f6"
+    },
+    {
+      "path": ".output/public/_nuxt/CBrqnQCR.js",
+      "sha256": "ebdced0ef1660d6d380a505462dae8653dfed4b0f9331bfe1ed8900b8a2f39f4"
+    },
+    {
+      "path": ".output/public/_nuxt/CLOCxdTh.js",
+      "sha256": "a633953fbe0bb6b0493d5f88b114037200e27e3121d05d2b3a012cfc538dabd4"
+    },
+    {
+      "path": ".output/public/_nuxt/COJP5_uV.js",
+      "sha256": "77256ef3e26ad8c7fe01afea153ec2660183c750aa3c6717c23ee9bc04b7df5a"
+    },
+    {
+      "path": ".output/public/_nuxt/CPwYpn1u.js",
+      "sha256": "a91dcfc4a223e2c1672ab0d14361db2ea659f502599435b3fcc48bd60cb285e5"
+    },
+    {
+      "path": ".output/public/_nuxt/CR7DjO_F.js",
+      "sha256": "35f3e644173d9497cf55154b545b56c2a201c4b96313deeb48bf67686d899168"
+    },
+    {
+      "path": ".output/public/_nuxt/CrukXCBL.js",
+      "sha256": "5df2f45ca1207d92870ee8404561ad104aa53872ac7c2cd6649df6ef33d818d3"
+    },
+    {
+      "path": ".output/public/_nuxt/Ct5fOgjD.js",
+      "sha256": "b86710ae49b0a9223fb47fb00fe79b58211add353050e1963dc2166f5a007519"
+    },
+    {
+      "path": ".output/public/_nuxt/CTpMkH0w.js",
+      "sha256": "37ff50a2efcde030f9c423d9c035d0a2a43b484686a8d92b0cb4c51cbc1dea57"
+    },
+    {
+      "path": ".output/public/_nuxt/Cvw1AT9D.js",
+      "sha256": "60433b5560999b00216d935f7149619afc6809441a4de684e2b545513988e142"
+    },
+    {
+      "path": ".output/public/_nuxt/CZt2u1gx.js",
+      "sha256": "763676105b485f9ce2d18d5711b3d7e7d56820ac582154b68c66518ea10fbb0f"
+    },
+    {
+      "path": ".output/public/_nuxt/DC3Tigql.js",
+      "sha256": "3e9c5229735cb72603117d8f1f845f156d3294f9ee564808778dc92aa719527d"
+    },
+    {
+      "path": ".output/public/_nuxt/DCnhwff-.js",
+      "sha256": "a0e95e0219677b972c6c14ee78b3ffbca6bbd001059a620d386fcafe66b9f0e9"
+    },
+    {
+      "path": ".output/public/_nuxt/DgyUXEUU.js",
+      "sha256": "e12459f5f891d2042cfe1f9e86a4e32356d93d079b017ecd6b5fe0912241cc14"
+    },
+    {
+      "path": ".output/public/_nuxt/DjGo_zzN.js",
+      "sha256": "13b4cd79d9b8dd3e1bf31022d36097128777bec89eb5ea23964af5845d5ea6cd"
+    },
+    {
+      "path": ".output/public/_nuxt/DK3Fl9T5.js",
+      "sha256": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff"
+    },
+    {
+      "path": ".output/public/_nuxt/dL5tcZd5.js",
+      "sha256": "aed5fc5daa253eb9253877f23e0915dd08b4ff289ab29ee002d0af16af73c4f9"
+    },
+    {
+      "path": ".output/public/_nuxt/Dsfcx672.js",
+      "sha256": "1aa580165f690ec3b87bcb1b2e2cdb62bc748f9b15bbacff29a3169a3f3090aa"
+    },
+    {
+      "path": ".output/public/_nuxt/DW1k7zWM.js",
+      "sha256": "4d3c3e16bc728661acf5ed4a525edd86bb27ccf6caa26a343f4eb06fa09e6337"
+    },
+    {
+      "path": ".output/public/_nuxt/DxdxLY3-.js",
+      "sha256": "d627b079aeae5d53f574744897bb9db91d3ec3f03b3329a695d9c070d0abb149"
+    },
+    {
+      "path": ".output/public/_nuxt/DZTJz4LM.js",
+      "sha256": "d66255b1838b561d0885d7ad8f07c2e0ff329364954e0dc0f1f9f7d08d191285"
+    },
+    {
+      "path": ".output/public/_nuxt/entry.C2qQBymX.css",
+      "sha256": "62e08296618a5fda12a2c970f9e9485ae42617dc0f2757e304ef7b6a8edf0fad"
+    },
+    {
+      "path": ".output/public/_nuxt/error-404.DpKY_dMl.css",
+      "sha256": "830d0ba8a011835a2db0ccec96e3aab9f127ee4c23df5bdf48a95fbe3221cbf6"
+    },
+    {
+      "path": ".output/public/_nuxt/error-500.CmR4p1fc.css",
+      "sha256": "f3232c01d773770b33b8d57ae2ca6c238ee2195b41bddd15f5e5971e92cb1a69"
+    },
+    {
+      "path": ".output/public/_nuxt/FhTs0GlM.js",
+      "sha256": "87478dded8c738bf2749630b12521fe849139e977bba54cb911490fbc44a3e90"
+    },
+    {
+      "path": ".output/public/_nuxt/Gr3m-0z5.js",
+      "sha256": "61029eb71b70aa7916ada229d8de85a827531db5207a5334641794c9a9bee47e"
+    },
+    {
+      "path": ".output/public/_nuxt/L3pbOKjV.js",
+      "sha256": "44a132a4cb8133366870a45bb3d7eec36fe52e0ec40af1a10117dbbb23f814ff"
+    },
+    {
+      "path": ".output/public/_nuxt/mmRYm7Qa.js",
+      "sha256": "89206af1a33f9be0f8a4368b56ad287a492932edd7d3f4011e993d58cccd42d0"
+    },
+    {
+      "path": ".output/public/_nuxt/moV88Xgf.js",
+      "sha256": "cea11aa0a101486e4a3966e9136a769c226b242eea945ad604c511f8d499ff1c"
+    },
+    {
+      "path": ".output/public/_nuxt/oLyJgbcQ.js",
+      "sha256": "cefb8b603c575023d7aa0c6e5693ef15c0f31e844535a01de137de4f5027a81d"
+    },
+    {
+      "path": ".output/public/_nuxt/x7sx8Asm.js",
+      "sha256": "37755d1b241fddfe923d6828760efa98a5cb060248fab082d1004607e9600e55"
+    }
+  ],
+  "conclusions": {
+    "F3_R1": "CLOSED_IN_LOCAL_RE_REVIEW",
+    "F3_R2": "CLOSED_IN_LOCAL_RE_REVIEW",
+    "N1": "CLOSED_IN_LOCAL_RE_REVIEW",
+    "newBlockingFindings": []
+  },
+  "boundaries": {
+    "api": "All Browser test API responses intercepted synthetic fixtures. No real API writes, DB/time/service configuration changes.",
+    "disabledExpiredCookie": "BLOCKED: historical controlled prerequisites still missing; synthetic coverage only.",
+    "invalidCookie": "Prior independent real read-only AUTH_TOKEN_INVALID PASS retained; NOT RERUN.",
+    "liveNormalEmailCookieCors": "NOT RERUN; historical evidence only.",
+    "liveBackendSha": "UNCONFIRMED; backend-ref source SHA is not live process SHA.",
+    "serverWriteFailureOtherBrowsersHuman": "NOT RUN in this task.",
+    "formalAcceptance": "DEFERRED / NOT RUN",
+    "accepted": false,
+    "F4": "NOT STARTED",
+    "pushed": false,
+    "changes": "Only new review report and sanitized evidence; product/tests untouched. Uncommitted at review delivery; Owner subsequently authorized committing these two documents locally. Commit SHA and final Git status are in Git log/delivery."
+  },
+  "stop": "F3 獨立 review 完成、待 Owner 集中確認"
+}
