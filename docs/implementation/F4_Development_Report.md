@@ -1,6 +1,6 @@
 # F4 精簡開發報告
 
-最新局部修正（2026-10-12）：**F4-R1 修正完成，待局部複核**，見 [修正報告](F4_R1_Correction_Report.md)／[去敏證據](../test-results/evidence/F4_R1_Correction_20261012/verification-summary.json)。以下 v1.0 為原整輪交付紀錄，歷史結果保留。
+最新局部複核（2026-10-12）：**F4-R1 結案，F4 code review 通過**，見 [獨立複核報告](../review/F4_R1_Correction_ReReview_Report_20261012.md)／[去敏證據](../review/evidence/F4_R1_Independent_Verification_20261012.json)。正式驗收仍延後，未 accepted；以下原整輪與修正交付紀錄、歷史結果保留。
 
 版本：1.0／2026-10-12（Asia/Taipei）。**F4 開發與自測完成，待集中 review**；未 accepted。
 
@@ -77,3 +77,7 @@ Owner 通過 [F4 精簡實作計畫 v1.0](F4_Implementation_Plan.md)，明確授
 已補正式回歸並保存修正前 fresh built 三種 Auth 401 **3／3 FAIL**；局部傳遞手動刷新起點政策，未保留前 query snapshot，原首次讀取／無資料 retry／current guard 不變。修正後 unit **136／136 PASS**、fresh built 新增與受影響 Browser **11／11 PASS**，lint／strict／build／diff 核對 PASS。原兩份 review 文件已在接手 `ddccaccf` 提交並保持原 bytes，既有證據與失敗未覆寫，真實缺口維持；詳細範圍及去敏 hash 見上方修正報告。
 
 **最新停止點：F4-R1 修正完成，待局部複核。未宣告 review 通過或 accepted，不推送、不展開 F5～F10；正式驗收仍延後。**
+
+## F4-R1 獨立複核結案（2026-10-12）
+
+依 Owner 指示對修正提交 `5bcd6ec5c4d3551689f9064a368f592d5a258c7b` 局部獨立複核，沒有新增阻擋問題；**F4-R1 結案、F4 code review 通過**。獨立 unit **136／136**、fresh built Browser **12／12**、lint／strict／build 與修正 diff 檢查 PASS，來源及修正前後／原 review／歷史證據核對相符。只更新文件與進度，未修改產品／測試；原真實測資缺口維持 BLOCKED，正式驗收仍延後、未 accepted，不推送、不展開 F5～F10。詳細證據與本機文件提交見上方複核報告／Git log。

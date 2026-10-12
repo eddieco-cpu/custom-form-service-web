@@ -490,6 +490,14 @@ Owner 確認 F4-R1／P2 並直接授權局部修正、必要回歸及交付，�
 
 **F4-R1 修正完成，待局部複核；不代填 review 通過或 accepted，不推送、不展開 F5～F10。** F1／F2／F3 正式驗收仍延後，F3-R1／R2／N1 結案與 review 通過的 Owner 決議維持，其他既有未驗證事項保留。此次單一目的本機提交的完整 SHA／Git 狀態見交付訊息／Git log；前節歷史停止點保留。
 
+### 9.14 F4-R1 獨立複核結案（2026-10-12）
+
+依 Owner 本次指示對修正提交 `5bcd6ec5c4d3551689f9064a368f592d5a258c7b` 做局部獨立複核；起點 Auth 政策只延續本次自動對齊，清 snapshot／逐次 current guard／首次及無資料 retry／外部撤銷均保留。**F4-R1 結案，F4 code review 通過，無新增阻擋問題。** 見 [複核報告](../review/F4_R1_Correction_ReReview_Report_20261012.md)／[去敏證據](../review/evidence/F4_R1_Independent_Verification_20261012.json)。
+
+本次獨立 unit **136／136 PASS**、fresh built Browser **12／12 PASS**（三種 code、頁尾／× 各一次、Dialog 前後撤銷及受影響清單案例）、lint／strict／fresh build／diff 核對 PASS。修正前產品對父提交 Git blob 2／2、修正來源 11／11（進度更新前）、修正 raw 21／21、原 review／歷史證據與 backend manifest 108／108 均相符，未覆寫歷史失敗。Browser API 全為合成攔截，未變共用與角色／狀態證據沿用；真實測資與受控 Auth／故障前置仍 BLOCKED，live 後端版本 UNCONFIRMED。
+
+**F1／F2／F3／F4 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN；不推送、不展開 F5～F10。** 僅本次複核報告／去敏摘要與必要進度作單一目的本機文件提交，產品／測試不變；完整 SHA／最終 Git 狀態見 Git log／交付訊息。原修正與 review／歷史章節保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

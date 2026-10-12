@@ -1,0 +1,693 @@
+{
+  "kind": "F4-R1 local independent code re-review",
+  "capturedUtc": "2026-10-12T13:50:01.530Z",
+  "timezone": "Asia/Taipei",
+  "correctionSha": "5bcd6ec5c4d3551689f9064a368f592d5a258c7b",
+  "actualExecutionHead": "5bcd6ec5c4d3551689f9064a368f592d5a258c7b",
+  "parentSha": "ddccaccf358a54fb44ba72bd3c241c7727912f30",
+  "initialWorktree": "clean",
+  "fullCorrectionDiffFiles": 10,
+  "conclusion": {
+    "finding": "F4-R1 CLOSED",
+    "f4CodeReview": "PASS",
+    "newBlockingFindings": 0,
+    "authorization": "Owner explicitly requested closure and progress update if independent review finds no blocker",
+    "formalAI": "NOT RUN",
+    "humanAcceptance": "NOT RUN",
+    "accepted": "not updated",
+    "nextRound": "not started",
+    "pushed": false
+  },
+  "deliveryCommit": "containing documentation-only commit; exact SHA in git log and delivery message",
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "nuxtUi": "4.11.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "chromium": "156.0.8078.4"
+  },
+  "backend": {
+    "snapshot": "backend-ref/",
+    "sourceSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "liveGitSha": "UNCONFIRMED",
+    "liveDatabaseVersion": "UNCONFIRMED",
+    "liveApiThisCorrection": "NOT RUN"
+  },
+  "scope": {
+    "productFilesModifiedThisReview": 0,
+    "existingTestsModified": 0,
+    "actualProductControllerServiceClient": true,
+    "browser": "fresh built actual product, simulated API interception",
+    "formWrites": 0,
+    "realAccountOrFormCreated": false
+  },
+  "policyAssessment": {
+    "valueOnly": "dialog/redirect captured at each entry; explicit carry only within one auto-alignment call",
+    "snapshot": "cleared by synchronous query/session watchers; no stale DTO carried",
+    "eachGET": "new scope ticket, current guard before success/error/Auth/navigation, scoped finally",
+    "firstReadAndManualRetryWithoutData": "redirect retained",
+    "externalContext": "query/route/session/dispose invalidate pending ticket and adopted Auth flow; late close has no navigation"
+  },
+  "commands": [
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-independent-review/lint.log",
+        "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+      }
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-independent-review/typecheck.log",
+        "sha256": "5f975ae8c91ab168cd019c5a9e67a6932777e244e24c8724bff311d6ef7e440a"
+      },
+      "scope": "Nuxt + tools strict"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f3-auth.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "files": 4,
+      "passed": 136,
+      "f4": 42,
+      "newF4R1": 12,
+      "raw": {
+        "path": "output/playwright/f4-r1-independent-review/unit.log",
+        "sha256": "5fac7869d5db547f4c18bfea467803fc7f9204209d75076d08d9fccca1d53c48"
+      }
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "freshBeforeBrowser": true,
+      "raw": {
+        "path": "output/playwright/f4-r1-independent-review/build.log",
+        "sha256": "66d61b5a3cbc3a18e5aa91b15a45b240b60f5667fc206e2ab01580ac12d6d413"
+      }
+    },
+    {
+      "command": "F4_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f4-r1-independent-review/built-results.json npm run test:e2e -- --config=playwright.f4.config.ts --grep 'F4-R1|F4-B01|F4-B02|F4-B05|F4-B06|F4-B08' --reporter=list,json --output=output/playwright/f4-r1-independent-review/built-artifacts",
+      "result": "PASS",
+      "exitCode": 0,
+      "passed": 12,
+      "raw": {
+        "path": "output/playwright/f4-r1-independent-review/browser.log",
+        "sha256": "7253865701797feba5106cdf5296ca669421d7c48f87a8f80ad96d2d8f59e6f9"
+      }
+    },
+    {
+      "command": "git diff --check 5bcd6ec^ 5bcd6ec",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": "tool transcript"
+    }
+  ],
+  "browser": {
+    "stats": {
+      "startTime": "2026-10-12T13:41:02.516Z",
+      "duration": 19878.653,
+      "expected": 12,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "raw": {
+      "path": "output/playwright/f4-r1-independent-review/built-results.json",
+      "sha256": "5fc89ba12024872bd13af7c5f23eb0c5b161994a560e99a7812c82d0ac49f643"
+    },
+    "cases": [
+      {
+        "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+        "file": "f4-browser.spec.ts",
+        "line": 56,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1047,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+        "file": "f4-browser.spec.ts",
+        "line": 96,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1004,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+        "file": "f4-browser.spec.ts",
+        "line": 176,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 853,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+        "file": "f4-browser.spec.ts",
+        "line": 176,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 881,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+        "file": "f4-browser.spec.ts",
+        "line": 193,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 649,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+        "file": "f4-browser.spec.ts",
+        "line": 238,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 783,
+            "observations": []
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B10 alignment second GET AUTH_REQUIRED keeps Dialog until footer",
+        "file": "f4-browser.spec.ts",
+        "line": 288,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1155,
+            "observations": [
+              {
+                "name": "alignment-auth-observation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_REQUIRED",
+                  "finish": "footer",
+                  "beforeAuth": {
+                    "url": "http://localhost:3000/forms?probe=alignment#target",
+                    "privateTableCount": 0,
+                    "userVisible": true,
+                    "loading": true,
+                    "dialogCount": 0
+                  },
+                  "afterAuth": {
+                    "url": "http://localhost:3000/forms?probe=alignment#target",
+                    "privateTableCount": 0,
+                    "privateCardCount": 0,
+                    "userCount": 0,
+                    "dialogCount": 1
+                  },
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10"
+                  ]
+                }
+              },
+              {
+                "name": "alignment-final-navigation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_REQUIRED",
+                  "finish": "footer",
+                  "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_INVALID keeps Dialog until icon",
+        "file": "f4-browser.spec.ts",
+        "line": 288,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1184,
+            "observations": [
+              {
+                "name": "alignment-auth-observation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_TOKEN_INVALID",
+                  "finish": "icon",
+                  "beforeAuth": {
+                    "url": "http://localhost:3000/forms?probe=alignment#target",
+                    "privateTableCount": 0,
+                    "userVisible": true,
+                    "loading": true,
+                    "dialogCount": 0
+                  },
+                  "afterAuth": {
+                    "url": "http://localhost:3000/forms?probe=alignment#target",
+                    "privateTableCount": 0,
+                    "privateCardCount": 0,
+                    "userCount": 0,
+                    "dialogCount": 1
+                  },
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10"
+                  ]
+                }
+              },
+              {
+                "name": "alignment-final-navigation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_TOKEN_INVALID",
+                  "finish": "icon",
+                  "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_EXPIRED keeps Dialog until route",
+        "file": "f4-browser.spec.ts",
+        "line": 288,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1242,
+            "observations": [
+              {
+                "name": "alignment-auth-observation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_TOKEN_EXPIRED",
+                  "finish": "route",
+                  "beforeAuth": {
+                    "url": "http://localhost:3000/forms",
+                    "privateTableCount": 0,
+                    "userVisible": true,
+                    "loading": true,
+                    "dialogCount": 0
+                  },
+                  "afterAuth": {
+                    "url": "http://localhost:3000/forms",
+                    "privateTableCount": 0,
+                    "privateCardCount": 0,
+                    "userCount": 0,
+                    "dialogCount": 1
+                  },
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10"
+                  ]
+                }
+              },
+              {
+                "name": "alignment-final-navigation",
+                "observation": {
+                  "simulated": true,
+                  "code": "AUTH_TOKEN_EXPIRED",
+                  "finish": "route",
+                  "url": "http://localhost:3000/login?redirect=/",
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B11 external filter revokes pending automatic alignment Auth policy",
+        "file": "f4-browser.spec.ts",
+        "line": 342,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1040,
+            "observations": [
+              {
+                "name": "alignment-revoked",
+                "observation": {
+                  "simulated": true,
+                  "change": "filter",
+                  "url": "http://localhost:3000/forms",
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10",
+                    "/api/v1/forms?page=1&pageSize=10&status=draft"
+                  ],
+                  "logout": 0,
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B11 external route revokes pending automatic alignment Auth policy",
+        "file": "f4-browser.spec.ts",
+        "line": 342,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 964,
+            "observations": [
+              {
+                "name": "alignment-revoked",
+                "observation": {
+                  "simulated": true,
+                  "change": "route",
+                  "url": "http://localhost:3000/",
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10"
+                  ],
+                  "logout": 0,
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "F4-R1-B11 external session revokes pending automatic alignment Auth policy",
+        "file": "f4-browser.spec.ts",
+        "line": 342,
+        "project": "chromium",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1180,
+            "observations": [
+              {
+                "name": "alignment-revoked",
+                "observation": {
+                  "simulated": true,
+                  "change": "session",
+                  "url": "http://localhost:3000/login",
+                  "requests": [
+                    "/api/v1/forms?page=3&pageSize=10",
+                    "/api/v1/forms?page=2&pageSize=10"
+                  ],
+                  "logout": 1,
+                  "dialogCount": 0
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "sourceHashesAtExecution": [
+    {
+      "path": "app/domain/form-read.ts",
+      "sha256": "604048f3e53a5b5ecfee211ce9954280f2d46b3af863fce7f0e38bcb7d74964e"
+    },
+    {
+      "path": "app/composables/useFormsList.ts",
+      "sha256": "da7e34a58c48f751e6eb81922aff4d17fe7e3cc2b357241c5c295384346b1bbe"
+    },
+    {
+      "path": "tests/unit/f4-form-read.spec.ts",
+      "sha256": "04200549cf6f489d6acc204d473225c61e36cddf85d1f51c56d28ce2c1e412b7"
+    },
+    {
+      "path": "tests/e2e/f4-browser.spec.ts",
+      "sha256": "af8d45d5ba7ab933c4ea0bcc94a12444fa4fe34f8f3ae648a05557816af66e33"
+    },
+    {
+      "path": "playwright.f4.config.ts",
+      "sha256": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+    }
+  ],
+  "historicalIntegrityAtReviewStart": {
+    "raw": {
+      "path": "output/playwright/f4-r1-independent-review/history-audit.json",
+      "sha256": "2b24eed5dc9efe713e1e5bab70d337e97dee9609f76429349957cc491ac23ac2"
+    },
+    "script": {
+      "path": "output/playwright/f4-r1-independent-review/audit-history.mjs",
+      "sha256": "be4dae7d44202c48bd8dd79555f179162b0a45ed5c09a6a66e6e3b99f1fa2676"
+    },
+    "checks": {
+      "reviewerDocuments": {
+        "checked": 2,
+        "matched": 2,
+        "mismatches": []
+      },
+      "reviewerReproduction": {
+        "checked": 2,
+        "matched": 2,
+        "mismatches": []
+      },
+      "originalRawIncludingFailures": {
+        "checked": 28,
+        "matched": 28,
+        "mismatches": []
+      },
+      "priorF2F3Evidence": {
+        "checked": 5,
+        "matched": 5,
+        "mismatches": []
+      },
+      "originalDeliveredEvidence": {
+        "checked": 4,
+        "matched": 4,
+        "mismatches": []
+      },
+      "unchangedProductAndTestSources": {
+        "checked": 26,
+        "matched": 26,
+        "mismatches": []
+      },
+      "backendManifest": {
+        "checked": 108,
+        "matched": 108,
+        "mismatches": []
+      },
+      "finalSourceHashesAtReviewStart": {
+        "checked": 11,
+        "matched": 11,
+        "mismatches": []
+      },
+      "correctionRaw": {
+        "checked": 21,
+        "matched": 21,
+        "mismatches": []
+      },
+      "originalF4Summary": {
+        "checked": 1,
+        "matched": 1,
+        "mismatches": []
+      },
+      "correctionScreenshot": {
+        "checked": 1,
+        "matched": 1,
+        "mismatches": []
+      },
+      "beforeProductFromParentGit": {
+        "checked": 2,
+        "matched": 2,
+        "mismatches": []
+      }
+    },
+    "originalReviewAndEvidence": "unchanged; no overwrites; source 11/11 audited before authorized progress-only edits"
+  },
+  "historicalBeforeAfter": {
+    "correctionSummary": {
+      "path": "docs/test-results/evidence/F4_R1_Correction_20261012/verification-summary.json",
+      "sha256": "da0bd01120a25ee85b465b1fa5e2b6ed4cf08502c215d2212ae920a5d7dc5192"
+    },
+    "beforeProduct": [
+      {
+        "path": "app/domain/form-read.ts",
+        "revision": "ddccaccf358a54fb44ba72bd3c241c7727912f30",
+        "expected": "46535468064c06a2b6f72cd565daa131c18f6b1a83391ce934026fad9bafc658",
+        "actual": "46535468064c06a2b6f72cd565daa131c18f6b1a83391ce934026fad9bafc658",
+        "matched": true
+      },
+      {
+        "path": "app/composables/useFormsList.ts",
+        "revision": "ddccaccf358a54fb44ba72bd3c241c7727912f30",
+        "expected": "9b13ae19d44170e2c14101776607edffd059530544b0cf54df2d76131e9df1cd",
+        "actual": "9b13ae19d44170e2c14101776607edffd059530544b0cf54df2d76131e9df1cd",
+        "matched": true
+      }
+    ],
+    "before": {
+      "stats": {
+        "startTime": "2026-10-12T13:18:07.199Z",
+        "duration": 24930.36,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      },
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/before-results.json",
+        "sha256": "cc425c49c886fe2d6df488d10df7c7584090ae94ef384d0ebc41557ffa33891e"
+      },
+      "result": "3 FAIL: dialog absent, login already observed for all three formal codes"
+    },
+    "after": {
+      "stats": {
+        "startTime": "2026-10-12T13:22:10.315Z",
+        "duration": 15091.359,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/after-results.json",
+        "sha256": "24dbd8e9561e73063affd24ec3856a0bc6be051435452e9e9bfb95ebbf430c65"
+      },
+      "result": "11 PASS in correction development"
+    },
+    "independentlyRerunOldProduct": false,
+    "applicability": "before product hashes match parent Git bytes; B10 intermediate added test source is explicitly distinct from parent tests; final source verified then fresh-built rerun of current target"
+  },
+  "screenshots": {
+    "visuallyInspectedDialogCount": 3,
+    "raw": [
+      {
+        "path": "output/playwright/f4-r1-independent-review/built-artifacts/f4-browser-F4-R1-B10-align-154f4-ED-keeps-Dialog-until-route-chromium/alignment-auth-dialog.png",
+        "sha256": "aa978e9c5742f7110c4a554d08aeca7ac7a2e1b696bf4800b7aea93c0301e6bf"
+      },
+      {
+        "path": "output/playwright/f4-r1-independent-review/built-artifacts/f4-browser-F4-R1-B10-align-4851a-D-keeps-Dialog-until-footer-chromium/alignment-auth-dialog.png",
+        "sha256": "aa978e9c5742f7110c4a554d08aeca7ac7a2e1b696bf4800b7aea93c0301e6bf"
+      },
+      {
+        "path": "output/playwright/f4-r1-independent-review/built-artifacts/f4-browser-F4-R1-B10-align-93a4f-LID-keeps-Dialog-until-icon-chromium/alignment-auth-dialog.png",
+        "sha256": "68346cf99ad307166498a48f117ef1519241afb596ce2cea5669dc122a5fb159"
+      }
+    ],
+    "submittedNewImages": 0,
+    "content": "synthetic UI only; Auth Dialog present, private list/User removed"
+  },
+  "reused": [
+    "unaffected F4 role/status/root and dev session harness evidence from original independent review",
+    "unchanged F2 native timeout and exact-number/datetime evidence",
+    "unchanged F3 Cookie/CORS/focus evidence"
+  ],
+  "blocked": [
+    {
+      "case": "real loaded page 3 -> shrinking alignment -> second GET formal Auth 401 (all three codes)",
+      "result": "BLOCKED",
+      "reason": "No retained nonempty >=21 forms and controlled Auth/error prerequisites; fixture results do not replace live integration"
+    },
+    {
+      "case": "real nonempty >=11 list/pagination/filter",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real Draft/Published/Closed owner-other access and redirects",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real hidden Draft/deleted Form/expired Published",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real Form INVALID/EXPIRED/disabled scenarios",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "controlled real API faults/late responses",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    }
+  ],
+  "notRun": [
+    "real API/account/Form/DB operations this review",
+    "formal AI/human acceptance",
+    "full F1-F3 and unaffected F4 suites",
+    "other browsers/manual devices",
+    "npm ci/audit/generate"
+  ],
+  "tooling": [
+    "source audit initial sandbox git child spawn blocked, auto-approved read-only rerun succeeded",
+    "NO_COLOR/FORCE_COLOR and DEP0155 inherited diagnostics; expected test console/page/API assertions passed",
+    "port 3000 no HTTP listener after run"
+  ],
+  "sanitization": "only synthetic UI/DTO/paths and hashes; no passwords, tokens, Cookies, storageState, traces or generated Nuxt secrets submitted; new raw kept separately in ignored output directory"
+}
