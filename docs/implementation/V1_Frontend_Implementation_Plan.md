@@ -482,6 +482,14 @@ lint／Nuxt＋tools strict／fixture strict／build PASS，F4 unit＋受影響�
 
 **F4 開發與自測完成，待集中 review；F1／F2／F3 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN。** F3-R1／R2／N1 已結案與 code review 通過的 Owner 決議維持，歷史證據未覆寫。單一目的本機提交、不推送、不展開 F5～F10；完整 SHA／剩餘 Git 狀態見交付訊息／Git log。維持兩人工關卡，後續由 Owner 指定。
 
+### 9.13 F4-R1 授權局部修正交付（2026-10-12）
+
+Owner 確認 F4-R1／P2 並直接授權局部修正、必要回歸及交付，不另設修正計畫核准。已讓手動刷新起點的 Auth Dialog／redirect 政策只延續本次自動對齊，query／session 清資料、首次讀取與逐次 current guard 保留，見 [修正報告](F4_R1_Correction_Report.md)／[去敏證據](../test-results/evidence/F4_R1_Correction_20261012/verification-summary.json)。
+
+修正前 fresh built 三種正式 Auth 401 **3／3 FAIL** 原件保留；修正後 unit **136／136 PASS**、同一 fresh built Browser **11／11 PASS**（三種 code、兩種關閉各一次、Dialog 前／後 URL／私有資料及外部變動撤銷，並重跑正常對齊／再次縮頁停止／空清單不重查／stale filter／既有 Auth），lint／strict／build／diff 核對 PASS。全部新增 Browser 為合成 API；真實測資缺口維持 BLOCKED，原 F4-L01 與未變共用證據沿用、本次未重跑。接手 HEAD `ddccaccf` 已保存兩份 review 文件，本次原 bytes／歷史失敗與證據不變；backend manifest 108／108 相符。
+
+**F4-R1 修正完成，待局部複核；不代填 review 通過或 accepted，不推送、不展開 F5～F10。** F1／F2／F3 正式驗收仍延後，F3-R1／R2／N1 結案與 review 通過的 Owner 決議維持，其他既有未驗證事項保留。此次單一目的本機提交的完整 SHA／Git 狀態見交付訊息／Git log；前節歷史停止點保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

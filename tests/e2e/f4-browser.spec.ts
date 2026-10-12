@@ -269,3 +269,128 @@ test('F4-B09 long root text and owner UUID remain readable on mobile; reload is 
   await page.screenshot({ path: info.outputPath('root-mobile.png'), fullPage: true })
   noUnexpected(state)
 })
+
+async function alignmentStart(page: Page, state: Awaited<ReturnType<typeof mock>>, url = '/forms') {
+  state.list = async route => { const p = Number(new URL(route.request().url()).searchParams.get('page')); await route.fulfill({ status: 200, headers, json: pageBody(p, 21) }) }
+  if (url === '/forms') {
+    await page.goto('/'); await expect(page.getByRole('heading', { name: `歡迎，${owner.displayName}` })).toBeVisible()
+    await nav(page, '我的表單').click()
+  }
+  else await page.goto(url)
+  await expect(page.getByText('第 1 頁 · 共 3 頁／21 筆')).toBeVisible()
+  await page.getByRole('button', { name: '下一頁' }).click(); await expect(page.getByText('第 2 頁 · 共 3 頁／21 筆')).toBeVisible()
+  await page.getByRole('button', { name: '下一頁' }).click(); await expect(page.getByRole('table').getByRole('link')).toHaveText(['合成表單 21'])
+}
+
+for (const [code, finish] of [
+  ['AUTH_REQUIRED', 'footer'], ['AUTH_TOKEN_INVALID', 'icon'], ['AUTH_TOKEN_EXPIRED', 'route'],
+] as const) {
+  test(`F4-R1-B10 alignment second GET ${code} keeps Dialog until ${finish}`, async ({ page }, info) => {
+    const state = await mock(page); const second = gate()
+    const returnUrl = finish === 'route' ? '/forms' : '/forms?probe=alignment#target'
+    await alignmentStart(page, state, returnUrl)
+    const start = state.forms.length
+    state.list = async route => {
+      const p = Number(new URL(route.request().url()).searchParams.get('page'))
+      if (p === 2) await second.promise
+      await route.fulfill({ status: p === 2 ? 401 : 200, headers, json: p === 2 ? apiError(code) : pageBody(p, 11) })
+    }
+    await page.getByRole('button', { name: '刷新', exact: true }).click()
+    await expect.poll(() => state.forms.length - start).toBe(2)
+    // Query alignment must clear the old page before the second GET resolves.
+    await expect(page.getByRole('table')).toHaveCount(0)
+    await expect(page.getByRole('list', { name: '我的表單卡片' })).toHaveCount(0)
+    await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible()
+    await expect(page.getByText('正在載入表單清單…')).toBeVisible()
+    expect(page.url()).toBe(`http://localhost:3000${returnUrl}`)
+    const dialog = page.getByRole('dialog', { name: '操作訊息' })
+    await expect(dialog).toHaveCount(0)
+    const beforeAuth = { url: page.url(), privateTableCount: await page.getByRole('table').count(), userVisible: true, loading: true, dialogCount: 0 }
+    second.release()
+    // Also capture the incorrect pre-fix redirect as evidence before asserting.
+    await expect.poll(async () => await dialog.count() > 0 || new URL(page.url()).pathname === '/login').toBe(true)
+    await expect(page.getByRole('button', { name: '使用者選單' })).toHaveCount(0)
+    const afterAuth = { url: page.url(), privateTableCount: await page.getByRole('table').count(), privateCardCount: await page.getByRole('list', { name: '我的表單卡片' }).count(), userCount: 0, dialogCount: await dialog.count() }
+    await info.attach('alignment-auth-observation', { body: JSON.stringify({ simulated: true, code, finish, beforeAuth, afterAuth, requests: state.forms.slice(start) }, null, 2), contentType: 'application/json' })
+    await expect(dialog).toBeVisible()
+    expect(page.url()).toBe(`http://localhost:3000${returnUrl}`)
+    await expect(page.getByRole('table')).toHaveCount(0); await expect(page.getByRole('list', { name: '我的表單卡片' })).toHaveCount(0)
+    await expect(page.getByText('正在載入表單清單…')).toHaveCount(0)
+    await page.keyboard.press('Escape'); await expect(dialog).toBeVisible()
+    expect(state.forms.slice(start)).toEqual(['/api/v1/forms?page=3&pageSize=10', '/api/v1/forms?page=2&pageSize=10'])
+    await page.screenshot({ path: info.outputPath('alignment-auth-dialog.png') })
+    const historyLength = await page.evaluate(() => history.length)
+    if (finish === 'route') {
+      // Browser Back is an external SPA route change, even while the modal is open.
+      await page.goBack(); await expect(page).toHaveURL(/\/login\?redirect=/)
+      expect(new URL(page.url()).searchParams.get('redirect')).toBe('/')
+    }
+    else {
+      await (finish === 'footer' ? dialog.getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }) : dialog.getByLabel('關閉', { exact: true })).click()
+      await expect(page).toHaveURL(/\/login\?redirect=/)
+      expect(new URL(page.url()).searchParams.get('redirect')).toBe(returnUrl)
+      expect(await page.evaluate(() => history.length)).toBe(historyLength)
+      await expect(page.getByRole('heading', { name: '帳號', exact: true })).toBeFocused()
+    }
+    await expect(dialog).toHaveCount(0)
+    await info.attach('alignment-final-navigation', { body: JSON.stringify({ simulated: true, code, finish, url: page.url(), dialogCount: 0 }, null, 2), contentType: 'application/json' })
+    noUnexpected(state)
+  })
+}
+
+for (const change of ['filter', 'route', 'session'] as const) {
+  test(`F4-R1-B11 external ${change} revokes pending automatic alignment Auth policy`, async ({ page }, info) => {
+    const state = await mock(page); const old = gate(); const delivered = gate(); const current = gate(); let logout = 0
+    await alignmentStart(page, state)
+    const start = state.forms.length
+    state.list = async route => {
+      const url = new URL(route.request().url()); const p = Number(url.searchParams.get('page')); const draft = url.searchParams.get('status') === 'draft'
+      if (draft) await current.promise
+      else if (p === 2) await old.promise
+      try { await route.fulfill({ status: !draft && p === 2 ? 401 : 200, headers, json: draft ? pageBody(p, 1, 'draft') : p === 2 ? apiError('AUTH_TOKEN_EXPIRED') : pageBody(p, 11) }) }
+      finally { if (!draft && p === 2) delivered.release() }
+    }
+    await page.getByRole('button', { name: '刷新', exact: true }).click()
+    await expect.poll(() => state.forms.length - start).toBe(2)
+    await expect(page.getByRole('table')).toHaveCount(0)
+    if (change === 'filter') {
+      await page.getByLabel('狀態篩選').selectOption('draft')
+      await expect.poll(() => state.forms.length - start).toBe(3)
+    }
+    else if (change === 'route') {
+      await nav(page, '首頁').click(); await expect(page).toHaveURL('http://localhost:3000/')
+    }
+    else {
+      // Actual product logout changes the shared session; only its API is simulated.
+      await page.route('http://localhost:5000/api/v1/auth/logout', async route => {
+        if (route.request().method() === 'POST') logout++
+        await route.fulfill({ status: 204, headers: { ...headers, 'access-control-allow-methods': 'POST', 'access-control-allow-headers': 'content-type' } })
+      })
+      await page.getByRole('button', { name: '使用者選單' }).click()
+      await page.getByRole('button', { name: '登出', exact: true }).click()
+      await expect(page).toHaveURL('http://localhost:3000/login'); expect(logout).toBe(1)
+    }
+    old.release()
+    await delivered.promise
+    await expect(page.getByRole('dialog', { name: '操作訊息' })).toHaveCount(0)
+    await expect(page.getByRole('alert')).toHaveCount(0)
+    if (change === 'filter') {
+      await expect(page.getByText('正在載入表單清單…')).toBeVisible()
+      await expect(page.getByRole('table')).toHaveCount(0)
+      await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible()
+      expect(page.url()).toBe('http://localhost:3000/forms')
+      current.release(); await expect(page.getByRole('table').getByRole('link')).toHaveText(['合成表單 1'])
+      await expect(page.getByRole('button', { name: '刷新', exact: true })).toBeEnabled()
+    }
+    else if (change === 'route') {
+      await expect(page.getByRole('heading', { name: `歡迎，${owner.displayName}` })).toBeVisible()
+      expect(page.url()).toBe('http://localhost:3000/')
+    }
+    else {
+      await expect(page.getByRole('button', { name: '使用者選單' })).toHaveCount(0)
+      expect(page.url()).toBe('http://localhost:3000/login')
+    }
+    await info.attach('alignment-revoked', { body: JSON.stringify({ simulated: true, change, url: page.url(), requests: state.forms.slice(start), logout, dialogCount: await page.getByRole('dialog', { name: '操作訊息' }).count() }, null, 2), contentType: 'application/json' })
+    noUnexpected(state)
+  })
+}

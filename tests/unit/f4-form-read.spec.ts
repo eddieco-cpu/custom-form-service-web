@@ -20,6 +20,8 @@ function harness() {
   const reader = new FormReadController(state, scope, { key: () => key, path: () => path, sessionRevision: () => auth.sessionRevision, invalidate, navigate })
   function change(kind: string) {
     if (kind === 'key') { key = 'b'; path = '/forms/b' }
+    if (kind === 'query') key = key === 'page=2' ? 'page=1&status=draft' : 'page=2'
+    if (kind === 'route') path = '/forms/a?q=two#target'
     if (kind === 'session') session.login(other)
     if (kind === 'dispose') reader.dispose()
     else reader.contextChanged()
@@ -122,4 +124,75 @@ describe('F4 controller side effects and Auth flow ownership', () => {
     expect(h.auth.user?.id).toBe(owner.id); expect(h.state.error?.kind).toBe('disabled')
     expect(h.invalidate).not.toHaveBeenCalled(); expect(h.navigate).not.toHaveBeenCalled()
   })
+})
+
+describe('F4-R1 operation Auth presentation through automatic alignment', () => {
+  it('carries only the presentation through cleared query data and own Auth invalidation', async () => {
+    const h = harness(); await h.reader.read(async () => ok('PAGE3 PRIVATE'))
+    const presentation = h.reader.captureAuthPresentation(true)
+    expect(presentation).toBe('dialog')
+    await h.reader.read(async () => ok('PAGE3 SHRUNK'), true, async () => {
+      h.change('query')
+      expect(h.state.data).toBeNull()
+      expect(h.reader.captureAuthPresentation(true)).toBe('redirect')
+      await h.reader.read(async () => failure(), true, undefined, presentation)
+    }, presentation)
+    expect(h.state.data).toBeNull(); expect(h.auth.user).toBeNull()
+    expect(h.state.dialog?.kind).toBe('auth'); expect(h.state.error).toBeNull()
+    expect(h.navigate).not.toHaveBeenCalled(); expect(h.loading()).toBe(false)
+    await h.reader.closeAuth()
+    expect(h.navigate).toHaveBeenCalledExactlyOnceWith({ path: '/login', query: { redirect: '/forms/a?q=one#target' } })
+  })
+  it('retains initial automatic-read redirect policy through alignment', async () => {
+    const h = harness(); const presentation = h.reader.captureAuthPresentation(false)
+    await h.reader.read(async () => ok('SHRUNK'), false, async () => {
+      h.change('query')
+      await h.reader.read(async () => failure(), false, undefined, presentation)
+    }, presentation)
+    expect(h.state.dialog).toBeNull(); expect(h.auth.user).toBeNull()
+    expect(h.navigate).toHaveBeenCalledExactlyOnceWith({ path: '/login', query: { redirect: '/forms/a?q=one#target' } })
+  })
+  it('does not turn manual retry without loaded data into a Dialog', async () => {
+    const h = harness(); await h.reader.read(async () => failure('INTERNAL_SERVER_ERROR'))
+    expect(h.reader.captureAuthPresentation(true)).toBe('redirect')
+    await h.reader.read(async () => failure(), true)
+    expect(h.state.dialog).toBeNull(); expect(h.navigate).toHaveBeenCalledTimes(1)
+  })
+  it('a captured Dialog policy does not leak to a later external query read', async () => {
+    const h = harness(); await h.reader.read(async () => ok('PRIVATE'))
+    expect(h.reader.captureAuthPresentation(true)).toBe('dialog')
+    h.change('query')
+    await h.reader.read(async () => failure(), true)
+    expect(h.state.dialog).toBeNull(); expect(h.navigate).toHaveBeenCalledTimes(1)
+  })
+  for (const change of ['query', 'route', 'session', 'dispose']) {
+    it(`rejects the uncancellable aligned Auth response after external ${change}`, async () => {
+      const h = harness(); const old = deferred<ApiResult<string>>(); const next = deferred<ApiResult<string>>()
+      await h.reader.read(async () => ok('PRIVATE'))
+      const presentation = h.reader.captureAuthPresentation(true)
+      const operation = h.reader.read(async () => ok('SHRUNK'), true, async () => {
+        h.change('query')
+        await h.reader.read(() => old.promise, true, undefined, presentation)
+      }, presentation)
+      // Let the successful first GET start its second GET, without relying on Abort.
+      await Promise.resolve()
+      expect(h.state.data).toBeNull(); expect(h.loading()).toBe(true)
+      h.change(change)
+      const current = change === 'dispose' ? undefined : h.reader.read(() => next.promise)
+      old.resolve(failure()); await operation
+      expect(h.state).toEqual({ data: null, error: null, dialog: null })
+      expect(h.auth.user?.id).toBe(change === 'session' ? other.id : owner.id)
+      expect(h.invalidate).not.toHaveBeenCalled(); expect(h.navigate).not.toHaveBeenCalled()
+      expect(h.loading()).toBe(change !== 'dispose')
+      if (current) { next.resolve(ok('CURRENT')); await current; expect(h.state.data).toBe('CURRENT'); expect(h.loading()).toBe(false) }
+    })
+    it(`revokes an aligned Auth Dialog after external ${change}, including late close`, async () => {
+      const h = harness(); await h.reader.read(async () => ok('PRIVATE'))
+      const presentation = h.reader.captureAuthPresentation(true)
+      h.change('query'); await h.reader.read(async () => failure(), true, undefined, presentation)
+      expect(h.state.dialog?.kind).toBe('auth')
+      h.change(change); await h.reader.closeAuth()
+      expect(h.state.dialog).toBeNull(); expect(h.state.data).toBeNull(); expect(h.navigate).not.toHaveBeenCalled()
+    })
+  }
 })

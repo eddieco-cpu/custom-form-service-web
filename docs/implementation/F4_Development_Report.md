@@ -1,5 +1,7 @@
 # F4 精簡開發報告
 
+最新局部修正（2026-10-12）：**F4-R1 修正完成，待局部複核**，見 [修正報告](F4_R1_Correction_Report.md)／[去敏證據](../test-results/evidence/F4_R1_Correction_20261012/verification-summary.json)。以下 v1.0 為原整輪交付紀錄，歷史結果保留。
+
 版本：1.0／2026-10-12（Asia/Taipei）。**F4 開發與自測完成，待集中 review**；未 accepted。
 
 ## 授權、範圍與實際變更
@@ -69,3 +71,9 @@ Owner 通過 [F4 精簡實作計畫 v1.0](F4_Implementation_Plan.md)，明確授
 單一目的本機提交標題 `feat: complete F4 form list and read routing`；本報告納入該提交，完整 commit SHA／提交後工作樹狀態見本次交付訊息與 Git log，避免自指 SHA。交付前核對只含 F4 程式、必要測試、報告／進度及去敏證據，原有使用者變更為零；提交後要求工作樹乾淨。原始命令／Playwright 結果留 ignored `output/playwright/f4/`，摘要以原件 hash 追溯，沒有提交原始秘密或生成 Nuxt `app-secret`。
 
 **F4 開發與自測完成，待集中 review。不推送、不展開 F5～F10；F1／F2／F3 正式驗收仍延後，均不代填 accepted，所有既有未驗證事項保留。**
+
+## F4-R1 Owner 授權局部修正（2026-10-12）
+
+已補正式回歸並保存修正前 fresh built 三種 Auth 401 **3／3 FAIL**；局部傳遞手動刷新起點政策，未保留前 query snapshot，原首次讀取／無資料 retry／current guard 不變。修正後 unit **136／136 PASS**、fresh built 新增與受影響 Browser **11／11 PASS**，lint／strict／build／diff 核對 PASS。原兩份 review 文件已在接手 `ddccaccf` 提交並保持原 bytes，既有證據與失敗未覆寫，真實缺口維持；詳細範圍及去敏 hash 見上方修正報告。
+
+**最新停止點：F4-R1 修正完成，待局部複核。未宣告 review 通過或 accepted，不推送、不展開 F5～F10；正式驗收仍延後。**

@@ -1,0 +1,1653 @@
+{
+  "kind": "F4-R1 development correction self-tests",
+  "capturedUtc": "2026-10-12T13:30:26.133Z",
+  "timezone": "Asia/Taipei",
+  "stop": "F4-R1 修正完成，待局部複核",
+  "reviewPassed": "NOT DECLARED",
+  "accepted": "NOT DECLARED",
+  "formalAI": "NOT RUN",
+  "humanAcceptance": "NOT RUN",
+  "pushed": false,
+  "frontendStartSha": "ddccaccf358a54fb44ba72bd3c241c7727912f30",
+  "originalProductSha": "85cfd19fc0c96231c9ae083ed407789a67b693a3",
+  "deliveryCommit": "containing commit; full SHA in git log and delivery message",
+  "branch": "master",
+  "initialWorktree": "clean",
+  "reviewerDocumentsAlreadySavedInStartCommit": true,
+  "backend": {
+    "snapshot": "backend-ref/",
+    "sourceSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "liveGitSha": "UNCONFIRMED",
+    "liveDatabaseVersion": "UNCONFIRMED",
+    "liveApiThisCorrection": "NOT RUN"
+  },
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "nuxtUi": "4.11.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "chromium": "156.0.8078.4"
+  },
+  "scope": {
+    "productFiles": [
+      "app/domain/form-read.ts",
+      "app/composables/useFormsList.ts"
+    ],
+    "policy": "Captured dialog/redirect value local to this invocation, passed only into the one automatic alignment GET; no previous data snapshot retained",
+    "unchanged": [
+      "initial read/manual retry without data",
+      "query/session clear",
+      "per-request current guard",
+      "external context revocation",
+      "alignment budget=1",
+      "API contract/endpoints"
+    ]
+  },
+  "beforeSources": {
+    "head": "ddccaccf358a54fb44ba72bd3c241c7727912f30",
+    "timestamp": "2026-10-12T21:17:52.2384908+08:00",
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "hashes": [
+      {
+        "path": "app/domain/form-read.ts",
+        "sha256": "46535468064c06a2b6f72cd565daa131c18f6b1a83391ce934026fad9bafc658"
+      },
+      {
+        "path": "app/composables/useFormsList.ts",
+        "sha256": "9b13ae19d44170e2c14101776607edffd059530544b0cf54df2d76131e9df1cd"
+      },
+      {
+        "path": "tests/e2e/f4-browser.spec.ts",
+        "sha256": "3d6e752ee41d39f599403f7a5172c1b564691afa4a4cf8402bc98233f18f3fc3"
+      },
+      {
+        "path": "docs/review/F4_Code_Review_Report_20261012.md",
+        "sha256": "5773db4c6d441c41a38c2be4e34fb85d5c0801c5b6f77d5c819c4db07da84986"
+      },
+      {
+        "path": "docs/review/evidence/F4_Independent_Verification_20261012.json",
+        "sha256": "15023a55dc48165a85ef5b89151175f3f03ef96a4d22b4166711046c7fadabed"
+      }
+    ]
+  },
+  "finalSourceHashes": [
+    {
+      "path": "app/domain/form-read.ts",
+      "sha256": "604048f3e53a5b5ecfee211ce9954280f2d46b3af863fce7f0e38bcb7d74964e"
+    },
+    {
+      "path": "app/composables/useFormsList.ts",
+      "sha256": "da7e34a58c48f751e6eb81922aff4d17fe7e3cc2b357241c5c295384346b1bbe"
+    },
+    {
+      "path": "tests/unit/f4-form-read.spec.ts",
+      "sha256": "04200549cf6f489d6acc204d473225c61e36cddf85d1f51c56d28ce2c1e412b7"
+    },
+    {
+      "path": "tests/e2e/f4-browser.spec.ts",
+      "sha256": "af8d45d5ba7ab933c4ea0bcc94a12444fa4fe34f8f3ae648a05557816af66e33"
+    },
+    {
+      "path": "playwright.f4.config.ts",
+      "sha256": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+    },
+    {
+      "path": "docs/implementation/F4_R1_Correction_Report.md",
+      "sha256": "0ab289d7e6c12c7ac5d0e466dba2c9d72ca87dc77fd52b003488b40babc1886f"
+    },
+    {
+      "path": "docs/implementation/F4_Development_Report.md",
+      "sha256": "a53c5f18a1b52a619225c1492e8cd360c1e1269ecd3f20fbec9d923676772600"
+    },
+    {
+      "path": "docs/implementation/V1_Frontend_Implementation_Plan.md",
+      "sha256": "281e2c8b97e5a63b8e71674407ee457da735c506b83471195e67580fbd48bbf6"
+    },
+    {
+      "path": "README.md",
+      "sha256": "952f60b1faf078b8f12308fe76474064a5130abf63e256069d4bc8e6daf7d502"
+    }
+  ],
+  "commands": [
+    {
+      "command": "npm run build (before fix)",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/before-build.log",
+        "sha256": "2f8661f6de8d6355267f521ab089063f085156c992b870eda1e1eec5157f804e"
+      }
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/lint.log",
+        "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+      }
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/typecheck.log",
+        "sha256": "0f22cdfa862e906cf0a6253373fc0c49d273e98d64dfd0bbbbd78755c995b996"
+      }
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f3-auth.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "cases": 136,
+      "files": 4,
+      "newF4R1Cases": 12,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/unit-final.log",
+        "sha256": "25ed108d292f478b9b70d749224b34a40c7afc236191f8042b9d2a3203f5007f"
+      },
+      "earlierPass": {
+        "path": "output/playwright/f4-r1-20261012/unit.log",
+        "sha256": "797f23eecee0ac9de877ba86f50e7af53b09b207234bb8c335227d9d4209ba01"
+      }
+    },
+    {
+      "command": "npm run build (after fix; completed before after Browser run)",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/after-build.log",
+        "sha256": "b8b6e4c855fc1f830b3b204ea133927320ec8e9556abd9649c76a3585f7eebca"
+      }
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "exitCode": 0,
+      "raw": {
+        "path": "output/playwright/f4-r1-20261012/diff-check.log",
+        "sha256": "c4fa1fdec9faec71898a485c845b839d71a6f54962e07f12f0646adfbd22e2b4"
+      }
+    }
+  ],
+  "browserRuns": [
+    {
+      "mode": "fresh built product; simulated API interception",
+      "command": "F4_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f4-r1-20261012/before-results.json npm run test:e2e -- --config=playwright.f4.config.ts --grep F4-R1-B10 --reporter=list,json --output=output/playwright/f4-r1-20261012/before-artifacts",
+      "exitCode": 1,
+      "stats": {
+        "startTime": "2026-10-12T13:18:07.199Z",
+        "duration": 24930.36,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_REQUIRED keeps Dialog until footer",
+          "result": "FAIL",
+          "durationMs": 5853,
+          "retry": 0,
+          "failedAssertion": "Dialog should be visible after second GET 401, but no element exists; direct login observed",
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_REQUIRED",
+                "finish": "footer",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 0
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_INVALID keeps Dialog until icon",
+          "result": "FAIL",
+          "durationMs": 5890,
+          "retry": 0,
+          "failedAssertion": "Dialog should be visible after second GET 401, but no element exists; direct login observed",
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_INVALID",
+                "finish": "icon",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 0
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_EXPIRED keeps Dialog until route",
+          "result": "FAIL",
+          "durationMs": 5940,
+          "retry": 0,
+          "failedAssertion": "Dialog should be visible after second GET 401, but no element exists; direct login observed",
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_EXPIRED",
+                "finish": "route",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/login?redirect=/forms",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 0
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            }
+          ]
+        }
+      ],
+      "rawResult": {
+        "path": "output/playwright/f4-r1-20261012/before-results.json",
+        "sha256": "cc425c49c886fe2d6df488d10df7c7584090ae94ef384d0ebc41557ffa33891e"
+      },
+      "rawLog": {
+        "path": "output/playwright/f4-r1-20261012/before-browser.log",
+        "sha256": "96ad8048d97f26c317b594071a5b2ebcdcdf4966e44caf0886e8ddd8e3da610f"
+      }
+    },
+    {
+      "mode": "fresh built product; simulated API interception",
+      "command": "F4_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f4-r1-20261012/after-results.json npm run test:e2e -- --config=playwright.f4.config.ts --grep 'F4-R1|F4-B02|F4-B05|F4-B06|F4-B08' --reporter=list,json --output=output/playwright/f4-r1-20261012/after-artifacts",
+      "exitCode": 0,
+      "stats": {
+        "startTime": "2026-10-12T13:22:10.315Z",
+        "duration": 15091.359,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+          "result": "PASS",
+          "durationMs": 932,
+          "retry": 0
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+          "result": "PASS",
+          "durationMs": 770,
+          "retry": 0
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+          "result": "PASS",
+          "durationMs": 877,
+          "retry": 0
+        },
+        {
+          "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+          "result": "PASS",
+          "durationMs": 462,
+          "retry": 0
+        },
+        {
+          "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+          "result": "PASS",
+          "durationMs": 681,
+          "retry": 0
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_REQUIRED keeps Dialog until footer",
+          "result": "PASS",
+          "durationMs": 964,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_REQUIRED",
+                "finish": "footer",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 1
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            },
+            {
+              "name": "alignment-final-navigation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_REQUIRED",
+                "finish": "footer",
+                "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                "dialogCount": 0
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_INVALID keeps Dialog until icon",
+          "result": "PASS",
+          "durationMs": 1050,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_INVALID",
+                "finish": "icon",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/forms?probe=alignment#target",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 1
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            },
+            {
+              "name": "alignment-final-navigation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_INVALID",
+                "finish": "icon",
+                "url": "http://localhost:3000/login?redirect=/forms?probe=alignment%23target",
+                "dialogCount": 0
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_EXPIRED keeps Dialog until route",
+          "result": "PASS",
+          "durationMs": 1008,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-auth-observation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_EXPIRED",
+                "finish": "route",
+                "beforeAuth": {
+                  "url": "http://localhost:3000/forms",
+                  "privateTableCount": 0,
+                  "userVisible": true,
+                  "loading": true,
+                  "dialogCount": 0
+                },
+                "afterAuth": {
+                  "url": "http://localhost:3000/forms",
+                  "privateTableCount": 0,
+                  "privateCardCount": 0,
+                  "userCount": 0,
+                  "dialogCount": 1
+                },
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ]
+              }
+            },
+            {
+              "name": "alignment-final-navigation",
+              "observation": {
+                "simulated": true,
+                "code": "AUTH_TOKEN_EXPIRED",
+                "finish": "route",
+                "url": "http://localhost:3000/login?redirect=/",
+                "dialogCount": 0
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B11 external filter revokes pending automatic alignment Auth policy",
+          "result": "PASS",
+          "durationMs": 911,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-revoked",
+              "observation": {
+                "simulated": true,
+                "change": "filter",
+                "url": "http://localhost:3000/forms",
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10",
+                  "/api/v1/forms?page=1&pageSize=10&status=draft"
+                ],
+                "logout": 0,
+                "dialogCount": 0
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B11 external route revokes pending automatic alignment Auth policy",
+          "result": "PASS",
+          "durationMs": 786,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-revoked",
+              "observation": {
+                "simulated": true,
+                "change": "route",
+                "url": "http://localhost:3000/",
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ],
+                "logout": 0,
+                "dialogCount": 0
+              }
+            }
+          ]
+        },
+        {
+          "title": "F4-R1-B11 external session revokes pending automatic alignment Auth policy",
+          "result": "PASS",
+          "durationMs": 1008,
+          "retry": 0,
+          "attachments": [
+            {
+              "name": "alignment-revoked",
+              "observation": {
+                "simulated": true,
+                "change": "session",
+                "url": "http://localhost:3000/login",
+                "requests": [
+                  "/api/v1/forms?page=3&pageSize=10",
+                  "/api/v1/forms?page=2&pageSize=10"
+                ],
+                "logout": 1,
+                "dialogCount": 0
+              }
+            }
+          ]
+        }
+      ],
+      "rawResult": {
+        "path": "output/playwright/f4-r1-20261012/after-results.json",
+        "sha256": "24dbd8e9561e73063affd24ec3856a0bc6be051435452e9e9bfb95ebbf430c65"
+      },
+      "rawLog": {
+        "path": "output/playwright/f4-r1-20261012/after-browser.log",
+        "sha256": "25c91833c6254759798f541597bc62d85d1089b88f9f37775f5c0eb16720edd2"
+      }
+    }
+  ],
+  "rawArtifacts": [
+    {
+      "path": "output/playwright/f4-r1-20261012/after-artifacts/.last-run.json",
+      "sha256": "91d1c43004802cd49950d78eb11c8fa7d05da8ffffe219a8b13b2f561bc00903"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-artifacts/f4-browser-F4-R1-B10-align-154f4-ED-keeps-Dialog-until-route-chromium/alignment-auth-dialog.png",
+      "sha256": "aa978e9c5742f7110c4a554d08aeca7ac7a2e1b696bf4800b7aea93c0301e6bf"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-artifacts/f4-browser-F4-R1-B10-align-4851a-D-keeps-Dialog-until-footer-chromium/alignment-auth-dialog.png",
+      "sha256": "aa978e9c5742f7110c4a554d08aeca7ac7a2e1b696bf4800b7aea93c0301e6bf"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-artifacts/f4-browser-F4-R1-B10-align-93a4f-LID-keeps-Dialog-until-icon-chromium/alignment-auth-dialog.png",
+      "sha256": "10e76c9772fd6372d9c82273a463d7c7860f0d8fcabaef23af9ed977caaa7d20"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-browser.log",
+      "sha256": "25c91833c6254759798f541597bc62d85d1089b88f9f37775f5c0eb16720edd2"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-build.log",
+      "sha256": "b8b6e4c855fc1f830b3b204ea133927320ec8e9556abd9649c76a3585f7eebca"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/after-results.json",
+      "sha256": "24dbd8e9561e73063affd24ec3856a0bc6be051435452e9e9bfb95ebbf430c65"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-artifacts/.last-run.json",
+      "sha256": "48df009f5f069ee539623b9780edf8c8f6329e128207540ee7c873074060cef8"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-artifacts/f4-browser-F4-R1-B10-align-154f4-ED-keeps-Dialog-until-route-chromium/error-context.md",
+      "sha256": "d35b1891f7fbc27c0892c9bc71782260420ce62871d5fff1525f6f2411f31250"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-artifacts/f4-browser-F4-R1-B10-align-4851a-D-keeps-Dialog-until-footer-chromium/error-context.md",
+      "sha256": "5afdb72541d766b4632a8615eb85f74cf1084f9994a209637e48f1e35044a6c8"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-artifacts/f4-browser-F4-R1-B10-align-93a4f-LID-keeps-Dialog-until-icon-chromium/error-context.md",
+      "sha256": "6100afb0e01ead0650896430bd15a93c92db553c461c376fa4585cfe22696c93"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-browser.log",
+      "sha256": "96ad8048d97f26c317b594071a5b2ebcdcdf4966e44caf0886e8ddd8e3da610f"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-build.log",
+      "sha256": "2f8661f6de8d6355267f521ab089063f085156c992b870eda1e1eec5157f804e"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-results.json",
+      "sha256": "cc425c49c886fe2d6df488d10df7c7584090ae94ef384d0ebc41557ffa33891e"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/before-source.json",
+      "sha256": "a987d7f33d76725d8530014ba497b3779dfe461de1a25bd126ff9518302af51b"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/collect-evidence.mjs",
+      "sha256": "7ccd8e81ab69411aade180a3a853889db655abcb9492025a4311c6bac328965d"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/diff-check.log",
+      "sha256": "c4fa1fdec9faec71898a485c845b839d71a6f54962e07f12f0646adfbd22e2b4"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/lint.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/typecheck.log",
+      "sha256": "0f22cdfa862e906cf0a6253373fc0c49d273e98d64dfd0bbbbd78755c995b996"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/unit-final.log",
+      "sha256": "25ed108d292f478b9b70d749224b34a40c7afc236191f8042b9d2a3203f5007f"
+    },
+    {
+      "path": "output/playwright/f4-r1-20261012/unit.log",
+      "sha256": "797f23eecee0ac9de877ba86f50e7af53b09b207234bb8c335227d9d4209ba01"
+    }
+  ],
+  "integrity": {
+    "reviewerDocuments": {
+      "checked": 2,
+      "matched": 2,
+      "entries": [
+        {
+          "path": "docs/review/F4_Code_Review_Report_20261012.md",
+          "expected": "5773db4c6d441c41a38c2be4e34fb85d5c0801c5b6f77d5c819c4db07da84986",
+          "actual": "5773db4c6d441c41a38c2be4e34fb85d5c0801c5b6f77d5c819c4db07da84986"
+        },
+        {
+          "path": "docs/review/evidence/F4_Independent_Verification_20261012.json",
+          "expected": "15023a55dc48165a85ef5b89151175f3f03ef96a4d22b4166711046c7fadabed",
+          "actual": "15023a55dc48165a85ef5b89151175f3f03ef96a4d22b4166711046c7fadabed"
+        }
+      ]
+    },
+    "reviewerReproduction": {
+      "checked": 2,
+      "matched": 2,
+      "entries": [
+        {
+          "path": "output/playwright/f4-independent-review/alignment-auth-probe.mjs",
+          "expected": "c1f2ff3a9f88e21c22f4c174c7434cfcd4bde8facf3eaadce00898e158048f51",
+          "actual": "c1f2ff3a9f88e21c22f4c174c7434cfcd4bde8facf3eaadce00898e158048f51"
+        },
+        {
+          "path": "output/playwright/f4-independent-review/alignment-auth-probe.json",
+          "expected": "aba20eb9ebbf5761b19a09fa325e167042bba3216afb67b8e11a327b7b690650",
+          "actual": "aba20eb9ebbf5761b19a09fa325e167042bba3216afb67b8e11a327b7b690650"
+        }
+      ]
+    },
+    "originalRawIncludingFailures": {
+      "checked": 28,
+      "matched": 28,
+      "entries": [
+        {
+          "path": "output/playwright/f4/unit-initial.log",
+          "expected": "99154c5da01f655731e63688edd6d676fab68b0fbe44c790da4f8d8852acc0f6",
+          "actual": "99154c5da01f655731e63688edd6d676fab68b0fbe44c790da4f8d8852acc0f6"
+        },
+        {
+          "path": "output/playwright/f4/unit-authorized.log",
+          "expected": "41ac4b80ad2607b27ae9a5f28162960b606d02ca92dbcd0fa6f6d5393ac78e75",
+          "actual": "41ac4b80ad2607b27ae9a5f28162960b606d02ca92dbcd0fa6f6d5393ac78e75"
+        },
+        {
+          "path": "output/playwright/f4/lint-initial.log",
+          "expected": "8eb60b10e59a55cadbb90adc38b300139b26f21db37ece645d43428f45051bf1",
+          "actual": "8eb60b10e59a55cadbb90adc38b300139b26f21db37ece645d43428f45051bf1"
+        },
+        {
+          "path": "output/playwright/f4/lint-final.log",
+          "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+          "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+        },
+        {
+          "path": "output/playwright/f4/typecheck-final.log",
+          "expected": "f0030168a873f0aefbaf26fb83a18b576a205099342117b8a19f923506487856",
+          "actual": "f0030168a873f0aefbaf26fb83a18b576a205099342117b8a19f923506487856"
+        },
+        {
+          "path": "output/playwright/f4/fixture-typecheck-initial.log",
+          "expected": "c297c85b17e1f8b243ede9d1a1d8444416df89c32e5662a1b91ea2d79b3bee27",
+          "actual": "c297c85b17e1f8b243ede9d1a1d8444416df89c32e5662a1b91ea2d79b3bee27"
+        },
+        {
+          "path": "output/playwright/f4/fixture-typecheck.log",
+          "expected": "66598f24ee96d5c96b5da6749ff5a40e1b0eac5af49766ee840d30833bdd48cd",
+          "actual": "66598f24ee96d5c96b5da6749ff5a40e1b0eac5af49766ee840d30833bdd48cd"
+        },
+        {
+          "path": "output/playwright/f4/build.log",
+          "expected": "30d11a9f61f0f548cc54c77a13872cd12b414ee82655fb30480b242a0cb57183",
+          "actual": "30d11a9f61f0f548cc54c77a13872cd12b414ee82655fb30480b242a0cb57183"
+        },
+        {
+          "path": "output/playwright/f4/unit-regression.log",
+          "expected": "fc5660b217d69166de406372a34a8427fe667cc3d304994f1d3397ea0407dd52",
+          "actual": "fc5660b217d69166de406372a34a8427fe667cc3d304994f1d3397ea0407dd52"
+        },
+        {
+          "path": "output/playwright/f4/fixture-initial.log",
+          "expected": "3bd1e20622a8cf9871e40ed8cc3443e2f55ca327a8b0dd90cdd9f7aba07c23f1",
+          "actual": "3bd1e20622a8cf9871e40ed8cc3443e2f55ca327a8b0dd90cdd9f7aba07c23f1"
+        },
+        {
+          "path": "output/playwright/f4/fixture-correction.log",
+          "expected": "470a4c1ad0f36a7bebf29ee87338ea716d01f9df1adf0b5b2412bcee6b09c7d4",
+          "actual": "470a4c1ad0f36a7bebf29ee87338ea716d01f9df1adf0b5b2412bcee6b09c7d4"
+        },
+        {
+          "path": "output/playwright/f4/dialog-correction.log",
+          "expected": "a4cb0fb2c79d7c52bc4752eeac974920b529151dce81c2a3f5664261ee64e25e",
+          "actual": "a4cb0fb2c79d7c52bc4752eeac974920b529151dce81c2a3f5664261ee64e25e"
+        },
+        {
+          "path": "output/playwright/f4/built.log",
+          "expected": "a5799b9a0396e6aaa77c594b881d9c4876fddbcf97753091be13bc39a4a57d65",
+          "actual": "a5799b9a0396e6aaa77c594b881d9c4876fddbcf97753091be13bc39a4a57d65"
+        },
+        {
+          "path": "output/playwright/f4/built-visual.log",
+          "expected": "c79b46e1b46dc7356c524fa2ae27825cd4f420d04a2f523cc4c4ca78ae843c86",
+          "actual": "c79b46e1b46dc7356c524fa2ae27825cd4f420d04a2f523cc4c4ca78ae843c86"
+        },
+        {
+          "path": "output/playwright/f4/built-alignment.log",
+          "expected": "3d4266eb4c02ac9f5bd2e82939ba46b5f6e3bb4b2050d6b7df2bd757a371d05d",
+          "actual": "3d4266eb4c02ac9f5bd2e82939ba46b5f6e3bb4b2050d6b7df2bd757a371d05d"
+        },
+        {
+          "path": "output/playwright/f4/live-initial.log",
+          "expected": "eee694fd30c3adfc5ce2dd1586dc5174647a9223f3efdf50e1b7ff3f3a5faaca",
+          "actual": "eee694fd30c3adfc5ce2dd1586dc5174647a9223f3efdf50e1b7ff3f3a5faaca"
+        },
+        {
+          "path": "output/playwright/f4/installed-versions.json",
+          "expected": "6e8cdf451a9ded10fef98705916c93a5cda221b78430864e741d8b5fd46ae562",
+          "actual": "6e8cdf451a9ded10fef98705916c93a5cda221b78430864e741d8b5fd46ae562"
+        },
+        {
+          "path": "output/playwright/f4/fixture-initial-results.json",
+          "expected": "c3a40f1005b3c5718171806f3230aa116e6fdddb1e0c17a5acc3c516bfb6735d",
+          "actual": "c3a40f1005b3c5718171806f3230aa116e6fdddb1e0c17a5acc3c516bfb6735d"
+        },
+        {
+          "path": "output/playwright/f4/fixture-correction-results.json",
+          "expected": "c82dba2e02ab91473ffdb6973ba5688bca521a16b1a2b3493bfaebbfec708ea7",
+          "actual": "c82dba2e02ab91473ffdb6973ba5688bca521a16b1a2b3493bfaebbfec708ea7"
+        },
+        {
+          "path": "output/playwright/f4/fixture-results.json",
+          "expected": "96ca629f82cba37bce7eac8b90018d44d7781f8abc0a7e8e8544055c1d86405d",
+          "actual": "96ca629f82cba37bce7eac8b90018d44d7781f8abc0a7e8e8544055c1d86405d"
+        },
+        {
+          "path": "output/playwright/f4/built-primary-results.json",
+          "expected": "6f457472f7d1c5c94910ebc968d9caaa1fd0f7d48180397c14e4189003eb3d60",
+          "actual": "6f457472f7d1c5c94910ebc968d9caaa1fd0f7d48180397c14e4189003eb3d60"
+        },
+        {
+          "path": "output/playwright/f4/built-visual-results.json",
+          "expected": "d4d5c9efed92807a89eed0f3c4ec274127d76e8e9e4f40257e63f65865860126",
+          "actual": "d4d5c9efed92807a89eed0f3c4ec274127d76e8e9e4f40257e63f65865860126"
+        },
+        {
+          "path": "output/playwright/f4/built-results.json",
+          "expected": "ae45f9fc7cec7807525d32be9cd227456f0aafccdea8f359538e30861c3f7b2a",
+          "actual": "ae45f9fc7cec7807525d32be9cd227456f0aafccdea8f359538e30861c3f7b2a"
+        },
+        {
+          "path": "output/playwright/f4/live-results.json",
+          "expected": "ecec3e81dcccea3fa3d54c2c38ae4b2211f955eafab653837ba114c3890a8449",
+          "actual": "ecec3e81dcccea3fa3d54c2c38ae4b2211f955eafab653837ba114c3890a8449"
+        },
+        {
+          "path": "output/playwright/f4/live-sanitized.json",
+          "expected": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89",
+          "actual": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89"
+        },
+        {
+          "path": "output/playwright/f4/metadata-final.json",
+          "expected": "dd8e54e2f51774f033ff2fc048cc6b1ddbdff5be0069abb4d0ccd1523d2f7a52",
+          "actual": "dd8e54e2f51774f033ff2fc048cc6b1ddbdff5be0069abb4d0ccd1523d2f7a52"
+        },
+        {
+          "path": "output/playwright/f4/chromium-version.json",
+          "expected": "5ce61a13d9d7309b426cfb0abe36cdc1ae13d8ac7a5a4c0aa1a42e3d891811a5",
+          "actual": "5ce61a13d9d7309b426cfb0abe36cdc1ae13d8ac7a5a4c0aa1a42e3d891811a5"
+        },
+        {
+          "path": "output/playwright/f4/build-primary.log",
+          "expected": "0964aa5c08ec72ac65f93cfef42a9e2a2ead0dd4f4bc288c215bc119db916af4",
+          "actual": "0964aa5c08ec72ac65f93cfef42a9e2a2ead0dd4f4bc288c215bc119db916af4"
+        }
+      ]
+    },
+    "priorF2F3Evidence": {
+      "checked": 5,
+      "matched": 5,
+      "entries": [
+        {
+          "path": "docs/review/F3_Correction_ReReview_Report_20261012.md",
+          "expected": "cd19cea27b81e1eb4b0517d99353aa10d439dc5706112a56dd75b509fab43e38",
+          "actual": "cd19cea27b81e1eb4b0517d99353aa10d439dc5706112a56dd75b509fab43e38"
+        },
+        {
+          "path": "docs/review/evidence/F3_Correction_Independent_Verification_20261012.json",
+          "expected": "ffa3a90cb34259f4ca39b77af266392e1d59e1db3a1bc14f04bb31157532693e",
+          "actual": "ffa3a90cb34259f4ca39b77af266392e1d59e1db3a1bc14f04bb31157532693e"
+        },
+        {
+          "path": "docs/test-results/F2_Supplemental_Test_Report.md",
+          "expected": "7e2b1ef1d2a35f0bc76e4224dbec70a2656e231471927971819e2d18257ddc40",
+          "actual": "7e2b1ef1d2a35f0bc76e4224dbec70a2656e231471927971819e2d18257ddc40"
+        },
+        {
+          "path": "docs/test-results/evidence/F2_Supplemental_20261012/verification-summary.json",
+          "expected": "d2a9bc4fd5a44e21391b3360d409a63a717596e3287c35330dde8646226f21d4",
+          "actual": "d2a9bc4fd5a44e21391b3360d409a63a717596e3287c35330dde8646226f21d4"
+        },
+        {
+          "path": "docs/test-results/evidence/F3_20261012/verification-summary.json",
+          "expected": "52599b6d815cf507f1ea174e9b41f65f00ac73f111f6ed0f15bf590cf65e833a",
+          "actual": "52599b6d815cf507f1ea174e9b41f65f00ac73f111f6ed0f15bf590cf65e833a"
+        }
+      ]
+    },
+    "originalDeliveredEvidence": {
+      "checked": 4,
+      "matched": 4,
+      "entries": [
+        {
+          "path": "docs/test-results/evidence/F4_20261012/list-desktop.png",
+          "expected": "6df75306e6c927046b91da1fa9ce6bc4360c2112862550e3506f845000cb997c",
+          "actual": "6df75306e6c927046b91da1fa9ce6bc4360c2112862550e3506f845000cb997c"
+        },
+        {
+          "path": "docs/test-results/evidence/F4_20261012/list-mobile.png",
+          "expected": "d8b9ab1717bfe97b067edca06bb0f5895a0826355c3dd2085323ba89423e0eb6",
+          "actual": "d8b9ab1717bfe97b067edca06bb0f5895a0826355c3dd2085323ba89423e0eb6"
+        },
+        {
+          "path": "docs/test-results/evidence/F4_20261012/root-mobile.png",
+          "expected": "ac7a79c001c307dabb58c0a4cb1da76273875683c35ba9f895eeb820f8ed678c",
+          "actual": "ac7a79c001c307dabb58c0a4cb1da76273875683c35ba9f895eeb820f8ed678c"
+        },
+        {
+          "path": "docs/test-results/evidence/F4_20261012/live-sanitized.json",
+          "expected": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89",
+          "actual": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89"
+        }
+      ]
+    },
+    "unchangedProductAndTestSources": {
+      "checked": 26,
+      "matched": 26,
+      "entries": [
+        {
+          "path": "app/services/form.ts",
+          "expected": "5e378c0afb10711f346d34b26f9b75966d778fa1cea7eaf1befb341b4a39ab9d",
+          "actual": "5e378c0afb10711f346d34b26f9b75966d778fa1cea7eaf1befb341b4a39ab9d"
+        },
+        {
+          "path": "app/composables/useFormRead.ts",
+          "expected": "b14dc760a61131aecd8dbe5d95b208f1a9e7d9be65c3f81ad6bad59602b7f2c7",
+          "actual": "b14dc760a61131aecd8dbe5d95b208f1a9e7d9be65c3f81ad6bad59602b7f2c7"
+        },
+        {
+          "path": "app/composables/useFormDetail.ts",
+          "expected": "68d4ac2cdc00bd0641c651e3e6ef348b91ec3748ef14d16753bd93301d7b543f",
+          "actual": "68d4ac2cdc00bd0641c651e3e6ef348b91ec3748ef14d16753bd93301d7b543f"
+        },
+        {
+          "path": "app/components/forms/FormsList.vue",
+          "expected": "5770545f2b6d171983a4999356279f626e5453ddd5b47ed064832a349e29c6a8",
+          "actual": "5770545f2b6d171983a4999356279f626e5453ddd5b47ed064832a349e29c6a8"
+        },
+        {
+          "path": "app/components/forms/FormRootInfo.vue",
+          "expected": "9eb7ac45b062a1ba5eaf3d0d1256d2f8415e575f33b56f3605a3296ed83bfad9",
+          "actual": "9eb7ac45b062a1ba5eaf3d0d1256d2f8415e575f33b56f3605a3296ed83bfad9"
+        },
+        {
+          "path": "app/components/forms/FormReadPage.vue",
+          "expected": "fe1de45b416e7c81d355cfd2d691b4742272369652dade641bc1a43c46e52b0c",
+          "actual": "fe1de45b416e7c81d355cfd2d691b4742272369652dade641bc1a43c46e52b0c"
+        },
+        {
+          "path": "app/pages/forms/index.vue",
+          "expected": "c8ffa2588f2025e31e632b0747b0af23435e5c7cf831977fed8b047405a10ffc",
+          "actual": "c8ffa2588f2025e31e632b0747b0af23435e5c7cf831977fed8b047405a10ffc"
+        },
+        {
+          "path": "app/pages/forms/[formId]/index.vue",
+          "expected": "b60c449b372207bf6c9c65353bc3cfca14d620bed4a9d7dcca34962cb7f10665",
+          "actual": "b60c449b372207bf6c9c65353bc3cfca14d620bed4a9d7dcca34962cb7f10665"
+        },
+        {
+          "path": "app/pages/forms/[formId]/edit.vue",
+          "expected": "8b62f473dba6a08ece827eaa7c6d07003088e7db1cd09fc776e73cfa6c153bc5",
+          "actual": "8b62f473dba6a08ece827eaa7c6d07003088e7db1cd09fc776e73cfa6c153bc5"
+        },
+        {
+          "path": "tests/e2e/f4-live.spec.ts",
+          "expected": "ff99c6580c26bc21fcfe5979a919bf6a8d46adc619e3e84103cea3eaa44a5407",
+          "actual": "ff99c6580c26bc21fcfe5979a919bf6a8d46adc619e3e84103cea3eaa44a5407"
+        },
+        {
+          "path": "tests/fixtures/f4/payloads.ts",
+          "expected": "f928e706d199e58066f066efa6f75fb9cc96d036f14622638dab5081fc82ffe4",
+          "actual": "f928e706d199e58066f066efa6f75fb9cc96d036f14622638dab5081fc82ffe4"
+        },
+        {
+          "path": "tests/fixtures/f4/browser/nuxt.config.ts",
+          "expected": "d3a6baa26237f40c99d2bf5417ad894f4b1fc507b1f23237dc18b3d6a1863926",
+          "actual": "d3a6baa26237f40c99d2bf5417ad894f4b1fc507b1f23237dc18b3d6a1863926"
+        },
+        {
+          "path": "tests/fixtures/f4/browser/session.vue",
+          "expected": "2a1e8110b67c76bb2bd0638a1a393ae3be6a7d37c01f26cb7784d3ff893da2fd",
+          "actual": "2a1e8110b67c76bb2bd0638a1a393ae3be6a7d37c01f26cb7784d3ff893da2fd"
+        },
+        {
+          "path": "tests/fixtures/f4/browser/tsconfig.json",
+          "expected": "13f1e7368bfe677a8e3d0bb08a7a3b8889ed0ee3d288246bbd7efaeb74aacc10",
+          "actual": "13f1e7368bfe677a8e3d0bb08a7a3b8889ed0ee3d288246bbd7efaeb74aacc10"
+        },
+        {
+          "path": "playwright.f4.config.ts",
+          "expected": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67",
+          "actual": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67"
+        },
+        {
+          "path": "app/services/api-client.ts",
+          "expected": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65",
+          "actual": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65"
+        },
+        {
+          "path": "app/domain/api/decoders.ts",
+          "expected": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c",
+          "actual": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c"
+        },
+        {
+          "path": "app/domain/request-scope.ts",
+          "expected": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c",
+          "actual": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c"
+        },
+        {
+          "path": "app/domain/auth-state.ts",
+          "expected": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c",
+          "actual": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c"
+        },
+        {
+          "path": "app/composables/useRequestScope.ts",
+          "expected": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db",
+          "actual": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db"
+        },
+        {
+          "path": "app/composables/useDialogFocus.ts",
+          "expected": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4",
+          "actual": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4"
+        },
+        {
+          "path": "app/utils/datetime.ts",
+          "expected": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c",
+          "actual": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c"
+        },
+        {
+          "path": "package.json",
+          "expected": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25",
+          "actual": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25"
+        },
+        {
+          "path": "package-lock.json",
+          "expected": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+          "actual": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+        },
+        {
+          "path": "AGENTS.md",
+          "expected": "2f0984a56d6330c078a52c34885dc106eb5a7b31bd396ee7ec04f0649702a35d",
+          "actual": "2f0984a56d6330c078a52c34885dc106eb5a7b31bd396ee7ec04f0649702a35d"
+        },
+        {
+          "path": ".agents/skills/v1-frontend-round-development/SKILL.md",
+          "expected": "864b2f2d03b94e11f53e4f92ed541680e78891dcad5c382cf6f96844d9ab6418",
+          "actual": "864b2f2d03b94e11f53e4f92ed541680e78891dcad5c382cf6f96844d9ab6418"
+        }
+      ]
+    },
+    "backendManifest": {
+      "checked": 108,
+      "matched": 108,
+      "entries": [
+        {
+          "path": "backend-ref/.env.example",
+          "expected": "7fd5a8c03048b962db81cd7461fc56e4c7ae558bd1f1f345321af3434d6ee50a",
+          "actual": "7fd5a8c03048b962db81cd7461fc56e4c7ae558bd1f1f345321af3434d6ee50a"
+        },
+        {
+          "path": "backend-ref/.gitignore",
+          "expected": "6aa7efd10031401107668b4157e5994c1919ea7705ac1cc0cffa92acc02cd9a2",
+          "actual": "6aa7efd10031401107668b4157e5994c1919ea7705ac1cc0cffa92acc02cd9a2"
+        },
+        {
+          "path": "backend-ref/compose.yaml",
+          "expected": "550c501cfd1f5a5a1825f4373a8035df7516f1338a98e6340925df391f917962",
+          "actual": "550c501cfd1f5a5a1825f4373a8035df7516f1338a98e6340925df391f917962"
+        },
+        {
+          "path": "backend-ref/CustomFormService.sln",
+          "expected": "ab4c9c5e8cae2f331964d5609170e94ae32a918ec938e758473ab5584cfed447",
+          "actual": "ab4c9c5e8cae2f331964d5609170e94ae32a918ec938e758473ab5584cfed447"
+        },
+        {
+          "path": "backend-ref/docs/configuration/environment-configuration.md",
+          "expected": "2c337340ebfe879d87c2985bb819c387c60f4c679ca4d0bd48c2a37e8879cf10",
+          "actual": "2c337340ebfe879d87c2985bb819c387c60f4c679ca4d0bd48c2a37e8879cf10"
+        },
+        {
+          "path": "backend-ref/docs/implementation/R11_Acceptance_Execution_Report.md",
+          "expected": "368c459f4fa74c3423426a26e67167eeafb51a40c99ca3102846b067717bb633",
+          "actual": "368c459f4fa74c3423426a26e67167eeafb51a40c99ca3102846b067717bb633"
+        },
+        {
+          "path": "backend-ref/docs/implementation/R11_Coverage_Index.md",
+          "expected": "0c0ebbde05c08f7733ae5957a81e080bec31be6fac7af1bc6b6ce4bb12039600",
+          "actual": "0c0ebbde05c08f7733ae5957a81e080bec31be6fac7af1bc6b6ce4bb12039600"
+        },
+        {
+          "path": "backend-ref/docs/implementation/R11_Historical_Status.md",
+          "expected": "19d7be20c7e7414f1f8b65c7dec758f5f48be9fb64f53d0cd55c0968f3e67043",
+          "actual": "19d7be20c7e7414f1f8b65c7dec758f5f48be9fb64f53d0cd55c0968f3e67043"
+        },
+        {
+          "path": "backend-ref/docs/specs/00-v1-overview.md",
+          "expected": "d6bff54a6fdfd7f2be1a5145d7b564940d30b31920f7fe59b518156f76116c11",
+          "actual": "d6bff54a6fdfd7f2be1a5145d7b564940d30b31920f7fe59b518156f76116c11"
+        },
+        {
+          "path": "backend-ref/docs/specs/01-v1-domain-specification.md",
+          "expected": "3f1a836fd3133a111e684f18a836b7b43fed2479a0585f46c460d97af84ca594",
+          "actual": "3f1a836fd3133a111e684f18a836b7b43fed2479a0585f46c460d97af84ca594"
+        },
+        {
+          "path": "backend-ref/docs/specs/02-v1-database-specification.md",
+          "expected": "90079ad3e4d7a41882a3bc2b99859ab72e71892e523d0956bbcf86b551f8a257",
+          "actual": "90079ad3e4d7a41882a3bc2b99859ab72e71892e523d0956bbcf86b551f8a257"
+        },
+        {
+          "path": "backend-ref/docs/specs/03a-v1-api-contract-common.md",
+          "expected": "1abb28c69af5fe505660db06cc6aa12224c6e20fe0948b440ca6dccda515fa9b",
+          "actual": "1abb28c69af5fe505660db06cc6aa12224c6e20fe0948b440ca6dccda515fa9b"
+        },
+        {
+          "path": "backend-ref/docs/specs/03b-v1-api-contract-auth-user-form.md",
+          "expected": "3e6feeed460d3aa27fe9a3d3187d6551a56c426669c0852f9b8e3ef6e30c89fc",
+          "actual": "3e6feeed460d3aa27fe9a3d3187d6551a56c426669c0852f9b8e3ef6e30c89fc"
+        },
+        {
+          "path": "backend-ref/docs/specs/03c-v1-api-contract-submission-statistics.md",
+          "expected": "e7ca4f2d2b85533f8453f9e07a60c276319b22ce76ce9fb736211c677ffcf7f0",
+          "actual": "e7ca4f2d2b85533f8453f9e07a60c276319b22ce76ce9fb736211c677ffcf7f0"
+        },
+        {
+          "path": "backend-ref/docs/specs/04-v1-error-catalog.md",
+          "expected": "c855ee35bb44572ec9eb3bfc68639bffa3ab8effcd951b7962d7a2ae2843c28e",
+          "actual": "c855ee35bb44572ec9eb3bfc68639bffa3ab8effcd951b7962d7a2ae2843c28e"
+        },
+        {
+          "path": "backend-ref/docs/specs/05-v1-system-constraints.md",
+          "expected": "1308c26dcb876d12bca494aa78d3e1a91e218ee2b26d1bb58b7b04daf979b50a",
+          "actual": "1308c26dcb876d12bca494aa78d3e1a91e218ee2b26d1bb58b7b04daf979b50a"
+        },
+        {
+          "path": "backend-ref/docs/test-plan/R11_Acceptance_Test.md",
+          "expected": "de7049b661081a9a3dd4988d3f8b3d0c0bcf3294a96d5316f476adb28cdf471d",
+          "actual": "de7049b661081a9a3dd4988d3f8b3d0c0bcf3294a96d5316f476adb28cdf471d"
+        },
+        {
+          "path": "backend-ref/docs/test-plan/R11_Manual_Tests.http",
+          "expected": "a1b7ee4db18850bd408e7546a4b4f13f563b10c23533813be34253a2aabbba38",
+          "actual": "a1b7ee4db18850bd408e7546a4b4f13f563b10c23533813be34253a2aabbba38"
+        },
+        {
+          "path": "backend-ref/dotnet-tools.json",
+          "expected": "8e2bff3a35e325e405d4dd50c1a008311dcb85b47f8565b95dc86ac4fa7c97d7",
+          "actual": "8e2bff3a35e325e405d4dd50c1a008311dcb85b47f8565b95dc86ac4fa7c97d7"
+        },
+        {
+          "path": "backend-ref/global.json",
+          "expected": "78af992e2cb5a7ea320e46bb9e5be30eab35823c4053c4b1b1905b9d2fef8c2a",
+          "actual": "78af992e2cb5a7ea320e46bb9e5be30eab35823c4053c4b1b1905b9d2fef8c2a"
+        },
+        {
+          "path": "backend-ref/README.md",
+          "expected": "c6b3df920d0fb2db5acf4d8b740dfdfb7a80f2225be16900f30b45525709f65f",
+          "actual": "c6b3df920d0fb2db5acf4d8b740dfdfb7a80f2225be16900f30b45525709f65f"
+        },
+        {
+          "path": "backend-ref/SNAPSHOT.md",
+          "expected": "fdaca01815fb66fdbe3b4b160175e206ec22bb67286d035a37deb3652fc87b51",
+          "actual": "fdaca01815fb66fdbe3b4b160175e206ec22bb67286d035a37deb3652fc87b51"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/appsettings.Development.json",
+          "expected": "5fb2acfa86aca478940ec61fd92639a30be0188d0a93c4f3fd505dc02f169bad",
+          "actual": "5fb2acfa86aca478940ec61fd92639a30be0188d0a93c4f3fd505dc02f169bad"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/appsettings.json",
+          "expected": "cfe4443b01a88ddb9215ed9fd40942b9d7488b6e6f61d2bf04ecd24f8ec68702",
+          "actual": "cfe4443b01a88ddb9215ed9fd40942b9d7488b6e6f61d2bf04ecd24f8ec68702"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/appsettings.Production.json",
+          "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/appsettings.Staging.json",
+          "expected": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356",
+          "actual": "ca3d163bab055381827226140568f3bef7eaac187cebd76878e0b63e9e442356"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/AccessTokenCookie.cs",
+          "expected": "22bdd4e7f8df1372e18423db1dc8dc5fc6f2700539c675e727e1374d0da70310",
+          "actual": "22bdd4e7f8df1372e18423db1dc8dc5fc6f2700539c675e727e1374d0da70310"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/AccessTokenCookieOptions.cs",
+          "expected": "44f1c4669cb5a2830490d53784040918b2de5b642be7e30b8ec221d5057f91d6",
+          "actual": "44f1c4669cb5a2830490d53784040918b2de5b642be7e30b8ec221d5057f91d6"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/AppCorsOptions.cs",
+          "expected": "1ace454b2b8218672ca688eb3f2d3ea8ac0824b8b06425798bda671b7876b501",
+          "actual": "1ace454b2b8218672ca688eb3f2d3ea8ac0824b8b06425798bda671b7876b501"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/AuthenticationServiceCollectionExtensions.cs",
+          "expected": "c46f694ac1fefdd58aa9ac5ef5c27d6b58fa486aa02efd638a85b1c0100536d0",
+          "actual": "c46f694ac1fefdd58aa9ac5ef5c27d6b58fa486aa02efd638a85b1c0100536d0"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/CurrentUserContext.cs",
+          "expected": "84e507d17843b212fd4bf5e49453f4ebe18ecd4f48741df55c8421fd8528a8fb",
+          "actual": "84e507d17843b212fd4bf5e49453f4ebe18ecd4f48741df55c8421fd8528a8fb"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/JwtOptions.cs",
+          "expected": "b913d09165c0575cf798af44e7fe3559bf26e9d16503c23c97fa4e044828620f",
+          "actual": "b913d09165c0575cf798af44e7fe3559bf26e9d16503c23c97fa4e044828620f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/JwtTokenService.cs",
+          "expected": "bf1ac505b4c2a6d0c54a8dd2022278c6c62c0db8a907ab2d39f246b55897594d",
+          "actual": "bf1ac505b4c2a6d0c54a8dd2022278c6c62c0db8a907ab2d39f246b55897594d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/PasswordCredentialService.cs",
+          "expected": "1717fc51d907f1a38a803bb187b0597c6041c137f40a78a91bf61e66702f8d5d",
+          "actual": "1717fc51d907f1a38a803bb187b0597c6041c137f40a78a91bf61e66702f8d5d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/StatisticsCredentialResolver.cs",
+          "expected": "43b81f578bff16b5950dfa07b7492ed6376dac1fbf783f23270b4f31a31b2c17",
+          "actual": "43b81f578bff16b5950dfa07b7492ed6376dac1fbf783f23270b4f31a31b2c17"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Authentication/V1Cors.cs",
+          "expected": "423cc9fa3fd6013d3b238f9aaf80b14424b3e30e09b3a268f1588116e7e81ea8",
+          "actual": "423cc9fa3fd6013d3b238f9aaf80b14424b3e30e09b3a268f1588116e7e81ea8"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Errors/ApiErrorModels.cs",
+          "expected": "ada9106e9d737af8b8755bd98cecc8f2886404559402811cb513b77ddeee2ee5",
+          "actual": "ada9106e9d737af8b8755bd98cecc8f2886404559402811cb513b77ddeee2ee5"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Errors/ApiErrors.cs",
+          "expected": "9931da7fa239d22c9a76e902a879dcfb646a975b305d7282df26452e955085d1",
+          "actual": "9931da7fa239d22c9a76e902a879dcfb646a975b305d7282df26452e955085d1"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Forms/FormResponses.cs",
+          "expected": "630cb89e26a0b772ddf2d745b3b80a423497d2e01e3296d51495fed23092604f",
+          "actual": "630cb89e26a0b772ddf2d745b3b80a423497d2e01e3296d51495fed23092604f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Responses/RespondentCountResponse.cs",
+          "expected": "85ec73ae98fc2093a940d3f5e3b36efb097b0834ccd87c8f0e40b18541738053",
+          "actual": "85ec73ae98fc2093a940d3f5e3b36efb097b0834ccd87c8f0e40b18541738053"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Responses/ResponseReceipt.cs",
+          "expected": "d07873e79d677f2dd42e7373cbb6bdc8bbb8931d19436f331427a322ab2dcdfb",
+          "actual": "d07873e79d677f2dd42e7373cbb6bdc8bbb8931d19436f331427a322ab2dcdfb"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Statistics/StatisticsResponse.cs",
+          "expected": "f073308a820a808881ddbc9fb6f1c961904dcfff32af73761a8275dff091cbb9",
+          "actual": "f073308a820a808881ddbc9fb6f1c961904dcfff32af73761a8275dff091cbb9"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Contracts/Users/UserResponse.cs",
+          "expected": "80cdedb4213f79d152a83930029d358c389960fa4ba2583af16ce572e2114d0c",
+          "actual": "80cdedb4213f79d152a83930029d358c389960fa4ba2583af16ce572e2114d0c"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/AuthController.cs",
+          "expected": "e1bf09ba03ec0afeddc6c190abd6b11e154c6dddc042f02a7b2a617e8ceb8736",
+          "actual": "e1bf09ba03ec0afeddc6c190abd6b11e154c6dddc042f02a7b2a617e8ceb8736"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/FormsController.cs",
+          "expected": "ff802b8ab24fd03be0d47f8a1861a561558e367b2141da203859dc0515eabb22",
+          "actual": "ff802b8ab24fd03be0d47f8a1861a561558e367b2141da203859dc0515eabb22"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/HealthController.cs",
+          "expected": "6780fd6f108ede51eb6e17c89f7918105800074765cffbc226a5f7bbe64444a6",
+          "actual": "6780fd6f108ede51eb6e17c89f7918105800074765cffbc226a5f7bbe64444a6"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/ResponsesController.cs",
+          "expected": "bf2639eb305f43fbe2f450a0e7cff2950a1cd617d3f068a46e553a50af7d9352",
+          "actual": "bf2639eb305f43fbe2f450a0e7cff2950a1cd617d3f068a46e553a50af7d9352"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/StatisticsController.cs",
+          "expected": "f236d72455579557a044318b6ff7d2a2b139f63002951ff33959cb123ee62f2d",
+          "actual": "f236d72455579557a044318b6ff7d2a2b139f63002951ff33959cb123ee62f2d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Controllers/UsersController.cs",
+          "expected": "52de99c7a0481d807eb3b8a81a77bf9dbde2c32d7a8df26deda567d7b6723701",
+          "actual": "52de99c7a0481d807eb3b8a81a77bf9dbde2c32d7a8df26deda567d7b6723701"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/CustomFormService.Api.csproj",
+          "expected": "845c469e4b9454ca156f4568f82b2b8c9de08863919af0dbeae064a7ccb6ce76",
+          "actual": "845c469e4b9454ca156f4568f82b2b8c9de08863919af0dbeae064a7ccb6ce76"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/CustomFormService.Api.http",
+          "expected": "5b05ca682148f1f870ebfa0acae466e5311694a55be0b7539c94ac017c6581c4",
+          "actual": "5b05ca682148f1f870ebfa0acae466e5311694a55be0b7539c94ac017c6581c4"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/Answer.cs",
+          "expected": "be0f863caa4334476506a95b8296673475e9afbe9a78f4b7d514862e405ccbe2",
+          "actual": "be0f863caa4334476506a95b8296673475e9afbe9a78f4b7d514862e405ccbe2"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/Form.cs",
+          "expected": "c696d07692ed2465fd89a8cb5dead70bd36486cca47a4eb257aad3eb0d407d65",
+          "actual": "c696d07692ed2465fd89a8cb5dead70bd36486cca47a4eb257aad3eb0d407d65"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/Option.cs",
+          "expected": "388c19e7f44d8c50ddbebebb5c6ca294209dce0c562f0e794e91798fbfc899c9",
+          "actual": "388c19e7f44d8c50ddbebebb5c6ca294209dce0c562f0e794e91798fbfc899c9"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/Question.cs",
+          "expected": "a089e24933ff8153baa9f28f6e846c8378704851bc62134158c65f2a828b4020",
+          "actual": "a089e24933ff8153baa9f28f6e846c8378704851bc62134158c65f2a828b4020"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/Response.cs",
+          "expected": "3cf1b3f3131b07d44a106dade261e0baf79d2538bee9f9b67b79f6f9a775793a",
+          "actual": "3cf1b3f3131b07d44a106dade261e0baf79d2538bee9f9b67b79f6f9a775793a"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/User.cs",
+          "expected": "fa5a790016f9c91b60c0589ce04dff488e58dde400388587111d0608bf36333f",
+          "actual": "fa5a790016f9c91b60c0589ce04dff488e58dde400388587111d0608bf36333f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Entities/UserIdentity.cs",
+          "expected": "cc77cffc5cca464b5b5ce726a82fecb67273f1ebf9ffeda948c2256c59aa256b",
+          "actual": "cc77cffc5cca464b5b5ce726a82fecb67273f1ebf9ffeda948c2256c59aa256b"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Domain/Enums/V1Enums.cs",
+          "expected": "576cab5cec755b21887b2d63f5da86211829d2ee85e93e7464cfdaa328551f00",
+          "actual": "576cab5cec755b21887b2d63f5da86211829d2ee85e93e7464cfdaa328551f00"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/ApplicationDbContext.cs",
+          "expected": "6c62dd97066c917896743d97c8cb4f913d3c3caa41f2cc972f75451b0e7f18a7",
+          "actual": "6c62dd97066c917896743d97c8cb4f913d3c3caa41f2cc972f75451b0e7f18a7"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/AnswerConfiguration.cs",
+          "expected": "e3ae4cd14a47cc0ac37c2bf76bb85b6e20c65246335658a5d30ef90ffead286f",
+          "actual": "e3ae4cd14a47cc0ac37c2bf76bb85b6e20c65246335658a5d30ef90ffead286f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/FormConfiguration.cs",
+          "expected": "3ef101ab471bdeef3439ae881d723fa378ddc024d72919877485ccdbce492c8f",
+          "actual": "3ef101ab471bdeef3439ae881d723fa378ddc024d72919877485ccdbce492c8f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/OptionConfiguration.cs",
+          "expected": "bd3889212bf60bda8bd643fa187bb88372c19fcb4b480b8126d8166a3d398400",
+          "actual": "bd3889212bf60bda8bd643fa187bb88372c19fcb4b480b8126d8166a3d398400"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/QuestionConfiguration.cs",
+          "expected": "9ad5fbcaa37dd59009036f528a9aac8e251fe2cab138c8505053493f7394f0b8",
+          "actual": "9ad5fbcaa37dd59009036f528a9aac8e251fe2cab138c8505053493f7394f0b8"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/ResponseConfiguration.cs",
+          "expected": "31a010dd4cb1fe9406f33b68e81025ddc6e89366a7f8e654f06df42a87153b9c",
+          "actual": "31a010dd4cb1fe9406f33b68e81025ddc6e89366a7f8e654f06df42a87153b9c"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserConfiguration.cs",
+          "expected": "64991043945f2c2a21a46c641a677807fdb7aafda615b79690d124cbb2680e6c",
+          "actual": "64991043945f2c2a21a46c641a677807fdb7aafda615b79690d124cbb2680e6c"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserIdentityConfiguration.cs",
+          "expected": "ed4f80ead0ef6040a1d50f1322db98b8a6f705ab38a54824e7b4f8f35d259449",
+          "actual": "ed4f80ead0ef6040a1d50f1322db98b8a6f705ab38a54824e7b4f8f35d259449"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/DraftDefinitionWriter.cs",
+          "expected": "b8e412e0eef820b32484a873e16fb2028daf5f092edc2958abcde70f9911864f",
+          "actual": "b8e412e0eef820b32484a873e16fb2028daf5f092edc2958abcde70f9911864f"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/FormAggregateLock.cs",
+          "expected": "9dfa740b45378e6c72c16bd826842e4c2e1252e5b8c6e865b7b6fcedc9c2ee43",
+          "actual": "9dfa740b45378e6c72c16bd826842e4c2e1252e5b8c6e865b7b6fcedc9c2ee43"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.cs",
+          "expected": "69cc9c2ea6473bf1633bfcd80c8467536e2139c1e7e2402b6e9b13360b64f20d",
+          "actual": "69cc9c2ea6473bf1633bfcd80c8467536e2139c1e7e2402b6e9b13360b64f20d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.Designer.cs",
+          "expected": "ac70ca89f2ea961341d481da704b6e86df8759e66193afaedd70c01c1be75310",
+          "actual": "ac70ca89f2ea961341d481da704b6e86df8759e66193afaedd70c01c1be75310"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/Migrations/ApplicationDbContextModelSnapshot.cs",
+          "expected": "52873f4e8262cbf6eaafcf55a097761ece3160d8ebd709fab759bfe1e387434e",
+          "actual": "52873f4e8262cbf6eaafcf55a097761ece3160d8ebd709fab759bfe1e387434e"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlEnumMappings.cs",
+          "expected": "b6d78806569997f5d4e13730c686ef552fe722f755126a44b5ad58af5d47e45d",
+          "actual": "b6d78806569997f5d4e13730c686ef552fe722f755126a44b5ad58af5d47e45d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlOptions.cs",
+          "expected": "e85ea0b54e0ba4f227222f206b7eebea22682aeefbcc893f30ae1d27081fd229",
+          "actual": "e85ea0b54e0ba4f227222f206b7eebea22682aeefbcc893f30ae1d27081fd229"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Middleware/ApiExceptionMiddleware.cs",
+          "expected": "7d2b941c72f7bb231bfc0c6e6be8adb97393e669b25b88e3aaea524c82780419",
+          "actual": "7d2b941c72f7bb231bfc0c6e6be8adb97393e669b25b88e3aaea524c82780419"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Program.cs",
+          "expected": "effcbc600ddaf8eea791915fdb064b8d45cdcdb16d50dd4c60afa4bc72d25a8e",
+          "actual": "effcbc600ddaf8eea791915fdb064b8d45cdcdb16d50dd4c60afa4bc72d25a8e"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Properties/launchSettings.json",
+          "expected": "83fa3714a2b7fa5cc81b4c54593064990fb580ae2fa3ca1630b8db3c6d0b34de",
+          "actual": "83fa3714a2b7fa5cc81b4c54593064990fb580ae2fa3ca1630b8db3c6d0b34de"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Queries/StatisticsAggregator.cs",
+          "expected": "fdcf6e6ae781b242d75a645bbb5b4d6de2364cb6b68e184a2370f7d5d47f9f2d",
+          "actual": "fdcf6e6ae781b242d75a645bbb5b4d6de2364cb6b68e184a2370f7d5d47f9f2d"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Queries/StatisticsQuery.cs",
+          "expected": "2cf6168d06c583a9c38bada8b83fd95b2f2d9dca04ef90517c1a95314d8e66c6",
+          "actual": "2cf6168d06c583a9c38bada8b83fd95b2f2d9dca04ef90517c1a95314d8e66c6"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/DefinitionNumber.cs",
+          "expected": "0e54fb2671eeeac0a634f117ce5a8e00179a0da6235afbedabb8909dba16af04",
+          "actual": "0e54fb2671eeeac0a634f117ce5a8e00179a0da6235afbedabb8909dba16af04"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/DraftDefinitionChangeSet.cs",
+          "expected": "eda1a7d98f2a3fed2e1fc6235f4e51e759f489db1e3e52afdd19132f29932fe2",
+          "actual": "eda1a7d98f2a3fed2e1fc6235f4e51e759f489db1e3e52afdd19132f29932fe2"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/DraftDefinitionDelta.cs",
+          "expected": "1d9b318fb2d12f1243f00a9a8a7ae2e13b64e0ddc8cb2f4a9c5b68455142ad69",
+          "actual": "1d9b318fb2d12f1243f00a9a8a7ae2e13b64e0ddc8cb2f4a9c5b68455142ad69"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/FormDefinitionCandidate.cs",
+          "expected": "0ca82d242764f78b2938ec843fd545ce4ff286dda73408164825896c08564a17",
+          "actual": "0ca82d242764f78b2938ec843fd545ce4ff286dda73408164825896c08564a17"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/FormDefinitionValidator.cs",
+          "expected": "3c4af8406bc80e103e7f54ad513e5d8a3138b07df58ed610d9f0c4348c5a3117",
+          "actual": "3c4af8406bc80e103e7f54ad513e5d8a3138b07df58ed610d9f0c4348c5a3117"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/RequestJson.cs",
+          "expected": "e14fb4ff5156b9bd7558f32d943797bf9ab9c65ea2d8e7ad7b9057ace357c476",
+          "actual": "e14fb4ff5156b9bd7558f32d943797bf9ab9c65ea2d8e7ad7b9057ace357c476"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/SubmissionAnswerValidator.cs",
+          "expected": "9115095ccc25dad36391fc7162e4fc358e0243cf74bc4a80b5f6f9ad3799ccf8",
+          "actual": "9115095ccc25dad36391fc7162e4fc358e0243cf74bc4a80b5f6f9ad3799ccf8"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/TextRules.cs",
+          "expected": "f08568c403b87775afe1ac4cd9e15676727547d90c5428abc8ddc45881c3027b",
+          "actual": "f08568c403b87775afe1ac4cd9e15676727547d90c5428abc8ddc45881c3027b"
+        },
+        {
+          "path": "backend-ref/src/CustomFormService.Api/Validation/UnsupportedJsonContentTypeFilter.cs",
+          "expected": "07286d75edb2afbe3b172909466889adaddfb568823139c0600a5c53eaba0fd3",
+          "actual": "07286d75edb2afbe3b172909466889adaddfb568823139c0600a5c53eaba0fd3"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/AuthUserEndpointsTests.cs",
+          "expected": "828471bee0ae70283f1599fe6f9526993312b6115dbaa578c1dd1d12032467c3",
+          "actual": "828471bee0ae70283f1599fe6f9526993312b6115dbaa578c1dd1d12032467c3"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/ConfigurationTests.cs",
+          "expected": "291d88f44f537f133c425cc523dc5f4f83e35746e2c6a2548545420915d2be18",
+          "actual": "291d88f44f537f133c425cc523dc5f4f83e35746e2c6a2548545420915d2be18"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/CustomFormService.IntegrationTests.csproj",
+          "expected": "7a04e4f57a58af1e229bbd4c754f06e59ee3d77685615bb0a6bed3b10a068c3f",
+          "actual": "7a04e4f57a58af1e229bbd4c754f06e59ee3d77685615bb0a6bed3b10a068c3f"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/DatabaseSchemaTests.cs",
+          "expected": "e8e5f1cdde099f73a0d50aa244b149b17c0239184d33c3db6c51de34ce9a7050",
+          "actual": "e8e5f1cdde099f73a0d50aa244b149b17c0239184d33c3db6c51de34ce9a7050"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/EngineeringEndpointsTests.cs",
+          "expected": "6d1907b55f573567e3539140a467251864f9a835115744f28a2dab2c17c620a9",
+          "actual": "6d1907b55f573567e3539140a467251864f9a835115744f28a2dab2c17c620a9"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateContract.cs",
+          "expected": "a76817468ae87db9320eb1b56627a42157f0b8edea7faffa3b4c7d75d1bbd4a7",
+          "actual": "a76817468ae87db9320eb1b56627a42157f0b8edea7faffa3b4c7d75d1bbd4a7"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateSafety.cs",
+          "expected": "d57b6fcabf62402bf9d988cd8dc3c440ba946c88f57e4b7061cedf63f964fab7",
+          "actual": "d57b6fcabf62402bf9d988cd8dc3c440ba946c88f57e4b7061cedf63f964fab7"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.cs",
+          "expected": "fa8e93df6b611dc9ff667955cd9e534870bf52c1bd70fc7f3697374660ffdbc9",
+          "actual": "fa8e93df6b611dc9ff667955cd9e534870bf52c1bd70fc7f3697374660ffdbc9"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.DeadlinePrecision.cs",
+          "expected": "28b4e41283afdb88af1a2718fdb948529d14e2797e760434a97124222bc466f9",
+          "actual": "28b4e41283afdb88af1a2718fdb948529d14e2797e760434a97124222bc466f9"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.Lifecycle.cs",
+          "expected": "8256c08791ced924ef16baad8134abd6f45c83b0c871dc530adac80c455b2f46",
+          "actual": "8256c08791ced924ef16baad8134abd6f45c83b0c871dc530adac80c455b2f46"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.LifecycleReview.cs",
+          "expected": "fc61852c983059e89e5f2e15313e4feb5261c875ad16d3ccc3372fcf05be899a",
+          "actual": "fc61852c983059e89e5f2e15313e4feb5261c875ad16d3ccc3372fcf05be899a"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.LocalRepair.cs",
+          "expected": "775df9f64181c9f99d66869be8b7932b826040d68a213c8a5649cca2afa5a26d",
+          "actual": "775df9f64181c9f99d66869be8b7932b826040d68a213c8a5649cca2afa5a26d"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.OptionPersistence.cs",
+          "expected": "3df13e8ea7ff549cc3c69c708d121fff8d0548fe0ea5a967b0a3f258157cf2b7",
+          "actual": "3df13e8ea7ff549cc3c69c708d121fff8d0548fe0ea5a967b0a3f258157cf2b7"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.ResponseQueries.cs",
+          "expected": "98da04980e3f1cad17a17a2fa84fe77bf56445e147d4e3df824c0ccbb8d75f3e",
+          "actual": "98da04980e3f1cad17a17a2fa84fe77bf56445e147d4e3df824c0ccbb8d75f3e"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.Statistics.cs",
+          "expected": "89473b021e1a56b43b5395ab1e404fda58f452f413b16f7f6bc9b8a79eca2891",
+          "actual": "89473b021e1a56b43b5395ab1e404fda58f452f413b16f7f6bc9b8a79eca2891"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.Submission.cs",
+          "expected": "3122c66a7dc55a89db00720653ac1b57c1a959b46a9929c66cbd2703f9695d41",
+          "actual": "3122c66a7dc55a89db00720653ac1b57c1a959b46a9929c66cbd2703f9695d41"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionAtomicity.cs",
+          "expected": "5bdc7e4e97ced0314d3bf5fd674ebca76d57c6ea2ea9f2497c354a1b23b45778",
+          "actual": "5bdc7e4e97ced0314d3bf5fd674ebca76d57c6ea2ea9f2497c354a1b23b45778"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionConcurrency.cs",
+          "expected": "a90f5df5ce2b2c3fcc1d8d958f5930b725ce1d4d694c9332ef651e3b73f83827",
+          "actual": "a90f5df5ce2b2c3fcc1d8d958f5930b725ce1d4d694c9332ef651e3b73f83827"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/MSTestSettings.cs",
+          "expected": "72f34577d30d2f5c78b3c50d2a2d898b52acca841ca165b68e352462f8fe525d",
+          "actual": "72f34577d30d2f5c78b3c50d2a2d898b52acca841ca165b68e352462f8fe525d"
+        },
+        {
+          "path": "backend-ref/tests/CustomFormService.IntegrationTests/SubmissionAnswerValidatorTests.cs",
+          "expected": "cdb8817467276ecb452224f603bec1b6cae4ca2103ce6c7854aeb3f27efebfb7",
+          "actual": "cdb8817467276ecb452224f603bec1b6cae4ca2103ce6c7854aeb3f27efebfb7"
+        }
+      ]
+    }
+  },
+  "originalF4Summary": {
+    "path": "docs/test-results/evidence/F4_20261012/verification-summary.json",
+    "sha256": "147ae691dd61951569100baed76187a966b062db173b7f2cc5f489449a145ca2",
+    "verification": "Clean starting HEAD; git diff --name-only for original evidence/review directories is empty; original summary is not rewritten"
+  },
+  "screenshots": {
+    "inspected": 3,
+    "committedRepresentative": {
+      "path": "docs/test-results/evidence/F4_R1_Correction_20261012/alignment-auth-dialog.png",
+      "sha256": "aa978e9c5742f7110c4a554d08aeca7ac7a2e1b696bf4800b7aea93c0301e6bf"
+    },
+    "content": "Simulated AUTH_REQUIRED; unauthenticated header, no private list, retained modal at forms URL. All screenshots contain only synthetic UI; no entered credentials."
+  },
+  "reusedEvidence": {
+    "fixtureStrictAndDevHarness": "unchanged fixture/config; prior reviewer fresh strict PASS/dev 14 PASS retained, not rerun",
+    "detailRoleAndStatus": "unchanged routing; prior reviewer built five cases retained",
+    "originalRealF4L01": "historical real empty-list/cookie/CORS result retained; not rerun and not counted as this correction PASS",
+    "timeoutCookiePrecisionFocus": "unchanged F2/F3 evidence retained"
+  },
+  "blocked": [
+    {
+      "case": "real loaded page 3 -> shrinking alignment -> second GET formal Auth 401 (all three codes)",
+      "result": "BLOCKED",
+      "reason": "No retained nonempty >=21 forms and controlled Auth/error prerequisites; fixture results do not replace live integration"
+    },
+    {
+      "case": "real nonempty >=11 list/pagination/filter",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real Draft/Published/Closed owner-other access and redirects",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real hidden Draft/deleted Form/expired Published",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "real Form INVALID/EXPIRED/disabled scenarios",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    },
+    {
+      "case": "controlled real API faults/late responses",
+      "result": "BLOCKED",
+      "reason": "Existing missing synthetic account/form IDs or controlled live prerequisites; retained without change"
+    }
+  ],
+  "notRun": [
+    {
+      "case": "F4-L01 new account live script; historical retained only",
+      "result": "NOT RUN",
+      "reason": "Outside authorized correction or unchanged effective historical coverage"
+    },
+    {
+      "case": "formal AI/human acceptance",
+      "result": "NOT RUN",
+      "reason": "Outside authorized correction or unchanged effective historical coverage"
+    },
+    {
+      "case": "other browsers/manual devices",
+      "result": "NOT RUN",
+      "reason": "Outside authorized correction or unchanged effective historical coverage"
+    },
+    {
+      "case": "npm ci/audit/generate",
+      "result": "NOT RUN",
+      "reason": "Outside authorized correction or unchanged effective historical coverage"
+    }
+  ],
+  "sanitization": {
+    "storageState": "not produced",
+    "trace": "off",
+    "credentials": "none entered/generated; no live registration/login in this correction",
+    "committedEvidence": "whitelisted fixture observation JSON, source/raw hashes, inspected representative screenshot; no Cookie/Token/password/raw request headers/bodies",
+    "historicalRaw": "preserved in ignored original locations"
+  }
+}

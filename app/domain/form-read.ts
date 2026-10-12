@@ -31,6 +31,7 @@ export function formReadError(result: Exclude<ApiResult<unknown>, { kind: 'succe
 }
 
 export interface FormReadState<T> { data: T | null; error: ErrorPresentation | null; dialog: ErrorPresentation | null }
+export type ReadAuthPresentation = 'dialog' | 'redirect'
 interface ReadEffects {
   path: () => string
   key: () => string
@@ -54,9 +55,11 @@ export class FormReadController<T> {
     if (!this.invalidatingAuth) { this.flowGeneration++; this.authFlow = undefined; this.state.dialog = null }
   }
   dispose(): void { this.disposed = true; this.contextChanged() }
-  async read(load: (signal: AbortSignal) => Promise<ApiResult<T>>, manual = false, adopt?: (value: T, ticket: RequestTicket) => void | Promise<void>): Promise<void> {
+  captureAuthPresentation(manual: boolean): ReadAuthPresentation {
+    return manual && this.state.data !== null ? 'dialog' : 'redirect'
+  }
+  async read(load: (signal: AbortSignal) => Promise<ApiResult<T>>, manual = false, adopt?: (value: T, ticket: RequestTicket) => void | Promise<void>, authPresentation = this.captureAuthPresentation(manual)): Promise<void> {
     if (this.disposed || this.state.dialog) return
-    const hadData = this.state.data !== null
     const ticket = this.scope.begin()
     this.state.error = null
     try {
@@ -69,7 +72,7 @@ export class FormReadController<T> {
       else if (isSessionFailure(result)) {
         const flow = { generation: ++this.flowGeneration, path: this.effects.path(), key: this.effects.key(), revision: this.effects.sessionRevision() }
         this.authFlow = flow
-        this.state.dialog = manual && hadData ? { ...formReadError(result), placement: 'dialog' } : null
+        this.state.dialog = authPresentation === 'dialog' ? { ...formReadError(result), placement: 'dialog' } : null
         this.invalidatingAuth = true
         try { this.effects.invalidate(result) }
         finally { this.invalidatingAuth = false }

@@ -1,6 +1,6 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F4 開發與自測完成，待集中 review。** Owner 已核准 F4 v1.0 並授權整輪執行，見 [F4 開發報告](docs/implementation/F4_Development_Report.md)／[去敏證據](docs/test-results/evidence/F4_20261012/verification-summary.json)。F3-R1、F3-R2、N1 已結案，F3 code review 通過；原報告／歷史證據保留。F1／F2／F3 均未 accepted，正式驗收仍延後，不推送、不展開 F5～F10。以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F4-R1 修正完成，待局部複核。** Owner 直接授權修正對齊第二支 GET 的 Auth 呈現政策，見 [局部修正報告](docs/implementation/F4_R1_Correction_Report.md)／[去敏證據](docs/test-results/evidence/F4_R1_Correction_20261012/verification-summary.json)。修正前 fresh built 三種 401 3／3 FAIL 已保留；修正後 unit 136／136、fresh built Browser 11／11 及必要工程檢查 PASS。原 [F4 開發報告](docs/implementation/F4_Development_Report.md)、review／歷史失敗與真實缺口保留，未代填 F4 review 通過或 accepted。F3-R1、F3-R2、N1 已結案，F3 code review 通過；F1／F2／F3 均未 accepted，正式驗收仍延後，不推送、不展開 F5～F10。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
