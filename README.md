@@ -1,6 +1,8 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F4-R1 結案，F4 code review 通過。** 見 [局部獨立複核](docs/review/F4_R1_Correction_ReReview_Report_20261012.md)／[去敏證據](docs/review/evidence/F4_R1_Independent_Verification_20261012.json)。本次 unit 136／136、fresh built Browser 12／12 及必要工程檢查 PASS，三種 Auth 401、兩種關閉、外部變動撤銷及受影響清單回歸均通過。原 [修正報告](docs/implementation/F4_R1_Correction_Report.md)、review／修正前 FAIL／歷史證據與真實測資 BLOCKED 保留。F3-R1、F3-R2、N1 已結案；F1／F2／F3／F4 均未 accepted，正式驗收仍延後，不推送、不展開 F5～F10。以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F5 精簡實作計畫待 Owner review，尚未開發。** 已以 `88c1e6b4007c04ba8831560d48880ba9f7311d52` 的乾淨工作樹為基準提出 [F5 計畫 v1.0](docs/implementation/F5_Implementation_Plan.md)，範圍為 Editor／Answer 純資料層、Create／Delta、分離驗證與錯誤定位。沿用計畫確認後整輪開發、自測及修正交付後集中 review，不新增測試計畫核准關卡。F4-R1 結案、F4 code review 通過的 Owner 確認維持；F1／F2／F3／F4 均未 accepted，正式驗收延後、既有真實測資缺口保留。本次僅文件規劃／提交，不推送、不開發 F5 或展開後續 Round。
+
+前次進度（2026-10-12）：**F4-R1 結案，F4 code review 通過。** 見 [局部獨立複核](docs/review/F4_R1_Correction_ReReview_Report_20261012.md)／[去敏證據](docs/review/evidence/F4_R1_Independent_Verification_20261012.json)。本次 unit 136／136、fresh built Browser 12／12 及必要工程檢查 PASS，三種 Auth 401、兩種關閉、外部變動撤銷及受影響清單回歸均通過。原 [修正報告](docs/implementation/F4_R1_Correction_Report.md)、review／修正前 FAIL／歷史證據與真實測資 BLOCKED 保留。F3-R1、F3-R2、N1 已結案；F1／F2／F3／F4 均未 accepted，正式驗收仍延後，不推送、不展開 F5～F10。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
