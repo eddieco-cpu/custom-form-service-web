@@ -88,3 +88,9 @@ F1 P3 局部複核／正式驗收未結案；Owner 本次已明確允許按 F2 �
 上文為 `e0d06e5` 原開發交付的歷史紀錄。獨立 review 發現 F2-R1／R2／R3，並在完整 Browser 得到 5 PASS／1 FAIL；原 6／6 不代表 review 當次通過。Owner 授權局部修正後，交付 [R1～R3 修正報告](F2_Review_Correction_Report.md) 與獨立新證據，未覆寫歷史報告／結果。
 
 目前 **修正完成、待局部複核**；Owner 指示 F1 P3 記為局部複核通過。F1／F2 仍未 accepted、正式驗收延後、不開始 F3。
+
+## 7. Owner 結案與補充自測（2026-10-12）
+
+Owner 確認 [R1～R3 局部複核](../review/F2_Correction_ReReview_Report_20261012.md) 通過並同意結案；Part A 引用筆誤已更正 v1.0。接續 [精簡 F2 計畫](../test-plan/F2_Supplemental_Test_Plan.md) 直接執行補充自測，新增 Browser 8／8、lint／root strict／fixture strict PASS，適用歷史證據已核對並沿用；沒有修改產品或覆寫既有失敗，詳見 [結果與未驗證事項](../test-results/F2_Supplemental_Test_Report.md)。
+
+目前 **F3 計畫待 Owner review，開發未開始**；F1 P3 局部複核通過、F2 修正結案；F1／F2 未 accepted，正式驗收延後。F3 起按 Owner 指定兩人工關卡執行，見 [F3 精簡計畫](F3_Implementation_Plan.md)。

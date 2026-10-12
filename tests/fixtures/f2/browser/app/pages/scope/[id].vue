@@ -23,6 +23,7 @@ const gate = ref('not run')
 const completedReads = ref(0); const readOutcome = ref('none')
 const completedReconciles = ref(0); const reconcileOutcome = ref('none'); const reconciling = ref(false)
 const completedLatest = ref(0); const latestOutcome = ref('none')
+const writeObservations = useState('f2-write-observations', () => ({ completed: 0, outcome: 'none', effects: 0 }))
 const { scope, loading } = useRequestScope(() => String(route.params.id), () => session.value)
 const write = useOperationState('delta', () => `form:${String(route.params.id)}`)
 const visibility = useOperationState('visibility', () => `form:${String(route.params.id)}`)
@@ -60,7 +61,9 @@ async function save(kind: 'delta' | 'visibility' | 'publish' = 'delta') {
   if (!target) return
   const path = kind === 'publish' ? '/fixture-publish' : kind === 'visibility' ? '/fixture-visibility' : '/fixture-write'
   const result = await target.run({ title: raw.value }, body => client({ path, method: kind === 'publish' ? 'POST' : 'PATCH', expectedStatus: 200, decode: decodeCount, body }), isCurrent)
+  writeObservations.value.completed++; writeObservations.value.outcome = result.kind
   if (result.kind === 'blocked' || result.kind === 'stale') return
+  writeObservations.value.effects++
   if (result.kind === 'success') baseline.value = raw.value
   else { actionError.value = presentError(result, 'action'); modal.value = true }
 }

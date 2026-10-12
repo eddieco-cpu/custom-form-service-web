@@ -191,3 +191,83 @@ test('Latest retains Auth and RESPONSE_NOT_FOUND classifications without replaci
   await expect(page.getByTestId('raw')).toHaveValue('keep-answer'); expect(calls).toBe(2)
   await page.getByRole('button', { name: '關閉', exact: true }).click(); await page.getByTestId('clean').click()
 })
+
+for (const transition of ['session', 'resource', 'unmount'] as const) {
+  for (const response of ['success', 'auth'] as const) {
+    test(`supplement: late write ${response} after ${transition} cannot apply callbacks`, async ({ page }) => {
+      let release!: () => void; const pending = new Promise<void>(resolve => { release = resolve })
+      let calls = 0
+      await page.route('**/fixture-write', async route => {
+        calls++; await pending
+        await route.fulfill({ status: response === 'auth' ? 401 : 200, contentType: 'application/json', body: response === 'auth' ? errorText('AUTH_REQUIRED') : '{"count":1}' })
+      })
+      await page.goto('/scope/a'); await page.getByTestId('raw').fill('old-input')
+      const requested = page.waitForRequest('**/fixture-write')
+      await page.getByTestId('save').click(); await requested
+      if (transition === 'session') await page.getByTestId('session').click()
+      else {
+        const handled = page.waitForEvent('dialog').then(async dialog => { expect(dialog.type()).toBe('confirm'); await dialog.accept() })
+        await page.getByTestId(transition === 'resource' ? 'other-id' : 'away').click(); await handled
+        await expect(page).toHaveURL(transition === 'resource' ? /scope\/b$/ : /away$/)
+      }
+      release()
+      await expect(page.getByTestId('write-observations')).toHaveText('1|stale|0')
+      await expect(page.getByRole('dialog')).toHaveCount(0); expect(calls).toBe(1)
+      await expect(page).toHaveURL(transition === 'unmount' ? /away$/ : transition === 'resource' ? /scope\/b$/ : /scope\/a$/)
+      if (transition !== 'unmount') {
+        await expect(page.getByTestId('raw')).toHaveValue('old-input')
+        await expect(page.getByTestId('raw')).toBeEnabled()
+        await page.getByTestId('clean').click()
+      }
+    })
+  }
+}
+
+test('supplement: dirty native back and forward cancellation restores history and asks again', async ({ page }) => {
+  await page.goto('/scope/a'); await page.getByTestId('other-id').click(); await expect(page).toHaveURL(/scope\/b$/)
+  await page.getByTestId('raw').fill('history-input')
+  let prompts = 0
+  async function traverse(direction: 'back' | 'forward', accept: boolean) {
+    const before = Number((await page.getByTestId('navigation-observations').innerText()).split('|')[0])
+    const handled = page.waitForEvent('dialog').then(async dialog => {
+      expect(dialog.type()).toBe('confirm'); prompts++
+      await (accept ? dialog.accept() : dialog.dismiss())
+    })
+    // Native history traversal exercises popstate, including router's cancellation restoration.
+    await page.evaluate(direction => { if (direction === 'back') window.history.back(); else window.history.forward() }, direction)
+    await handled
+    await expect(page.getByTestId('navigation-observations')).toHaveText(`${before + 1}|${accept ? 'navigated' : 'cancelled'}`)
+  }
+  await traverse('back', false)
+  await expect(page).toHaveURL(/scope\/b$/); await expect(page.getByTestId('raw')).toHaveValue('history-input')
+  await traverse('back', true); await expect(page).toHaveURL(/scope\/a$/); expect(prompts).toBe(2)
+  await traverse('forward', false)
+  await expect(page).toHaveURL(/scope\/a$/); await expect(page.getByTestId('raw')).toHaveValue('history-input')
+  await traverse('forward', true); await expect(page).toHaveURL(/scope\/b$/); expect(prompts).toBe(4)
+  await traverse('back', false); await expect(page).toHaveURL(/scope\/b$/); expect(prompts).toBe(5)
+  await page.getByTestId('clean').click()
+})
+
+test('supplement: Latest native 30000ms timeout preserves answers and permits manual retry', async ({ page }) => {
+  let release!: () => void; const pending = new Promise<void>(resolve => { release = resolve })
+  let calls = 0
+  await page.route('**/fixture-latest', async route => {
+    calls++
+    if (calls === 1) {
+      await pending
+      await route.fulfill({ contentType: 'application/json', body: receiptText() }).catch(() => {})
+    } else await route.fulfill({ contentType: 'application/json', body: receiptText() })
+  })
+  await page.goto('/scope/a'); await page.getByTestId('raw').fill('timeout-answer')
+  const start = Date.now(); await page.getByTestId('latest').click()
+  await expect(page.getByTestId('completed-latest')).toHaveText('1|read-failure', { timeout: 35000 })
+  expect(Date.now() - start).toBeGreaterThanOrEqual(29000)
+  await expect(page.getByRole('dialog')).toContainText('載入失敗，請手動重試')
+  await expect(page.getByRole('dialog')).not.toContainText('操作可能已完成')
+  await expect(page.getByTestId('raw')).toHaveValue('timeout-answer')
+  await expect(page.getByTestId('write-state')).toHaveText('idle|false'); expect(calls).toBe(1)
+  release(); await page.getByRole('button', { name: '關閉', exact: true }).click()
+  await page.getByTestId('latest').click(); await expect(page.getByTestId('completed-latest')).toHaveText('2|success')
+  await expect(page.getByTestId('raw')).toHaveValue('timeout-answer'); expect(calls).toBe(2)
+  await page.getByTestId('clean').click()
+})

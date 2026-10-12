@@ -444,6 +444,14 @@ F2 原開發提交 `e0d06e589d5eb3b65f0057bdd7fb8b1694625d76` 的獨立 review �
 
 **F1 P3 局部複核通過；F1／F2 仍未 accepted，正式驗收延後；F2 修正完成、待局部複核；F3～F10 未開始。** 本次單一目的本機提交、不推送；原兩份未追蹤 review 文件保持原樣，未納入修正提交。
 
+### 9.8 F2 結案、補充自測與 F3 規劃（2026-10-12）
+
+Owner 確認 [F2 R1～R3 獨立局部複核](../review/F2_Correction_ReReview_Report_20261012.md) 通過並同意結案；修正報告 Part A 引用更正 v1.0，無須為文件更正重跑測試。[F2 精簡補充測試計畫](../test-plan/F2_Supplemental_Test_Plan.md) 依本次指示直接執行，76 筆既有證據 hash、lockfile 與 backend manifest 核對相符；沿用適用的 unit／完整 Browser／build 歷史結果，只補舊寫入隔離、dirty 自然上／下一頁與 Latest 原生 timeout。新增 Browser 8／8、lint／root strict／fixture strict PASS，沒有阻擋問題，見 [精簡結果](../test-results/F2_Supplemental_Test_Report.md)。合成 Browser 不代表真實 API／Cookie／DB 整合。
+
+已提出 [F3 精簡實作計畫](F3_Implementation_Plan.md)。**F3 計畫待 Owner review，開發未開始；F1 P3 局部複核通過、F2 修正結案；F1／F2 仍未 accepted，正式驗收延後。** 既有報告與前節歷史停止點保留；本次單一目的本機提交、不推送，實際 SHA 見 Git log／交付訊息。
+
+本次 Owner 決議自 F3 起覆寫 §7 預設的分階段人工關卡：**計畫確認、整輪交付後集中 review**。待本版計畫核准，再一次授權整輪開發、必要測試及範圍內修正；不為每個工程決策或開發自測新增人工 review。正式驗收與 accepted 仍由 Owner 另行指定，不由自測／review 通過推定。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

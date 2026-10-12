@@ -1,6 +1,6 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F2 R1～R3 修正完成、待局部複核；F1 P3 局部複核通過，F1／F2 仍未 accepted，正式驗收延後，F3 未開始。** 以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F2 R1～R3 局部複核通過、Owner 同意結案；F2 補充自測無阻擋（新增 Browser 8／8，既有證據沿用）；F3 計畫待 Owner review，尚未開發。F1 P3 局部複核通過，F1／F2 仍未 accepted，正式驗收延後。** 見 [F2 測試計畫](docs/test-plan/F2_Supplemental_Test_Plan.md)、[結果與未驗證事項](docs/test-results/F2_Supplemental_Test_Report.md) 與 [F3 精簡計畫](docs/implementation/F3_Implementation_Plan.md)。F3 起依 Owner 指示採計畫確認、整輪交付後集中 review 兩個人工關卡；後續開發仍待核准及一次整輪授權。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 

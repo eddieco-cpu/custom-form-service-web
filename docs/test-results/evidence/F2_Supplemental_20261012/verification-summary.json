@@ -1,0 +1,733 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "stage": "F2 supplemental development self-test; not formal acceptance",
+  "executionHead": "c68f5bd63b1f73cc5b780013bb2d6cc603b0235f",
+  "productCommit": "73348ab233c9dcdafa9ee04429e7c7e9088a03e3",
+  "status": {
+    "f3": "implementation plan awaiting Owner review; development NOT STARTED",
+    "f2Corrections": "R1/R2/R3 closed by Owner; R4 attribution corrected",
+    "f1P3": "local re-review passed",
+    "f2Accepted": false,
+    "formalAcceptance": "deferred; NOT RUN",
+    "f1Accepted": false
+  },
+  "versions": {
+    "nuxt": "4.6.1",
+    "losslessJson": "4.3.1",
+    "node": "24.21.0",
+    "typescript": "5.9.3",
+    "chromium": "156.0.8078.4",
+    "npm": "11.19.0",
+    "playwright": "1.64.0",
+    "vitest": "5.0.3",
+    "nuxtUi": "4.11.3"
+  },
+  "backend": {
+    "snapshotDate": "2026-10-11",
+    "liveSha": "UNVERIFIED",
+    "manifestEntries": 108,
+    "partAVersion": "1.0",
+    "manifestMatches": 108,
+    "snapshotSha": "7591633137c5a6f57c1fce8e1ba19ab394015880"
+  },
+  "audit": {
+    "head": "c68f5bd63b1f73cc5b780013bb2d6cc603b0235f",
+    "lockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+    "lockMatches": true,
+    "reviewedSourceDifference": [],
+    "reusedEvidence": [
+      {
+        "path": "output/playwright/f2-rereview-20261012/unit.log",
+        "expected": "5c77f02a5c0bece6554b9d97b7a24b9b1662c51c41406a92ca721cca6e5029ea",
+        "actual": "5c77f02a5c0bece6554b9d97b7a24b9b1662c51c41406a92ca721cca6e5029ea",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/browser.log",
+        "expected": "e5659c8c41711a35aa74c9b105ca2486d44d6f5b250f18afd0bb1ae2f7c68a44",
+        "actual": "e5659c8c41711a35aa74c9b105ca2486d44d6f5b250f18afd0bb1ae2f7c68a44",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/lint.log",
+        "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/typecheck.log",
+        "expected": "7b366222175f65d7c8b7dec805341dc968c0b09a8d855003272cfb97bef354ff",
+        "actual": "7b366222175f65d7c8b7dec805341dc968c0b09a8d855003272cfb97bef354ff",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/harness-typecheck.log",
+        "expected": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "actual": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/build.log",
+        "expected": "1e93c364519b384d32f510079359fdc39329a6f714760aaa41296cabe71433fa",
+        "actual": "1e93c364519b384d32f510079359fdc39329a6f714760aaa41296cabe71433fa",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/probe.log",
+        "expected": "5a92b504ac0695b560b77bfa5e92d3ea9d58219fdf592e10e6286d7e5a138c18",
+        "actual": "5a92b504ac0695b560b77bfa5e92d3ea9d58219fdf592e10e6286d7e5a138c18",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/unit.json",
+        "expected": "bcab3898a0a323c16e5ec3fac6e7674bc67d882e7427c86e56071270ff8c3d66",
+        "actual": "bcab3898a0a323c16e5ec3fac6e7674bc67d882e7427c86e56071270ff8c3d66",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/browser.json",
+        "expected": "2d84e4b42e3b30d6e73b5047e6e47b6cfabeae84a836bd0edef2ceff780375c4",
+        "actual": "2d84e4b42e3b30d6e73b5047e6e47b6cfabeae84a836bd0edef2ceff780375c4",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/probe.json",
+        "expected": "0db3edb7fff2500f494574230ca8afc173aa5363e3e01dc2e802d6105ca6be0e",
+        "actual": "0db3edb7fff2500f494574230ca8afc173aa5363e3e01dc2e802d6105ca6be0e",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-rereview-20261012/probe.mjs",
+        "expected": "db0a5c8ce5a137879f636748737e9f793c250463ec138660519b2108ea1e9111",
+        "actual": "db0a5c8ce5a137879f636748737e9f793c250463ec138660519b2108ea1e9111",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/unit-first.log",
+        "expected": "a37739974c6a91e809270445d2098cef53491dbd12e15ce59a7561b7c587c669",
+        "actual": "a37739974c6a91e809270445d2098cef53491dbd12e15ce59a7561b7c587c669",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/browser-first.log",
+        "expected": "e706fcc53315724defdfd28275f96c0c1e8b5aaef07701d2a5515925322a3049",
+        "actual": "e706fcc53315724defdfd28275f96c0c1e8b5aaef07701d2a5515925322a3049",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/lint-first.log",
+        "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/typecheck-first.log",
+        "expected": "3a48dd72e959d887a7d89fe8c9d9cf82e42865fdad34cff36fd043eca25ed2dd",
+        "actual": "3a48dd72e959d887a7d89fe8c9d9cf82e42865fdad34cff36fd043eca25ed2dd",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/harness-typecheck-first.log",
+        "expected": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "actual": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/commands/build-first.log",
+        "expected": "deed17332b93a17a98663351b0687514b4ce49fcc6e9f664ad99d79d90ad8ba6",
+        "actual": "deed17332b93a17a98663351b0687514b4ce49fcc6e9f664ad99d79d90ad8ba6",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/unit-first.json",
+        "expected": "bdd64913c2667f3c73458fe1feed4ca64645810d5bf470a4330ea5bb32764f1a",
+        "actual": "bdd64913c2667f3c73458fe1feed4ca64645810d5bf470a4330ea5bb32764f1a",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-correction-20261012/browser-first.json",
+        "expected": "738e9385694d7a48cb640a94c8d267a828a4ea0261f0a0835c0388b57d62acf6",
+        "actual": "738e9385694d7a48cb640a94c8d267a828a4ea0261f0a0835c0388b57d62acf6",
+        "matches": true
+      },
+      {
+        "path": "docs/review/F2_Code_Review_Report_20261011.md",
+        "expected": "6b94be73b8cd918e40d5e8c28dea61fc13b1e7ac6b30d8381c721710f448428d",
+        "actual": "6b94be73b8cd918e40d5e8c28dea61fc13b1e7ac6b30d8381c721710f448428d",
+        "matches": true
+      },
+      {
+        "path": "docs/review/evidence/F2_Independent_Verification_20261011.json",
+        "expected": "e96b837249db38482618b3d4f5685fef7ceaf7f01fba850b563161b1fecca669",
+        "actual": "e96b837249db38482618b3d4f5685fef7ceaf7f01fba850b563161b1fecca669",
+        "matches": true
+      },
+      {
+        "path": "docs/implementation/evidence/F2/verification-summary.json",
+        "expected": "e3f86e72ddcb0bf9a8d5a5a151f3af1c12abbbbdfd5f1f26f70cc13dbdbc14dc",
+        "actual": "e3f86e72ddcb0bf9a8d5a5a151f3af1c12abbbbdfd5f1f26f70cc13dbdbc14dc",
+        "matches": true
+      }
+    ],
+    "manifestEntries": 108,
+    "manifestMatches": 108,
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "originalEvidence": [
+      {
+        "path": "output/playwright/f2/commands/metadata-first.log",
+        "expected": "b23b9e5e8c3609b91bb8037ee9aa5eac994f7e7034e52949b7b3caf5c1c4773b",
+        "actual": "b23b9e5e8c3609b91bb8037ee9aa5eac994f7e7034e52949b7b3caf5c1c4773b",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/metadata-retry.log",
+        "expected": "519f90900d483a8254d14c336f866623cad8543701780ad412a796b3243b6e09",
+        "actual": "519f90900d483a8254d14c336f866623cad8543701780ad412a796b3243b6e09",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/install-first.log",
+        "expected": "be29f55965a78db935c358c0c079d5d4f647a8c7702e9637829d16787557d36b",
+        "actual": "be29f55965a78db935c358c0c079d5d4f647a8c7702e9637829d16787557d36b",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/install-retry.log",
+        "expected": "3d5cd92259a35af079d1d82ff5734f25b6bf068dd54779166db0d7e79206a290",
+        "actual": "3d5cd92259a35af079d1d82ff5734f25b6bf068dd54779166db0d7e79206a290",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/ci-first.log",
+        "expected": "d1724dff4de9d4ce8021e1950d7f1ca3fc3f51be225fe1f44ddd52d3f2aa33c9",
+        "actual": "d1724dff4de9d4ce8021e1950d7f1ca3fc3f51be225fe1f44ddd52d3f2aa33c9",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/restore-install.log",
+        "expected": "695867ec67abd62c1973cfcbb9478a9d9c99d764e48e71d6e72eead981b3e0c6",
+        "actual": "695867ec67abd62c1973cfcbb9478a9d9c99d764e48e71d6e72eead981b3e0c6",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/ci-clean.log",
+        "expected": "529fda6189d6239d43a7dd30ccb6ba23639b158680a2afc8d204a7aace6c76fd",
+        "actual": "529fda6189d6239d43a7dd30ccb6ba23639b158680a2afc8d204a7aace6c76fd",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/gate-unit-first.log",
+        "expected": "8a0fcfad0ea93a6cf7f144b309eea021c9ca367edfebc65413a3e0f4f49fd68b",
+        "actual": "8a0fcfad0ea93a6cf7f144b309eea021c9ca367edfebc65413a3e0f4f49fd68b",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/gate-unit-retry.log",
+        "expected": "0c9d0fb3b59563fc4dbb051ed2a62a12f78f4b99e5969077872bdf8c7a9aa8bb",
+        "actual": "0c9d0fb3b59563fc4dbb051ed2a62a12f78f4b99e5969077872bdf8c7a9aa8bb",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/lint-first.log",
+        "expected": "a17e8f09d159dc5a497a98cb95551b9eda0c9a4fd15dbea45672d2435bf3b856",
+        "actual": "a17e8f09d159dc5a497a98cb95551b9eda0c9a4fd15dbea45672d2435bf3b856",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/lint-delivery.log",
+        "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/typecheck-first.log",
+        "expected": "58fcedfe47b96cd6a2976bcfe85adf187c406bbea21e6eb98a146ad437ab69e4",
+        "actual": "58fcedfe47b96cd6a2976bcfe85adf187c406bbea21e6eb98a146ad437ab69e4",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/typecheck-delivery.log",
+        "expected": "da29ed6d7c15a7286eb1e137a877243c7671cf81b01ea3c40c358463158a5558",
+        "actual": "da29ed6d7c15a7286eb1e137a877243c7671cf81b01ea3c40c358463158a5558",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/harness-typecheck-first.log",
+        "expected": "8585c14f08ab85e0207c1923d9d99c407b72e9696599258b436952ad7611ccd6",
+        "actual": "8585c14f08ab85e0207c1923d9d99c407b72e9696599258b436952ad7611ccd6",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/harness-typecheck-retry.log",
+        "expected": "d1ea00a0d503566657328e13dcc1951bf5749964e26aa522894d89299e731a5a",
+        "actual": "d1ea00a0d503566657328e13dcc1951bf5749964e26aa522894d89299e731a5a",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/harness-typecheck-complete.log",
+        "expected": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "actual": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/build-complete.log",
+        "expected": "226e6430d71e35b7687e90b4e63c0f21f2a390642a0644992fafb7acd680d557",
+        "actual": "226e6430d71e35b7687e90b4e63c0f21f2a390642a0644992fafb7acd680d557",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/unit-delivery.log",
+        "expected": "eab80f691b2d5e6ecd5c242b180ff52b57ef1f114873b1f59f822d3ae0cd86b1",
+        "actual": "eab80f691b2d5e6ecd5c242b180ff52b57ef1f114873b1f59f822d3ae0cd86b1",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/browser-first.log",
+        "expected": "4ee0bcdb6b3acbc110b71dff178f5578874f2183fe44401e9ccf1308b5a49511",
+        "actual": "4ee0bcdb6b3acbc110b71dff178f5578874f2183fe44401e9ccf1308b5a49511",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/browser-retry.log",
+        "expected": "73f91ec6ff1ed478b3ddd58538619e71abb5cf4573d8d8a31d3e0bcba7e51e02",
+        "actual": "73f91ec6ff1ed478b3ddd58538619e71abb5cf4573d8d8a31d3e0bcba7e51e02",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/browser-final.log",
+        "expected": "424dd50a40a6165818a50e5c436d96ea2f008483e72a11b0422ad7f5074f386a",
+        "actual": "424dd50a40a6165818a50e5c436d96ea2f008483e72a11b0422ad7f5074f386a",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/commands/gate-browser-delivery.log",
+        "expected": "40345cdc06c7ecdd40ce35085dc9a300481ea2416afb810cc1ca4215e9f23227",
+        "actual": "40345cdc06c7ecdd40ce35085dc9a300481ea2416afb810cc1ca4215e9f23227",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/gate-unit-retry.json",
+        "expected": "e5765005268c659d4b844c245c02c5588cd716e4826a3b11710e92265bf8151b",
+        "actual": "e5765005268c659d4b844c245c02c5588cd716e4826a3b11710e92265bf8151b",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/unit-first.json",
+        "expected": "fbec3946f8d2bacd7d47b18a8de33bd94f0c3f5f8aae66174fba1c2f29af3a60",
+        "actual": "fbec3946f8d2bacd7d47b18a8de33bd94f0c3f5f8aae66174fba1c2f29af3a60",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/unit-final.json",
+        "expected": "edb36f1ee7de93275cc0260e9e837f7b4c7008490d71d7c84aff256f5050ccf2",
+        "actual": "edb36f1ee7de93275cc0260e9e837f7b4c7008490d71d7c84aff256f5050ccf2",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/unit-complete.json",
+        "expected": "923c617e0b0038729a712a56a72dacf8cd579cb3d1fd6faa6f0f1823e5a2df91",
+        "actual": "923c617e0b0038729a712a56a72dacf8cd579cb3d1fd6faa6f0f1823e5a2df91",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/unit-delivery.json",
+        "expected": "4233b485f5c705876228095d12a95fdb0e2f9393715d10a2cbd8f6026c81260c",
+        "actual": "4233b485f5c705876228095d12a95fdb0e2f9393715d10a2cbd8f6026c81260c",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-first.json",
+        "expected": "364caa16a561812ff78ba2a4376fef207f8ead834f861ef58aa86daedd5ce1a6",
+        "actual": "364caa16a561812ff78ba2a4376fef207f8ead834f861ef58aa86daedd5ce1a6",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-retry.json",
+        "expected": "5a80525c7d90d2023238fb2bd8b3e8178d1f79a34b3218bf8858ef461e870ede",
+        "actual": "5a80525c7d90d2023238fb2bd8b3e8178d1f79a34b3218bf8858ef461e870ede",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-final.json",
+        "expected": "5b618bb2646e968d3ea015c0ac35f22937c2d1cb5479f6301e556f4a53412ee4",
+        "actual": "5b618bb2646e968d3ea015c0ac35f22937c2d1cb5479f6301e556f4a53412ee4",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/gate-browser-bodies.json",
+        "expected": "2d12e4d08aae23a00e80057c33367123270d3ac7d728ec410d39d84788ec7f79",
+        "actual": "2d12e4d08aae23a00e80057c33367123270d3ac7d728ec410d39d84788ec7f79",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/gate-browser-delivery.json",
+        "expected": "719a8dda8c70c7345ad80e9ea48ec80afef838cf2ba434c06b63c338f41f943f",
+        "actual": "719a8dda8c70c7345ad80e9ea48ec80afef838cf2ba434c06b63c338f41f943f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/backend-manifest-check.json",
+        "expected": "7469f0fdce6ffa864edaad1e57bd2fd36980ee8cf38f131d1d8947689805f9d0",
+        "actual": "7469f0fdce6ffa864edaad1e57bd2fd36980ee8cf38f131d1d8947689805f9d0",
+        "matches": true
+      }
+    ],
+    "historicalFailureEvidence": [
+      {
+        "path": "output/playwright/f2-review/unit.log",
+        "expected": "f1fb70e9644ef845681b51c9ceb4b54e8697525e889219b1b1628c204406ba3d",
+        "actual": "f1fb70e9644ef845681b51c9ceb4b54e8697525e889219b1b1628c204406ba3d",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/unit-retry.log",
+        "expected": "616cfb626c7f9689427c8dfd488e5feb6605bf6268a3b736b11e78ac39d2046d",
+        "actual": "616cfb626c7f9689427c8dfd488e5feb6605bf6268a3b736b11e78ac39d2046d",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/unit.json",
+        "expected": "6939411025175daf3cbff04986050ea9ec1b4f1b9197c6b6c8ae5b2f2ea2956b",
+        "actual": "6939411025175daf3cbff04986050ea9ec1b4f1b9197c6b6c8ae5b2f2ea2956b",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/lint.log",
+        "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/typecheck.log",
+        "expected": "576b32780b5f87f675871536f77d89c2ee236acfd372488928a5797cf5803605",
+        "actual": "576b32780b5f87f675871536f77d89c2ee236acfd372488928a5797cf5803605",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/harness-typecheck.log",
+        "expected": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "actual": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/build-first.log",
+        "expected": "9d20948b9e7e7cc66c96abd24d51b491f48d06fa1f6e2b08266c4279ff17a8ab",
+        "actual": "9d20948b9e7e7cc66c96abd24d51b491f48d06fa1f6e2b08266c4279ff17a8ab",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/browser.log",
+        "expected": "7a76212b89425eaf4d25d9062b53b17d3b6bd7dd9dca37df303a9a8ce65c41ce",
+        "actual": "7a76212b89425eaf4d25d9062b53b17d3b6bd7dd9dca37df303a9a8ce65c41ce",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/browser.json",
+        "expected": "65cbd4dfda90c8c689fff9858d78feaa1bb4299e7a5b520c5d4844d2ae059ae2",
+        "actual": "65cbd4dfda90c8c689fff9858d78feaa1bb4299e7a5b520c5d4844d2ae059ae2",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/reconcile-retry.log",
+        "expected": "b3535f9e31d3b9f31a8ac5c31d6fa87baaf49734b1ef4a44a9d264ab8bc05661",
+        "actual": "b3535f9e31d3b9f31a8ac5c31d6fa87baaf49734b1ef4a44a9d264ab8bc05661",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/browser-reconcile-retry.json",
+        "expected": "a717d01f34e25ec891d00b98ef8f81888f6ff4bc0b709be11fa655084bcd9d9f",
+        "actual": "a717d01f34e25ec891d00b98ef8f81888f6ff4bc0b709be11fa655084bcd9d9f",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/f1-p3-preview.log",
+        "expected": "6f91697bed2fe517d606dd474672090e9dce3b6baadb8ca74299ba23a571c826",
+        "actual": "6f91697bed2fe517d606dd474672090e9dce3b6baadb8ca74299ba23a571c826",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/f1-p3-preview.json",
+        "expected": "7655942d8489315dd6e11978b039782ec84abeab0a086bcc32f0fcdb223da5f8",
+        "actual": "7655942d8489315dd6e11978b039782ec84abeab0a086bcc32f0fcdb223da5f8",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/audit-online.json",
+        "expected": "28f4192d7906ed1f43d747bd149bcbd12c6b9a98b4bf96356ef9d73e8cf73ffa",
+        "actual": "28f4192d7906ed1f43d747bd149bcbd12c6b9a98b4bf96356ef9d73e8cf73ffa",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/probe.mjs",
+        "expected": "b9f6e61906885b790935e57274fc8615adaa1c2276918fb2f669dbbbbec27413",
+        "actual": "b9f6e61906885b790935e57274fc8615adaa1c2276918fb2f669dbbbbec27413",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/probe.json",
+        "expected": "37de33355c4093412aa29cfc439e37c2dea566aaeb3ff33500c6dd6398bb38f6",
+        "actual": "37de33355c4093412aa29cfc439e37c2dea566aaeb3ff33500c6dd6398bb38f6",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2-review/dependency-tree.txt",
+        "expected": "1a1a2f852d11d20cb044eb59fbea9e7f9006fec79579c2bbc549ee3cb8934a2c",
+        "actual": "1a1a2f852d11d20cb044eb59fbea9e7f9006fec79579c2bbc549ee3cb8934a2c",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-first-artifacts/f2-common-dirty-route-upda-63518--history-and-reload-prompts-chromium/error-context.md",
+        "expected": "dfdb20e1f3b894f6c4b16916cca120f9582e88d2faccd88528e42c63dd579ad9",
+        "actual": "dfdb20e1f3b894f6c4b16916cca120f9582e88d2faccd88528e42c63dd579ad9",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-first-artifacts/f2-common-dirty-route-upda-63518--history-and-reload-prompts-chromium/trace.zip",
+        "expected": "c85c693dbec884712a2d565da447b46a919b7b16085168184433419d5b2da796",
+        "actual": "c85c693dbec884712a2d565da447b46a919b7b16085168184433419d5b2da796",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-first-artifacts/f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium/error-context.md",
+        "expected": "c38013d6ac07994c4e58f11420c9efcec7e421f5b41210d83fdd42d24c5ed5d7",
+        "actual": "c38013d6ac07994c4e58f11420c9efcec7e421f5b41210d83fdd42d24c5ed5d7",
+        "matches": true
+      },
+      {
+        "path": "output/playwright/f2/browser-first-artifacts/f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium/trace.zip",
+        "expected": "d96b2a398c6ae5a3f5f988bd787c86cf791787a900211fca2e8606722bb4515d",
+        "actual": "d96b2a398c6ae5a3f5f988bd787c86cf791787a900211fca2e8606722bb4515d",
+        "matches": true
+      }
+    ],
+    "unaffectedAdapterSourceDifference": []
+  },
+  "reused": {
+    "originalAdapterUnit": {
+      "files": {
+        "exactNumberGate": 36,
+        "commonAdapters": 5
+      },
+      "result": "historical PASS; not rerun",
+      "source": "docs/implementation/evidence/F2/verification-summary.json"
+    },
+    "reviewedChecks": {
+      "result": "reused verified historical evidence; not rerun",
+      "build": "historical PASS; product unchanged",
+      "unitPassed": 46,
+      "browserPassed": 10,
+      "source": "docs/review/evidence/F2_Correction_Independent_Verification_20261012.json"
+    }
+  },
+  "browser": {
+    "testAndObservationChanges": true,
+    "productChanges": false,
+    "simulation": "actual shared source and native fetch; synthetic raw JSON interception",
+    "cases": [
+      {
+        "title": "supplement: late write success after session cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 4465
+          }
+        ]
+      },
+      {
+        "title": "supplement: late write auth after session cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1199
+          }
+        ]
+      },
+      {
+        "title": "supplement: late write success after resource cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1216
+          }
+        ]
+      },
+      {
+        "title": "supplement: late write auth after resource cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1180
+          }
+        ]
+      },
+      {
+        "title": "supplement: late write success after unmount cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1215
+          }
+        ]
+      },
+      {
+        "title": "supplement: late write auth after unmount cannot apply callbacks",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1255
+          }
+        ]
+      },
+      {
+        "title": "supplement: dirty native back and forward cancellation restores history and asks again",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 1324
+          }
+        ]
+      },
+      {
+        "title": "supplement: Latest native 30000ms timeout preserves answers and permits manual retry",
+        "ok": true,
+        "results": [
+          {
+            "status": "passed",
+            "retry": 0,
+            "durationMs": 31764
+          }
+        ]
+      }
+    ],
+    "errors": [],
+    "firstRun": {
+      "startTime": "2026-10-12T01:01:35.464Z",
+      "duration": 52246.178,
+      "expected": 8,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  },
+  "commands": [
+    {
+      "command": "npm run test:e2e -- --config=playwright.f2.config.ts --grep supplement: --reporter=list,json --output=output/playwright/f2-supplement-20261012/browser-first-artifacts",
+      "result": "PASS",
+      "exitCode": 0,
+      "path": "output/playwright/f2-supplement-20261012/browser-first.log",
+      "sha256": "eb212e6629d648c6fa84127ac559c19913e318ba4eae07ac482d63fb1b917068"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0,
+      "path": "output/playwright/f2-supplement-20261012/lint-first.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "path": "output/playwright/f2-supplement-20261012/typecheck-first.log",
+      "sha256": "73322aad157e4ba1de911a3762b5738dc06bdaab7822ad8b0e360244d0b6abed"
+    },
+    {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f2/browser",
+      "result": "PASS",
+      "exitCode": 0,
+      "path": "output/playwright/f2-supplement-20261012/harness-typecheck-first.log",
+      "sha256": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46"
+    }
+  ],
+  "newFirstFailures": [],
+  "rawReports": [
+    {
+      "sha256": "6411b6e6e326093657764ed29d200187f4a403e541ccd226ad95342c599d8c51",
+      "path": "output/playwright/f2-supplement-20261012/browser-first.json"
+    },
+    {
+      "sha256": "ae763942faeb917fe5972e86b26cbbcfb12862c131fed7899cdf864c013db83e",
+      "path": "output/playwright/f2-supplement-20261012/evidence-audit.json"
+    }
+  ],
+  "planningReadOnlyProbe": {
+    "scope": "read-only planning connectivity / metadata; not Auth or Browser integration",
+    "probes": [
+      {
+        "url": "http://localhost:5000/health",
+        "status": 200,
+        "allowOrigin": "http://localhost:3000",
+        "allowCredentials": "true"
+      },
+      {
+        "url": "http://localhost:5000/health/ready",
+        "status": 200,
+        "allowOrigin": "http://localhost:3000",
+        "allowCredentials": "true"
+      },
+      {
+        "url": "http://localhost:5000/openapi/v1.json",
+        "status": 200,
+        "allowOrigin": "http://localhost:3000",
+        "allowCredentials": "true",
+        "authAndUserPaths": [
+          "/api/v1/auth/register",
+          "/api/v1/auth/login",
+          "/api/v1/auth/logout",
+          "/api/v1/users/me"
+        ],
+        "infoTitle": "CustomFormService.Api | v1",
+        "infoVersion": "1.0.0"
+      }
+    ],
+    "userMeMethods": [
+      "get",
+      "patch"
+    ],
+    "path": "output/playwright/f2-supplement-20261012/f3-readonly-probes.json",
+    "sha256": "61ba662df2650af4cde6811a96278ee7c6e44fcc5ce5b218e33c46a27e13dc06"
+  },
+  "notRun": [
+    "real API Auth / Cookie / CORS / DB persistence",
+    "real Form / Answer mappers and page-level business toast / redirects",
+    "formal AI / manual acceptance",
+    "F3 development / tests",
+    "new unit / full F2 Browser / build rerun (verified applicable historical evidence reused)",
+    "npm ci / install / audit / generate / F1 smoke rerun"
+  ],
+  "limitations": [
+    "Original-directory npm ci unlink EPERM unresolved; original audit risks retained.",
+    "Late-write callback observations prove generic helper/harness ownership, not F3 Auth integration.",
+    "Chromium automation only; real mobile / Edge / Firefox / Safari not run."
+  ],
+  "deliveryChecks": {
+    "path": "output/playwright/f2-supplement-20261012/delivery-check.json",
+    "sha256": "611641516836ba4b3c3c673a4d373a36abf114e2ead96316d6e3ee9ba908af07",
+    "result": "PASS",
+    "relativeLinks": 86,
+    "missingLinks": 0,
+    "newRawHashChecks": 7,
+    "secretPatternMatches": 0,
+    "appChanges": 0,
+    "reviewOriginalChanges": 0,
+    "dependencyChanges": 0,
+    "diffCheck": "PASS",
+    "port3000Listeners": 0
+  }
+}

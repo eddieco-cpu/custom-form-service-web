@@ -6,7 +6,7 @@
 
 ## 1. 修正範圍
 
-來源：AGENTS v1.1／development skill、核准 F2 計畫 v1.0／總計畫 v1.3 的 F2、§7／§7.1；前端 02 v1.1 §10、03 v1.0 §4、04 v1.0 §9～12；後端 Part A v1.1 §9（GET 無業務寫入副作用）。唯讀後端快照沿 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`，manifest 108／108 相符；本次未查 live API／SHA，未改規格／契約／套件。
+來源：AGENTS v1.1／development skill、核准 F2 計畫 v1.0／總計畫 v1.3 的 F2、§7／§7.1；前端 02 v1.1 §10、03 v1.0 §4、04 v1.0 §9～12；後端 Part A v1.0 §9（GET 無業務寫入副作用）。唯讀後端快照沿 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`，manifest 108／108 相符；本次未查 live API／SHA，未改規格／契約／套件。
 
 | Finding | 實際修正與回歸 |
 | --- | --- |
@@ -36,3 +36,7 @@
 單一目的提交：`fix: address F2 cross-operation gates and read error review`。本報告納入該提交，實際 SHA 見 Git log／交付訊息；parent 如首頁。只提交 R1～R3 程式／回歸、精簡報告／新證據及必要進度追加。接手已有的 `docs/review/F2_Code_Review_Report_20261011.md`、`docs/review/evidence/F2_Independent_Verification_20261011.json` 兩份未追蹤檔維持原樣、不納入修正提交；提交後保留它們為剩餘 Git 狀態。
 
 F1 P3 局部複核通過依 Owner 本次指示及原獨立 review 記錄，沒有代填正式驗收。**修正完成、待局部複核；F1／F2 均未 accepted，正式驗收延後，F3 未開始。** 未推送／PR／部署。
+
+## 4. Owner 結案與引用更正（2026-10-12）
+
+Owner 已確認 [R1～R3 獨立局部複核](../review/F2_Correction_ReReview_Report_20261012.md) 通過並同意結案。依非阻擋 F2-R4 將上文 Part A 版本更正為 v1.0；只有文件引用更正，不為此重跑測試。原修正時的停止點及歷史證據保留。接續 [F2 補充測試計畫](../test-plan/F2_Supplemental_Test_Plan.md) 依本次授權直接執行；F1／F2 仍未 accepted，正式驗收延後。
