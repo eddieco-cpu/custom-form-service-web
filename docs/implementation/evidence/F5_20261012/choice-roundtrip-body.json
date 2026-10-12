@@ -1,0 +1,130 @@
+{
+  "case": "existing single_choice -> confirmed text -> single_choice",
+  "result": "PASS",
+  "mode": "pure domain; synthetic contract fixture; no real API",
+  "baselineType": "single_choice",
+  "finalType": "single_choice",
+  "oldOptionIds": [
+    "00000000-0000-4000-8000-000000000011",
+    "00000000-0000-4000-8000-000000000012"
+  ],
+  "finalOptions": [
+    {
+      "key": "tmp_00000000-0000-4000-8000-000000000101",
+      "serverId": null,
+      "label": "選項 1",
+      "value": "opt_00000000-0000-4000-8000-000000000100",
+      "sortOrder": 0
+    },
+    {
+      "key": "tmp_00000000-0000-4000-8000-000000000103",
+      "serverId": null,
+      "label": "選項 2",
+      "value": "opt_00000000-0000-4000-8000-000000000102",
+      "sortOrder": 1
+    }
+  ],
+  "expectedBody": {
+    "questions": [
+      {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "options": [
+          {
+            "id": "00000000-0000-4000-8000-000000000011"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000012"
+          },
+          {
+            "label": "選項 1",
+            "value": "opt_00000000-0000-4000-8000-000000000100",
+            "sortOrder": 0
+          },
+          {
+            "label": "選項 2",
+            "value": "opt_00000000-0000-4000-8000-000000000102",
+            "sortOrder": 1
+          }
+        ]
+      }
+    ]
+  },
+  "actualBody": {
+    "questions": [
+      {
+        "id": "00000000-0000-4000-8000-000000000003",
+        "options": [
+          {
+            "id": "00000000-0000-4000-8000-000000000011"
+          },
+          {
+            "id": "00000000-0000-4000-8000-000000000012"
+          },
+          {
+            "label": "選項 1",
+            "value": "opt_00000000-0000-4000-8000-000000000100",
+            "sortOrder": 0
+          },
+          {
+            "label": "選項 2",
+            "value": "opt_00000000-0000-4000-8000-000000000102",
+            "sortOrder": 1
+          }
+        ]
+      }
+    ]
+  },
+  "actualWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000003\",\"options\":[{\"id\":\"00000000-0000-4000-8000-000000000011\"},{\"id\":\"00000000-0000-4000-8000-000000000012\"},{\"label\":\"選項 1\",\"value\":\"opt_00000000-0000-4000-8000-000000000100\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_00000000-0000-4000-8000-000000000102\",\"sortOrder\":1}]}]}",
+  "bodyEqualsFixedExpected": true,
+  "serverTypeChangeCleanupApplicable": false,
+  "pathMap": {
+    "namespace": "delta",
+    "match": "exact",
+    "paths": {
+      "questions": "form",
+      "questions[0]": "00000000-0000-4000-8000-000000000003",
+      "questions[0].id": "00000000-0000-4000-8000-000000000003",
+      "questions[0].type": "00000000-0000-4000-8000-000000000003",
+      "questions[0].title": "00000000-0000-4000-8000-000000000003",
+      "questions[0].description": "00000000-0000-4000-8000-000000000003",
+      "questions[0].required": "00000000-0000-4000-8000-000000000003",
+      "questions[0].sortOrder": "00000000-0000-4000-8000-000000000003",
+      "questions[0].config": "00000000-0000-4000-8000-000000000003",
+      "questions[0].options": "00000000-0000-4000-8000-000000000003",
+      "questions[0].config.variant": "00000000-0000-4000-8000-000000000003",
+      "questions[0].options[2]": "tmp_00000000-0000-4000-8000-000000000101",
+      "questions[0].options[2].id": "tmp_00000000-0000-4000-8000-000000000101",
+      "questions[0].options[2].label": "tmp_00000000-0000-4000-8000-000000000101",
+      "questions[0].options[2].value": "tmp_00000000-0000-4000-8000-000000000101",
+      "questions[0].options[2].sortOrder": "tmp_00000000-0000-4000-8000-000000000101",
+      "questions[0].options[3]": "tmp_00000000-0000-4000-8000-000000000103",
+      "questions[0].options[3].id": "tmp_00000000-0000-4000-8000-000000000103",
+      "questions[0].options[3].label": "tmp_00000000-0000-4000-8000-000000000103",
+      "questions[0].options[3].value": "tmp_00000000-0000-4000-8000-000000000103",
+      "questions[0].options[3].sortOrder": "tmp_00000000-0000-4000-8000-000000000103"
+    },
+    "suffixes": {
+      "questions": ".questions",
+      "questions[0]": "",
+      "questions[0].id": ".id",
+      "questions[0].type": ".type",
+      "questions[0].title": ".title",
+      "questions[0].description": ".description",
+      "questions[0].required": ".required",
+      "questions[0].sortOrder": ".sortOrder",
+      "questions[0].config": ".config",
+      "questions[0].options": ".options",
+      "questions[0].config.variant": ".config.variant",
+      "questions[0].options[2]": "",
+      "questions[0].options[2].id": ".id",
+      "questions[0].options[2].label": ".label",
+      "questions[0].options[2].value": ".value",
+      "questions[0].options[2].sortOrder": ".sortOrder",
+      "questions[0].options[3]": "",
+      "questions[0].options[3].id": ".id",
+      "questions[0].options[3].label": ".label",
+      "questions[0].options[3].value": ".value",
+      "questions[0].options[3].sortOrder": ".sortOrder"
+    }
+  }
+}

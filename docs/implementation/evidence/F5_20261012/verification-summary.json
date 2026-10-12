@@ -1,0 +1,182 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "stage": "F5 development complete; awaiting consolidated review",
+  "frontendParent": "2fb15fb4461eb56a727715da463c084958d20a37",
+  "branch": "master",
+  "authorization": "Owner approved F5 plan v1.0 and full round development, necessary self-tests and in-scope corrections",
+  "mode": "pure domain with synthetic contract fixtures; no product API write",
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "nuxtUi": "4.11.3",
+    "tailwind": "4.3.3",
+    "typescript": "5.9.3",
+    "zod": "4.6.5",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "losslessJson": "4.3.1",
+    "vue": "3.5.43",
+    "vite": "8.3.4",
+    "nitro": "2.13.4"
+  },
+  "commands": [
+    {
+      "command": "npm run test:unit -- tests/unit/f5-editor.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-answer.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts tests/unit/api-client.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "passed": 167,
+      "total": 167,
+      "files": 6,
+      "startTime": "22:33:16 Asia/Taipei",
+      "reasonForExtraFile": "api-client.spec.ts covers the extended F2 ErrorPathMap / locateDetails compatibility"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "scope": "Nuxt plus tools strict"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "warning": "dependency DEP0155 trailing-slash exports mapping; no application error"
+    },
+    {
+      "command": "git diff --check",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "node output/playwright/f5-development-20261012/domain-probe.mjs",
+      "result": "PASS",
+      "exitCode": 0,
+      "scope": "Vite loads actual product modules; fixed expected Body equals actual Body; no real API"
+    }
+  ],
+  "executionHistory": [
+    {
+      "check": "first sandbox Vitest",
+      "result": "BLOCKED",
+      "exitCode": 1,
+      "reason": "startup spawn EPERM, zero test cases executed; same npm script retried outside sandbox"
+    },
+    {
+      "check": "first runnable Vitest",
+      "result": "PASS",
+      "exitCode": 0,
+      "passed": 166,
+      "total": 166
+    },
+    {
+      "check": "first lint",
+      "result": "FAIL",
+      "reason": "type-only import and test helper void union; corrected"
+    },
+    {
+      "check": "first strict typecheck",
+      "result": "FAIL",
+      "reason": "option identity intersection, readonly delta field accumulator and flatMap inference; corrected"
+    },
+    {
+      "check": "second strict typecheck",
+      "result": "FAIL",
+      "reason": "test mutation callbacks returned void where undefined declared; corrected"
+    }
+  ],
+  "backend": {
+    "source": "readonly backend-ref/SNAPSHOT.md",
+    "snapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestTotal": 108,
+    "manifestMatches": 108,
+    "sourceDiff": "no F5 contract conflict observed",
+    "liveSha": "UNCONFIRMED",
+    "liveReadiness": "UNCONFIRMED",
+    "liveBusinessApi": "NOT RUN",
+    "r10": "source snapshot historical R10 accepted; no new live integration evidence"
+  },
+  "fixtureBodyEvidence": "choice-roundtrip-body.json",
+  "fixtureBodySha256": "9392c261ea76b5475d0eb0bc876efb62225520d9fdc3a74f99e9081af6cc0fb2",
+  "lockfileSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+  "sources": [
+    {
+      "path": "app/domain/models.ts",
+      "sha256": "6fa3b12bc3d0576f249834c2a19d99d1c22ff572c313f250668c184967822760"
+    },
+    {
+      "path": "app/domain/api/form.ts",
+      "sha256": "181a4b2eb1def8807e9184a0b4ab66db257562a056095ce73f19bf257c4b8816"
+    },
+    {
+      "path": "app/domain/editor.ts",
+      "sha256": "619311bdf2b4c68a485ffdc1b8156a3fa304d1e42cc325db167d223cf2f0c23c"
+    },
+    {
+      "path": "app/domain/definition-validation.ts",
+      "sha256": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f"
+    },
+    {
+      "path": "app/domain/definition-request.ts",
+      "sha256": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202"
+    },
+    {
+      "path": "app/domain/error-path.ts",
+      "sha256": "c14f80fffcd28fb517725243701c1761660a4f595efd588eb79f4b99a47da790"
+    },
+    {
+      "path": "app/domain/error-presentation.ts",
+      "sha256": "457bae1a19ec308126fd66bb4e57bc5b689a357e7eb147931dd9e5deed9ca6f7"
+    },
+    {
+      "path": "app/domain/answer.ts",
+      "sha256": "8d964dfd137887d98c22f654494344899c40058571c2a5f883499763fc3b2c02"
+    },
+    {
+      "path": "tests/fixtures/f5/payloads.ts",
+      "sha256": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2"
+    },
+    {
+      "path": "tests/unit/f5-editor.spec.ts",
+      "sha256": "9621ef8d8e5664dfcdad58d1437ec5ae2c65bf23e487980d6bd77b9bd0880c16"
+    },
+    {
+      "path": "tests/unit/f5-definition-request.spec.ts",
+      "sha256": "bfc42185a96dfcb7fc81d8e0ecf3c2cecefd8e75cabec25d864f0a4f6c50fb86"
+    },
+    {
+      "path": "tests/unit/f5-answer.spec.ts",
+      "sha256": "f154dd625f330edbff3553e48262e4297937a5f8e5bf492291b05d74cc208186"
+    }
+  ],
+  "limits": {
+    "browser": "NOT RUN; pure path/model/builders only; no Cookie, CORS, navigation, beforeunload or UI changes",
+    "realApi": "NOT RUN",
+    "database": "NOT RUN",
+    "installCiAudit": "NOT RUN; historical EPERM/audit gaps retained",
+    "formalAiAcceptance": "NOT RUN; deferred",
+    "humanAcceptance": "NOT RUN; deferred",
+    "accepted": false,
+    "pushed": false,
+    "f6": "NOT STARTED",
+    "realFixtures": "BLOCKED; existing nonempty list/filter/pagination auth, owner/cross-role/status/hidden/deleted/deadline forms and controlled auth/fault/delay gaps retained"
+  },
+  "git": {
+    "initial": "clean",
+    "finalCommit": "see delivery message and Git log; avoid embedding self-referential commit SHA",
+    "intendedFinal": "clean after one purpose local commit"
+  },
+  "deliveryChecks": {
+    "sourceHashMismatches": 0,
+    "brokenReportLinks": 0,
+    "unexpectedControlCharacters": 0,
+    "sensitiveMarkers": 0,
+    "result": "PASS"
+  }
+}

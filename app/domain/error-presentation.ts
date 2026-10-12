@@ -31,12 +31,16 @@ export function presentError(result: Exclude<ApiResult<unknown>, { kind: 'succes
   return { ...base, kind: result.status === 409 ? 'conflict' : 'generic', message: result.error.message }
 }
 
-export interface ErrorPathMap { readonly namespace: 'delta' | 'publish' | 'answer'; readonly paths: Readonly<Record<string, string>> }
+export interface ErrorPathMap {
+  readonly namespace: 'delta' | 'publish' | 'answer'; readonly paths: Readonly<Record<string, string>>
+  // Builders enumerate supported controls. Unknown/deleted paths must remain in the summary.
+  readonly match?: 'exact'; readonly suffixes?: Readonly<Record<string, string>>
+}
 export interface LocatedDetail { readonly detail: ErrorDetail; readonly namespace: ErrorPathMap['namespace']; readonly targetKey?: string; readonly suffix?: string }
 export function locateDetails(details: readonly ErrorDetail[], map: ErrorPathMap): readonly LocatedDetail[] {
   const paths = Object.keys(map.paths).sort((a, b) => b.length - a.length)
   return details.map(detail => {
-    const path = paths.find(path => detail.path === path || detail.path.startsWith(`${path}.`) || detail.path.startsWith(`${path}[`))
-    return { detail, namespace: map.namespace, ...(path === undefined ? {} : { targetKey: map.paths[path], suffix: detail.path.slice(path.length) }) }
+    const path = paths.find(path => detail.path === path || (map.match !== 'exact' && (detail.path.startsWith(`${path}.`) || detail.path.startsWith(`${path}[`))))
+    return { detail, namespace: map.namespace, ...(path === undefined ? {} : { targetKey: map.paths[path], suffix: map.suffixes?.[path] ?? detail.path.slice(path.length) }) }
   })
 }

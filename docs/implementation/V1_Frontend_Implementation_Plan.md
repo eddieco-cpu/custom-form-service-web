@@ -506,6 +506,14 @@ Owner 明確確認 **F4-R1 結案、F4 code review 通過**；正式驗收仍延
 
 **F5 計畫待 Owner review，尚未開發；F1／F2／F3／F4 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN。** 沿用 §9.8 與本次 Owner 指示的「計畫確認 → 整輪開發、自測及修正交付後集中 review」，不新增測試計畫核准關卡。本次僅計畫與必要進度的單一目的本機文件提交，完整 SHA／剩餘 Git 狀態見 Git log／交付訊息；不推送、不開發 F5、不展開後續 Round。
 
+### 9.16 F5 v1.0 核准、整輪開發與自測交付（2026-10-12）
+
+Owner 明確通過 [F5 精簡實作計畫 v1.0](F5_Implementation_Plan.md) review，授權整輪開發、必要自測及範圍內修正，不新增測試計畫核准關卡。起點 master／`2fb15fb4461eb56a727715da463c084958d20a37`、工作樹乾淨。已完成 Editor 初值／key／Server ID／baseline／dirty／切換與排序、Create／Draft Delta、Draft／Publish 與五題型答案驗證／builder、三種錯誤 path map，見 [F5 開發報告](F5_Development_Report.md)／[去敏摘要](evidence/F5_20261012/verification-summary.json)。本輪維持純 Domain，UI／保存／提交 API 與頁面流程留原訂後續輪次。
+
+Owner 指定既有 single_choice → 確認 text → single_choice 的固定預期 unit **PASS**，最終 type 相同時明確送舊 Option IDs id-only delete＋新 Options，原 Options 不復原、不依賴 Server type-change cleanup；[實際 Body／wire](evidence/F5_20261012/choice-roundtrip-body.json) 與固定預期相符。必要 unit **167／167**（含直接受影響 F2 locator 回歸）、lint／Nuxt＋tools strict typecheck／build／diff 核對 PASS，初次 sandbox／lint／型別失敗與修正歷史保留。backend-ref manifest **108／108** 相符，依賴／adapters／API services／頁面未改；真實 API／DB／Browser／正式 AI／人工驗收未執行，既有真實測資、live readiness／版本與 npm ci／audit 缺口保留。
+
+**F5 開發完成、待集中 review；F1～F5 均未 accepted，正式驗收仍延後／NOT RUN。** 沿用 §9.8 兩人工關卡，不推送、不展開 F6。僅本輪已驗證變更與交付文件作單一目的本機提交；完整 SHA／最終 Git 狀態見交付訊息／Git log。前節歷史停止點及 F4 code review 通過的 Owner 決議保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

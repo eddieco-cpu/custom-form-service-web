@@ -32,3 +32,26 @@ export interface FormDetailDto {
 export type FormSummaryDto = Omit<FormDetailDto, 'userId' | 'creatorDisplayName' | 'description' | 'questions'> & { readonly count: number }
 export interface SummaryPageDto { readonly items: readonly FormSummaryDto[]; readonly pagination: { readonly page: number; readonly pageSize: number; readonly totalItems: number; readonly totalPages: number } }
 export interface VisibilityRequest { readonly resultVisibility: ResultVisibility }
+
+export interface NewOptionRequest { readonly label: string; readonly value: string; readonly sortOrder: number }
+export type NewQuestionRequest = { [T in QuestionType]: {
+  readonly type: T; readonly title: string; readonly description: string | null; readonly required: boolean
+  readonly sortOrder: number; readonly config: ConfigByType[T]; readonly options: readonly NewOptionRequest[]
+} }[QuestionType]
+export interface CreateFormRequest {
+  readonly title: string; readonly description: string | null; readonly responseMode: ResponseMode
+  readonly responseIdentity: ResponseIdentity; readonly resultVisibility: ResultVisibility
+  readonly submissionDeadlineAt: string | null; readonly questions: readonly NewQuestionRequest[]
+}
+// An id-only entry denotes deletion. Builders never emit it for unchanged items.
+export type OptionDelta = NewOptionRequest | ({ readonly id: string } & Partial<NewOptionRequest>)
+export type QuestionDelta = NewQuestionRequest | {
+  readonly id: string; readonly type?: QuestionType; readonly title?: string; readonly description?: string | null
+  readonly required?: boolean; readonly sortOrder?: number; readonly config?: ConfigByType[QuestionType]
+  readonly options?: readonly OptionDelta[]
+}
+export interface DraftDeltaRequest {
+  readonly title?: string; readonly description?: string | null; readonly responseMode?: ResponseMode
+  readonly responseIdentity?: ResponseIdentity; readonly submissionDeadlineAt?: string | null
+  readonly questions?: readonly QuestionDelta[]
+}
