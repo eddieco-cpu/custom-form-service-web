@@ -1,0 +1,632 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "kind": "independent-code-review",
+  "target": "b9f052a41165fb7a7552f0dc827f85f97bc887ec",
+  "baseline": "3987c388d1fc6690315c5244dfe10bf00554c724",
+  "actualHead": "b9f052a41165fb7a7552f0dc827f85f97bc887ec",
+  "sourceVersions": {
+    "frontend": "00/01/03/04/05/07 v1.0; 02/06 v1.1",
+    "implementationPlan": "v1.3",
+    "f3Plan": "v1.0",
+    "backendSnapshotSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "liveBackendSha": "UNCONFIRMED"
+  },
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "@nuxt/ui": "4.11.3",
+    "tailwindcss": "4.3.3",
+    "zod": "4.6.5",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "@playwright/test": "1.64.0",
+    "chromium": "156.0.8078.4",
+    "supplementalChrome": "156.0.8078.12",
+    "playwrightCli": "0.1.22 (locally cached; separate from repository Playwright test runner)"
+  },
+  "backendManifest": {
+    "total": 108,
+    "matched": 108
+  },
+  "liveMetadata": {
+    "health": 200,
+    "ready": 200,
+    "openapiHttpStatus": 200,
+    "openapi": "3.1.1",
+    "apiInfoVersion": "1.0.0",
+    "source": "read-only probe in this review"
+  },
+  "engineering": [
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run typecheck",
+      "exitCode": 0,
+      "result": "PASS",
+      "scope": "Nuxt strict and tools tsc"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "result": "PASS"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f3-auth.spec.ts tests/unit/api-client.spec.ts tests/unit/scoped-state.spec.ts",
+      "exitCode": 0,
+      "result": "PASS",
+      "tests": 94,
+      "f3": 48,
+      "common": 46
+    }
+  ],
+  "engineeringEvidence": "Actual execution tool outputs; no raw command logs exported for these four commands. Unit initially failed to start with sandbox spawn EPERM, then passed via approved escalation.",
+  "browserFixture": {
+    "rawPath": "output/playwright/f3-review/fixture-results.json",
+    "sha256": "08ac53c4c4bbbea858a381b07b9f5a9767ec284c17161c80c5d399f97a032daa",
+    "stats": {
+      "startTime": "2026-10-12T04:14:50.174Z",
+      "duration": 68097.06999999999,
+      "expected": 22,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 7441
+          }
+        ]
+      },
+      {
+        "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1922
+          }
+        ]
+      },
+      {
+        "title": "F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1839
+          }
+        ]
+      },
+      {
+        "title": "F3-B04 public fixture independent of me pending",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1710
+          }
+        ]
+      },
+      {
+        "title": "F3-B04 public fixture independent of me disabled",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1602
+          }
+        ]
+      },
+      {
+        "title": "F3-B04 public fixture independent of me 401",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1692
+          }
+        ]
+      },
+      {
+        "title": "F3-B04 public fixture independent of me 500",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1567
+          }
+        ]
+      },
+      {
+        "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2309
+          }
+        ]
+      },
+      {
+        "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 3350
+          }
+        ]
+      },
+      {
+        "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2090
+          }
+        ]
+      },
+      {
+        "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2286
+          }
+        ]
+      },
+      {
+        "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2218
+          }
+        ]
+      },
+      {
+        "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2067
+          }
+        ]
+      },
+      {
+        "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2200
+          }
+        ]
+      },
+      {
+        "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2171
+          }
+        ]
+      },
+      {
+        "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 3064
+          }
+        ]
+      },
+      {
+        "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1927
+          }
+        ]
+      },
+      {
+        "title": "F3-B13 late reconciliation after leaving preserves the newer page and shared User",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2186
+          }
+        ]
+      },
+      {
+        "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2131
+          }
+        ]
+      },
+      {
+        "title": "F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 7205
+          }
+        ]
+      },
+      {
+        "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 2369
+          }
+        ]
+      },
+      {
+        "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 1999
+          }
+        ]
+      }
+    ],
+    "result": "22/22 PASS in one fresh run",
+    "productSource": "tests/fixtures/f3/browser/nuxt.config.ts uses repository app as srcDir",
+    "command": "npx playwright test --config output/playwright/f3-review/fixture.config.ts",
+    "finalChangeCoverage": [
+      "B09 x4",
+      "B13",
+      "B15",
+      "B16"
+    ],
+    "synthetic": true
+  },
+  "builtSmoke": {
+    "rawPath": "output/playwright/f3-review/smoke-results.json",
+    "sha256": "64fc53b83c7fcfda4349ed7d644bb0a381cd3e684b133ccce63dcd9fa2e29492",
+    "stats": {
+      "startTime": "2026-10-12T04:17:08.846Z",
+      "duration": 4365.665,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "current CSR shell, local Header icons, responsive layout and public config (synthetic Auth)",
+        "expectedStatus": "passed",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "durationMs": 404
+          }
+        ]
+      }
+    ],
+    "result": "1/1 PASS",
+    "command": "npx playwright test --config output/playwright/f3-review/smoke.config.ts",
+    "syntheticAuth": true,
+    "knownCoverageGap": "Does not mount Toast/Dialog or assert their focus restoration and local icon rendering/network lifecycle."
+  },
+  "invalidCookie": {
+    "result": "PASS",
+    "request": {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    "response": {
+      "status": 401,
+      "code": "AUTH_TOKEN_INVALID",
+      "corsOrigin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    "browser": "156.0.8078.12",
+    "fullReturn": "/profile?from=invalid#name",
+    "subsequentClickedTarget": "/forms",
+    "spaMeCount": 1,
+    "interception": false,
+    "isolatedBrowserContext": true,
+    "dbWrites": 0,
+    "dbClockAndServiceConfigurationChanged": false,
+    "rawPath": "output/playwright/f3-review/supplemental-raw.json",
+    "rawSha256": "5b2f6be015df628bdc53354515ba33f88d9559dcf72ff7f203322098876f57ee"
+  },
+  "profileSessionGate": {
+    "result": "FAIL",
+    "finding": "F3-R1",
+    "me": 2,
+    "patch": 3,
+    "bodies": [
+      {
+        "displayName": "Unknown A"
+      },
+      {
+        "displayName": "Unknown B"
+      },
+      {
+        "displayName": "Unsafe B retry"
+      }
+    ],
+    "sequence": [
+      "A PATCH 500",
+      "GET me returns B; explicit adoption",
+      "B PATCH 500",
+      "confirm discard and SPA leave",
+      "SPA re-enter Profile",
+      "edit name and send another PATCH without GET"
+    ],
+    "observedBeforeThirdPatch": {
+      "me": 2,
+      "patch": 2,
+      "saveEnabled": true,
+      "reconciliationButtons": 0
+    },
+    "synthetic": true,
+    "rawPath": "output/playwright/f3-review/supplemental-raw.json"
+  },
+  "dialogFocus": {
+    "result": "FAIL",
+    "finding": "F3-R2",
+    "xClose": {
+      "saveEnabled": true,
+      "focusReturnedToSave": false,
+      "activeTag": "BODY",
+      "dialogs": 0,
+      "input": "Changed focus",
+      "synthetic": true
+    },
+    "footerClose": {
+      "saveEnabled": true,
+      "focusReturnedToSave": false,
+      "activeTag": "BODY",
+      "dialogs": 0,
+      "input": "Changed focus"
+    },
+    "footerEvidence": "Observed execution tool output and .playwright-cli/page-2026-10-12T04-22-10-050Z.yml",
+    "closeIcon": {
+      "svgDataMask": true,
+      "width": 20,
+      "height": 20
+    },
+    "synthetic": true,
+    "builtProduct": true,
+    "rawPath": "output/playwright/f3-review/focus-close-x-result.json",
+    "rawSha256": "62a7e95a2324c75c0331fd50d40c6adba5b1448fd357618cf6ef427ff9c98fdf"
+  },
+  "builtToast": {
+    "toastPresent": 1,
+    "icons": [
+      {
+        "mask": "url(\"data:image/svg+xml,%3Csvg",
+        "width": 20,
+        "height": 20
+      }
+    ],
+    "outgoing": [
+      "http://localhost:5000/api/v1/users/me"
+    ],
+    "synthetic": true,
+    "result": "PASS",
+    "rawPath": "output/playwright/f3-review/built-toast-result.json",
+    "rawSha256": "1737371518a01f598b38a85b8e3590c0532b0eda9427ed46080ed75bfbed4129",
+    "limitation": "Ad hoc built probe; not a persistent regression test; only actually rendered close icon was checked."
+  },
+  "historicalFiles": [
+    {
+      "path": "output/playwright/f3/checks/lint-final.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "actualSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/checks/typecheck-final.log",
+      "sha256": "a6237e1a3f0e6cf6e095f434f687e56ba598b01a1bf23e970917a09ed2996921",
+      "actualSha256": "a6237e1a3f0e6cf6e095f434f687e56ba598b01a1bf23e970917a09ed2996921",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/checks/build-final.log",
+      "sha256": "d432556410f541e1abbb7bc9b8ffde08cd364117bf7988006cff6de487a1d22e",
+      "actualSha256": "d432556410f541e1abbb7bc9b8ffde08cd364117bf7988006cff6de487a1d22e",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/checks/unit-final.log",
+      "sha256": "8131b261787a81ebcbabdd2c9a6987a491f79eba530faf826d8e868ea933034e",
+      "actualSha256": "8131b261787a81ebcbabdd2c9a6987a491f79eba530faf826d8e868ea933034e",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/checks/current-shell-smoke-final.log",
+      "sha256": "9a762279cedf86eca5f1adfaba08306017a2f0ad65654cd3dee01f1ada2b58ea",
+      "actualSha256": "9a762279cedf86eca5f1adfaba08306017a2f0ad65654cd3dee01f1ada2b58ea",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/attempt-1/browser-results.json",
+      "sha256": "7b230ab6c906f35570c4db98c8bc37ac3f8d9c1f941fb74b94ff11e6f3a10e1f",
+      "actualSha256": "7b230ab6c906f35570c4db98c8bc37ac3f8d9c1f941fb74b94ff11e6f3a10e1f",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/attempt-fixture-1/fixture-results.json",
+      "sha256": "4eed7199240a703b87abba2ddf6ee7ebfeeb715bb6c57c1d83ead5ab1a2f291f",
+      "actualSha256": "4eed7199240a703b87abba2ddf6ee7ebfeeb715bb6c57c1d83ead5ab1a2f291f",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/attempt-fixture-2/fixture-results.json",
+      "sha256": "81300feeef012c801277571dff64bf02724124cd4321528a81a19eed7c2c5431",
+      "actualSha256": "81300feeef012c801277571dff64bf02724124cd4321528a81a19eed7c2c5431",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/attempt-fixture-3/fixture-results.json",
+      "sha256": "9338d1bfd06060ab5e1a5ab5b9fa9524eac2ab04856a6673090aa87850bafcc3",
+      "actualSha256": "9338d1bfd06060ab5e1a5ab5b9fa9524eac2ab04856a6673090aa87850bafcc3",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/attempt-fixture-4/fixture-results.json",
+      "sha256": "901c71ae1d54de79f77159a2b745f20b2758114b39153f5909c0f235523a3b58",
+      "actualSha256": "901c71ae1d54de79f77159a2b745f20b2758114b39153f5909c0f235523a3b58",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/b01-final/fixture-results.json",
+      "sha256": "8c9c67ca9cf8b70db935c76c041f68db2084767fd933af20c2330869f114360f",
+      "actualSha256": "8c9c67ca9cf8b70db935c76c041f68db2084767fd933af20c2330869f114360f",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/live-email/browser-results.json",
+      "sha256": "29ed0755b96f06d688cc20abb25eb3160f89b409de803ee8aa667dbf640050ac",
+      "actualSha256": "29ed0755b96f06d688cc20abb25eb3160f89b409de803ee8aa667dbf640050ac",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/b15-first-failure/browser-results.json",
+      "sha256": "12baa4e4f45011ff93aee31b90fd2727c6bbc758840ea6f8df6e5513d875bd09",
+      "actualSha256": "12baa4e4f45011ff93aee31b90fd2727c6bbc758840ea6f8df6e5513d875bd09",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/b15-final/browser-results.json",
+      "sha256": "7e5471ced4df4c379e2af5c3f0eba53589af22de934191d199e407a8fb0cd0b4",
+      "actualSha256": "7e5471ced4df4c379e2af5c3f0eba53589af22de934191d199e407a8fb0cd0b4",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/browser-results.json",
+      "sha256": "5c87a3ac3822e24f555cb98c0390efb3c37bd48123d807c6e1122905cb1e616c",
+      "actualSha256": "5c87a3ac3822e24f555cb98c0390efb3c37bd48123d807c6e1122905cb1e616c",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/f3/current-shell-first-failure/results.json",
+      "sha256": "4219649e9dc49cf65baba989aa994b7f0ad8b51b64ccf829e772b455a7b90bd7",
+      "actualSha256": "4219649e9dc49cf65baba989aa994b7f0ad8b51b64ccf829e772b455a7b90bd7",
+      "matched": true
+    },
+    {
+      "path": "output/playwright/results.json",
+      "sha256": "692fe715bb742792fd074eb729a4fa574054eed513b6908888d912afe3eb0d1b",
+      "actualSha256": "692fe715bb742792fd074eb729a4fa574054eed513b6908888d912afe3eb0d1b",
+      "matched": true
+    },
+    {
+      "path": "docs/test-results/evidence/F3_20261012/desktop.png",
+      "sha256": "7c898380e1d756312628401cd56b6995d8d347bedd1185c95b2a1b14339b8ed5",
+      "data": "synthetic User only",
+      "actualSha256": "7c898380e1d756312628401cd56b6995d8d347bedd1185c95b2a1b14339b8ed5",
+      "matched": true
+    },
+    {
+      "path": "docs/test-results/evidence/F3_20261012/mobile.png",
+      "sha256": "19b7d54ed2c663333ba8f97730b8f26aa375dd3593c8283af6cf8e6c0cd845e2",
+      "data": "synthetic User only",
+      "actualSha256": "19b7d54ed2c663333ba8f97730b8f26aa375dd3593c8283af6cf8e6c0cd845e2",
+      "matched": true
+    }
+  ],
+  "historicalMatched": 19,
+  "historicalLiveNormalAndEmail": {
+    "result": "NOT RUN in this review",
+    "originalEvidenceHashesMatched": true,
+    "summary": "Retained historical real API/Cookie/CORS/Email evidence; not recast as a fresh live PASS."
+  },
+  "approvalReview": {
+    "liveSuiteResult": "REJECTED, command not executed",
+    "reason": "Existing live suite creates/updates accounts via API, which is DB writing and conflicts with this review instruction.",
+    "workaroundAttempted": false,
+    "safeAlternative": "Historical hash verification, real read-only invalid Cookie, and fully intercepted frontend probes."
+  },
+  "notVerified": [
+    {
+      "item": "real disabled correct-credential Login and disabled existing Cookie",
+      "result": "BLOCKED",
+      "reason": "No controlled backend fixture",
+      "blocksIndependentF4Development": false
+    },
+    {
+      "item": "real AUTH_TOKEN_EXPIRED",
+      "result": "BLOCKED",
+      "reason": "No controlled expired Cookie; no token issuance or clock change",
+      "blocksIndependentF4Development": false
+    },
+    {
+      "item": "live backend Git SHA/process checkout",
+      "result": "UNCONFIRMED",
+      "blocksIndependentF4Development": false
+    },
+    {
+      "item": "real server unknown commit outcomes",
+      "result": "NOT RUN",
+      "reason": "Fault probes were intercepted",
+      "blocksIndependentF4Development": false
+    },
+    {
+      "item": "other browsers, manual devices, formal AI/manual acceptance",
+      "result": "NOT RUN",
+      "blocksIndependentF4Development": false
+    }
+  ],
+  "repositoryChanges": "Only this review report and sanitized evidence; product/tests/dependencies/specs/progress unchanged. No commit/push.",
+  "secrets": "No password, Cookie value, JWT/token, storageState or raw trace exported.",
+  "stopPoint": "F3 獨立 review 完成、待 Owner 集中確認",
+  "accepted": false,
+  "f4Started": false,
+  "formalAcceptance": "延期／NOT RUN"
+}
