@@ -460,6 +460,12 @@ Owner 確認 F2 補充測試結果，核准 [F3 Implementation Plan v1.0](F3_Imp
 
 **F3 整輪交付、待 Owner 集中 review；F3 未 accepted；F1／F2 正式驗收仍延後；F4～F10 未開始。** 本輪單一目的本機提交，不推送、不自行開始後續輪次；完整 SHA 見 Git log／交付訊息。既有規格、Round 分工、歷史停止點及 backend-ref 保留。
 
+### 9.10 F3 授權局部修正交付（2026-10-12）
+
+Owner 確認獨立 review findings，授權一次修正 F3-R1、F3-R2、N1 並完成必要自測，不重提整輪計畫。已修正不同 User／初始重試採用後的 Profile operation key 接續／未知限制、三個 F3 操作 Dialog 的焦點恢復，並補回 built 產品 Feedback／本地圖示／請求覆蓋，見 [精簡修正報告](F3_Review_Correction_Report.md)。unit 94／94、完整合成 F3 Browser 38／38、built R1／R2＋Feedback 17／17、F2 Dialog 相容 1／1、lint／strict typecheck／build PASS；皆為開發自測，本次未重跑真實 API。原 reviewer 文件、缺陷重現及歷史結果保留。
+
+**F3 修正完成、待局部複核；未 accepted、不推送、不開始 F4，正式驗收仍延後。** 修正提交與剩餘 Git 狀態見報告／交付訊息。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

@@ -13,6 +13,8 @@ const service = authService(useRuntimeConfig().public.apiBaseUrl)
 const mobileOpen = ref(false)
 const menuOpen = ref(false)
 const error = shallowRef<ErrorPresentation>()
+const dialogFocus = useDialogFocus(() => document.querySelector<HTMLElement>('header button[aria-label="使用者選單"]'))
+async function closeError() { error.value = undefined; await dialogFocus.restore() }
 const navs = [
   { label: '建立表單', to: '/forms/new' }, { label: '我的表單', to: '/forms' },
   { label: '個人資訊', to: '/profile' }, { label: '首頁', to: '/' },
@@ -26,6 +28,7 @@ async function navigate(to: string) {
 }
 async function logout() {
   if (busy.value) return
+  dialogFocus.capture()
   const dirty = dirtyBridge.current()
   const permit = dirty?.authorizeAction('logout')
   if (dirty && !permit) return
@@ -59,5 +62,5 @@ async function logout() {
     </div>
     <nav v-if="mobileOpen" aria-label="手機導覽" class="grid border-t border-gray-100 px-4 py-2 lg:hidden"><UButton v-for="nav in navs" :key="nav.to" color="neutral" variant="ghost" @click="navigate(nav.to)">{{ nav.label }}</UButton></nav>
   </header>
-  <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" @close="error = undefined" />
+  <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" managed-focus @close="closeError" />
 </template>

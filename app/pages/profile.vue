@@ -21,21 +21,35 @@ const error = shallowRef<ErrorPresentation>()
 const readError = shallowRef<ErrorPresentation>()
 const checking = ref(false)
 const { scope } = useRequestScope(() => route.fullPath, () => state.value.sessionRevision)
-const profileKey = `profile:${state.value.sessionRevision}`
-const operation = useOperationState('profile', () => profileKey)
+// Advance only after adopting a reliable baseline, never just because Auth
+// invalidation changes the revision while unresolved data is still on screen.
+const profileKey = ref(`profile:${state.value.sessionRevision}`)
+const operation = useOperationState('profile', () => profileKey.value)
+const dialogFocus = useDialogFocus(() => document.querySelector<HTMLElement>('main button[data-profile-reconcile]'))
 const dirty = useDirtyScope({ isDirty: () => ready.value && profileDirty(input.displayName, baseline.value), revision: () => input.displayName, needsReconciliation: () => operation.state.value.needsReconciliation })
 useActiveDirtyScope().register(dirty)
-watch(() => state.value.user, user => { if (!ready.value && user && state.value.outcome === 'authenticated') { input.displayName = user.displayName; baseline.value = user.displayName; ready.value = true } })
+watch(() => state.value.user, user => {
+  if (!ready.value && user && state.value.outcome === 'authenticated') {
+    input.displayName = user.displayName; baseline.value = user.displayName; ready.value = true
+    profileKey.value = `profile:${state.value.sessionRevision}`
+  }
+})
 const disabled = computed(() => busy.value || checking.value || state.value.outcome === 'anonymous')
 async function focusError(event: FormErrorEvent) { await nextTick(); if (event.errors.some(error => error.name === 'displayName')) { nameControl.value?.inputRef?.focus(); nameControl.value?.inputRef?.scrollIntoView({ block: 'center' }) } }
 async function save() {
   if (disabled.value || !ready.value || !profileDirty(input.displayName, baseline.value)) return
+  dialogFocus.capture()
   const ticket = scope.begin()
   busy.value = true
   try {
     const result = await operation.operation.value!.run(profileRequest(input), body => service.update(body), ticket.isCurrent)
     if (result.kind === 'blocked' || result.kind === 'stale' || !ticket.isCurrent()) return
-    if (result.kind === 'success') { session.profile(result.value); input.displayName = result.value.displayName; baseline.value = result.value.displayName; toast.add({ title: '個人資訊已更新', color: 'success' }) }
+    if (result.kind === 'success') {
+      input.displayName = result.value.displayName; baseline.value = result.value.displayName
+      session.profile(result.value)
+      profileKey.value = `profile:${state.value.sessionRevision}`
+      toast.add({ title: '個人資訊已更新', color: 'success' })
+    }
     else {
       error.value = presentError(result, 'action')
       form.value?.setErrors(error.value.details.filter(detail => detail.path === 'displayName').map(detail => ({ name: detail.path, message: detail.message })))
@@ -44,9 +58,14 @@ async function save() {
   }
   finally { busy.value = false; scope.finish(ticket) }
 }
-async function closeError() { const authError = error.value?.kind === 'auth'; error.value = undefined; if (authError) await router.replace(loginLocation(route.fullPath)) }
+async function closeError() {
+  const authError = error.value?.kind === 'auth'; error.value = undefined
+  if (authError) await router.replace(loginLocation(route.fullPath))
+  await dialogFocus.restore()
+}
 async function reconcile() {
   if (disabled.value) return
+  dialogFocus.capture()
   const ticket = scope.begin()
   checking.value = true; readError.value = undefined
   try {
@@ -63,7 +82,7 @@ async function reconcile() {
         }, current)
         // Adoption may change identity and invalidate this page ticket. Complete the
         // verified baseline transition before advancing the shared session revision.
-        if (adopted) candidate.adopt()
+        if (adopted && candidate.adopt()) profileKey.value = `profile:${state.value.sessionRevision}`
       })
     }
     else if (isSessionFailure(result)) { error.value = presentError(result, 'read'); session.invalidate(result) }
@@ -83,9 +102,9 @@ async function reconcile() {
         <UButton type="submit" :loading="busy" :disabled="disabled || operation.state.value.blocked || !profileDirty(input.displayName, baseline)">保存</UButton>
       </UForm>
       <p v-if="operation.state.value.needsReconciliation" class="mt-4 text-sm text-gray-600">保存結果尚未確認，請核對目前個人資訊後再保存。</p>
-      <UButton v-if="operation.state.value.needsReconciliation" color="neutral" variant="outline" class="mt-3" :loading="checking" :disabled="disabled" @click="reconcile">核對目前個人資訊</UButton>
+      <UButton v-if="operation.state.value.needsReconciliation" data-profile-reconcile color="neutral" variant="outline" class="mt-3" :loading="checking" :disabled="disabled" @click="reconcile">核對目前個人資訊</UButton>
       <FeedbackReadError v-if="readError" class="mt-4" :presentation="readError" :retrying="checking" @retry="reconcile" />
     </UCard>
-    <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" @close="closeError" />
+    <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" managed-focus @close="closeError" />
   </section>
 </template>

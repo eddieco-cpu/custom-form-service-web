@@ -1,6 +1,6 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F2 補充測試结果已由 Owner 確認；F3 v1.0 計畫核准、整輪開發及必要自測已交付，待 Owner 集中 review。** 見 [F3 開發報告](docs/implementation/F3_Development_Report.md)、[測試結果與缺口](docs/test-results/F3_Development_Test_Report.md) 與 [核准計畫](docs/implementation/F3_Implementation_Plan.md)。F3 未 accepted；F1／F2 正式驗收仍延後，F4 未開始。以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F3-R1、F3-R2、N1 已依 Owner 授權修正及自測，F3 修正完成、待局部複核。** 見 [精簡修正報告](docs/implementation/F3_Review_Correction_Report.md)、[原 F3 開發報告](docs/implementation/F3_Development_Report.md) 與 [原測試結果與缺口](docs/test-results/F3_Development_Test_Report.md)。reviewer 報告、缺陷重現與歷史證據保留；F3 未 accepted，不推送、不開始 F4，正式驗收仍延後。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
@@ -34,7 +34,7 @@ npm run test:e2e
 
 typecheck 實際執行 Nuxt app／generated project 檢查與 `tsc -p tsconfig.tools.json`，涵蓋 tests、TS／MJS 工具組態與靜態 probe script。E2E 在 built preview 上啟動 Chromium；需先 build、關閉自己啟動的 dev 並確保 3000 沒有其他服務。Playwright 不重用不明服務，也不停止既有後端。這些是開發自測，正式 AI／人工驗收未執行。
 
-覆寫 smoke 用以下方式在 **process 啟動前** 注入；Auth GET 由測試攔截，回合成 User，不連接真實後端：
+覆寫 smoke 用以下方式在 **process 啟動前** 注入；User GET／PATCH 由測試攔截，使用合成結果驗證實際產品 Toast／Dialog、焦點與本地圖示，不連接真實後端：
 
 ```powershell
 $env:NUXT_PUBLIC_API_BASE_URL = 'http://localhost:5000/api/f1-smoke'

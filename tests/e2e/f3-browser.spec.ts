@@ -152,13 +152,14 @@ test('F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancel
   await page.getByRole('button', { name: '保存', exact: true }).click()
   await expect(page.getByRole('dialog')).toBeVisible(); await page.keyboard.press('Escape'); await expect(page.getByRole('dialog')).toBeVisible()
   await page.mouse.click(5, 400); await expect(page.getByRole('dialog')).toBeVisible()
-  page.once('dialog', dialog => dialog.dismiss())
+  const cancelled = answerDialog(page, false)
   await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).first().click()
+  await cancelled
   await expect(page.getByRole('textbox', { name: '姓名' })).toHaveValue('保留輸入')
   await expect(page.getByRole('button', { name: '保存', exact: true })).toBeDisabled()
   await expect(page.getByText('未登入', { exact: true })).toBeVisible()
-  page.once('dialog', dialog => dialog.accept())
-  await nav(page, '首頁').click(); await expect(page).toHaveURL(/\/login/)
+  const left = answerDialog(page, true)
+  await nav(page, '首頁').click(); await left; await expect(page).toHaveURL(/\/login/)
 })
 
 test('F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout', async ({ page }) => {

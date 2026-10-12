@@ -19,6 +19,8 @@ const nameControl = useTemplateRef('nameControl')
 const emailControl = useTemplateRef('emailControl')
 const passwordControl = useTemplateRef('passwordControl')
 const error = shallowRef<ErrorPresentation>()
+const dialogFocus = useDialogFocus(() => emailControl.value?.inputRef)
+async function closeError() { error.value = undefined; await dialogFocus.restore() }
 const retrying = ref(false)
 const { scope } = useRequestScope(() => route.fullPath, () => state.value.sessionRevision)
 const login = useOperationState('login', () => 'auth-write')
@@ -34,6 +36,7 @@ async function focusError(event: FormErrorEvent) {
 async function submit() {
   if (busy.value || retrying.value) return
   const registering = tab.value === 'register'
+  dialogFocus.capture()
   const ticket = scope.begin()
   busy.value = true
   try {
@@ -84,6 +87,6 @@ async function verify() {
       <p v-if="register.state.value.needsReconciliation" class="mt-4 text-sm text-gray-600">註冊結果尚未確認，可切至登入 Tab 用原帳密確認。</p>
       <UButton v-if="login.state.value.needsReconciliation" class="mt-3" color="neutral" variant="outline" :loading="retrying" :disabled="busy || retrying" @click="verify">核對登入狀態</UButton>
     </UCard>
-    <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" @close="error = undefined" />
+    <FeedbackActionErrorDialog v-if="error" :open="true" :presentation="error" managed-focus @close="closeError" />
   </section>
 </template>
