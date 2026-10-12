@@ -153,9 +153,16 @@ export function semanticEqual(a: unknown, b: unknown): boolean {
   const left = Object.entries(a), right = Object.entries(b)
   return left.length === right.length && left.every(([k, v]) => Object.hasOwn(b, k) && semanticEqual(v, (b as Record<string, unknown>)[k]))
 }
+const optionalConfigKeys: Record<QuestionType, readonly string[]> = {
+  text: ['variant', 'placeholder', 'minLength', 'maxLength'], number: ['placeholder', 'min', 'max'],
+  single_choice: ['variant'], multiple_choice: ['variant'], rating: ['variant', 'min', 'max'],
+}
 function comparableConfig(q: EditorQuestion): unknown {
   if (!q.config || typeof q.config !== 'object' || Array.isArray(q.config)) return q.config
   const entries = Object.entries(q.config).flatMap<[string, unknown]>(([key, value]) => {
+    // Match the validator's optional-key omission without hiding unknown or invalid input.
+    if (!optionalConfigKeys[q.type].includes(key)) return [[key, value]]
+    if (value === undefined) return []
     if (typeof value !== 'string') return [[key, value]]
     if (['min', 'max', 'minLength', 'maxLength'].includes(key)) {
       if (value === '') return []
@@ -169,7 +176,10 @@ function comparableConfig(q: EditorQuestion): unknown {
     if (key === 'placeholder') { const text = optionalTextCandidate(value); return text === undefined ? [] : [[key, text]] }
     return [[key, value]]
   })
-  return { ...Object.fromEntries(entries), ...(defaultVariant(q.type) ? { variant: effectiveVariant(q) } : {}) }
+  const config = Object.fromEntries(entries), variant = defaultVariant(q.type)
+  // Only omission gets the presentation default; an explicit null remains distinguishable.
+  if (variant !== undefined && !Object.hasOwn(config, 'variant')) config.variant = variant
+  return config
 }
 function comparableDefinition(definition: EditorDefinition, baseline: EditorBaseline): unknown {
   const ordered = orderedDefinition(definition, baseline)

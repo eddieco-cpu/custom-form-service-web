@@ -514,6 +514,14 @@ Owner 指定既有 single_choice → 確認 text → single_choice 的固定預�
 
 **F5 開發完成、待集中 review；F1～F5 均未 accepted，正式驗收仍延後／NOT RUN。** 沿用 §9.8 兩人工關卡，不推送、不展開 F6。僅本輪已驗證變更與交付文件作單一目的本機提交；完整 SHA／最終 Git 狀態見交付訊息／Git log。前節歷史停止點及 F4 code review 通過的 Owner 決議保留。
 
+### 9.17 F5-R1 授權局部修正交付（2026-10-12）
+
+Owner 確認 F5-R1／P2 並直接授權局部修正、必要回歸與交付，不另提修正計畫。起點 master／`e4da993470bf89388b899e046e22ccea3a652a93`，兩份未提交 review 報告／證據保留原 bytes 與未提交狀態。已局部修正合法可選 config 的 undefined／省略 dirty 投影，使 validator candidate／Delta 一致；null、未知 key／錯題型空值與非法非空值保持差異並拒絕，共用比較與契約未改。見 [修正報告](F5_R1_Correction_Report.md)／[去敏證據](evidence/F5_R1_Correction_20261012/verification-summary.json)。
+
+先新增 58 案並在產品修正前重現，首次與中間失敗全部保留；最後 F5／F2 unit **225／225 PASS**、lint／strict typecheck／build／diff PASS。四組 review undefined 案皆 Draft valid／Delta noop／dirty=false；12 組原設定清除皆以完整 replacement 移除 key，null／未知／非法值仍 invalid 且 dirty。另擷取四組與三種 replacement 的實際 candidate／Body，原 Choice→text→Choice 固定 Body 回歸維持 PASS。原 review／probe／F5 報告與證據／lockfile hash 8／8、backend manifest 108／108 不變；全部為純 Domain 合成自測，真實 API／DB／Browser 未執行，既有測資與 live／npm ci／audit 缺口保留。
+
+**F5-R1 補正完成、待局部複核；不自行宣告 F5 review 通過，F1～F5 未 accepted，正式驗收維持延後／NOT RUN。** 只提交局部修正及交付／必要進度，不推送、不展開 F6。完整 SHA／剩餘 Git 狀態見 Git log／交付訊息；前節與原審查歷史不覆寫。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
