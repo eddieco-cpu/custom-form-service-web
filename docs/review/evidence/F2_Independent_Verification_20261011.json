@@ -1,0 +1,882 @@
+{
+  "schemaVersion": 1,
+  "date": "2026-10-11",
+  "timezone": "Asia/Taipei",
+  "purpose": "Independent code review; no formal acceptance",
+  "frontend": "e0d06e589d5eb3b65f0057bdd7fb8b1694625d76",
+  "parent": "a2599215adbc4cf916d53b7d2fcfeb1c67e212d6",
+  "f1P3Commit": "8c953df10bc43382277440fefb018df50d31c496",
+  "backendSnapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "liveBackendVersion": "NOT VERIFIED",
+  "backendManifest": {
+    "entries": 108,
+    "mismatches": 0
+  },
+  "environment": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "ui": "4.11.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "losslessJson": "4.3.1",
+    "chromium": "156.0.8078.4"
+  },
+  "lockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+  "cleanCopyLockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+  "historicalInstallEvidence": [
+    {
+      "path": "output/playwright/f2/commands/ci-first.log",
+      "recordedResult": "FAIL",
+      "recordedSha256": "d1724dff4de9d4ce8021e1950d7f1ca3fc3f51be225fe1f44ddd52d3f2aa33c9",
+      "actualSha256": "d1724dff4de9d4ce8021e1950d7f1ca3fc3f51be225fe1f44ddd52d3f2aa33c9",
+      "matches": true
+    },
+    {
+      "path": "output/playwright/f2/commands/restore-install.log",
+      "recordedResult": "PASS",
+      "recordedSha256": "695867ec67abd62c1973cfcbb9478a9d9c99d764e48e71d6e72eead981b3e0c6",
+      "actualSha256": "695867ec67abd62c1973cfcbb9478a9d9c99d764e48e71d6e72eead981b3e0c6",
+      "matches": true
+    },
+    {
+      "path": "output/playwright/f2/commands/ci-clean.log",
+      "recordedResult": "PASS",
+      "recordedSha256": "529fda6189d6239d43a7dd30ccb6ba23639b158680a2afc8d204a7aace6c76fd",
+      "actualSha256": "529fda6189d6239d43a7dd30ccb6ba23639b158680a2afc8d204a7aace6c76fd",
+      "matches": true
+    }
+  ],
+  "npmCiThisReview": "NOT RUN; original-directory failure remains historical and unresolved",
+  "checks": [
+    {
+      "command": "npm run test:unit -- --reporter=json --outputFile=output/playwright/f2-review/unit.json",
+      "first": "FAIL spawn EPERM before cases",
+      "elevatedRetry": "PASS",
+      "total": 78,
+      "passed": 78,
+      "failed": 0
+    },
+    {
+      "command": "npm run lint",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run build",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f2/browser",
+      "status": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run test:e2e -- --config=playwright.f2.config.ts --reporter=list,json --output=output/playwright/f2-review/browser-artifacts",
+      "status": "FAIL",
+      "stats": {
+        "startTime": "2026-10-11T14:27:58.355Z",
+        "duration": 53821.096000000005,
+        "expected": 5,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "same F2 command with --grep 'pending mutual' and isolated outputs",
+      "status": "FAIL",
+      "stats": {
+        "startTime": "2026-10-11T14:29:53.954Z",
+        "duration": 10298.34,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npm run test:e2e -- --reporter=list,json --output=output/playwright/f2-review/f1-p3-artifacts",
+      "status": "PASS",
+      "stats": {
+        "startTime": "2026-10-11T14:30:26.891Z",
+        "duration": 5320.232,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "command": "npm audit --json --offline=false --fetch-retries=0 --fetch-timeout=20000",
+      "exitCode": 1,
+      "status": "WARNINGS PRESENT",
+      "counts": {
+        "info": 0,
+        "low": 1,
+        "moderate": 0,
+        "high": 7,
+        "critical": 7,
+        "total": 15
+      }
+    }
+  ],
+  "browser": [
+    {
+      "title": "numeric gate: native fetch raw DTOs and exact outgoing tokens",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": [],
+          "attachments": []
+        }
+      ],
+      "annotations": [
+        {
+          "type": "browser-version",
+          "description": "156.0.8078.4"
+        },
+        {
+          "type": "exact-wire-bodies",
+          "description": "[\"{\\\"value\\\":0.123456789012345678901234567890123456789}\",\"{\\\"value\\\":9007199254740993}\",\"{\\\"value\\\":1e-101}\",\"{\\\"value\\\":1e400}\",\"{\\\"value\\\":1e80}\",\"{\\\"value\\\":100000000000000000000000000000000000000000000000000000000000000000000000000000001}\",\"{\\\"value\\\":-0}\",\"{\\\"value\\\":0.1000000000000000000001}\",\"{\\\"value\\\":1e131071}\",\"{\\\"value\\\":1e-16383}\",\"{\\\"value\\\":0e1073741823}\"]"
+        }
+      ]
+    },
+    {
+      "title": "pending mutual exclusion, unknown lock, cancelled adoption and modal close paths",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "errors": [
+            "Error: dialog.accept: Cannot accept dialog which is already handled!\n\n  48 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeDisabled()\n  49 |   await expect(page.getByTestId('raw')).toHaveValue('unsaved')\n> 50 |   page.once('dialog', dialog => dialog.accept())\n     |                                        ^\n  51 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeEnabled()\n  52 |   await expect(page.getByTestId('raw')).toHaveValue('adopted')\n  53 |   await page.getByTestId('save').click(); await expect(page.getByRole('dialog')).toBeVisible()\n    at _Page.<anonymous> (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f2-common.spec.ts:50:40)",
+            "Error: expect(locator).toBeEnabled() failed\n\nLocator:  getByTestId('save')\nExpected: enabled\nReceived: disabled\n\nCall log:\n  - Expect \"toBeEnabled\" getByTestId('save') with timeout 5000ms\n  - waiting for getByTestId('save')\n    2 × locator resolved to <button disabled type=\"button\" data-slot=\"base\" data-testid=\"save\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button>\n      - unexpected value \"disabled\"\n  - Test ended.\n\n\n  49 |   await expect(page.getByTestId('raw')).toHaveValue('unsaved')\n  50 |   page.once('dialog', dialog => dialog.accept())\n> 51 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeEnabled()\n     |                                                                                       ^\n  52 |   await expect(page.getByTestId('raw')).toHaveValue('adopted')\n  53 |   await page.getByTestId('save').click(); await expect(page.getByRole('dialog')).toBeVisible()\n  54 |   await page.getByRole('button', { name: 'Close', exact: true }).click()\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f2-common.spec.ts:51:87"
+          ],
+          "attachments": [
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f2-review\\browser-artifacts\\f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium\\error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f2-review\\browser-artifacts\\f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium\\trace.zip"
+            }
+          ]
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "title": "stale response/error/session and old finally do not update current page",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": [],
+          "attachments": []
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "title": "dirty route updates, replacement, one action redirect, history and reload prompts",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": [],
+          "attachments": []
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "title": "native network failure and 30000ms timeout preserve input and never retry write",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": [],
+          "attachments": []
+        }
+      ],
+      "annotations": []
+    },
+    {
+      "title": "read failure keeps page and manual retry recovers",
+      "status": "expected",
+      "results": [
+        {
+          "status": "passed",
+          "errors": [],
+          "attachments": []
+        }
+      ],
+      "annotations": []
+    }
+  ],
+  "browserReconcileRetry": [
+    {
+      "title": "pending mutual exclusion, unknown lock, cancelled adoption and modal close paths",
+      "status": "unexpected",
+      "results": [
+        {
+          "status": "failed",
+          "errors": [
+            "Error: dialog.accept: Cannot accept dialog which is already handled!\n\n  48 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeDisabled()\n  49 |   await expect(page.getByTestId('raw')).toHaveValue('unsaved')\n> 50 |   page.once('dialog', dialog => dialog.accept())\n     |                                        ^\n  51 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeEnabled()\n  52 |   await expect(page.getByTestId('raw')).toHaveValue('adopted')\n  53 |   await page.getByTestId('save').click(); await expect(page.getByRole('dialog')).toBeVisible()\n    at _Page.<anonymous> (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f2-common.spec.ts:50:40)",
+            "Error: expect(locator).toBeEnabled() failed\n\nLocator:  getByTestId('save')\nExpected: enabled\nReceived: disabled\n\nCall log:\n  - Expect \"toBeEnabled\" getByTestId('save') with timeout 5000ms\n  - waiting for getByTestId('save')\n    2 × locator resolved to <button disabled type=\"button\" data-slot=\"base\" data-testid=\"save\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button>\n      - unexpected value \"disabled\"\n  - Test ended.\n\n\n  49 |   await expect(page.getByTestId('raw')).toHaveValue('unsaved')\n  50 |   page.once('dialog', dialog => dialog.accept())\n> 51 |   await page.getByTestId('reconcile').click(); await expect(page.getByTestId('save')).toBeEnabled()\n     |                                                                                       ^\n  52 |   await expect(page.getByTestId('raw')).toHaveValue('adopted')\n  53 |   await page.getByTestId('save').click(); await expect(page.getByRole('dialog')).toBeVisible()\n  54 |   await page.getByRole('button', { name: 'Close', exact: true }).click()\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f2-common.spec.ts:51:87"
+          ],
+          "attachments": [
+            {
+              "name": "error-context",
+              "contentType": "text/markdown",
+              "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f2-review\\reconcile-retry-artifacts\\f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium\\error-context.md"
+            },
+            {
+              "name": "trace",
+              "contentType": "application/zip",
+              "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f2-review\\reconcile-retry-artifacts\\f2-common-pending-mutual-e-f6971-ption-and-modal-close-paths-chromium\\trace.zip"
+            }
+          ]
+        }
+      ],
+      "annotations": []
+    }
+  ],
+  "f1P3": {
+    "tests": [
+      {
+        "title": "CSR, local UI icons, feedback, responsive layout and public config",
+        "status": "expected",
+        "results": [
+          {
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "public-config-and-network",
+                "contentType": "application/json"
+              }
+            ]
+          }
+        ],
+        "annotations": []
+      }
+    ],
+    "mode": "preview",
+    "apiBaseUrl": "http://localhost:5000/api/v1",
+    "dialogCloseIconStyle": {
+      "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+      "width": 19.263916015625,
+      "height": 19.263916015625
+    },
+    "errors": [],
+    "unexpectedRequests": [],
+    "requests": 18,
+    "historicalFiveModes": [
+      {
+        "path": "docs/implementation/evidence/F1_P3_20261011/preview-default.json",
+        "sha256": "22892f41d76037d0b7e8d4fa262c0dd691af58e7c53d3dc0ed1197940565fd74",
+        "mode": "preview",
+        "actualUrl": "http://localhost:5000/api/v1",
+        "icon": {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 19.44122314453125,
+          "height": 19.441253662109375
+        },
+        "maskAndSizeValid": true,
+        "errors": [],
+        "unexpectedRequests": [],
+        "scope": "Historical correction evidence; not independently rerun in this review"
+      },
+      {
+        "path": "docs/implementation/evidence/F1_P3_20261011/preview-runtime-override.json",
+        "sha256": "5a6ab976e061924eb121e403c2bde20c08516adcadf4540de79a7d3a45ad8d13",
+        "mode": "preview",
+        "actualUrl": "http://localhost:5000/api/f1-smoke",
+        "icon": {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 19.5772705078125,
+          "height": 19.57720947265625
+        },
+        "maskAndSizeValid": true,
+        "errors": [],
+        "unexpectedRequests": [],
+        "scope": "Historical correction evidence; not independently rerun in this review"
+      },
+      {
+        "path": "docs/implementation/evidence/F1_P3_20261011/dev-default.json",
+        "sha256": "791c8a60514f6d2232acd4c3f40672c42b2496050340073e16712748df001675",
+        "mode": "dev",
+        "actualUrl": "http://localhost:5000/api/v1",
+        "icon": {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 19.4415283203125,
+          "height": 19.441558837890625
+        },
+        "maskAndSizeValid": true,
+        "errors": [],
+        "unexpectedRequests": [],
+        "scope": "Historical correction evidence; not independently rerun in this review"
+      },
+      {
+        "path": "docs/implementation/evidence/F1_P3_20261011/dev-start-override.json",
+        "sha256": "fd8d2cffcb05cdf0eb19a2b6d28f15eda4f23932a04d6fd3ceb567b3ee0fb01f",
+        "mode": "dev",
+        "actualUrl": "http://localhost:5000/api/f1-smoke",
+        "icon": {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 19.44140625,
+          "height": 19.44140625
+        },
+        "maskAndSizeValid": true,
+        "errors": [],
+        "unexpectedRequests": [],
+        "scope": "Historical correction evidence; not independently rerun in this review"
+      },
+      {
+        "path": "docs/implementation/evidence/F1_P3_20261011/static-build-value-retained.json",
+        "sha256": "af8fd607a9155808cd37a4f235abaea33b53327573b787e7deef7d25f9a67186",
+        "mode": "static",
+        "actualUrl": "http://localhost:5000/api/f1-smoke",
+        "icon": {
+          "mask": "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' width='24' height='24'%3E%3Cpath fill='none' stroke='black' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M18 6L6 18M6 6l12 12'/%3E%3C/svg%3E\")",
+          "width": 19.4415283203125,
+          "height": 19.44146728515625
+        },
+        "maskAndSizeValid": true,
+        "errors": [],
+        "unexpectedRequests": [],
+        "scope": "Historical correction evidence; not independently rerun in this review"
+      }
+    ]
+  },
+  "diagnostic": {
+    "frontend": "e0d06e589d5eb3b65f0057bdd7fb8b1694625d76",
+    "mechanism": "Vite ssrLoadModule of unchanged repository source; mock results; no API",
+    "deltaAfterUnknown": {
+      "phase": "unknown",
+      "loading": false,
+      "needsReconciliation": true,
+      "duplicateRisk": false,
+      "blocked": true
+    },
+    "publishCalls": 1,
+    "publishResult": {
+      "kind": "success",
+      "status": 200,
+      "value": "saved"
+    },
+    "visibilityCalls": 1,
+    "latestErrors": [
+      {
+        "placement": "dialog",
+        "details": [],
+        "knownCode": false,
+        "kind": "unknown-result",
+        "message": "未能確認操作結果，操作可能已完成。請主動核對後再操作。"
+      },
+      {
+        "placement": "dialog",
+        "details": [],
+        "knownCode": true,
+        "kind": "unknown-result",
+        "message": "未能確認操作結果，操作可能已完成。請主動核對後再操作。"
+      }
+    ],
+    "permitCleared": true,
+    "receiptDuplicateOptionAccepted": true,
+    "rawDraftConfigPreserved": {}
+  },
+  "traceDiagnosis": {
+    "type": "test synchronization race; not proof of broken product reconciliation",
+    "firstDismissHandlerLine": 47,
+    "secondAcceptHandlerLine": 50,
+    "firstClickMs": 11530.459,
+    "secondClickMs": 11798.087,
+    "firstDismissMs": 11800.977,
+    "secondAcceptMs": 11801.276,
+    "error": "dialog.accept: Cannot accept dialog which is already handled!"
+  },
+  "audit": {
+    "offlineDefault": true,
+    "offlineResult": "0 reported; not valid security clearance",
+    "registry": "https://registry.npmjs.org/",
+    "packages": [
+      {
+        "name": "@nuxt/devtools",
+        "installed": [
+          {
+            "node": "node_modules/@nuxt/devtools",
+            "version": "3.4.2"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          "simple-git"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@nuxt/nitro-server",
+        "installed": [
+          {
+            "node": "node_modules/@nuxt/nitro-server",
+            "version": "4.6.1"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          "nitropack",
+          "nuxt"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@nuxt/vite-builder",
+        "installed": [
+          {
+            "node": "node_modules/@nuxt/vite-builder",
+            "version": "4.6.1"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          "nuxt"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@nuxt/vite-server",
+        "installed": [
+          {
+            "node": "node_modules/@nuxt/vite-server",
+            "version": "4.6.1"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          "nuxt"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "@simple-git/argv-parser",
+        "installed": [
+          {
+            "node": "node_modules/@simple-git/argv-parser",
+            "version": "1.1.1"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1241198,
+            "name": "@simple-git/argv-parser",
+            "dependency": "@simple-git/argv-parser",
+            "title": "simple-git: `VISUAL` editor environment variable is omitted from unsafe editor detection",
+            "url": "https://github.com/advisories/GHSA-v5rq-49vh-5v5c",
+            "severity": "critical",
+            "cwe": [
+              "CWE-78",
+              "CWE-184"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": "<2.0.1"
+          }
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "braces",
+        "installed": [
+          {
+            "node": "node_modules/braces",
+            "version": "3.0.3"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1240992,
+            "name": "braces",
+            "dependency": "braces",
+            "title": "braces vulnerable to stack-exhaustion denial of service through deeply nested patterns",
+            "url": "https://github.com/advisories/GHSA-vfj7-8cjw-p6xm",
+            "severity": "high",
+            "cwe": [
+              "CWE-674"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+            },
+            "range": "<=3.0.3"
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "esbuild",
+        "installed": [
+          {
+            "node": "node_modules/esbuild",
+            "version": "0.27.7"
+          }
+        ],
+        "severity": "low",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1120680,
+            "name": "esbuild",
+            "dependency": "esbuild",
+            "title": "esbuild allows arbitrary file read when running the development server on Windows",
+            "url": "https://github.com/advisories/GHSA-g7r4-m6w7-qqqr",
+            "severity": "low",
+            "cwe": [
+              "CWE-22"
+            ],
+            "cvss": {
+              "score": 2.5,
+              "vectorString": "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:N/I:L/A:N"
+            },
+            "range": ">=0.27.3 <0.28.1"
+          }
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "fast-glob",
+        "installed": [
+          {
+            "node": "node_modules/fast-glob",
+            "version": "3.3.3"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "micromatch"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "globby",
+        "installed": [
+          {
+            "node": "node_modules/globby",
+            "version": "16.2.4"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "fast-glob",
+          "micromatch"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "listhen",
+        "installed": [
+          {
+            "node": "node_modules/listhen",
+            "version": "1.10.1"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "node-forge"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "micromatch",
+        "installed": [
+          {
+            "node": "node_modules/micromatch",
+            "version": "4.0.8"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "braces"
+        ],
+        "fixAvailable": true
+      },
+      {
+        "name": "nitropack",
+        "installed": [
+          {
+            "node": "node_modules/nitropack",
+            "version": "2.13.4"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          "listhen"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "node-forge",
+        "installed": [
+          {
+            "node": "node_modules/node-forge",
+            "version": "1.4.0"
+          }
+        ],
+        "severity": "high",
+        "isDirect": false,
+        "via": [
+          {
+            "source": 1240912,
+            "name": "node-forge",
+            "dependency": "node-forge",
+            "title": "node-forge RSA PKCS#1 v1.5 signature verification accepts extra nested DigestAlgorithm elements",
+            "url": "https://github.com/advisories/GHSA-86w9-cpqp-85rv",
+            "severity": "high",
+            "cwe": [
+              "CWE-347"
+            ],
+            "cvss": {
+              "score": 7.5,
+              "vectorString": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N"
+            },
+            "range": "<=1.4.0"
+          }
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "nuxt",
+        "installed": [
+          {
+            "node": "node_modules/nuxt",
+            "version": "4.6.1"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": true,
+        "via": [
+          "@nuxt/devtools",
+          "@nuxt/nitro-server",
+          "@nuxt/vite-builder",
+          "@nuxt/vite-server"
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      },
+      {
+        "name": "simple-git",
+        "installed": [
+          {
+            "node": "node_modules/simple-git",
+            "version": "3.36.0"
+          }
+        ],
+        "severity": "critical",
+        "isDirect": false,
+        "via": [
+          "@simple-git/argv-parser",
+          {
+            "source": 1241199,
+            "name": "simple-git",
+            "dependency": "simple-git",
+            "title": "simple-git unsafe-operation guard does not block trailer command configuration",
+            "url": "https://github.com/advisories/GHSA-x6jw-m9v5-85vh",
+            "severity": "critical",
+            "cwe": [
+              "CWE-78",
+              "CWE-184"
+            ],
+            "cvss": {
+              "score": 0,
+              "vectorString": null
+            },
+            "range": ">=3.15.0 <4.0.1"
+          },
+          {
+            "source": 1241200,
+            "name": "simple-git",
+            "dependency": "simple-git",
+            "title": "simple-git allows command execution through unblocked Git configuration includes",
+            "url": "https://github.com/advisories/GHSA-g4wm-2vf7-vfgr",
+            "severity": "high",
+            "cwe": [
+              "CWE-77",
+              "CWE-78"
+            ],
+            "cvss": {
+              "score": 8.1,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+            },
+            "range": "<=3.36.0"
+          },
+          {
+            "source": 1241201,
+            "name": "simple-git",
+            "dependency": "simple-git",
+            "title": "simple-git: unsafe-operations plugin bypass via git long-option abbreviation (--receive-p/--exe) -> command execution (residual of CVE-2026-28291)",
+            "url": "https://github.com/advisories/GHSA-858h-whjf-mvg5",
+            "severity": "high",
+            "cwe": [
+              "CWE-77",
+              "CWE-88"
+            ],
+            "cvss": {
+              "score": 8.1,
+              "vectorString": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H"
+            },
+            "range": "<=3.36.0"
+          }
+        ],
+        "fixAvailable": {
+          "name": "nuxt",
+          "version": "3.7.4",
+          "isSemVerMajor": true
+        }
+      }
+    ]
+  },
+  "scope": {
+    "api": "mock results / synthetic raw JSON / Playwright native fetch intercepted; no real API",
+    "productAndTestsModified": false,
+    "acceptance": "NOT RUN",
+    "manualAcceptance": "NOT RUN",
+    "f1Accepted": false,
+    "f2Accepted": false,
+    "f3Started": false,
+    "backendDataOperations": "NOT RUN",
+    "originalF1EvidenceModified": false,
+    "originalF2EvidenceModified": false
+  },
+  "rawHashes": [
+    {
+      "path": "output/playwright/f2-review/unit.log",
+      "sha256": "f1fb70e9644ef845681b51c9ceb4b54e8697525e889219b1b1628c204406ba3d"
+    },
+    {
+      "path": "output/playwright/f2-review/unit-retry.log",
+      "sha256": "616cfb626c7f9689427c8dfd488e5feb6605bf6268a3b736b11e78ac39d2046d"
+    },
+    {
+      "path": "output/playwright/f2-review/unit.json",
+      "sha256": "6939411025175daf3cbff04986050ea9ec1b4f1b9197c6b6c8ae5b2f2ea2956b"
+    },
+    {
+      "path": "output/playwright/f2-review/lint.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "path": "output/playwright/f2-review/typecheck.log",
+      "sha256": "576b32780b5f87f675871536f77d89c2ee236acfd372488928a5797cf5803605"
+    },
+    {
+      "path": "output/playwright/f2-review/harness-typecheck.log",
+      "sha256": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46"
+    },
+    {
+      "path": "output/playwright/f2-review/build-first.log",
+      "sha256": "9d20948b9e7e7cc66c96abd24d51b491f48d06fa1f6e2b08266c4279ff17a8ab"
+    },
+    {
+      "path": "output/playwright/f2-review/browser.log",
+      "sha256": "7a76212b89425eaf4d25d9062b53b17d3b6bd7dd9dca37df303a9a8ce65c41ce"
+    },
+    {
+      "path": "output/playwright/f2-review/browser.json",
+      "sha256": "65cbd4dfda90c8c689fff9858d78feaa1bb4299e7a5b520c5d4844d2ae059ae2"
+    },
+    {
+      "path": "output/playwright/f2-review/reconcile-retry.log",
+      "sha256": "b3535f9e31d3b9f31a8ac5c31d6fa87baaf49734b1ef4a44a9d264ab8bc05661"
+    },
+    {
+      "path": "output/playwright/f2-review/browser-reconcile-retry.json",
+      "sha256": "a717d01f34e25ec891d00b98ef8f81888f6ff4bc0b709be11fa655084bcd9d9f"
+    },
+    {
+      "path": "output/playwright/f2-review/f1-p3-preview.log",
+      "sha256": "6f91697bed2fe517d606dd474672090e9dce3b6baadb8ca74299ba23a571c826"
+    },
+    {
+      "path": "output/playwright/f2-review/f1-p3-preview.json",
+      "sha256": "7655942d8489315dd6e11978b039782ec84abeab0a086bcc32f0fcdb223da5f8"
+    },
+    {
+      "path": "output/playwright/f2-review/audit-online.json",
+      "sha256": "28f4192d7906ed1f43d747bd149bcbd12c6b9a98b4bf96356ef9d73e8cf73ffa"
+    },
+    {
+      "path": "output/playwright/f2-review/probe.mjs",
+      "sha256": "b9f6e61906885b790935e57274fc8615adaa1c2276918fb2f669dbbbbec27413"
+    },
+    {
+      "path": "output/playwright/f2-review/probe.json",
+      "sha256": "37de33355c4093412aa29cfc439e37c2dea566aaeb3ff33500c6dd6398bb38f6"
+    },
+    {
+      "path": "output/playwright/f2-review/dependency-tree.txt",
+      "sha256": "1a1a2f852d11d20cb044eb59fbea9e7f9006fec79579c2bbc549ee3cb8934a2c"
+    }
+  ]
+}
