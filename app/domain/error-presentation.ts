@@ -2,17 +2,23 @@ import type { ApiResult } from './api/result'
 import type { ErrorDetail } from './api/error'
 import { isKnownErrorCode } from './api/error'
 import { isUnknownWrite } from './operation-state'
+import type { RequestSemantics } from './operation-state'
 
 export type ErrorContext = 'read' | 'action' | 'bootstrap' | 'login' | 'register' | 'latest' | 'statistics'
+const contextPolicies: Record<ErrorContext, { readonly semantics: RequestSemantics; readonly placement: 'page' | 'dialog' }> = {
+  read: { semantics: 'read', placement: 'page' }, bootstrap: { semantics: 'read', placement: 'page' },
+  statistics: { semantics: 'read', placement: 'page' }, latest: { semantics: 'read', placement: 'dialog' },
+  action: { semantics: 'write', placement: 'dialog' }, login: { semantics: 'write', placement: 'dialog' }, register: { semantics: 'write', placement: 'dialog' },
+}
 export interface ErrorPresentation {
   readonly kind: 'auth' | 'bootstrap-auth' | 'credentials' | 'disabled' | 'not-found' | 'no-response' | 'not-available' | 'access-denied' | 'validation' | 'conflict' | 'unknown-result' | 'read-failure' | 'generic'
   readonly placement: 'page' | 'dialog'; readonly message: string; readonly details: readonly ErrorDetail[]; readonly knownCode: boolean
 }
 export function presentError(result: Exclude<ApiResult<unknown>, { kind: 'success' }>, context: ErrorContext): ErrorPresentation {
-  const placement = ['read', 'bootstrap', 'statistics'].includes(context) ? 'page' : 'dialog'
+  const { placement, semantics } = contextPolicies[context]
   const base = { placement, details: result.kind === 'api-error' ? result.error.details ?? [] : [], knownCode: result.kind === 'api-error' && isKnownErrorCode(result.error.code) } as const
-  if (context !== 'read' && context !== 'statistics' && context !== 'bootstrap' && isUnknownWrite(result)) return { ...base, kind: 'unknown-result', message: '未能確認操作結果，操作可能已完成。請主動核對後再操作。' }
-  if (result.kind !== 'api-error' || result.status >= 500) return { ...base, kind: placement === 'page' ? 'read-failure' : 'generic', message: placement === 'page' ? '載入失敗，請手動重試。' : '操作未完成，請檢查輸入或稍後手動重試。' }
+  if (isUnknownWrite(result, semantics)) return { ...base, kind: 'unknown-result', message: '未能確認操作結果，操作可能已完成。請主動核對後再操作。' }
+  if (result.kind !== 'api-error' || result.status >= 500) return { ...base, kind: semantics === 'read' ? 'read-failure' : 'generic', message: semantics === 'read' ? '載入失敗，請手動重試。' : '操作未完成，請檢查輸入或稍後手動重試。' }
   const code = result.error.code
   if (context === 'login' && code === 'AUTH_INVALID_CREDENTIALS') return { ...base, kind: 'credentials', message: 'Email 或密碼不正確。' }
   if (code === 'AUTH_USER_DISABLED') return { ...base, kind: 'disabled', message: '帳號已停用。' }

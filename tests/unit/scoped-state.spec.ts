@@ -38,6 +38,46 @@ describe('request ownership', () => {
   })
 })
 describe('write lifecycle', () => {
+  it.each([
+    unknown,
+    { kind: 'api-error', status: 500, error: { code: 'INTERNAL_SERVER_ERROR', message: 'Synthetic' } } as const,
+    { kind: 'contract-error', status: 200, message: 'Synthetic malformed response', sent: true } as const,
+  ])('shares Delta uncertainty across same-Form saves/publish: $kind', async (result) => {
+    const coordinator = new WriteCoordinator()
+    const delta = new OperationState('delta', coordinator, 'form:a')
+    const publishChanged = vi.fn()
+    const publish = new OperationState('lifecycle', coordinator, 'form:a', publishChanged)
+    await delta.run({}, async () => result, () => true)
+    expect(coordinator.busy('form:a')).toBe(false) // The lease is released; the gate must remain.
+    expect(publish.snapshot).toMatchObject({ blocked: true, needsReconciliation: true })
+    expect(publishChanged).toHaveBeenLastCalledWith(publish.snapshot)
+    const anotherSave = new OperationState('delta', coordinator, 'form:a')
+    const send = vi.fn(async () => success)
+    expect(await publish.run({}, send, () => true)).toEqual({ kind: 'blocked' })
+    expect(await anotherSave.run({}, send, () => true)).toEqual({ kind: 'blocked' })
+    expect(send).not.toHaveBeenCalled()
+    expect(delta.reconcile(() => false, () => true)).toBe(false) // Cancelled adoption.
+    expect(publish.reconcile(() => true, () => false)).toBe(false) // Stale read.
+    let current = true
+    expect(publish.reconcile(() => { current = false; return true }, () => current)).toBe(false)
+    expect(publish.snapshot.blocked).toBe(true)
+    expect(publish.reconcile(() => true, () => true)).toBe(true)
+    expect(delta.snapshot).toMatchObject({ phase: 'reconciled', blocked: false, needsReconciliation: false })
+    expect(anotherSave.snapshot.blocked).toBe(false)
+    expect(await publish.run({}, send, () => true)).toEqual(success)
+  })
+  it('does not extend Delta uncertainty to unrelated scopes or clear it on another operation success', async () => {
+    const coordinator = new WriteCoordinator(); const delta = new OperationState('delta', coordinator, 'form:a')
+    await delta.run({}, async () => unknown, () => true)
+    const visibility = new OperationState('visibility', coordinator, 'form:a')
+    const otherForm = new OperationState('lifecycle', coordinator, 'form:b')
+    expect(await visibility.run({}, async () => success, () => true)).toEqual(success)
+    expect(await otherForm.run({}, async () => success, () => true)).toEqual(success)
+    expect(delta.snapshot.blocked).toBe(true)
+    const disposed = vi.fn(); const oldPublish = new OperationState('lifecycle', coordinator, 'form:a', disposed)
+    oldPublish.dispose(); delta.reconcile(() => true, () => true)
+    expect(disposed).not.toHaveBeenCalled()
+  })
   it('locks same Form, permits another Form, snapshots before async, releases on all exits', async () => {
     const coordinator = new WriteCoordinator()
     const a = new OperationState('delta', coordinator, 'form:a')

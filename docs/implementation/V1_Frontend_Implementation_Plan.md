@@ -438,6 +438,12 @@ Owner 明確通過 [F2 計畫 v1.0](F2_Implementation_Plan.md) review，授權�
 
 **F0 accepted；F1 P3 補正已交付，待局部複核及正式驗收，F1 尚未 accepted；F2 開發完成、待 code review；F3～F10 未開始。** 本次為單一目的本機提交，實際 SHA 見 Git log／交付回報；未推送、未開始正式驗收。
 
+### 9.7 F2 局部修正與 F1 P3 複核狀態（2026-10-12）
+
+F2 原開發提交 `e0d06e589d5eb3b65f0057bdd7fb8b1694625d76` 的獨立 review 發現 R1～R3；Owner 授權局部修正及必要開發自測。修正同 Form 跨操作待核對限制、Latest 明確讀取語意與 Browser 核對同步，交付 [精簡修正報告](F2_Review_Correction_Report.md)。受影響 unit 46／46、完整 F2 Browser 10／10、lint／strict typecheck／fixture typecheck／build PASS；原開發與 review 的失敗／證據保留，不代稱真實 API 整合。
+
+**F1 P3 局部複核通過；F1／F2 仍未 accepted，正式驗收延後；F2 修正完成、待局部複核；F3～F10 未開始。** 本次單一目的本機提交、不推送；原兩份未追蹤 review 文件保持原樣，未納入修正提交。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

@@ -1,0 +1,261 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "stage": "correction complete; awaiting local re-review",
+  "frontendParent": "e0d06e589d5eb3b65f0057bdd7fb8b1694625d76",
+  "findings": [
+    "F2-R1",
+    "F2-R2",
+    "F2-R3"
+  ],
+  "status": {
+    "f1P3": "local re-review passed (Owner confirmed)",
+    "f3": "NOT STARTED",
+    "f2Accepted": false,
+    "formalAcceptance": "deferred; NOT RUN",
+    "f1Accepted": false
+  },
+  "versions": {
+    "npm": "11.19.0",
+    "playwright": "1.64.0",
+    "typescript": "5.9.3",
+    "node": "24.21.0",
+    "chromium": "156.0.8078.4",
+    "nuxtUi": "4.11.3",
+    "vitest": "5.0.3",
+    "losslessJson": "4.3.1",
+    "nuxt": "4.6.1"
+  },
+  "unit": {
+    "passed": 46,
+    "addedRegressionCases": [
+      {
+        "fullName": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: contract-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: api-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "DTO / contextual errors Latest retains AUTH_REQUIRED routing classification",
+        "status": "passed"
+      },
+      {
+        "fullName": "DTO / contextual errors Latest retains AUTH_USER_DISABLED routing classification",
+        "status": "passed"
+      },
+      {
+        "fullName": "write lifecycle shares Delta uncertainty across same-Form saves/publish: transport-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "write lifecycle shares Delta uncertainty across same-Form saves/publish: api-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "write lifecycle shares Delta uncertainty across same-Form saves/publish: contract-error",
+        "status": "passed"
+      },
+      {
+        "fullName": "write lifecycle does not extend Delta uncertainty to unrelated scopes or clear it on another operation success",
+        "status": "passed"
+      }
+    ],
+    "total": 46,
+    "failed": 0,
+    "scope": "affected two unit files only",
+    "files": [
+      {
+        "tests": 33,
+        "result": "passed",
+        "name": "api-client.spec.ts"
+      },
+      {
+        "tests": 13,
+        "result": "passed",
+        "name": "scoped-state.spec.ts"
+      }
+    ]
+  },
+  "browser": {
+    "fullSuite": true,
+    "r3Synchronization": "await dialog dismissal/acceptance Promise, then completed reconciliation counter/outcome, before next handler/click; no fixed sleeps",
+    "simulation": "native fetch with synthetic raw JSON / Playwright interceptions; no real API integration claim",
+    "stats": {
+      "startTime": "2026-10-12T00:10:44.106Z",
+      "duration": 65168.090000000004,
+      "expected": 10,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "numeric gate: native fetch raw DTOs and exact outgoing tokens",
+        "result": "passed",
+        "durationMs": 5494
+      },
+      {
+        "title": "pending mutual exclusion, unknown lock, cancelled adoption and modal close paths",
+        "result": "passed",
+        "durationMs": 2694
+      },
+      {
+        "title": "stale response/error/session and old finally do not update current page",
+        "result": "passed",
+        "durationMs": 1422
+      },
+      {
+        "title": "dirty route updates, replacement, one action redirect, history and reload prompts",
+        "result": "passed",
+        "durationMs": 6402
+      },
+      {
+        "title": "native network failure and 30000ms timeout preserve input and never retry write",
+        "result": "passed",
+        "durationMs": 32411
+      },
+      {
+        "title": "read failure keeps page and manual retry recovers",
+        "result": "passed",
+        "durationMs": 1180
+      },
+      {
+        "title": "Latest network preserves answers and allows manual read retry",
+        "result": "passed",
+        "durationMs": 1799
+      },
+      {
+        "title": "Latest 500 preserves answers and allows manual read retry",
+        "result": "passed",
+        "durationMs": 1788
+      },
+      {
+        "title": "Latest malformed preserves answers and allows manual read retry",
+        "result": "passed",
+        "durationMs": 1793
+      },
+      {
+        "title": "Latest retains Auth and RESPONSE_NOT_FOUND classifications without replacing answers",
+        "result": "passed",
+        "durationMs": 2285
+      }
+    ]
+  },
+  "firstExecution": {
+    "lint": "PASS",
+    "unit": "PASS",
+    "harnessTypecheck": "PASS",
+    "build": "PASS",
+    "strictTypecheck": "PASS",
+    "fullBrowser": "PASS",
+    "newFailures": 0
+  },
+  "history": {
+    "independentR3Retry": "0 PASS / 1 FAIL; retained",
+    "independentBrowser": "5 PASS / 1 FAIL (R3); retained",
+    "diagnostic": "R1 publishCalls=1 before reconciliation; Latest timeout/500 classified unknown before correction; retained",
+    "preservedFiles": [
+      {
+        "unchanged": true,
+        "path": "docs/review/F2_Code_Review_Report_20261011.md",
+        "sha256": "6b94be73b8cd918e40d5e8c28dea61fc13b1e7ac6b30d8381c721710f448428d"
+      },
+      {
+        "unchanged": true,
+        "path": "docs/review/evidence/F2_Independent_Verification_20261011.json",
+        "sha256": "e96b837249db38482618b3d4f5685fef7ceaf7f01fba850b563161b1fecca669"
+      },
+      {
+        "unchanged": true,
+        "path": "docs/implementation/evidence/F2/verification-summary.json",
+        "sha256": "e3f86e72ddcb0bf9a8d5a5a151f3af1c12abbbbdfd5f1f26f70cc13dbdbc14dc"
+      }
+    ]
+  },
+  "backend": {
+    "snapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "liveApi": "NOT RUN",
+    "manifestTotal": 108,
+    "manifestMatches": 108
+  },
+  "constraints": {
+    "lockSha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+    "originalCiEperm": "historical unresolved unlink EPERM; not retested",
+    "cookieCors": "NOT RUN",
+    "installCiAudit": "NOT RUN",
+    "dbPersistence": "NOT RUN",
+    "realApi": "NOT RUN",
+    "productFixtureMarkers": 0,
+    "reviewUntrackedFiles": "two original review files preserved; excluded from correction commit"
+  },
+  "commands": [
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/unit-first.log",
+      "sha256": "a37739974c6a91e809270445d2098cef53491dbd12e15ce59a7561b7c587c669",
+      "log": "unit-first.log",
+      "command": "npm run test:unit -- tests/unit/scoped-state.spec.ts tests/unit/api-client.spec.ts --reporter=json --outputFile=output/playwright/f2-correction-20261012/unit-first.json"
+    },
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/browser-first.log",
+      "sha256": "e706fcc53315724defdfd28275f96c0c1e8b5aaef07701d2a5515925322a3049",
+      "log": "browser-first.log",
+      "command": "PLAYWRIGHT_JSON_OUTPUT_FILE=output/playwright/f2-correction-20261012/browser-first.json npm run test:e2e -- --config=playwright.f2.config.ts --reporter=list,json --output=output/playwright/f2-correction-20261012/browser-first-artifacts"
+    },
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/lint-first.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "log": "lint-first.log",
+      "command": "npm run lint"
+    },
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/typecheck-first.log",
+      "sha256": "3a48dd72e959d887a7d89fe8c9d9cf82e42865fdad34cff36fd043eca25ed2dd",
+      "log": "typecheck-first.log",
+      "command": "npm run typecheck"
+    },
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/harness-typecheck-first.log",
+      "sha256": "ec8d868a51c179d14605ca4c9d4cfb862d44bb169797620ad8b49f82acea6b46",
+      "log": "harness-typecheck-first.log",
+      "command": "node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f2/browser"
+    },
+    {
+      "exitCode": 0,
+      "result": "PASS",
+      "path": "output/playwright/f2-correction-20261012/commands/build-first.log",
+      "sha256": "deed17332b93a17a98663351b0687514b4ce49fcc6e9f664ad99d79d90ad8ba6",
+      "log": "build-first.log",
+      "command": "npm run build"
+    }
+  ],
+  "rawReports": [
+    {
+      "sha256": "bdd64913c2667f3c73458fe1feed4ca64645810d5bf470a4330ea5bb32764f1a",
+      "path": "output/playwright/f2-correction-20261012/unit-first.json"
+    },
+    {
+      "sha256": "738e9385694d7a48cb640a94c8d267a828a4ea0261f0a0835c0388b57d62acf6",
+      "path": "output/playwright/f2-correction-20261012/browser-first.json"
+    }
+  ]
+}

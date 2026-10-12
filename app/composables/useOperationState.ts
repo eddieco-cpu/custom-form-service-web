@@ -11,12 +11,12 @@ export function useOperationState(policy: OperationPolicy, leaseKey: () => strin
   const state = shallowRef<OperationSnapshot>({ phase: 'idle', loading: false, needsReconciliation: false, duplicateRisk: false, blocked: false })
   const operation = shallowRef<OperationState>()
   const create = (key: string) => {
-    operation.value?.invalidate()
+    operation.value?.dispose()
     const next = new OperationState(policy, coordinator, key, value => { if (operation.value === next) state.value = value })
     operation.value = next; state.value = next.snapshot
   }
   create(leaseKey())
   watch(leaseKey, create, { flush: 'sync' })
-  onUnmounted(() => operation.value?.invalidate())
+  onUnmounted(() => operation.value?.dispose())
   return { operation, state }
 }

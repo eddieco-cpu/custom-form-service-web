@@ -1,5 +1,7 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
+最新進度（2026-10-12）：**F2 R1～R3 修正完成、待局部複核；F1 P3 局部複核通過，F1／F2 仍未 accepted，正式驗收延後，F3 未開始。** 以下較早日期的紀錄保留歷史狀態。
+
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
 本組文件整合前端已定案內容，並採用後端 2026-10-10 的 Statistics v1.1 修訂內容。02／06 維持 v1.1，其他規格維持 v1.0；總實作計畫 v1.3 補測試選擇原則，AGENTS 為 v1.1。Round 分工不變。可放入未來獨立前端 repo，作為各 Round 實作計畫的來源。
@@ -49,7 +51,7 @@ npm run test:e2e
 
 ## F2 共用基礎與隔離自測
 
-Owner 已核准 [F2 計畫](docs/implementation/F2_Implementation_Plan.md) v1.0 並授權開發。交付見 [F2 開發報告](docs/implementation/F2_Development_Report.md)：**F2 開發完成、待 code review**。上述 F0／F1 段落保留歷史授權；目前 **F1 P3 補正已交付，待局部複核及正式驗收，F1 尚未 accepted**。不開始正式驗收或 F3。
+Owner 已核准 [F2 計畫](docs/implementation/F2_Implementation_Plan.md) v1.0 並授權開發。原交付見 [F2 開發報告](docs/implementation/F2_Development_Report.md)；2026-10-12 依獨立 review 授權局部修正 R1～R3，見 [修正報告](docs/implementation/F2_Review_Correction_Report.md)。目前 **F2 修正完成、待局部複核；F1 P3 局部複核通過，F1／F2 仍未 accepted，正式驗收延後**。上述 F0／F1 段落保留歷史授權與交付狀態；不開始 F3。
 
 ```powershell
 npm run test:unit

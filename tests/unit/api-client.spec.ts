@@ -2,6 +2,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 import { createApiClient } from '../../app/services/api-client'
 import { decodeCount, decodeError, decodeFormDetail, decodeReceipt, decodeStatistics, decodeSummaryPage, decodeUser } from '../../app/domain/api/decoders'
 import { presentError, locateDetails } from '../../app/domain/error-presentation'
+import { isUnknownWrite } from '../../app/domain/operation-state'
 import { parseExactJson } from '../../app/utils/exact-json'
 import { ExactNumber } from '../../app/utils/exact-number'
 import { bigInteger, errorText, formId, formText, instant, optionId, receiptText, statisticsText } from '../fixtures/f2/payloads'
@@ -76,6 +77,20 @@ describe('direct-resource client (mock fetch)', () => {
   })
 })
 describe('DTO / contextual errors', () => {
+  it.each([
+    { kind: 'transport-error', reason: 'timeout', sent: true } as const,
+    { kind: 'transport-error', reason: 'network', sent: true } as const,
+    { kind: 'contract-error', status: 200, message: 'Synthetic malformed body', sent: true } as const,
+    { kind: 'api-error', status: 500, error: { code: 'INTERNAL_SERVER_ERROR', message: 'Synthetic' } } as const,
+  ])('Latest failure is a retryable read, not an unknown write: $kind', (result) => {
+    expect(isUnknownWrite(result, 'read')).toBe(false)
+    expect(isUnknownWrite(result, 'write')).toBe(true)
+    expect(presentError(result, 'latest')).toMatchObject({ kind: 'read-failure', placement: 'dialog', message: '載入失敗，請手動重試。' })
+    expect(presentError(result, 'action').kind).toBe('unknown-result')
+  })
+  it.each([['AUTH_REQUIRED', 'auth', 401], ['AUTH_USER_DISABLED', 'disabled', 403]] as const)('Latest retains %s routing classification', (code, kind, status) => {
+    expect(presentError({ kind: 'api-error', status, error: { code, message: 'Synthetic' } }, 'latest').kind).toBe(kind)
+  })
   it.each([
     ['text', '{"variant":"textarea","minLength":1,"maxLength":100}', '"😀文字"', '"😀文字"'],
     ['number', '{"min":0,"max":9007199254740993}', '9007199254740993', '9007199254740993'],

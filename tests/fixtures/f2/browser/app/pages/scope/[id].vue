@@ -21,9 +21,12 @@ const modal = ref(false); const closeCount = ref(0)
 const actionError = ref<ErrorPresentation>({ kind: 'generic', placement: 'dialog', message: 'Synthetic', details: [], knownCode: false })
 const gate = ref('not run')
 const completedReads = ref(0); const readOutcome = ref('none')
+const completedReconciles = ref(0); const reconcileOutcome = ref('none'); const reconciling = ref(false)
+const completedLatest = ref(0); const latestOutcome = ref('none')
 const { scope, loading } = useRequestScope(() => String(route.params.id), () => session.value)
 const write = useOperationState('delta', () => `form:${String(route.params.id)}`)
 const visibility = useOperationState('visibility', () => `form:${String(route.params.id)}`)
+const publish = useOperationState('lifecycle', () => `form:${String(route.params.id)}`)
 const dirty = useDirtyScope({ isDirty: () => raw.value !== baseline.value, revision: () => raw.value, needsReconciliation: () => write.state.value.needsReconciliation })
 async function runGate() {
   const token = raw.value
@@ -50,22 +53,36 @@ async function load(path: string) {
   // Test-only completion observation; business callbacks remain guarded by RequestScope.
   completedReads.value++; readOutcome.value = outcome.kind
 }
-async function save(other = false) {
+async function save(kind: 'delta' | 'visibility' | 'publish' = 'delta') {
   const currentResource = String(route.params.id); const currentSession = session.value
   const isCurrent = () => currentResource === String(route.params.id) && currentSession === session.value
-  const target = other ? visibility.operation.value : write.operation.value
+  const target = kind === 'publish' ? publish.operation.value : kind === 'visibility' ? visibility.operation.value : write.operation.value
   if (!target) return
-  const result = await target.run({ title: raw.value }, body => client({ path: other ? '/fixture-visibility' : '/fixture-write', method: 'PATCH', expectedStatus: 200, decode: decodeCount, body }), isCurrent)
+  const path = kind === 'publish' ? '/fixture-publish' : kind === 'visibility' ? '/fixture-visibility' : '/fixture-write'
+  const result = await target.run({ title: raw.value }, body => client({ path, method: kind === 'publish' ? 'POST' : 'PATCH', expectedStatus: 200, decode: decodeCount, body }), isCurrent)
   if (result.kind === 'blocked' || result.kind === 'stale') return
   if (result.kind === 'success') baseline.value = raw.value
   else { actionError.value = presentError(result, 'action'); modal.value = true }
 }
 async function reconcile() {
+  reconciling.value = true; reconcileOutcome.value = 'pending'
   const id = String(route.params.id); const version = session.value
   const isCurrent = () => id === String(route.params.id) && version === session.value
-  const result = await scope.run(() => client({ path: '/fixture-reconcile', method: 'GET', expectedStatus: 200, decode: decodeCount }), () => {})
-  if (result.kind !== 'current' || result.value.kind !== 'success' || !isCurrent()) return
-  write.operation.value?.reconcile(() => dirty.replaceData('reconcile', () => { baseline.value = raw.value = 'adopted' }), isCurrent)
+  try {
+    const result = await scope.run(() => client({ path: '/fixture-reconcile', method: 'GET', expectedStatus: 200, decode: decodeCount }), () => {})
+    if (result.kind !== 'current' || !isCurrent()) { reconcileOutcome.value = 'stale'; return }
+    if (result.value.kind !== 'success') { reconcileOutcome.value = 'read-failure'; return }
+    const adopted = write.operation.value?.reconcile(() => dirty.replaceData('reconcile', () => { baseline.value = raw.value = 'adopted' }), isCurrent)
+    reconcileOutcome.value = adopted ? 'adopted' : 'not-adopted'
+  }
+  finally { completedReconciles.value++; reconciling.value = false }
+}
+async function latest() {
+  const result = await scope.run(() => client({ path: '/fixture-latest', method: 'GET', expectedStatus: 200, decode: decodeReceipt }), result => {
+    if (result.kind === 'success') { latestOutcome.value = 'success'; return }
+    actionError.value = presentError(result, 'latest'); latestOutcome.value = actionError.value.kind; modal.value = true
+  })
+  if (result.kind === 'current') completedLatest.value++
 }
 async function actionNavigate() {
   const permit = dirty.authorizeAction('delete')
@@ -81,8 +98,10 @@ function close() { modal.value = false; closeCount.value++ }
     <div class="flex gap-3 flex-wrap">
       <UButton data-testid="gate" @click="runGate">精確值 gate</UButton>
       <UButton data-testid="save" :disabled="write.state.value.blocked" @click="save()">保存</UButton>
-      <UButton data-testid="visibility" @click="save(true)">可見性</UButton>
-      <UButton data-testid="reconcile" @click="reconcile">核對並採用</UButton>
+      <UButton data-testid="visibility" @click="save('visibility')">可見性</UButton>
+      <UButton data-testid="publish" :disabled="publish.state.value.blocked" @click="save('publish')">發布</UButton>
+      <UButton data-testid="reconcile" :disabled="reconciling" @click="reconcile">核對並採用</UButton>
+      <UButton data-testid="latest" :disabled="loading" @click="latest">查看最新答案</UButton>
       <UButton data-testid="slow" @click="load('/fixture-slow')">慢讀取</UButton>
       <UButton data-testid="next" @click="load('/fixture-next')">新讀取</UButton>
       <UButton data-testid="error" @click="load('/fixture-error')">讀取錯誤</UButton>
@@ -97,6 +116,9 @@ function close() { modal.value = false; closeCount.value++ }
     <p data-testid="read">{{ readValue }}</p>
     <p data-testid="loading">{{ String(loading) }}</p>
     <p data-testid="completed-reads">{{ completedReads }}|{{ readOutcome }}</p>
+    <p data-testid="completed-reconciles">{{ completedReconciles }}|{{ reconcileOutcome }}</p>
+    <p data-testid="completed-latest">{{ completedLatest }}|{{ latestOutcome }}</p>
+    <p data-testid="publish-state">{{ String(publish.state.value.blocked) }}|{{ String(publish.state.value.needsReconciliation) }}</p>
     <p data-testid="write-state">{{ write.state.value.phase }}|{{ String(write.state.value.needsReconciliation) }}</p>
     <p data-testid="close-count">{{ closeCount }}</p>
     <ReadError v-if="readError" :presentation="readError" :retrying="loading" @retry="load('/fixture-next')" />

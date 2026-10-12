@@ -82,3 +82,9 @@ F1 P3 局部複核／正式驗收未結案；Owner 本次已明確允許按 F2 �
 本輪提交目的為 `feat: implement F2 API and shared model foundations`，包含上述 app／unit／isolated harness／必要 package／組態／交付文件，共 43 檔。交付前 index 與工作樹一致，剩餘未暫存／未追蹤變更 0；F1 案例／evidence 與正式規格無差異。實際 commit SHA 由 `git log -1` 與本次交付回報識別（本報告納入該提交，避免自引用 SHA）；parent 為接手 SHA。提交後另檢查 remaining Git state，未推送／PR／部署，沒有提交不相關變更。
 
 **開發完成、待 code review。F1 P3 仍待局部複核及正式驗收，F1／F2 均未 accepted；不開始正式驗收或 F3。**
+
+## 6. 獨立 review 後授權局部修正（2026-10-12）
+
+上文為 `e0d06e5` 原開發交付的歷史紀錄。獨立 review 發現 F2-R1／R2／R3，並在完整 Browser 得到 5 PASS／1 FAIL；原 6／6 不代表 review 當次通過。Owner 授權局部修正後，交付 [R1～R3 修正報告](F2_Review_Correction_Report.md) 與獨立新證據，未覆寫歷史報告／結果。
+
+目前 **修正完成、待局部複核**；Owner 指示 F1 P3 記為局部複核通過。F1／F2 仍未 accepted、正式驗收延後、不開始 F3。
