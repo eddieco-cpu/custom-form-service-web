@@ -474,6 +474,14 @@ Owner 明確確認 [F3 局部獨立複核報告](../review/F3_Correction_ReRevie
 
 **F4 計畫待 Owner review，開發未開始；F1／F2／F3 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN。** disabled／過期 Cookie 受控前置、live 後端版本、真實故障／其他 Browser／人工實機與 npm ci／audit 既有缺口保留；真實無效 Cookie 沿用 reviewer 歷史純 GET 證據、本次未重跑。維持 §9.8 的兩人工關卡：計畫確認後整輪開發、自測及範圍內修正，交付後集中 review；不新增逐項關卡、不推送、不自行開始下一階段。文件本機提交 SHA／剩餘 Git 狀態見 Git log／交付訊息；以上是目前狀態，前節歷史停止點保留。
 
+### 9.12 F4 v1.0 核准、整輪開發與自測交付（2026-10-12）
+
+Owner 核准 [F4 精簡計畫 v1.0](F4_Implementation_Plan.md)，明確授權整輪開發、必要自測及範圍內修正，不另設測試計畫關卡；另同意自行註冊／登入新合成帳號。已完成 `/forms` 清單／10 筆分頁／filter／刷新及 responsive 呈現、共用 FormDetail loader／root readonly、Owner／狀態 replace、原 URL 錯誤與 stale response 隔離，見 [F4 開發報告](F4_Development_Report.md)／[去敏證據](../test-results/evidence/F4_20261012/verification-summary.json)。未接 Form 寫入／Latest／Count／Statistics 或 F5～F10 功能。
+
+lint／Nuxt＋tools strict／fixture strict／build PASS，F4 unit＋受影響共用回歸 124／124 PASS；dev 合成 Browser 13 案逐案最新 PASS、built 10 個不同案例 PASS（分次執行，首次失敗／受影響重測保留；最後分頁對齊提示局部修正已重建及重驗 B02）。真實 Browser＋API 新帳號流程 1／1 PASS，驗空清單／filter／刷新、Cookie reload／CORS、不存在／無效 ID 和手動 AUTH_REQUIRED Dialog；只新增並保留合成帳號，沒有 Form 寫入、SQL、reset DB 或服務設定變更。非空 ≥11 筆、三狀態 Form／跨角色／已刪除／過期 Published、特殊 Auth／故障前置逐案 BLOCKED，不以合成結果解除缺口。backend manifest 108／108、F3 原複核兩檔 hash 相符；live SHA／DB 版本未確認，既有 npm ci／audit／人工／其他 Browser 等未驗證事項保留。
+
+**F4 開發與自測完成，待集中 review；F1／F2／F3 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN。** F3-R1／R2／N1 已結案與 code review 通過的 Owner 決議維持，歷史證據未覆寫。單一目的本機提交、不推送、不展開 F5～F10；完整 SHA／剩餘 Git 狀態見交付訊息／Git log。維持兩人工關卡，後續由 Owner 指定。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

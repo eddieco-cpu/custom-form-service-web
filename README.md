@@ -1,6 +1,6 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F3-R1、F3-R2、N1 已依 Owner 授權修正及自測，F3 修正完成、待局部複核。** 見 [精簡修正報告](docs/implementation/F3_Review_Correction_Report.md)、[原 F3 開發報告](docs/implementation/F3_Development_Report.md) 與 [原測試結果與缺口](docs/test-results/F3_Development_Test_Report.md)。reviewer 報告、缺陷重現與歷史證據保留；F3 未 accepted，不推送、不開始 F4，正式驗收仍延後。以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F4 開發與自測完成，待集中 review。** Owner 已核准 F4 v1.0 並授權整輪執行，見 [F4 開發報告](docs/implementation/F4_Development_Report.md)／[去敏證據](docs/test-results/evidence/F4_20261012/verification-summary.json)。F3-R1、F3-R2、N1 已結案，F3 code review 通過；原報告／歷史證據保留。F1／F2／F3 均未 accepted，正式驗收仍延後，不推送、不展開 F5～F10。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
@@ -21,7 +21,7 @@ npm ci
 npm run dev
 ```
 
-前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；表單及統計入口目前是後續頁殼。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；F4 提供本人表單清單與 Form 根資訊讀取／角色狀態路由，編輯／填答／管理及 new／statistics 仍待後續輪次。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
 
 ```powershell
 npm run lint

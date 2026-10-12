@@ -1,0 +1,222 @@
+{
+  "runId": "f4-1791797624388",
+  "browserName": "chromium",
+  "result": "PASS",
+  "api": "real, no interception",
+  "syntheticAccountRetained": true,
+  "formWrites": 0,
+  "cookiePresent": true,
+  "requests": [
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/register"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=draft"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=published"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=closed"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms/2462cc9a-410e-48ed-ad71-8ee82f928965"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms/invalid-f4-id"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10"
+    }
+  ],
+  "responses": [
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/register",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "path": "/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=draft",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=published",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10&status=closed",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms/2462cc9a-410e-48ed-ad71-8ee82f928965",
+      "status": 404,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms/invalid-f4-id",
+      "status": 400,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "path": "/api/v1/forms?page=1&pageSize=10",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    }
+  ],
+  "console": {
+    "unexpected": 0,
+    "pageErrors": 0
+  },
+  "blocked": [
+    "nonempty >=11 list/pagination",
+    "three real Form states and owner/other access",
+    "deleted Form distinction",
+    "real disabled/expired token prerequisites"
+  ],
+  "liveBackendGit": "UNCONFIRMED"
+}

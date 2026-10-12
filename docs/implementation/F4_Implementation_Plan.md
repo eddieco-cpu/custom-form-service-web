@@ -1,5 +1,7 @@
 # F4 精簡實作計畫 — 我的表單與 Form 讀取／路由
 
+> 以下 v1.0 保留原規劃交付紀錄；Owner 已核准並授權整輪執行，目前進度見 §7 與 [F4 開發報告](F4_Development_Report.md)。
+
 版本：1.0／2026-10-12（Asia/Taipei）。**F4 計畫待 Owner review；開發未開始。** Owner 已確認 F3 局部複核結果，F3-R1、F3-R2、N1 結案，F3 code review 通過。F1／F2／F3 均未 accepted，正式驗收仍延後，既有未驗證事項保留。
 
 ## 1. 範圍與依據
@@ -103,3 +105,9 @@ F4 無定義／答案寫入、dirty 或 beforeunload 新接法，因此不新增
 本次只保存 F3 複核成果／Owner 結案進度並提出本計畫：靜態來源／連結／diff 核對、Node／npm 版本及 health／OpenAPI 唯讀 probe；原複核兩檔 hash 保持一致，59 筆產品／測試來源及 10 筆歷史／3 筆獨立 Browser raw 結果 hash 相符，屬證據保存核對，**沒有重跑產品測試**。F4 app code 未修改，install／lint／typecheck／build／unit／Browser／正式驗收均 **NOT RUN**；未變更 backend-ref、服務或 DB。文件本機提交 SHA／最終 Git 狀態見 Git log／交付訊息。
 
 **F4 計畫待 Owner review。尚不開始開發、不推送；F1／F2／F3 不代填 accepted，既有未驗證事項保留。**
+
+## 7. v1.0 核准與授權開發交付追加（2026-10-12）
+
+Owner 明確通過本版 review，授權整輪開發、必要自測與範圍內修正，不另外等待測試計畫核准，並同意註冊／登入新的合成帳號。已依本版完成清單／Form 讀取與路由、必要測試與 [開發報告](F4_Development_Report.md)／去敏證據，真實必要案例缺前置逐案 BLOCKED，獨立工作持續完成；沒有以 fixture 代稱真實整合通過。
+
+**F4 開發與自測完成，待集中 review。** 單一目的本機提交、不推送、不展開 F5～F10；F1／F2／F3 正式驗收仍延後、未 accepted。上文規劃時的 NOT RUN／待 review 為歷史紀錄，實際命令、逐案結果、版本／缺口與 Git 狀態以本次開發報告／交付訊息為準。

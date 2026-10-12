@@ -1,0 +1,1092 @@
+{
+  "kind": "development-self-tests",
+  "capturedUtc": "2026-10-12T09:50:50.396Z",
+  "timezone": "Asia/Taipei",
+  "formalAI": "NOT RUN",
+  "humanAcceptance": "NOT RUN",
+  "stop": "F4 開發與自測完成，待集中 review",
+  "frontendStartSha": "9552dfdb365bc1253760f1faa47c7396c514f68a",
+  "branch": "master",
+  "deliveryCommit": "containing commit; see git log and delivery message, no self-referential SHA",
+  "backendSnapshot": {
+    "path": "backend-ref/",
+    "sourceSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifest": {
+      "checked": 108,
+      "matched": 108
+    },
+    "liveGitSha": "UNCONFIRMED",
+    "liveDatabaseVersion": "UNCONFIRMED"
+  },
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "chromium": "156.0.8078.4",
+    "packages": {
+      "@iconify-json/lucide": "1.2.142",
+      "@nuxt/eslint": "1.17.0",
+      "@nuxt/ui": "4.11.3",
+      "@playwright/test": "1.64.0",
+      "@types/node": "24.19.2",
+      "@types/sortablejs": "1.15.9",
+      "eslint": "10.12.0",
+      "lossless-json": "4.3.1",
+      "nuxt": "4.6.1",
+      "tailwindcss": "4.3.3",
+      "typescript": "5.9.3",
+      "vitest": "5.0.3",
+      "vue-draggable-plus": "0.6.1",
+      "vue-tsc": "3.3.13",
+      "zod": "4.6.5"
+    }
+  },
+  "metadata": {
+    "liveGitSha": "UNCONFIRMED",
+    "liveDatabaseVersion": "UNCONFIRMED",
+    "endpoints": [
+      {
+        "path": "/health",
+        "status": 200,
+        "sha256": "b808daea0f225957b3cddad9d5e33cb8dd4da1dbfc1d764e291f8d2e9fa4f857",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "path": "/health/ready",
+        "status": 200,
+        "sha256": "7f1e323b6272c6209a590fe8684bc64142a226cc9f73783bc027befede0ea0ee",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "path": "/openapi/v1.json",
+        "status": 200,
+        "sha256": "c98202d70be71f7e1c28c249c5f244d7f9b196d4035fd5a9707f1a1ee8d3e542",
+        "origin": "http://localhost:3000",
+        "credentials": "true",
+        "openapi": "3.1.1",
+        "infoVersion": "1.0.0",
+        "formsGet": true,
+        "detailGet": true
+      }
+    ],
+    "capturedUtc": "2026-10-12T09:43:26.4579334Z"
+  },
+  "origins": {
+    "frontend": "http://localhost:3000",
+    "api": "http://localhost:5000/api/v1"
+  },
+  "commands": [
+    {
+      "command": "npm run test:unit -- tests/unit/f4-form-read.spec.ts",
+      "result": "BLOCKED",
+      "exitCode": 1,
+      "file": "output/playwright/f4/unit-initial.log",
+      "notes": "Vite startup spawn EPERM; 0 cases executed"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f4-form-read.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/unit-authorized.log",
+      "notes": "30/30 after sandbox approval"
+    },
+    {
+      "command": "npm run lint",
+      "result": "FAIL",
+      "exitCode": 1,
+      "file": "output/playwright/f4/lint-initial.log",
+      "notes": "test harness component name"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/lint-final.log",
+      "notes": "final source"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/typecheck-final.log",
+      "notes": "Nuxt + tools strict final source"
+    },
+    {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f4/browser",
+      "result": "FAIL",
+      "exitCode": 1,
+      "file": "output/playwright/f4/fixture-typecheck-initial.log",
+      "notes": "missing fixture tsconfig TS5083; added strict app + session Vue include"
+    },
+    {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs typecheck tests/fixtures/f4/browser",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/fixture-typecheck.log",
+      "notes": "controlled session harness strict"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/build.log",
+      "notes": "built CSR final product"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f3-auth.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/unit-regression.log",
+      "notes": "124/124"
+    },
+    {
+      "command": "npm run test:e2e -- --config=playwright.f4.config.ts",
+      "result": "FAIL",
+      "exitCode": 1,
+      "file": "output/playwright/f4/fixture-initial.log",
+      "notes": "7 PASS / 5 FAIL; unresolved list component reference"
+    },
+    {
+      "command": "npm run test:e2e -- --config=playwright.f4.config.ts",
+      "result": "FAIL",
+      "exitCode": 1,
+      "file": "output/playwright/f4/fixture-correction.log",
+      "notes": "11 PASS / 2 FAIL; Chinese Dialog locators"
+    },
+    {
+      "command": "npm run test:e2e -- --config=playwright.f4.config.ts --grep F4-B05",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/dialog-correction.log",
+      "notes": "2/2"
+    },
+    {
+      "command": "F4_MODE=built npm run test:e2e -- --config=playwright.f4.config.ts --grep 'F4-B01|F4-B03|F4-B05'",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/built.log",
+      "notes": "8/8"
+    },
+    {
+      "command": "F4_MODE=built npm run test:e2e -- --config=playwright.f4.config.ts --grep 'F4-B01|F4-B09'",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/built-visual.log",
+      "notes": "2/2; B01 stable screenshot + keyboard, B09 long root"
+    },
+    {
+      "command": "F4_MODE=built npm run test:e2e -- --config=playwright.f4.config.ts --grep F4-B02",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/built-alignment.log",
+      "notes": "1/1 after final notice fix and rebuild; normal alignment + repeated shrink + zero"
+    },
+    {
+      "command": "F4_MODE=live npm run test:e2e -- --config=playwright.f4.config.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/live-initial.log",
+      "notes": "1/1; real API no interception; retained authorized synthetic account"
+    },
+    {
+      "command": "npm ls --depth=0 --json",
+      "result": "PASS",
+      "exitCode": 0,
+      "file": "output/playwright/f4/installed-versions.json",
+      "notes": "unchanged installed packages"
+    }
+  ],
+  "executionHistory": [
+    {
+      "file": "output/playwright/f4/fixture-initial-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:28:58.853Z",
+        "duration": 44435.074,
+        "expected": 7,
+        "skipped": 0,
+        "unexpected": 5,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 5618,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeVisible() failed Locator: getByRole('table')"
+          ]
+        },
+        {
+          "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1269,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 draft owner form route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1005,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published owner edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1000,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 987,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 closed other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 979,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B04 draft hidden, invalid UUID, expired published, read faults/disabled stay at original URL",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 5962,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeVisible() failed Locator: getByRole('table')"
+          ]
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉 returns full URL",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 5138,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeVisible() failed Locator: getByRole('table')"
+          ]
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, Close returns full URL",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 5124,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeVisible() failed Locator: getByRole('table')"
+          ]
+        },
+        {
+          "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 5144,
+          "retry": 0,
+          "errors": [
+            "Error: expect(locator).toBeVisible() failed Locator: getByRole('table')"
+          ]
+        },
+        {
+          "title": "F4-B07 same mounted product loader clears prior session/ID data; late callbacks cannot navigate or end loading",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1215,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 2007,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/fixture-correction-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:30:28.532Z",
+        "duration": 34328.929000000004,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 3764,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1275,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 draft owner form route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1002,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published owner edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1056,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 997,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 closed owner edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1012,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 closed other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 995,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B04 draft hidden, invalid UUID, expired published, read faults/disabled stay at original URL",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1484,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉 returns full URL",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 1039,
+          "retry": 0,
+          "errors": [
+            "Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:     1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded"
+          ]
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, Close returns full URL",
+          "project": "chromium",
+          "status": "FAIL",
+          "durationMs": 11093,
+          "retry": 0,
+          "errors": [
+            "TimeoutError: locator.click: Timeout 10000ms exceeded. Call log:"
+          ]
+        },
+        {
+          "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1053,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B07 same mounted product loader clears prior session/ID data; late callbacks cannot navigate or end loading",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1186,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1400,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/fixture-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:31:44.058Z",
+        "duration": 10476.31,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 3544,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 1326,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/built-primary-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:33:12.835Z",
+        "duration": 7365.568,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 582,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 draft owner form route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 312,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published owner edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 328,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 published other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 310,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 closed owner edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 276,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B03 closed other edit route uses replace and readonly root",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 314,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 623,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 638,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/built-visual-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:35:18.312Z",
+        "duration": 5059.568,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 642,
+          "retry": 0,
+          "errors": []
+        },
+        {
+          "title": "F4-B09 long root text and owner UUID remain readable on mobile; reload is keyboard usable",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 331,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/built-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:45:58.540Z",
+        "duration": 4919.71,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 795,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    },
+    {
+      "file": "output/playwright/f4/live-results.json",
+      "stats": {
+        "startTime": "2026-10-12T09:33:38.391Z",
+        "duration": 13921.413,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F4-L01 real new account, empty/filter/refresh, invalid/missing ID and manual Auth lapse",
+          "project": "chromium",
+          "status": "PASS",
+          "durationMs": 7502,
+          "retry": 0,
+          "errors": []
+        }
+      ]
+    }
+  ],
+  "latest": {
+    "unit": {
+      "F4": 30,
+      "regression": 94,
+      "total": 124,
+      "result": "PASS"
+    },
+    "devFixture": {
+      "uniqueCases": 13,
+      "result": "PASS",
+      "method": "11 passing cases from corrected full run + 2 passing Dialog reruns; B01/B02 strengthening and B09 built only"
+    },
+    "builtFixture": {
+      "uniqueCases": 10,
+      "executions": 11,
+      "result": "PASS",
+      "method": "primary 8 + visual 2 + final alignment 1; final normal-alignment notice branch rebuilt and B02 retested, unaffected cases retained"
+    },
+    "fixtureLatestCases": [
+      {
+        "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 642,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 795,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B03 draft owner form route uses replace and readonly root",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 312,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B03 published owner edit route uses replace and readonly root",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 328,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B03 published other edit route uses replace and readonly root",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 310,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B03 closed owner edit route uses replace and readonly root",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 276,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B03 closed other edit route uses replace and readonly root",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 314,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B04 draft hidden, invalid UUID, expired published, read faults/disabled stay at original URL",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 1484,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 1053,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B07 same mounted product loader clears prior session/ID data; late callbacks cannot navigate or end loading",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 1186,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 1400,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 623,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 638,
+        "retry": 0,
+        "errors": []
+      },
+      {
+        "title": "F4-B09 long root text and owner UUID remain readable on mobile; reload is keyboard usable",
+        "project": "chromium",
+        "status": "PASS",
+        "durationMs": 331,
+        "retry": 0,
+        "errors": []
+      }
+    ],
+    "realApi": {
+      "uniqueScenarios": 1,
+      "result": "PASS",
+      "record": "docs/test-results/evidence/F4_20261012/live-sanitized.json",
+      "interception": false,
+      "formWrites": 0
+    }
+  },
+  "blocked": [
+    {
+      "case": "nonempty own list >=11 and pagination, nonempty filters/refresh",
+      "status": "BLOCKED",
+      "reason": "new account has 0 Forms; no existing data path/IDs"
+    },
+    {
+      "case": "Owner Draft root/edit and Form to edit",
+      "status": "BLOCKED",
+      "reason": "no own Draft"
+    },
+    {
+      "case": "Published/Closed root and both roles edit to Form",
+      "status": "BLOCKED",
+      "reason": "no published/closed data or corresponding other account"
+    },
+    {
+      "case": "other Draft hidden, deleted Form, expired Published",
+      "status": "BLOCKED",
+      "reason": "specific controlled data absent; random missing 404 does not cover these states"
+    },
+    {
+      "case": "current Form INVALID/EXPIRED 401 and disabled 403/initial disabled me",
+      "status": "BLOCKED",
+      "reason": "controlled account/Cookie absent; REQUIRED via clearing own browser Cookie passed"
+    },
+    {
+      "case": "real network/timeout/500/malformed or delayed API responses",
+      "status": "BLOCKED",
+      "reason": "no controlled API fault arrangement; injected/deferred and historical timeout only frontend evidence"
+    },
+    {
+      "case": "formal AI/human acceptance, other browsers/physical device",
+      "status": "NOT RUN",
+      "reason": "outside authorized phase"
+    },
+    {
+      "case": "install/npm ci/audit/generate and F5-F10",
+      "status": "NOT RUN",
+      "reason": "no dependency or product scope need; existing npm ci/audit risk retained"
+    }
+  ],
+  "warnings": [
+    "sandbox Vite spawn EPERM before cases, approved rerun",
+    "NO_COLOR/FORCE_COLOR and existing DEP0155",
+    "Vue Router R0042 for intentional unmatched hash return probes; no unresolved Vue components after fix"
+  ],
+  "sourceHashesAtDelivery": [
+    {
+      "path": "app/services/form.ts",
+      "sha256": "5e378c0afb10711f346d34b26f9b75966d778fa1cea7eaf1befb341b4a39ab9d"
+    },
+    {
+      "path": "app/domain/form-read.ts",
+      "sha256": "46535468064c06a2b6f72cd565daa131c18f6b1a83391ce934026fad9bafc658"
+    },
+    {
+      "path": "app/composables/useFormRead.ts",
+      "sha256": "b14dc760a61131aecd8dbe5d95b208f1a9e7d9be65c3f81ad6bad59602b7f2c7"
+    },
+    {
+      "path": "app/composables/useFormsList.ts",
+      "sha256": "9b13ae19d44170e2c14101776607edffd059530544b0cf54df2d76131e9df1cd"
+    },
+    {
+      "path": "app/composables/useFormDetail.ts",
+      "sha256": "68d4ac2cdc00bd0641c651e3e6ef348b91ec3748ef14d16753bd93301d7b543f"
+    },
+    {
+      "path": "app/components/forms/FormsList.vue",
+      "sha256": "5770545f2b6d171983a4999356279f626e5453ddd5b47ed064832a349e29c6a8"
+    },
+    {
+      "path": "app/components/forms/FormRootInfo.vue",
+      "sha256": "9eb7ac45b062a1ba5eaf3d0d1256d2f8415e575f33b56f3605a3296ed83bfad9"
+    },
+    {
+      "path": "app/components/forms/FormReadPage.vue",
+      "sha256": "fe1de45b416e7c81d355cfd2d691b4742272369652dade641bc1a43c46e52b0c"
+    },
+    {
+      "path": "app/pages/forms/index.vue",
+      "sha256": "c8ffa2588f2025e31e632b0747b0af23435e5c7cf831977fed8b047405a10ffc"
+    },
+    {
+      "path": "app/pages/forms/[formId]/index.vue",
+      "sha256": "b60c449b372207bf6c9c65353bc3cfca14d620bed4a9d7dcca34962cb7f10665"
+    },
+    {
+      "path": "app/pages/forms/[formId]/edit.vue",
+      "sha256": "8b62f473dba6a08ece827eaa7c6d07003088e7db1cd09fc776e73cfa6c153bc5"
+    },
+    {
+      "path": "tests/unit/f4-form-read.spec.ts",
+      "sha256": "098ab98256f9004f4abb7188ed470800539759c03819611f9c1bbed171bca686"
+    },
+    {
+      "path": "tests/e2e/f4-browser.spec.ts",
+      "sha256": "9413d4db5808508809039f338ba60dafc96a412d7b7a7018cb2bb701e569782b"
+    },
+    {
+      "path": "tests/e2e/f4-live.spec.ts",
+      "sha256": "ff99c6580c26bc21fcfe5979a919bf6a8d46adc619e3e84103cea3eaa44a5407"
+    },
+    {
+      "path": "tests/fixtures/f4/payloads.ts",
+      "sha256": "f928e706d199e58066f066efa6f75fb9cc96d036f14622638dab5081fc82ffe4"
+    },
+    {
+      "path": "tests/fixtures/f4/browser/nuxt.config.ts",
+      "sha256": "d3a6baa26237f40c99d2bf5417ad894f4b1fc507b1f23237dc18b3d6a1863926"
+    },
+    {
+      "path": "tests/fixtures/f4/browser/session.vue",
+      "sha256": "2a1e8110b67c76bb2bd0638a1a393ae3be6a7d37c01f26cb7784d3ff893da2fd"
+    },
+    {
+      "path": "tests/fixtures/f4/browser/tsconfig.json",
+      "sha256": "13f1e7368bfe677a8e3d0bb08a7a3b8889ed0ee3d288246bbd7efaeb74aacc10"
+    },
+    {
+      "path": "playwright.f4.config.ts",
+      "sha256": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67"
+    },
+    {
+      "path": "app/services/api-client.ts",
+      "sha256": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65"
+    },
+    {
+      "path": "app/domain/api/decoders.ts",
+      "sha256": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c"
+    },
+    {
+      "path": "app/domain/request-scope.ts",
+      "sha256": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c"
+    },
+    {
+      "path": "app/domain/auth-state.ts",
+      "sha256": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c"
+    },
+    {
+      "path": "app/composables/useRequestScope.ts",
+      "sha256": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db"
+    },
+    {
+      "path": "app/composables/useDialogFocus.ts",
+      "sha256": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4"
+    },
+    {
+      "path": "app/utils/datetime.ts",
+      "sha256": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "2f0984a56d6330c078a52c34885dc106eb5a7b31bd396ee7ec04f0649702a35d"
+    },
+    {
+      "path": ".agents/skills/v1-frontend-round-development/SKILL.md",
+      "sha256": "864b2f2d03b94e11f53e4f92ed541680e78891dcad5c382cf6f96844d9ab6418"
+    }
+  ],
+  "historicalEvidenceUnchanged": [
+    {
+      "path": "docs/review/F3_Correction_ReReview_Report_20261012.md",
+      "sha256": "cd19cea27b81e1eb4b0517d99353aa10d439dc5706112a56dd75b509fab43e38"
+    },
+    {
+      "path": "docs/review/evidence/F3_Correction_Independent_Verification_20261012.json",
+      "sha256": "ffa3a90cb34259f4ca39b77af266392e1d59e1db3a1bc14f04bb31157532693e"
+    },
+    {
+      "path": "docs/test-results/F2_Supplemental_Test_Report.md",
+      "sha256": "7e2b1ef1d2a35f0bc76e4224dbec70a2656e231471927971819e2d18257ddc40"
+    },
+    {
+      "path": "docs/test-results/evidence/F2_Supplemental_20261012/verification-summary.json",
+      "sha256": "d2a9bc4fd5a44e21391b3360d409a63a717596e3287c35330dde8646226f21d4"
+    },
+    {
+      "path": "docs/test-results/evidence/F3_20261012/verification-summary.json",
+      "sha256": "52599b6d815cf507f1ea174e9b41f65f00ac73f111f6ed0f15bf590cf65e833a"
+    }
+  ],
+  "rawHashes": [
+    {
+      "path": "output/playwright/f4/unit-initial.log",
+      "sha256": "99154c5da01f655731e63688edd6d676fab68b0fbe44c790da4f8d8852acc0f6"
+    },
+    {
+      "path": "output/playwright/f4/unit-authorized.log",
+      "sha256": "41ac4b80ad2607b27ae9a5f28162960b606d02ca92dbcd0fa6f6d5393ac78e75"
+    },
+    {
+      "path": "output/playwright/f4/lint-initial.log",
+      "sha256": "8eb60b10e59a55cadbb90adc38b300139b26f21db37ece645d43428f45051bf1"
+    },
+    {
+      "path": "output/playwright/f4/lint-final.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "path": "output/playwright/f4/typecheck-final.log",
+      "sha256": "f0030168a873f0aefbaf26fb83a18b576a205099342117b8a19f923506487856"
+    },
+    {
+      "path": "output/playwright/f4/fixture-typecheck-initial.log",
+      "sha256": "c297c85b17e1f8b243ede9d1a1d8444416df89c32e5662a1b91ea2d79b3bee27"
+    },
+    {
+      "path": "output/playwright/f4/fixture-typecheck.log",
+      "sha256": "66598f24ee96d5c96b5da6749ff5a40e1b0eac5af49766ee840d30833bdd48cd"
+    },
+    {
+      "path": "output/playwright/f4/build.log",
+      "sha256": "30d11a9f61f0f548cc54c77a13872cd12b414ee82655fb30480b242a0cb57183"
+    },
+    {
+      "path": "output/playwright/f4/unit-regression.log",
+      "sha256": "fc5660b217d69166de406372a34a8427fe667cc3d304994f1d3397ea0407dd52"
+    },
+    {
+      "path": "output/playwright/f4/fixture-initial.log",
+      "sha256": "3bd1e20622a8cf9871e40ed8cc3443e2f55ca327a8b0dd90cdd9f7aba07c23f1"
+    },
+    {
+      "path": "output/playwright/f4/fixture-correction.log",
+      "sha256": "470a4c1ad0f36a7bebf29ee87338ea716d01f9df1adf0b5b2412bcee6b09c7d4"
+    },
+    {
+      "path": "output/playwright/f4/dialog-correction.log",
+      "sha256": "a4cb0fb2c79d7c52bc4752eeac974920b529151dce81c2a3f5664261ee64e25e"
+    },
+    {
+      "path": "output/playwright/f4/built.log",
+      "sha256": "a5799b9a0396e6aaa77c594b881d9c4876fddbcf97753091be13bc39a4a57d65"
+    },
+    {
+      "path": "output/playwright/f4/built-visual.log",
+      "sha256": "c79b46e1b46dc7356c524fa2ae27825cd4f420d04a2f523cc4c4ca78ae843c86"
+    },
+    {
+      "path": "output/playwright/f4/built-alignment.log",
+      "sha256": "3d4266eb4c02ac9f5bd2e82939ba46b5f6e3bb4b2050d6b7df2bd757a371d05d"
+    },
+    {
+      "path": "output/playwright/f4/live-initial.log",
+      "sha256": "eee694fd30c3adfc5ce2dd1586dc5174647a9223f3efdf50e1b7ff3f3a5faaca"
+    },
+    {
+      "path": "output/playwright/f4/installed-versions.json",
+      "sha256": "6e8cdf451a9ded10fef98705916c93a5cda221b78430864e741d8b5fd46ae562"
+    },
+    {
+      "path": "output/playwright/f4/fixture-initial-results.json",
+      "sha256": "c3a40f1005b3c5718171806f3230aa116e6fdddb1e0c17a5acc3c516bfb6735d"
+    },
+    {
+      "path": "output/playwright/f4/fixture-correction-results.json",
+      "sha256": "c82dba2e02ab91473ffdb6973ba5688bca521a16b1a2b3493bfaebbfec708ea7"
+    },
+    {
+      "path": "output/playwright/f4/fixture-results.json",
+      "sha256": "96ca629f82cba37bce7eac8b90018d44d7781f8abc0a7e8e8544055c1d86405d"
+    },
+    {
+      "path": "output/playwright/f4/built-primary-results.json",
+      "sha256": "6f457472f7d1c5c94910ebc968d9caaa1fd0f7d48180397c14e4189003eb3d60"
+    },
+    {
+      "path": "output/playwright/f4/built-visual-results.json",
+      "sha256": "d4d5c9efed92807a89eed0f3c4ec274127d76e8e9e4f40257e63f65865860126"
+    },
+    {
+      "path": "output/playwright/f4/built-results.json",
+      "sha256": "ae45f9fc7cec7807525d32be9cd227456f0aafccdea8f359538e30861c3f7b2a"
+    },
+    {
+      "path": "output/playwright/f4/live-results.json",
+      "sha256": "ecec3e81dcccea3fa3d54c2c38ae4b2211f955eafab653837ba114c3890a8449"
+    },
+    {
+      "path": "output/playwright/f4/live-sanitized.json",
+      "sha256": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89"
+    },
+    {
+      "path": "output/playwright/f4/metadata-final.json",
+      "sha256": "dd8e54e2f51774f033ff2fc048cc6b1ddbdff5be0069abb4d0ccd1523d2f7a52"
+    },
+    {
+      "path": "output/playwright/f4/chromium-version.json",
+      "sha256": "5ce61a13d9d7309b426cfb0abe36cdc1ae13d8ac7a5a4c0aa1a42e3d891811a5"
+    },
+    {
+      "path": "output/playwright/f4/build-primary.log",
+      "sha256": "0964aa5c08ec72ac65f93cfef42a9e2a2ead0dd4f4bc288c215bc119db916af4"
+    }
+  ],
+  "deliveredFiles": [
+    {
+      "path": "docs/test-results/evidence/F4_20261012/list-desktop.png",
+      "sha256": "6df75306e6c927046b91da1fa9ce6bc4360c2112862550e3506f845000cb997c"
+    },
+    {
+      "path": "docs/test-results/evidence/F4_20261012/list-mobile.png",
+      "sha256": "d8b9ab1717bfe97b067edca06bb0f5895a0826355c3dd2085323ba89423e0eb6"
+    },
+    {
+      "path": "docs/test-results/evidence/F4_20261012/root-mobile.png",
+      "sha256": "ac7a79c001c307dabb58c0a4cb1da76273875683c35ba9f895eeb820f8ed678c"
+    },
+    {
+      "path": "docs/test-results/evidence/F4_20261012/live-sanitized.json",
+      "sha256": "2e81a282c3164e1726cdbe113bec1d0b202293ea03f1d9e357a051ac1257aa89"
+    }
+  ],
+  "sanitization": {
+    "onlyWhitelistedMetadata": true,
+    "screenshotsViewed": true,
+    "screenshotData": "synthetic fixture only",
+    "passwordInRuntimeMemoryOnly": true,
+    "cookieTokenValuesExported": false,
+    "trace": "off",
+    "storageState": "not saved",
+    "raw": "ignored output/playwright/f4/, not staged"
+  }
+}

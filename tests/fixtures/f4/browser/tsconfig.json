@@ -1,0 +1,8 @@
+{
+  "extends": "../../../../output/playwright/f4/harness-nuxt/tsconfig.app.json",
+  "include": [
+    "./session.vue",
+    "../../../../app/**/*",
+    "../../../../output/playwright/f4/harness-nuxt/nuxt.d.ts"
+  ]
+}
