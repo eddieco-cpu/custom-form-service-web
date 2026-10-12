@@ -452,6 +452,14 @@ Owner 確認 [F2 R1～R3 獨立局部複核](../review/F2_Correction_ReReview_Re
 
 本次 Owner 決議自 F3 起覆寫 §7 預設的分階段人工關卡：**計畫確認、整輪交付後集中 review**。待本版計畫核准，再一次授權整輪開發、必要測試及範圍內修正；不為每個工程決策或開發自測新增人工 review。正式驗收與 accepted 仍由 Owner 另行指定，不由自測／review 通過推定。
 
+### 9.9 F3 核准、整輪開發與交付（2026-10-12）
+
+Owner 確認 F2 補充測試結果，核准 [F3 Implementation Plan v1.0](F3_Implementation_Plan.md)，明確授權整輪開發、必要測試與範圍內修正。完成 Auth／Header／首頁／Profile，見 [精簡開發報告](F3_Development_Report.md) 與 [開發自測結果](../test-results/F3_Development_Test_Report.md)。
+
+真實 Browser＋API 正常流程與 Email／錯誤 6 案最終 PASS，Cookie／CORS 真實證據完成；合成 Browser 22 個案例逐案最終 PASS、unit＋共用回歸 94／94、lint／strict typecheck／build／built CSR smoke PASS。首次失敗與重測保留；特殊真實 disabled／無效／過期 Cookie 缺受控前置 BLOCKED，人工／正式 AI 驗收 NOT RUN。live 後端 SHA 未確認，不沿用快照冒充實際版本。
+
+**F3 整輪交付、待 Owner 集中 review；F3 未 accepted；F1／F2 正式驗收仍延後；F4～F10 未開始。** 本輪單一目的本機提交，不推送、不自行開始後續輪次；完整 SHA 見 Git log／交付訊息。既有規格、Round 分工、歷史停止點及 backend-ref 保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

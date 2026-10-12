@@ -1,0 +1,924 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "kind": "development-self-tests",
+  "formalAI": "NOT RUN",
+  "human": "NOT RUN",
+  "frontendStartSha": "3987c388d1fc6690315c5244dfe10bf00554c724",
+  "backendSnapshotSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "liveBackendSha": "UNCONFIRMED",
+  "backendManifest": {
+    "checked": 108,
+    "matched": 108
+  },
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "@nuxt/ui": "4.11.3",
+    "tailwindcss": "4.3.3",
+    "zod": "4.6.5",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "@playwright/test": "1.64.0",
+    "chromium": "156.0.8078.4"
+  },
+  "origins": {
+    "frontend": "http://localhost:3000",
+    "api": "http://localhost:5000/api/v1"
+  },
+  "metadata": [
+    {
+      "path": "/health",
+      "status": 200,
+      "sha256": "b808daea0f225957b3cddad9d5e33cb8dd4da1dbfc1d764e291f8d2e9fa4f857"
+    },
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "sha256": "7f1e323b6272c6209a590fe8684bc64142a226cc9f73783bc027befede0ea0ee"
+    },
+    {
+      "path": "/openapi/v1.json",
+      "status": 200,
+      "sha256": "c98202d70be71f7e1c28c249c5f244d7f9b196d4035fd5a9707f1a1ee8d3e542",
+      "openapi": "3.1.1",
+      "version": "1.0.0"
+    }
+  ],
+  "realNormal": {
+    "runId": "f3-1791773549073",
+    "browserName": "chromium",
+    "counts": {
+      "me": 2,
+      "register": 1,
+      "login": 1,
+      "patch": 1,
+      "logout": 1
+    },
+    "secondMe": 1,
+    "preflights": 3,
+    "cookieFlags": {
+      "httpOnly": true,
+      "sameSiteLax": true,
+      "pathRoot": true,
+      "hostOnly": true,
+      "secure": false,
+      "expires": true,
+      "maxAge": false
+    },
+    "wireExpiresMatchesJwt": true,
+    "browserClockAdjustmentSeconds": 0.21463298797607422,
+    "cors": [
+      {
+        "method": "GET",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "method": "POST",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "method": "POST",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "method": "PATCH",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "method": "GET",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      },
+      {
+        "method": "POST",
+        "origin": "http://localhost:3000",
+        "credentials": "true"
+      }
+    ],
+    "result": "PASS",
+    "dataRetained": true
+  },
+  "realEmailCases": [
+    {
+      "title": "F3-LIVE-EMAIL single-label register/login through real API",
+      "status": "passed",
+      "durationMs": 7573,
+      "firstError": null
+    },
+    {
+      "title": "F3-LIVE-EMAIL quoted register/login through real API",
+      "status": "passed",
+      "durationMs": 2537,
+      "firstError": null
+    },
+    {
+      "title": "F3-LIVE-EMAIL unicode register/login through real API",
+      "status": "passed",
+      "durationMs": 2455,
+      "firstError": null
+    },
+    {
+      "title": "F3-LIVE-EMAIL invariant-casing register/login through real API",
+      "status": "passed",
+      "durationMs": 2438,
+      "firstError": null
+    },
+    {
+      "title": "F3-LIVE-ERROR invalid email reaches server details; incorrect credentials remain on login",
+      "status": "passed",
+      "durationMs": 2227,
+      "firstError": null
+    }
+  ],
+  "latestFixtureCases": [
+    {
+      "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+      "status": "passed",
+      "durationMs": 6151,
+      "firstError": null
+    },
+    {
+      "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+      "status": "passed",
+      "durationMs": 1915,
+      "firstError": null
+    },
+    {
+      "title": "F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile",
+      "status": "passed",
+      "durationMs": 1858,
+      "firstError": null
+    },
+    {
+      "title": "F3-B04 public fixture independent of me pending",
+      "status": "passed",
+      "durationMs": 1782,
+      "firstError": null
+    },
+    {
+      "title": "F3-B04 public fixture independent of me disabled",
+      "status": "passed",
+      "durationMs": 1635,
+      "firstError": null
+    },
+    {
+      "title": "F3-B04 public fixture independent of me 401",
+      "status": "passed",
+      "durationMs": 1666,
+      "firstError": null
+    },
+    {
+      "title": "F3-B04 public fixture independent of me 500",
+      "status": "passed",
+      "durationMs": 1641,
+      "firstError": null
+    },
+    {
+      "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+      "status": "passed",
+      "durationMs": 2296,
+      "firstError": null
+    },
+    {
+      "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+      "status": "passed",
+      "durationMs": 3383,
+      "firstError": null
+    },
+    {
+      "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+      "status": "passed",
+      "durationMs": 2211,
+      "firstError": null
+    },
+    {
+      "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+      "status": "passed",
+      "durationMs": 2501,
+      "firstError": null
+    },
+    {
+      "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+      "status": "passed",
+      "durationMs": 2184,
+      "firstError": null
+    },
+    {
+      "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+      "status": "passed",
+      "durationMs": 2086,
+      "firstError": null
+    },
+    {
+      "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+      "status": "passed",
+      "durationMs": 2044,
+      "firstError": null
+    },
+    {
+      "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+      "status": "passed",
+      "durationMs": 2131,
+      "firstError": null
+    },
+    {
+      "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+      "status": "passed",
+      "durationMs": 3049,
+      "firstError": null
+    },
+    {
+      "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+      "status": "passed",
+      "durationMs": 1896,
+      "firstError": null
+    },
+    {
+      "title": "F3-B13 late reconciliation after leaving preserves the newer page and shared User",
+      "status": "passed",
+      "durationMs": 2249,
+      "firstError": null
+    },
+    {
+      "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+      "status": "passed",
+      "durationMs": 2045,
+      "firstError": null
+    },
+    {
+      "title": "F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash",
+      "status": "passed",
+      "durationMs": 7176,
+      "firstError": null
+    },
+    {
+      "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+      "status": "passed",
+      "durationMs": 6213,
+      "firstError": null
+    },
+    {
+      "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+      "status": "passed",
+      "durationMs": 2114,
+      "firstError": null
+    }
+  ],
+  "fixtureAggregation": "19 original cases + B01 current retest + B15/B16 current results; not one fresh 22-case run",
+  "unit": {
+    "total": 94,
+    "f3": 48,
+    "f2": 46,
+    "result": "PASS"
+  },
+  "engineering": {
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "build": "PASS",
+    "currentShellSmoke": "PASS"
+  },
+  "blocked": [
+    "real disabled correct-credential login",
+    "real disabled existing Cookie",
+    "real invalid Cookie",
+    "real expired Cookie"
+  ],
+  "timeoutEvidence": "mock route plus Chromium clock advanced 30001ms; frontend 30000ms timer only",
+  "receipts": [
+    {
+      "path": "output/playwright/f3/checks/lint-final.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "path": "output/playwright/f3/checks/typecheck-final.log",
+      "sha256": "a6237e1a3f0e6cf6e095f434f687e56ba598b01a1bf23e970917a09ed2996921"
+    },
+    {
+      "path": "output/playwright/f3/checks/build-final.log",
+      "sha256": "d432556410f541e1abbb7bc9b8ffde08cd364117bf7988006cff6de487a1d22e"
+    },
+    {
+      "path": "output/playwright/f3/checks/unit-final.log",
+      "sha256": "8131b261787a81ebcbabdd2c9a6987a491f79eba530faf826d8e868ea933034e"
+    },
+    {
+      "path": "output/playwright/f3/checks/current-shell-smoke-final.log",
+      "sha256": "9a762279cedf86eca5f1adfaba08306017a2f0ad65654cd3dee01f1ada2b58ea"
+    }
+  ],
+  "runs": [
+    {
+      "label": "live-first-failure",
+      "rawPath": "output/playwright/f3/attempt-1/browser-results.json",
+      "sha256": "7b230ab6c906f35570c4db98c8bc37ac3f8d9c1f941fb74b94ff11e6f3a10e1f",
+      "stats": {
+        "startTime": "2026-10-12T02:51:17.449Z",
+        "duration": 19678.685999999998,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-LIVE-01 real register → login/return → profile → refresh/new tab → logout",
+          "status": "failed",
+          "durationMs": 9593,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m"
+        }
+      ]
+    },
+    {
+      "label": "fixture-first",
+      "rawPath": "output/playwright/f3/attempt-fixture-1/fixture-results.json",
+      "sha256": "4eed7199240a703b87abba2ddf6ee7ebfeeb715bb6c57c1d83ead5ab1a2f291f",
+      "stats": {
+        "startTime": "2026-10-12T02:57:14.440Z",
+        "duration": 175849.826,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 10,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+          "status": "passed",
+          "durationMs": 6116,
+          "firstError": null
+        },
+        {
+          "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+          "status": "failed",
+          "durationMs": 1500,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m"
+        },
+        {
+          "title": "F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile",
+          "status": "passed",
+          "durationMs": 1295,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me pending",
+          "status": "passed",
+          "durationMs": 1652,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me disabled",
+          "status": "passed",
+          "durationMs": 1557,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 401",
+          "status": "passed",
+          "durationMs": 1562,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 500",
+          "status": "passed",
+          "durationMs": 1471,
+          "firstError": null
+        },
+        {
+          "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+          "status": "failed",
+          "durationMs": 6681,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed"
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "status": "timedOut",
+          "durationMs": 60037,
+          "firstError": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+        },
+        {
+          "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+          "status": "timedOut",
+          "durationMs": 60040,
+          "firstError": "\u001b[31mTest timeout of 60000ms exceeded.\u001b[39m"
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "status": "failed",
+          "durationMs": 1288,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "failed",
+          "durationMs": 1219,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "failed",
+          "durationMs": 1246,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "failed",
+          "durationMs": 1275,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "failed",
+          "durationMs": 1784,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "status": "failed",
+          "durationMs": 1729,
+          "firstError": "Error: locator.click: Error: strict mode violation: getByRole('dialog').getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:"
+        },
+        {
+          "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+          "status": "passed",
+          "durationMs": 1442,
+          "firstError": null
+        },
+        {
+          "title": "F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash",
+          "status": "passed",
+          "durationMs": 7108,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "fixture-second",
+      "rawPath": "output/playwright/f3/attempt-fixture-2/fixture-results.json",
+      "sha256": "81300feeef012c801277571dff64bf02724124cd4321528a81a19eed7c2c5431",
+      "stats": {
+        "startTime": "2026-10-12T03:01:27.363Z",
+        "duration": 67091.545,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 5,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+          "status": "passed",
+          "durationMs": 6033,
+          "firstError": null
+        },
+        {
+          "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+          "status": "failed",
+          "durationMs": 6588,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeFocused\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed"
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "status": "failed",
+          "durationMs": 1687,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m"
+        },
+        {
+          "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+          "status": "passed",
+          "durationMs": 2098,
+          "firstError": null
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "status": "passed",
+          "durationMs": 1859,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "failed",
+          "durationMs": 2039,
+          "firstError": "Error: dialog.accept: Cannot accept dialog which is already handled!"
+        },
+        {
+          "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2164,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 1749,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2134,
+          "firstError": null
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "status": "failed",
+          "durationMs": 12954,
+          "firstError": "TimeoutError: locator.click: Timeout 10000ms exceeded."
+        },
+        {
+          "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+          "status": "passed",
+          "durationMs": 1876,
+          "firstError": null
+        },
+        {
+          "title": "F3-B13 late reconciliation after leaving preserves the newer page and shared User",
+          "status": "passed",
+          "durationMs": 1701,
+          "firstError": null
+        },
+        {
+          "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+          "status": "failed",
+          "durationMs": 11929,
+          "firstError": "TimeoutError: locator.click: Timeout 10000ms exceeded."
+        }
+      ]
+    },
+    {
+      "label": "fixture-five-retest",
+      "rawPath": "output/playwright/f3/attempt-fixture-3/fixture-results.json",
+      "sha256": "9338d1bfd06060ab5e1a5ab5b9fa9524eac2ab04856a6673090aa87850bafcc3",
+      "stats": {
+        "startTime": "2026-10-12T03:03:55.066Z",
+        "duration": 26832.279000000002,
+        "expected": 5,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+          "status": "passed",
+          "durationMs": 6844,
+          "firstError": null
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "status": "passed",
+          "durationMs": 3493,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2268,
+          "firstError": null
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "status": "passed",
+          "durationMs": 3291,
+          "firstError": null
+        },
+        {
+          "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+          "status": "passed",
+          "durationMs": 2120,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "fixture-final-original-20",
+      "rawPath": "output/playwright/f3/attempt-fixture-4/fixture-results.json",
+      "sha256": "901c71ae1d54de79f77159a2b745f20b2758114b39153f5909c0f235523a3b58",
+      "stats": {
+        "startTime": "2026-10-12T03:07:04.803Z",
+        "duration": 63151.449,
+        "expected": 19,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+          "status": "failed",
+          "durationMs": 6161,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+        },
+        {
+          "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+          "status": "passed",
+          "durationMs": 1915,
+          "firstError": null
+        },
+        {
+          "title": "F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile",
+          "status": "passed",
+          "durationMs": 1858,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me pending",
+          "status": "passed",
+          "durationMs": 1782,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me disabled",
+          "status": "passed",
+          "durationMs": 1635,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 401",
+          "status": "passed",
+          "durationMs": 1666,
+          "firstError": null
+        },
+        {
+          "title": "F3-B04 public fixture independent of me 500",
+          "status": "passed",
+          "durationMs": 1641,
+          "firstError": null
+        },
+        {
+          "title": "F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login",
+          "status": "passed",
+          "durationMs": 2296,
+          "firstError": null
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "status": "passed",
+          "durationMs": 3383,
+          "firstError": null
+        },
+        {
+          "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+          "status": "passed",
+          "durationMs": 2211,
+          "firstError": null
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "status": "passed",
+          "durationMs": 2501,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2184,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2086,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2044,
+          "firstError": null
+        },
+        {
+          "title": "F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks",
+          "status": "passed",
+          "durationMs": 2131,
+          "firstError": null
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "status": "passed",
+          "durationMs": 3049,
+          "firstError": null
+        },
+        {
+          "title": "F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects",
+          "status": "passed",
+          "durationMs": 1896,
+          "firstError": null
+        },
+        {
+          "title": "F3-B13 late reconciliation after leaving preserves the newer page and shared User",
+          "status": "passed",
+          "durationMs": 2249,
+          "firstError": null
+        },
+        {
+          "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+          "status": "passed",
+          "durationMs": 2045,
+          "firstError": null
+        },
+        {
+          "title": "F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash",
+          "status": "passed",
+          "durationMs": 7176,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "fixture-B01-retest",
+      "rawPath": "output/playwright/f3/b01-final/fixture-results.json",
+      "sha256": "8c9c67ca9cf8b70db935c76c041f68db2084767fd933af20c2330869f114360f",
+      "stats": {
+        "startTime": "2026-10-12T03:08:46.650Z",
+        "duration": 14362.333,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+          "status": "passed",
+          "durationMs": 6151,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "live-email",
+      "rawPath": "output/playwright/f3/live-email/browser-results.json",
+      "sha256": "29ed0755b96f06d688cc20abb25eb3160f89b409de803ee8aa667dbf640050ac",
+      "stats": {
+        "startTime": "2026-10-12T03:05:25.806Z",
+        "duration": 26711.263,
+        "expected": 5,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-LIVE-EMAIL single-label register/login through real API",
+          "status": "passed",
+          "durationMs": 7573,
+          "firstError": null
+        },
+        {
+          "title": "F3-LIVE-EMAIL quoted register/login through real API",
+          "status": "passed",
+          "durationMs": 2537,
+          "firstError": null
+        },
+        {
+          "title": "F3-LIVE-EMAIL unicode register/login through real API",
+          "status": "passed",
+          "durationMs": 2455,
+          "firstError": null
+        },
+        {
+          "title": "F3-LIVE-EMAIL invariant-casing register/login through real API",
+          "status": "passed",
+          "durationMs": 2438,
+          "firstError": null
+        },
+        {
+          "title": "F3-LIVE-ERROR invalid email reaches server details; incorrect credentials remain on login",
+          "status": "passed",
+          "durationMs": 2227,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "B15-first-failure",
+      "rawPath": "output/playwright/f3/b15-first-failure/browser-results.json",
+      "sha256": "12baa4e4f45011ff93aee31b90fd2727c6bbc758840ea6f8df6e5513d875bd09",
+      "stats": {
+        "startTime": "2026-10-12T03:12:38.221Z",
+        "duration": 21368.31,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+          "status": "failed",
+          "durationMs": 10889,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed"
+        }
+      ]
+    },
+    {
+      "label": "B15-prior-pass",
+      "rawPath": "output/playwright/f3/b15-final/browser-results.json",
+      "sha256": "7e5471ced4df4c379e2af5c3f0eba53589af22de934191d199e407a8fb0cd0b4",
+      "stats": {
+        "startTime": "2026-10-12T03:14:08.748Z",
+        "duration": 17685.251,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+          "status": "passed",
+          "durationMs": 6385,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "reconciliation-final",
+      "rawPath": "output/playwright/f3/browser-results.json",
+      "sha256": "5c87a3ac3822e24f555cb98c0390efb3c37bd48123d807c6e1122905cb1e616c",
+      "stats": {
+        "startTime": "2026-10-12T03:21:43.059Z",
+        "duration": 19537.116,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+          "status": "passed",
+          "durationMs": 6213,
+          "firstError": null
+        },
+        {
+          "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+          "status": "passed",
+          "durationMs": 2114,
+          "firstError": null
+        }
+      ]
+    },
+    {
+      "label": "smoke-first-failure",
+      "rawPath": "output/playwright/f3/current-shell-first-failure/results.json",
+      "sha256": "4219649e9dc49cf65baba989aa994b7f0ad8b51b64ccf829e772b455a7b90bd7",
+      "stats": {
+        "startTime": "2026-10-12T03:09:51.561Z",
+        "duration": 7234.706,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "current CSR shell, local Header icons, responsive layout and public config (synthetic Auth)",
+          "status": "failed",
+          "durationMs": 557,
+          "firstError": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBeGreaterThan\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m"
+        }
+      ]
+    },
+    {
+      "label": "smoke-final",
+      "rawPath": "output/playwright/results.json",
+      "sha256": "692fe715bb742792fd074eb729a4fa574054eed513b6908888d912afe3eb0d1b",
+      "stats": {
+        "startTime": "2026-10-12T03:18:09.801Z",
+        "duration": 7527.288,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "current CSR shell, local Header icons, responsive layout and public config (synthetic Auth)",
+          "status": "passed",
+          "durationMs": 674,
+          "firstError": null
+        }
+      ]
+    }
+  ],
+  "images": [
+    {
+      "path": "docs/test-results/evidence/F3_20261012/desktop.png",
+      "sha256": "7c898380e1d756312628401cd56b6995d8d347bedd1185c95b2a1b14339b8ed5",
+      "data": "synthetic User only"
+    },
+    {
+      "path": "docs/test-results/evidence/F3_20261012/mobile.png",
+      "sha256": "19b7d54ed2c663333ba8f97730b8f26aa375dd3593c8283af6cf8e6c0cd845e2",
+      "data": "synthetic User only"
+    }
+  ],
+  "secrets": "No passwords, Cookie values, tokens, storageState or raw trace exported. Raw artifacts remain ignored."
+}

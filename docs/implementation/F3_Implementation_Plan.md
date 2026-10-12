@@ -81,3 +81,9 @@
 依本次 Owner 指示，F3 起採兩個人工關卡：**計畫確認 → 整輪交付後集中 review**。本版交付停於 **F3 計畫待 Owner review**，沒有改 Auth／Header／Profile app code、安裝或執行 F3 開發測試。
 
 待計畫核准，再由 Owner 一次授權整輪開發、必要測試與範圍內修正；一般工程選擇／開發自測不逐項再設人工關卡。整輪完成後集中 review；契約衝突、必要環境阻擋仍如實回報受影響部分。正式驗收／accepted 維持 Owner 另行指定，F1／F2 仍未 accepted，不由本版或自測代填。
+
+## 6. Owner 核准與本輪執行紀錄（2026-10-12）
+
+Owner 本次明確确认 F2 補充測試结果，核准本計畫 **v1.0**，授權依計畫完成 F3 整輪開發、必要測試及範圍內修正，中間不再停於個別 code review／test-plan review。上文保留規劃交付時的歷史狀態，核准設計與版本不變。
+
+已交付 [F3 精簡開發報告](F3_Development_Report.md) 與 [開發自測結果](../test-results/F3_Development_Test_Report.md)：真實 Browser＋API 正常流程與 Cookie／CORS 完成；特殊受控帳號／Cookie 缺前置逐案 BLOCKED，沒有替換成合成整合結果。**F3 整輪交付、待 Owner 集中 review**；未 accepted、不推送、不開始 F4，F1／F2 正式驗收仍延後。

@@ -1,18 +1,11 @@
 <script setup lang="ts">
-const config = useRuntimeConfig()
+definePageMeta({ middleware: 'auth' })
+const { state } = useAuth()
+const entries = [{ title: '建立表單', to: '/forms/new', text: '設計新的表單與題目' }, { title: '我的表單', to: '/forms', text: '查看與管理自己的表單' }, { title: '個人資訊', to: '/profile', text: '查看帳號與修改姓名' }]
 </script>
-
 <template>
-  <section class="space-y-6 rounded-xl border border-gray-200 bg-white p-6 shadow-sm">
-    <div class="space-y-2">
-      <p class="text-sm text-gray-500">V1 Frontend · F1</p>
-      <h1 class="text-2xl font-semibold text-gray-900">工程環境已就緒</h1>
-      <p class="text-gray-600">帳號與表單功能將於後續輪次提供。</p>
-    </div>
-    <dl class="space-y-1 text-sm">
-      <dt class="text-gray-500">公開 API Base URL</dt>
-      <dd data-testid="api-base-url" class="break-all font-mono text-gray-700">{{ config.public.apiBaseUrl }}</dd>
-    </dl>
-    <FeedbackFoundationFeedback />
-  </section>
+  <AuthGate>
+    <h1 class="mb-8 text-2xl font-semibold break-words whitespace-pre-wrap">歡迎，{{ state.user?.displayName }}</h1>
+    <div class="grid gap-4 md:grid-cols-3"><UCard v-for="entry in entries" :key="entry.to"><h2 class="mb-2 text-lg font-semibold">{{ entry.title }}</h2><p class="mb-5 text-gray-600">{{ entry.text }}</p><UButton :to="entry.to">{{ entry.title }}</UButton></UCard></div>
+  </AuthGate>
 </template>

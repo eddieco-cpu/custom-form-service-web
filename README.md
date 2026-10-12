@@ -1,6 +1,6 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
-最新進度（2026-10-12）：**F2 R1～R3 局部複核通過、Owner 同意結案；F2 補充自測無阻擋（新增 Browser 8／8，既有證據沿用）；F3 計畫待 Owner review，尚未開發。F1 P3 局部複核通過，F1／F2 仍未 accepted，正式驗收延後。** 見 [F2 測試計畫](docs/test-plan/F2_Supplemental_Test_Plan.md)、[結果與未驗證事項](docs/test-results/F2_Supplemental_Test_Report.md) 與 [F3 精簡計畫](docs/implementation/F3_Implementation_Plan.md)。F3 起依 Owner 指示採計畫確認、整輪交付後集中 review 兩個人工關卡；後續開發仍待核准及一次整輪授權。以下較早日期的紀錄保留歷史狀態。
+最新進度（2026-10-12）：**F2 補充測試结果已由 Owner 確認；F3 v1.0 計畫核准、整輪開發及必要自測已交付，待 Owner 集中 review。** 見 [F3 開發報告](docs/implementation/F3_Development_Report.md)、[測試結果與缺口](docs/test-results/F3_Development_Test_Report.md) 與 [核准計畫](docs/implementation/F3_Implementation_Plan.md)。F3 未 accepted；F1／F2 正式驗收仍延後，F4 未開始。以下較早日期的紀錄保留歷史狀態。
 
 文件包版本：1.3。日期：2026-10-10。狀態：前端規格與總實作計畫已通過 Owner review；本次依 Owner 指示補分輪測試選擇原則，AGENTS／Skills 仍待 Owner review。
 
@@ -12,7 +12,7 @@ F0 收尾 commit：`54ac4482dba6442408864971a2ef11a871c441f3`；F1 v1.0 計畫 c
 
 後端狀態仍引用唯讀快照 2026-10-11／`7591633137c5a6f57c1fce8e1ba19ab394015880`：R10 accepted、R11 結果待 Owner 確認；本次沒有較新的後端 Owner 確認來源或重跑驗收。下文 §4 保留 2026-10-10 文件包的歷史接續說明，目前輪次依總計畫最新進度。
 
-## 本機工程與 F1 自測
+## 本機工程與開發自測
 
 使用 Node **24.21.0**／npm **11.19.0**；`.nvmrc`、packageManager 與 lockfile 記錄基準。現有 repo 執行：
 
@@ -21,7 +21,7 @@ npm ci
 npm run dev
 ```
 
-前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。產品目前仍是工程就緒頁、Toast／Dialog smoke；F2 已建立共用 API／資料／狀態機制，帳號與表單產品流程留後續輪次；`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；表單及統計入口目前是後續頁殼。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
 
 ```powershell
 npm run lint
@@ -34,7 +34,7 @@ npm run test:e2e
 
 typecheck 實際執行 Nuxt app／generated project 檢查與 `tsc -p tsconfig.tools.json`，涵蓋 tests、TS／MJS 工具組態與靜態 probe script。E2E 在 built preview 上啟動 Chromium；需先 build、關閉自己啟動的 dev 並確保 3000 沒有其他服務。Playwright 不重用不明服務，也不停止既有後端。這些是開發自測，正式 AI／人工驗收未執行。
 
-覆寫 smoke 用以下方式在 **process 啟動前** 注入；測試 URL 僅被讀取，不會發 API 請求：
+覆寫 smoke 用以下方式在 **process 啟動前** 注入；Auth GET 由測試攔截，回合成 User，不連接真實後端：
 
 ```powershell
 $env:NUXT_PUBLIC_API_BASE_URL = 'http://localhost:5000/api/f1-smoke'

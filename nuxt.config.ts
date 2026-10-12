@@ -9,7 +9,7 @@ export default defineNuxtConfig({
   app: {
     head: {
       htmlAttrs: { lang: 'zh-Hant' },
-      title: 'V1 Frontend 工程基礎',
+      title: '自建表單',
       link: [{ rel: 'icon', type: 'image/svg+xml', href: '/favicon.svg' }],
     },
   },
@@ -23,7 +23,7 @@ export default defineNuxtConfig({
     serverBundle: false,
     clientBundle: {
       scan: true,
-      icons: ['lucide:info', 'lucide:x', 'lucide:circle-check', 'lucide:loader-circle'],
+      icons: ['lucide:info', 'lucide:x', 'lucide:circle-check', 'lucide:loader-circle', 'lucide:user-round', 'lucide:menu'],
     },
   },
 })
