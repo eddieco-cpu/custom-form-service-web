@@ -41,3 +41,9 @@ built smoke 首次使用套件 data-slot 找不到實際 Toast，第二次 evalu
 依本次指示，真實註冊／Login／PATCH／Cookie／CORS **NOT RUN（未重跑）**，沿原交付與 reviewer 的歷史證據，不能寫成本次 live PASS。reviewer 已補驗真實無效 Cookie；真實 disabled 帳號／既有 Cookie 後停用、過期 Cookie 仍 **BLOCKED**，缺受控前置。本次沒有 live API 操作，live 後端 SHA 仍未確認。其他瀏覽器、人工實機、正式 AI／人工驗收 **NOT RUN**；既有 npm ci／audit 限制仍保留。
 
 單一目的本機提交：`fix: preserve F3 profile reconciliation and dialog focus`；完整 SHA 見本次交付訊息／Git log（本報告在該提交中）。剩餘 Git 狀態僅為原有兩份未追蹤 reviewer 文件；沒有混入或覆寫它們。**F3 修正完成、待局部複核**；不推送、不自行 accepted、不開始 F4，F1／F2／F3 正式驗收仍延後。
+
+## Owner 複核確認與結案（2026-10-12）
+
+上文保留修正交付時的歷史結果／停止點。Owner 本次確認 [局部獨立複核](../review/F3_Correction_ReReview_Report_20261012.md) 及 [去敏證據](../review/evidence/F3_Correction_Independent_Verification_20261012.json)，**F3-R1、F3-R2、N1 結案，F3 code review 通過**。原複核兩檔已以 `02bccb3b49c60ab2cbd84edfaa51ccfa43afcce7` 本機提交保存，本次不覆寫；產品修正版本仍為 `ed2817b25d99763fdcc6c2d826ee29db60dc1707`。
+
+本次只同步進度、證據保存核對與 [F4 精簡計畫](F4_Implementation_Plan.md)，未重跑 F3 測試；真實 disabled／過期 Cookie、live SHA、真實 Server 寫入故障、其他 Browser／人工實機與 npm ci／audit 缺口保留。真實無效 Cookie 沿用原 reviewer 的純 GET 歷史證據，本次未重跑。**F1／F2／F3 未 accepted，正式驗收仍延後；目前停於 F4 計畫待 Owner review，尚不開發、不推送。**

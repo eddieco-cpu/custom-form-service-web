@@ -466,6 +466,14 @@ Owner 確認獨立 review findings，授權一次修正 F3-R1、F3-R2、N1 並�
 
 **F3 修正完成、待局部複核；未 accepted、不推送、不開始 F4，正式驗收仍延後。** 修正提交與剩餘 Git 狀態見報告／交付訊息。
 
+### 9.11 F3 複核結案與 F4 規劃交付（2026-10-12）
+
+Owner 明確確認 [F3 局部獨立複核報告](../review/F3_Correction_ReReview_Report_20261012.md)／[去敏證據](../review/evidence/F3_Correction_Independent_Verification_20261012.json)，**F3-R1、F3-R2、N1 結案，F3 code review 通過**。兩份複核文件已保存於本機提交 `02bccb3b49c60ab2cbd84edfaa51ccfa43afcce7`，本次原檔 bytes 保留；複核的 unit 136／136、dev Browser 38／38、built 17／17、F2 代表案例 3／3 與工程檢查 PASS 為該次獨立執行結果，本次未重跑。Browser 為合成攔截，既有真實正常流程／Cookie／CORS 是歷史證據，不能將其代稱本次整合 PASS。
+
+本次授權只提出 [F4 精簡實作計畫 v1.0](F4_Implementation_Plan.md)，依既定 F4 清單／FormDetail 讀取／路由範圍，列兩支 GET、scope／Auth／錯誤責任、必要測試及風險。只做文件與證據核對、runtime 版本、health／ready／OpenAPI 唯讀 probe（200；兩支 GET 已列），沒有 Form 業務讀取、Browser、install／lint／typecheck／build／unit 或開發。後端快照 manifest 108／108 相符；live SHA 未確認，未修改快照／DB／服務。
+
+**F4 計畫待 Owner review，開發未開始；F1／F2／F3 均未 accepted，正式 AI／人工驗收仍延後／NOT RUN。** disabled／過期 Cookie 受控前置、live 後端版本、真實故障／其他 Browser／人工實機與 npm ci／audit 既有缺口保留；真實無效 Cookie 沿用 reviewer 歷史純 GET 證據、本次未重跑。維持 §9.8 的兩人工關卡：計畫確認後整輪開發、自測及範圍內修正，交付後集中 review；不新增逐項關卡、不推送、不自行開始下一階段。文件本機提交 SHA／剩餘 Git 狀態見 Git log／交付訊息；以上是目前狀態，前節歷史停止點保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

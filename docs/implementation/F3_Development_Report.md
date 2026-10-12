@@ -42,3 +42,9 @@ Owner 確認 F2 補充測試結果、核准 F3 Implementation Plan v1.0，授權
 真實 disabled 正確帳密、既有 disabled Cookie、無效／過期 Cookie **BLOCKED**：缺後端受控帳號／Cookie 前置；沒有製造 Token 或 SQL 停用。人工實機／其他瀏覽器、正式 AI／人工驗收 **NOT RUN**。既有 npm ci EPERM／audit 風險仍保留，F3 不需要重裝；F1 原工程就緒頁的 smoke 預期因首頁更新不再適用，歷史結果保留，現有預設 smoke 改驗當前 CSR shell，Dialog／toast 由 F3 行為案例涵蓋。
 
 本輪以單一目的本機提交 `feat: complete F3 auth header and profile round` 交付；完整 SHA 與提交後 Git 狀態見本次交付訊息／Git log（報告包含於該提交，避免自指 SHA）。僅 F3 app／必要測試／報告與進度，未混入其他變更。**不推送、不開始 F4、不自行 accepted；F3 整輪交付、待 Owner 集中 review。**
+
+## Review 修正及 Owner 結案追加（2026-10-12）
+
+上文為原開發交付紀錄，不改寫歷史測試／缺口。後續 F3-R1、F3-R2、N1 已在產品提交 `ed2817b25d99763fdcc6c2d826ee29db60dc1707` 完成授權修正，見 [修正報告](F3_Review_Correction_Report.md)；[局部獨立複核](../review/F3_Correction_ReReview_Report_20261012.md)／[去敏證據](../review/evidence/F3_Correction_Independent_Verification_20261012.json) 已保存於 `02bccb3b49c60ab2cbd84edfaa51ccfa43afcce7`。Owner 本次明確確認 **三項結案、F3 code review 通過**，不代表正式驗收或 Round accepted。
+
+本次未重跑產品測試；真實無效 Cookie 採 reviewer 歷史純 GET 證據，disabled／過期 Cookie 與其他既有未驗證事項依修正／複核報告保留。同步 [F4 精簡計畫](F4_Implementation_Plan.md)，**F4 計畫待 Owner review，開發未開始；F1／F2／F3 均未 accepted，正式驗收仍延後、不推送。**
