@@ -1,0 +1,946 @@
+{
+  "date": "2026-10-13",
+  "timezone": "Asia/Taipei",
+  "stage": "Independent local correction re-review; formal acceptance deferred",
+  "target": "75860ac18f731ffa566dfed09c3f3c60cb65cbb5",
+  "correctionBaseline": "e4da993470bf89388b899e046e22ccea3a652a93",
+  "targetParentMatchesBaseline": true,
+  "branch": "master",
+  "initialGit": [
+    "?? docs/review/F5_Code_Review_Report_20261012.md",
+    "?? docs/review/evidence/F5_Independent_Verification_20261012.json"
+  ],
+  "authorization": "Owner requests local independent re-review, status update if passed, and one local documents commit including preserved original review/evidence",
+  "result": "F5-R1 closed; F5 code review passed",
+  "blockingFindings": [],
+  "nonBlockingFindings": [],
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "@nuxt/ui": "4.11.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "zod": "4.6.5",
+    "vitest": "5.0.3",
+    "lossless-json": "4.3.1",
+    "@playwright/test": "1.64.0",
+    "vue": "3.5.43",
+    "vite": "8.3.4",
+    "nitropack": "2.13.4"
+  },
+  "versionNote": "Node/npm independently queried; current Vitest/build versions observed; unchanged lockfile for remaining package versions",
+  "sourceOfTruth": [
+    "AGENTS.md v1.1",
+    "repo round-development skill",
+    "V1_Frontend_Implementation_Plan.md v1.3 F5 and sections 7, 7.1, 8.1",
+    "F5_Implementation_Plan.md v1.0 sections 2-3",
+    "Frontend 02 v1.1 sections 6, 6.1, 7; 04 v1.0 section 7; 06 v1.1 sections 8-9",
+    "Backend Domain v1.1 FORM-05/QST; Part B v1.0 section 7.2"
+  ],
+  "scope": {
+    "actualCorrectionDiffFiles": 7,
+    "productChangedByCorrection": [
+      "app/domain/editor.ts"
+    ],
+    "testsAddedByCorrection": [
+      "tests/unit/f5-config-omission.spec.ts"
+    ],
+    "productTestDependencyChangesInThisReview": false,
+    "genericSemanticEqualChanged": false,
+    "reviewChecks": "actual diff, validators/builders, regression expectations, before-source and final-source diff, raw JSON histories, exact candidate/body evidence and hash verification"
+  },
+  "regressionMatrix": {
+    "legalUndefined": 12,
+    "clearingExistingSetting": 12,
+    "explicitNullRejected": 12,
+    "unknownOrWrongTypeRejected": 9,
+    "illegalNonemptyRejected": 12,
+    "genericComparison": 1,
+    "total": 58,
+    "allPassed": true
+  },
+  "checks": [
+    {
+      "command": "npm run test:unit -- tests/unit/f5-config-omission.spec.ts tests/unit/f5-editor.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-answer.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts tests/unit/api-client.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "files": 7,
+      "passed": 225,
+      "total": 225,
+      "start": "2026-10-13 19:15:58 Asia/Taipei",
+      "durationMs": 564,
+      "evidenceKind": "Current independent command tool stdout and exit code; summarized here, no current raw Vitest JSON",
+      "execution": "Outside sandbox after automatic approval; no initial sandbox failure this turn"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "scope": "Nuxt and tools strict"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "warnings": [
+        "DEP0155 dependency exports mapping",
+        "PLUGIN_TIMINGS"
+      ],
+      "applicationError": false
+    },
+    {
+      "command": "node output/playwright/f5-r1-independent-review-20261013/domain-probe.mjs",
+      "result": "PASS",
+      "exitCode": 0,
+      "positiveCases": 7,
+      "invalidCases": 6,
+      "genericComparison": "PASS",
+      "assertionAdjustment": "PASS",
+      "mode": "pure-domain synthetic fixture; no API"
+    },
+    {
+      "command": "git diff --check e4da993470bf89388b899e046e22ccea3a652a93 75860ac18f731ffa566dfed09c3f3c60cb65cbb5",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --exit-code 75860ac18f731ffa566dfed09c3f3c60cb65cbb5 -- app tests package.json package-lock.json",
+      "result": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "perFile": [
+    {
+      "path": "tests/unit/api-client.spec.ts",
+      "result": "PASSED",
+      "total": 33,
+      "passed": 33
+    },
+    {
+      "path": "tests/unit/common-adapters.spec.ts",
+      "result": "PASSED",
+      "total": 5,
+      "passed": 5
+    },
+    {
+      "path": "tests/unit/exact-number-gate.spec.ts",
+      "result": "PASSED",
+      "total": 36,
+      "passed": 36
+    },
+    {
+      "path": "tests/unit/f5-answer.spec.ts",
+      "result": "PASSED",
+      "total": 33,
+      "passed": 33
+    },
+    {
+      "path": "tests/unit/f5-config-omission.spec.ts",
+      "result": "PASSED",
+      "total": 58,
+      "passed": 58
+    },
+    {
+      "path": "tests/unit/f5-definition-request.spec.ts",
+      "result": "PASSED",
+      "total": 43,
+      "passed": 43
+    },
+    {
+      "path": "tests/unit/f5-editor.spec.ts",
+      "result": "PASSED",
+      "total": 17,
+      "passed": 17
+    }
+  ],
+  "independentDomainProbe": {
+    "target": "75860ac18f731ffa566dfed09c3f3c60cb65cbb5",
+    "date": "2026-10-13",
+    "mode": "Independent pure-domain synthetic fixture; no API",
+    "positives": [
+      {
+        "type": "text",
+        "field": "minLength",
+        "operation": "absent to own undefined",
+        "draft": "valid",
+        "delta": "noop",
+        "dirty": false,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{}",
+        "expectedConfigWire": "{}",
+        "actualBodyWire": null,
+        "fixedExpectedBodyWire": null,
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "text",
+        "field": "maxLength",
+        "operation": "absent to own undefined",
+        "draft": "valid",
+        "delta": "noop",
+        "dirty": false,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{}",
+        "expectedConfigWire": "{}",
+        "actualBodyWire": null,
+        "fixedExpectedBodyWire": null,
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "text",
+        "field": "placeholder",
+        "operation": "absent to own undefined",
+        "draft": "valid",
+        "delta": "noop",
+        "dirty": false,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{}",
+        "expectedConfigWire": "{}",
+        "actualBodyWire": null,
+        "fixedExpectedBodyWire": null,
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "number",
+        "field": "placeholder",
+        "operation": "absent to own undefined",
+        "draft": "valid",
+        "delta": "noop",
+        "dirty": false,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{\"min\":0,\"max\":9007199254740993.1234567890123456789}",
+        "expectedConfigWire": "{\"min\":0,\"max\":9007199254740993.1234567890123456789}",
+        "actualBodyWire": null,
+        "fixedExpectedBodyWire": null,
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "text",
+        "field": "minLength",
+        "operation": "clear existing setting",
+        "draft": "valid",
+        "delta": "ready",
+        "dirty": true,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{\"placeholder\":\"提示\",\"maxLength\":8}",
+        "expectedConfigWire": "{\"maxLength\":8,\"placeholder\":\"提示\"}",
+        "actualBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000001\",\"config\":{\"placeholder\":\"提示\",\"maxLength\":8}}]}",
+        "fixedExpectedBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000001\",\"config\":{\"maxLength\":8,\"placeholder\":\"提示\"}}]}",
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "number",
+        "field": "placeholder",
+        "operation": "clear existing setting",
+        "draft": "valid",
+        "delta": "ready",
+        "dirty": true,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{\"min\":0,\"max\":9007199254740993.1234567890123456789}",
+        "expectedConfigWire": "{\"min\":0,\"max\":9007199254740993.1234567890123456789}",
+        "actualBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000002\",\"config\":{\"min\":0,\"max\":9007199254740993.1234567890123456789}}]}",
+        "fixedExpectedBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000002\",\"config\":{\"min\":0,\"max\":9007199254740993.1234567890123456789}}]}",
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      },
+      {
+        "type": "single_choice",
+        "field": "variant",
+        "operation": "clear existing setting",
+        "draft": "valid",
+        "delta": "ready",
+        "dirty": true,
+        "rawOwnUndefinedPreserved": true,
+        "baselineAndDtoUnchanged": true,
+        "candidateConfigWire": "{}",
+        "expectedConfigWire": "{}",
+        "actualBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000003\",\"config\":{}}]}",
+        "fixedExpectedBodyWire": "{\"questions\":[{\"id\":\"00000000-0000-4000-8000-000000000003\",\"config\":{}}]}",
+        "correctiveEvidenceMatches": true,
+        "result": "PASS"
+      }
+    ],
+    "negatives": [
+      {
+        "type": "text",
+        "field": "variant",
+        "rawValue": null,
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      },
+      {
+        "type": "rating",
+        "field": "min",
+        "rawValue": null,
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      },
+      {
+        "type": "text",
+        "field": "min",
+        "rawValue": "",
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      },
+      {
+        "type": "number",
+        "field": "variant",
+        "rawValue": "[own undefined]",
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      },
+      {
+        "type": "single_choice",
+        "field": "placeholder",
+        "rawValue": " \u0085 ",
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      },
+      {
+        "type": "number",
+        "field": "max",
+        "rawValue": "not-a-number",
+        "draft": "invalid",
+        "delta": "invalid",
+        "dirty": true,
+        "result": "PASS"
+      }
+    ],
+    "genericComparison": {
+      "ownUndefinedVsOmission": false,
+      "nullVsOmission": false,
+      "result": "PASS"
+    },
+    "assertionAdjustment": {
+      "objectKeyOrderDiffersButDecodedMeaningEqual": true,
+      "parsedIntegerIsExactNumberAndDtoIntegerIsNativeNumber": true,
+      "fixedFullDtoAndLongDecimalWireRetained": true,
+      "result": "PASS"
+    }
+  },
+  "probeExecutionHistory": [
+    {
+      "result": "FAIL",
+      "exitCode": 1,
+      "phase": "initial independent probe harness",
+      "reason": "Attempted exact wire serialization of internal baseline containing undefined; corrected harness to independent structured snapshots",
+      "productFinding": false,
+      "preservedSource": "output/playwright/f5-r1-independent-review-20261013/domain-probe-before.mjs",
+      "preservedRecord": "output/playwright/f5-r1-independent-review-20261013/probe-before.json"
+    },
+    {
+      "result": "PASS",
+      "exitCode": 0,
+      "phase": "final independent probe",
+      "productAndTestsUnchanged": true
+    }
+  ],
+  "assertionReview": {
+    "beforeSource": "output/playwright/f5-r1-correction-20261012/regression-before.spec.ts",
+    "finalSource": "tests/unit/f5-config-omission.spec.ts",
+    "observedChanges": [
+      "Parameterized titles clarified",
+      "General serialized-object key-order equality removed",
+      "Fixed complete DTO body and candidate expectations retained",
+      "Long-decimal exact complete literal wire explicitly asserted"
+    ],
+    "rawIntermediateFullSourceAvailable": false,
+    "rawJsonContainsFullExpectedReceivedDiff": false,
+    "independentlyReproduced": [
+      "Different object key order is semantically identical after exact parsing",
+      "Parsed integer tokens are ExactNumber objects while DTO bounded integers are native number"
+    ],
+    "contractExpectationLowered": false
+  },
+  "correctiveHistoricalExecutions": [
+    {
+      "file": "unit-before.json",
+      "phase": "first reproduction before product fix; original names",
+      "total": 58,
+      "passed": 43,
+      "failed": 15,
+      "success": false,
+      "firstFailureMessages": [
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected '{\"questions\":[{\"id\":\"00000000-0000-40…' to be '{\"questions\":[{\"id\":\"00000000-0000-40…' // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency undefined null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text unknown min= stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency single_choice unknown placeholder= \u0085  stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        }
+      ]
+    },
+    {
+      "file": "unit-before-labeled.json",
+      "phase": "before product fix; names clarified only",
+      "total": 58,
+      "passed": 43,
+      "failed": 15,
+      "success": false,
+      "firstFailureMessages": [
+        {
+          "case": "F5-R1 optional config omission consistency text config[minLength] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[maxLength] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency number config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency number config[min] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency number config[max] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[min] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[max] undefined: Draft valid, Delta noop, dirty=false",
+          "message": "AssertionError: expected true to be false // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[minLength] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected '{\"questions\":[{\"id\":\"00000000-0000-40…' to be '{\"questions\":[{\"id\":\"00000000-0000-40…' // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[variant] null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency single_choice config[variant] null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency multiple_choice config[variant] null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[variant] null stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text unknown min= stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency single_choice unknown placeholder= \u0085  stays dirty and is rejected",
+          "message": "AssertionError: expected false to be true // Object.is equality"
+        }
+      ]
+    },
+    {
+      "file": "unit-after.json",
+      "phase": "product fixed; key-order test assertion still fails",
+      "total": 225,
+      "passed": 224,
+      "failed": 1,
+      "success": false,
+      "firstFailureMessages": [
+        {
+          "case": "F5-R1 optional config omission consistency text config[minLength] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected '{\"questions\":[{\"id\":\"00000000-0000-40…' to be '{\"questions\":[{\"id\":\"00000000-0000-40…' // Object.is equality"
+        }
+      ]
+    },
+    {
+      "file": "unit-final.json",
+      "phase": "wire assertion trial; ExactNumber versus DTO integer mismatch",
+      "total": 225,
+      "passed": 219,
+      "failed": 6,
+      "success": false,
+      "firstFailureMessages": [
+        {
+          "case": "F5-R1 optional config omission consistency text config[minLength] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[maxLength] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency text config[placeholder] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[variant] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[min] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        },
+        {
+          "case": "F5-R1 optional config omission consistency rating config[max] cleared: dirty=true and full replacement removes only that key",
+          "message": "AssertionError: expected { questions: [ { …(2) } ] } to deeply equal { questions: [ { …(2) } ] }"
+        }
+      ]
+    },
+    {
+      "file": "unit-verified.json",
+      "phase": "final verified regression",
+      "total": 225,
+      "passed": 225,
+      "failed": 0,
+      "success": true,
+      "firstFailureMessages": []
+    }
+  ],
+  "correctiveSourceSummary": {
+    "path": "docs/implementation/evidence/F5_R1_Correction_20261012/verification-summary.json",
+    "sha256": "2c2e3c3bcdcb31a0dac623d7fb10a0b4d8e740296aa528aed3a28b9e56c21a78",
+    "evidenceKind": "Historical correction, verified independently; not new independent command executions"
+  },
+  "verifiedSources": [
+    {
+      "group": "sourceFiles",
+      "path": "app/domain/editor.ts",
+      "expected": "455fab2f4f7abe7793ba544d2bfcaff1a70f82c1acd81ddafeb91a941a0786ff",
+      "actual": "455fab2f4f7abe7793ba544d2bfcaff1a70f82c1acd81ddafeb91a941a0786ff",
+      "matches": true
+    },
+    {
+      "group": "sourceFiles",
+      "path": "tests/unit/f5-config-omission.spec.ts",
+      "expected": "5129f9e64e634aa95f20fbc0fd58667bc2188ca0fdcc0d3509c48726c055aa23",
+      "actual": "5129f9e64e634aa95f20fbc0fd58667bc2188ca0fdcc0d3509c48726c055aa23",
+      "matches": true
+    },
+    {
+      "group": "sourceFiles",
+      "path": "app/domain/definition-validation.ts",
+      "expected": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f",
+      "actual": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f",
+      "matches": true
+    },
+    {
+      "group": "sourceFiles",
+      "path": "app/domain/definition-request.ts",
+      "expected": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202",
+      "actual": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202",
+      "matches": true
+    },
+    {
+      "group": "sourceFiles",
+      "path": "tests/fixtures/f5/payloads.ts",
+      "expected": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2",
+      "actual": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2",
+      "matches": true
+    }
+  ],
+  "preservedOriginalFiles": [
+    {
+      "group": "preservedFiles",
+      "path": "docs/review/F5_Code_Review_Report_20261012.md",
+      "expected": "d3880da0b7fd1506930c88aa74a2c105ab5f1244e0b1bda465299fe1d6c5146f",
+      "actual": "d3880da0b7fd1506930c88aa74a2c105ab5f1244e0b1bda465299fe1d6c5146f",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "docs/review/evidence/F5_Independent_Verification_20261012.json",
+      "expected": "4d67e6c71eca7635c293484ed948529bdb6049f0552ee4e20a8760863e0b9ddd",
+      "actual": "4d67e6c71eca7635c293484ed948529bdb6049f0552ee4e20a8760863e0b9ddd",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "output/playwright/f5-independent-review/domain-probe.mjs",
+      "expected": "498a2378d18ae8ba4f31f82b6782c5d37cd260cf1bcc66d91b039ba0e10b8207",
+      "actual": "498a2378d18ae8ba4f31f82b6782c5d37cd260cf1bcc66d91b039ba0e10b8207",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "output/playwright/f5-independent-review/domain-probe.json",
+      "expected": "68f7ac64101f548c3aa7f4ff12d181960888b7037dc89bf72d9c63729ba50778",
+      "actual": "68f7ac64101f548c3aa7f4ff12d181960888b7037dc89bf72d9c63729ba50778",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "docs/implementation/F5_Development_Report.md",
+      "expected": "4f47e53a93c111660965226681b05c936af506368026a9a4aacaef3763f8a2f7",
+      "actual": "4f47e53a93c111660965226681b05c936af506368026a9a4aacaef3763f8a2f7",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "docs/implementation/evidence/F5_20261012/verification-summary.json",
+      "expected": "acef8fa3f4f84a9f3d33cc356ce0a280ffafff81f0a6dc8b9655dba9a6299677",
+      "actual": "acef8fa3f4f84a9f3d33cc356ce0a280ffafff81f0a6dc8b9655dba9a6299677",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "docs/implementation/evidence/F5_20261012/choice-roundtrip-body.json",
+      "expected": "9392c261ea76b5475d0eb0bc876efb62225520d9fdc3a74f99e9081af6cc0fb2",
+      "actual": "9392c261ea76b5475d0eb0bc876efb62225520d9fdc3a74f99e9081af6cc0fb2",
+      "matches": true
+    },
+    {
+      "group": "preservedFiles",
+      "path": "package-lock.json",
+      "expected": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+      "actual": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+      "matches": true
+    }
+  ],
+  "verifiedCorrectiveRawArtifacts": [
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/backend-manifest-check.json",
+      "expected": "bd02d34f18f2479aee93583b408d63e8e1613a8acbb0d67c692c3323fd5a0502",
+      "actual": "bd02d34f18f2479aee93583b408d63e8e1613a8acbb0d67c692c3323fd5a0502",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/build.log",
+      "expected": "0dda8aec3be31e46c842b608ba72421fcaeb7f1965fb6e0911c934474020b8ac",
+      "actual": "0dda8aec3be31e46c842b608ba72421fcaeb7f1965fb6e0911c934474020b8ac",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/delivery-summary.mjs",
+      "expected": "a6dea614e3b92d79e8de1df40d8e88e64eefed7d89a2b01fcecf70c950fbc32b",
+      "actual": "a6dea614e3b92d79e8de1df40d8e88e64eefed7d89a2b01fcecf70c950fbc32b",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/domain-probe.log",
+      "expected": "fed35e08d6d5f586324ca9480e5e41b9f1ab67e8c14518aa0451986c4d0b90aa",
+      "actual": "fed35e08d6d5f586324ca9480e5e41b9f1ab67e8c14518aa0451986c4d0b90aa",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/domain-probe.mjs",
+      "expected": "054ccbf7dc92decdb95ccc1fd3c5f6f8d064de8bcd1ecc610f35de6fea7e5f74",
+      "actual": "054ccbf7dc92decdb95ccc1fd3c5f6f8d064de8bcd1ecc610f35de6fea7e5f74",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/lint-final.log",
+      "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/lint-verified.log",
+      "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/lint.log",
+      "expected": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "actual": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/preserved-before.json",
+      "expected": "dfb6dcdd1876ef23d34b226d5a248e945f3741ee6c94078bcf6bf4bc92288f10",
+      "actual": "dfb6dcdd1876ef23d34b226d5a248e945f3741ee6c94078bcf6bf4bc92288f10",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/preserved-verified.json",
+      "expected": "1d1c353697cde64902a4ef842c2c2f711b4ed59e92c7063f4d3f70c55fbb462c",
+      "actual": "1d1c353697cde64902a4ef842c2c2f711b4ed59e92c7063f4d3f70c55fbb462c",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/regression-before.spec.ts",
+      "expected": "36594187b65af4d25dde12efcab352a83bea3e553b96a28e8946389edad95ba3",
+      "actual": "36594187b65af4d25dde12efcab352a83bea3e553b96a28e8946389edad95ba3",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/typecheck-final.log",
+      "expected": "54fb94db5dcacef43f6a29fec8b7c60b574badcb050e53c9b7542702a450698f",
+      "actual": "54fb94db5dcacef43f6a29fec8b7c60b574badcb050e53c9b7542702a450698f",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/typecheck-verified.log",
+      "expected": "85db779c2e10c2f7b67b4aeb8eec8fcb58bca1354af65757925b96e73c352b95",
+      "actual": "85db779c2e10c2f7b67b4aeb8eec8fcb58bca1354af65757925b96e73c352b95",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/typecheck.log",
+      "expected": "7f69a210a47431c1afc81538de3219a7430cbc44c1a4165aa7e946be88a38896",
+      "actual": "7f69a210a47431c1afc81538de3219a7430cbc44c1a4165aa7e946be88a38896",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-after.json",
+      "expected": "528c92f2e62833dd440327c1b6704d1e5a89ed05d7eef45778407f12ffdaaa15",
+      "actual": "528c92f2e62833dd440327c1b6704d1e5a89ed05d7eef45778407f12ffdaaa15",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-after.log",
+      "expected": "3faa5d506277d4388a769faaa42165a74259f8753cfc4f2d8f0ff08f29cf8ff9",
+      "actual": "3faa5d506277d4388a769faaa42165a74259f8753cfc4f2d8f0ff08f29cf8ff9",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-before-labeled.json",
+      "expected": "612e979c376f787bae5126745471a066ad3ff7b6d98edcf10ff7c7192eda505d",
+      "actual": "612e979c376f787bae5126745471a066ad3ff7b6d98edcf10ff7c7192eda505d",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-before-labeled.log",
+      "expected": "884313c0ea824ac92de56af4c94072e4ea6734407739cfbdafe523de6a9965df",
+      "actual": "884313c0ea824ac92de56af4c94072e4ea6734407739cfbdafe523de6a9965df",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-before.json",
+      "expected": "22bda85910b07dc052457b8a7eb29431df6331eedb2718fc0b453ebd5af209c5",
+      "actual": "22bda85910b07dc052457b8a7eb29431df6331eedb2718fc0b453ebd5af209c5",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-before.log",
+      "expected": "51db899db2cf8813050c1d42cc7980df4a7778d2d41bccb18e5d82c822f282d4",
+      "actual": "51db899db2cf8813050c1d42cc7980df4a7778d2d41bccb18e5d82c822f282d4",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-final.json",
+      "expected": "02bea190eed2a3501701c6370aea27ef9d9454c9f1dd065e872a7359e143ba22",
+      "actual": "02bea190eed2a3501701c6370aea27ef9d9454c9f1dd065e872a7359e143ba22",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-final.log",
+      "expected": "907c320c637c0f61edc9d92998f8bd269f23a30cad06393652ec98f337ea17f7",
+      "actual": "907c320c637c0f61edc9d92998f8bd269f23a30cad06393652ec98f337ea17f7",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-verified.json",
+      "expected": "abdf8b8c9fb162eca3cd906ad882bd69a85ba9064d5bbeda0d3921f53eb95f9e",
+      "actual": "abdf8b8c9fb162eca3cd906ad882bd69a85ba9064d5bbeda0d3921f53eb95f9e",
+      "matches": true
+    },
+    {
+      "group": "rawArtifacts",
+      "path": "output/playwright/f5-r1-correction-20261012/unit-verified.log",
+      "expected": "eacced778173b787df4be875fd2377d4b7dc397090bd328707aa9352a518c614",
+      "actual": "eacced778173b787df4be875fd2377d4b7dc397090bd328707aa9352a518c614",
+      "matches": true
+    }
+  ],
+  "backend": {
+    "reference": "backend-ref/SNAPSHOT.md",
+    "snapshotCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifest": "backend-ref/MANIFEST.sha256",
+    "manifestSha256": "4a1b4ec188a675a540489c6b1d3a25e9ce888c13744707605cf2273357a1867f",
+    "total": 108,
+    "matched": 108,
+    "readonly": true,
+    "liveGitSha": "UNCONFIRMED",
+    "dbVersion": "UNCONFIRMED",
+    "readiness": "UNCONFIRMED; no new live probe this turn"
+  },
+  "rawArtifacts": [
+    {
+      "path": "output/playwright/f5-r1-independent-review-20261013/hash-check.json",
+      "sha256": "6571959560fbd43072d615fd10381eeef5cbb890a18b2309bbab7e66fe432bc6",
+      "ignored": true
+    },
+    {
+      "path": "output/playwright/f5-r1-independent-review-20261013/domain-probe.mjs",
+      "sha256": "a2c0941a36e3dcaab55c9f3edf3ff7eaee64581bbb75dab7b672690ab0e1a032",
+      "ignored": true
+    },
+    {
+      "path": "output/playwright/f5-r1-independent-review-20261013/domain-probe.json",
+      "sha256": "04d9d0c40b84a7b36ecf0a55f9eaced02072a8dce608c36bae0d2ebc590a5a79",
+      "ignored": true
+    },
+    {
+      "path": "output/playwright/f5-r1-independent-review-20261013/domain-probe-before.mjs",
+      "sha256": "3e172baabe07b74a9a65cf317494521f45fb5b1dccd85e1530df46a398038469",
+      "ignored": true
+    },
+    {
+      "path": "output/playwright/f5-r1-independent-review-20261013/probe-before.json",
+      "sha256": "c303d299f061ec3825ec7de4a05173cf30a62f20dc555036d81eabb702b9e8bf",
+      "ignored": true
+    }
+  ],
+  "gaps": {
+    "browser": "NOT RUN; pure-domain comparison only, no browser mechanism changed",
+    "realApi": "NOT RUN",
+    "db": "NOT RUN",
+    "formalAiAcceptance": "NOT RUN; deferred",
+    "humanAcceptance": "NOT RUN; deferred",
+    "realFixtures": "BLOCKED; retained list >=11/21, roles/states/hidden/deleted/deadline/auth/controlled fault/late response gaps",
+    "npmCi": "NOT RUN; historical native binding EPERM retained",
+    "audit": "NOT RUN; historical gap retained"
+  },
+  "delivery": {
+    "localSinglePurposeDocumentsCommit": true,
+    "files": [
+      "README.md",
+      "docs/implementation/V1_Frontend_Implementation_Plan.md",
+      "docs/review/F5_Code_Review_Report_20261012.md",
+      "docs/review/evidence/F5_Independent_Verification_20261012.json",
+      "docs/review/F5_R1_Correction_ReReview_Report_20261013.md",
+      "docs/review/evidence/F5_R1_Independent_Verification_20261013.json"
+    ],
+    "commitSha": "See final delivery message and git log -1; avoids self-reference",
+    "finalGitStatus": "See final delivery message; expected clean",
+    "originalContentAndFailureEvidenceRetained": true,
+    "productAndTestsUnchanged": true,
+    "push": "NOT RUN"
+  },
+  "stop": "F5-R1 結案、F5 code review 通過；後續由 Owner 指定",
+  "accepted": "UNCHANGED",
+  "f6": "NOT STARTED",
+  "documentChecks": {
+    "result": "PASS",
+    "files": 6,
+    "relativeLinks": 102,
+    "missingLinks": 0,
+    "unexpectedControlCharacters": 0,
+    "finalNewline": true,
+    "jsonParsed": true,
+    "independentRawArtifactHashesMatched": 5,
+    "contentReview": "Synthetic IDs/config/wire and historical error summaries only; no credentials, cookies, tokens or real personal data",
+    "stagedDiffCheck": "PASS",
+    "stagedScope": "Exactly six authorized documents; no product/test/dependency files",
+    "preservedOriginalIndexBytes": [
+      {
+        "path": "docs/review/F5_Code_Review_Report_20261012.md",
+        "rawBlobId": "f17f716ab0f0861935965bb1d5d7c7ed8add9667",
+        "indexBlobId": "f17f716ab0f0861935965bb1d5d7c7ed8add9667",
+        "exactBytesMatch": true
+      },
+      {
+        "path": "docs/review/evidence/F5_Independent_Verification_20261012.json",
+        "rawBlobId": "ca00c8ff70794b3b55d14b57e7f6660f37cfdca7",
+        "indexBlobId": "ca00c8ff70794b3b55d14b57e7f6660f37cfdca7",
+        "exactBytesMatch": true
+      }
+    ]
+  }
+}

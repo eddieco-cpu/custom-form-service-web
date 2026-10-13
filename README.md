@@ -1,5 +1,7 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
+最新複核進度（2026-10-13）：**F5-R1 結案、F5 code review 通過。** 局部獨立複核目標 `75860ac18f731ffa566dfed09c3f3c60cb65cbb5`，確認合法 undefined／省略一致、完整 config replacement 保留其他設定，null／未知 key／非法非空值仍 dirty 且拒絕，共用比較未放寬，中間斷言未降低契約預期。見 [局部複核報告](docs/review/F5_R1_Correction_ReReview_Report_20261013.md)／[獨立證據](docs/review/evidence/F5_R1_Independent_Verification_20261013.json)。本次 F5／F2 unit 225／225、lint／strict typecheck／build PASS；原 review／失敗證據保留，依 Owner 指示一併作本機文件提交。F1～F5 accepted 不變，正式驗收延後，不推送、不展開 F6；既有真實測資缺口維持。以下段落保留歷史狀態。
+
 最新補正進度（2026-10-12）：**F5-R1 補正完成、待局部複核。** Owner 確認 F5-R1 並直接授權局部修正／回歸／交付；合法可選 config 的 undefined 與省略現在具有一致 dirty／candidate／Delta 語意，null／未知 key／非法非空值保持差異與拒絕。見 [局部修正報告](docs/implementation/F5_R1_Correction_Report.md)／[去敏證據](docs/implementation/evidence/F5_R1_Correction_20261012/verification-summary.json)。先補 58 案重現，最後受影響 F5／F2 unit 225／225、lint／strict typecheck／build／diff PASS；原 review、失敗及 F5 報告／證據保留。F5 review 尚待複核，正式驗收延後，不改 accepted、不推送、不展開 F6；既有真實測資缺口維持。下列開發交付段落保留歷史狀態。
 
 最新進度（2026-10-12）：**F5 開發完成、待集中 review。** Owner 核准 [F5 計畫 v1.0](docs/implementation/F5_Implementation_Plan.md) 並授權整輪開發、自測與範圍內修正；已交付 Editor／Answer 純 Domain、Create／Draft Delta、Draft／Publish 驗證與錯誤定位，見 [F5 開發報告](docs/implementation/F5_Development_Report.md)／[去敏證據](docs/implementation/evidence/F5_20261012/verification-summary.json)。指定 Choice→text→Choice 固定 Body／wire 核對 PASS；必要 unit 167／167、lint／strict typecheck／build／diff 檢查 PASS。F4-R1 結案、F4 code review 通過的 Owner 決議維持；F1～F5 均未 accepted，正式驗收延後、既有真實測資缺口保留。本輪沒有 UI／保存／提交 API 接入，不推送、不展開 F6。

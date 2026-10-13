@@ -522,6 +522,14 @@ Owner 確認 F5-R1／P2 並直接授權局部修正、必要回歸與交付，�
 
 **F5-R1 補正完成、待局部複核；不自行宣告 F5 review 通過，F1～F5 未 accepted，正式驗收維持延後／NOT RUN。** 只提交局部修正及交付／必要進度，不推送、不展開 F6。完整 SHA／剩餘 Git 狀態見 Git log／交付訊息；前節與原審查歷史不覆寫。
 
+### 9.18 F5-R1 局部獨立複核通過與文件提交（2026-10-13）
+
+Owner 授權對 `75860ac18f731ffa566dfed09c3f3c60cb65cbb5`（修正基準 `e4da993470bf89388b899e046e22ccea3a652a93`）做局部獨立複核，並指示通過時同步「F5-R1 結案、F5 code review 通過」。已閱讀實際修正 diff、58 案新增回歸、補正候選／Body 與原始失敗證據；合法可選 undefined／省略皆 valid／noop／clean，既有設定清除以完整 replacement 保留其餘設定，null／未知 key／非法非空值仍 dirty／invalid，共用比較未放寬。中間移除 object key 順序斷言未降低契約預期，完整固定 DTO 與長小數 literal wire 仍保留。見 [局部複核報告](../review/F5_R1_Correction_ReReview_Report_20261013.md)／[獨立證據](../review/evidence/F5_R1_Independent_Verification_20261013.json)。
+
+本次獨立 F5／F2 unit **225／225 PASS**、lint／Nuxt＋tools strict／build／diff PASS，純 Domain probe 核對四組原重現、三種 replacement 及非法拒絕。補正 source 5／5、保留檔 8／8、原始證據 24／24 與後端 manifest 108／108 hash 相符；沒有產品／測試／依賴變更。原 review 報告／獨立證據保留 bytes，與本次複核文件及必要進度一併作本機文件提交；完整 SHA／Git 狀態見交付訊息與 Git log。
+
+**F5-R1 結案、F5 code review 通過；F1～F5 accepted 不變，正式驗收維持延後／NOT RUN。** 本次無新增阻擋或非阻擋 finding；真實測資、live 版本／readiness、npm ci／audit 與 Browser／人工等缺口保留，不推送、不展開 F6。後續由 Owner 指定，前節與原審查／失敗歷史不覆寫。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

@@ -1,0 +1,303 @@
+{
+  "date": "2026-10-12",
+  "timezone": "Asia/Taipei",
+  "stage": "Independent code review; F5 review result awaits Owner confirmation",
+  "target": "e4da993470bf89388b899e046e22ccea3a652a93",
+  "baseline": "2fb15fb4461eb56a727715da463c084958d20a37",
+  "branch": "master",
+  "initialGit": "clean",
+  "scope": "All 17 changed files, product and unit review, risk-based verification; no product/test changes",
+  "findings": [
+    {
+      "id": "F5-R1",
+      "priority": "P2",
+      "blocking": true,
+      "file": "app/domain/editor.ts",
+      "start": 158,
+      "end": 159,
+      "result": "DEFECT_REPRODUCED",
+      "expected": "undefined optional config is omitted and clean",
+      "actual": "validateDraft valid, Delta noop, dirty true",
+      "combinations": 4
+    }
+  ],
+  "nonBlockingFindings": [],
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "nuxtUi": "4.11.3",
+    "tailwind": "4.3.3",
+    "typescript": "5.9.3",
+    "zod": "4.6.5",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "losslessJson": "4.3.1",
+    "vue": "3.5.43",
+    "vite": "8.3.4",
+    "nitro": "2.13.4"
+  },
+  "commands": [
+    {
+      "command": "npm run test:unit -- tests/unit/f5-editor.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-answer.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts tests/unit/api-client.spec.ts",
+      "result": "PASS",
+      "exitCode": 0,
+      "files": 6,
+      "passed": 167,
+      "total": 167,
+      "startTime": "22:59:36 Asia/Taipei"
+    },
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "scope": "Nuxt plus tools strict"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "warning": "DEP0155 dependency exports mapping"
+    },
+    {
+      "command": "node output/playwright/f5-independent-review/domain-probe.mjs",
+      "result": "DEFECT_REPRODUCED plus positive assertions PASS",
+      "exitCode": 0,
+      "note": "Diagnostic process confirms 4 violated clean/no-op expectations; process success is not product-all-PASS",
+      "choiceRoundTrips": 12
+    },
+    {
+      "command": "git diff --check 2fb15fb4461eb56a727715da463c084958d20a37 e4da993470bf89388b899e046e22ccea3a652a93",
+      "result": "PASS",
+      "exitCode": 0
+    },
+    {
+      "command": "git diff --exit-code e4da993 -- app tests package.json package-lock.json",
+      "result": "PASS",
+      "exitCode": 0
+    }
+  ],
+  "executionHistory": [
+    {
+      "check": "initial sandbox Vitest",
+      "result": "BLOCKED",
+      "reason": "Vite startup spawn EPERM; zero cases executed",
+      "retry": "Same command outside sandbox after automatic approval; PASS"
+    }
+  ],
+  "sources": [
+    {
+      "path": "app/domain/models.ts",
+      "sha256": "6fa3b12bc3d0576f249834c2a19d99d1c22ff572c313f250668c184967822760",
+      "actualSha256": "6fa3b12bc3d0576f249834c2a19d99d1c22ff572c313f250668c184967822760",
+      "matches": true
+    },
+    {
+      "path": "app/domain/api/form.ts",
+      "sha256": "181a4b2eb1def8807e9184a0b4ab66db257562a056095ce73f19bf257c4b8816",
+      "actualSha256": "181a4b2eb1def8807e9184a0b4ab66db257562a056095ce73f19bf257c4b8816",
+      "matches": true
+    },
+    {
+      "path": "app/domain/editor.ts",
+      "sha256": "619311bdf2b4c68a485ffdc1b8156a3fa304d1e42cc325db167d223cf2f0c23c",
+      "actualSha256": "619311bdf2b4c68a485ffdc1b8156a3fa304d1e42cc325db167d223cf2f0c23c",
+      "matches": true
+    },
+    {
+      "path": "app/domain/definition-validation.ts",
+      "sha256": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f",
+      "actualSha256": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f",
+      "matches": true
+    },
+    {
+      "path": "app/domain/definition-request.ts",
+      "sha256": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202",
+      "actualSha256": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202",
+      "matches": true
+    },
+    {
+      "path": "app/domain/error-path.ts",
+      "sha256": "c14f80fffcd28fb517725243701c1761660a4f595efd588eb79f4b99a47da790",
+      "actualSha256": "c14f80fffcd28fb517725243701c1761660a4f595efd588eb79f4b99a47da790",
+      "matches": true
+    },
+    {
+      "path": "app/domain/error-presentation.ts",
+      "sha256": "457bae1a19ec308126fd66bb4e57bc5b689a357e7eb147931dd9e5deed9ca6f7",
+      "actualSha256": "457bae1a19ec308126fd66bb4e57bc5b689a357e7eb147931dd9e5deed9ca6f7",
+      "matches": true
+    },
+    {
+      "path": "app/domain/answer.ts",
+      "sha256": "8d964dfd137887d98c22f654494344899c40058571c2a5f883499763fc3b2c02",
+      "actualSha256": "8d964dfd137887d98c22f654494344899c40058571c2a5f883499763fc3b2c02",
+      "matches": true
+    },
+    {
+      "path": "tests/fixtures/f5/payloads.ts",
+      "sha256": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2",
+      "actualSha256": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2",
+      "matches": true
+    },
+    {
+      "path": "tests/unit/f5-editor.spec.ts",
+      "sha256": "9621ef8d8e5664dfcdad58d1437ec5ae2c65bf23e487980d6bd77b9bd0880c16",
+      "actualSha256": "9621ef8d8e5664dfcdad58d1437ec5ae2c65bf23e487980d6bd77b9bd0880c16",
+      "matches": true
+    },
+    {
+      "path": "tests/unit/f5-definition-request.spec.ts",
+      "sha256": "bfc42185a96dfcb7fc81d8e0ecf3c2cecefd8e75cabec25d864f0a4f6c50fb86",
+      "actualSha256": "bfc42185a96dfcb7fc81d8e0ecf3c2cecefd8e75cabec25d864f0a4f6c50fb86",
+      "matches": true
+    },
+    {
+      "path": "tests/unit/f5-answer.spec.ts",
+      "sha256": "f154dd625f330edbff3553e48262e4297937a5f8e5bf492291b05d74cc208186",
+      "actualSha256": "f154dd625f330edbff3553e48262e4297937a5f8e5bf492291b05d74cc208186",
+      "matches": true
+    }
+  ],
+  "backend": {
+    "source": "readonly backend-ref/SNAPSHOT.md",
+    "snapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestTotal": 108,
+    "manifestMatches": 108,
+    "liveSha": "UNCONFIRMED",
+    "readiness": "UNCONFIRMED",
+    "databaseVersion": "UNCONFIRMED",
+    "executed": "NOT RUN"
+  },
+  "provenance": {
+    "developmentSummary": {
+      "path": "docs/implementation/evidence/F5_20261012/verification-summary.json",
+      "sha256": "acef8fa3f4f84a9f3d33cc356ce0a280ffafff81f0a6dc8b9655dba9a6299677"
+    },
+    "agents": {
+      "path": "AGENTS.md",
+      "sha256": "2f0984a56d6330c078a52c34885dc106eb5a7b31bd396ee7ec04f0649702a35d"
+    },
+    "approvedPlan": {
+      "path": "docs/implementation/F5_Implementation_Plan.md",
+      "sha256": "fef2154eda7e7d9f0c3ddac862a8f1da139fc7c62ec8938832645f5f214b184c"
+    },
+    "lockfile": {
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+      "matchesDevelopment": true
+    },
+    "choiceEvidence": {
+      "path": "docs/implementation/evidence/F5_20261012/choice-roundtrip-body.json",
+      "sha256": "9392c261ea76b5475d0eb0bc876efb62225520d9fdc3a74f99e9081af6cc0fb2",
+      "matchesDevelopment": true,
+      "independentlyMatchesBodyWireMap": true
+    },
+    "probe": {
+      "path": "output/playwright/f5-independent-review/domain-probe.mjs",
+      "sha256": "498a2378d18ae8ba4f31f82b6782c5d37cd260cf1bcc66d91b039ba0e10b8207"
+    },
+    "probeResult": {
+      "path": "output/playwright/f5-independent-review/domain-probe.json",
+      "sha256": "68f7ac64101f548c3aa7f4ff12d181960888b7037dc89bf72d9c63729ba50778"
+    }
+  },
+  "observations": [
+    {
+      "name": "omitted config 00000000-0000-4000-8000-000000000001.minLength assigned undefined",
+      "result": "DEFECT_REPRODUCED",
+      "expectedDirty": false,
+      "actualDirty": true,
+      "draft": "valid",
+      "delta": "noop"
+    },
+    {
+      "name": "delete optional property restores minLength",
+      "result": "PASS"
+    },
+    {
+      "name": "omitted config 00000000-0000-4000-8000-000000000001.maxLength assigned undefined",
+      "result": "DEFECT_REPRODUCED",
+      "expectedDirty": false,
+      "actualDirty": true,
+      "draft": "valid",
+      "delta": "noop"
+    },
+    {
+      "name": "delete optional property restores maxLength",
+      "result": "PASS"
+    },
+    {
+      "name": "omitted config 00000000-0000-4000-8000-000000000001.placeholder assigned undefined",
+      "result": "DEFECT_REPRODUCED",
+      "expectedDirty": false,
+      "actualDirty": true,
+      "draft": "valid",
+      "delta": "noop"
+    },
+    {
+      "name": "delete optional property restores placeholder",
+      "result": "PASS"
+    },
+    {
+      "name": "omitted config 00000000-0000-4000-8000-000000000002.placeholder assigned undefined",
+      "result": "DEFECT_REPRODUCED",
+      "expectedDirty": false,
+      "actualDirty": true,
+      "draft": "valid",
+      "delta": "noop"
+    },
+    {
+      "name": "delete optional property restores placeholder",
+      "result": "PASS"
+    },
+    {
+      "name": "committed Choice evidence matches target product Body, wire and map",
+      "result": "PASS"
+    },
+    {
+      "name": "Choice -> non-Choice -> Choice cross product",
+      "result": "PASS",
+      "combinations": 12
+    },
+    {
+      "name": "sparse option add/remove restoration and Int32 boundary",
+      "result": "PASS"
+    },
+    {
+      "name": "omission-aware Answer and independent Publish paths",
+      "result": "PASS"
+    },
+    {
+      "name": "F2 legacy longest-prefix/boundaries and opt-in exact/suffixes",
+      "result": "PASS"
+    }
+  ],
+  "limits": {
+    "browser": "NOT RUN; pure domain review",
+    "realApi": "NOT RUN",
+    "database": "NOT RUN",
+    "installCiAuditGenerate": "NOT RUN",
+    "formalAiAcceptance": "NOT RUN; deferred",
+    "humanAcceptance": "NOT RUN; deferred",
+    "historicalRealFixtures": "BLOCKED; existing prerequisites remain",
+    "accepted": false,
+    "pushed": false,
+    "f6": "NOT STARTED"
+  },
+  "git": {
+    "newCommit": "NOT CREATED",
+    "headUnchanged": true,
+    "productTestsUnchanged": true,
+    "remaining": [
+      "?? docs/review/F5_Code_Review_Report_20261012.md",
+      "?? docs/review/evidence/F5_Independent_Verification_20261012.json"
+    ],
+    "probe": "ignored output/playwright/f5-independent-review/"
+  },
+  "logs": "lint/typecheck/build/unit output retained in tool conversation; no standalone complete logs claimed"
+}
