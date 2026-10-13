@@ -1,0 +1,440 @@
+{
+  "date": "2026-10-13",
+  "kind": "development self-test, not acceptance",
+  "frontendBase": "510b6ee7d03935d553303e5ed745a81b23e59944",
+  "stop": "F6 開發完成、待集中 review",
+  "acceptedChanged": false,
+  "push": false,
+  "checks": [
+    {
+      "output": "output/f6/lint-final-delivery.log",
+      "result": "PASS",
+      "command": "npm run lint"
+    },
+    {
+      "output": "output/f6/typecheck-final-delivery.log",
+      "result": "PASS",
+      "command": "npm run typecheck"
+    },
+    {
+      "output": "output/f6/harness-typecheck.log",
+      "result": "PASS",
+      "command": "npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json"
+    },
+    {
+      "output": "output/f6/build-final-delivery.log",
+      "result": "PASS",
+      "command": "npm run build"
+    },
+    {
+      "result": "PASS",
+      "passed": 345,
+      "newF6": 16,
+      "files": 12,
+      "output": "output/f6/unit-delivery.log",
+      "command": "npm run test:unit"
+    },
+    {
+      "output": "output/f6/fixture-delivery.log",
+      "passed": 23,
+      "result": "PASS",
+      "api": "intercepted synthetic fixtures",
+      "mode": "fixture"
+    },
+    {
+      "result": "PASS",
+      "mode": "built",
+      "output": "output/f6/built-final-delivery.log",
+      "passed": 20,
+      "api": "intercepted synthetic fixtures",
+      "skipped": 3
+    },
+    {
+      "result": "PASS",
+      "mode": "built-chrome",
+      "output": "output/f6/chrome-smoke.log",
+      "passed": 2,
+      "api": "fixture smoke",
+      "version": "156.0.8078.12"
+    },
+    {
+      "result": "PASS",
+      "mode": "built-msedge",
+      "output": "output/f6/edge-smoke.log",
+      "passed": 2,
+      "api": "fixture smoke",
+      "version": "155.0.4283.45"
+    },
+    {
+      "api": "real, no interception",
+      "includes": [
+        "L01",
+        "L02",
+        "L03",
+        "L04",
+        "real AUTH_REQUIRED dirty cancel"
+      ],
+      "result": "PASS",
+      "runId": "f6-1791895220225",
+      "mode": "live",
+      "independentReads": 9,
+      "binary": "156.0.8078.4",
+      "passed": 1,
+      "output": "output/f6/live-current.log"
+    },
+    {
+      "passed": 6,
+      "output": "output/f6/built-contract-check.log",
+      "scope": "new/edit three Auth 401, non-Owner Draft GET 404, cancel preserves local content",
+      "api": "fixture",
+      "mode": "built-contract-recheck",
+      "result": "PASS"
+    }
+  ],
+  "failureHistory": [
+    {
+      "reasons": [
+        "prop mutation/prefer-const",
+        "Form exposed errors Ref",
+        "fixture component/import rules",
+        "fixture QuestionDto union"
+      ],
+      "group": "lint/typecheck",
+      "result": "FAIL before correction"
+    },
+    {
+      "retained": "output/f6/history/browser-*",
+      "group": "Browser fixture",
+      "reasons": [
+        "duplicate label target/container id",
+        "reactive pending controls",
+        "cancelled beforeunload wait",
+        "actual Header button locator",
+        "drag viewport",
+        "Modal animation synchronization",
+        "response status set diagnostics"
+      ],
+      "runs": [
+        {
+          "passed": 3,
+          "output": "browser-initial.log",
+          "failed": 10
+        },
+        {
+          "passed": 8,
+          "output": "browser-second.log",
+          "failed": 5
+        },
+        {
+          "passed": 11,
+          "output": "browser-third.log",
+          "failed": 2
+        },
+        {
+          "passed": 20,
+          "output": "browser-fourth.log",
+          "failed": 1
+        }
+      ]
+    },
+    {
+      "retained": "output/f6/history/live-initial",
+      "group": "live first",
+      "reason": "Test filled old page before SPA new navigation settled",
+      "result": "FAIL",
+      "runId": "f6-1791895080750"
+    },
+    {
+      "retained": "output/f6/history/live-second",
+      "group": "live second",
+      "reason": "Expected anonymous bootstrap 401 missing from console diagnostic filter; substantial save/read assertions had completed",
+      "result": "FAIL",
+      "runId": "f6-1791895169561"
+    }
+  ],
+  "unresolved": [
+    {
+      "item": "real phone touch/soft keyboard/safe-area",
+      "status": "BLOCKED/NOT RUN"
+    },
+    {
+      "item": "controlled real invalid/expired/disabled and other account/special Form states",
+      "status": "BLOCKED/NOT RUN"
+    },
+    {
+      "item": "current DB identity/migration",
+      "status": "UNCONFIRMED"
+    },
+    {
+      "item": "formal AI/Owner acceptance, Firefox/WebKit, npm ci/audit",
+      "status": "NOT RUN"
+    }
+  ],
+  "localOriginalFiles": [
+    {
+      "path": "output/f6/backend-manifest.json",
+      "sha256": "e40fc48445f12feb5e475b58f4a2730a0d2a613cef238630a566c00a52706df0",
+      "bytes": 43
+    },
+    {
+      "path": "output/f6/backend-probes.json",
+      "sha256": "493f2a48c727844f1cecbe2a6cf8123fffd727ca9b4d56c75581e7f1a26ba8c4",
+      "bytes": 400
+    },
+    {
+      "path": "output/f6/backend-runtime.json",
+      "sha256": "4381b0e688ceba568987487526532a3f2066cd08b3d5c21ceb53ca6999f51983",
+      "bytes": 326
+    },
+    {
+      "path": "output/f6/browser-final.log",
+      "sha256": "218533360b3ca9616e3503ece4c171ae37d9b5e8e7b06bbbd0326e172f5f0099",
+      "bytes": 3821
+    },
+    {
+      "path": "output/f6/browser-fourth.log",
+      "sha256": "5e48ccda7cbee1df0e464275978f4d26e4ad71d3166a15b231d00f7c5ae560e8",
+      "bytes": 6423
+    },
+    {
+      "path": "output/f6/browser-initial.log",
+      "sha256": "caf51a79b6fc004b6ce2f6350d2b34ee12f7bc47d8b35552e8523954d01b0c0c",
+      "bytes": 23251
+    },
+    {
+      "path": "output/f6/browser-second.log",
+      "sha256": "37648cd60d45944dbd28469ce43cbfd66564628bf916b229d801db66b1be0aa5",
+      "bytes": 14716
+    },
+    {
+      "path": "output/f6/browser-third.log",
+      "sha256": "3675d8200403f24adc3a3838b651762f4b4a0c9cb3655dc4f3b431d102ea01f5",
+      "bytes": 6128
+    },
+    {
+      "path": "output/f6/build-complete.log",
+      "sha256": "07375690e06896b53af97f5788ab74e0b899dc7ed1e94356f36095fe081a6809",
+      "bytes": 7726
+    },
+    {
+      "path": "output/f6/build-current.log",
+      "sha256": "eb36bc3be0e0fa808c6afc8e5d4d16b7fe8dcf87689586897e1849dc046c8591",
+      "bytes": 7726
+    },
+    {
+      "path": "output/f6/build-delivery.log",
+      "sha256": "4a4858b7e1eb605a0d6606f9e1c470fbef38c571d0e12f4ff0d241e27159d7e2",
+      "bytes": 7726
+    },
+    {
+      "path": "output/f6/build-final-delivery.log",
+      "sha256": "095719f4bee4cb980af4f0463e8ad3a1ac06601225d05fb143781702bddcc445",
+      "bytes": 7725
+    },
+    {
+      "path": "output/f6/build-final.log",
+      "sha256": "5daad83cf211048596bc94bfafaf1224f0ff670cf1b2f4f9baf93eca97484f97",
+      "bytes": 7726
+    },
+    {
+      "path": "output/f6/build-initial.log",
+      "sha256": "a82669ac787f2d16e48df8332c8c08cc7f049b7ab059da07fa9b1ccbfa27e92c",
+      "bytes": 7726
+    },
+    {
+      "path": "output/f6/build-verified.log",
+      "sha256": "a3c63a32194e25c7196f16f85400ff082cec0538ffad0d3244f233596a6425ae",
+      "bytes": 7725
+    },
+    {
+      "path": "output/f6/built-complete.log",
+      "sha256": "8c420a3b1fdfbd9c9914c59a597ada116d8ad4a4affb6c43c46d78a075ebfec6",
+      "bytes": 4153
+    },
+    {
+      "path": "output/f6/built-contract-check.log",
+      "sha256": "f789e787d7984db8facb8ee6f8ac9bea3ae2cbb9103e22f1671466e09d14c83a",
+      "bytes": 1702
+    },
+    {
+      "path": "output/f6/built-final-delivery.log",
+      "sha256": "a0d6365ea1885c914778a29f3fe95316ec17891ef9a52e4e0fdbe3cf497c4026",
+      "bytes": 4328
+    },
+    {
+      "path": "output/f6/built-final.log",
+      "sha256": "305c1513acc19e2ed94e8967fa1f9f910fb8e935afa11c152322000224a328cc",
+      "bytes": 4154
+    },
+    {
+      "path": "output/f6/built-verified.log",
+      "sha256": "bb9b6f563082d71dc749dc99feac9d13a9e67324c222decfa1ef0e68f5873a34",
+      "bytes": 4153
+    },
+    {
+      "path": "output/f6/chrome-results.json",
+      "sha256": "16d3b9ccbe19986025527da49df0c43fdfdcef363620ada67b46e7de82e77b95",
+      "bytes": 5730
+    },
+    {
+      "path": "output/f6/chrome-smoke.log",
+      "sha256": "a9547336681fcd0f48fd889a384210286ca2cd13e6255df9de812d593a50be07",
+      "bytes": 1046
+    },
+    {
+      "path": "output/f6/document-checks.json",
+      "sha256": "39998a1ea8e355add5edca4e8209160d596a5850c71c601e3db1e36ffa1c7f4a",
+      "bytes": 108
+    },
+    {
+      "path": "output/f6/edge-smoke.log",
+      "sha256": "91a78d94e2b5347809ba357d3321ce86f635a720f7a2c9bd25398d6cab64167f",
+      "bytes": 1047
+    },
+    {
+      "path": "output/f6/fixture-complete.log",
+      "sha256": "6a1f22fbec7e255c4cf5b4fdff09da569358ac8a737d2ea8409042a9514101fe",
+      "bytes": 4136
+    },
+    {
+      "path": "output/f6/fixture-current.log",
+      "sha256": "cebfc9615fe37ec85c1603cafde6e4d2373f8b84eb006c8320eca8cd2a67b4c8",
+      "bytes": 3963
+    },
+    {
+      "path": "output/f6/fixture-delivery.log",
+      "sha256": "8baf1800c6e214c905a9568964d33afaa5acd2b6b077f1f4307abeb4c3b5e28d",
+      "bytes": 4137
+    },
+    {
+      "path": "output/f6/harness-typecheck.log",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "output/f6/lint-complete.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "bytes": 24
+    },
+    {
+      "path": "output/f6/lint-current.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "bytes": 24
+    },
+    {
+      "path": "output/f6/lint-final-delivery.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "bytes": 24
+    },
+    {
+      "path": "output/f6/lint-initial.log",
+      "sha256": "74fb39a261859ed14f55918cf8abb61fb84876f43b119db03474aef0b8d0bfeb",
+      "bytes": 1277
+    },
+    {
+      "path": "output/f6/lint-second.log",
+      "sha256": "d1138a520b8cee30991d6ec9aebe86351cbcab7aee64e4fb4f208caa15d00c44",
+      "bytes": 254
+    },
+    {
+      "path": "output/f6/lint-third.log",
+      "sha256": "aca244d837ea2f52a0a53a42dd4f095cc9f720e50a9032de6d4f5a1b5ae2c71a",
+      "bytes": 367
+    },
+    {
+      "path": "output/f6/lint-verified.log",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "bytes": 24
+    },
+    {
+      "path": "output/f6/live-current.log",
+      "sha256": "e6478144f1087c5b6cc69375bf437e632d67ff740514146b8afcae006e865817",
+      "bytes": 873
+    },
+    {
+      "path": "output/f6/live-final.log",
+      "sha256": "4e4e095e2fe76900440c9023b00c8dc811337be9979ff438813eed06f61e98cc",
+      "bytes": 3234
+    },
+    {
+      "path": "output/f6/live-initial.log",
+      "sha256": "44df436223d4105c59979d27472c1475a691915de3210b5a4a67100ebca27aaa",
+      "bytes": 3552
+    },
+    {
+      "path": "output/f6/live-summary.json",
+      "sha256": "9a0e9aacf705feb08b8ea9ca6f8fedf4397393b5c586a242f6c01330db248746",
+      "bytes": 727
+    },
+    {
+      "path": "output/f6/typecheck-complete.log",
+      "sha256": "65c83f90e8df74d14f6f420462be9e309a77499ae1a46119cccc6166737e09b0",
+      "bytes": 276
+    },
+    {
+      "path": "output/f6/typecheck-current.log",
+      "sha256": "76917b77c2657ebf4cb5e3e692fd4c589cddba4b785bd367b9a1232b06032833",
+      "bytes": 272
+    },
+    {
+      "path": "output/f6/typecheck-final-delivery.log",
+      "sha256": "6535864a4e221d8738d2230f015087ea77c072ec3855e9ee0b2180ef8a526feb",
+      "bytes": 276
+    },
+    {
+      "path": "output/f6/typecheck-final.log",
+      "sha256": "5dffd5689d05d2c992eb30af3d4324785abece7dbb56a7e1918928dd986a850a",
+      "bytes": 276
+    },
+    {
+      "path": "output/f6/typecheck-initial.log",
+      "sha256": "e9c162f77fe2ae9df82415a88f8e7cf7b83bfa2deb1dc3b6410bb18f4280cfd0",
+      "bytes": 782
+    },
+    {
+      "path": "output/f6/typecheck-second.log",
+      "sha256": "52e59012f63ef525ff4a05e24c04f68dd312ff24fd2cc93f80bfaed053e33388",
+      "bytes": 276
+    },
+    {
+      "path": "output/f6/typecheck-third.log",
+      "sha256": "02a03413a1f8898010aa562cbc2ca07c79f454734364b64d2b7137f7fc71a091",
+      "bytes": 1768
+    },
+    {
+      "path": "output/f6/typecheck-verified.log",
+      "sha256": "858ec5fd77e742d01118bd373dac65d54426ede169c10492deb68fa9163e7b36",
+      "bytes": 335
+    },
+    {
+      "path": "output/f6/unit-current.log",
+      "sha256": "819240d7a2f19c0d9af760ea639a324115a186be39f48bd0c3f28357feca3a8d",
+      "bytes": 252
+    },
+    {
+      "path": "output/f6/unit-delivery.log",
+      "sha256": "9c494bf1f39b623a801f501891b4d3a83f9b33e73c0c52ab4e303c72c2c2474f",
+      "bytes": 510
+    },
+    {
+      "path": "output/f6/unit-final.log",
+      "sha256": "062f69843b6935eaa11b1b9fd44d69ac44070dafb06ab9b32f3cd00d0701987c",
+      "bytes": 510
+    },
+    {
+      "path": "output/f6/unit-initial.log",
+      "sha256": "824a4ca75a9673f77d359dc4b5ad88812ed7f32b3295132727a5743f59bdec2d",
+      "bytes": 281
+    }
+  ],
+  "secrets": "Auth bodies, Cookie, Token, password never exported; original files kept ignored, trace/storageState off",
+  "deliveryCommit": "See Git log and delivery response; this file is part of the single local commit",
+  "documentCheck": {
+    "documents": 4,
+    "links": 137,
+    "missing": [],
+    "evidenceJsonSecretFields": [],
+    "result": "PASS"
+  },
+  "historicalFilesUnchanged": true
+}

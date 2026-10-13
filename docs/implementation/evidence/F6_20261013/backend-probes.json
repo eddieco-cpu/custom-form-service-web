@@ -1,0 +1,20 @@
+[
+  {
+    "path": "/health",
+    "status": 200,
+    "bytes": 20,
+    "observed": "2026-10-13T20:20:46.3706096+08:00"
+  },
+  {
+    "path": "/health/ready",
+    "status": 200,
+    "bytes": 7,
+    "observed": "2026-10-13T20:20:48.4704368+08:00"
+  },
+  {
+    "path": "/openapi/v1.json",
+    "status": 200,
+    "bytes": 28044,
+    "observed": "2026-10-13T20:20:48.4810578+08:00"
+  }
+]

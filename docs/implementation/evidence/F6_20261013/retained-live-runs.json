@@ -1,0 +1,34 @@
+[
+  {
+    "runId": "f6-1791895080750",
+    "completed": false,
+    "stage": "L02 five-type Create",
+    "ids": [
+      "7115b09f-ca47-4821-a336-a1eac0938497"
+    ],
+    "reads": 1,
+    "writes": 1
+  },
+  {
+    "runId": "f6-1791895169561",
+    "completed": false,
+    "stage": "real Auth lapse with dirty cancel",
+    "ids": [
+      "e017c350-4099-4310-a79b-4dbe235eba59",
+      "2feee836-ab44-489d-b25d-569d181763e1"
+    ],
+    "reads": 9,
+    "writes": 10
+  },
+  {
+    "runId": "f6-1791895220225",
+    "completed": true,
+    "stage": "PASS",
+    "ids": [
+      "d75d0097-dc10-446f-bb34-ab7cb3e58562",
+      "3f261da1-840a-4456-8a6c-2ad236cc7596"
+    ],
+    "reads": 9,
+    "writes": 10
+  }
+]

@@ -1,6 +1,6 @@
 # F6 實作計畫 — Editor UI、Create／Draft 保存與 Preview
 
-版本：1.0／2026-10-13（Asia/Taipei）。**F6 計畫待 Owner review；本次尚不開發。** Owner 已確認 F5-R1 結案、F5 code review 通過；正式驗收維持延後，F1～F5 accepted 不變。本輪沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」，不新增開發測試計畫核准關卡。
+版本：1.1／2026-10-13（Asia/Taipei）。**Owner 已通過 v1.0 review 並授權整輪開發、自測與範圍內修正。** v1.1 依本次指示同步產品文案與 Session／寫入資格分離，直接開發、不再次送計畫 review。正式驗收維持延後，accepted 不變；沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」，不新增開發測試計畫核准關卡。§10 保留原規劃交付歷史。
 
 ## 1. 目標、範圍與來源
 
@@ -41,7 +41,7 @@
 │ 建立者：目前名稱  未保存提示／已保存資訊／待核對提示        │
 │ title、description                                     │
 │ responseMode、responseIdentity │ 截止日期時間（台北）      │
-│ Visibility：new 三選必選／edit 真實值唯讀＋F7 接入提示     │
+│ Visibility：new 三選必選／edit 真實值＋目前僅供檢視        │
 │ 正式 id／建立／更新時間：edit 次要唯讀資訊；new 尚未產生   │
 │ 欄位錯誤摘要 → 點擊定位實際控制                          │
 │ 題目卡：手柄／題號、題型、↑↓、刪題                       │
@@ -70,7 +70,7 @@
 ＊重新載入只用於既有正式 id；new 未保存／Create 結果不明走列表核對。
 ```
 
-Visibility 的共用根設定元件預留 F7 模式：radio 附「切換立即保存，與定義保存分開」提示、該控制 loading／失敗還原／待核對文字；**本輪 edit 只顯示值與尚待 F7 接入的說明，不呈現已可即時保存的錯覺**。將來回完整 DTO 只能合併該設定與 metadata，不能覆蓋 dirty 定義；F6 定義 PATCH 不含 resultVisibility。
+Visibility 的共用根設定元件預留後續即時更新的 loading／失敗還原／待核對責任；**本輪 edit 只顯示 API 實際值與「此設定目前僅供檢視」**。產品畫面不顯示 Round 編號或「F7 接入」等工程提示。將來回完整 DTO 只能合併該設定與 metadata，不能覆蓋 dirty 定義；F6 定義 PATCH 不含 resultVisibility。
 
 欄位與題目有穩定 key／label／錯誤關聯；首錯聚焦且捲動避開固定 Header／底部操作區。長標題、Option label、UUID 與保留換行的 description 以一般文字完整換行；不當 HTML 執行，不靠截斷處理溢位。保存中的 disabled／loading 有可讀提示。
 
@@ -103,7 +103,7 @@ Readonly 使用同一題型／答案模型，顯示完整文字、所選 label�
 | 預計檔案 | 具體方案 |
 | --- | --- |
 | `app/pages/forms/new.vue`、`app/pages/forms/[formId]/edit.vue` | 取代目前頁殼，仍用命名 auth middleware；new 取得真實 User 才呼叫 `createEditor(displayName)`，edit GET 完整 DTO 後判 Owner／Draft。new 進頁不 POST／不 GET Form／不造 id |
-| `app/composables/useFormEditor.ts`、`app/domain/editor-page.ts` | composable 管頁面生命期／焦點，controller 管保存／採用候選與可測的錯誤分流；使用 F4 `useFormRead`／`FormReadController` 的讀取與 Auth 機制。Editor session 獨立於 loader 的 data，不直接綁 DTO。初次讀取、手動重讀與背景狀態核對分開 adoption；F4 讀取 contextChanged 清除 data 不得連帶丟掉 dirty 控制 |
+| `app/composables/useFormEditor.ts`、`app/domain/editor-page.ts` | composable 管頁面生命期／焦點，controller 管保存／採用候選與可測的錯誤分流。實作沿用 F4 共用 service／RequestScope／`formReadError` 與 Auth 失效後獨立導航 flow；Editor controller 保有自己的 session 與寫入資格，避免 `FormReadController.contextChanged` 清空 loader data 時丟掉 dirty 輸入。初次讀取、手動重讀與背景候選分開 adoption；資源變更時切換 generation，新讀取不受舊 pending／finally 阻擋 |
 | `app/services/form.ts` | 增 Create（POST `/forms`，201）與 Draft PATCH（200），只接受 F5 typed Body、共用 serializer／decoder；PATCH 核對回應 id。採用前再核對目前 User／resource／status；不可可靠採用的已送成功回應走結果不明，不以候選造基準 |
 | `app/components/forms/FormEditor.vue`、`EditorRootSettings.vue`、`QuestionEditor.vue`、`OptionEditor.vue`、`EditorActions.vue` | 根欄位與五題型控制、readonly metadata、new Visibility；Options 只開 label，value 不可改。UForm 整合既有 Zod／F5 issues，不另寫驗證契約。變更呼叫 `add/removeQuestion`、`add/removeOption`、`changeQuestionType`／`changeVariant` |
 | `app/components/forms/FormRenderer.vue`、`FormPreviewDialog.vue`；`app/components/questions/` 題型輸入、`RatingStars.vue`、`RatingRange.vue`；`app/domain/rating-input.ts` | Renderer 接 F5 `AnswerDefinition`／`AnswerModel`、readonly／disabled／Preview mode 與 issues；沒有 API／路由／dirty 副作用。小型 Rating helper 處理未操作／有效操作／清除的答案轉移，供元件與 unit 共用，實際 pointer／鍵盤事件另由 Browser 驗。Preview 用 `editorSnapshot`→`answerDefinition`→`emptyAnswers`，不經 Create／Answer request builder 取得顯示資料 |
@@ -150,6 +150,8 @@ Readonly 使用同一題型／答案模型，顯示完整文字、所選 label�
 註冊到 `useActiveDirtyScope`，讓 Header 登出先確認再 call logout；取消不送 logout，成功後的既有 discard permit 導向只確認一次。SPA nav／自然上一頁、下一頁／同元件換 formId 走同一 guard；dirty 時 beforeunload 原生提示，clean／卸載移除。沒有全域永久 bypass、KeepAlive 或 storage 恢復。
 
 Editor model 不受 loader data 清除牽動。操作中 Auth 401 會更新共用 session revision 並撤銷有效登入狀態，但先保留 editor／baseline／已捕捉 Auth flow；Dialog 關閉／× 後才嘗試 login redirect，dirty 取消仍可留頁查看／複製，不能被 watcher 先清空或立刻換成 Gate。外部換帳號／同路由狀態變更的讀取只作候選，取代 dirty 或導向前取得單次丟棄授權；舊成功／舊錯誤都不能回寫新頁。
+
+**本地內容與寫入資格分離。** 保存資格記錄已核對的 User ID／sessionRevision／resource；Auth 失效、outcome 不再有效或換帳號即撤銷，取消離頁不恢復。此時內容唯讀可複製。明確「核對登入與保存資格」先 GET me 確認當前有效 Session；new 確認當頁未建立資源與當前身分後才允許明確採用保留內容，更新建立者且不自動 Create；edit 必須再 GET 同資源確認 Owner／Draft，經丟棄確認採用完整 DTO／基準後才恢復。失敗、非 Owner、狀態改變或晚回都不能解除；以 new／edit 的失效、取消、換帳號、重新核對成功／失敗驗 unit／Browser，不能只驗輸入仍在。
 
 ### 6.2 可找到的手動核對入口
 

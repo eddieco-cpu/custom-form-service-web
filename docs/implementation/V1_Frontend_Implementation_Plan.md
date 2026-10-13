@@ -538,6 +538,14 @@ Owner 明確確認 F5-R1 結案、F5 code review 通過，指定以 `0a8ceeb560b
 
 **F6 計畫待 Owner review；本次不開發。** 沿用「計畫確認 → 整輪開發、自測與修正 → 集中 review」，不新增開發測試計畫核准關卡。正式驗收維持延後、F1～F5 accepted 不變；既有真實測資及實機等缺口保留，不推送、不展開後續 Round。install／lint／typecheck／build／unit／Browser／業務 API／正式 AI／人工驗收均 NOT RUN，前節歷史結果不覆寫。
 
+### 9.20 F6 開發交付（2026-10-13）
+
+Owner 通過 F6 計畫 v1.0 review 並授權整輪開發、自測與修正，已先同步兩項決議至 [v1.1](F6_Implementation_Plan.md)：產品既有 Visibility 顯示真實值／目前僅供檢視；Auth／帳號改變後，本地輸入與寫入資格分開，取消離頁不能恢復舊 Session 保存，new／edit 需核對目前 Session／資源／權限。由 `510b6ee7d03935d553303e5ed745a81b23e59944`（接手乾淨）完成 Editor、五題型與排序、UForm／API 錯誤定位、完整 DTO 新 IDs／基準、dirty／unknown 核對、Renderer readonly 與獨立 Preview。見 [開發報告](F6_Development_Report.md)／[去敏證據](evidence/F6_20261013/checks.json)。
+
+本輪 lint／Nuxt＋tools strict／harness Vue strict／fresh build PASS、unit **345／345**、fixture Browser **23／23**、built **20／20＋3 測試專用 route skipped**、Chrome／Edge 代表保存／Preview 各 **2／2**；真實 L01～L04 **1／1 全流程 PASS**，無 API 攔截，核對 Create／Draft PATCH／九次獨立 GET、完整 Number token／Choice 往返／新 IDs／微秒 deadline／Cookie CORS 與清 Cookie Auth。最初檢查與兩次真實測試整體 FAIL 原件／去敏 wire 保留，三次合成帳號與五份 Draft 不刪除，不修改契約或舊 F5 固定預期求 PASS。backend-ref manifest 108／108 不變；5000 埠 DLL ProductVersion 1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880 可核對，DB identity／migration 仍未獨立確認。
+
+**F6 開發完成、待集中 review。** 沿用「計畫確認 → 整輪開發、自測與修正 → 集中 review」，沒有新增中途測試計畫核准 gate。實機軟鍵盤／觸控與受控真實 Token／特殊資源狀態 BLOCKED／NOT RUN，viewport／fixture 結果分開，不代填正式 AI／人工 PASS。正式驗收維持延後、accepted 不變；僅單一目的本機提交，不推送、不展開 F7。前節與原失敗歷史不覆寫。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

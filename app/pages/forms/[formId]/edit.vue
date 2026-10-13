@@ -1,2 +1,2 @@
 <script setup lang="ts">definePageMeta({ middleware: 'auth' })</script>
-<template><FormsFormReadPage mode="edit" /></template>
+<template><FormsFormEditor mode="edit" /></template>

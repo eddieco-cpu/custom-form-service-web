@@ -7,3 +7,12 @@
 
 :root { color-scheme: light; }
 body { background: #f8fafc; }
+
+.editor-control { width: 100%; min-width: 0; padding: .5rem .75rem; border: 1px solid #9ca3af; border-radius: .375rem; background: white; }
+.editor-control:focus-visible { outline: 2px solid #3b82f6; outline-offset: 2px; }
+.editor-control:disabled, .editor-control[readonly] { background: #f1f5f9; color: #475569; }
+[data-editor-field] { scroll-margin-top: 5rem; scroll-margin-bottom: 7rem; }
+.preview-dialog { width: 90vw; height: 90vh; max-width: none; max-height: none; display: flex; flex-direction: column; }
+@media (max-width: 767px) {
+  .preview-dialog { width: calc(100vw - 4px); height: calc(100vh - 4px); height: calc(100dvh - 4px); }
+}

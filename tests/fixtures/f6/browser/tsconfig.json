@@ -1,0 +1,1 @@
+{ "extends": "../../../../output/playwright/f6/harness-nuxt/tsconfig.app.json", "compilerOptions": { "strict": true }, "include": ["./*.vue", "../../../../output/playwright/f6/harness-nuxt/nuxt.d.ts"], "exclude": [] }
