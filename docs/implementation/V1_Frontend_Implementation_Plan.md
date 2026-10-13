@@ -530,6 +530,14 @@ Owner 授權對 `75860ac18f731ffa566dfed09c3f3c60cb65cbb5`（修正基準 `e4da9
 
 **F5-R1 結案、F5 code review 通過；F1～F5 accepted 不變，正式驗收維持延後／NOT RUN。** 本次無新增阻擋或非阻擋 finding；真實測資、live 版本／readiness、npm ci／audit 與 Browser／人工等缺口保留，不推送、不展開 F6。後續由 Owner 指定，前節與原審查／失敗歷史不覆寫。
 
+### 9.19 F6 規劃交付（2026-10-13）
+
+Owner 明確確認 F5-R1 結案、F5 code review 通過，指定以 `0a8ceeb560b06a7ca2f847f019f8894cd346bce0` 為基準，只交付 [F6 實作計畫 v1.0](F6_Implementation_Plan.md)、必要進度及單一目的本機文件提交。接手 master／工作樹乾淨；計畫承接 F5 Domain 與本計畫 F6／§7／§7.1，列桌機／手機線框、Editor／共用 Renderer／Preview、Create／Draft 保存、Server 新 IDs／baseline 重建、dirty／離頁／Auth 與結果不明核對，以及必要 Browser／真實 API 保存讀回與前置缺口。既有 Visibility 即時更新與發布等管理維持 F7，正式提交／Latest 維持 F8。
+
+本次實測 Node 24.21.0／npm 11.19.0、選用套件 installed／lockfile 一致，backend manifest 108／108 相符；2026-10-13 19:34:14 台北時間起的 health／readiness／OpenAPI 均 200，列 Create／Draft PATCH 等描述。live 後端 Git SHA／DB 版本仍 UNCONFIRMED；沒有業務 API／Browser／保存讀回執行，metadata 不是整合 PASS。必要文件核對／diff 與本機提交結果依交付訊息及 Git log，產品／測試／依賴／backend-ref 與歷史報告／失敗證據不改。
+
+**F6 計畫待 Owner review；本次不開發。** 沿用「計畫確認 → 整輪開發、自測與修正 → 集中 review」，不新增開發測試計畫核准關卡。正式驗收維持延後、F1～F5 accepted 不變；既有真實測資及實機等缺口保留，不推送、不展開後續 Round。install／lint／typecheck／build／unit／Browser／業務 API／正式 AI／人工驗收均 NOT RUN，前節歷史結果不覆寫。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
