@@ -546,6 +546,14 @@ Owner 通過 F6 計畫 v1.0 review 並授權整輪開發、自測與修正，已
 
 **F6 開發完成、待集中 review。** 沿用「計畫確認 → 整輪開發、自測與修正 → 集中 review」，沒有新增中途測試計畫核准 gate。實機軟鍵盤／觸控與受控真實 Token／特殊資源狀態 BLOCKED／NOT RUN，viewport／fixture 結果分開，不代填正式 AI／人工 PASS。正式驗收維持延後、accepted 不變；僅單一目的本機提交，不推送、不展開 F7。前節與原失敗歷史不覆寫。
 
+### 9.21 F6 獨立集中 review（2026-10-13）
+
+Owner 指定基準 `510b6ee7d03935d553303e5ed745a81b23e59944`、目標 `d86479d3c6f7b2690181b0beba6092ea5eb6e979`，授權獨立集中 code review、必要工程／unit／fresh built Browser 重跑與本機文件提交，尚不正式驗收。本次讀取實際 diff／產品／測試斷言／核准 F6 v1.1／正式契約／開發報告與去敏證據；發現兩項 P2：Stars 同標題 0 分控制干擾其他題目、Browser console helper 未限案例預期失敗請求。見 [獨立報告](../review/F6_Independent_Code_Review_Report_20261013.md)／[驗證證據](../review/evidence/F6_Independent_Verification_20261013.json)；尚不能宣告 code review 通過，未自行修正產品或 tests。
+
+本次 lint／Nuxt＋tools strict／harness strict／fresh build PASS，完整 unit 345／345、fresh built Browser 20／20＋3 skipped、補跑 fixture readonly／同元件 scope 三案 3／3 PASS；追加 Browser 診斷重現兩項 FAIL，Domain 導航 reject／Session 晚回／共享 unknown 鎖三項核對 PASS。歷史 L01～L04 wire／九次獨立 GET 六組稽核支持保存結論，本次沒有追加真實 API 寫入或變更後端資料。sandbox 首次 unit spawn EPERM 與授權本機成功結果分開保留；原開發失敗歷史與 evidence 不覆寫。
+
+**停於 F6 集中 review 完成、待 Owner 確認。** 實機、受控特殊 Auth／資源狀態、DB identity／migration 缺口維持；正式驗收延後、accepted 不變、不推送、不展開 F7。本次僅追加 review 文件／去敏證據與進度，單一目的本機提交 SHA 見 Git log。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

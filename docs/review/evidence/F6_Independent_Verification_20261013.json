@@ -1,0 +1,789 @@
+{
+  "date": "2026-10-13",
+  "timezone": "Asia/Taipei",
+  "kind": "independent code review verification; not formal acceptance",
+  "frontendBase": "510b6ee7d03935d553303e5ed745a81b23e59944",
+  "frontendTarget": "d86479d3c6f7b2690181b0beba6092ea5eb6e979",
+  "startingGitState": "clean; master",
+  "node": "24.21.0",
+  "npm": "11.19.0",
+  "installedVersions": {
+    "nuxt": "4.6.1",
+    "@nuxt/ui": "4.11.3",
+    "tailwindcss": "4.3.3",
+    "vue-draggable-plus": "0.6.1",
+    "zod": "4.6.5",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "@playwright/test": "1.64.0",
+    "lossless-json": "4.3.1"
+  },
+  "backend": {
+    "snapshotAndReadOnlyCheckoutHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestEntries": 108,
+    "manifestMismatches": 0,
+    "assemblyProductVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "assemblySha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+    "actualRunningProcessReconfirmed": false,
+    "databaseIdentityAndMigration": "UNCONFIRMED",
+    "newLiveRequests": 0,
+    "newLiveWrites": 0
+  },
+  "commands": [
+    {
+      "command": "npm run lint",
+      "output": "output/f6/review-20261013/lint.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "command": "npm run typecheck",
+      "output": "output/f6/review-20261013/typecheck.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "cf5e6eac5e8a638b3b0422ccbb6abe09054646e9771f6473c07aa61a1e3ae7d1"
+    },
+    {
+      "command": "npm run build",
+      "output": "output/f6/review-20261013/build.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "5cddf240e23f73f312f265a7744580d7ff0aeadcb57a8922a43f5d019a431f47"
+    },
+    {
+      "command": "npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json",
+      "output": "output/f6/review-20261013/fixture-typecheck.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "npm run test:unit (sandbox)",
+      "output": "output/f6/review-20261013/unit.log",
+      "exitCode": 1,
+      "result": "FAIL: startup spawn EPERM; no cases executed",
+      "sha256": "86f5a9e987c325b1ac2bfe1a35ea904d4232a008245561597b35ad0285e71dcb"
+    },
+    {
+      "command": "npm run test:unit (authorized host execution)",
+      "output": "output/f6/review-20261013/unit-host.log",
+      "exitCode": 0,
+      "result": "PASS: 345 tests, 12 files",
+      "sha256": "47d446c40035bf7f27d9afb07e108c5d96ecd3cf268590a8a7cb2a6132f0efca"
+    },
+    {
+      "command": "F6_MODE=built; PLAYWRIGHT_JSON_OUTPUT_NAME=output/f6/review-20261013/built-results.json; npm run test:e2e -- --config=playwright.f6.config.ts --reporter=list,json --output=output/f6/review-20261013/built-artifacts",
+      "output": "output/f6/review-20261013/built-browser.log",
+      "exitCode": 0,
+      "result": "PASS: 20; skipped: 3; intercepted API",
+      "sha256": "af8990c0a72fe6de462280deaa0717f5665327e6d410938839b08d189cb89b26"
+    },
+    {
+      "command": "F6_MODE=fixture; PLAYWRIGHT_JSON_OUTPUT_NAME=output/f6/review-20261013/fixture-scope-results.json; npm run test:e2e -- --config=playwright.f6.config.ts --grep=\"Renderer readonly|same-component ID update|pending old GET\" --reporter=list,json --output=output/f6/review-20261013/fixture-scope-artifacts",
+      "output": "output/f6/review-20261013/fixture-scope.log",
+      "exitCode": 0,
+      "result": "PASS: 3; intercepted API",
+      "sha256": "0bbb7fb0050bd191e6725cebd87f0869c3c59748864167b63f8bd400251e4542"
+    },
+    {
+      "command": "node output/f6/review-20261013/browser-probe.mjs (fresh built preview)",
+      "output": "output/f6/review-20261013/browser-probe.log",
+      "exitCode": 0,
+      "result": "Probe completed; product isolation FAIL and rejection capability FAIL",
+      "sha256": "7b69d83be1fa7b42583d0987e49380db9d563988ca737a1759d145c9c71c3e95"
+    },
+    {
+      "command": "node --loader ./output/f6/review-20261013/source-loader.mjs output/f6/review-20261013/domain-probe.mjs",
+      "output": "output/f6/review-20261013/domain-probe.log",
+      "exitCode": 0,
+      "result": "PASS: 3 synthetic Domain probes",
+      "sha256": "165e7be1f688e550d43c97e1aecac90538550973c291a5494e5e75287fad9574"
+    },
+    {
+      "command": "node --loader ./output/f6/review-20261013/source-loader.mjs output/f6/review-20261013/evidence-audit.mjs",
+      "output": "output/f6/review-20261013/evidence-audit.log",
+      "exitCode": 0,
+      "result": "PASS: 6 historical evidence checks; no live requests",
+      "sha256": "8d69ebb68a962ad49d8bea130301a7cd5fe2c7bf519eeafeec3cb7de21f222bb"
+    }
+  ],
+  "freshBuildIndexSha256": "2d8cd85f2569ba4d13254866cb5be5f1ee23706afa2746e44e98621b506b31c9",
+  "built": {
+    "stats": {
+      "startTime": "2026-10-13T13:44:06.045Z",
+      "duration": 23648.406000000003,
+      "expected": 20,
+      "skipped": 3,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op and second delta",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:54"
+      },
+      {
+        "title": "F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:70"
+      },
+      {
+        "title": "F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:87"
+      },
+      {
+        "title": "F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:93"
+      },
+      {
+        "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:107"
+      },
+      {
+        "title": "F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:125"
+      },
+      {
+        "title": "F6-B08 Create unknown retains input and every retry prompts duplicate risk",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:134"
+      },
+      {
+        "title": "F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:140"
+      },
+      {
+        "title": "F6-B10/B12 Preview isolation/reset/keyboard focus, desktop and mobile layout, exact raw Number",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:147"
+      },
+      {
+        "title": "F6-B11 Stars/Range unoperated vs zero, min>1, 100 stars/10 columns, clearing/required",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:168"
+      },
+      {
+        "title": "F6-B12 empty preview does not require Draft validation or write placeholders",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:179"
+      },
+      {
+        "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+        "project": "chromium",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "location": "f6-browser.spec.ts:183"
+      },
+      {
+        "title": "F6-B03 sparse order move and undo preserves clean baseline, Option label/value stays stable",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:187"
+      },
+      {
+        "title": "F6-B05 Create error map points to newly added Option and retains unknown detail",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:192"
+      },
+      {
+        "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+        "project": "chromium",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "location": "f6-browser.spec.ts:195"
+      },
+      {
+        "title": "F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:201"
+      },
+      {
+        "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+        "project": "chromium",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "location": "f6-browser.spec.ts:207"
+      },
+      {
+        "title": "F6 new disabled bootstrap has a read error and explicit retry, never an empty page or automatic Create",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:218"
+      }
+    ],
+    "api": "synthetic interception, production UI"
+  },
+  "fixture": {
+    "stats": {
+      "startTime": "2026-10-13T13:45:55.323Z",
+      "duration": 12303.338,
+      "expected": 3,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "cases": [
+      {
+        "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:183"
+      },
+      {
+        "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:195"
+      },
+      {
+        "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+        "project": "chromium",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "location": "f6-browser.spec.ts:207"
+      }
+    ],
+    "api": "synthetic interception, readonly/scope routes only"
+  },
+  "browserProbe": {
+    "environment": "fresh built app, synthetic intercepted API; no live writes",
+    "browser": "156.0.8078.4",
+    "before": [
+      {
+        "key": "00000000-0000-4000-8000-000000000001",
+        "zeroId": "Same rating title-zero",
+        "zeroName": "Same rating title",
+        "labelTarget": "00000000-0000-4000-8000-000000000001"
+      },
+      {
+        "key": "00000000-0000-4000-8000-000000000002",
+        "zeroId": "Same rating title-zero",
+        "zeroName": "Same rating title",
+        "labelTarget": "00000000-0000-4000-8000-000000000001"
+      }
+    ],
+    "afterSecondLabel": [
+      {
+        "key": "00000000-0000-4000-8000-000000000001",
+        "score": "0 分",
+        "zeroChecked": true
+      },
+      {
+        "key": "00000000-0000-4000-8000-000000000002",
+        "score": "尚未作答",
+        "zeroChecked": false
+      }
+    ],
+    "afterSecondInput": [
+      {
+        "key": "00000000-0000-4000-8000-000000000001",
+        "score": "0 分",
+        "zeroChecked": false
+      },
+      {
+        "key": "00000000-0000-4000-8000-000000000002",
+        "score": "0 分",
+        "zeroChecked": true
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "path": "/api/v1/users/me"
+      },
+      {
+        "method": "GET",
+        "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050"
+      }
+    ],
+    "diagnostics": [
+      {
+        "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+        "url": "http://localhost:3000/review-unexpected-resource.png"
+      }
+    ],
+    "rejectedByCurrentClean": [],
+    "unexpectedDiagnosticWasAllowed": true
+  },
+  "domainProbe": {
+    "environment": "actual Domain controller with synthetic effects; no API calls",
+    "checks": [
+      {
+        "name": "Create success then navigation rejection keeps full Server baseline/id; noop sends nothing; next edit uses PATCH",
+        "status": "PASS",
+        "thrownNavigationError": true,
+        "calls": {
+          "create": [
+            {
+              "title": "Review synthetic",
+              "description": null,
+              "responseMode": "single",
+              "responseIdentity": "anonymous",
+              "resultVisibility": "public",
+              "submissionDeadlineAt": null,
+              "questions": []
+            }
+          ],
+          "update": [
+            {
+              "id": "00000000-0000-4000-8000-000000000050",
+              "body": {
+                "title": "after navigation failure"
+              }
+            }
+          ],
+          "detail": [],
+          "navigate": [
+            [
+              "/forms/00000000-0000-4000-8000-000000000050/edit",
+              false
+            ]
+          ],
+          "toast": [
+            "草稿已建立",
+            "已保存"
+          ]
+        }
+      },
+      {
+        "name": "Session change rejects late me candidate without restoring old grant or replacing input",
+        "status": "PASS"
+      },
+      {
+        "name": "Late GET after Session change preserves input and shared Delta unknown lock",
+        "status": "PASS"
+      }
+    ]
+  },
+  "historicalLiveAudit": {
+    "type": "independent audit of retained historical live evidence; no new live requests/writes",
+    "checks": [
+      {
+        "name": "L01 minimal Create has [] and independent GET retains title/id",
+        "status": "PASS"
+      },
+      {
+        "name": "L02 five types, sorting and exact Number persisted",
+        "status": "PASS"
+      },
+      {
+        "name": "L02 second delta updates new Option ID and deletes new Question by id only",
+        "status": "PASS"
+      },
+      {
+        "name": "L03 Choice replaces old IDs/values and Number replacement keeps exact scientific literal",
+        "status": "PASS"
+      },
+      {
+        "name": "L04 title-only PATCH omits deadline and microsecond survives independent GET",
+        "status": "PASS"
+      },
+      {
+        "name": "Wire records no no-op write and CORS credential headers on recorded real responses",
+        "status": "PASS"
+      }
+    ],
+    "runs": [
+      {
+        "runId": "f6-1791895080750",
+        "completed": false,
+        "stage": "L02 five-type Create",
+        "sha256": "bfc5bb73e0bf0a9465958e05b7f9d158eff2c7a035b2d5a60d58d467574b4642",
+        "independentReads": [
+          {
+            "label": "minimal independent GET",
+            "status": "200",
+            "id": "7115b09f-ca47-4821-a336-a1eac0938497"
+          }
+        ],
+        "diagnosticCount": 1,
+        "pageErrors": [],
+        "formWriteCount": 1,
+        "wireRequests": [
+          {
+            "method": "POST",
+            "path": "/api/v1/forms",
+            "body": "{\"title\":\"f6-1791895080750 最小草稿\",\"description\":null,\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[]}"
+          }
+        ]
+      },
+      {
+        "runId": "f6-1791895169561",
+        "completed": false,
+        "stage": "real Auth lapse with dirty cancel",
+        "sha256": "21f9172de21c2ca16a00e911595284c983ef5a7abfd7d74282ce8b5cd11b7b58",
+        "independentReads": [
+          {
+            "label": "minimal independent GET",
+            "status": "200",
+            "id": "e017c350-4099-4310-a79b-4dbe235eba59"
+          },
+          {
+            "label": "five-type Create independent GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "new Question/Option PATCH independent GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "update/delete second delta independent GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "Choice roundtrip and Number replacement independent GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "microsecond preparation GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "title only keeps microsecond deadline GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "changed Taipei deadline GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          },
+          {
+            "label": "cleared deadline GET",
+            "status": "200",
+            "id": "2feee836-ab44-489d-b25d-569d181763e1"
+          }
+        ],
+        "diagnosticCount": 2,
+        "pageErrors": [],
+        "formWriteCount": 10,
+        "wireRequests": [
+          {
+            "method": "POST",
+            "path": "/api/v1/forms",
+            "body": "{\"title\":\"f6-1791895169561 最小草稿\",\"description\":null,\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[]}"
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/forms",
+            "body": "{\"title\":\"f6-1791895169561 五題型\",\"description\":\"第一行\\n第二行\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"respondents\",\"submissionDeadlineAt\":null,\"questions\":[{\"type\":\"text\",\"title\":\"text 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]},{\"type\":\"number\",\"title\":\"number 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"min\":0,\"max\":9007199254740993.1234567890123456789},\"options\":[]},{\"type\":\"single_choice\",\"title\":\"single_choice 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"radio\"},\"options\":[{\"label\":\"選項 1\",\"value\":\"opt_b6ade1c8-ca08-465b-b46b-3ea1f2b62570\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_be58cad7-81a6-4f5b-bf01-e17ec1dca740\",\"sortOrder\":1}]},{\"type\":\"multiple_choice\",\"title\":\"multiple_choice 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"label\":\"選項 1\",\"value\":\"opt_0d07471d-e675-4724-9750-a8ffb668b7e3\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_f18f3f39-d86c-4a64-bd24-aeb69bd4c0f3\",\"sortOrder\":1}]},{\"type\":\"rating\",\"title\":\"rating 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"variant\":\"stars\",\"min\":1,\"max\":5},\"options\":[]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"questions\":[{\"id\":\"bfc37c8d-25e6-4c49-942b-34c3ad0059b2\",\"options\":[{\"label\":\"新選項\",\"value\":\"opt_1ada3b74-d05a-4de2-9372-7a274067b2c5\",\"sortOrder\":2}]},{\"type\":\"text\",\"title\":\"新增第六題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"variant\":\"input\"},\"options\":[]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"description\":null,\"questions\":[{\"id\":\"bfc37c8d-25e6-4c49-942b-34c3ad0059b2\",\"options\":[{\"id\":\"7684f33c-bb48-4ebb-9834-8d0c6ab48f86\",\"label\":\"正式 ID 更新選項\"}]},{\"id\":\"8a159d7f-806c-403d-980b-17e0bb97e411\"}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"questions\":[{\"id\":\"7594bf72-b3d8-4e05-8140-d013bd6b335f\",\"config\":{\"max\":9.0071992547409931234567890123456789e15}},{\"id\":\"bfc37c8d-25e6-4c49-942b-34c3ad0059b2\",\"options\":[{\"id\":\"b1b9120e-e356-4a3b-9b50-297296ee174f\"},{\"id\":\"03c9d641-7eb3-4cb7-9dc9-930a58398c72\"},{\"id\":\"7684f33c-bb48-4ebb-9834-8d0c6ab48f86\"},{\"label\":\"選項 1\",\"value\":\"opt_da9a192c-b22f-47e6-801d-0c3b5488e163\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_660ed3a3-7efc-4b51-af96-f2e2548f1e5c\",\"sortOrder\":1}]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"submissionDeadlineAt\":\"2026-12-31T10:30:00.123456Z\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"title\":\"f6-1791895169561 精度保存\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"submissionDeadlineAt\":\"2027-01-01T00:09:10Z\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"submissionDeadlineAt\":null}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/2feee836-ab44-489d-b25d-569d181763e1",
+            "body": "{\"title\":\"f6-1791895169561 保留本地\"}"
+          }
+        ]
+      },
+      {
+        "runId": "f6-1791895220225",
+        "completed": true,
+        "stage": "PASS",
+        "sha256": "e088770e680fa330e8aacb1729b3fab957d55f1e9948707d725b3dc771d23495",
+        "independentReads": [
+          {
+            "label": "minimal independent GET",
+            "status": "200",
+            "id": "d75d0097-dc10-446f-bb34-ab7cb3e58562"
+          },
+          {
+            "label": "five-type Create independent GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "new Question/Option PATCH independent GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "update/delete second delta independent GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "Choice roundtrip and Number replacement independent GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "microsecond preparation GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "title only keeps microsecond deadline GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "changed Taipei deadline GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          },
+          {
+            "label": "cleared deadline GET",
+            "status": "200",
+            "id": "3f261da1-840a-4456-8a6c-2ad236cc7596"
+          }
+        ],
+        "diagnosticCount": 2,
+        "pageErrors": [],
+        "formWriteCount": 10,
+        "wireRequests": [
+          {
+            "method": "POST",
+            "path": "/api/v1/forms",
+            "body": "{\"title\":\"f6-1791895220225 最小草稿\",\"description\":null,\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[]}"
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/forms",
+            "body": "{\"title\":\"f6-1791895220225 五題型\",\"description\":\"第一行\\n第二行\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"respondents\",\"submissionDeadlineAt\":null,\"questions\":[{\"type\":\"text\",\"title\":\"text 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]},{\"type\":\"number\",\"title\":\"number 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"min\":0,\"max\":9007199254740993.1234567890123456789},\"options\":[]},{\"type\":\"single_choice\",\"title\":\"single_choice 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"radio\"},\"options\":[{\"label\":\"選項 1\",\"value\":\"opt_389eba0a-aeeb-436f-b3c9-b9a4fad280c2\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_3b7cead7-6af0-4119-bb6a-24f6f20ff984\",\"sortOrder\":1}]},{\"type\":\"multiple_choice\",\"title\":\"multiple_choice 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"label\":\"選項 1\",\"value\":\"opt_bcf0d1de-8d95-4168-aa65-3b494d6204a9\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_9f0d589e-996e-44da-9a49-07c66d21d4ec\",\"sortOrder\":1}]},{\"type\":\"rating\",\"title\":\"rating 合成題目\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"variant\":\"stars\",\"min\":1,\"max\":5},\"options\":[]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"questions\":[{\"id\":\"b1905575-8951-4a77-8bd0-bbbf30cecf57\",\"options\":[{\"label\":\"新選項\",\"value\":\"opt_847bce74-1b4f-4b05-8fd9-a5b3377a383f\",\"sortOrder\":2}]},{\"type\":\"text\",\"title\":\"新增第六題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"variant\":\"input\"},\"options\":[]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"description\":null,\"questions\":[{\"id\":\"b1905575-8951-4a77-8bd0-bbbf30cecf57\",\"options\":[{\"id\":\"0c830d8a-fdcb-42c7-a09d-5a28b93e0c18\",\"label\":\"正式 ID 更新選項\"}]},{\"id\":\"2f447b76-57e7-4582-99d5-ccaa70b8ae04\"}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"questions\":[{\"id\":\"3b992e8f-ddb1-4154-a40d-53871c6d1880\",\"config\":{\"max\":9.0071992547409931234567890123456789e15}},{\"id\":\"b1905575-8951-4a77-8bd0-bbbf30cecf57\",\"options\":[{\"id\":\"168f6389-cb0e-4536-8dfb-e65d319d4d7a\"},{\"id\":\"a1181a9e-d92b-4b00-9ad0-1a49ae2b0c21\"},{\"id\":\"0c830d8a-fdcb-42c7-a09d-5a28b93e0c18\"},{\"label\":\"選項 1\",\"value\":\"opt_8a07133c-e8d0-4839-9ecf-ba9e512cd5c4\",\"sortOrder\":0},{\"label\":\"選項 2\",\"value\":\"opt_6082a637-197b-424c-aa00-8bcc9a75a112\",\"sortOrder\":1}]}]}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"submissionDeadlineAt\":\"2026-12-31T10:30:00.123456Z\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"title\":\"f6-1791895220225 精度保存\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"submissionDeadlineAt\":\"2027-01-01T00:09:10Z\"}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"submissionDeadlineAt\":null}"
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/3f261da1-840a-4456-8a6c-2ad236cc7596",
+            "body": "{\"title\":\"f6-1791895220225 保留本地\"}"
+          }
+        ]
+      }
+    ]
+  },
+  "probes": [
+    {
+      "path": "output/f6/review-20261013/browser-probe.mjs",
+      "sha256": "23d21b380b34f1cb1e7d8c14db3974a742aaa3aeedbde4312cb55516ce143a31",
+      "retained": "ignored local diagnostic script; not repo tests"
+    },
+    {
+      "path": "output/f6/review-20261013/source-loader.mjs",
+      "sha256": "281d18c478d3c0be21d0efdf8cf6f533c4ce9ccefe1c11a2b7b8b137ae926bfc",
+      "retained": "ignored local diagnostic script; not repo tests"
+    },
+    {
+      "path": "output/f6/review-20261013/domain-probe.mjs",
+      "sha256": "79ec6e82329207373e36be6fad8794d91be004b9efb120586c72739a6cbcce02",
+      "retained": "ignored local diagnostic script; not repo tests"
+    },
+    {
+      "path": "output/f6/review-20261013/evidence-audit.mjs",
+      "sha256": "b089d4f149979bd65e1d5bb670e9335e851d4527240ee88ac49fc152bbe3313c",
+      "retained": "ignored local diagnostic script; not repo tests"
+    }
+  ],
+  "findings": [
+    {
+      "id": "F6-R1",
+      "priority": "P2",
+      "file": "app/components/questions/RatingStars.vue",
+      "line": 10,
+      "blocksReviewApproval": true,
+      "reproduced": true
+    },
+    {
+      "id": "F6-R2",
+      "priority": "P2",
+      "file": "tests/e2e/f6-browser.spec.ts",
+      "line": 45,
+      "blocksReviewApproval": true,
+      "reproduced": true
+    }
+  ],
+  "checks": {
+    "protectedTrackedScopeComparedToTarget": "PASS: zero differences in app/tests/specs/history/backend-ref/dependencies/AGENTS/skills/config",
+    "backendManifest": "PASS: 108/108",
+    "documentAndSanitization": {
+      "result": "PASS",
+      "checks": [
+        {
+          "name": "Markdown links, table columns, fences, control characters and final newlines",
+          "result": "PASS",
+          "detail": {
+            "files": 3,
+            "links": 105
+          }
+        },
+        {
+          "name": "README and total plan history preserved after removal of new review additions",
+          "result": "PASS",
+          "detail": true
+        },
+        {
+          "name": "Evidence parsed; only synthetic Form bodies; no auth body/cookie/token/password fields",
+          "result": "PASS",
+          "detail": true
+        },
+        {
+          "name": "Counts and finding evidence agree with report",
+          "result": "PASS",
+          "detail": true
+        },
+        {
+          "name": "Protected tracked scope diff against target and git diff --check",
+          "result": "PASS",
+          "detail": "Host Git exit 0; LF-to-CRLF advisory preserved"
+        }
+      ],
+      "screenshot": "Visually inspected synthetic duplicate Rating screenshot; no secrets"
+    }
+  },
+  "remaining": {
+    "realDevicesAndSoftKeyboard": "BLOCKED/NOT RUN",
+    "controlledLiveAuthAndResourceStates": "BLOCKED/NOT RUN",
+    "liveRerun": "NOT RUN: historical evidence sufficient, no write-specific suspicion",
+    "chromeAndEdgeRerun": "NOT RUN",
+    "formalAcceptance": "NOT RUN; deferred"
+  },
+  "acceptedChanged": false,
+  "push": false,
+  "stop": "F6 集中 review 完成、待 Owner 確認",
+  "documentCommitSha": "See delivery message and Git log; excluded from own commit to avoid self-reference"
+}
