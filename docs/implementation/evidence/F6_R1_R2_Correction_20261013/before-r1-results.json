@@ -1,0 +1,200 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f6.config.ts",
+      "--grep",
+      "F6-R1",
+      "--reporter=list,json",
+      "--output=output/f6/correction-20261013/before-r1-artifacts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f6.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/f6/correction-20261013/before-r1-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f6-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-r1-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f6-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f6-browser.spec.ts",
+      "file": "f6-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 675,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"00000000-0000-4000-8000-000000000070\",\u001b[22m\n\u001b[32m-   \"00000000-0000-4000-8000-000000000071\",\u001b[39m\n\u001b[31m+   \"00000000-0000-4000-8000-000000000070\",\u001b[39m\n\u001b[2m  ]\u001b[22m",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"00000000-0000-4000-8000-000000000070\",\u001b[22m\n\u001b[32m-   \"00000000-0000-4000-8000-000000000071\",\u001b[39m\n\u001b[31m+   \"00000000-0000-4000-8000-000000000070\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:234:47",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                      "column": 47,
+                      "line": 234
+                    },
+                    "snippet": "  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n> 234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])\n      |                                               ^\n  235 |   expect(afterLabel.map(q => q.text)).toEqual(['尚未作答', '0 分']); expect(afterLabel.map(q => q.checked)).toEqual([false, true])\n  236 |   expect(bothZero).toEqual([{ text: '0 分', checked: true }, { text: '0 分', checked: true }])\n  237 |   await first.getByRole('radio', { name: '3 分', exact: true }).click(); await expect(first.locator('p[aria-live]')).toHaveText('3 分'); await expect(first.getByRole('radio', { name: '0 分', exact: true })).not.toBeChecked(); await expect(second.getByRole('radio', { name: '0 分', exact: true })).toBeChecked(); await expect(second.locator('p[aria-live]')).toHaveText('0 分')"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                        "column": 47,
+                        "line": 234
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"00000000-0000-4000-8000-000000000070\",\u001b[22m\n\u001b[32m-   \"00000000-0000-4000-8000-000000000071\",\u001b[39m\n\u001b[31m+   \"00000000-0000-4000-8000-000000000070\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n> 234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])\n      |                                               ^\n  235 |   expect(afterLabel.map(q => q.text)).toEqual(['尚未作答', '0 分']); expect(afterLabel.map(q => q.checked)).toEqual([false, true])\n  236 |   expect(bothZero).toEqual([{ text: '0 分', checked: true }, { text: '0 分', checked: true }])\n  237 |   await first.getByRole('radio', { name: '3 分', exact: true }).click(); await expect(first.locator('p[aria-live]')).toHaveText('3 分'); await expect(first.getByRole('radio', { name: '0 分', exact: true })).not.toBeChecked(); await expect(second.getByRole('radio', { name: '0 分', exact: true })).toBeChecked(); await expect(second.locator('p[aria-live]')).toHaveText('0 分')\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:234:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:07:13.675Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "same-title-stars-observation",
+                      "contentType": "application/json",
+                      "body": "eyJhZnRlckxhYmVsIjpbeyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAiLCJ0ZXh0IjoiMCDliIYiLCJjaGVja2VkIjp0cnVlLCJpZCI6IlNhbWUgcmF0aW5nIHRpdGxlLXplcm8iLCJuYW1lIjoiU2FtZSByYXRpbmcgdGl0bGUiLCJsYWJlbENvbnRyb2wiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAifSx7ImtleSI6IjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA3MSIsInRleHQiOiLlsJrmnKrkvZznrZQiLCJjaGVja2VkIjpmYWxzZSwiaWQiOiJTYW1lIHJhdGluZyB0aXRsZS16ZXJvIiwibmFtZSI6IlNhbWUgcmF0aW5nIHRpdGxlIiwibGFiZWxDb250cm9sIjoiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwIn1dLCJib3RoWmVybyI6W3sidGV4dCI6IjAg5YiGIiwiY2hlY2tlZCI6ZmFsc2V9LHsidGV4dCI6IjAg5YiGIiwiY2hlY2tlZCI6dHJ1ZX1dfQ=="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-r1-artifacts\\f6-browser-F6-R1-same-titl-c1cc1-answer-models-stay-isolated-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                    "column": 47,
+                    "line": 234
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "be305601406e08c1b387-a2133ee71be627491bcd",
+          "file": "f6-browser.spec.ts",
+          "line": 224,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T14:07:10.143Z",
+    "duration": 4918.285,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

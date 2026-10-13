@@ -554,6 +554,14 @@ Owner 指定基準 `510b6ee7d03935d553303e5ed745a81b23e59944`、目標 `d86479d3
 
 **停於 F6 集中 review 完成、待 Owner 確認。** 實機、受控特殊 Auth／資源狀態、DB identity／migration 缺口維持；正式驗收延後、accepted 不變、不推送、不展開 F7。本次僅追加 review 文件／去敏證據與進度，單一目的本機提交 SHA 見 Git log。
 
+### 9.22 F6-R1／F6-R2 授權局部修正（2026-10-13）
+
+Owner 確認兩項 P2 成立，直接授權局部修正、必要自測與本機提交，不新增修正計畫核准 gate。接手 master／`0aff8bb754f077d5df90209a123e024e5b5a83a3`、工作樹乾淨；先保留同名 Stars 錯題與 console 放行無關 404／requestfailed 的回歸 FAIL，再分別改為 Question key＋Renderer instance 識別，以及案例事先明列 method／URL／status 或 reason／request 與 diagnostic 次數的精確配對。標題保持顯示用途，不新增唯一限制；雙 Renderer 改名／重排／答案隔離由 harness 補驗。見 [局部修正報告](F6_R1_R2_Correction_Report.md)／[去敏證據](evidence/F6_R1_R2_Correction_20261013/verification-summary.json)。
+
+必要 lint／strict typecheck／fresh build／harness strict PASS；受影響 unit 27／27、fresh built F6 Browser 23／23＋4 harness-only skipped、fixture 補驗 6／6，新斷言後雙 Renderer 單案 1／1 PASS。首輪 Browser 重現、harness 掛載時序／immutable 定義修訂失敗與所有原 review／歷史證據保留；fixture 明列模擬。歷史 live Create／Draft PATCH／獨立 GET 沿用，本次未註冊或追加真實寫入，未改 live spec、原 wire／ID 索引或合成資料。
+
+**停於 F6 兩項 P2 修正完成、待局部獨立複核。** 未自行宣告 code review 通過；正式驗收延後、accepted 不變。實機、受控特殊 Auth／資源、DB identity／migration 缺口維持；僅單一目的本機提交，不推送、不展開 F7。完整 SHA／最終 Git 狀態見交付訊息與 Git log；前節歷史不覆寫。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

@@ -1,0 +1,386 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f6.config.ts",
+      "--grep",
+      "Renderer readonly|same-component ID update|pending old GET|Renderer instances|F6-R2",
+      "--reporter=list,json",
+      "--output=output/f6/correction-20261013/harness-delivery-artifacts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f6.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/f6/correction-20261013/harness-delivery-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f6-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\harness-delivery-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f6-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs dev tests/fixtures/f6/browser --host localhost --port 3000",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f6-browser.spec.ts",
+      "file": "f6-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 3529,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:24.330Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-731bfc38948245b15c8c",
+          "file": "f6-browser.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1605,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:27.999Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-f3e1f35a7d3924f1c423",
+          "file": "f6-browser.spec.ts",
+          "line": 205,
+          "column": 1
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1227,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:29.612Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQifV0sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-930c031fb853a4cedd5b",
+          "file": "f6-browser.spec.ts",
+          "line": 217,
+          "column": 1
+        },
+        {
+          "title": "F6-R2 rejects unrelated resource 404",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1057,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:30.845Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "unexpected-network-observation",
+                      "contentType": "application/json",
+                      "body": "eyJjb25zb2xlIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDA0IChOb3QgRm91bmQpIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Y2LXVuZXhwZWN0ZWQtNDA0LnBuZyJ9XX0="
+                    },
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W3sia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Y2LXVuZXhwZWN0ZWQtNDA0LnBuZyIsInN0YXR1cyI6NDA0fV0sImRpYWdub3N0aWNzIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDA0IChOb3QgRm91bmQpIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Y2LXVuZXhwZWN0ZWQtNDA0LnBuZyJ9XSwiaXNzdWVzIjpbIlVuZXhwZWN0ZWQgcmVxdWVzdCBvdXRjb21lIHtcImtpbmRcIjpcInJlc3BvbnNlXCIsXCJtZXRob2RcIjpcIkdFVFwiLFwidXJsXCI6XCJodHRwOi8vbG9jYWxob3N0OjMwMDAvZjYtdW5leHBlY3RlZC00MDQucG5nXCIsXCJzdGF0dXNcIjo0MDR9IiwiVW5leHBlY3RlZCBkaWFnbm9zdGljIHtcInRleHRcIjpcIkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwNCAoTm90IEZvdW5kKVwiLFwidXJsXCI6XCJodHRwOi8vbG9jYWxob3N0OjMwMDAvZjYtdW5leHBlY3RlZC00MDQucG5nXCJ9Il19"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-23b1a3c64f575329c4c8",
+          "file": "f6-browser.spec.ts",
+          "line": 252,
+          "column": 49
+        },
+        {
+          "title": "F6-R2 rejects unrelated resource requestfailed",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1052,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:31.909Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "unexpected-network-observation",
+                      "contentType": "application/json",
+                      "body": "eyJjb25zb2xlIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0ZBSUxFRCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9mNi11bmV4cGVjdGVkLXJlcXVlc3RmYWlsZWQucG5nIn1dfQ=="
+                    },
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjMwMDAvZjYtdW5leHBlY3RlZC1yZXF1ZXN0ZmFpbGVkLnBuZyIsInJlYXNvbiI6Im5ldDo6RVJSX0ZBSUxFRCJ9XSwiZGlhZ25vc3RpY3MiOlt7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Y2LXVuZXhwZWN0ZWQtcmVxdWVzdGZhaWxlZC5wbmcifV0sImlzc3VlcyI6WyJVbmV4cGVjdGVkIHJlcXVlc3Qgb3V0Y29tZSB7XCJraW5kXCI6XCJyZXF1ZXN0ZmFpbGVkXCIsXCJtZXRob2RcIjpcIkdFVFwiLFwidXJsXCI6XCJodHRwOi8vbG9jYWxob3N0OjMwMDAvZjYtdW5leHBlY3RlZC1yZXF1ZXN0ZmFpbGVkLnBuZ1wiLFwicmVhc29uXCI6XCJuZXQ6OkVSUl9GQUlMRURcIn0iLCJVbmV4cGVjdGVkIGRpYWdub3N0aWMge1widGV4dFwiOlwiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0ZBSUxFRFwiLFwidXJsXCI6XCJodHRwOi8vbG9jYWxob3N0OjMwMDAvZjYtdW5leHBlY3RlZC1yZXF1ZXN0ZmFpbGVkLnBuZ1wifSJdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-5e5db850ba9b8f60f904",
+          "file": "f6-browser.spec.ts",
+          "line": 252,
+          "column": 49
+        },
+        {
+          "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1261,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:17:32.967Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "renderer-instance-identities",
+                      "contentType": "application/json",
+                      "body": "eyJpbml0aWFsIjpbeyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAiLCJpZCI6InYtMC0yLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAtemVybyIsIm5hbWUiOiJ2LTAtMi1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwIiwib3duZXIiOiJsZWZ0In0seyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEiLCJpZCI6InYtMC0yLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEtemVybyIsIm5hbWUiOiJ2LTAtMi1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcxIiwib3duZXIiOiJsZWZ0In0seyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAiLCJpZCI6InYtMC0zLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAtemVybyIsIm5hbWUiOiJ2LTAtMy1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwIiwib3duZXIiOiJyaWdodCJ9LHsia2V5IjoiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcxIiwiaWQiOiJ2LTAtMy1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcxLXplcm8iLCJuYW1lIjoidi0wLTMtYW5zd2VyLTAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA3MSIsIm93bmVyIjoicmlnaHQifV0sImZpbmFsIjpbeyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEiLCJpZCI6InYtMC0yLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEtemVybyIsIm5hbWUiOiJ2LTAtMi1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcxIiwib3duZXIiOiJsZWZ0In0seyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAiLCJpZCI6InYtMC0yLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzAtemVybyIsIm5hbWUiOiJ2LTAtMi1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwIiwib3duZXIiOiJsZWZ0In0seyJrZXkiOiIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEiLCJpZCI6InYtMC0zLWFuc3dlci0wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNzEtemVybyIsIm5hbWUiOiJ2LTAtMy1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcxIiwib3duZXIiOiJyaWdodCJ9LHsia2V5IjoiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwIiwiaWQiOiJ2LTAtMy1hbnN3ZXItMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDcwLXplcm8iLCJuYW1lIjoidi0wLTMtYW5zd2VyLTAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA3MCIsIm93bmVyIjoicmlnaHQifV19"
+                    },
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-adbdf9ce17c6b46e6ac6",
+          "file": "f6-browser.spec.ts",
+          "line": 267,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T14:17:19.170Z",
+    "duration": 15674.877999999999,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

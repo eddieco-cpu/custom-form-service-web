@@ -1,0 +1,333 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f6.config.ts",
+      "--grep",
+      "F6-R1|F6-R2",
+      "--reporter=list,json",
+      "--output=output/f6/correction-20261013/before-artifacts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f6.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/f6/correction-20261013/before-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f6-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f6-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f6-browser.spec.ts",
+      "file": "f6-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 10660,
+                  "error": {
+                    "message": "TimeoutError: locator.check: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '預覽', exact: true }).locator('[data-renderer-key]').first().getByRole('radio', { name: '0 分', exact: true })\u001b[22m\n",
+                    "stack": "TimeoutError: locator.check: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '預覽', exact: true }).locator('[data-renderer-key]').first().getByRole('radio', { name: '0 分', exact: true })\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:231:64",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                      "column": 64,
+                      "line": 231
+                    },
+                    "snippet": "  229 |   await second.locator('label').filter({ hasText: /^0 分$/ }).click()\n  230 |   const afterLabel = await cards.evaluateAll(els => els.map(el => ({ key: el.getAttribute('data-renderer-key'), text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked, id: el.querySelector('input[type=radio]')?.id, name: el.querySelector<HTMLInputElement>('input[type=radio]')?.name, labelControl: el.querySelector<HTMLLabelElement>('label')?.control?.closest('[data-renderer-key]')?.getAttribute('data-renderer-key') })))\n> 231 |   await first.getByRole('radio', { name: '0 分', exact: true }).check(); await second.getByRole('radio', { name: '0 分', exact: true }).check()\n      |                                                                ^\n  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n  234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                        "column": 64,
+                        "line": 231
+                      },
+                      "message": "TimeoutError: locator.check: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '預覽', exact: true }).locator('[data-renderer-key]').first().getByRole('radio', { name: '0 分', exact: true })\u001b[22m\n\n\n  229 |   await second.locator('label').filter({ hasText: /^0 分$/ }).click()\n  230 |   const afterLabel = await cards.evaluateAll(els => els.map(el => ({ key: el.getAttribute('data-renderer-key'), text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked, id: el.querySelector('input[type=radio]')?.id, name: el.querySelector<HTMLInputElement>('input[type=radio]')?.name, labelControl: el.querySelector<HTMLLabelElement>('label')?.control?.closest('[data-renderer-key]')?.getAttribute('data-renderer-key') })))\n> 231 |   await first.getByRole('radio', { name: '0 分', exact: true }).check(); await second.getByRole('radio', { name: '0 分', exact: true }).check()\n      |                                                                ^\n  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n  234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:231:64"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:05:58.320Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-artifacts\\f6-browser-F6-R1-same-titl-c1cc1-answer-models-stay-isolated-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                    "column": 64,
+                    "line": 231
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "be305601406e08c1b387-a2133ee71be627491bcd",
+          "file": "f6-browser.spec.ts",
+          "line": 224,
+          "column": 1
+        },
+        {
+          "title": "F6-R2 rejects unrelated resource 404",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 441,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                      "column": 30,
+                      "line": 249
+                    },
+                    "snippet": "  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                        "column": 30,
+                        "line": 249
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n\n  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:06:09.580Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "unexpected-network-observation",
+                      "contentType": "application/json",
+                      "body": "eyJjb25zb2xlIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDA0IChOb3QgRm91bmQpIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Y2LXVuZXhwZWN0ZWQtNDA0LnBuZyJ9XX0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-artifacts\\f6-browser-F6-R2-rejects-unrelated-resource-404-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                    "column": 30,
+                    "line": 249
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "be305601406e08c1b387-23b1a3c64f575329c4c8",
+          "file": "f6-browser.spec.ts",
+          "line": 241,
+          "column": 49
+        },
+        {
+          "title": "F6-R2 rejects unrelated resource requestfailed",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 440,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                      "column": 30,
+                      "line": 249
+                    },
+                    "snippet": "  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                        "column": 30,
+                        "line": 249
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n\n  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-13T14:06:10.607Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "unexpected-network-observation",
+                      "contentType": "application/json",
+                      "body": "eyJjb25zb2xlIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0ZBSUxFRCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9mNi11bmV4cGVjdGVkLXJlcXVlc3RmYWlsZWQucG5nIn1dfQ=="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\f6\\correction-20261013\\before-artifacts\\f6-browser-F6-R2-rejects-unrelated-resource-requestfailed-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts",
+                    "column": 30,
+                    "line": 249
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "be305601406e08c1b387-5e5db850ba9b8f60f904",
+          "file": "f6-browser.spec.ts",
+          "line": 241,
+          "column": 49
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-13T14:05:54.820Z",
+    "duration": 16851.014,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 3,
+    "flaky": 0
+  }
+}

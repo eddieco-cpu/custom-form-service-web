@@ -4,6 +4,8 @@
 
 ## 1. 基準與實際範圍
 
+後續局部修正（2026-10-13）：Owner 確認獨立 review 的 F6-R1／F6-R2 兩項 P2，授權直接修正、自測與本機提交。最新交付見 [局部修正報告](F6_R1_R2_Correction_Report.md)；停於 **F6 兩項 P2 修正完成、待局部獨立複核**，未自行宣告 review 通過。下文保留原整輪開發結果、失敗歷史與 live 證據，不改正式驗收／accepted。
+
 接手 repo `C:\Users\user\Desktop\custom-form-service-web`，master／`510b6ee7d03935d553303e5ed745a81b23e59944`、工作樹乾淨；這是前次 F6 計畫提交，承接 Owner 指定的 F5 review 基準 `0a8ceeb560b06a7ca2f847f019f8894cd346bce0`。引用 AGENTS v1.1、repo development skill、總計畫 v1.3 F6／§7／§7.1／§8.1，與前端 00～07 中計畫 §1 所列章節；正式 API 依唯讀 backend-ref 00／01／02／03a／03b／03c／04／05。後端快照 SHA `7591633137c5a6f57c1fce8e1ba19ab394015880`，本次 manifest 108／108 相符。
 
 | 檔案 | 實際責任 |

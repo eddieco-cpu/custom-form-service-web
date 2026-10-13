@@ -4,6 +4,15 @@ import { form, uuid, Q, O } from '../fixtures/f5/payloads'
 import { stringifyExactJson, parseExactJson } from '../../app/utils/exact-json'
 import { decodeFormDetail } from '../../app/domain/api/decoders'
 import type { FormDetailDto } from '../../app/domain/api/form'
+import { expectedHttp, expectedNetwork, verifyNetworkDiagnostics } from '../helpers/f6-network-diagnostics'
+import type { Diagnostic, ExpectedFailure, NetworkFailure } from '../helpers/f6-network-diagnostics'
+const api = 'http://localhost:5000/api/v1'
+const formUrl = `${api}/forms/${uuid(50)}`
+const observations = new WeakMap<Page, { expected: ExpectedFailure[]; outcomes: NetworkFailure[]; console: Diagnostic[] }>()
+test.afterEach(async ({ page }, info) => {
+  const state = observations.get(page)
+  if (state) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: state.expected, actual: state.outcomes, diagnostics: state.console, issues: verifyNetworkDiagnostics(state.expected, state.outcomes, state.console) }), contentType: 'application/json' })
+})
 const owner = { id: uuid(51), email: 'f6-fixture@example.test', displayName: '合成建立者', avatarUrl: null }
 const other = { ...owner, id: uuid(52), displayName: '另一個合成帳號' }
 const headers = { 'access-control-allow-origin': 'http://localhost:3000', 'access-control-allow-credentials': 'true' }
@@ -12,11 +21,12 @@ const error = (code: string, path?: string) => ({ error: { code, message: '合�
 const reply = (route: Route, value: unknown, status = 200) => route.fulfill({ status, headers, contentType: 'application/json', body: stringifyExactJson(value) })
 function gate() { let release!: () => void; const promise = new Promise<void>(r => { release = r }); return { promise, release } }
 async function mock(page: Page, initial = form()) {
-  const state = { user: owner, dto: initial, me: 0, requests: [] as { method: string; path: string; body: string | null }[], unexpected: [] as string[], errors: [] as string[], console: [] as { text: string; url: string }[], http: new Map<string, Set<number>>(), failed: new Set<string>(), get: undefined as Reply | undefined, write: undefined as Reply | undefined, bootstrap: undefined as Reply | undefined }
+  const state = { user: owner, dto: initial, me: 0, requests: [] as { method: string; path: string; body: string | null }[], unexpected: [] as string[], errors: [] as string[], console: [] as Diagnostic[], expected: [] as ExpectedFailure[], outcomes: [] as NetworkFailure[], get: undefined as Reply | undefined, write: undefined as Reply | undefined, bootstrap: undefined as Reply | undefined }
+  observations.set(page, state)
   page.on('pageerror', e => state.errors.push(e.message))
   page.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) state.console.push({ text: m.text(), url: m.location().url }) })
-  page.on('response', r => { if (r.status() >= 400) state.http.set(r.url(), new Set([...(state.http.get(r.url()) ?? []), r.status()])) })
-  page.on('requestfailed', r => state.failed.add(r.url()))
+  page.on('response', r => { if (r.status() >= 400) state.outcomes.push({ kind: 'response', method: r.request().method(), url: r.url(), status: r.status() }) })
+  page.on('requestfailed', r => state.outcomes.push({ kind: 'requestfailed', method: r.method(), url: r.url(), reason: r.failure()!.errorText }))
   await page.route('http://localhost:5000/api/v1/**', async route => {
     const req = route.request(), url = new URL(req.url()), method = req.method()
     if (method === 'OPTIONS') { await route.fulfill({ status: 204, headers: { ...headers, 'access-control-allow-methods': 'GET,POST,PATCH', 'access-control-allow-headers': 'content-type' } }); return }
@@ -40,10 +50,7 @@ async function mock(page: Page, initial = form()) {
 }
 function clean(state: Awaited<ReturnType<typeof mock>>) {
   expect(state.unexpected).toEqual([]); expect(state.errors).toEqual([])
-  expect(state.console.filter(m => {
-    const match = /^Failed to load resource: the server responded with a status of (\d+) \(.*\)$/.exec(m.text)
-    return !(match && state.http.get(m.url)?.has(Number(match[1]))) && !(m.text === 'Failed to load resource: net::ERR_FAILED' && state.failed.has(m.url))
-  })).toEqual([])
+  expect(verifyNetworkDiagnostics(state.expected, state.outcomes, state.console)).toEqual([])
 }
 const edit = `/forms/${uuid(50)}/edit`
 const field = (page: Page, name: string) => page.locator('[data-editor-field]').filter({ has: undefined }).and(page.locator(`[data-editor-field="${name}"]`))
@@ -86,6 +93,7 @@ test('F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard
 })
 test('F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained', async ({ page }) => {
   const state = await mock(page); state.write = route => reply(route, error('VALIDATION_ERROR', 'questions[0].options[0].label'), 400)
+  state.expected.push(expectedHttp('PATCH', formUrl, 400, 1))
   await page.goto(edit); await field(page, `${O[1]}.label`).fill('第三題第二選項'); await save(page).click()
   await expect(page.getByRole('dialog')).toContainText('保留未知明細'); await closeError(page)
   await expect(field(page, `${O[1]}.label`)).toBeFocused(); expect(JSON.parse(state.requests.at(-1)!.body!).questions[0].options[0]).toEqual({ id: O[1], label: '第三題第二選項' }); clean(state)
@@ -107,13 +115,14 @@ test('F6-B06 dirty cancel/confirm, history, reload beforeunload and same-compone
 for (const code of ['AUTH_REQUIRED', 'AUTH_TOKEN_INVALID', 'AUTH_TOKEN_EXPIRED']) for (const saved of [false, true]) test(`F6-B07 ${code} cancel keeps content but fresh session/Owner required (${saved ? 'edit' : 'new'})`, async ({ page }) => {
   const state = await mock(page); await page.goto(saved ? edit : '/forms/new'); if (saved) await field(page, 'form.title').fill('保留輸入'); else await readyNew(page)
   state.write = route => reply(route, error(code), 401)
+  state.expected.push(expectedHttp(saved ? 'PATCH' : 'POST', saved ? formUrl : `${api}/forms`, 401, 1))
   await page.getByRole('button', { name: saved ? '保存' : '保存草稿', exact: true }).click()
   await expect(page.getByRole('dialog')).toBeVisible(); await page.keyboard.press('Escape'); await expect(page.getByRole('dialog')).toBeVisible()
   await page.mouse.click(1, 1); await expect(page.getByRole('dialog')).toBeVisible()
   page.on('dialog', d => d.dismiss()); if (code === 'AUTH_TOKEN_INVALID') await page.getByRole('dialog').getByLabel('關閉', { exact: true }).click(); else await closeError(page); await expect(page).toHaveURL(`http://localhost:3000${saved ? edit : '/forms/new'}`)
   await expect(page.getByRole('button', { name: saved ? '保存' : '保存草稿', exact: true })).toBeDisabled(); await expect(field(page, 'form.title')).toHaveAttribute('readonly', '')
   state.user = other
-  if (saved) state.get = route => reply(route, error('FORM_NOT_FOUND'), 404) // Contract hides another Owner's Draft.
+  if (saved) { state.get = route => reply(route, error('FORM_NOT_FOUND'), 404); state.expected.push(expectedHttp('GET', formUrl, 404, 1)) } // Contract hides another Owner's Draft.
   await page.getByRole('button', { name: '核對登入與保存資格' }).click()
   if (saved) { // Cancel discard: no GET/me; then authorize discard but denied resource still cannot write.
     expect(state.me).toBe(1); page.removeAllListeners('dialog'); page.on('dialog', d => d.accept()); await page.getByRole('button', { name: '核對登入與保存資格' }).click(); await expect(page.getByRole('dialog')).toBeVisible(); page.removeAllListeners('dialog'); page.on('dialog', d => d.dismiss()); await closeError(page); await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveValue('保留輸入')
@@ -123,7 +132,7 @@ for (const code of ['AUTH_REQUIRED', 'AUTH_TOKEN_INVALID', 'AUTH_TOKEN_EXPIRED']
   expect(state.requests.filter(r => ['POST', 'PATCH'].includes(r.method))).toHaveLength(1); clean(state)
 })
 test('F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks', async ({ page }) => {
-  const state = await mock(page); state.write = route => route.abort('failed'); await page.goto(edit); await field(page, 'form.title').fill('未知保存'); await save(page).click()
+  const state = await mock(page); state.expected.push(expectedNetwork('PATCH', formUrl, 'net::ERR_FAILED', 1, 1), expectedHttp('GET', formUrl, 500, 1)); state.write = route => route.abort('failed'); await page.goto(edit); await field(page, 'form.title').fill('未知保存'); await save(page).click()
   await closeError(page); await field(page, 'form.title').fill(form().title); await expect(save(page)).toBeDisabled()
   page.on('dialog', d => d.dismiss()); const before = state.requests.length; await page.getByRole('button', { name: '重新載入表單' }).click(); expect(state.requests).toHaveLength(before)
   page.removeAllListeners('dialog'); page.on('dialog', d => d.accept()); state.get = route => reply(route, error('INTERNAL_SERVER_ERROR'), 500)
@@ -139,6 +148,7 @@ test('F6-B08 Create unknown retains input and every retry prompts duplicate risk
 })
 test('F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored', async ({ page }) => {
   const state = await mock(page); state.write = route => reply(route, error('FORM_NOT_EDITABLE'), 409); state.get = route => reply(route, state.dto)
+  state.expected.push(expectedHttp('PATCH', formUrl, 409, 1), expectedNetwork('PATCH', formUrl, 'net::ERR_ABORTED', 1, 0))
   await page.goto(edit); await field(page, 'form.title').fill('本地變更'); state.dto = { ...form(), status: 'published' }; await save(page).click(); await expect(page.getByRole('dialog')).toBeVisible(); await closeError(page)
   await expect(field(page, 'form.title')).toHaveValue('本地變更'); await expect(save(page)).toBeDisabled(); page.on('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入表單' }).click(); await expect(page).toHaveURL(`http://localhost:3000/forms/${uuid(50)}`)
   state.dto = form(); await page.goto(edit); await field(page, 'form.title').fill('晚回'); const pending = gate(); state.write = async route => { await pending.promise; try { await reply(route, state.dto) } catch { /* Closed page request is expected. */ } }
@@ -190,7 +200,7 @@ test('F6-B03 sparse order move and undo preserves clean baseline, Option label/v
   await field(page, `${O[0]}.label`).fill('改 label'); await save(page).click(); const wire = state.requests.find(r => r.method === 'PATCH')!.body!; expect(JSON.parse(wire)).toEqual({ questions: [{ id: Q[2], options: [{ id: O[0], label: '改 label' }] }] }); clean(state)
 })
 test('F6-B05 Create error map points to newly added Option and retains unknown detail', async ({ page }) => {
-  const state = await mock(page); state.write = route => reply(route, error('FORM_DEFINITION_INVALID', 'questions[0].options[1].label'), 400); await page.goto('/forms/new'); await readyNew(page); await page.getByRole('button', { name: '新增題目' }).click(); await page.getByLabel('題型 1').selectOption('single_choice'); await page.getByLabel('題目 1 標題', { exact: true }).fill('合成單選'); await page.getByRole('button', { name: '保存草稿' }).click(); await expect(page.getByRole('dialog')).toContainText('保留未知明細'); await closeError(page); await expect(page.getByLabel('選項 2', { exact: true })).toBeFocused(); clean(state)
+  const state = await mock(page); state.expected.push(expectedHttp('POST', `${api}/forms`, 400, 1)); state.write = route => reply(route, error('FORM_DEFINITION_INVALID', 'questions[0].options[1].label'), 400); await page.goto('/forms/new'); await readyNew(page); await page.getByRole('button', { name: '新增題目' }).click(); await page.getByLabel('題型 1').selectOption('single_choice'); await page.getByLabel('題目 1 標題', { exact: true }).fill('合成單選'); await page.getByRole('button', { name: '保存草稿' }).click(); await expect(page.getByRole('dialog')).toContainText('保留未知明細'); await closeError(page); await expect(page.getByLabel('選項 2', { exact: true })).toBeFocused(); clean(state)
 })
 test('F6-B06 same-component ID update is guarded and old response cannot replace current resource', async ({ page }) => {
   test.skip(process.env.F6_MODE === 'built', 'Mounted scope fixture only; built covers page leave/history separately.')
@@ -199,14 +209,14 @@ test('F6-B06 same-component ID update is guarded and old response cannot replace
   page.removeAllListeners('dialog'); page.on('dialog', d => d.accept()); await page.getByRole('link', { name: '切換合成資源' }).click(); await expect(page).toHaveURL(`http://localhost:3000/f6-scope/${uuid(55)}`); pending.release(); await expect(field(page, 'form.title')).toHaveValue('新的合成資源'); clean(state)
 })
 test('F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes', async ({ page }) => {
-  const state = await mock(page); await page.goto(edit); await field(page, 'form.title').fill('保留本地'); state.write = route => reply(route, error('AUTH_USER_DISABLED'), 403); await save(page).click(); await closeError(page); await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(field(page, 'form.title')).toHaveValue('保留本地'); expect(state.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(0)
+  const state = await mock(page); state.expected.push(expectedHttp('PATCH', formUrl, 403, 2), expectedHttp('PATCH', formUrl, 404, 1)); await page.goto(edit); await field(page, 'form.title').fill('保留本地'); state.write = route => reply(route, error('AUTH_USER_DISABLED'), 403); await save(page).click(); await closeError(page); await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(field(page, 'form.title')).toHaveValue('保留本地'); expect(state.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(0)
   state.write = route => reply(route, error('FORM_ACCESS_DENIED'), 403); await save(page).click(); await closeError(page); await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveValue('保留本地')
   // Explicit permission verification may recover a valid Owner resource; ordinary action cannot.
   page.on('dialog', d => d.accept()); await page.getByRole('button', { name: '核對登入與保存資格' }).click(); await field(page, 'form.title').fill('不存在本地'); state.write = route => reply(route, error('FORM_NOT_FOUND'), 404); await save(page).click(); page.removeAllListeners('dialog'); page.on('dialog', d => d.dismiss()); await closeError(page); await expect(field(page, 'form.title')).toHaveValue('不存在本地'); await expect(save(page)).toBeDisabled(); clean(state)
 })
 test('F6-B09 pending old GET cannot suppress or overwrite a new resource read', async ({ page }) => {
   test.skip(process.env.F6_MODE === 'built', 'Mounted parameter-update fixture only.')
-  const state = await mock(page); await page.goto(`/f6-scope/${uuid(50)}`); await expect(field(page, 'form.title')).toHaveValue(form().title)
+  const state = await mock(page); state.expected.push(expectedNetwork('GET', formUrl, 'net::ERR_ABORTED', 1, 0)); await page.goto(`/f6-scope/${uuid(50)}`); await expect(field(page, 'form.title')).toHaveValue(form().title)
   const pending = gate(); let finished = false
   state.get = async route => {
     const id = new URL(route.request().url()).pathname.split('/').at(-1)!
@@ -217,6 +227,63 @@ test('F6-B09 pending old GET cannot suppress or overwrite a new resource read', 
 })
 test('F6 new disabled bootstrap has a read error and explicit retry, never an empty page or automatic Create', async ({ page }) => {
   const state = await mock(page); state.bootstrap = route => reply(route, error('AUTH_USER_DISABLED'), 403)
+  state.expected.push(expectedHttp('GET', `${api}/users/me`, 403, 1))
   await page.goto('/forms/new'); await expect(page.getByRole('alert')).toContainText('帳號已停用'); await expect(field(page, 'form.title')).toHaveCount(0); expect(state.requests).toHaveLength(1)
   state.bootstrap = undefined; await page.getByRole('button', { name: '重試', exact: true }).click(); await expect(field(page, 'form.title')).toHaveValue(''); expect(state.me).toBe(2); expect(state.requests.some(r => r.path.includes('/forms'))).toBe(false); clean(state)
+})
+
+test('F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated', async ({ page }, info) => {
+  const source = form().questions[4]!
+  const state = await mock(page, form([0, 1].map(i => ({ ...source, id: uuid(70 + i), sortOrder: i, title: 'Same rating title', type: 'rating' as const, config: { variant: 'stars' as const, min: 0, max: 5 } }))))
+  await page.goto(edit); await page.getByRole('button', { name: '預覽', exact: true }).click()
+  const cards = preview(page).locator('[data-renderer-key]'), first = cards.nth(0), second = cards.nth(1)
+  await second.locator('label').filter({ hasText: /^0 分$/ }).click()
+  const afterLabel = await cards.evaluateAll(els => els.map(el => ({ key: el.getAttribute('data-renderer-key'), text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked, id: el.querySelector('input[type=radio]')?.id, name: el.querySelector<HTMLInputElement>('input[type=radio]')?.name, labelControl: el.querySelector<HTMLLabelElement>('label')?.control?.closest('[data-renderer-key]')?.getAttribute('data-renderer-key') })))
+  await first.locator('input[type=radio]').check(); await second.locator('input[type=radio]').check()
+  const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))
+  await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })
+  expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])
+  expect(afterLabel.map(q => q.text)).toEqual(['尚未作答', '0 分']); expect(afterLabel.map(q => q.checked)).toEqual([false, true])
+  expect(bothZero).toEqual([{ text: '0 分', checked: true }, { text: '0 分', checked: true }])
+  await first.getByRole('radio', { name: '3 分', exact: true }).click(); await expect(first.locator('p[aria-live]')).toHaveText('3 分'); await expect(first.getByRole('radio', { name: '0 分', exact: true })).not.toBeChecked(); await expect(second.getByRole('radio', { name: '0 分', exact: true })).toBeChecked(); await expect(second.locator('p[aria-live]')).toHaveText('0 分')
+  expect(state.requests.filter(r => r.method !== 'GET')).toEqual([]); clean(state)
+})
+
+for (const failure of ['404', 'requestfailed']) test(`F6-R2 rejects unrelated resource ${failure}`, async ({ page }, info) => {
+  const state = await mock(page); await page.goto(edit); await expect(field(page, 'form.title')).toHaveValue(form().title)
+  const url = `http://localhost:3000/f6-unexpected-${failure}.png`
+  await page.route(url, route => failure === '404' ? route.fulfill({ status: 404, body: '' }) : route.abort('failed'))
+  const observed = failure === '404' ? page.waitForResponse(r => r.url() === url && r.status() === 404) : page.waitForEvent('requestfailed', r => r.url() === url)
+  await page.evaluate(src => { const image = new Image(); image.src = src; document.body.append(image) }, url); await observed
+  await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)
+  await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })
+  expect(state.errors).toEqual([]); expect(state.unexpected).toEqual([])
+  const issues = verifyNetworkDiagnostics(state.expected, state.outcomes, state.console)
+  expect(issues.some(issue => issue.startsWith('Unexpected request outcome') && issue.includes(url))).toBe(true)
+  expect(issues.some(issue => issue.startsWith('Unexpected diagnostic') && issue.includes(url))).toBe(true)
+  expect(() => clean(state)).toThrow()
+})
+
+test('F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree', async ({ page }, info) => {
+  test.skip(process.env.F6_MODE === 'built', 'Multiple Renderer instances are mounted only by the test harness.')
+  const state = await mock(page); await page.goto('/f6-renderer-instances')
+  const left = page.locator('[data-renderer-instance=left]'), right = page.locator('[data-renderer-instance=right]')
+  const card = (instance: ReturnType<Page['locator']>, key: string) => instance.locator(`[data-renderer-key="${key}"]`)
+  const ids = () => page.locator('[data-renderer-instance] input[type=radio]').evaluateAll(els => els.map(el => ({ key: el.closest('[data-renderer-key]')!.getAttribute('data-renderer-key'), id: el.id, name: (el as HTMLInputElement).name, owner: el.closest('[data-renderer-instance]')!.getAttribute('data-renderer-instance') })))
+  await expect(page.locator('[data-renderer-instance] input[type=radio]')).toHaveCount(4)
+  const initial = await ids(); expect(new Set(initial.map(q => q.id)).size).toBe(4); expect(new Set(initial.map(q => q.name)).size).toBe(4)
+  await card(right, uuid(70)).locator('label').filter({ hasText: /^0 分$/ }).click(); await expect(card(left, uuid(70)).locator('p[aria-live]')).toHaveText('尚未作答')
+  for (const instance of [left, right]) for (const key of [uuid(70), uuid(71)]) await card(instance, key).locator('label').filter({ hasText: /^0 分$/ }).click()
+  await expect(page.locator('[data-renderer-instance] input[type=radio]:checked')).toHaveCount(4)
+  for (const instance of [left, right]) expect(JSON.parse((await instance.locator('[data-answer-model]').textContent())!)).toEqual({ [uuid(70)]: { type: 'rating', value: 0 }, [uuid(71)]: { type: 'rating', value: 0 } })
+  await card(left, uuid(70)).getByRole('radio', { name: '3 分', exact: true }).click()
+  await expect(card(left, uuid(70)).getByRole('radio', { name: '0 分', exact: true })).not.toBeChecked()
+  for (const [instance, key] of [[left, uuid(71)], [right, uuid(70)], [right, uuid(71)]] as const) { await expect(card(instance, key).getByRole('radio', { name: '0 分', exact: true })).toBeChecked(); await expect(card(instance, key).locator('p[aria-live]')).toHaveText('0 分') }
+  expect(JSON.parse((await left.locator('[data-answer-model]').textContent())!)[uuid(70)]).toEqual({ type: 'rating', value: 3 })
+  await page.getByRole('button', { name: '改同名標題' }).click(); await page.getByRole('button', { name: '交換題目順序' }).click()
+  for (const instance of [left, right]) { await expect(instance.locator('[data-renderer-key]').first()).toHaveAttribute('data-renderer-key', uuid(71)); await expect(instance.getByRole('heading', { level: 3 }).first()).toContainText('Renamed same title') }
+  expect(JSON.parse((await left.locator('[data-answer-model]').textContent())!)[uuid(70)]).toEqual({ type: 'rating', value: 3 })
+  await expect(card(left, uuid(70)).getByRole('radio', { name: '3 分', exact: true })).toHaveAttribute('aria-checked', 'true')
+  const final = await ids(); expect(final.toSorted((a, b) => a.id.localeCompare(b.id))).toEqual(initial.toSorted((a, b) => a.id.localeCompare(b.id)))
+  await info.attach('renderer-instance-identities', { body: JSON.stringify({ initial, final }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('renderer-instances.png') }); clean(state)
 })
