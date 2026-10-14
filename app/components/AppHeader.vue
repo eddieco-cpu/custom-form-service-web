@@ -32,15 +32,25 @@ async function logout() {
   const dirty = dirtyBridge.current()
   const permit = dirty?.authorizeAction('logout')
   if (dirty && !permit) return
-  const ticket = scope.begin()
+  let ticket = scope.begin()
+  const pageCurrent = dirty && permit ? dirty.captureCurrent(permit) : () => true
+  const current = () => ticket.isCurrent() && pageCurrent()
   busy.value = true
   try {
-    const result = await operation.value!.run({}, () => service.logout(), ticket.isCurrent)
-    if (result.kind === 'stale' || result.kind === 'blocked' || !ticket.isCurrent()) return
+    const result = await operation.value!.run({}, () => service.logout(), current)
+    if (result.kind === 'stale' || result.kind === 'blocked' || !current()) return
     if (result.kind === 'success') {
-      session.logout()
-      if (dirty && permit) await dirty.navigateWithPermit(permit, '/login', true)
-      else await router.replace('/login')
+      const revision = state.value.sessionRevision, path = route.fullPath
+      const cleanup = () => {
+        session.logout()
+        if (state.value.sessionRevision !== revision + 1 || state.value.outcome !== 'anonymous' || state.value.user !== null || route.fullPath !== path) return undefined
+        // The successful action owns this Session change. Its new ticket still
+        // rejects subsequent external Session/path/scope changes.
+        ticket = scope.begin()
+        return ticket.isCurrent
+      }
+      if (dirty && permit) await dirty.navigateWithPermit(permit, '/login', true, cleanup)
+      else if (cleanup()?.()) await router.replace('/login')
       menuOpen.value = false
     }
     else { error.value = presentError(result, 'action'); dirty?.finishAction() }

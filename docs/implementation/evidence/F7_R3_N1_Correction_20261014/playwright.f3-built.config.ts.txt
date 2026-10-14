@@ -1,0 +1,8 @@
+import { defineConfig } from '@playwright/test'
+import base from '../../../playwright.f3.config'
+export default defineConfig({ ...base,
+  testDir: '../../../tests/e2e', testMatch: 'f3-browser.spec.ts',
+  reporter: [['list'], ['json', { outputFile: 'output/playwright/f7/n1-f3-built-results.json' }]],
+  outputDir: 'output/playwright/f7/n1-f3-built-artifacts',
+  webServer: { command: 'npm run preview', url: 'http://localhost:3000/login', reuseExistingServer: false, timeout: 120_000 },
+})

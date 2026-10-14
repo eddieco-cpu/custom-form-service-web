@@ -1,0 +1,69 @@
+{
+  "createdAt": "2026-10-14T11:16:00.290Z",
+  "preserved": {
+    "readme": true,
+    "plan": true
+  },
+  "links": {
+    "total": 24,
+    "missing": []
+  },
+  "formats": [
+    {
+      "file": "docs/implementation/F7_R3_N1_Correction_Report.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    },
+    {
+      "file": "README.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    },
+    {
+      "file": "docs/implementation/V1_Frontend_Implementation_Plan.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    }
+  ],
+  "sources": [
+    {
+      "file": "app/components/AppHeader.vue",
+      "matches": true
+    },
+    {
+      "file": "app/domain/dirty-scope.ts",
+      "matches": true
+    },
+    {
+      "file": "app/composables/useDirtyScope.ts",
+      "matches": true
+    },
+    {
+      "file": "app/components/forms/FormReadPage.vue",
+      "matches": true
+    },
+    {
+      "file": "app/composables/useFormEditor.ts",
+      "matches": true
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "matches": true
+    },
+    {
+      "file": "tests/e2e/f7-browser.spec.ts",
+      "matches": true
+    }
+  ],
+  "build": {
+    "total": 157,
+    "matches": 157
+  },
+  "protectedDiff": "",
+  "secretMatches": [],
+  "screenshots": "Synthetic empty login image visually inspected",
+  "diffCheck": "PASS"
+}

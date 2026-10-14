@@ -1,0 +1,53 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { chromium } from '@playwright/test'
+const baseline = '6d9c843a012cb0a24e194f1de2020ab294554f1b'
+const work = 'output/f7/n1-correction-20261014', dest = 'docs/implementation/evidence/F7_R3_N1_Correction_20261014'
+const sha = data => crypto.createHash('sha256').update(data).digest('hex')
+const text = file => fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')
+const bytes = file => file.endsWith('.png') ? fs.readFileSync(file) : Buffer.from(text(file))
+const json = file => JSON.parse(text(file))
+const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).trim()
+const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)])
+const write = (file, value) => { fs.mkdirSync(path.dirname(`${dest}/${file}`), { recursive: true }); fs.writeFileSync(`${dest}/${file}`, JSON.stringify(value, null, 2) + '\n') }
+const copy = (file, target) => { fs.mkdirSync(path.dirname(`${dest}/${target}`), { recursive: true }); fs.copyFileSync(file, `${dest}/${target}`) }
+const flatten = (suites = []) => suites.flatMap(s => [...(s.specs ?? []).flatMap(spec => spec.tests.map(t => ({ title: spec.title, line: spec.line, project: t.projectName, expectedStatus: t.expectedStatus, outcome: t.status, result: t.results.at(-1)?.status }))), ...flatten(s.suites)])
+const inputs = [
+  ['f7-full', 'output/playwright/f7/built-n1-correction-first-results.json'],
+  ['reviewer-close', 'output/playwright/f7/built-n1-reviewer-close-results.json'],
+  ['f3-built', `${work}/output/playwright/f7/n1-f3-built-results.json`],
+  ['f6-built', 'output/playwright/f7/n1-f6-built-results.json'],
+  ['f6-scope', 'output/playwright/f7/n1-f6-scope-results.json'],
+]
+const runs = inputs.map(([name, file]) => { const report = json(file); copy(file, `browser/${name}-results.json`); return { name, stats: report.stats, cases: flatten(report.suites) } })
+for (const file of walk(work).filter(f => f.endsWith('.log') && !path.basename(f).startsWith('collect'))) copy(file, `logs/${path.basename(file)}`)
+copy(`${work}/collect.mjs`, 'collect.mjs.txt'); copy(`${work}/playwright.f3-built.config.ts`, 'playwright.f3-built.config.ts.txt')
+const images = walk('output/playwright/f7/built-n1-correction-first-artifacts').filter(f => f.endsWith('logout-unknown-login.png'))
+for (const file of images) copy(file, `images/${path.basename(file)}`)
+const sources = ['app/components/AppHeader.vue', 'app/domain/dirty-scope.ts', 'app/composables/useDirtyScope.ts', 'app/components/forms/FormReadPage.vue', 'app/composables/useFormEditor.ts', 'tests/unit/scoped-state.spec.ts', 'tests/e2e/f7-browser.spec.ts'].map(file => ({ file, sha256: sha(bytes(file)), gitBlob: git(['hash-object', '--', file]) }))
+const build = walk('.output').sort().map(file => ({ file: file.replaceAll('\\', '/'), sha256: sha(fs.readFileSync(file)) }))
+write('fresh-build-digest.json', { createdAt: new Date().toISOString(), files: build })
+const historical = ['docs/review/evidence/F7_20261014', 'docs/implementation/evidence/F7_20261014', 'docs/implementation/evidence/F7_R1_R4_Correction_20261014', 'docs/review/evidence/F7_R1_R4_ReReview_20261014'].map(dir => {
+  const manifest = json(`${dir}/artifact-manifest.json`)
+  const failures = manifest.files.filter(f => sha(bytes(`${dir}/${f.file}`)) !== f.sha256).map(f => f.file)
+  return { directory: dir, total: manifest.files.length, matches: manifest.files.length - failures.length, failures }
+})
+const backend = text('backend-ref/MANIFEST.sha256').trim().split('\n').map(line => { const [, expected, file] = line.match(/^([a-f0-9]{64})\s+(.+)$/); return { file, matches: sha(fs.readFileSync(`backend-ref/${file}`)) === expected } })
+const before = ['supplemental-browser.json', 'supplemental-controls.json'].flatMap(file => json(`docs/review/evidence/F7_R1_R4_ReReview_20261014/${file}`).cases.filter(c => c.result === 'FAIL').map(c => ({ file, ...c })))
+const versions = { node: process.version, npm: '11.19.0 (observed npm --version)', packages: {} }
+for (const name of ['nuxt', '@nuxt/ui', 'vue', 'nitropack', 'vite', 'vitest', '@playwright/test', 'typescript']) versions.packages[name] = json(`node_modules/${name}/package.json`).version
+const browser = await chromium.launch({ headless: true }); versions.chromium = browser.version(); await browser.close()
+const protectedDiff = git(['diff', '--name-only', baseline, '--', 'docs/review', 'docs/specs', 'docs/implementation/F7_Development_Report.md', 'docs/implementation/F7_R1_R4_Correction_Report.md', 'docs/implementation/F7_Implementation_Plan.md', 'docs/implementation/evidence/F7_20261014', 'docs/implementation/evidence/F7_R1_R4_Correction_20261014', 'tests/e2e/f3-browser.spec.ts', 'tests/e2e/f6-browser.spec.ts', 'tests/e2e/f7-live.spec.ts', 'AGENTS.md', '.agents', 'package.json', 'package-lock.json'])
+git(['diff', '--check'])
+const secrets = walk(dest).filter(f => !f.endsWith('.png') && /eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|["'](?:password|access_token|refresh_token|signingKey)["']\s*:\s*["'][^"']+/.test(text(f)))
+if (runs.some(r => r.stats.unexpected || r.stats.flaky) || historical.some(h => h.failures.length) || backend.some(f => !f.matches) || protectedDiff || secrets.length || before.length !== 2) throw new Error(JSON.stringify({ runs, historical, protectedDiff, secrets, before }))
+write('verification-summary.json', { version: '1.0', date: '2026-10-14', timezone: 'Asia/Taipei', createdAt: new Date().toISOString(), baseline, branch: git(['branch', '--show-current']), initialGitState: 'clean', stage: 'F7-R3-N1 corrected; local independent re-review pending', closedFindings: ['R1', 'R2', 'R4'], versions, sources,
+  checks: { lint: 'PASS (lint-delivery.log)', strictTypecheck: 'PASS (typecheck-delivery.log)', build: 'PASS (build.log)', unit: '167/167 PASS, 5 files (unit-first.log)', harnessTypecheck: 'PASS (harness-typecheck.log)', diffCheck: 'PASS' },
+  runs, before, after: runs.flatMap(r => r.cases.filter(c => c.title.includes('F7-R3-N1'))), coverage: 'Full 50 F7 cases first passed; then only the appended reviewer Close-unknown case ran (1/1). Production sources/build unchanged across all runs. Final test source hashes include that append.',
+  buildFiles: build.length, historical, protectedDiff, secretMatches: secrets,
+  backend: { snapshotCommit: '7591633137c5a6f57c1fce8e1ba19ab394015880', checkoutCommit: execFileSync('git', ['-C', 'C:/Users/user/Desktop/custom-form-service', 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), manifest: { total: backend.length, matches: backend.filter(f => f.matches).length }, runtimeReverified: false, realBusinessRequests: 0, realWrites: 0, realDeletes: 0, databaseOperations: 0 },
+  fixtures: 'All Browser business API requests intercepted. F7/F3/F6 built use one fresh production build; F6 scope uses dev harness.', limitations: ['Formal AI/manual acceptance deferred; accepted unchanged', 'Real invalid/expired/disabled and server-commit fault BLOCKED', 'DB identity/migration UNCONFIRMED', 'Fresh real integration, real device, Chrome/Edge/Firefox/WebKit additional runs, npm ci/audit, F8/F9 NOT RUN'] })
+write('artifact-manifest.json', { hashEncoding: 'UTF-8 text normalized to LF; PNG binary bytes', files: walk(dest).filter(f => !f.endsWith('artifact-manifest.json')).sort().map(file => ({ file: path.relative(dest, file).replaceAll('\\', '/'), bytes: bytes(file).length, sha256: sha(bytes(file)) })) })
+console.log(JSON.stringify({ runs: runs.map(r => ({ name: r.name, stats: r.stats })), historical, backend: backend.length, sources: sources.length, before: before.length, secrets, versions }))

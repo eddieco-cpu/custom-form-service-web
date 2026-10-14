@@ -18,7 +18,8 @@ export function useFormEditor(mode: 'new' | 'edit') {
   // Stable content revision, independent of authentication revisions.
   const contentRevision = ref(0)
   watch(() => state.session?.definition, () => { contentRevision.value++ }, { deep: true, flush: 'sync' })
-  const dirty = useDirtyScope({ isDirty: () => state.session ? editorDirty(state.session.definition, state.session.baseline) : false, revision: () => contentRevision.value, needsReconciliation: () => { void operation.value.state.value; return operation.value.operation.value!.anyUnknown } })
+  const dirty = useDirtyScope({ isDirty: () => state.session ? editorDirty(state.session.definition, state.session.baseline) : false, revision: () => contentRevision.value,
+    captureContext: () => operation.value.operation.value!.captureRead(), needsReconciliation: () => { void operation.value.state.value; return operation.value.operation.value!.anyUnknown } })
   useActiveDirtyScope().register(dirty)
   const controller = new EditorPageController(state, {
     auth: () => auth.state.value, authSession: auth.session, scope, service: formService(useRuntimeConfig().public.apiBaseUrl),

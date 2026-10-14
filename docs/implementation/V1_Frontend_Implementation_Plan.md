@@ -612,6 +612,14 @@ Owner 指定修正基準 `0af30dc877fca68b1cd74fb5741c06e6456d89bd`、交付 `da
 
 **停於「F7-R1～R4 局部獨立複核完成、待 Owner 確認」。** 正式驗收延後、accepted 與既有受控特殊 Auth／交易故障／DB identity／migration／實機等缺口不變；真實整合僅沿用適用歷史原件，無新增真實寫入／Delete／測資。僅新增報告／去敏證據及本節／README進度，原 review／報告／首次失敗保留；單一目的本機文件提交 SHA 見 Git log／交付訊息，不推送、不展開 F8。
 
+### 9.29 F7-R3-N1 授權局部修正（2026-10-14）
+
+Owner 採納 [局部複核](../review/F7_R1_R4_Correction_ReReview_Report_20261014.md) 的 N1／P2，直接授權修正、自測與本機提交；接手 reviewer HEAD `6d9c843a012cb0a24e194f1de2020ab294554f1b`、工作樹乾淨，R1／R2／R4 維持 CLOSED。完成已授權 logout 成功清理與單次 replace `/login` 的銜接：採用前核對 request／dirty permit／Form write revision；自身 Session／Form 清理可更新本次 permit，外部 content／Session／scope／write 仍否定舊操作，導航完成後清授權。見 [N1 報告](F7_R3_N1_Correction_Report.md)／[證據](evidence/F7_R3_N1_Correction_20261014/verification-summary.json)。
+
+lint／strict typecheck／fresh build／harness strict PASS；受影響 unit **167／167（5 files）**，F7 built **50／50**＋reviewer Close unknown 追加單案 **1／1**、F3 登出 built **4／4**、F6 dirty built **11 PASS／2 skipped**／scope harness **2／2**。Published／Closed clean／unknown 登出成功、取消、失敗及 pending 外部 context 晚回通過；原 R3 的 SPA／beforeunload 取消、重讀／Delete 204 單次導航維持。所有 Browser API 攔截；原 review／開發／修正／複核 manifests 51／70／41／41 與 backend-ref 108 筆相符，原 FAIL 保留，無真實業務 API／寫入／Delete／新測資／DB 操作。
+
+**停於「F7-R3-N1 修正完成、待局部獨立複核」。** 未代宣告 R3／F7 code review 結案；正式驗收延後、accepted／既有缺口不變。單一目的本機提交 SHA 見 Git log／交付訊息；不推送、不展開 F8，歷史報告／證據與進度保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

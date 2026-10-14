@@ -129,6 +129,44 @@ describe('write lifecycle', () => {
   })
 })
 describe('discard permits', () => {
+  it.each([false, true])('completed logout cleanup transfers its %s dirty permit once to the intended navigation', dirty => {
+    const scope = new DirtyScope(); scope.update(dirty, 1)
+    const ask = vi.fn(() => true), permit = scope.authorize('logout', ask)!
+    expect(ask).toHaveBeenCalledTimes(dirty ? 1 : 0)
+    expect(scope.completeNavigation(permit, '/login', () => { scope.update(dirty, 2); return () => true })).toBe(true)
+    expect(scope.valid(permit)).toBe(false)
+    expect(scope.allowNavigation('/login', ask)).toBe(true); expect(ask).toHaveBeenCalledTimes(dirty ? 1 : 0)
+    expect(scope.completeNavigation(permit, '/login', () => () => true)).toBe(false)
+    scope.clear(); scope.update(true, 3); expect(scope.allowNavigation('/another', ask)).toBe(true); expect(ask).toHaveBeenCalledTimes(dirty ? 2 : 1)
+  })
+  it('external content changes before completion prohibit cleanup, and later changes reject the reserved navigation without reauthorizing', () => {
+    const scope = new DirtyScope(); scope.update(true, 1)
+    const permit = scope.authorize('logout', () => true)!, cleanup = vi.fn(() => () => true)
+    scope.update(true, 2); expect(scope.completeNavigation(permit, '/login', cleanup)).toBe(false); expect(cleanup).not.toHaveBeenCalled()
+    const fresh = scope.authorize('logout', () => true)!
+    expect(scope.completeNavigation(fresh, '/login', () => { scope.update(false, 3); return () => true })).toBe(true)
+    scope.update(true, 4); const ask = vi.fn(() => true)
+    expect(scope.allowNavigation('/login', ask)).toBe(false); expect(ask).not.toHaveBeenCalled()
+    scope.clear(); expect(scope.allowNavigation('/login', ask)).toBe(true); expect(ask).toHaveBeenCalledTimes(1)
+  })
+  it.each(['session', 'request', 'write'] as const)('external %s changes reject completed logout navigation without a second confirmation', change => {
+    const scope = new DirtyScope(), coordinator = new WriteCoordinator(); scope.update(true, 1)
+    let session = 1
+    const requests = new RequestScope(() => '/form', () => session), form = new OperationState('delta', coordinator, 'form:a')
+    const permit = scope.authorize('logout', () => true)!, readCurrent = form.captureRead()
+    expect(scope.completeNavigation(permit, '/login', () => { session++; scope.update(false, 2); const ticket = requests.begin(); return () => ticket.isCurrent() && readCurrent() })).toBe(true)
+    if (change === 'session') session++
+    if (change === 'request') requests.begin()
+    if (change === 'write') coordinator.acquire('form:a', 'visibility')!()
+    const ask = vi.fn(() => true); expect(scope.allowNavigation('/login', ask)).toBe(false); expect(ask).not.toHaveBeenCalled()
+  })
+  it('a failed completion does not create a navigation permit or allow its old action to run twice', () => {
+    const scope = new DirtyScope(); scope.update(true, 1)
+    const permit = scope.authorize('logout', () => true)!, cleanup = vi.fn(() => undefined)
+    expect(scope.completeNavigation(permit, '/login', cleanup)).toBe(false)
+    expect(scope.completeNavigation(permit, '/login', cleanup)).toBe(false); expect(cleanup).toHaveBeenCalledTimes(1)
+    const ask = vi.fn(() => false); expect(scope.allowNavigation('/login', ask)).toBe(false); expect(ask).toHaveBeenCalledTimes(1)
+  })
   it('cancel blocks; redirect shares one permit; next navigation/action asks again', () => {
     const scope = new DirtyScope(); scope.update(true, 1)
     expect(scope.allowNavigation('/b', () => false)).toBe(false)

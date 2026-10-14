@@ -1,0 +1,211 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f6.config.ts",
+      "--grep",
+      "same-component ID update|pending old GET",
+      "--reporter=list,json",
+      "--output=output/playwright/f7/n1-f6-scope-artifacts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f6.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f7/n1-f6-scope-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f6-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f7\\n1-f6-scope-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f6-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list"
+      ],
+      [
+        "json"
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs dev tests/fixtures/f6/browser --host localhost --port 3000",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f6-browser.spec.ts",
+      "file": "f6-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 6076,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T11:02:30.220Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-f3e1f35a7d3924f1c423",
+          "file": "f6-browser.spec.ts",
+          "line": 205,
+          "column": 1
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2059,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T11:02:36.486Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQifV0sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "be305601406e08c1b387-930c031fb853a4cedd5b",
+          "file": "f6-browser.spec.ts",
+          "line": 217,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T11:02:20.578Z",
+    "duration": 18692.116,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

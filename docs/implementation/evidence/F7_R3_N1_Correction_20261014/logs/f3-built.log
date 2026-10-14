@@ -1,0 +1,21 @@
+
+> test:e2e
+> playwright test --config=output/f7/n1-correction-20261014/playwright.f3-built.config.ts --grep F3-B06|F3-B08|F3-B10|F3-B14
+
+[WebServer] 
+[WebServer]  ERROR  (node:32264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:33448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 4 tests using 1 worker
+
+(node:13340) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f3-browser.spec.ts:127:1 › F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit (2.1s)
+  ok 2 [chromium] › tests\e2e\f3-browser.spec.ts:165:1 › F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout (976ms)
+  ok 3 [chromium] › tests\e2e\f3-browser.spec.ts:212:1 › F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries (1.8s)
+  ok 4 [chromium] › tests\e2e\f3-browser.spec.ts:262:1 › F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route (859ms)
+
+  4 passed (12.3s)

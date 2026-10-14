@@ -1,0 +1,135 @@
+{
+  "hashEncoding": "UTF-8 text normalized to LF; PNG binary bytes",
+  "files": [
+    {
+      "file": "browser/f3-built-results.json",
+      "bytes": 8103,
+      "sha256": "669393964f1afb6d9792997660a301c1d042185f4cd6bda3b34daa8273266239"
+    },
+    {
+      "file": "browser/f6-built-results.json",
+      "bytes": 33316,
+      "sha256": "f05ddc6425344ca0756ad5103ca7728259f37f024c04942295f9e355cbd951da"
+    },
+    {
+      "file": "browser/f6-scope-results.json",
+      "bytes": 6815,
+      "sha256": "a9ef37d2f6366e6fee6426727f386d4dd1f316f1cec6afdec7ae6bd8a351ad46"
+    },
+    {
+      "file": "browser/f7-full-results.json",
+      "bytes": 103468,
+      "sha256": "90a1ee509f291f22e870ead209a7099ca2aad60546b02792f8ec2be14118d142"
+    },
+    {
+      "file": "browser/reviewer-close-results.json",
+      "bytes": 5677,
+      "sha256": "a5e94b0f9570820c5b7f4c973c9d43346e8444931762bfcd8f7ae3fc024c378d"
+    },
+    {
+      "file": "closeout-checks.json",
+      "bytes": 1452,
+      "sha256": "9a409ff5041a48102d085ef9e90841d660463e5b2f2b8f6ab4fc1f5f7a49f5dc"
+    },
+    {
+      "file": "closeout.mjs.txt",
+      "bytes": 4619,
+      "sha256": "54eae3b9905b71e49000a0982d6c99eb59f8628671c11e9229f48cfc95417e75"
+    },
+    {
+      "file": "collect.mjs.txt",
+      "bytes": 7808,
+      "sha256": "273c7ff252d36a02a9a8a5813b7796e6b60ef43de96cd00f1f8a1c0bcd62a946"
+    },
+    {
+      "file": "fresh-build-digest.json",
+      "bytes": 25604,
+      "sha256": "f4aef977689cca22b37df754afa2db840064f46a6246d0073d5ab039e2135ed2"
+    },
+    {
+      "file": "images/logout-unknown-login.png",
+      "bytes": 17163,
+      "sha256": "6b42838f4855015ec4c62a0a33d1cb194e70fbec158dae262f46249e1b966f1e"
+    },
+    {
+      "file": "logs/browser-first.log",
+      "bytes": 8243,
+      "sha256": "e396d1d9b9c08e8fd785cab4ff44af84ee3d148efd8aa47b0ec21a207f3e893e"
+    },
+    {
+      "file": "logs/browser-reviewer-close.log",
+      "bytes": 870,
+      "sha256": "8a78050f5e9c80029a9e8c3ac27d800f2d9560721286a53bad7a110efc0b04f5"
+    },
+    {
+      "file": "logs/build.log",
+      "bytes": 7828,
+      "sha256": "74923799ca5f8488af466ac081ba48ccdd730cca6e7d2d5e9439b9715833874c"
+    },
+    {
+      "file": "logs/collect-first.log",
+      "bytes": 1168,
+      "sha256": "e6c6e98f7bdc8431be9eeb95619d224a706bad4ad2bd8a2d19de9b438fd7045c"
+    },
+    {
+      "file": "logs/collect-second.log",
+      "bytes": 1459,
+      "sha256": "39f1c6fdc1b573af6ce1c5d4e60eacb93f282becb063a494ed8236b3a2435497"
+    },
+    {
+      "file": "logs/f3-built.log",
+      "bytes": 1425,
+      "sha256": "f75b5ed7e794397254d73fb635ccce7c3103b02860c8fa5226c43b8ad31b7ff4"
+    },
+    {
+      "file": "logs/f6-built.log",
+      "bytes": 2828,
+      "sha256": "998346315a4e3e5c827248e4affae4708fe8e3ca801151dd61bf7701859995d9"
+    },
+    {
+      "file": "logs/f6-scope.log",
+      "bytes": 922,
+      "sha256": "0e6912b3f378775e81ac1b6b5d6b66bb6367cdb69e617672f447effe23492f49"
+    },
+    {
+      "file": "logs/harness-typecheck.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "file": "logs/lint-delivery.log",
+      "bytes": 20,
+      "sha256": "6ba41d3386946f3480608c0bcb80bb893d785c187db4178012a840ea9081d89b"
+    },
+    {
+      "file": "logs/lint-first.log",
+      "bytes": 20,
+      "sha256": "6ba41d3386946f3480608c0bcb80bb893d785c187db4178012a840ea9081d89b"
+    },
+    {
+      "file": "logs/typecheck-delivery.log",
+      "bytes": 270,
+      "sha256": "6d9c3f92208536b89f9adb66bca1fa568fcc4490536ff570b9d1100765625585"
+    },
+    {
+      "file": "logs/typecheck.log",
+      "bytes": 271,
+      "sha256": "8775eb06d5a2c6753fea516c450ea14e6699e8b7289bc62dd215568337e56589"
+    },
+    {
+      "file": "logs/unit-first.log",
+      "bytes": 400,
+      "sha256": "222064a65ea734a1a104c5214c7935bb540177ed0b28e179d3f7c981d62cc1f3"
+    },
+    {
+      "file": "playwright.f3-built.config.ts.txt",
+      "bytes": 490,
+      "sha256": "e77fb39fcbe3e16e1fe9aea4f53313c10d1e27fda794d2ac5269d57a6ab5b14e"
+    },
+    {
+      "file": "verification-summary.json",
+      "bytes": 30506,
+      "sha256": "2097432a325fa07933df51e3a0773e0bb3605e2aa29ee44da18b174684e58f8f"
+    }
+  ]
+}

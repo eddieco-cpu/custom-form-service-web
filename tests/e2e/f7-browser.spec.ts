@@ -14,7 +14,7 @@ const error = (code: string, details?: { path: string; code: string; message: st
 const reply = (r: Route, body: unknown, status = 200) => r.fulfill({ status, headers, contentType: 'application/json', body: stringifyExactJson(body) })
 function gate() { let release!: () => void; const promise = new Promise<void>(r => { release = r }); return { promise, release } }
 async function mock(page: Page, dto = form(), nonOwner = false) {
-  const s = { dto, user: nonOwner ? { ...owner, id: uuid(52) } : owner, count: 0, get: undefined as Reply | undefined, write: undefined as Reply | undefined,
+  const s = { dto, user: nonOwner ? { ...owner, id: uuid(52) } : owner, count: 0, get: undefined as Reply | undefined, write: undefined as Reply | undefined, logout: undefined as Reply | undefined, loggedOut: false,
     requests: [] as { method: string; path: string; body: string | null }[], expected: [] as ExpectedFailure[], outcomes: [] as NetworkFailure[], diagnostics: [] as Diagnostic[], errors: [] as string[], unexpected: [] as string[] }
   page.on('pageerror', e => s.errors.push(e.message))
   page.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) s.diagnostics.push({ text: m.text(), url: m.location().url }) })
@@ -24,7 +24,12 @@ async function mock(page: Page, dto = form(), nonOwner = false) {
     const req = r.request(), path = new URL(req.url()).pathname, method = req.method()
     if (method === 'OPTIONS') { await r.fulfill({ status: 204, headers: { ...headers, 'access-control-allow-methods': 'GET,POST,PATCH,DELETE', 'access-control-allow-headers': 'content-type' } }); return }
     s.requests.push({ method, path, body: req.postData() })
-    if (path === '/api/v1/users/me') { await reply(r, s.user); return }
+    if (path === '/api/v1/users/me') { await reply(r, s.loggedOut ? error('AUTH_REQUIRED') : s.user, s.loggedOut ? 401 : 200); return }
+    if (path === '/api/v1/auth/logout') {
+      if (s.logout) await s.logout(r)
+      else { s.loggedOut = true; await r.fulfill({ status: 204, headers }) }
+      return
+    }
     if (path === '/api/v1/forms') { await reply(r, { items: [], pagination: { page: 1, pageSize: 10, totalItems: 0, totalPages: 0 } }); return }
     if (req.url() === root && method === 'GET') { if (s.get) await s.get(r); else await reply(r, s.dto); return }
     if (path.endsWith('/respondent-count')) { await reply(r, { count: s.count }); return }
@@ -328,4 +333,64 @@ test('F7-R2 status change isolates old copy; current Closed copy and latest gene
   await settleClipboard(page, false, 1); await expect(page.getByLabel('完整分享連結')).toHaveValue(`http://localhost:3000${view}/statistics`); await expect(page.getByText('統計連結已複製', { exact: true })).toHaveCount(0)
   await page.getByLabel('完整分享連結').focus(); expect(await page.getByLabel('完整分享連結').evaluate((el: HTMLInputElement) => el.selectionEnd! - el.selectionStart!)).toBe(`http://localhost:3000${view}/statistics`.length)
   await page.getByRole('button', { name: '取消手動複製' }).click(); await expect(page.getByLabel('完整分享連結')).toHaveCount(0); clean(s)
+})
+async function headerLogout(page: Page) {
+  await page.getByRole('button', { name: '使用者選單' }).click(); await page.getByRole('button', { name: '登出', exact: true }).click()
+}
+for (const status of ['published', 'closed'] as const) for (const unknown of [false, true]) test(`F7-R3-N1 ${status} ${unknown ? 'unknown accepts once' : 'clean confirms zero'} logout 204 clears and replaces login`, async ({ page }, info) => {
+  const s = await start(page, { ...form(), status }); let prompts = 0
+  page.on('dialog', async d => { prompts++; await d.accept() })
+  if (unknown) {
+    s.expected.push(expectedNetwork('PATCH', `${root}/result-visibility`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
+    await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page)
+  }
+  const before = await page.evaluate(() => history.length)
+  await headerLogout(page); await expect(page).toHaveURL('http://localhost:3000/login'); await expect(page.getByLabel('Email', { exact: true })).toBeVisible()
+  await expect(page.getByText('未登入', { exact: true })).toBeVisible(); await expect(page.getByRole('button', { name: '使用者選單' })).toHaveCount(0)
+  await expect(page.getByRole('button', { name: '重新載入並核對' })).toHaveCount(0)
+  expect(prompts).toBe(unknown ? 1 : 0); expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1)
+  expect(s.requests.find(r => r.path.endsWith('/auth/logout'))!.body).toBeNull(); expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
+  expect(await page.evaluate(() => history.length)).toBe(before)
+  if (status === 'published' && unknown) await page.screenshot({ path: info.outputPath('logout-unknown-login.png') })
+  clean(s)
+})
+for (const status of ['published', 'closed'] as const) test(`F7-R3-N1 ${status} unknown logout cancel preserves Session URL and unknown lock, zero request`, async ({ page }) => {
+  const s = await start(page, { ...form(), status }); s.expected.push(expectedNetwork('PATCH', `${root}/result-visibility`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page)
+  let prompts = 0; page.on('dialog', async d => { prompts++; await d.dismiss() }); await headerLogout(page); await expect.poll(() => prompts).toBe(1)
+  expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(0); await expect(page).toHaveURL(`http://localhost:3000${view}`)
+  await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+})
+for (const failure of ['http', 'network'] as const) test(`F7-R3-N1 unknown logout ${failure} failure preserves context and revokes discard authorization`, async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0
+  page.on('dialog', async d => { prompts++; if (prompts === 1) await d.accept(); else await d.dismiss() })
+  if (failure === 'http') { s.expected.push(expectedHttp('POST', `${api}/auth/logout`, 400, 1)); s.logout = r => reply(r, error('VALIDATION_ERROR'), 400) }
+  else { s.expected.push(expectedNetwork('POST', `${api}/auth/logout`, 'net::ERR_FAILED', 1, 1)); s.logout = r => r.abort('failed') }
+  await headerLogout(page); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible(); await closeError(page)
+  await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled()
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect.poll(() => prompts).toBe(2)
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1); clean(s)
+})
+for (const change of ['content', 'write', 'session', 'leave'] as const) test(`F7-R3-N1 pending logout external ${change} makes late 204 stale`, async ({ page }) => {
+  const s = await start(page, { ...form(), status: 'published' }), pending = gate()
+  s.logout = async r => { await pending.promise; await r.fulfill({ status: 204, headers }) }
+  await headerLogout(page); await expect.poll(() => s.requests.filter(r => r.path.endsWith('/auth/logout')).length).toBe(1)
+  if (change === 'content') { s.dto = { ...s.dto, title: '外部重新讀取現況' }; await page.getByRole('button', { name: '重新載入表單', exact: true }).click(); await expect(page.getByRole('heading', { name: '外部重新讀取現況' })).toBeVisible() }
+  if (change === 'write') { s.expected.push(expectedHttp('PATCH', `${root}/result-visibility`, 400, 1)); s.write = r => reply(r, error('VALIDATION_ERROR'), 400); await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page) }
+  if (change === 'session') { s.expected.push(expectedHttp('GET', `${root}/respondent-count`, 401, 1)); await page.route(`${root}/respondent-count`, r => reply(r, error('AUTH_TOKEN_EXPIRED'), 401)); await page.getByRole('button', { name: '查看填答人數' }).click(); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible() }
+  if (change === 'leave') { await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/') }
+  const response = page.waitForResponse(r => r.url() === `${api}/auth/logout`); pending.release(); await response
+  await page.evaluate(async () => { await new Promise<void>(r => requestAnimationFrame(() => r())); await new Promise<void>(r => requestAnimationFrame(() => r())) })
+  await expect(page).toHaveURL(`http://localhost:3000${change === 'leave' ? '/' : view}`)
+  if (change === 'session') { await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible(); await expect(page.getByText('未登入', { exact: true })).toBeVisible() }
+  else await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible()
+  expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1); clean(s)
+})
+test('F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login', async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0; page.on('dialog', async d => { prompts++; await d.accept() })
+  const before = await page.evaluate(() => history.length)
+  await headerLogout(page); await expect(page).toHaveURL('http://localhost:3000/login'); await expect(page.getByLabel('Email', { exact: true })).toBeVisible()
+  await expect(page.getByText('未登入', { exact: true })).toBeVisible(); expect(prompts).toBe(1)
+  expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1); expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
+  expect(await page.evaluate(() => history.length)).toBe(before); await expect(page.getByRole('button', { name: '重新載入並核對' })).toHaveCount(0); clean(s)
 })

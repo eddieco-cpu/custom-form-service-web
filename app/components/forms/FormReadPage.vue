@@ -5,6 +5,7 @@ const { state, loading, auth, owner, refresh, reader, verify, operation } = useF
 const content = ref(0)
 watch(() => state.data, () => { content.value++ }, { flush: 'sync' })
 const dirty = useDirtyScope({ isDirty: () => false, revision: () => content.value,
+  captureContext: () => operation.operation.value!.captureRead(),
   needsReconciliation: () => { void operation.state.value; return operation.operation.value!.anyUnknown } })
 useActiveDirtyScope().register(dirty)
 function authorize(confirmed = false) {

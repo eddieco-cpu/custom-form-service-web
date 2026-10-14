@@ -4,7 +4,7 @@ import type { RouteLocationRaw } from 'vue-router'
 import { DirtyScope } from '../domain/dirty-scope'
 import type { DiscardPermit } from '../domain/dirty-scope'
 
-export interface DirtyScopeOptions { readonly isDirty: () => boolean; readonly revision: () => unknown; readonly needsReconciliation?: () => boolean }
+export interface DirtyScopeOptions { readonly isDirty: () => boolean; readonly revision: () => unknown; readonly needsReconciliation?: () => boolean; readonly captureContext?: () => (() => boolean) }
 export function useDirtyScope(options: DirtyScopeOptions) {
   const router = useRouter()
   const scope = new DirtyScope()
@@ -25,9 +25,16 @@ export function useDirtyScope(options: DirtyScopeOptions) {
   return {
     dirty,
     authorizeAction: (actionId: string, confirmation: () => boolean = ask) => scope.authorize(actionId, confirmation),
+    captureCurrent: (permit: DiscardPermit) => { const current = options.captureContext?.() ?? (() => true); return () => scope.valid(permit) && current() },
     finishAction: () => scope.clear(),
-    async navigateWithPermit(permit: DiscardPermit, target: RouteLocationRaw, replace = false) {
-      if (!scope.bindNavigation(permit, router.resolve(target).fullPath)) return false
+    async navigateWithPermit(permit: DiscardPermit, target: RouteLocationRaw, replace = false, cleanup?: () => (() => boolean) | undefined) {
+      const transition = router.resolve(target).fullPath, context = options.captureContext?.() ?? (() => true)
+      const bound = cleanup ? scope.completeNavigation(permit, transition, () => {
+        if (!context()) return undefined
+        const current = cleanup()
+        return current ? () => context() && current() : undefined
+      }) : scope.bindNavigation(permit, transition)
+      if (!bound) return false
       try { return !(await (replace ? router.replace(target) : router.push(target))) }
       finally { scope.clear() }
     },
