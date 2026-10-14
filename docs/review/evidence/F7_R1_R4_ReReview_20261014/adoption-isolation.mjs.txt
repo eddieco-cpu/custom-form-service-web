@@ -1,0 +1,69 @@
+import { registerHooks } from 'node:module';
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import * as Vue from 'vue';
+registerHooks({resolve(s,c,n){try{return n(s,c);}catch(e){if(s.startsWith('.'))return n(`${s}.ts`,c);throw e;}}});
+const {useFormDetail}=await import('../../../app/composables/useFormDetail.ts');
+const {useFormRead}=await import('../../../app/composables/useFormRead.ts');
+const {useRequestScope}=await import('../../../app/composables/useRequestScope.ts');
+const {useOperationState}=await import('../../../app/composables/useOperationState.ts');
+const {AuthSession,initialAuthState}=await import('../../../app/domain/auth-state.ts');
+const {DirtyScope}=await import('../../../app/domain/dirty-scope.ts');
+const {form,uuid}=await import('../../../tests/fixtures/f5/payloads.ts');
+const {stringifyExactJson}=await import('../../../app/utils/exact-json.ts');
+const {ref,reactive,watch,h,nextTick,createRenderer}=Vue;
+const owner={id:uuid(51),email:'review-owner@example.test',displayName:'Review Owner',avatarUrl:null};
+const other={...owner,id:uuid(52),displayName:'Review Other'};
+const ok=value=>({kind:'success',status:200,value});
+const hold=()=>{let resolve;const promise=new Promise(r=>resolve=r);return{promise,resolve};};
+const response=dto=>new Response(stringifyExactJson(dto),{status:200,headers:{'content-type':'application/json'}});
+const results=[];
+async function until(f){for(let i=0;i<500;i++){if(f())return;await new Promise(r=>setTimeout(r,1));}throw new Error('Probe condition did not settle');}
+async function setup(user=owner){
+  const authState=ref(initialAuthState());let me=async()=>ok(user),get=async()=>response({...form(),status:'published'});const calls=[];
+  const session=new AuthSession(authState.value,()=>me());session.login(user);
+  const route=reactive({fullPath:`/forms/${uuid(50)}`,params:{formId:uuid(50)}});
+  const router={replace:async target=>{calls.push({navigate:target});},push:async()=>{}};
+  Object.assign(globalThis,Vue,{useFormRead,useRequestScope,useOperationState,useAuth:()=>({state:authState,session}),useRoute:()=>route,useRouter:()=>router,useRuntimeConfig:()=>({public:{apiBaseUrl:'http://localhost:5000/api/v1'}})});
+  globalThis.fetch=async(url,options)=>{calls.push({url,method:options.method});return get(url,options);};
+  let detail,peer,content;const dirty=new DirtyScope();
+  const renderer=createRenderer({createElement:()=>({}),createText:()=>({}),createComment:()=>({}),insert(){},remove(){},setText(){},setElementText(){},parentNode:()=>null,nextSibling:()=>null,patchProp(){}});
+  const app=renderer.createApp({setup(){detail=useFormDetail('form');peer=useOperationState('lifecycle',()=>`form:${route.params.formId}`);content=ref(0);watch(()=>detail.state.data,()=>content.value++,{flush:'sync'});watch([()=>content.value,()=>{void detail.operation.state.value;return detail.operation.operation.value.anyUnknown;}],()=>dirty.update(detail.operation.operation.value.anyUnknown,content.value),{immediate:true,flush:'sync'});return()=>h('div');}});
+  app.mount({});await until(()=>!!detail.state.data);
+  return{detail,peer,session,authState,route,calls,content,dirty,setGet:f=>get=f,setMe:f=>me=f,dispose:()=>app.unmount(),markUnknown:async()=>{await peer.operation.value.run({},async()=>({kind:'transport-error',reason:'timeout',sent:true}),()=>true);await nextTick();},permit:()=>{const p=dirty.authorize('review-current-adoption',()=>true);return()=>p.revision===content.value;}};
+}
+async function run(name,probe){let t;try{t=await setup();results.push({name,result:'PASS',...await probe(t)});}catch(e){results.push({name,result:'FAIL',message:e.stack});}finally{t?.dispose();await nextTick();}}
+await run('R3 own successful current adoption may advance content revision and clear unknown',async t=>{
+  await t.markUnknown();const permit=t.permit(),before=t.content.value;t.setGet(async()=>response({...form(),status:'published',title:'CURRENT accepted'}));await t.detail.refresh(permit);
+  assert.equal(t.detail.state.data.title,'CURRENT accepted');assert.equal(t.detail.operation.operation.value.anyUnknown,false);assert.equal(permit(),false);assert.ok(t.content.value>before);return{before,after:t.content.value,unknown:false,ownPermitNowInvalid:true};
+});
+await run('R3 external content revision during GET still rejects old adoption and keeps unknown',async t=>{
+  await t.markUnknown();const get=hold(),permit=t.permit();t.setGet(()=>get.promise);const pending=t.detail.refresh(permit);await until(()=>t.calls.length===2);
+  t.detail.state.data={...t.detail.state.data,title:'EXTERNAL current content'};get.resolve(response({...form(),status:'published',title:'POISON old GET'}));await pending;
+  assert.equal(t.detail.state.data.title,'EXTERNAL current content');assert.equal(t.detail.operation.operation.value.anyUnknown,true);return{contentRetained:true,unknown:true};
+});
+await run('R3 cross-write GET revision rejects old late response after pending ends',async t=>{
+  const get=hold(),permit=t.permit();t.setGet(()=>get.promise);const pending=t.detail.refresh(permit);await until(()=>t.calls.length===2);
+  await t.peer.operation.value.run({},async()=>({kind:'transport-error',reason:'timeout',sent:true}),()=>true);get.resolve(response({...form(),status:'published',title:'POISON cross-write GET'}));await pending;
+  assert.equal(t.detail.state.data.title,form().title);assert.equal(t.detail.operation.operation.value.anyUnknown,true);return{oldResponseIgnored:true,unknown:true,writeFinished:true};
+});
+await run('R3 older RequestScope cannot overwrite newer accepted current GET',async t=>{
+  const old=hold();let requests=0;t.setGet(()=>++requests===1?old.promise:Promise.resolve(response({...form(),status:'published',title:'NEWER request context'})));
+  const pending=t.detail.refresh(t.permit());await until(()=>requests===1);await t.detail.refresh(t.permit());old.resolve(response({...form(),status:'published',title:'POISON superseded ticket'}));await pending;
+  assert.equal(t.detail.state.data.title,'NEWER request context');return{newerContentRetained:true,requests};
+});
+await run('R3 explicit qualification Form GET rejects external Session change and retains unknown',async t=>{
+  await t.markUnknown();const get=hold();t.setMe(async()=>ok(owner));t.setGet(()=>get.promise);const pending=t.detail.verify(t.permit());await until(()=>t.calls.length===2);
+  t.session.login(owner);get.resolve(response({...form(),status:'published',title:'POISON external Session'}));const adopted=await pending;
+  assert.equal(adopted,false);assert.equal(t.detail.state.data,null);assert.equal(t.detail.operation.operation.value.anyUnknown,true);return{adopted:false,sessionRevision:t.authState.value.sessionRevision,unknown:true};
+});
+await run('R3 qualification me captured before an external write cannot continue adoption',async t=>{
+  await t.markUnknown();t.peer.operation.value.reconcile(()=>true,()=>true);const me=hold();t.setMe(()=>me.promise);const before=t.calls.length,revision=t.authState.value.sessionRevision;const pending=t.detail.verify(t.permit());
+  await t.peer.operation.value.run({},async()=>({kind:'transport-error',reason:'timeout',sent:true}),()=>true);me.resolve(ok(owner));const adopted=await pending;
+  assert.equal(adopted,false);assert.equal(t.calls.length,before);assert.equal(t.authState.value.sessionRevision,revision);assert.equal(t.detail.operation.operation.value.anyUnknown,true);return{adopted:false,noFormRequest:true,unknown:true};
+});
+await run('R3 explicit identity adoption allows its own revision update but rechecks new owner',async t=>{
+  await t.markUnknown();t.setMe(async()=>ok(other));t.setGet(async()=>response({...form(),status:'published',title:'CURRENT Other-readable Form'}));const permit=t.permit(),before=t.authState.value.sessionRevision;const ownerQualified=await t.detail.verify(permit);
+  assert.equal(ownerQualified,false);assert.equal(t.authState.value.user.id,other.id);assert.equal(t.authState.value.sessionRevision,before+1);assert.equal(t.detail.state.data.title,'CURRENT Other-readable Form');assert.equal(t.detail.owner.value,false);assert.equal(t.detail.operation.operation.value.anyUnknown,false);return{ownerQualified:false,currentFormAdopted:true,sessionAdvanced:true,unknown:false};
+});
+fs.writeFileSync('docs/review/evidence/F7_R1_R4_ReReview_20261014/adoption-isolation.json',JSON.stringify({target:'daaa5dd13d4bac756c35943351b1ae04933a3b12',method:'Actual composables + Vue scoped renderer + actual RequestScope/OperationState/AuthSession; injected Nuxt route/auth globals and synthetic fetch, no network',cases:results},null,2)+'\n');console.log(JSON.stringify(results,null,2));if(results.some(v=>v.result!=='PASS'))process.exitCode=1;

@@ -1,0 +1,45 @@
+{
+  "target": "daaa5dd13d4bac756c35943351b1ae04933a3b12",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T10:21:35.096Z",
+  "cases": [
+    {
+      "name": "R3 accepted Header logout after Close unknown must replace login without second confirmation",
+      "result": "FAIL",
+      "expected": "204 -> replace /login; exactly one confirmation",
+      "observed": {
+        "url": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050",
+        "prompts": 1,
+        "logoutRequests": 1,
+        "anonymousMessage": 1,
+        "loginFormCount": 0
+      },
+      "navigationError": "expect(page).toHaveURL(expected) failed\n\nExpected: \"http://localhost:3000/login\"\nReceived: \"http://localhost:3000/forms/00000000-0000-4000-8000-000000000050\"\nTimeout:  3000ms\n\nCall log:\n  - Expect \"toHaveURL\" with timeout 3000ms\n    10 × locator resolved to <html lang=\"zh-Hant\">…</html>\n       - unexpected value \"http://localhost:3000/forms/00000000-0000-4000-8000-000000000050\"\n",
+      "expectedNetwork": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED",
+          "count": 1
+        }
+      ],
+      "errors": [],
+      "failures": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "unexpected": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

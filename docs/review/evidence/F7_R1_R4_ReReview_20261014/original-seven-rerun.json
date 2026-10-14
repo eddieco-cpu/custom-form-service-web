@@ -1,0 +1,171 @@
+{
+  "target": "daaa5dd13d4bac756c35943351b1ae04933a3b12",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T10:21:33.929Z",
+  "cases": [
+    {
+      "name": "Original R1 saved Rating {max:5} must focus min, repeat, keep full summary, zero writes",
+      "result": "PASS",
+      "active": [
+        {
+          "tag": "INPUT",
+          "field": "00000000-0000-4000-8000-000000000005.config.min"
+        },
+        {
+          "tag": "INPUT",
+          "field": "00000000-0000-4000-8000-000000000005.config.min"
+        }
+      ],
+      "summaryCount": 1,
+      "writes": [],
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "Original R2 pending Clipboard resolve after SPA Home emits no toast or fallback",
+      "result": "PASS",
+      "url": "http://localhost:3000/",
+      "staleToast": false,
+      "fallback": false,
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "Original R2 pending Clipboard reject after management 403 emits no fallback",
+      "result": "PASS",
+      "expected": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 403,
+          "count": 1
+        }
+      ],
+      "responses": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 403
+        }
+      ],
+      "fallback": false,
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "Original R3 Close unknown SPA cancel preserves Form URL and lock",
+      "result": "PASS",
+      "prompts": 1,
+      "lockRetained": true,
+      "errors": [],
+      "failures": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "Original R3 Close unknown beforeunload cancel preserves one App and lock",
+      "result": "PASS",
+      "prompts": 1,
+      "meRequests": 1,
+      "lockRetained": true,
+      "errors": [],
+      "failures": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "Original R4 Visibility 404 then discard cancel retains dirty but prohibits Draft PATCH",
+      "result": "PASS",
+      "prompts": 1,
+      "definitionPatches": 0,
+      "saveDisabled": true,
+      "contentRetained": true,
+      "errors": [],
+      "responses": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 404
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "Original R4 Publish 409 plus candidate/current GET 500 prohibits Draft PATCH",
+      "result": "PASS",
+      "saveDisabled": true,
+      "definitionPatches": 0,
+      "responses": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+          "status": 409
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        }
+      ],
+      "unexpected": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

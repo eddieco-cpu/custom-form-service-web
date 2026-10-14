@@ -1,0 +1,36 @@
+{
+  "target": "daaa5dd13d4bac756c35943351b1ae04933a3b12",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T10:27:44.922Z",
+  "cases": [
+    {
+      "name": "N1 clean Published Header logout also requires replace login",
+      "result": "FAIL",
+      "expected": "Clean page: zero prompt, logout 204 then replace login",
+      "observed": {
+        "url": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050",
+        "requests": 1,
+        "prompts": 0,
+        "anonymousMessage": 1
+      },
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "R1 structural summary, readonly first control skip, next editable focus and stale error cleanup",
+      "result": "PASS",
+      "initialErrors": 3,
+      "focus": "max (min temporarily readonly; first structural issue has no control)",
+      "afterSaveErrors": 0,
+      "nextValidationErrors": 1,
+      "patches": 1,
+      "publishRequests": 0,
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

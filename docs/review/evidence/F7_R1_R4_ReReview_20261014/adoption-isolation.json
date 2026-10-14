@@ -1,0 +1,55 @@
+{
+  "target": "daaa5dd13d4bac756c35943351b1ae04933a3b12",
+  "method": "Actual composables + Vue scoped renderer + actual RequestScope/OperationState/AuthSession; injected Nuxt route/auth globals and synthetic fetch, no network",
+  "cases": [
+    {
+      "name": "R3 own successful current adoption may advance content revision and clear unknown",
+      "result": "PASS",
+      "before": 1,
+      "after": 2,
+      "unknown": false,
+      "ownPermitNowInvalid": true
+    },
+    {
+      "name": "R3 external content revision during GET still rejects old adoption and keeps unknown",
+      "result": "PASS",
+      "contentRetained": true,
+      "unknown": true
+    },
+    {
+      "name": "R3 cross-write GET revision rejects old late response after pending ends",
+      "result": "PASS",
+      "oldResponseIgnored": true,
+      "unknown": true,
+      "writeFinished": true
+    },
+    {
+      "name": "R3 older RequestScope cannot overwrite newer accepted current GET",
+      "result": "PASS",
+      "newerContentRetained": true,
+      "requests": 2
+    },
+    {
+      "name": "R3 explicit qualification Form GET rejects external Session change and retains unknown",
+      "result": "PASS",
+      "adopted": false,
+      "sessionRevision": 2,
+      "unknown": true
+    },
+    {
+      "name": "R3 qualification me captured before an external write cannot continue adoption",
+      "result": "PASS",
+      "adopted": false,
+      "noFormRequest": true,
+      "unknown": true
+    },
+    {
+      "name": "R3 explicit identity adoption allows its own revision update but rechecks new owner",
+      "result": "PASS",
+      "ownerQualified": false,
+      "currentFormAdopted": true,
+      "sessionAdvanced": true,
+      "unknown": false
+    }
+  ]
+}

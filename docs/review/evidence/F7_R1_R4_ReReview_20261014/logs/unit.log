@@ -1,0 +1,16 @@
+
+> test:unit
+> vitest run tests/unit/f7-form-management.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-config-omission.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts tests/unit/f5-editor.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  10 passed (10)
+      Tests  304 passed (304)
+   Start at  18:13:19
+   Duration  972ms (transform 57%, import 33%, tests 9%, worker 1%)
+
+  Transform  transforming modules took 2.90s · 57% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

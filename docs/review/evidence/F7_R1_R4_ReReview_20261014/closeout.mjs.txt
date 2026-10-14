@@ -1,0 +1,114 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import cp from 'node:child_process';
+import crypto from 'node:crypto';
+
+const dest='docs/review/evidence/F7_R1_R4_ReReview_20261014';
+const report='docs/review/F7_R1_R4_Correction_ReReview_Report_20261014.md';
+const plan='docs/implementation/V1_Frontend_Implementation_Plan.md';
+const target='daaa5dd13d4bac756c35943351b1ae04933a3b12';
+const read=f=>fs.readFileSync(f,'utf8').replace(/^\uFEFF/,'').replace(/\r\n/g,'\n');
+const json=f=>JSON.parse(read(f));
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const norm=f=>f.endsWith('.png')?fs.readFileSync(f):Buffer.from(read(f));
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(`${d}/${e.name}`):[`${d}/${e.name}`]);
+const git=args=>cp.execFileSync('git',args,{encoding:'utf8'}).replace(/\r\n/g,'\n');
+const issues=[];
+for(const [from,to] of [['资格','資格'],['独立','獨立'],['设','設'],['结构','結構'],['扩張','擴張']]){
+  fs.writeFileSync(report,read(report).replaceAll(from,to));
+}
+// Only the newly added README paragraph is normalized; historical text remains exact.
+const readme=read('README.md');
+const readmeNew=readme.split('\n\n')[1].replaceAll('独立','獨立');
+fs.writeFileSync('README.md',readme.replace(readme.split('\n\n')[1],readmeNew));
+
+for(const name of ['collection.log']){
+  const content=read(`output/f7/re-review-20261014/${name}`).replace(/[^\S\n]+$/gm,'').replace(/\n+$/,'');
+  fs.writeFileSync(`${dest}/logs/${name}`,content?content+'\n':'');
+}
+fs.copyFileSync('output/f7/re-review-20261014/closeout.mjs',`${dest}/closeout.mjs.txt`);
+
+const summary=json(`${dest}/verification-summary.json`);
+const latest=json('.output/public/_nuxt/builds/latest.json');
+const meta=json(`.output/public/_nuxt/builds/meta/${latest.id}.json`);
+summary.buildCorrespondence.publicContentAssetsMatched=49;
+summary.buildCorrespondence.generatedMetadataDifferences={
+  previousBuildId:'1c0ddf68-aa55-48c0-9e99-750f835c98a1',freshBuildId:latest.id,
+  freshMetaMatchesLatest:meta.id===latest.id&&meta.timestamp===latest.timestamp,
+  classification:'Fresh build ID/timestamp metadata replaced old metadata; 49 other public files match correction digest',
+};
+summary.supplementalScriptExit={unknownLogout:1,cleanLogoutAndR1Control:1,meaning:'Both scripts completed evidence collection and returned FAIL for logout URL assertion; no construction failure'};
+fs.writeFileSync(`${dest}/verification-summary.json`,JSON.stringify(summary,null,2)+'\n');
+
+const priorManifest=json(`${dest}/artifact-manifest.json`);
+const expectedChanged=['verification-summary.json','logs/collection.log'];
+const priorManifestCheck=priorManifest.files.map(e=>({file:e.file,matches:hash(norm(`${dest}/${e.file}`))===e.sha256}));
+for(const x of priorManifestCheck.filter(e=>!e.matches&&!expectedChanged.includes(e.file)))issues.push(`Unexpected evidence mutation: ${x.file}`);
+
+const originalReadme=git(['show',`${target}:README.md`]);
+const restoredReadme=read('README.md').replace(`${readmeNew}\n\n`,'');
+const originalPlan=git(['show',`${target}:${plan}`]);
+const newPlan=read(plan).match(/### 9\.28 F7-R1～R4 局部獨立複核（2026-10-14）\n[\s\S]*?(?=## 10\. 本文件產製檢查紀錄)/)?.[0];
+if(!newPlan)issues.push('Missing new progress section');
+if(restoredReadme!==originalReadme)issues.push('README history changed');
+if(read(plan).replace(newPlan??'','')!==originalPlan)issues.push('Total plan history changed');
+
+const docContent=[{file:report,text:read(report)},{file:'README.md',text:readmeNew},{file:plan,text:newPlan??''}];
+const links=docContent.flatMap(d=>[...d.text.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(m=>{
+  const targetLink=m[1].split('#')[0];
+  const resolved=/^[a-z]:\//i.test(targetLink)?targetLink:path.resolve(path.dirname(d.file),targetLink);
+  return{file:d.file,target:targetLink,exists:fs.existsSync(resolved)};
+}));
+for(const link of links.filter(e=>!e.exists))issues.push(`Missing link: ${link.file} -> ${link.target}`);
+for(const d of docContent){
+  if(/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(d.text))issues.push(`Control character: ${d.file}`);
+  if(!d.text.endsWith('\n')&&d.file===report)issues.push('Report missing final newline');
+  if(d.text.split('\n').some(l=>/[\t ]+$/.test(l)))issues.push(`Trailing whitespace: ${d.file}`);
+  let tableWidth=0;
+  for(const line of d.text.split('\n')){
+    if(!line.startsWith('|')){tableWidth=0;continue;}
+    const width=line.split('|').length;
+    if(!tableWidth)tableWidth=width;
+    else if(tableWidth!==width)issues.push(`Table shape: ${d.file}: ${line}`);
+  }
+}
+const sourceChecks=summary.sourceHashes.map(e=>({file:e.file,matches:hash(norm(e.file))===e.sha256&&hash(Buffer.from(git(['show',`${target}:${e.file}`])))===e.sha256}));
+sourceChecks.filter(e=>!e.matches).forEach(e=>issues.push(`Source mismatch: ${e.file}`));
+const freshBuild=json(`${dest}/fresh-build-digest.json`);
+const buildChecks=freshBuild.files.map(e=>({file:e.file,matches:fs.existsSync(e.file)&&hash(fs.readFileSync(e.file))===e.sha256}));
+buildChecks.filter(e=>!e.matches).forEach(e=>issues.push(`Build mismatch: ${e.file}`));
+const protectedPaths=['app','tests','scripts','package.json','package-lock.json','AGENTS.md','.agents','.gitignore','nuxt.config.ts','playwright.f7.config.ts','playwright.f6.config.ts','docs/specs','docs/test-plan','docs/test-results','docs/implementation/F7_Implementation_Plan.md','docs/implementation/F7_Development_Report.md','docs/implementation/F7_R1_R4_Correction_Report.md','docs/implementation/evidence','docs/review/F7_Independent_Code_Review_Report_20261014.md','docs/review/evidence/F7_20261014'];
+const protectedDiffExit=cp.spawnSync('git',['diff','--quiet',target,'--',...protectedPaths]).status;
+if(protectedDiffExit!==0)issues.push('Protected tracked files differ');
+const changedTracked=git(['diff','--name-only',target]).trim().split('\n').filter(Boolean);
+const allowed=f=>f==='README.md'||f===plan||f===report||f.startsWith(dest+'/');
+changedTracked.filter(f=>!allowed(f)).forEach(f=>issues.push(`Out-of-scope change: ${f}`));
+const diffCheck=cp.spawnSync('git',['diff','--check'],{encoding:'utf8'});
+if(diffCheck.status!==0)issues.push('git diff --check failed');
+
+const privateFiles=fs.readdirSync('output/playwright/f7').filter(f=>f.endsWith('-private-credentials.json'));
+const privateValues=privateFiles.flatMap(f=>json(`output/playwright/f7/${f}`).map(v=>v.password)).filter(Boolean);
+const scanFiles=[report,'README.md',plan,...walk(dest).filter(f=>!f.endsWith('.png'))];
+const secretMatches=scanFiles.filter(f=>{
+  const content=read(f);
+  return privateValues.some(v=>content.includes(v))||/eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(content)||/"(?:password|access_token|refresh_token|signingKey)"\s*:\s*"[^"\r\n]+"/.test(content);
+});
+if(secretMatches.length)issues.push('Sensitive value scan failed');
+if(!summary.buildCorrespondence.generatedMetadataDifferences.freshMetaMatchesLatest)issues.push('Fresh metadata mismatch');
+
+const closeout={target,checkedAt:new Date().toISOString(),result:issues.length?'FAIL':'PASS',issues,
+  reportScope:'Review docs/evidence/progress only; product/tests and historical files unchanged',
+  history:{readmeMatchesTargetAfterRemovingNewParagraph:restoredReadme===originalReadme,totalPlanMatchesTargetAfterRemovingNewSection:read(plan).replace(newPlan??'','')===originalPlan},
+  sourceHashMatches:sourceChecks.filter(e=>e.matches).length,sourceHashCount:sourceChecks.length,
+  freshBuildHashMatches:buildChecks.filter(e=>e.matches).length,freshBuildHashCount:buildChecks.length,
+  protectedDiffExit,changedTracked,docLinks:links.length,missingLinks:links.filter(e=>!e.exists),
+  previousEvidenceManifestChecked:priorManifestCheck.length,
+  expectedEvidenceUpdates:priorManifestCheck.filter(e=>!e.matches).map(e=>e.file),
+  secretScan:{textFiles:scanFiles.length,privateCredentialFilesCompared:privateFiles.length,matchedFiles:secretMatches.length,noStorageStateTrace:!walk(dest).some(f=>/storageState|trace\.zip/i.test(f))},
+  diffCheckExit:diffCheck.status,commit:'To be recorded by single-purpose local Git commit; see delivery and Git log',
+};
+fs.writeFileSync(`${dest}/closeout-check.json`,JSON.stringify(closeout,null,2)+'\n');
+const files=walk(dest).filter(f=>!f.endsWith('artifact-manifest.json')).sort().map(f=>({file:f.slice(dest.length+1),bytes:norm(f).length,sha256:hash(norm(f))}));
+fs.writeFileSync(`${dest}/artifact-manifest.json`,JSON.stringify({hashEncoding:'UTF-8 text normalized to LF; PNG binary bytes',files,actualSecretValuesMatchedFiles:secretMatches.length},null,2)+'\n');
+console.log(JSON.stringify({result:closeout.result,issues,history:closeout.history,sourceHashes:closeout.sourceHashMatches,buildHashes:closeout.freshBuildHashMatches,artifactCount:files.length,docLinks:closeout.docLinks,secretScan:closeout.secretScan,protectedDiffExit},null,2));
+if(issues.length)process.exitCode=1;

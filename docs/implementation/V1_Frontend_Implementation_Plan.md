@@ -604,6 +604,14 @@ lint／strict typecheck／fresh build／F6 harness strict PASS；unit **304／30
 
 **停於「F7-R1～R4 修正完成、待局部獨立複核」。** 原 review／報告／首次失敗／真實測資保留，未宣告 code review 通過；正式驗收延後、accepted 不變、既有受控 Auth／交易故障／DB identity／migration／實機等缺口保留。單一目的本機提交 SHA 見 Git log／交付訊息，不推送、不展開 F8。
 
+### 9.28 F7-R1～R4 局部獨立複核（2026-10-14）
+
+Owner 指定修正基準 `0af30dc877fca68b1cd74fb5741c06e6456d89bd`、交付 `daaa5dd13d4bac756c35943351b1ae04933a3b12`，授權局部獨立複核、必要工程／unit／fresh built F7 與受影響 F6，以及報告／證據／本機提交，不另設計畫 gate。獨立核對54檔 diff、原 findings／修正報告／斷言／原件；原 reviewer 七案 7／7 PASS，**R1／R2／R4 CLOSED；R3 原兩案已修正但暫不結案**。新增 P2 F7-R3-N1：唯讀 Form 成功 Header logout 204 清 Session／data 後，DirtyScope permit 被自身 revision 更新撤銷，未 replace `/login`；unknown／clean Published 各一次 FAIL。見 [局部複核報告](../review/F7_R1_R4_Correction_ReReview_Report_20261014.md)／[獨立證據](../review/evidence/F7_R1_R4_ReReview_20261014/verification-summary.json)，尚不能宣告 F7 code review 通過，產品與 tests 維持唯讀。
+
+本次 lint／strict typecheck／fresh build／F6 harness strict PASS；受影響 unit304／304，F7 built38／38、F6 built15 PASS／2 skipped／scope fixture2／2，Chrome／Edge各3／3。自身採用、外部 content／write revision／Session／RequestScope 的七項 composable 診斷全 PASS；本地摘要／readonly 跳過／重複定位與 stale errors 補驗 PASS。修正九個 source hash、artifact41／41／本機raw36／36、原review51／51、開發70／70、backend108／108一致；原修正19 PASS／19 FAIL、37 PASS／1 FAIL 與 final38 PASS 全部保留，摘要三筆預期未降低。本次 fresh build 來源與交付一致，獨立產物 digest 保存；新登出 FAIL 不由 repo Browser PASS 覆蓋。
+
+**停於「F7-R1～R4 局部獨立複核完成、待 Owner 確認」。** 正式驗收延後、accepted 與既有受控特殊 Auth／交易故障／DB identity／migration／實機等缺口不變；真實整合僅沿用適用歷史原件，無新增真實寫入／Delete／測資。僅新增報告／去敏證據及本節／README進度，原 review／報告／首次失敗保留；單一目的本機文件提交 SHA 見 Git log／交付訊息，不推送、不展開 F8。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

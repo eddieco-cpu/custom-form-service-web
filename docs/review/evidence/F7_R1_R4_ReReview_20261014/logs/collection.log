@@ -1,0 +1,110 @@
+(node:1952) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "packages": {
+      "nuxt": "4.6.1",
+      "@nuxt/ui": "4.11.3",
+      "vue": "3.5.43",
+      "nitropack": "2.13.4",
+      "vite": "8.3.4",
+      "vitest": "5.0.3",
+      "@playwright/test": "1.64.0",
+      "typescript": "5.9.3"
+    },
+    "browsers": {
+      "chromium": "156.0.8078.4",
+      "chrome": "156.0.8078.12",
+      "msedge": "155.0.4283.45"
+    }
+  },
+  "sourceMismatches": [],
+  "originalSeven": [
+    {
+      "name": "Original R1 saved Rating {max:5} must focus min, repeat, keep full summary, zero writes",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R2 pending Clipboard resolve after SPA Home emits no toast or fallback",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R2 pending Clipboard reject after management 403 emits no fallback",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R3 Close unknown SPA cancel preserves Form URL and lock",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R3 Close unknown beforeunload cancel preserves one App and lock",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R4 Visibility 404 then discard cancel retains dirty but prohibits Draft PATCH",
+      "result": "PASS"
+    },
+    {
+      "name": "Original R4 Publish 409 plus candidate/current GET 500 prohibits Draft PATCH",
+      "result": "PASS"
+    }
+  ],
+  "adoption": [
+    {
+      "name": "R3 own successful current adoption may advance content revision and clear unknown",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 external content revision during GET still rejects old adoption and keeps unknown",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 cross-write GET revision rejects old late response after pending ends",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 older RequestScope cannot overwrite newer accepted current GET",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 explicit qualification Form GET rejects external Session change and retains unknown",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 qualification me captured before an external write cannot continue adoption",
+      "result": "PASS"
+    },
+    {
+      "name": "R3 explicit identity adoption allows its own revision update but rechecks new owner",
+      "result": "PASS"
+    }
+  ],
+  "newFindings": [
+    {
+      "id": "F7-R3-N1",
+      "priority": "P2",
+      "file": "app/components/forms/FormReadPage.vue",
+      "start": 7,
+      "end": 9,
+      "title": "Preserve authorized logout navigation through its own Session/content cleanup",
+      "observed": "POST logout 204 clears User, but content revision invalidates DirtyScope permit and Header never replaces login; reproduced both Close unknown and clean Published"
+    }
+  ],
+  "reviewerDiagnosticIssues": [],
+  "supplementalDiagnosticIssues": [],
+  "publicBuildFiles": 51,
+  "publicBuildMismatches": [
+    {
+      "file": ".output/public/_nuxt/builds/latest.json",
+      "matches": false
+    },
+    {
+      "file": ".output/public/_nuxt/builds/meta/1c0ddf68-aa55-48c0-9e99-750f835c98a1.json",
+      "matches": false
+    }
+  ],
+  "protectedDiffExit": 0,
+  "secretMatchedFiles": 0
+}

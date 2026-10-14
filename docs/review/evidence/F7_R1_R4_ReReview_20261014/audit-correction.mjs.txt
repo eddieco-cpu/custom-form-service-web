@@ -1,0 +1,43 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import cp from 'node:child_process';
+import crypto from 'node:crypto';
+const base = 'docs/implementation/evidence/F7_R1_R4_Correction_20261014';
+const dest = 'docs/review/evidence/F7_R1_R4_ReReview_20261014';
+const json = f => JSON.parse(fs.readFileSync(f, 'utf8').replace(/^\uFEFF/, ''));
+const hash = b => crypto.createHash('sha256').update(b).digest('hex');
+const norm = b => Buffer.from(b.toString('utf8').replace(/\r\n/g, '\n'));
+const s = json(`${base}/verification-summary.json`), m = json(`${base}/artifact-manifest.json`);
+const files = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(`${dir}/${e.name}`) : [`${dir}/${e.name}`]);
+const result = { target: 'daaa5dd13d4bac756c35943351b1ae04933a3b12', sourceHashes: [], manifest: [], rawComparisons: [], browser: [], priorManifests: [], buildBeforeReviewerBuild: [], backend: {}, secretScan: {} };
+for (const v of s.sourceHashes) {
+  const committed = cp.execFileSync('git', ['show', `daaa5dd:${v.file}`]);
+  result.sourceHashes.push({ file: v.file, matchesCommit: hash(norm(committed)) === v.sha256, matchesWorktree: hash(norm(fs.readFileSync(v.file))) === v.sha256 });
+}
+const rawReporters = { 'first-results.json': 'built-r1-r4-correction-first-results.json', 'second-results.json': 'built-r1-r4-correction-second-results.json', 'final-results.json': 'built-r1-r4-correction-final-results.json', 'chrome-results.json': 'built-chrome-r1-r4-correction-smoke-results.json', 'msedge-results.json': 'built-msedge-r1-r4-correction-smoke-results.json', 'f6-built-results.json': 'correction-f6-built-results.json', 'f6-scope-results.json': 'correction-f6-scope-results.json' };
+const rawImages = files('output/playwright/f7/built-r1-r4-correction-final-artifacts').filter(f => f.endsWith('.png'));
+for (const v of m.files) {
+  const b = fs.readFileSync(`${base}/${v.file}`);
+  result.manifest.push({ file: v.file, matches: hash(v.file.endsWith('.png') ? b : norm(b)) === v.sha256 });
+  let raw;
+  if (v.file.startsWith('logs/')) raw = `output/f7/correction-20261014/${path.basename(v.file)}`;
+  if (v.file.startsWith('browser/')) raw = `output/playwright/f7/${rawReporters[path.basename(v.file)]}`;
+  if (v.file.startsWith('images/')) raw = rawImages.find(f => path.basename(f) === path.basename(v.file));
+  if (v.file === 'build-first-digest.json') raw = 'output/f7/correction-20261014/build-first-digest.json';
+  if (raw && fs.existsSync(raw)) result.rawComparisons.push({ file: v.file, raw, matches: fs.readFileSync(raw).equals(b) });
+}
+const flatten = r => (r.suites ?? []).flatMap(flatten).concat((r.specs ?? []).flatMap(v => v.tests.map(t => ({ title: v.title, outcome: t.status, results: t.results.map(x => ({ status: x.status, errors: x.errors, diagnostics: x.attachments.filter(a => a.name === 'declared-network-diagnostics' && a.body).map(a => JSON.parse(Buffer.from(a.body, 'base64').toString('utf8'))) })) }))));
+for (const [delivered, raw] of Object.entries(rawReporters)) { const r = json(`${base}/browser/${delivered}`); result.browser.push({ file: delivered, source: `output/playwright/f7/${raw}`, stats: r.stats, cases: flatten(r) }); }
+for (const dir of ['docs/review/evidence/F7_20261014', 'docs/implementation/evidence/F7_20261014']) {
+  const old = json(`${dir}/artifact-manifest.json`);
+  result.priorManifests.push({ directory: dir, entries: old.files.length, mismatches: old.files.filter(v => hash(v.file.endsWith('.png') ? fs.readFileSync(`${dir}/${v.file}`) : norm(fs.readFileSync(`${dir}/${v.file}`))) !== v.sha256) });
+}
+for (const v of json(`${base}/build-final-digest.json`).files) result.buildBeforeReviewerBuild.push({ file: v.file, matches: fs.existsSync(v.file) && hash(fs.readFileSync(v.file)) === v.sha256 });
+const backendLines = fs.readFileSync('backend-ref/MANIFEST.sha256', 'utf8').trim().split(/\r?\n/);
+result.backend = { entries: backendLines.length, mismatches: backendLines.filter(line => { const [, expected, file] = /^([a-f0-9]{64})\s+(.+)$/.exec(line); return hash(fs.readFileSync(`backend-ref/${file}`)) !== expected; }).length, actualCheckoutSha: cp.execFileSync('git', ['-C', 'C:/Users/user/Desktop/custom-form-service', 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), runtimeApiNotReverified: true };
+const privateFiles = fs.readdirSync('output/playwright/f7').filter(f => f.endsWith('-private-credentials.json'));
+const values = privateFiles.flatMap(f => json(`output/playwright/f7/${f}`).map(a => a.password));
+const scan = files(base).filter(f => !f.endsWith('.png'));
+result.secretScan = { files: scan.length, privateCredentialsComparedLocally: privateFiles.length, matchedFiles: scan.filter(f => { const text = fs.readFileSync(f, 'utf8'); return values.some(v => v && text.includes(v)) || /eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(text) || /"(?:password|access_token|refresh_token|signingKey)"\s*:\s*"[^"\r\n]+"/.test(text); }).map(f => f), noStorageStateTrace: !files(base).some(f => /storageState|trace\.zip/.test(f)) };
+fs.writeFileSync(`${dest}/correction-evidence-audit.json`, JSON.stringify(result, null, 2) + '\n');
+console.log(JSON.stringify({ sourceFiles: result.sourceHashes.length, sourceMismatches: result.sourceHashes.filter(v => !v.matchesCommit || !v.matchesWorktree), artifactFiles: result.manifest.length, artifactMismatches: result.manifest.filter(v => !v.matches), rawFiles: result.rawComparisons.length, rawMismatches: result.rawComparisons.filter(v => !v.matches), historical: result.priorManifests, buildFiles: result.buildBeforeReviewerBuild.length, buildMismatches: result.buildBeforeReviewerBuild.filter(v => !v.matches), backend: result.backend, secretScan: result.secretScan, runs: result.browser.map(v => ({ file: v.file, stats: v.stats, failed: v.cases.filter(c => c.outcome !== 'expected').map(c => ({ title: c.title, errors: c.results.flatMap(x => x.errors.map(e => e.message.split('\n').slice(0,3).join('\n'))) })) })) }, null, 2));

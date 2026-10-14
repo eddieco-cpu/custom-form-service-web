@@ -1,0 +1,81 @@
+import { chromium, expect } from '@playwright/test';
+import fs from 'node:fs';
+const dest = 'docs/review/evidence/F7_R1_R4_ReReview_20261014';
+const id = '00000000-0000-4000-8000-000000000050';
+const ownerId = '00000000-0000-4000-8000-000000000051';
+const qid = '00000000-0000-4000-8000-000000000005';
+const api = 'http://localhost:5000/api/v1';
+const view = `/forms/${id}`, edit = `${view}/edit`;
+const owner = { id: ownerId, displayName: 'F7 reviewer synthetic Owner', email: 'f7-review@example.test', avatarUrl: null };
+const dto = (status = 'published', rating = false) => ({ id, userId: ownerId, creatorDisplayName: owner.displayName, title: 'F7 independent synthetic form', description: null, status, responseMode: 'multiple', responseIdentity: 'anonymous', resultVisibility: 'owner_only', submissionDeadlineAt: null, createdAt: '2026-10-10T00:00:00Z', updatedAt: '2026-10-11T00:00:00Z', questions: [{ id: qid, type: rating ? 'rating' : 'text', title: rating ? 'Incomplete saved Rating' : 'Synthetic optional text', description: null, required: false, sortOrder: 0, config: rating ? { max: 5 } : {}, options: [] }] });
+const results = { target: 'daaa5dd13d4bac756c35943351b1ae04933a3b12', mode: 'fresh built with ALL backend requests intercepted', origin: 'http://localhost:3000', createdAt: new Date().toISOString(), cases: [] };
+const browser = await chromium.launch({ headless: true });
+results.browserVersion = browser.version();
+async function fixture(status = 'published', rating = false, clipboard = false) {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const s = { dto: dto(status, rating), writeMode: 'success', requests: [], errors: [], diagnostics: [], responses: [], failures: [], unexpected: [] };
+  page.on('pageerror', e => s.errors.push(e.message));
+  page.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) s.diagnostics.push({ text: m.text(), url: m.location().url }); });
+  page.on('response', r => { if (r.status() >= 400) s.responses.push({ method: r.request().method(), url: r.url(), status: r.status() }); });
+  page.on('requestfailed', r => s.failures.push({ method: r.method(), url: r.url(), reason: r.failure()?.errorText }));
+  if (clipboard) await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: text => { window.probeCopied = text; return new Promise((resolve, reject) => { window.probeClipboardResolve = resolve; window.probeClipboardReject = () => reject(new Error('synthetic clipboard denial')); }); } } });
+  });
+  await page.route('http://localhost:5000/**', async route => {
+    const r = route.request(), path = new URL(r.url()).pathname, method = r.method();
+    s.requests.push({ path, method });
+    const headers = { 'access-control-allow-origin': 'http://localhost:3000', 'access-control-allow-credentials': 'true', 'access-control-allow-methods': 'GET,POST,PATCH,DELETE', 'access-control-allow-headers': 'content-type' };
+    const reply = (body, status = 200) => route.fulfill({ status, headers, contentType: 'application/json', body: JSON.stringify(body) });
+    if (method === 'OPTIONS') return route.fulfill({ status: 204, headers });
+    if (path === '/api/v1/users/me' && method === 'GET') return reply(owner);
+    if (path === `/api/v1/forms/${id}` && method === 'GET') return reply(s.dto);
+    if (path.endsWith('/result-visibility') && method === 'PATCH') {
+      if (s.writeMode === 'denied') return reply({ error: { code: 'FORM_ACCESS_DENIED', message: 'Synthetic access denial' } }, 403);
+      s.dto = { ...s.dto, resultVisibility: JSON.parse(r.postData()).resultVisibility }; return reply(s.dto);
+    }
+    if (path.endsWith('/close') && method === 'POST') {
+      if (s.writeMode === 'unknown') return route.abort('failed');
+      s.dto = { ...s.dto, status: 'closed' }; return reply(s.dto);
+    }
+    s.unexpected.push({ method, path }); return reply({ error: { code: 'INTERNAL_SERVER_ERROR', message: 'Unexpected synthetic request' } }, 500);
+  });
+  await page.goto(`http://localhost:3000${status === 'draft' ? edit : view}`);
+  await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible();
+  return { context, page, s };
+}
+async function run(name, scenario) {
+  try { const r = await scenario(); results.cases.push({ name, ...r }); }
+  catch (e) { results.cases.push({ name, result: 'PROBE ERROR', message: e.message }); }
+  fs.writeFileSync(`${dest}/supplemental-controls.json`, JSON.stringify(results, null, 2) + '\n');
+}
+const closeError = page => page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }).click();
+const settle = page => page.evaluate(async () => { await new Promise(requestAnimationFrame); await new Promise(requestAnimationFrame); });
+await run('N1 clean Published Header logout also requires replace login',async()=>{
+  const {context,page,s}=await fixture();let requests=0,prompts=0;
+  await page.route(`${api}/auth/logout`,r=>{requests++;return r.fulfill({status:204,headers:{'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'}});});
+  page.on('dialog',async d=>{prompts++;await d.accept();});
+  await page.getByRole('button',{name:'使用者選單'}).click();const response=page.waitForResponse(r=>r.url()===`${api}/auth/logout`);await page.getByRole('button',{name:'登出',exact:true}).click();expect((await response).status()).toBe(204);await settle(page);
+  let error;try{await expect(page).toHaveURL('http://localhost:3000/login',{timeout:3000});}catch(e){error=e.message;}
+  const observed={url:page.url(),requests,prompts,anonymousMessage:await page.getByText('需要有效登入身分。',{exact:true}).count()};await context.close();
+  return{result:error?'FAIL':'PASS',expected:'Clean page: zero prompt, logout 204 then replace login',observed,errors:s.errors,diagnostics:s.diagnostics,unexpected:s.unexpected};
+});
+await run('R1 structural summary, readonly first control skip, next editable focus and stale error cleanup',async()=>{
+  const {context,page,s}=await fixture('draft',true);const choiceId='00000000-0000-4000-8000-000000000003';
+  s.dto={...s.dto,questions:[{...s.dto.questions[0],id:choiceId,type:'single_choice',title:'Empty choice',config:{},sortOrder:0},{...s.dto.questions[0],config:{},sortOrder:1}]};
+  await page.getByRole('button',{name:'重新載入表單',exact:true}).click();
+  const min=page.locator(`[data-editor-field="${qid}.config.min"]`),max=page.locator(`[data-editor-field="${qid}.config.max"]`);
+  await min.evaluate(el=>el.setAttribute('readonly',''));
+  for(let i=0;i<2;i++){
+    await page.getByRole('button',{name:'發布',exact:true}).click();await expect(max).toBeFocused();await expect(page.getByRole('list',{name:'欄位錯誤摘要'}).locator('li')).toHaveCount(3);
+  }
+  await min.evaluate(el=>el.removeAttribute('readonly'));await min.fill('0');await max.fill('5');
+  let patches=0;await page.route(`${api}/forms/${id}`,async r=>{
+    if(r.request().method()==='PATCH'){patches++;s.dto={...s.dto,questions:s.dto.questions.map(q=>q.id===qid?{...q,config:{min:0,max:5}}:q)};return r.fulfill({status:200,headers:{'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'},contentType:'application/json',body:JSON.stringify(s.dto)});}return r.fallback();
+  });
+  await page.getByRole('button',{name:'保存',exact:true}).click();await expect(page.getByRole('button',{name:'保存',exact:true})).toBeDisabled();await expect(page.getByRole('list',{name:'欄位錯誤摘要'})).toHaveCount(0);
+  await page.getByRole('button',{name:'發布',exact:true}).click();await expect(page.getByRole('list',{name:'欄位錯誤摘要'}).locator('li')).toHaveCount(1);await expect(page.getByRole('list',{name:'欄位錯誤摘要'})).toContainText('發布至少需要一個選項');
+  const publishRequests=s.requests.filter(r=>r.path.endsWith('/publish')).length;expect(publishRequests).toBe(0);expect(patches).toBe(1);
+  await page.screenshot({path:`${dest}/r1-summary-generation.png`,fullPage:true});await context.close();return{result:'PASS',initialErrors:3,focus:'max (min temporarily readonly; first structural issue has no control)',afterSaveErrors:0,nextValidationErrors:1,patches,publishRequests,errors:s.errors,diagnostics:s.diagnostics,unexpected:s.unexpected};
+});
+await browser.close();console.log(JSON.stringify(results,null,2));if(results.cases.some(r=>r.result!=='PASS'))process.exitCode=1;

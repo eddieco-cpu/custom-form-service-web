@@ -1,0 +1,133 @@
+import { chromium, expect } from '@playwright/test';
+import fs from 'node:fs';
+const dest = 'docs/review/evidence/F7_R1_R4_ReReview_20261014';
+const id = '00000000-0000-4000-8000-000000000050';
+const ownerId = '00000000-0000-4000-8000-000000000051';
+const qid = '00000000-0000-4000-8000-000000000005';
+const api = 'http://localhost:5000/api/v1';
+const view = `/forms/${id}`, edit = `${view}/edit`;
+const owner = { id: ownerId, displayName: 'F7 reviewer synthetic Owner', email: 'f7-review@example.test', avatarUrl: null };
+const dto = (status = 'published', rating = false) => ({ id, userId: ownerId, creatorDisplayName: owner.displayName, title: 'F7 independent synthetic form', description: null, status, responseMode: 'multiple', responseIdentity: 'anonymous', resultVisibility: 'owner_only', submissionDeadlineAt: null, createdAt: '2026-10-10T00:00:00Z', updatedAt: '2026-10-11T00:00:00Z', questions: [{ id: qid, type: rating ? 'rating' : 'text', title: rating ? 'Incomplete saved Rating' : 'Synthetic optional text', description: null, required: false, sortOrder: 0, config: rating ? { max: 5 } : {}, options: [] }] });
+const results = { target: 'daaa5dd13d4bac756c35943351b1ae04933a3b12', mode: 'fresh built with ALL backend requests intercepted', origin: 'http://localhost:3000', createdAt: new Date().toISOString(), cases: [] };
+const browser = await chromium.launch({ headless: true });
+results.browserVersion = browser.version();
+async function fixture(status = 'published', rating = false, clipboard = false) {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const s = { dto: dto(status, rating), writeMode: 'success', requests: [], errors: [], diagnostics: [], responses: [], failures: [], unexpected: [] };
+  page.on('pageerror', e => s.errors.push(e.message));
+  page.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) s.diagnostics.push({ text: m.text(), url: m.location().url }); });
+  page.on('response', r => { if (r.status() >= 400) s.responses.push({ method: r.request().method(), url: r.url(), status: r.status() }); });
+  page.on('requestfailed', r => s.failures.push({ method: r.method(), url: r.url(), reason: r.failure()?.errorText }));
+  if (clipboard) await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: text => { window.probeCopied = text; return new Promise((resolve, reject) => { window.probeClipboardResolve = resolve; window.probeClipboardReject = () => reject(new Error('synthetic clipboard denial')); }); } } });
+  });
+  await page.route('http://localhost:5000/**', async route => {
+    const r = route.request(), path = new URL(r.url()).pathname, method = r.method();
+    s.requests.push({ path, method });
+    const headers = { 'access-control-allow-origin': 'http://localhost:3000', 'access-control-allow-credentials': 'true', 'access-control-allow-methods': 'GET,POST,PATCH,DELETE', 'access-control-allow-headers': 'content-type' };
+    const reply = (body, status = 200) => route.fulfill({ status, headers, contentType: 'application/json', body: JSON.stringify(body) });
+    if (method === 'OPTIONS') return route.fulfill({ status: 204, headers });
+    if (path === '/api/v1/users/me' && method === 'GET') return reply(owner);
+    if (path === `/api/v1/forms/${id}` && method === 'GET') return reply(s.dto);
+    if (path.endsWith('/result-visibility') && method === 'PATCH') {
+      if (s.writeMode === 'denied') return reply({ error: { code: 'FORM_ACCESS_DENIED', message: 'Synthetic access denial' } }, 403);
+      s.dto = { ...s.dto, resultVisibility: JSON.parse(r.postData()).resultVisibility }; return reply(s.dto);
+    }
+    if (path.endsWith('/close') && method === 'POST') {
+      if (s.writeMode === 'unknown') return route.abort('failed');
+      s.dto = { ...s.dto, status: 'closed' }; return reply(s.dto);
+    }
+    s.unexpected.push({ method, path }); return reply({ error: { code: 'INTERNAL_SERVER_ERROR', message: 'Unexpected synthetic request' } }, 500);
+  });
+  await page.goto(`http://localhost:3000${status === 'draft' ? edit : view}`);
+  await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible();
+  return { context, page, s };
+}
+async function run(name, scenario) {
+  try { const r = await scenario(); results.cases.push({ name, ...r }); }
+  catch (e) { results.cases.push({ name, result: 'PROBE ERROR', message: e.message }); }
+  fs.writeFileSync(`${dest}/original-seven-rerun.json`, JSON.stringify(results, null, 2) + '\n');
+}
+const closeError = page => page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }).click();
+const settle = page => page.evaluate(async () => { await new Promise(requestAnimationFrame); await new Promise(requestAnimationFrame); });
+await run('Original R1 saved Rating {max:5} must focus min, repeat, keep full summary, zero writes', async () => {
+  const { context, page, s } = await fixture('draft', true);
+  const active = [];
+  for (let i=0; i<2; i++) {
+    await page.getByRole('button', { name: '發布', exact: true }).click();
+    await expect(page.locator(`[data-editor-field="${qid}.config.min"]`)).toBeFocused();
+    await expect(page.locator(`[data-editor-field="${qid}.config.min"]`)).toHaveValue('');
+    await expect(page.getByRole('list', { name: '欄位錯誤摘要' }).locator('li')).toHaveCount(1);
+    active.push(await page.evaluate(() => ({ tag: document.activeElement.tagName, field: document.activeElement.getAttribute('data-editor-field') })));
+  }
+  const writes = s.requests.filter(r => ['POST','PATCH','DELETE'].includes(r.method)); expect(writes).toEqual([]);
+  await page.screenshot({ path: `${dest}/r1-original-focus.png`, fullPage: true }); await context.close();
+  return { result: 'PASS', active, summaryCount: 1, writes, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('Original R2 pending Clipboard resolve after SPA Home emits no toast or fallback', async () => {
+  const { context, page, s } = await fixture('published', false, true);
+  await page.getByRole('button', { name: '複製填答連結' }).click();
+  await expect.poll(() => page.evaluate(() => typeof window.probeClipboardResolve)).toBe('function');
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/');
+  await page.evaluate(() => window.probeClipboardResolve()); await settle(page);
+  await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0); await expect(page.getByLabel('完整分享連結')).toHaveCount(0);
+  await context.close(); return { result: 'PASS', url: 'http://localhost:3000/', staleToast: false, fallback: false, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('Original R2 pending Clipboard reject after management 403 emits no fallback', async () => {
+  const { context, page, s } = await fixture('published', false, true);
+  const expected = [{ method: 'PATCH', url: `${api}/forms/${id}/result-visibility`, status: 403, count: 1 }];
+  await page.getByRole('button', { name: '複製填答連結' }).click(); s.writeMode = 'denied';
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page);
+  await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '複製填答連結' })).toHaveCount(0);
+  await page.evaluate(() => window.probeClipboardReject()); await settle(page);
+  await expect(page.getByLabel('完整分享連結')).toHaveCount(0); await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0);
+  await context.close(); return { result: 'PASS', expected, responses: s.responses, fallback: false, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+async function unknownClose() {
+  const t = await fixture(); t.s.writeMode = 'unknown';
+  await t.page.getByRole('button', { name: '關閉表單', exact: true }).click(); await t.page.getByRole('button', { name: '確認關閉' }).click(); await closeError(t.page);
+  await expect(t.page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); return t;
+}
+await run('Original R3 Close unknown SPA cancel preserves Form URL and lock', async () => {
+  const { context, page, s } = await unknownClose(); let prompts = 0, done; const handled = new Promise(r => done=r);
+  page.once('dialog', async d => { expect(d.type()).toBe('confirm'); prompts++; await d.dismiss(); done(); });
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await handled;
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); expect(prompts).toBe(1);
+  await context.close(); return { result: 'PASS', prompts, lockRetained: true, errors: s.errors, failures: s.failures, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('Original R3 Close unknown beforeunload cancel preserves one App and lock', async () => {
+  const { context, page, s } = await unknownClose(); let prompts = 0, done; const handled = new Promise(r => done=r);
+  page.once('dialog', async d => { expect(d.type()).toBe('beforeunload'); prompts++; await d.dismiss(); done(); });
+  void page.reload().catch(() => {}); await handled;
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); expect(prompts).toBe(1);
+  const meRequests = s.requests.filter(r => r.path.endsWith('/users/me')).length; expect(meRequests).toBe(1);
+  await context.close(); return { result: 'PASS', prompts, meRequests, lockRetained: true, errors: s.errors, failures: s.failures, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('Original R4 Visibility 404 then discard cancel retains dirty but prohibits Draft PATCH', async () => {
+  const { context, page, s } = await fixture('draft'); const all = []; page.on('request', r => { if(r.url().startsWith(api)) all.push({ method:r.method(), url:r.url() }); });
+  await page.getByLabel('表單標題', { exact: true }).fill('Dirty retained after management 404');
+  await page.route(`${api}/forms/**`, async r => r.request().method()==='PATCH' ? r.fulfill({status:404,headers:{'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'},contentType:'application/json',body:JSON.stringify({error:{code:'FORM_NOT_FOUND',message:'synthetic missing Form'}})}) : r.fallback());
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); let prompts = 0, done; const handled = new Promise(r => done=r);
+  page.once('dialog', async d => { prompts++; await d.dismiss(); done(); }); await closeError(page); await handled;
+  await expect(page.getByLabel('表單標題', { exact: true })).toHaveValue('Dirty retained after management 404'); await expect(page.getByLabel('表單標題', { exact: true })).toHaveAttribute('readonly',''); await expect(page.getByRole('button',{name:'保存',exact:true})).toBeDisabled();
+  const patches = all.filter(r => r.method==='PATCH' && r.url===`${api}/forms/${id}`); expect(patches).toEqual([]); expect(prompts).toBe(1);
+  await page.screenshot({path:`${dest}/r4-original-404.png`,fullPage:true}); await context.close(); return {result:'PASS',prompts,definitionPatches:patches.length,saveDisabled:true,contentRetained:true,errors:s.errors,responses:s.responses,diagnostics:s.diagnostics,unexpected:s.unexpected};
+});
+await run('Original R4 Publish 409 plus candidate/current GET 500 prohibits Draft PATCH', async () => {
+  const {context,page,s} = await fixture('draft'); const all=[]; let afterConflict=false;
+  page.on('request',r=>{if(r.url().startsWith(api))all.push({method:r.method(),url:r.url()});});
+  await page.route(`${api}/forms/**`,async r=>{
+    const req=r.request(),pathname=new URL(req.url()).pathname,headers={'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'};
+    const reply=(status,code)=>r.fulfill({status,headers,contentType:'application/json',body:JSON.stringify({error:{code,message:'synthetic conflict/failure'}})});
+    if(pathname.endsWith('/publish')&&req.method()==='POST'){afterConflict=true;return reply(409,'FORM_ALREADY_PUBLISHED');}
+    if(pathname===`/api/v1/forms/${id}`&&req.method()==='GET'&&afterConflict)return reply(500,'INTERNAL_SERVER_ERROR');
+    if(pathname===`/api/v1/forms/${id}`&&req.method()==='PATCH')return reply(409,'FORM_NOT_EDITABLE');
+    return r.fallback();
+  });
+  await page.getByRole('button',{name:'發布',exact:true}).click();await page.getByRole('button',{name:'確認發布'}).click();await closeError(page);await closeError(page);
+  await expect(page.getByLabel('表單標題',{exact:true})).toHaveAttribute('readonly','');await expect(page.getByRole('button',{name:'保存',exact:true})).toBeDisabled();
+  const patches=all.filter(r=>r.method==='PATCH'&&r.url===`${api}/forms/${id}`);expect(patches).toEqual([]);
+  await page.screenshot({path:`${dest}/r4-original-conflict.png`,fullPage:true});await context.close();return {result:'PASS',saveDisabled:true,definitionPatches:0,responses:s.responses,errors:s.errors,diagnostics:s.diagnostics,unexpected:s.unexpected};
+});
+await browser.close();console.log(JSON.stringify(results,null,2));if(results.cases.length!==7||results.cases.some(r=>r.result!=='PASS'||r.errors?.length||r.unexpected?.length))process.exitCode=1;
