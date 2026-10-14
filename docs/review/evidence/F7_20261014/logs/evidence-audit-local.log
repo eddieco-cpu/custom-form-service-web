@@ -1,0 +1,286 @@
+{
+  "sourceHashes": 20,
+  "sourceMismatches": [],
+  "manifest": 70,
+  "manifestMismatches": [],
+  "rawComparisons": 65,
+  "rawMismatches": [],
+  "inventory": {
+    "runs": 5,
+    "resources": 15,
+    "uniqueIds": 15,
+    "deleted": 6,
+    "retained": 9,
+    "deletedOnlyDedicated": true
+  },
+  "secretScan": {
+    "privateFilesInspectedLocally": 2,
+    "valuesNotDisclosed": true,
+    "deliveredFilesMatched": 0,
+    "noStorageStateOrTrace": true
+  },
+  "backendManifest": {
+    "entries": 108,
+    "mismatches": 0
+  },
+  "browserRuns": [
+    {
+      "file": "built-chrome-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:48:50.035Z",
+        "duration": 7151.486,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:30:31.007Z",
+        "duration": 19238.474,
+        "expected": 23,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-delivery-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:56:57.838Z",
+        "duration": 19997.075999999997,
+        "expected": 23,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-edge-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:48:58.131Z",
+        "duration": 4409.094,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-first-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:21:47.798Z",
+        "duration": 24229.248,
+        "expected": 11,
+        "skipped": 0,
+        "unexpected": 8,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-msedge-smoke-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:53:24.106Z",
+        "duration": 7573.474999999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-permission-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:22:16.466Z",
+        "duration": 25824.553,
+        "expected": 23,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-permission-spa-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:26:49.750Z",
+        "duration": 5871.278,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "f6-permission-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:46:29.067Z",
+        "duration": 28558.587,
+        "expected": 8,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "f6-policy-assertion-results.json",
+      "stats": {
+        "startTime": "2026-10-14T04:05:18.457Z",
+        "duration": 10507.333,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "f6-regression-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:00:04.305Z",
+        "duration": 45200.659,
+        "expected": 16,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "live-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:42:21.174Z",
+        "duration": 23813.647,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "live-first-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:35:41.031Z",
+        "duration": 23661.33,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "live-matrix-results.json",
+      "stats": {
+        "startTime": "2026-10-14T02:50:57.606Z",
+        "duration": 7848.918000000001,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "live-role-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:32:36.857Z",
+        "duration": 8304.842,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "live-role-results.json",
+      "stats": {
+        "startTime": "2026-10-14T03:23:29.148Z",
+        "duration": 13007.104,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      }
+    }
+  ],
+  "live": [
+    {
+      "file": "f7-1791945344721-sanitized.json",
+      "completed": false,
+      "requests": 73,
+      "reads": 15,
+      "deletes": [
+        {
+          "id": "5aa01149-d2dd-4efc-aebc-56899d7649a6",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        },
+        {
+          "id": "fa51edbd-8dc5-4b14-91e2-91f1f24a034e",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        },
+        {
+          "id": "c78454bd-4d2c-4f5d-9083-9635a9cb26ce",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        }
+      ],
+      "retainedMatches": true,
+      "pairs": 0
+    },
+    {
+      "file": "f7-1791945744889-sanitized.json",
+      "completed": true,
+      "requests": 76,
+      "reads": 16,
+      "deletes": [
+        {
+          "id": "c0f83392-8559-47db-a113-2bed12ae527f",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        },
+        {
+          "id": "cb6be08c-db59-4ef0-b9c9-49b29cdc8fbf",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        },
+        {
+          "id": "c62a0ccf-8053-4623-a0d0-809d7280be59",
+          "body": null,
+          "authorized": true,
+          "responses": 1
+        }
+      ],
+      "retainedMatches": true,
+      "pairs": 0
+    },
+    {
+      "file": "f7-matrix-1791946261307-sanitized.json",
+      "completed": true,
+      "reads": 0,
+      "deletes": [],
+      "retainedMatches": true,
+      "pairs": 9
+    },
+    {
+      "file": "f7-role-1791948212853-sanitized.json",
+      "completed": false,
+      "reads": 0,
+      "deletes": [],
+      "retainedMatches": true,
+      "pairs": 0
+    },
+    {
+      "file": "f7-role-1791948760592-sanitized.json",
+      "completed": true,
+      "reads": 0,
+      "deletes": [],
+      "retainedMatches": true,
+      "pairs": 0
+    }
+  ]
+}

@@ -1,0 +1,52 @@
+const fs = require('node:fs');
+const path = require('node:path');
+const crypto = require('node:crypto');
+const cp = require('node:child_process');
+const base = 'docs/implementation/evidence/F7_20261014';
+const dest = 'docs/review/evidence/F7_20261014';
+const read = f => fs.readFileSync(f, 'utf8');
+const json = f => JSON.parse(read(f));
+const norm = s => s.replace(/\r\n/g, '\n');
+const hash = b => crypto.createHash('sha256').update(b).digest('hex');
+const canonicalLog = s => norm(s).replace(/[^\S\n]+$/gm, '').replace(/\n+$/, '') + '\n';
+const summary = json(`${base}/verification-summary.json`);
+const manifest = json(`${base}/artifact-manifest.json`);
+const result = { target: cp.execFileSync('git', ['rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), sourceHashes: [], manifest: [], rawComparisons: [], browserRuns: [], live: [], inventory: {}, secretScan: {} };
+for (const v of summary.sourceHashes) {
+  const committed = cp.execFileSync('git', ['show', `084020a:${v.file}`], { maxBuffer: 10e6 });
+  result.sourceHashes.push({ file: v.file, matchesCommit: hash(Buffer.from(norm(committed.toString('utf8')))) === v.sha256, matchesWorktree: hash(Buffer.from(norm(read(v.file)))) === v.sha256 });
+}
+for (const v of manifest.files) {
+  const b = fs.readFileSync(`${base}/${v.file}`);
+  result.manifest.push({ file: v.file, matches: hash(v.file.endsWith('.png') ? b : Buffer.from(norm(b.toString('utf8')))) === v.sha256 });
+  const raw = v.file.startsWith('logs/') ? `output/f7/development-20261014/${path.basename(v.file)}`
+    : v.file.startsWith('live/') ? `output/playwright/f7/${path.basename(v.file)}`
+    : v.file.startsWith('browser/') ? ['output/playwright/f7', 'output/f7/development-20261014'].map(dir => `${dir}/${path.basename(v.file)}`).find(fs.existsSync)
+    : v.file.startsWith('environment/') ? `output/f7/development-20261014/${path.basename(v.file)}` : undefined;
+  if (raw && fs.existsSync(raw)) result.rawComparisons.push({ file: v.file, raw, matches: v.file.startsWith('logs/') ? canonicalLog(read(raw)) === canonicalLog(read(`${base}/${v.file}`)) : fs.readFileSync(raw).equals(b), normalization: v.file.startsWith('logs/') ? 'LF, trailing whitespace and EOF blank lines only' : 'binary identity' });
+}
+function cases(r) { return (r.suites ?? []).flatMap(cases).concat((r.specs ?? []).flatMap(s => s.tests.map(t => ({ title: s.title, status: t.status, results: t.results.map(x => ({ status: x.status, errors: x.errors.map(e => ({ line: e.location?.line, message: e.message })), diagnosticIssues: x.attachments.filter(a => a.name === 'declared-network-diagnostics' && a.body).flatMap(a => jsonAttachment(a).issues ?? []) })) })))); }
+function jsonAttachment(a) { return JSON.parse(Buffer.from(a.body, 'base64').toString('utf8')); }
+for (const file of fs.readdirSync(`${base}/browser`)) {
+  const r = json(`${base}/browser/${file}`);
+  result.browserRuns.push({ file, startTime: r.stats.startTime, stats: r.stats, cases: cases(r) });
+}
+const retained = json(`${base}/retained-live-runs.json`);
+for (const file of fs.readdirSync(`${base}/live`)) {
+  const r = json(`${base}/live/${file}`);
+  const index = retained.find(x => x.runId === r.runId);
+  const deletes = (r.requests ?? []).filter(x => x.method === 'DELETE').map(x => ({ id: x.path.split('/').at(-1), body: x.body, authorized: r.resources.some(v => v.id === x.path.split('/').at(-1) && v.deletionAuthorized && v.deleted), responses: (r.cors ?? []).filter(v => v.path === x.path && v.status === 204).length }));
+  result.live.push({ file, runId: r.runId, completed: r.completed, retainedMatches: JSON.stringify(index?.resources) === JSON.stringify(r.resources ?? [{ id: r.id, purpose: r.purpose, deletionAuthorized: false, deleted: false }]), requests: r.requests?.length, readbacks: (r.reads ?? []).map(x => ({ label: x.label, status: x.status, statusOrCode: JSON.parse(x.body).status ?? JSON.parse(x.body).error?.code, id: JSON.parse(x.body).id, visibility: JSON.parse(x.body).resultVisibility })), deletes, authRequestBodiesCollected: (r.requests ?? []).some(x => x.path.startsWith('/api/v1/auth') && x.body), corsCorrect: (r.cors ?? []).every(x => x.origin === 'http://localhost:3000' && x.credentials === 'true'), diagnosticIssues: r.diagnosticIssues, errors: r.errors, violations: r.violations, pairs: (r.pairs ?? []).map(p => ({ lifecycle: p.lifecycle, value: p.value, sameId: p.response.id === r.id && p.readback.id === r.id, responseMatches: p.response.resultVisibility === p.value && p.response.status === p.lifecycle, readMatches: p.readback.resultVisibility === p.value && p.readback.status === p.lifecycle })), observations: r.observations });
+}
+const resources = retained.flatMap(x => x.resources);
+result.inventory = { runs: retained.length, resources: resources.length, uniqueIds: new Set(resources.map(x => x.id)).size, deleted: resources.filter(x => x.deleted).length, retained: resources.filter(x => !x.deleted).length, deletedOnlyDedicated: resources.filter(x => x.deleted).every(x => x.deletionAuthorized && /^delete-/.test(x.purpose)) };
+const privateFiles = fs.readdirSync('output/playwright/f7').filter(x => x.endsWith('-private-credentials.json'));
+const secretValues = privateFiles.flatMap(f => json(`output/playwright/f7/${f}`).map(x => x.password));
+const files = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? files(`${dir}/${e.name}`) : [`${dir}/${e.name}`]);
+let found = 0;
+for (const file of files(base)) { const s = read(file); if (secretValues.some(v => v && s.includes(v)) || /eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(s) || /"(?:password|access_token|refresh_token)"\s*:\s*"[^"\r\n]+"/.test(s)) found++; }
+result.secretScan = { privateFilesInspectedLocally: privateFiles.length, valuesNotDisclosed: true, deliveredFilesMatched: found, noStorageStateOrTrace: !files(base).some(f => /storageState|trace\.zip/i.test(f)) };
+const entries = read('backend-ref/MANIFEST.sha256').trim().split(/\r?\n/);
+result.backendManifest = { entries: entries.length, mismatches: entries.filter(line => { const m = /^([a-fA-F0-9]{64})\s+\*?(.*)$/.exec(line); return !m || hash(fs.readFileSync(path.resolve('backend-ref', m[2]))) !== m[1].toLowerCase(); }).length };
+fs.writeFileSync(`${dest}/development-evidence-audit.json`, JSON.stringify(result, null, 2) + '\n');
+console.log(JSON.stringify({ sourceHashes: result.sourceHashes.length, sourceMismatches: result.sourceHashes.filter(v => !v.matchesCommit || !v.matchesWorktree), manifest: result.manifest.length, manifestMismatches: result.manifest.filter(v => !v.matches), rawComparisons: result.rawComparisons.length, rawMismatches: result.rawComparisons.filter(v => !v.matches), inventory: result.inventory, secretScan: result.secretScan, backendManifest: result.backendManifest, browserRuns: result.browserRuns.map(x => ({ file: x.file, stats: x.stats })), live: result.live.map(x => ({ file: x.file, completed: x.completed, requests: x.requests, reads: x.readbacks.length, deletes: x.deletes, retainedMatches: x.retainedMatches, pairs: x.pairs.length })) }, null, 2));

@@ -1,0 +1,3094 @@
+{
+  "version": "1.0",
+  "date": "2026-10-14",
+  "timezone": "Asia/Taipei",
+  "stage": "F7 independent code review complete; Owner confirmation pending",
+  "base": "47dbce558bc628d250911f56af621ba8da2e8093",
+  "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+  "initialGitState": "clean",
+  "branch": "master",
+  "sourceHashes": [
+    {
+      "file": "app/components/forms/FormEditor.vue",
+      "sha256": "32cf5124100d7a4576146994a1ba679bf7c63b25ea5095a4b2916dd9229ed417"
+    },
+    {
+      "file": "app/components/forms/FormReadPage.vue",
+      "sha256": "2e67159c00b7a58c712c8c6825d0c753d8df889d4914e2c0fd6414a18efe212b"
+    },
+    {
+      "file": "app/components/forms/FormRootInfo.vue",
+      "sha256": "6aa17d99416116487c4e7fe9ed67369c429ec8b1d0cef7034641ac96e320c1d6"
+    },
+    {
+      "file": "app/composables/useDirtyScope.ts",
+      "sha256": "de0a6c905c04ce070f0f76ab64b70f2c245e661cbdd84e5ef57fd04bd9dc2bd9"
+    },
+    {
+      "file": "app/composables/useFormDetail.ts",
+      "sha256": "c1a00dd6290de15e3b0d3029e40d63dcabbeb52f8dfb2396979d7ee74330056d"
+    },
+    {
+      "file": "app/composables/useFormEditor.ts",
+      "sha256": "70d50d983abfab037a829f074bf7a0fa5eb376616e916e8b42c5d50ce2ca942b"
+    },
+    {
+      "file": "app/domain/editor-page.ts",
+      "sha256": "248d703e3942f080b956154a8294ee59fab5bb68c841e3fd74da653ebbded425"
+    },
+    {
+      "file": "app/domain/form-read.ts",
+      "sha256": "141364cf95ecadc51d048d6d1191aedf3c700f3222e641d5ebbd7862cca26737"
+    },
+    {
+      "file": "app/domain/operation-state.ts",
+      "sha256": "c8a1a505be8edde65dadca07c050e6fd07aacb0edc6dcd3c0dcf31edca6319f7"
+    },
+    {
+      "file": "app/services/form.ts",
+      "sha256": "8d1231d4a5fee56206b9f5eaacb0eb096afb5aa3a8f06cec18acb98a5adf68dd"
+    },
+    {
+      "file": "tests/e2e/f6-browser.spec.ts",
+      "sha256": "408663bc8056d6c73e943ae604ee93e29de4b0a703c2e9734ac49cc69efc5dd0"
+    },
+    {
+      "file": "app/components/forms/FormDefinitionView.vue",
+      "sha256": "96a2fb4a00cbbd3d9dfc3615a7e75f40cae16a1f237b6111f05b71cdaa593a3c"
+    },
+    {
+      "file": "app/components/forms/FormManagement.vue",
+      "sha256": "e8f0b6c0d85d8e61d5db6732e4413edeadf0391a160c510d1b02c64b5ca42b0f"
+    },
+    {
+      "file": "app/components/forms/ResultVisibilityControl.vue",
+      "sha256": "e83bbc960c279a83a0196c807512510f3a5deea6ab2c5b5f06b09fbea6f6d16d"
+    },
+    {
+      "file": "app/composables/useFormManagement.ts",
+      "sha256": "06342f59dbcdfc053dfa004cafdae0c66c0a5cb2642db03ce88644cad8968e9b"
+    },
+    {
+      "file": "app/domain/form-management.ts",
+      "sha256": "1752c3210796b7a595b0bce3dcb2959cfac8e497dfaa9ddafb89531eaf642095"
+    },
+    {
+      "file": "playwright.f7.config.ts",
+      "sha256": "b9af321ee3cc3c62e41430b5b3b5643fa61ff73c004cca285d0859571bdeae54"
+    },
+    {
+      "file": "tests/e2e/f7-browser.spec.ts",
+      "sha256": "47a59338643885a8bd89bfb2f716739b188e0d3562629b31d51b2f0192e457b0"
+    },
+    {
+      "file": "tests/e2e/f7-live.spec.ts",
+      "sha256": "11ac1c2b3f10ba4af6153cbaeb001db53ab96ceafcdd3d0e55a26780a4282a79"
+    },
+    {
+      "file": "tests/unit/f7-form-management.spec.ts",
+      "sha256": "214c54956076a86431e43c6d3560db81e243b26de434077b2328a82e446e82c1"
+    }
+  ],
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "nuxt": "4.6.1",
+    "nitro": "2.13.4",
+    "vite": "8.3.4",
+    "vue": "3.5.43",
+    "vitest": "5.0.3",
+    "playwright": "1.64.0",
+    "browsers": {
+      "chromium": "156.0.8078.4",
+      "chrome": "156.0.8078.12",
+      "msedge": "155.0.4283.45"
+    }
+  },
+  "environment": {
+    "backendCheckout": "C:/Users/user/Desktop/custom-form-service",
+    "checkoutHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "assembly": "C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/bin/Debug/net10.0/CustomFormService.Api.dll",
+    "fileProductVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "fileSha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+    "listenerPid": 29108,
+    "processName": "dotnet",
+    "startedUtc": "2026-10-11T11:51:59.3428202Z",
+    "currentProcessAssemblyBinding": "NOT RECONFIRMED - historical F7 development probe only",
+    "dbIdentityMigration": "UNCONFIRMED",
+    "apiReadsWritesDuringReview": "NOT RUN"
+  },
+  "freshBuildHashes": [
+    {
+      "file": ".output/nitro.json",
+      "sha256": "81a9c34a0dbf68401c7b6fa2d7d067c233494cb52f1fb19b37ac45c1a1168b20"
+    },
+    {
+      "file": ".output/public/_nuxt/-9151BCj.js",
+      "sha256": "6b18cbd47f429de60c3a3f79830d9a961a75c4e3780d6b6efb23896f15afe9b7"
+    },
+    {
+      "file": ".output/public/_nuxt/2KUB63Gn.js",
+      "sha256": "f7023fd805b4cf3236d70ac201c56ed09e4d9d1ebed5cdd11b0368bf041d5c0d"
+    },
+    {
+      "file": ".output/public/_nuxt/36JEE8LY.js",
+      "sha256": "674e8df59193010a8dbf873bc0659cd46edb8c79bf1f6fd45eb517f4cc506def"
+    },
+    {
+      "file": ".output/public/_nuxt/9TbNOGjS.js",
+      "sha256": "db2dbbf84a4a42a1b107c73a9bed88991b0e70faca6da7c74696f3351b602ad0"
+    },
+    {
+      "file": ".output/public/_nuxt/B3R7t_x9.js",
+      "sha256": "bb65df2027a282b32ce9652882344effa7ba81f1c1143c29d9240ac5b6e331ff"
+    },
+    {
+      "file": ".output/public/_nuxt/B7grBsY-.js",
+      "sha256": "a7f8464195ee31073073d25a89b9b5312cc996d0bfc32d17fd8ec95a1b1ed533"
+    },
+    {
+      "file": ".output/public/_nuxt/Bc01Ltda.js",
+      "sha256": "4d31f8d1072c89e7eae0c8507cfb67dc781bb5e86bb2b7f4075d87a009308932"
+    },
+    {
+      "file": ".output/public/_nuxt/BCKz2uHu.js",
+      "sha256": "34a7b48590e15e479b066d430bd5786cf3e2158fbab4c2531aadd3c839303201"
+    },
+    {
+      "file": ".output/public/_nuxt/BdkW3BmK.js",
+      "sha256": "06d761b20a0e15567efe39486ccd639d5cf767a4eb7e874856526f9d1052715a"
+    },
+    {
+      "file": ".output/public/_nuxt/BDNMzG2s.js",
+      "sha256": "27e87fe62aa760227b7529576953d8314891fd2aec28e0a3f03aece406f2d7d7"
+    },
+    {
+      "file": ".output/public/_nuxt/BfRToFmQ.js",
+      "sha256": "1a5ac87b5f0652df5759155f1adcd1b19bbee35438bc1a44c4925ea593b4357b"
+    },
+    {
+      "file": ".output/public/_nuxt/BtvRN05N.js",
+      "sha256": "4e7575d4129b28370a8d78d3775415556e912f41d09c5f4e3b255500b4f6b5f6"
+    },
+    {
+      "file": ".output/public/_nuxt/builds/latest.json",
+      "sha256": "6ecbfbbb6e91bbef0b37a9bb5bf17ff31007d7f2b92f9580d5fa906456c9d27f"
+    },
+    {
+      "file": ".output/public/_nuxt/builds/meta/84e4dd83-bad9-4e56-93f3-82f4fed7852f.json",
+      "sha256": "4bc507e87c7d006dd4f1f72e272ba1213479a04a949ea447a9c31764c9555a1a"
+    },
+    {
+      "file": ".output/public/_nuxt/CaB2JPC0.js",
+      "sha256": "d30ff18c6d4c37740c7afb0549cef03a293605ca3d3a674bc5991f4e22b8cb17"
+    },
+    {
+      "file": ".output/public/_nuxt/CaRRlU3H.js",
+      "sha256": "9cff08b64cceb46de55d01b79b1298af4bc54eedc3bbdf3a9ed9c8880f31bbca"
+    },
+    {
+      "file": ".output/public/_nuxt/CBrqnQCR.js",
+      "sha256": "ebdced0ef1660d6d380a505462dae8653dfed4b0f9331bfe1ed8900b8a2f39f4"
+    },
+    {
+      "file": ".output/public/_nuxt/CEdl4dG5.js",
+      "sha256": "d7215da75802d6927e9553b516ccada031bacee909ee91af6de0ccc7380355d0"
+    },
+    {
+      "file": ".output/public/_nuxt/co7GX1gf.js",
+      "sha256": "07ce13b04bcb252b86cec1ba0f5da9e656903f8ca3dfd8532fe8d6f8645bf07d"
+    },
+    {
+      "file": ".output/public/_nuxt/COJP5_uV.js",
+      "sha256": "77256ef3e26ad8c7fe01afea153ec2660183c750aa3c6717c23ee9bc04b7df5a"
+    },
+    {
+      "file": ".output/public/_nuxt/CPwYpn1u.js",
+      "sha256": "a91dcfc4a223e2c1672ab0d14361db2ea659f502599435b3fcc48bd60cb285e5"
+    },
+    {
+      "file": ".output/public/_nuxt/CPYv2MCD.js",
+      "sha256": "ce5948b84c470564dfb9936b2578e849975b483ed757bd67bbd1ff62261b7522"
+    },
+    {
+      "file": ".output/public/_nuxt/CrukXCBL.js",
+      "sha256": "5df2f45ca1207d92870ee8404561ad104aa53872ac7c2cd6649df6ef33d818d3"
+    },
+    {
+      "file": ".output/public/_nuxt/CTpMkH0w.js",
+      "sha256": "37ff50a2efcde030f9c423d9c035d0a2a43b484686a8d92b0cb4c51cbc1dea57"
+    },
+    {
+      "file": ".output/public/_nuxt/CZt2u1gx.js",
+      "sha256": "763676105b485f9ce2d18d5711b3d7e7d56820ac582154b68c66518ea10fbb0f"
+    },
+    {
+      "file": ".output/public/_nuxt/D0T1xhLr.js",
+      "sha256": "3e65c205d2c218a1da7b189e2be1ce2bd7a370be3be5a668e2e8e5dfafcf6ec4"
+    },
+    {
+      "file": ".output/public/_nuxt/D1_5QjVA.js",
+      "sha256": "4c6e91d81c24497ff721bcec7942b08dd349e589c869777e93cb59bdf79885dc"
+    },
+    {
+      "file": ".output/public/_nuxt/D4ZoVYRs.js",
+      "sha256": "48b8318c73b1b7dfd53357ac0f4dffd0adeccba7f4eb845eae7dadaed608f009"
+    },
+    {
+      "file": ".output/public/_nuxt/D9jWobcJ.js",
+      "sha256": "3fe87f6732541a961ea486899cf710dd669554ceeacb5282a858942293ddc35d"
+    },
+    {
+      "file": ".output/public/_nuxt/DaRZxc5P.js",
+      "sha256": "1be36ad33b4bf5a75411498f3a238a13c67553231ff1c630d2d8eac50a8a72f0"
+    },
+    {
+      "file": ".output/public/_nuxt/DC3Tigql.js",
+      "sha256": "3e9c5229735cb72603117d8f1f845f156d3294f9ee564808778dc92aa719527d"
+    },
+    {
+      "file": ".output/public/_nuxt/DDSHQJhI.js",
+      "sha256": "17301970c539a3797b84286cc83f6cc4a49131a5625fb2eac04fb63cab330fc1"
+    },
+    {
+      "file": ".output/public/_nuxt/DgyUXEUU.js",
+      "sha256": "e12459f5f891d2042cfe1f9e86a4e32356d93d079b017ecd6b5fe0912241cc14"
+    },
+    {
+      "file": ".output/public/_nuxt/Diqw64Z_.js",
+      "sha256": "9265dc9c57bc2110003d37c1f549fea0076914b93ba12ffdae53b682590a6de2"
+    },
+    {
+      "file": ".output/public/_nuxt/DJbIOd9H.js",
+      "sha256": "aa966c1c856e07ebedaf030ec0922cbe22c12c36f5209f0e0d7681c26cdeed55"
+    },
+    {
+      "file": ".output/public/_nuxt/DK3Fl9T5.js",
+      "sha256": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff"
+    },
+    {
+      "file": ".output/public/_nuxt/dL5tcZd5.js",
+      "sha256": "aed5fc5daa253eb9253877f23e0915dd08b4ff289ab29ee002d0af16af73c4f9"
+    },
+    {
+      "file": ".output/public/_nuxt/DlIAQ0N8.js",
+      "sha256": "c48523cdb7be77f665fc64b44cb65ee002f0e63ab1494fbe69c61f0869e9c210"
+    },
+    {
+      "file": ".output/public/_nuxt/DONU9uAg.js",
+      "sha256": "a7baeaefa367011dd023f436924a60e1cdc6217e013e7e15852dad2d15a0165d"
+    },
+    {
+      "file": ".output/public/_nuxt/DsAgPSzg.js",
+      "sha256": "0b0ea6fa3b98034b7a98f65d09693e9ac0d5e0d09a7a23a372e8c45669584130"
+    },
+    {
+      "file": ".output/public/_nuxt/DZTJz4LM.js",
+      "sha256": "d66255b1838b561d0885d7ad8f07c2e0ff329364954e0dc0f1f9f7d08d191285"
+    },
+    {
+      "file": ".output/public/_nuxt/entry.BlQ66moV.css",
+      "sha256": "86b1e899b931995f65a78efd99c904a8faedec35dd72e31477e262d30b0a7b8a"
+    },
+    {
+      "file": ".output/public/_nuxt/error-404.DpKY_dMl.css",
+      "sha256": "830d0ba8a011835a2db0ccec96e3aab9f127ee4c23df5bdf48a95fbe3221cbf6"
+    },
+    {
+      "file": ".output/public/_nuxt/error-500.CmR4p1fc.css",
+      "sha256": "f3232c01d773770b33b8d57ae2ca6c238ee2195b41bddd15f5e5971e92cb1a69"
+    },
+    {
+      "file": ".output/public/_nuxt/FhTs0GlM.js",
+      "sha256": "87478dded8c738bf2749630b12521fe849139e977bba54cb911490fbc44a3e90"
+    },
+    {
+      "file": ".output/public/_nuxt/H3FJEg96.js",
+      "sha256": "64a5cac01d94a299dae1c2e3e9ece03721f5bcc5a7aaeb05ffea8ccc34e81743"
+    },
+    {
+      "file": ".output/public/_nuxt/KLomCc7w.js",
+      "sha256": "8b34fe3fe956dbc8a7e19acf2fa97ed1a52642982199423c1301a0b92a1d59be"
+    },
+    {
+      "file": ".output/public/_nuxt/L3pbOKjV.js",
+      "sha256": "44a132a4cb8133366870a45bb3d7eec36fe52e0ec40af1a10117dbbb23f814ff"
+    },
+    {
+      "file": ".output/public/_nuxt/n9DtaV3z.js",
+      "sha256": "3a6b76b5a30b83d6b76a783d03f3d0674135f73228500937231bba33f89d190a"
+    },
+    {
+      "file": ".output/public/_nuxt/QHZPerYF.js",
+      "sha256": "c3c3b570db7a463696bfa2404689de8550defe8c542241cf25ad8c650c9e0e59"
+    },
+    {
+      "file": ".output/server/chunks/routes/renderer.mjs",
+      "sha256": "0b7ee9f02419c3c90ac431f16568273dee3fb328dbee2836cf47b9d0dd86a41c"
+    },
+    {
+      "file": ".output/server/chunks/virtual/entry.mjs",
+      "sha256": "9753b81b19063f393abe35421171e1dc804b1669f11370a016011c82bd7f09fb"
+    },
+    {
+      "file": ".output/server/chunks/virtual/precomputed.mjs",
+      "sha256": "1d2c2c32b33de0baa1ea12db61ebe65d676266611b57d18916b7a1e68745cf2c"
+    },
+    {
+      "file": ".output/server/chunks/_/error-template.mjs",
+      "sha256": "8f3da15d73437e94d5239868a9ad5304c0d462da6904f923a85824959d6902e4"
+    },
+    {
+      "file": ".output/server/chunks/_/nitro.mjs",
+      "sha256": "18b715eb1d69846a07939d292e3e6fd18e8ded12eca50e5b14ffc6cb6cd5a51b"
+    },
+    {
+      "file": ".output/server/index.mjs",
+      "sha256": "2d8cd85f2569ba4d13254866cb5be5f1ee23706afa2746e44e98621b506b31c9"
+    },
+    {
+      "file": ".output/server/node_modules/@babel/parser/lib/index.js",
+      "sha256": "82d72e197e27bf909ae10ffc8d1a969aeb94fe96ec96c4e9cb685a0a8229e40c"
+    },
+    {
+      "file": ".output/server/node_modules/@babel/parser/package.json",
+      "sha256": "fa70cca00587bdb335e8249fa40e9356ed7b7c9a4fc92b1e74245ab1b852cda1"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-core/dist/compiler-core.cjs.prod.js",
+      "sha256": "367c63eaf7af09c32c04e7511dcdf2961c11bf1fe604d9fe3b25880d0bd84ded"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-core/package.json",
+      "sha256": "23a72b210735eb489547600864ebcb498a0c992edf26c174545eb7b1f886df21"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.prod.js",
+      "sha256": "9647d0baba9df0339fd933ca321a377379cdc2c685b6e0408038bbe1e5a7c5fe"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-dom/package.json",
+      "sha256": "91d4461f43d6fb985fe1cca8778317f9d5a224c54b48d6b55b70b77d187a4a70"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-ssr/dist/compiler-ssr.cjs.js",
+      "sha256": "74bfc9296564ef467e07a8fea01fff19e868dda7bcd3691c0ca5810f8d8e933d"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/compiler-ssr/package.json",
+      "sha256": "a197fdd82cb501fde4214e8f782d482d1e534ce8b08473e7d04caca0fe253e45"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js",
+      "sha256": "3a794e3db1375918ed54507870a3ddcf572f05fb1580bb03c843d7d1642b9ed9"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/reactivity/package.json",
+      "sha256": "e0c289280e43aa554bfeac0d39779de7312003b6dcd547c01bb023c67b23cd9d"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js",
+      "sha256": "ca1447e51c75dd83a9e6d6c57f1151859f2413354f5739cfab152e908c6cb184"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/runtime-core/package.json",
+      "sha256": "b02e5f4ba4d14b93c2c9c654d12b01b2725f378b336837ca8251acc695eb5d17"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js",
+      "sha256": "2e3d05a3c167d5e46491f230b0cadccc3df27a13ac0d058092a7c71d426a5b54"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/runtime-dom/package.json",
+      "sha256": "060b17bee84956e1d9fa35b6e5923e04bc7f0612d89d6301022766af7a981d9d"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js",
+      "sha256": "4c96539ad0843cab3f18773c5366d6b3a7f2fa780a16af54822b05b2a3c861dd"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/server-renderer/package.json",
+      "sha256": "545d67c244e2e1886cd76a75955572ec71b9ae16c02af31229319e8f1a9e2b02"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/shared/dist/shared.cjs.prod.js",
+      "sha256": "3e628d9fa8deaadfef6edcbed4cdf09ceeda25efe9dead20cd05ba03324d4531"
+    },
+    {
+      "file": ".output/server/node_modules/@vue/shared/package.json",
+      "sha256": "6884a68a6a20f0f40a7558d9d462440052c514e7e5fcb67f5bd91678ae2eedf0"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/package.json",
+      "sha256": "82667293f8d8b6d7d2c5549d3017cd9feea6fa96692c9d24f682a4c354db6d47"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/base64.js",
+      "sha256": "80493520c02cd3eb84ad4b788f78526fff2f41881e9a2211daba3067ad9793c7"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/constants.js",
+      "sha256": "caefdf560562338ffdcb9ee1ba41c604e3d37861317cc6c00eb1a724b18920d8"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/index.js",
+      "sha256": "8f453bd97162fedc108e5df7a82a8c7193a5dc9ea25411ab6526e6c88de9e8f0"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/javascript-source.js",
+      "sha256": "829bb5f57953d0c3282c9e476fae10e0efde5a4892e4c7ac3dea281371cc692c"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/operations.js",
+      "sha256": "491ad304443df1bf93ad640c1116053ca74c098f80409db4413e901a0895ba8b"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/parse.js",
+      "sha256": "1574a010c7dec0cf49a4cef97c7d2befd960f630576aa62b0d43ab30d80dddcc"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/stringify.js",
+      "sha256": "e2211b0636104036e5a0f30f8aeb717d83f476f2c8483a8c1035d4bd69fcb632"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/uneval.js",
+      "sha256": "014c51884701a85cfef6d02d4f91d6cea81c81a62a1ae304735a26963da29349"
+    },
+    {
+      "file": ".output/server/node_modules/devalue/src/utils.js",
+      "sha256": "f5c7aab123578624e699aed84d957e2fa1c73c5f7aaefbfba262014ff283f355"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/decode-codepoint.js",
+      "sha256": "98d97fd43e4db015e5afa7c69b1055cd1ade8114530ea01734add86184125271"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/decode.js",
+      "sha256": "e318cd751279428b7d7e6e9e4c0dc7cc8a4c78e8c2bd00d42da9f8e7b3ef5c07"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/generated/decode-data-html.js",
+      "sha256": "80b85ad02696af10d597c1353db7eb01fbbe4db5b922ac8693c29cbe18d53ac4"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/generated/decode-data-xml.js",
+      "sha256": "07e89fa83ca837b188e4cc52a8d6d2b6983fc5a63b15abad789da9be2ea777b6"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/internal/bin-trie-flags.js",
+      "sha256": "ddb6a8fcaab3a1fb6d60c576bf10302a554d71869b6466a14fc11a800264559a"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/internal/decode-shared.js",
+      "sha256": "e68061084a578fa4f95bd96407f2a4e272bb38615ae1b1076d1181981ce95549"
+    },
+    {
+      "file": ".output/server/node_modules/entities/dist/commonjs/package.json",
+      "sha256": "8005a3491db7d92f36ac66369861589f9c47123d3a7c71e643fc2c06168cd45a"
+    },
+    {
+      "file": ".output/server/node_modules/entities/package.json",
+      "sha256": "23b8155e392e40ef78b3e673ae1a661f6e12d631c1bf472fdf659fc73e0a063b"
+    },
+    {
+      "file": ".output/server/node_modules/estree-walker/dist/umd/estree-walker.js",
+      "sha256": "183597c40a43d2a2ebda3dc85ae2dd70e107b3e5cec305b02a5bffa54e0f4b9b"
+    },
+    {
+      "file": ".output/server/node_modules/estree-walker/package.json",
+      "sha256": "39ad598e5f9c279ce78c39be694413005ab6ea7083255224692c5adbca88017b"
+    },
+    {
+      "file": ".output/server/node_modules/hookable/dist/index.mjs",
+      "sha256": "377b65805bb3ae06066a557acb72834d753053199ab1af8ec719492006992c51"
+    },
+    {
+      "file": ".output/server/node_modules/hookable/package.json",
+      "sha256": "e4f30e2a2bc8f98f6e7d43229a41f72aac99de43dda10506af7d4d7d5d5f1625"
+    },
+    {
+      "file": ".output/server/node_modules/nostics/dist/formatters/ansi.mjs",
+      "sha256": "4397bf3a3f28ccbfbba54f3be270e89fb1318a149938db58539431703f302728"
+    },
+    {
+      "file": ".output/server/node_modules/nostics/dist/index.mjs",
+      "sha256": "cf738d98c6544a43c4ca86f3a2e09e80d2b85491d6679d480dbb455ba758704a"
+    },
+    {
+      "file": ".output/server/node_modules/nostics/package.json",
+      "sha256": "2ce7da36f8bc639766ce0ca9cf2705219b8a8a850ca482c4605a56a9c31a0028"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/array-set.js",
+      "sha256": "163bb3055aaea7140167740036a83161fd912c344b14f992754b80f21477d754"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/base64-vlq.js",
+      "sha256": "f3407e528f54ec0787bd0a71eeac0c99fffd98445916fcbe116dc69ca3be928b"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/base64.js",
+      "sha256": "651bf433cf05e9ec8cee0b94639483236a605d48279e83d3d5c5de81c21d6599"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/binary-search.js",
+      "sha256": "c7f4a47a125af0bd860443dfd71d2f412d1a97dcb53ab7038189d63b91dc32bd"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/mapping-list.js",
+      "sha256": "35ddb82861f11a70ab84cb47d620fcb28d7f884bb444644e06bde815b836ef9e"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/quick-sort.js",
+      "sha256": "1e2857cc4f6c9c36b764ce529f39b9243bed27aed809e895d7cec04c8a869266"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/source-map-consumer.js",
+      "sha256": "9ad10db386da13c1f95e6a680d6298dbb306c77f57a9a3539e4595b723a7654b"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/source-map-generator.js",
+      "sha256": "07894c9ea1e674263e2e7694d43d4fb935e98549b93946205b9536c1420696c0"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/source-node.js",
+      "sha256": "d1a0ef136bf0e974ba956506c88e91fef5d8681bbf10c486ff9566a7d6d76f3c"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/lib/util.js",
+      "sha256": "0629f3ae2f3049cda3a2e87ea651dcf0cc71108f4681795ab989a8ac1573fc03"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/package.json",
+      "sha256": "89916ed9fd10e7d237a8cdcf302807685ad859f345aba1f4076d03dfa298dc73"
+    },
+    {
+      "file": ".output/server/node_modules/source-map-js/source-map.js",
+      "sha256": "dc098456c2d9ab90a4c0a17cca9be16665b9813df20906553a98b0088a157be7"
+    },
+    {
+      "file": ".output/server/node_modules/ufo/dist/index.mjs",
+      "sha256": "893199faf3aafc1b2a03018de7c87738bcd78ed5153e7c2767d62e09b323b042"
+    },
+    {
+      "file": ".output/server/node_modules/ufo/package.json",
+      "sha256": "d5205f5e253a10b104da0aca28323f68d3a39de0d477b9964387b227ab3ae6f1"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/client.mjs",
+      "sha256": "4803fdf46b1e5ce3b22100968703df24c2345a21505464a09ff2baa389e81d0f"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/legacy.mjs",
+      "sha256": "a4b420182ff774c0a05fa28a3d35ab005db09ad6965ddd1e9dbe6305653159de"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/minify.mjs",
+      "sha256": "9123ebe28958b125f1313a5a014d8a380ebd27d5df540d52bf4348421cbde91f"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/parser.mjs",
+      "sha256": "c79ddf1a2d64d364c909ca787e8faccec3c9ae4e60bdd704a850b2de7bb2cdf9"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/plugins.mjs",
+      "sha256": "50032b123ecccd17817c187d0e3a03e3f7ddc17d6781dc0f59f54dd71e0f1d7a"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/server.mjs",
+      "sha256": "ab088d121b1daa08911af559a82a2a04afd83b24d94e69475b2e70243564604c"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.-hZVKou0.mjs",
+      "sha256": "0157139a16ad825480fbad3dc6bb19715679e082705016fdc68f70d9fe39a23f"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.BEmVMkeA.mjs",
+      "sha256": "8efe219c8fa6b39f74bd64bdd254d3ffa855094684bb0bcdf2a99403b30d3570"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.Bf_fPVYA.mjs",
+      "sha256": "26b5488f6e75a1f0f10caa7236953dedd65963d05a1dc04eade6f863d99a5e9e"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.BGFxPGPQ.mjs",
+      "sha256": "b2cb65ac3bf42263b7a86746f9ba1fced8c0e388b2c7b69f2f0c3978fbabb6d4"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.Bjbp1C8D.mjs",
+      "sha256": "2f5a14fa5b73a39b76d3cec663b87b159b4a1ecc5d6674ba819daf55959830ef"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.Bm4Y6XQI.mjs",
+      "sha256": "d619678fb9f31f47eef8ba44507ba7dd5be9261a3c524d00c97b9cd250ab4909"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.BQWSw36o.mjs",
+      "sha256": "7097347e132566944b360f31bb16bfe1c770138e1e5db7156fcf10d260286bbf"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.C5Bksi2B.mjs",
+      "sha256": "cf8875bd7249dfb9c2253b87d63d571f93830fe66557c89c1b04a53e75c8d5a4"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.CGPOfp5O.mjs",
+      "sha256": "9c15d2979b6ab967828caec9ae66b533e7d8b9ebadad7cd4726a221fc2df0c62"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.CHEy9ana.mjs",
+      "sha256": "98aba62d97b3ea5ade402be0975f5da18768512f2738ab4efc264fb78320f2c6"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.C_7zwq8E.mjs",
+      "sha256": "c0a1c95adb7a9b5a6a8d5cb553a792bd62e2f6b4c1a58aef32a4f8bd98cbba8c"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.D7HkBzZn.mjs",
+      "sha256": "586ada37dd35c7342f4a5f94e6deee79570fb3933804580ae7485fa050b55e5c"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.Dssd7L5I.mjs",
+      "sha256": "6a8bf1c9c2ed60ebc89c440ebbbee14ccf77b4843f407d53b3b5e08dbae7a8c5"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.jEy9BmRq.mjs",
+      "sha256": "f3d8cc03faa4ee18300729ccc0725085721e1bf74c7520157adf49455e13adaf"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.oZ7pkTV1.mjs",
+      "sha256": "012831f233af592c8e85c8dd415342bc012ade4663cbcc85d34c15e85f78cadb"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/shared/unhead.tQnRaXfX.mjs",
+      "sha256": "80514e7230d4a9920aa704acabec3d5a772afb948f7a6ffcbc48b11f55bb5f16"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/stream/client.mjs",
+      "sha256": "72579a3f66279d50bdec0efe0988a0be88d360b919e710fb8706d8ba4c4ca0d7"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/stream/iife.mjs",
+      "sha256": "c35dee06ac6719c9eb449bda075c422e11d6780b5aededf1e52f1322b73fc895"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/stream/server.mjs",
+      "sha256": "d4dfc413efe91684b45cb8cecb6169f7d6d2dd303be31208c17e4b5eef3745ef"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/dist/utils.mjs",
+      "sha256": "f535dda6aa4f5dfe9feac8a8e8814cc11c3706af68b3f459e282a4786d598baf"
+    },
+    {
+      "file": ".output/server/node_modules/unhead/package.json",
+      "sha256": "76a8ee1cb9257f7240b05fa8ac87e5ec4232eeaa02b7281d382f0776bfbd39dd"
+    },
+    {
+      "file": ".output/server/node_modules/vue/dist/vue.cjs.js",
+      "sha256": "330a009bbef2facd058d2be0f6058e7f4b08abfd3d7972de55df49c60205622d"
+    },
+    {
+      "file": ".output/server/node_modules/vue/dist/vue.cjs.prod.js",
+      "sha256": "80a33ee22e937e45bbf57b256f51b6f332d0dca61b598a7decff865c8478d411"
+    },
+    {
+      "file": ".output/server/node_modules/vue/index.js",
+      "sha256": "a5287f6056bc5c2c569d318063ee043f55a0d323fa7262f64456d58fd574f928"
+    },
+    {
+      "file": ".output/server/node_modules/vue/index.mjs",
+      "sha256": "be2f35590bee45e69850d0d8d48f0b8c8f5c0ef0ecf8a7265ab12fb7add6584d"
+    },
+    {
+      "file": ".output/server/node_modules/vue/package.json",
+      "sha256": "38970472da641a3148a956ec8155eb53e82ee1f8212059709f2ce4b8be0bc38f"
+    },
+    {
+      "file": ".output/server/node_modules/vue/server-renderer/index.mjs",
+      "sha256": "ddf4fc11a9d155f1d58084838ad0eb640d38b6b7724fac14a1e782efaaa2966c"
+    },
+    {
+      "file": ".output/server/node_modules/vue-bundle-renderer/dist/runtime.mjs",
+      "sha256": "2248fdcfa20093ba0f464b29eafd3e0cd7e1cf7d8e1b28d7dd666af58f9d3c81"
+    },
+    {
+      "file": ".output/server/node_modules/vue-bundle-renderer/package.json",
+      "sha256": "b9e3820ad20e71a33413de5cb260ccce665b8074678bc76415aaaf80f7ba963f"
+    },
+    {
+      "file": ".output/server/package.json",
+      "sha256": "fa792cdbaa1fd5f6a62ce58b9866f0113f1c96212d279a54189c484c18150519"
+    }
+  ],
+  "checks": [
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "log": "logs/lint.log",
+      "exit": 0
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "log": "logs/typecheck.log",
+      "exit": 0
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "log": "logs/build-first.log",
+      "exit": 0,
+      "warning": "DEP0155 dependency exports deprecation"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f7-form-management.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-config-omission.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts",
+      "result": "PASS",
+      "passed": 231,
+      "files": 7,
+      "log": "logs/unit-local.log",
+      "exit": 0,
+      "startupAttempt": {
+        "result": "FAIL - sandbox spawn EPERM, tests NOT RUN",
+        "log": "logs/unit-first.log",
+        "exit": 1
+      }
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f5-editor.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts",
+      "result": "PASS",
+      "passed": 58,
+      "files": 3,
+      "log": "logs/unit-publish-exact-local.log",
+      "exit": 0,
+      "startupAttempt": {
+        "result": "FAIL - sandbox spawn EPERM, tests NOT RUN",
+        "log": "logs/unit-publish-exact-first.log",
+        "exit": 1
+      }
+    },
+    {
+      "command": "F7_MODE=built F7_RUN_LABEL=independent-review-local npm run test:e2e -- --config=playwright.f7.config.ts",
+      "result": "PASS",
+      "passed": 24,
+      "log": "logs/browser-built-local.log",
+      "exit": 0,
+      "startupAttempt": {
+        "result": "FAIL - sandbox spawn EPERM, 0 cases",
+        "log": "logs/browser-built-first.log",
+        "exit": 1
+      }
+    },
+    {
+      "command": "F6_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/f6-independent-review-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'F6-B01|F6-B02/B03|F6-B05|F6-B06|F6-B07|F6-B08|F6-B09|pending old GET' --reporter=line,json --output=output/playwright/f7/f6-independent-review-artifacts",
+      "result": "PASS",
+      "passed": 15,
+      "skipped": 2,
+      "log": "logs/browser-f6-built.log",
+      "exit": 0
+    },
+    {
+      "command": "F6_MODE=fixture PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/f6-independent-scope-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'same-component ID update|pending old GET' --reporter=line,json --output=output/playwright/f7/f6-independent-scope-artifacts",
+      "result": "PASS",
+      "passed": 2,
+      "log": "logs/browser-f6-scope.log",
+      "exit": 0
+    },
+    {
+      "command": "npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json",
+      "result": "PASS",
+      "log": "logs/harness-typecheck.log",
+      "exit": 0
+    },
+    {
+      "command": "F7_MODE=built F7_CHANNEL=chrome F7_RUN_LABEL=independent-review npm run test:e2e -- --config=playwright.f7.config.ts --grep 'saved publish|Clipboard fallback'",
+      "result": "PASS",
+      "passed": 2,
+      "log": "logs/browser-chrome.log",
+      "exit": 0
+    },
+    {
+      "command": "F7_MODE=built F7_CHANNEL=msedge F7_RUN_LABEL=independent-review npm run test:e2e -- --config=playwright.f7.config.ts --grep 'saved publish|Clipboard fallback'",
+      "result": "PASS",
+      "passed": 2,
+      "log": "logs/browser-msedge.log",
+      "exit": 0
+    }
+  ],
+  "browserRuns": [
+    {
+      "file": "browser/built-independent-review-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:27:00.743Z",
+        "duration": 28.07800000000003,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [
+        {
+          "message": "Error: spawn EPERM",
+          "stack": "Error: spawn EPERM"
+        }
+      ],
+      "cases": []
+    },
+    {
+      "file": "browser/built-independent-review-local-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:27:12.675Z",
+        "duration": 20027.697,
+        "expected": 24,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [],
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B04 Visibility retains pending edits and exact definition; all writes serialize",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 400
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B06 Publish full saved index, unknown summary and first actual field focus",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "method": "POST",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B08 Count zero and explicit repeat, no automatic poll",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B13 disabled error retains Header and definition; no global logout or unknown write lock",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B14 Clipboard success stores the complete Published URL and no fallback",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B15 nonOwner Draft remains formal 404 without management",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/built-chrome-independent-review-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:38:51.782Z",
+        "duration": 6193.101,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [],
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/built-msedge-independent-review-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:39:17.272Z",
+        "duration": 6708.065,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [],
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "file": "f7-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/f6-independent-review-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:29:49.584Z",
+        "duration": 17309.252,
+        "expected": 15,
+        "skipped": 2,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [],
+      "cases": [
+        {
+          "title": "F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op and second delta",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B08 Create unknown retains input and every retry prompts duplicate risk",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 409,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED",
+                      "count": 1,
+                      "diagnosticCount": 0
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 409
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B05 Create error map points to newly added Option and retains unknown detail",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "file": "f6-browser.spec.ts",
+          "status": "skipped",
+          "results": [
+            {
+              "status": "skipped",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        },
+        {
+          "title": "F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403,
+                      "count": 2,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 2
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "file": "f6-browser.spec.ts",
+          "status": "skipped",
+          "results": [
+            {
+              "status": "skipped",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/f6-independent-scope-results.json",
+      "stats": {
+        "startTime": "2026-10-14T06:31:08.951Z",
+        "duration": 11081.073999999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "errors": [],
+      "cases": [
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "file": "f6-browser.spec.ts",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED",
+                      "count": 1,
+                      "diagnosticCount": 0
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED"
+                    }
+                  ],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "domainProbes": {
+    "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+    "cases": [
+      {
+        "name": "Independent revision tickets isolate peers, IDs, denial and pending starts",
+        "result": "PASS",
+        "noRevivalAfterRelease": true,
+        "differentIdUnaffected": true,
+        "reconcileDoesNotClearDenial": true
+      },
+      {
+        "name": "Independent Visibility merge preserves current and baseline including omission, number and time",
+        "result": "PASS",
+        "currentQuestions": 6,
+        "baselineQuestions": 5,
+        "omittedVariant": true,
+        "exactNumber": true,
+        "originalDeadline": "2026-12-31T10:30:00.1234567Z",
+        "dirty": true
+      },
+      {
+        "name": "Independent dirty Delete validation revokes permit and retains content",
+        "result": "PASS",
+        "contentRetained": true,
+        "permitRevoked": true,
+        "calls": {
+          "clear": 0,
+          "finish": 1,
+          "authorize": 1,
+          "toast": [],
+          "navigation": []
+        },
+        "snapshots": {
+          "delta": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "visibility": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "lifecycle": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "delete": {
+            "phase": "failed",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          }
+        }
+      },
+      {
+        "name": "Independent dirty Delete unknown revokes permit and retains content",
+        "result": "PASS",
+        "contentRetained": true,
+        "permitRevoked": true,
+        "calls": {
+          "clear": 0,
+          "finish": 1,
+          "authorize": 1,
+          "toast": [],
+          "navigation": []
+        },
+        "snapshots": {
+          "delta": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": true,
+            "duplicateRisk": false,
+            "blocked": true
+          },
+          "visibility": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": true,
+            "duplicateRisk": false,
+            "blocked": true
+          },
+          "lifecycle": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": true,
+            "duplicateRisk": false,
+            "blocked": true
+          },
+          "delete": {
+            "phase": "unknown",
+            "loading": false,
+            "needsReconciliation": true,
+            "duplicateRisk": false,
+            "blocked": true
+          }
+        }
+      },
+      {
+        "name": "Independent dirty Delete session revokes permit and retains content",
+        "result": "PASS",
+        "contentRetained": true,
+        "permitRevoked": true,
+        "calls": {
+          "clear": 0,
+          "finish": 1,
+          "authorize": 1,
+          "toast": [],
+          "navigation": []
+        },
+        "snapshots": {
+          "delta": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "visibility": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "lifecycle": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          },
+          "delete": {
+            "phase": "idle",
+            "loading": false,
+            "needsReconciliation": false,
+            "duplicateRisk": false,
+            "blocked": false
+          }
+        }
+      },
+      {
+        "name": "Independent policy success retains lifecycle and Delete unknown qualifications",
+        "result": "PASS",
+        "lifecycleUnknownRemains": true,
+        "deleteLocksAll": true
+      }
+    ]
+  },
+  "browserProbes": {
+    "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+    "mode": "fresh built with ALL backend requests intercepted",
+    "origin": "http://localhost:3000",
+    "createdAt": "2026-10-14T06:35:04.301Z",
+    "cases": [
+      {
+        "name": "R1 saved incomplete Rating publication must focus first editable invalid field",
+        "result": "FAIL",
+        "expectedFocusedField": "00000000-0000-4000-8000-000000000005.config.min",
+        "active": {
+          "tag": "BUTTON",
+          "text": "發布",
+          "field": null
+        },
+        "publishRequests": 0,
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "R2 Clipboard completion after SPA leave must not emit old success toast",
+        "result": "FAIL",
+        "expected": "No toast owned by disposed Form page",
+        "observed": {
+          "url": "http://localhost:3000/",
+          "staleToastVisible": true,
+          "copied": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050"
+        },
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "R2 Clipboard reject after qualification denial must not expose old fallback",
+        "result": "FAIL",
+        "expected": "No late fallback after qualification changes",
+        "observed": {
+          "fallbackUrl": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050",
+          "ownerShareButtons": 0,
+          "denied": true
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 403,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 403
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R3 Published lifecycle unknown must retain reconciliation dirty guard on SPA leave",
+        "result": "FAIL",
+        "expected": "One dirty prompt; dismiss retains Form URL and unknown",
+        "observed": {
+          "prompts": 0,
+          "url": "http://localhost:3000/"
+        },
+        "expectedNetwork": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED",
+            "count": 1
+          }
+        ],
+        "failures": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R3 Published lifecycle unknown must retain reconciliation beforeunload guard",
+        "result": "FAIL",
+        "expected": "One beforeunload prompt; dismiss keeps unknown page",
+        "observed": {
+          "prompts": 0,
+          "meRequests": 2,
+          "closeRequests": 1
+        },
+        "expectedNetwork": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED",
+            "count": 1
+          }
+        ],
+        "failures": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+          }
+        ],
+        "unexpected": []
+      }
+    ],
+    "browserVersion": "156.0.8078.4"
+  },
+  "extraBrowserProbes": {
+    "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+    "mode": "fresh built with ALL backend requests intercepted",
+    "origin": "http://localhost:3000",
+    "createdAt": "2026-10-14T06:42:59.915Z",
+    "cases": [
+      {
+        "name": "R4 Visibility authoritative 404 plus discard cancel must revoke Draft save qualification",
+        "result": "FAIL",
+        "expected": "Preserve dirty definition but prohibit subsequent Draft PATCH",
+        "observed": {
+          "prompts": 1,
+          "saveEnabled": true,
+          "publishEnabled": false,
+          "definitionPatches": 1
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 404,
+            "count": 1
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 404,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 404
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 404
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R4 Publish 409 and failed reload must keep Draft save revoked",
+        "result": "FAIL",
+        "expected": "Known Published stops definition save even if candidate and reload fail",
+        "observed": {
+          "editable": true,
+          "saveEnabled": true,
+          "definitionPatches": 1
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+            "status": 409,
+            "count": 1
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500,
+            "count": 2
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 409,
+            "count": 1
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+            "status": 409
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 409
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "Confirmation X cancels publish with zero request",
+        "result": "PROBE ERROR",
+        "message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '發布表單' }).getByLabel('Close', { exact: true })\u001b[22m\n"
+      }
+    ],
+    "browserVersion": "156.0.8078.4"
+  },
+  "confirmationX": {
+    "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+    "mode": "fresh built with ALL backend requests intercepted",
+    "origin": "http://localhost:3000",
+    "createdAt": "2026-10-14T06:44:05.787Z",
+    "cases": [
+      {
+        "name": "Confirmation X cancels publish with zero request",
+        "result": "PASS",
+        "writeRequests": [],
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "Confirmation X cancels close with zero request",
+        "result": "PASS",
+        "writeRequests": [],
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "Confirmation X cancels delete with zero request",
+        "result": "PASS",
+        "writeRequests": [],
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      }
+    ],
+    "browserVersion": "156.0.8078.4"
+  },
+  "findings": [
+    {
+      "id": "F7-R4",
+      "priority": "P2",
+      "file": "app/domain/form-management.ts",
+      "line": 143,
+      "title": "Revoke Draft save qualification for management 404/lifecycle conflict"
+    },
+    {
+      "id": "F7-R3",
+      "priority": "P2",
+      "file": "app/components/forms/FormReadPage.vue",
+      "line": 9,
+      "title": "Include readonly Form unknown in dirty/beforeunload"
+    },
+    {
+      "id": "F7-R2",
+      "priority": "P2",
+      "file": "app/components/forms/FormManagement.vue",
+      "line": 21,
+      "title": "Scope late Clipboard completion"
+    },
+    {
+      "id": "F7-R1",
+      "priority": "P2",
+      "file": "app/domain/form-management.ts",
+      "line": 73,
+      "title": "Focus first local Publish validation issue"
+    }
+  ],
+  "developmentEvidenceAudit": {
+    "file": "development-evidence-audit.json",
+    "sourceCount": 20,
+    "sourceMismatches": [],
+    "artifactCount": 70,
+    "artifactMismatches": [],
+    "rawComparisons": 65,
+    "rawMismatches": [],
+    "inventory": {
+      "runs": 5,
+      "resources": 15,
+      "uniqueIds": 15,
+      "deleted": 6,
+      "retained": 9,
+      "deletedOnlyDedicated": true
+    },
+    "backendManifest": {
+      "entries": 108,
+      "mismatches": 0
+    },
+    "secretScan": {
+      "privateFilesInspectedLocally": 2,
+      "valuesNotDisclosed": true,
+      "deliveredFilesMatched": 0,
+      "noStorageStateOrTrace": true
+    }
+  },
+  "reviewProbeConstructionHistory": [
+    {
+      "result": "FAIL - reviewer probe, not product",
+      "file": "domain-probes-first.json",
+      "log": "logs/domain-probes-first.log",
+      "reason": "Attempted JSON serialization of internal Deadline BigInt model; 5 other assertions passed"
+    },
+    {
+      "result": "FAIL - evidence export, not product",
+      "log": "logs/domain-probes-corrected.log",
+      "reason": "BigInt in diagnostic output only; final evidence exports originalIso and retains direct deepEqual"
+    },
+    {
+      "result": "PASS",
+      "file": "domain-probes.json",
+      "log": "logs/domain-probes-final.log",
+      "passed": 6
+    },
+    {
+      "result": "PROBE ERROR + interrupted remainder",
+      "file": "browser-extra-probes-first.json",
+      "log": "logs/browser-extra-probes-first.log",
+      "reason": "English Close selector mismatched zh_tw; R4 completed failures preserved, X rerun only"
+    },
+    {
+      "result": "PASS",
+      "file": "browser-confirm-x.json",
+      "log": "logs/browser-confirm-x.log",
+      "passed": 3
+    },
+    {
+      "result": "FAIL - subprocess EPERM",
+      "log": "logs/evidence-audit.log",
+      "corrected": "logs/evidence-audit-local.log"
+    },
+    {
+      "result": "NOT CONFIRMED - optional sandbox listener metadata attempt",
+      "reason": "Null-valued metadata; local read-only retry is environment.json, no API calls"
+    }
+  ],
+  "protectedPaths": {
+    "paths": [
+      "app",
+      "tests",
+      "scripts",
+      "package.json",
+      "package-lock.json",
+      "nuxt.config.ts",
+      "AGENTS.md",
+      ".agents",
+      ".gitignore",
+      "docs/specs",
+      "docs/test-plan",
+      "docs/test-results",
+      "docs/implementation/F7_Implementation_Plan.md",
+      "docs/implementation/F7_Development_Report.md",
+      "docs/implementation/evidence",
+      "playwright.f7.config.ts"
+    ],
+    "diffExit": 0,
+    "result": "PASS"
+  },
+  "boundaries": {
+    "realApiReadsWrites": "NOT RUN during review; historical evidence audited only",
+    "realDelete": "NOT RUN",
+    "fixtures": "all new Browser API requests intercepted synthetic",
+    "formalAcceptance": "NOT RUN - deferred",
+    "accepted": "unchanged",
+    "realControlledAuthFaults": "BLOCKED",
+    "dbIdentityMigration": "UNCONFIRMED",
+    "physicalDevices": "NOT RUN",
+    "F8F9": "NOT RUN",
+    "pushPRDeploy": "NOT RUN",
+    "productTestsModified": false,
+    "agentsDelegated": false
+  },
+  "rawEvidence": {
+    "originalCommandLogs": "output/f7/review-20261014/raw-logs/",
+    "reporterArtifacts": "output/playwright/f7/*independent*",
+    "executableProbes": "output/f7/review-20261014/",
+    "deliveredLogNormalization": "LF/trailing whitespace/EOF blank lines only",
+    "historicalRunsImmutableSnapshot": "No per-intermediate-run source snapshot/build digest; do not extrapolate earlier live PASS to all final product paths"
+  }
+}

@@ -1,0 +1,5 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+Error: spawn EPERM

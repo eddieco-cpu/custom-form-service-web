@@ -1,0 +1,134 @@
+{
+  "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T06:35:04.301Z",
+  "cases": [
+    {
+      "name": "R1 saved incomplete Rating publication must focus first editable invalid field",
+      "result": "FAIL",
+      "expectedFocusedField": "00000000-0000-4000-8000-000000000005.config.min",
+      "active": {
+        "tag": "BUTTON",
+        "text": "發布",
+        "field": null
+      },
+      "publishRequests": 0,
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "R2 Clipboard completion after SPA leave must not emit old success toast",
+      "result": "FAIL",
+      "expected": "No toast owned by disposed Form page",
+      "observed": {
+        "url": "http://localhost:3000/",
+        "staleToastVisible": true,
+        "copied": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050"
+      },
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "R2 Clipboard reject after qualification denial must not expose old fallback",
+      "result": "FAIL",
+      "expected": "No late fallback after qualification changes",
+      "observed": {
+        "fallbackUrl": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050",
+        "ownerShareButtons": 0,
+        "denied": true
+      },
+      "expectedDiagnostics": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 403,
+          "count": 1
+        }
+      ],
+      "responses": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 403
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "R3 Published lifecycle unknown must retain reconciliation dirty guard on SPA leave",
+      "result": "FAIL",
+      "expected": "One dirty prompt; dismiss retains Form URL and unknown",
+      "observed": {
+        "prompts": 0,
+        "url": "http://localhost:3000/"
+      },
+      "expectedNetwork": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED",
+          "count": 1
+        }
+      ],
+      "failures": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "R3 Published lifecycle unknown must retain reconciliation beforeunload guard",
+      "result": "FAIL",
+      "expected": "One beforeunload prompt; dismiss keeps unknown page",
+      "observed": {
+        "prompts": 0,
+        "meRequests": 2,
+        "closeRequests": 1
+      },
+      "expectedNetwork": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED",
+          "count": 1
+        }
+      ],
+      "failures": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "unexpected": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

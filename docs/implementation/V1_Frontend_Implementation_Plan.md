@@ -588,6 +588,14 @@ lint／strict typecheck／fresh build／F6 harness strict PASS，受影響 unit 
 
 **停於「F7 開發完成、待集中 review」**；正式驗收維持延後、accepted 不變，不代填 code review／AI／人工驗收 PASS。本輪作單一目的本機提交，完整 SHA 與最終 Git 狀態見交付訊息／Git log；不推送、不展開 F8。
 
+### 9.26 F7 獨立集中 review（2026-10-14）
+
+Owner 指定前基準 `47dbce558bc628d250911f56af621ba8da2e8093`、交付 `084020ae3c8a2f0db1e818cd8b555d5800de5099`，授權獨立review、必要工程／受影響unit／fresh built Browser及本機文件提交，產品與tests不修改。核對實際96檔diff、核准F7 v1.1／正式契約／報告及本機原件；四項P2：管理404／409未撤銷Draft保存資格、唯讀Form unknown未接dirty／beforeunload、Clipboard Promise晚回、Publish本地驗證未定位首錯。見 [獨立報告](../review/F7_Independent_Code_Review_Report_20261014.md)／[獨立證據](../review/evidence/F7_20261014/verification-summary.json)，尚不能宣告F7 code review通過。
+
+獨立lint／strict typecheck／fresh build／harness strict PASS；unit289／289（10files），F7 built24／24、F6 built15PASS＋2skipped／fixture補跑2／2、Chrome／Edge smoke各2／2。額外Domain六案與confirmation×三案PASS；七個Browser行為FAIL支持四項findings，未自行修正。開發來源hash20／20、artifact70／70、65份原件比對、backend manifest108／108一致；15個專用Form IDs與六次授權Delete／204／404索引一致，九份保留。真實整合僅稽核歷史原件，未新增真實寫入／Delete／測資，不把分次歷史結果冒稱最終版fresh live執行。
+
+**停於「F7 集中 review 完成、待 Owner 確認」。** 正式驗收維持延後、accepted不變、既有受控特殊Auth／交易故障／DB identity／migration／實機等缺口保留。僅追加報告／去敏證據及本節、README進度，原報告／FAIL／資料原件保留；單一目的本機提交SHA見Git log，不推送、不展開F8。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

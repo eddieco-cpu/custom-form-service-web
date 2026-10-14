@@ -1,0 +1,27 @@
+const fs = require('node:fs'), path = require('node:path'), crypto = require('node:crypto'), cp = require('node:child_process');
+const docs = ['README.md', 'docs/implementation/V1_Frontend_Implementation_Plan.md', 'docs/review/F7_Independent_Code_Review_Report_20261014.md'];
+const norm = s => s.replace(/\r\n/g, '\n');
+const issues = []; let links = 0;
+for (const file of docs) {
+  const s = fs.readFileSync(file, 'utf8');
+  if (!s.endsWith('\n') || /[^\S\r\n]+\r?$/m.test(s) || /[\x00-\x08\x0B\x0C\x0E-\x1F]/.test(s)) issues.push(`format ${file}`);
+  if ((s.match(/^```/gm) ?? []).length % 2) issues.push(`fence ${file}`);
+  for (const m of s.matchAll(/\[[^\]\r\n]+\]\(([^)\r\n]+)\)/g)) {
+    const target = m[1].split('#')[0]; if (!target || /^(https?:|codex:|app:)/.test(target)) continue;
+    links++; if (!fs.existsSync(path.resolve(path.dirname(file), target))) issues.push(`link ${file}: ${target}`);
+  }
+  let columns;
+  for (const line of s.split(/\r?\n/)) { if (!line.startsWith('|')) { columns = undefined; continue; } const n = (line.match(/(?<!\\)\|/g) ?? []).length; if (columns === undefined) columns = n; else if (columns !== n) issues.push(`table ${file}`); }
+}
+const prior = f => norm(cp.execFileSync('git', ['show', `084020a:${f}`], { encoding: 'utf8', maxBuffer: 4e6 }));
+const readme = norm(fs.readFileSync(docs[0], 'utf8')).replace(/最新 review 進度（2026-10-14）：[\s\S]*?以下保留歷史交付。\n\n/, '');
+const total = norm(fs.readFileSync(docs[1], 'utf8')).replace(/### 9\.26 F7 獨立集中 review（2026-10-14）[\s\S]*?(?=## 10\.)/, '');
+if (readme !== prior(docs[0])) issues.push('README history changed');
+if (total !== prior(docs[1])) issues.push('Total plan history changed');
+const dir = 'docs/review/evidence/F7_20261014';
+const manifest = JSON.parse(fs.readFileSync(`${dir}/artifact-manifest.json`, 'utf8'));
+for (const item of manifest.files) { const raw = fs.readFileSync(`${dir}/${item.file}`), b = item.file.endsWith('.png') ? raw : Buffer.from(norm(raw.toString('utf8'))); if (crypto.createHash('sha256').update(b).digest('hex') !== item.sha256) issues.push(`hash ${item.file}`); }
+const result = { result: issues.length ? 'FAIL' : 'PASS', issues, localLinks: links, existingReadmeAndTotalHistory: 'byte-equivalent after LF normalization and removal of this review additions', verifiedManifestEntries: manifest.files.length, gitDiffCheck: cp.spawnSync('git', ['diff', '--check']).status, reviewerCommit: 'single purpose docs; final SHA from git log, no self-reference' };
+fs.writeFileSync(`${dir}/closeout-checks.json`, JSON.stringify(result, null, 2) + '\n');
+console.log(JSON.stringify(result, null, 2));
+if (issues.length || result.gitDiffCheck !== 0) process.exitCode = 1;

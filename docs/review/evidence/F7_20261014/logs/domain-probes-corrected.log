@@ -1,0 +1,9 @@
+file:///C:/Users/user/Desktop/custom-form-service-web/output/f7/review-20261014/domain-probes.mjs:63
+fs.writeFileSync('docs/review/evidence/F7_20261014/domain-probes.json', JSON.stringify({ target: '084020ae3c8a2f0db1e818cd8b555d5800de5099', cases: results }, null, 2) + '\n');
+                                                                             ^
+
+TypeError: Do not know how to serialize a BigInt
+    at JSON.stringify (<anonymous>)
+    at file:///C:/Users/user/Desktop/custom-form-service-web/output/f7/review-20261014/domain-probes.mjs:63:78
+
+Node.js v24.21.0

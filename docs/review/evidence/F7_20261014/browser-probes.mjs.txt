@@ -1,0 +1,117 @@
+import { chromium, expect } from '@playwright/test';
+import fs from 'node:fs';
+const dest = 'docs/review/evidence/F7_20261014';
+const id = '00000000-0000-4000-8000-000000000050';
+const ownerId = '00000000-0000-4000-8000-000000000051';
+const qid = '00000000-0000-4000-8000-000000000005';
+const api = 'http://localhost:5000/api/v1';
+const view = `/forms/${id}`, edit = `${view}/edit`;
+const owner = { id: ownerId, displayName: 'F7 reviewer synthetic Owner', email: 'f7-review@example.test', avatarUrl: null };
+const dto = (status = 'published', rating = false) => ({ id, userId: ownerId, creatorDisplayName: owner.displayName, title: 'F7 independent synthetic form', description: null, status, responseMode: 'multiple', responseIdentity: 'anonymous', resultVisibility: 'owner_only', submissionDeadlineAt: null, createdAt: '2026-10-10T00:00:00Z', updatedAt: '2026-10-11T00:00:00Z', questions: [{ id: qid, type: rating ? 'rating' : 'text', title: rating ? 'Incomplete saved Rating' : 'Synthetic optional text', description: null, required: false, sortOrder: 0, config: rating ? { max: 5 } : {}, options: [] }] });
+const results = { target: '084020ae3c8a2f0db1e818cd8b555d5800de5099', mode: 'fresh built with ALL backend requests intercepted', origin: 'http://localhost:3000', createdAt: new Date().toISOString(), cases: [] };
+const browser = await chromium.launch({ headless: true });
+results.browserVersion = browser.version();
+async function fixture(status = 'published', rating = false, clipboard = false) {
+  const context = await browser.newContext({ viewport: { width: 1440, height: 900 } });
+  const page = await context.newPage();
+  const s = { dto: dto(status, rating), writeMode: 'success', requests: [], errors: [], diagnostics: [], responses: [], failures: [], unexpected: [] };
+  page.on('pageerror', e => s.errors.push(e.message));
+  page.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) s.diagnostics.push({ text: m.text(), url: m.location().url }); });
+  page.on('response', r => { if (r.status() >= 400) s.responses.push({ method: r.request().method(), url: r.url(), status: r.status() }); });
+  page.on('requestfailed', r => s.failures.push({ method: r.method(), url: r.url(), reason: r.failure()?.errorText }));
+  if (clipboard) await page.addInitScript(() => {
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: text => { window.probeCopied = text; return new Promise((resolve, reject) => { window.probeClipboardResolve = resolve; window.probeClipboardReject = () => reject(new Error('synthetic clipboard denial')); }); } } });
+  });
+  await page.route('http://localhost:5000/**', async route => {
+    const r = route.request(), path = new URL(r.url()).pathname, method = r.method();
+    s.requests.push({ path, method });
+    const headers = { 'access-control-allow-origin': 'http://localhost:3000', 'access-control-allow-credentials': 'true', 'access-control-allow-methods': 'GET,POST,PATCH,DELETE', 'access-control-allow-headers': 'content-type' };
+    const reply = (body, status = 200) => route.fulfill({ status, headers, contentType: 'application/json', body: JSON.stringify(body) });
+    if (method === 'OPTIONS') return route.fulfill({ status: 204, headers });
+    if (path === '/api/v1/users/me' && method === 'GET') return reply(owner);
+    if (path === `/api/v1/forms/${id}` && method === 'GET') return reply(s.dto);
+    if (path.endsWith('/result-visibility') && method === 'PATCH') {
+      if (s.writeMode === 'denied') return reply({ error: { code: 'FORM_ACCESS_DENIED', message: 'Synthetic access denial' } }, 403);
+      s.dto = { ...s.dto, resultVisibility: JSON.parse(r.postData()).resultVisibility }; return reply(s.dto);
+    }
+    if (path.endsWith('/close') && method === 'POST') {
+      if (s.writeMode === 'unknown') return route.abort('failed');
+      s.dto = { ...s.dto, status: 'closed' }; return reply(s.dto);
+    }
+    s.unexpected.push({ method, path }); return reply({ error: { code: 'INTERNAL_SERVER_ERROR', message: 'Unexpected synthetic request' } }, 500);
+  });
+  await page.goto(`http://localhost:3000${status === 'draft' ? edit : view}`);
+  await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible();
+  return { context, page, s };
+}
+async function run(name, scenario) {
+  try { const r = await scenario(); results.cases.push({ name, ...r }); }
+  catch (e) { results.cases.push({ name, result: 'PROBE ERROR', message: e.message }); }
+  fs.writeFileSync(`${dest}/browser-probes.json`, JSON.stringify(results, null, 2) + '\n');
+}
+const closeError = page => page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }).click();
+await run('R1 saved incomplete Rating publication must focus first editable invalid field', async () => {
+  const { context, page, s } = await fixture('draft', true);
+  await expect(page.getByRole('button', { name: '發布', exact: true })).toBeEnabled();
+  await page.getByRole('button', { name: '發布', exact: true }).click();
+  await expect(page.getByRole('list', { name: '欄位錯誤摘要' })).toContainText('發布須提供完整評分範圍');
+  const active = await page.evaluate(() => ({ tag: document.activeElement?.tagName, text: document.activeElement?.textContent, field: document.activeElement?.getAttribute('data-editor-field') }));
+  const wanted = `${qid}.config.min`;
+  await page.screenshot({ path: `${dest}/publish-local-validation.png`, fullPage: true });
+  await context.close();
+  return { result: active.field === wanted ? 'PASS' : 'FAIL', expectedFocusedField: wanted, active, publishRequests: s.requests.filter(r => r.path.endsWith('/publish')).length, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('R2 Clipboard completion after SPA leave must not emit old success toast', async () => {
+  const { context, page, s } = await fixture('published', false, true);
+  await page.getByRole('button', { name: '複製填答連結' }).click();
+  await expect.poll(() => page.evaluate(() => typeof window.probeClipboardResolve)).toBe('function');
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click();
+  await expect(page).toHaveURL('http://localhost:3000/');
+  await page.evaluate(() => window.probeClipboardResolve());
+  await expect(page.getByText('填答連結已複製', { exact: true })).toBeVisible();
+  const observed = { url: page.url(), staleToastVisible: true, copied: await page.evaluate(() => window.probeCopied) };
+  await page.screenshot({ path: `${dest}/clipboard-after-leave.png`, fullPage: true });
+  await context.close();
+  return { result: 'FAIL', expected: 'No toast owned by disposed Form page', observed, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('R2 Clipboard reject after qualification denial must not expose old fallback', async () => {
+  const { context, page, s } = await fixture('published', false, true);
+  await page.getByRole('button', { name: '複製填答連結' }).click();
+  await expect.poll(() => page.evaluate(() => typeof window.probeClipboardReject)).toBe('function');
+  s.writeMode = 'denied';
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page);
+  await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible();
+  await expect(page.getByRole('button', { name: '複製填答連結' })).toHaveCount(0);
+  await page.evaluate(() => window.probeClipboardReject());
+  await expect(page.getByLabel('完整分享連結')).toHaveValue(`http://localhost:3000${view}`);
+  const observed = { fallbackUrl: await page.getByLabel('完整分享連結').inputValue(), ownerShareButtons: await page.getByRole('button', { name: '複製填答連結' }).count(), denied: true };
+  await page.screenshot({ path: `${dest}/clipboard-after-denial.png`, fullPage: true });
+  await context.close();
+  return { result: 'FAIL', expected: 'No late fallback after qualification changes', observed, expectedDiagnostics: [{ method: 'PATCH', url: `${api}/forms/${id}/result-visibility`, status: 403, count: 1 }], responses: s.responses, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('R3 Published lifecycle unknown must retain reconciliation dirty guard on SPA leave', async () => {
+  const { context, page, s } = await fixture();
+  s.writeMode = 'unknown';
+  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page);
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled();
+  await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible();
+  let prompts = 0; page.on('dialog', async d => { prompts++; await d.dismiss(); });
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click();
+  await expect(page).toHaveURL('http://localhost:3000/');
+  const observed = { prompts, url: page.url() };
+  await context.close();
+  return { result: 'FAIL', expected: 'One dirty prompt; dismiss retains Form URL and unknown', observed, expectedNetwork: [{ method: 'POST', url: `${api}/forms/${id}/close`, reason: 'net::ERR_FAILED', count: 1 }], failures: s.failures, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await run('R3 Published lifecycle unknown must retain reconciliation beforeunload guard', async () => {
+  const { context, page, s } = await fixture();
+  s.writeMode = 'unknown';
+  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page);
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled();
+  let prompts = 0; page.on('dialog', async d => { prompts++; await d.dismiss(); });
+  await page.reload(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeEnabled();
+  const observed = { prompts, meRequests: s.requests.filter(r => r.path.endsWith('/users/me')).length, closeRequests: s.requests.filter(r => r.path.endsWith('/close')).length };
+  await context.close();
+  return { result: 'FAIL', expected: 'One beforeunload prompt; dismiss keeps unknown page', observed, expectedNetwork: [{ method: 'POST', url: `${api}/forms/${id}/close`, reason: 'net::ERR_FAILED', count: 1 }], failures: s.failures, errors: s.errors, diagnostics: s.diagnostics, unexpected: s.unexpected };
+});
+await browser.close();
+console.log(JSON.stringify(results, null, 2));

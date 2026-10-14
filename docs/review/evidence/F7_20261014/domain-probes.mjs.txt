@@ -1,0 +1,65 @@
+import { registerHooks } from 'node:module';
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+registerHooks({ resolve(specifier, context, nextResolve) { try { return nextResolve(specifier, context); } catch (e) { if (specifier.startsWith('.')) return nextResolve(`${specifier}.ts`, context); throw e; } } });
+const { OperationState, WriteCoordinator } = await import('../../../app/domain/operation-state.ts');
+const { FormManagementController, managementState, mergeVisibility } = await import('../../../app/domain/form-management.ts');
+const { loadEditor, addQuestion, editorDirty } = await import('../../../app/domain/editor.ts');
+const { AuthSession, initialAuthState } = await import('../../../app/domain/auth-state.ts');
+const { RequestScope } = await import('../../../app/domain/request-scope.ts');
+const { form, uuid } = await import('../../../tests/fixtures/f5/payloads.ts');
+const { stringifyExactJson } = await import('../../../app/utils/exact-json.ts');
+const results = [];
+const ok = (value, status = 200) => ({ kind: 'success', value, status });
+const deferred = () => { let resolve; const promise = new Promise(r => resolve = r); return { promise, resolve }; };
+function setup() {
+  const a = initialAuthState(), owner = { id: uuid(51), email: 'synthetic@example.test', displayName: 'review Owner', avatarUrl: null }, auth = new AuthSession(a, async () => ok(owner)); auth.login(owner);
+  const c = new WriteCoordinator(), ops = Object.fromEntries(['delta', 'visibility', 'lifecycle', 'delete'].map(p => [p, new OperationState(p, c, 'form:review')]));
+  let session = loadEditor(form()), rev = 0, resource = '/forms/review/edit', allowed = true, permit = false;
+  const calls = { clear: 0, finish: 0, authorize: 0, toast: [], navigation: [] };
+  const s = { remove: async () => ok(undefined, 204), publish: async () => ok({ ...form(), status: 'published' }), close: async () => ok({ ...form(), status: 'closed' }), visibility: async () => ok({ ...form(), resultVisibility: 'public' }), detail: async () => ok(form()), count: async () => ok({ count: 0 }) };
+  const scope = () => new RequestScope(() => resource, () => a.sessionRevision), state = managementState();
+  const manager = new FormManagementController(state, { auth: () => a, authSession: auth, resource: () => resource, revision: () => rev, saved: () => session?.baseline.definition,
+    eligible: () => allowed && !!session && a.outcome === 'authenticated' && a.user?.id === uuid(51), dirty: () => !!session && editorDirty(session.definition, session.baseline),
+    adopt: (dto, p) => { session = p === 'visibility' ? mergeVisibility(session, dto) : loadEditor(dto); rev++; }, clear: () => { session = null; calls.clear++; rev++; }, deny: () => { allowed = false; }, issues: () => {},
+    authorize: () => { calls.authorize++; permit = true; const r = rev; return () => permit && rev === r; }, finishDiscard: () => { permit = false; calls.finish++; },
+    reload: async () => {}, operation: p => ops[p], writeScope: scope(), countScope: scope(), candidateScope: scope(), service: s,
+    navigate: async (target, replace) => { calls.navigation.push({ target, replace }); }, toast: m => calls.toast.push(m) });
+  return { a, auth, owner, c, ops, s, state, manager, calls, session: () => session, permit: () => permit, edit: () => { session = { ...session, definition: { ...session.definition, title: 'dirty retained' } }; rev++; }, changeResource: () => { resource = '/away'; } };
+}
+async function run(name, test) { try { results.push({ name, result: 'PASS', ...(await test()) }); } catch (e) { results.push({ name, result: 'FAIL', message: e.message }); } }
+await run('Independent revision tickets isolate peers, IDs, denial and pending starts', async () => {
+  const c = new WriteCoordinator(), beforeA = c.captureRead('A'), beforeB = c.captureRead('B'), release = c.acquire('A', 'lifecycle'), during = c.captureRead('A');
+  assert.equal(beforeA(), false); assert.equal(beforeB(), true); release(); assert.equal(beforeA(), false); assert.equal(during(), false);
+  const fresh = c.captureRead('A'); c.denyPermission('A', 3); assert.equal(fresh(), false); assert.equal(c.permissionDenied('A', 3), true); c.reconciled('A'); assert.equal(c.permissionDenied('A', 3), true);
+  return { noRevivalAfterRelease: true, differentIdUnaffected: true, reconcileDoesNotClearDenial: true };
+});
+await run('Independent Visibility merge preserves current and baseline including omission, number and time', async () => {
+  const session = loadEditor(form());
+  session.definition = { ...addQuestion(session.definition), title: 'current C', deadlineInput: '2026-12-31 18:30:00' };
+  const merged = mergeVisibility(session, { ...form(), title: 'DO NOT ADOPT', questions: [], resultVisibility: 'public', updatedAt: '2026-10-14T00:00:00Z' });
+  assert.equal(merged.definition.title, 'current C'); assert.equal(merged.definition.questions.length, 6); assert.equal(merged.baseline.definition.title, 'F5 合成表單');
+  assert.equal(stringifyExactJson(merged.definition.questions), stringifyExactJson(session.definition.questions));
+  assert.equal(stringifyExactJson(merged.baseline.definition.questions), stringifyExactJson(session.baseline.definition.questions));
+  assert.deepEqual(merged.baseline.definition.deadlineSource, session.baseline.definition.deadlineSource);
+  assert.equal('variant' in merged.baseline.definition.questions[0].config, false);
+  assert.equal(stringifyExactJson(merged.baseline.definition.questions).includes('9007199254740993.1234567890123456789'), true); assert.equal(editorDirty(merged.definition, merged.baseline), true);
+  return { currentQuestions: 6, baselineQuestions: 5, omittedVariant: true, exactNumber: true, originalDeadline: merged.baseline.definition.deadlineSource.original.originalIso, dirty: true };
+});
+for (const mode of ['validation', 'unknown', 'session']) await run(`Independent dirty Delete ${mode} revokes permit and retains content`, async () => {
+  const t = setup(); t.edit(); const held = deferred(); t.s.remove = () => held.promise; t.manager.begin('delete'); const pending = t.manager.confirm(true);
+  assert.equal(t.permit(), true);
+  if (mode === 'session') t.auth.login(t.owner);
+  held.resolve(mode === 'validation' ? { kind: 'api-error', status: 400, error: { code: 'VALIDATION_ERROR', message: 'synthetic' } } : mode === 'unknown' ? { kind: 'transport-error', reason: 'timeout', sent: true } : ok(undefined, 204));
+  await pending; assert.equal(t.permit(), false); assert.equal(t.calls.clear, 0); assert.equal(t.calls.navigation.length, 0); assert.equal(t.calls.toast.length, 0); assert.equal(t.session().definition.title, 'dirty retained');
+  assert.equal(t.ops.delete.snapshot.needsReconciliation, mode === 'unknown');
+  return { contentRetained: true, permitRevoked: true, calls: t.calls, snapshots: Object.fromEntries(Object.entries(t.ops).map(([k,v]) => [k, v.snapshot])) };
+});
+await run('Independent policy success retains lifecycle and Delete unknown qualifications', async () => {
+  const t = setup(); t.c.markUnknown('form:review', 'lifecycle'); await t.manager.visibility('public'); assert.equal(t.ops.lifecycle.snapshot.needsReconciliation, true); assert.equal(t.ops.delta.snapshot.blocked, true);
+  t.c.markUnknown('form:review', 'delete'); assert.equal(t.ops.visibility.snapshot.blocked, true); assert.equal(t.manager.allowed('delete'), false);
+  return { lifecycleUnknownRemains: true, deleteLocksAll: true };
+});
+fs.writeFileSync('docs/review/evidence/F7_20261014/domain-probes.json', JSON.stringify({ target: '084020ae3c8a2f0db1e818cd8b555d5800de5099', cases: results }, null, 2) + '\n');
+console.log(JSON.stringify(results, null, 2));
+if (results.some(r => r.result !== 'PASS')) process.exitCode = 1;

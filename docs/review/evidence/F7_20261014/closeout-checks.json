@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "issues": [],
+  "localLinks": 131,
+  "existingReadmeAndTotalHistory": "byte-equivalent after LF normalization and removal of this review additions",
+  "verifiedManifestEntries": 49,
+  "gitDiffCheck": 0,
+  "reviewerCommit": "single purpose docs; final SHA from git log, no self-reference"
+}

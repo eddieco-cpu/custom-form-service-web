@@ -1,0 +1,150 @@
+{
+  "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T06:42:59.915Z",
+  "cases": [
+    {
+      "name": "R4 Visibility authoritative 404 plus discard cancel must revoke Draft save qualification",
+      "result": "FAIL",
+      "expected": "Preserve dirty definition but prohibit subsequent Draft PATCH",
+      "observed": {
+        "prompts": 1,
+        "saveEnabled": true,
+        "publishEnabled": false,
+        "definitionPatches": 1
+      },
+      "expectedDiagnostics": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 404,
+          "count": 1
+        },
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 404,
+          "count": 1
+        }
+      ],
+      "responses": [
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "status": 404
+        },
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 404
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "R4 Publish 409 and failed reload must keep Draft save revoked",
+      "result": "FAIL",
+      "expected": "Known Published stops definition save even if candidate and reload fail",
+      "observed": {
+        "editable": true,
+        "saveEnabled": true,
+        "definitionPatches": 1
+      },
+      "expectedDiagnostics": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+          "status": 409,
+          "count": 1
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500,
+          "count": 2
+        },
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 409,
+          "count": 1
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500,
+          "count": 1
+        }
+      ],
+      "responses": [
+        {
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+          "status": 409
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500
+        },
+        {
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 409
+        },
+        {
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500
+        }
+      ],
+      "errors": [],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        },
+        {
+          "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+        }
+      ],
+      "unexpected": []
+    },
+    {
+      "name": "Confirmation X cancels publish with zero request",
+      "result": "PROBE ERROR",
+      "message": "locator.click: Timeout 30000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '發布表單' }).getByLabel('Close', { exact: true })\u001b[22m\n"
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

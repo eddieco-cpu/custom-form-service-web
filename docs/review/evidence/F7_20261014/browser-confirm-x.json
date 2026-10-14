@@ -1,0 +1,33 @@
+{
+  "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+  "mode": "fresh built with ALL backend requests intercepted",
+  "origin": "http://localhost:3000",
+  "createdAt": "2026-10-14T06:44:05.787Z",
+  "cases": [
+    {
+      "name": "Confirmation X cancels publish with zero request",
+      "result": "PASS",
+      "writeRequests": [],
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "Confirmation X cancels close with zero request",
+      "result": "PASS",
+      "writeRequests": [],
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    },
+    {
+      "name": "Confirmation X cancels delete with zero request",
+      "result": "PASS",
+      "writeRequests": [],
+      "errors": [],
+      "diagnostics": [],
+      "unexpected": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

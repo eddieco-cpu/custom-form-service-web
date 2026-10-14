@@ -1,0 +1,157 @@
+{
+  "target": "084020ae3c8a2f0db1e818cd8b555d5800de5099",
+  "cases": [
+    {
+      "name": "Independent revision tickets isolate peers, IDs, denial and pending starts",
+      "result": "PASS",
+      "noRevivalAfterRelease": true,
+      "differentIdUnaffected": true,
+      "reconcileDoesNotClearDenial": true
+    },
+    {
+      "name": "Independent Visibility merge preserves current and baseline including omission, number and time",
+      "result": "PASS",
+      "currentQuestions": 6,
+      "baselineQuestions": 5,
+      "omittedVariant": true,
+      "exactNumber": true,
+      "originalDeadline": "2026-12-31T10:30:00.1234567Z",
+      "dirty": true
+    },
+    {
+      "name": "Independent dirty Delete validation revokes permit and retains content",
+      "result": "PASS",
+      "contentRetained": true,
+      "permitRevoked": true,
+      "calls": {
+        "clear": 0,
+        "finish": 1,
+        "authorize": 1,
+        "toast": [],
+        "navigation": []
+      },
+      "snapshots": {
+        "delta": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "visibility": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "lifecycle": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "delete": {
+          "phase": "failed",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        }
+      }
+    },
+    {
+      "name": "Independent dirty Delete unknown revokes permit and retains content",
+      "result": "PASS",
+      "contentRetained": true,
+      "permitRevoked": true,
+      "calls": {
+        "clear": 0,
+        "finish": 1,
+        "authorize": 1,
+        "toast": [],
+        "navigation": []
+      },
+      "snapshots": {
+        "delta": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": true,
+          "duplicateRisk": false,
+          "blocked": true
+        },
+        "visibility": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": true,
+          "duplicateRisk": false,
+          "blocked": true
+        },
+        "lifecycle": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": true,
+          "duplicateRisk": false,
+          "blocked": true
+        },
+        "delete": {
+          "phase": "unknown",
+          "loading": false,
+          "needsReconciliation": true,
+          "duplicateRisk": false,
+          "blocked": true
+        }
+      }
+    },
+    {
+      "name": "Independent dirty Delete session revokes permit and retains content",
+      "result": "PASS",
+      "contentRetained": true,
+      "permitRevoked": true,
+      "calls": {
+        "clear": 0,
+        "finish": 1,
+        "authorize": 1,
+        "toast": [],
+        "navigation": []
+      },
+      "snapshots": {
+        "delta": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "visibility": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "lifecycle": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        },
+        "delete": {
+          "phase": "idle",
+          "loading": false,
+          "needsReconciliation": false,
+          "duplicateRisk": false,
+          "blocked": false
+        }
+      }
+    },
+    {
+      "name": "Independent policy success retains lifecycle and Delete unknown qualifications",
+      "result": "PASS",
+      "lifecycleUnknownRemains": true,
+      "deleteLocksAll": true
+    }
+  ]
+}
