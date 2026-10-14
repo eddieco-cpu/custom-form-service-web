@@ -21,6 +21,7 @@ export class WriteCoordinator {
   busy(key: string): boolean { return this.leases.has(key) }
   activePolicy(key: string): OperationPolicy | undefined { return this.leases.get(key)?.policy }
   anyUnknown(key: string): boolean { return !!this.uncertain.get(key)?.size }
+  requiresFormCheck(key: string): boolean { const policies = this.uncertain.get(key); return !!policies?.has('delete') || !!policies?.has('lifecycle') }
   denyPermission(key: string, sessionRevision: number): void {
     this.deniedPermissions.set(key, sessionRevision)
     this.revisions.set(key, (this.revisions.get(key) ?? 0) + 1); this.notify(key)
@@ -78,6 +79,7 @@ export class OperationState {
   }
   get activePolicy(): OperationPolicy | undefined { return this.coordinator.activePolicy(this.leaseKey) }
   get anyUnknown(): boolean { return this.coordinator.anyUnknown(this.leaseKey) || this.unknown }
+  get requiresFormCheck(): boolean { return this.coordinator.requiresFormCheck(this.leaseKey) }
   captureRead(): () => boolean { return this.coordinator.captureRead(this.leaseKey) }
   denyPermission(sessionRevision: number): void { this.coordinator.denyPermission(this.leaseKey, sessionRevision) }
   permissionDenied(sessionRevision: number): boolean { return this.coordinator.permissionDenied(this.leaseKey, sessionRevision) }
@@ -93,6 +95,12 @@ export class OperationState {
     return true
   }
   invalidate(): void { this.revision++ }
+  // Response uncertainty belongs to the page's verified respondent context;
+  // ending that context must not clear any shared management reconciliation gate.
+  resetResponseContext(): void {
+    if (this.policy !== 'response-single' && this.policy !== 'response-multiple') return
+    this.invalidate(); this.unknown = false; this.duplicateRisk = false; this.phase = 'idle'; this.emit()
+  }
   dispose(): void { this.invalidate(); this.unsubscribe() }
   async run<S, T>(source: S, send: (snapshot: S) => Promise<ApiResult<T>>, isCurrent: () => boolean, confirmDuplicate: () => boolean = () => false): Promise<ApiResult<T> | { readonly kind: 'blocked' } | { readonly kind: 'stale' }> {
     if (!isCurrent() || this.snapshot.blocked || (this.duplicateRisk && !confirmDuplicate())) return { kind: 'blocked' }

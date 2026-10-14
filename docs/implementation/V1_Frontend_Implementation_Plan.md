@@ -628,6 +628,28 @@ Owner 指定修正基準 `6d9c843a012cb0a24e194f1de2020ab294554f1b`、產品修�
 
 **停於「F7-R3-N1 局部獨立複核完成、F7 code review 通過，待 Owner 確認」。** 正式驗收延後、accepted與既有受控特殊Auth／交易故障／DB identity／migration／實機等缺口不變；真實整合僅沿用適用歷史原件，無真實業務API／寫入／Delete／新測資。本次僅新增報告／去敏證據及本節／README進度，單一目的本機文件提交SHA見Git log／交付訊息，不推送、不展開F8。
 
+### 9.31 F7 Owner 結案確認與 F8 規劃交付（2026-10-14）
+
+Owner 本次明確採納 [F7 最終獨立複核](../review/F7_R3_N1_Correction_ReReview_Report_20261014.md)：**R1／R2／R3／R4／R3-N1 全部 CLOSED，F7 code review 通過。** 本確認只同步 code review 結案，不更寫原報告、失敗證據或歷史結果；正式驗收仍延後、accepted 不變、既有缺口保留。
+
+Owner 授權本次僅開始 F8 精簡實作規劃。接手 master／HEAD **`134629a8ce9d2b276ec7a3a10a6843977814f41b`** 與指定基準一致、工作樹乾淨；依最新 AGENTS／development skill、本計畫 F8／§7／§7.1 與正式後端契約，交付 [F8 精簡實作計畫 v1.0](F8_Implementation_Plan.md)。方案涵蓋 Submit／Receipt／Latest／knownSubmitted、五題型與 optional／required／0、填答資格、dirty 與整份 Latest 取代、同 Form 寫入互斥／跨寫入舊 GET 隔離、操作錯誤／結果不明核對、multiple 重複風險及必要自測。沿用 F5～F7 模型／Renderer／Auth／dirty／operation 機制，正式答案與 Preview 試填分開，管理 metadata 回應不丟答案。
+
+本次唯讀 Node 24.21.0／npm 11.19.0、七項 installed／lockfile 相符、backend manifest 108／108；實際後端 checkout `C:\Users\user\Desktop\custom-form-service` 仍為快照 SHA `7591633137c5a6f57c1fce8e1ba19ab394015880`，既存 untracked SNAPSHOT.md 未動。20:03:09～11 台北時間 health／readiness／OpenAPI 200，Submit／Latest 描述可見；沒有業務 API／Browser／保存讀回，不以 metadata 代稱 R8／R9 真實整合 PASS。本次未重查 runtime assembly 綁定，F7 的程序版本觀察保留為歷史；DB identity／migration UNCONFIRMED，受控特殊 Auth／交易故障／實機及其他歷史缺口未解除。文件核對／Git 結果於交付記錄，產品與正式驗收測試均 NOT RUN。
+
+**停於「F8 計畫待 Owner review」。** 沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」，不新增中途測試計畫核准關卡；尚不開發、不執行業務 API 寫入、不準備／執行正式驗收、不展開 F9。僅本計畫／README 追加進度及新增 F8 計畫，未提交、未推送，HEAD 不變，文件留工作樹供 review；原 F7 報告／證據與 accepted 狀態保留。
+
+### 9.32 F8 整輪授權開發與自測交付（2026-10-14）
+
+Owner 通過 [F8 精簡實作計畫 v1.0](F8_Implementation_Plan.md)，明確授權整輪開發、必要自測、範圍內修正、受影響 F6／F7 回歸及單一目的本機提交；既有 README／總計畫／F8 計畫三份規劃變更一併核准。開發接手 master／HEAD **`134629a8ce9d2b276ec7a3a10a6843977814f41b`**、只有該三份規劃文件待提交；沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」，未新增中途測試計畫核准關卡。
+
+正式 Form 已接 Submit／201 Receipt、主動 Latest／knownSubmitted與五型答案整份 mapping，沿 F5 exact／builder／path map、F6 Renderer與 Preview隔離、F7 shared lease／read revision／dirty／管理metadata。資格與本地輸入分開，Auth撤grant仍保留輸入；single可靠證據不因Latest取消回退，multiple duplicateRisk不由Latest或FormGET解除；Submit／管理互斥及跨寫入舊GET永久隔離。截止timer不丟棄可靠晚回201，狀態錯誤提前關Dialog仍等待最新Form。普通GET失敗維持F7 inline核對行為。見 [F8 開發報告](F8_Development_Report.md)／[去敏證據](evidence/F8_20261014/verification-summary.json)。
+
+lint／strict typecheck／fresh build／F6 harness strict **PASS**，受影響unit **201／201（6files）**，交付source F8 built **29／29**、F7原tests受影響回歸 **34／34**、F6 Preview／Renderer fixture回歸 **5／5**，Chrome／Edge smoke各 **2／2**。真實API L01～L05最新分組測試 **PASS**：Owner／非Owner五型正常201與本人獨立Latest、multiple缺optional整份取代／同內容新Response、alloptional[]、自然到期仍Published／正常Close、真實401／dirty／重新登入與兩帳號核對；Cookie／credentialed CORS實測。三個專用Run共6個合成帳號／18份Form／21份Response保留，索引有Run label／ID／用途；無歷史資料寫入、真實Delete／PATCH／SQL／DB reset。首次FAIL（含F7讀取錯誤呈現回歸）與修正重跑保留，fixture不代稱真實整合PASS。
+
+backend manifest108筆相符，實際checkout／runtime DLL product version仍綁`7591633137c5a6f57c1fce8e1ba19ab394015880`，DB identity／migration **UNCONFIRMED**。受控真實invalid／expired／disabled與Server提交故障 **BLOCKED**；實機touch／軟鍵盤／safe-area、正式AI／人工驗收 **NOT RUN**，其他歷史缺口未解除。原F7 Owner CLOSED／code review通過紀錄、原報告／失敗證據與accepted維持。
+
+**停於「F8 開發完成、待集中 review」。** 開發成果／核准規劃文件／報告／去敏證據作單一目的本機提交，完整SHA與Git狀態見Git log／交付訊息；尚未集中review，不宣告F8 code review或正式驗收PASS。正式驗收延後、accepted不變，不推送、不展開F9；§9.31原規劃歷史保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

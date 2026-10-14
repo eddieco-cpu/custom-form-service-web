@@ -1,0 +1,46 @@
+
+> test:e2e
+> playwright test --config=playwright.f8.config.ts --grep White_Space-only
+
+[WebServer]
+[WebServer]  ERROR  (node:39888) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:21768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:37424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\f8-browser.spec.ts:204:1 › F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST (5.7s)
+
+
+  1) [chromium] › tests\e2e\f8-browser.spec.ts:204:1 › F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST
+
+    Error: expect(locator).toContainText(expected) failed
+
+    Locator: locator('[data-renderer-key="00000000-0000-4000-8000-000000000001"]')
+    Expected substring: "尚未作答"
+    Received string:    "1. 文字  　"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toContainText" locator('[data-renderer-key="00000000-0000-4000-8000-000000000001"]') with timeout 5000ms
+      - waiting for locator('[data-renderer-key="00000000-0000-4000-8000-000000000001"]')
+        14 × locator resolved to <article tabindex="-1" data-renderer-key="00000000-0000-4000-8000-000000000001" class="min-w-0 space-y-3 rounded-lg border border-gray-200 p-4">…</article>
+           - unexpected value "1. 文字  　"
+
+
+      204 | test('F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST', async ({ page }) => {
+      205 |   const s = await start(page, definition('single')); await page.getByLabel('文字', { exact: true }).fill('\u00a0\u3000'); await submit(page).click(); await complete(page)
+    > 206 |   expect(posts(s)[0]!.body).toBe('{"answers":[]}'); await expect(article(page, 0)).toContainText('尚未作答'); await expect(article(page, 4)).toContainText('尚未作答')
+          |                                                                                    ^
+      207 | })
+      208 |
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f8-browser.spec.ts:206:84
+
+    Error Context: output\playwright\f8\built-whitespace-before-artifacts\f8-browser-F8-B02-optional-40ab1-readonly-after-omitted-POST-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f8-browser.spec.ts:204:1 › F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST

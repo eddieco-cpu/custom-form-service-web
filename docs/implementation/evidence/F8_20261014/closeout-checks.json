@@ -1,0 +1,17 @@
+{
+  "at": "2026-10-14T14:33:22.628Z",
+  "status": "PASS",
+  "baseHead": "134629a8ce9d2b276ec7a3a10a6843977814f41b",
+  "artifactHashes": 84,
+  "sourceHashes": 12,
+  "buildHashes": 156,
+  "backendSnapshotHashes": 108,
+  "documentLinks": 202,
+  "documentTables": 30,
+  "history": "README and total plan prior content retained",
+  "secretScan": "known synthetic passwords and JWT absent; inline attachment scan in collector",
+  "retainedRuns": 3,
+  "accounts": 6,
+  "forms": 18,
+  "responses": 21
+}

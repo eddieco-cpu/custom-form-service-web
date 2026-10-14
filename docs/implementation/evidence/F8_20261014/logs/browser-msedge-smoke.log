@@ -1,0 +1,19 @@
+
+> test:e2e
+> playwright test --config=playwright.f8.config.ts --grep B01/B03 single|B04 multiple
+
+[WebServer]
+[WebServer]  ERROR  (node:4600) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:39928) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:33860) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [msedge] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery (1.0s)
+  ok 2 [msedge] › tests\e2e\f8-browser.spec.ts:85:53 › F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset (499ms)
+
+  2 passed (6.1s)

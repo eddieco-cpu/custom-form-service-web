@@ -1,0 +1,33 @@
+
+> test:unit
+> vitest run tests/unit/f8-response-page.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+ ❯ tests/unit/f8-response-page.spec.ts (54 tests | 1 failed) 172ms
+   ❯ F8 page transitions and request isolation (33)
+     × closing a not-submittable Dialog before its status GET resolves still follows confirmed Closed flow 62ms
+
+⎯⎯⎯⎯⎯⎯⎯ Failed Tests 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/f8-response-page.spec.ts > F8 page transitions and request isolation > closing a not-submittable Dialog before its status GET resolves still follows confirmed Closed flow
+AssertionError: expected "vi.fn()" to be called with arguments: [ '/', false ]
+
+Number of calls: 0
+
+ ❯ tests/unit/f8-response-page.spec.ts:196:113
+    194|     t.service.submit.mockResolvedValue(fail('FORM_NOT_SUBMITTABLE', 40…
+    195|     const submit = t.controller.submit(); await vi.waitFor(() => expec…
+    196|     pending.resolve(ok({ ...t.dto, status: 'closed' })); await Promise…
+       |                                                                                                                 ^
+    197|   })
+    198| })
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed (1)
+      Tests  1 failed | 53 passed (54)
+   Start at  21:40:35
+   Duration  725ms (transform 42%, tests 31%, import 27%, worker 1%)

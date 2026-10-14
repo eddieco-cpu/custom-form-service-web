@@ -1,0 +1,34 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const root=process.cwd(),out='docs/implementation/evidence/F8_20261014';
+const read=p=>fs.readFileSync(p,'utf8').replace(/^\uFEFF/,'').replaceAll('\r\n','\n');
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const assert=(v,m)=>{if(!v)throw new Error(m)};
+const manifest=JSON.parse(read(out+'/artifact-manifest.json'));
+for(const e of manifest)assert(hash(fs.readFileSync(out+'/'+e.path))===e.sha256,'artifact '+e.path);
+const digest=JSON.parse(read(out+'/final-source-build-digest.json'));
+for(const e of [...digest.sources,...digest.build])assert(hash(fs.readFileSync(e.path))===e.sha256,'source/build '+e.path);
+let backend=0;
+for(const line of read('backend-ref/MANIFEST.sha256').trim().split('\n')){const m=/^([a-f0-9]{64})\s+(.+)$/.exec(line);assert(m,'backend format');assert(hash(fs.readFileSync('backend-ref/'+m[2]))===m[1],'backend '+m[2]);backend++;}
+const docs=['README.md','docs/implementation/V1_Frontend_Implementation_Plan.md','docs/implementation/F8_Implementation_Plan.md','docs/implementation/F8_Development_Report.md'];
+let links=0,tables=0;
+for(const file of docs){const t=read(file);assert(t.endsWith('\n')&&!/[\t ]+$/m.test(t),'text whitespace '+file);assert(!/[\x00-\x08\x0b\x0c\x0e-\x1f]/.test(t),'control '+file);assert((t.match(/^```/gm)?.length??0)%2===0,'fences '+file);for(const m of t.matchAll(/\[[^\]\n]+\]\(([^)\n]+)\)/g)){const target=m[1].split('#')[0];if(!target||/^https?:|^app:|^codex:/.test(target))continue;assert(fs.existsSync(path.resolve(path.dirname(file),decodeURIComponent(target))),'link '+file+' '+target);links++;}let n=0;for(const line of t.split('\n')){if(line.startsWith('|')){const count=line.replaceAll('\\|','').split('|').length;if(!n){n=count;tables++;}else assert(n===count,'table '+file+' '+line);}else n=0;}}
+const normalize=t=>t.trimEnd()+'\n';
+const oldReadme=read('output/playwright/f8/base-readme.txt'),newReadme=read('README.md'),marker='最新 N1 複核進度';
+assert(normalize(oldReadme.slice(oldReadme.indexOf(marker)))===normalize(newReadme.slice(newReadme.indexOf(marker))),'README history');
+const oldPlan=read('output/playwright/f8/base-plan.txt'),newPlan=read('docs/implementation/V1_Frontend_Implementation_Plan.md');
+assert(normalize(oldPlan)===normalize(newPlan.slice(0,newPlan.indexOf('### 9.31'))+newPlan.slice(newPlan.indexOf('## 10.'))),'total plan history');
+const privatePasswords=fs.readdirSync('output/playwright/f8').filter(n=>n.endsWith('-private-credentials.json')).flatMap(n=>JSON.parse(read('output/playwright/f8/'+n)).map(v=>v.password));
+function scan(p){for(const entry of fs.readdirSync(p,{withFileTypes:true})){const full=path.join(p,entry.name);if(entry.isDirectory())scan(full);else if(!full.endsWith('.png')){const t=read(full);assert(!privatePasswords.some(p=>t.includes(p))&&!/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(t),'sensitive '+full);}}}
+scan(out);for(const file of docs){const t=read(file);assert(!privatePasswords.some(p=>t.includes(p)),'doc secret '+file);}
+const retained=JSON.parse(read(out+'/retained-live-runs.json'));assert(retained.length===3&&retained.every(r=>r.completed&&r.stage==='PASS'&&r.resources.length===6),'retained');
+let receipts=0;
+for(const r of retained){const d=JSON.parse(read(out+'/'+r.runId+'-sanitized.json'));assert(d.errors.length===0&&d.violations.length===0&&d.diagnosticIssues.length===0,'live diagnostics');receipts+=d.receipts.length;assert(d.reads.filter(r=>r.status===200&&Object.hasOwn(JSON.parse(r.body),'answers')).length===8&&d.reads.filter(r=>r.status===404).length===2,'independent Latest');}
+assert(receipts===21,'receipt total');
+const result={at:new Date().toISOString(),status:'PASS',baseHead:digest.baseHead,artifactHashes:manifest.length,sourceHashes:digest.sources.length,buildHashes:digest.build.length,backendSnapshotHashes:backend,documentLinks:links,documentTables:tables,history:'README and total plan prior content retained',secretScan:'known synthetic passwords and JWT absent; inline attachment scan in collector',retainedRuns:3,accounts:6,forms:18,responses:21};
+fs.writeFileSync(out+'/closeout-checks.json',JSON.stringify(result,null,2)+'\n');
+fs.writeFileSync(out+'/check-closeout.mjs.txt',read('output/playwright/f8/check-closeout.mjs'));
+for(const name of ['closeout-checks.json','check-closeout.mjs.txt']){const index=manifest.findIndex(v=>v.path===name);if(index>=0)manifest.splice(index,1);manifest.push({path:name,sha256:hash(fs.readFileSync(out+'/'+name))});}
+fs.writeFileSync(out+'/artifact-manifest.json',JSON.stringify(manifest,null,2)+'\n');
+console.log(JSON.stringify(result,null,2));

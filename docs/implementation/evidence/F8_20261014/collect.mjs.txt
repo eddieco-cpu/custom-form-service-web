@@ -1,0 +1,22 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+const cwd=process.cwd(), raw=path.join(cwd,'output/playwright/f8'), out=path.join(cwd,'docs/implementation/evidence/F8_20261014');
+fs.mkdirSync(out,{recursive:true});
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const secrets=fs.readdirSync(raw).filter(n=>n.endsWith('-private-credentials.json')).flatMap(n=>JSON.parse(fs.readFileSync(path.join(raw,n),'utf8')).map(a=>a.password));
+const copied=[];
+function safeText(text,name){if(secrets.some(s=>text.includes(s))||/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(text))throw new Error('Sensitive artifact rejected: '+name);}
+function copy(source,name,normalize=false){const original=fs.readFileSync(source);let result=original;if(normalize){const text=original.toString('utf8').replace(/^\uFEFF/,'').split(/\r?\n/).map(l=>l.replace(/[\t ]+$/,'')).join('\n').replace(/\n*$/,'\n');safeText(text,name);result=Buffer.from(text);}else if(/\.(json|md|txt)$/.test(name))safeText(original.toString('utf8'),name);const target=path.join(out,name);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,result);copied.push({path:name,sha256:hash(result),rawPath:path.relative(cwd,source).replaceAll('\\','/'),rawSha256:hash(original),normalized:normalize});}
+function inline(body,name,source){const bytes=Buffer.from(body,'base64');const target=path.join(out,name);fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,bytes);copied.push({path:name,sha256:hash(bytes),rawPath:source,rawSha256:hash(bytes),normalized:false});}
+for(const name of fs.readdirSync(raw)){if(name.endsWith('.log'))copy(path.join(raw,name),'logs/'+name,true);else if(name.endsWith('-sanitized.json')||['retained-live-runs.json','environment.json','backend-runtime.json','whitespace-before-source.json','final-source-build-digest.json'].includes(name))copy(path.join(raw,name),name,true);}
+const reporterFiles=fs.readdirSync(raw).filter(n=>n.endsWith('-results.json'));
+reporterFiles.push('../f7/built-f8-regression-results.json','../f7/built-f8-regression-corrected-results.json','../f6/fixture-results.json');
+const runs=[];
+for(const name of reporterFiles){const file=path.join(raw,name);if(!fs.existsSync(file))continue;const data=JSON.parse(fs.readFileSync(file,'utf8'));const label=name.replaceAll('../','').replaceAll('/','-');copy(file,'browser/'+label,true);const cases=[];function walk(s){for(const spec of s.specs??[])for(const t of spec.tests??[]){const r=t.results.at(-1);cases.push({title:spec.title,project:t.projectName,status:r?.status,expected:t.expectedStatus,duration:r?.duration});for(const a of r?.attachments??[]){if(a.body&&/json|text\//.test(a.contentType))safeText(Buffer.from(a.body,'base64').toString('utf8'),label+' '+a.name);if(a.contentType==='image/png'&&a.body)inline(a.body,'images/'+label.replace('.json','')+'-'+path.basename(a.name),path.relative(cwd,file).replaceAll('\\','/')+'#'+a.name);else if(a.contentType==='image/png'&&a.path){const full=path.resolve(a.path);if(!full.startsWith(path.join(cwd,'output/playwright')+path.sep))throw new Error('Artifact outside output');copy(full,'images/'+label.replace('.json','')+'-'+path.basename(full));}}}for(const child of s.suites??[])walk(child);}for(const s of data.suites??[])walk(s);runs.push({file:'browser/'+label,stats:data.stats,cases});}
+copy(path.join(raw,'collect.mjs'),'collect.mjs.txt',true);
+const retained=JSON.parse(fs.readFileSync(path.join(raw,'retained-live-runs.json'),'utf8'));
+const summary={scope:'F8 development self-tests; not formal acceptance',baseHead:'134629a8ce9d2b276ec7a3a10a6843977814f41b',runs,retained,secretScan:'PASS (known synthetic passwords/JWT excluded)',evidence:copied};
+fs.writeFileSync(path.join(out,'verification-summary.json'),JSON.stringify(summary,null,2)+'\n');
+fs.writeFileSync(path.join(out,'artifact-manifest.json'),JSON.stringify([...copied.map(({path,sha256})=>({path,sha256})),{path:'verification-summary.json',sha256:hash(fs.readFileSync(path.join(out,'verification-summary.json')))}],null,2)+'\n');
+console.log(JSON.stringify({artifacts:copied.length,runs:runs.map(r=>({file:r.file,stats:r.stats})),retainedRuns:retained.length,resources:retained.flatMap(r=>r.resources).length,secretScan:'PASS'},null,2));

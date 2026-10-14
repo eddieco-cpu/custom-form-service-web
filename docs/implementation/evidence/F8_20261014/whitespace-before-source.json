@@ -1,0 +1,6 @@
+{
+  "path": "app/components/forms/FormRenderer.vue",
+  "sha256": "77C913207F8E566BC0DCF744A6F7E059BDDBA254DC2D576EA7928ACC3FCDFC7E",
+  "source": "before optional-whitespace readonly correction",
+  "buildLog": "build-context.log"
+}

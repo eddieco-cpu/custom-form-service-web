@@ -1,0 +1,125 @@
+[
+  {
+    "runId": "f8-1791984869005-first",
+    "stage": "PASS",
+    "completed": true,
+    "accounts": [
+      "owner",
+      "respondent"
+    ],
+    "resources": [
+      {
+        "id": "2aa53df3-bf6c-4763-8b62-c355ac4d8755",
+        "purpose": "L01 single",
+        "status": "published"
+      },
+      {
+        "id": "5033acca-4cd5-4312-acf7-db422f39d66d",
+        "purpose": "L02 multiple",
+        "status": "published"
+      },
+      {
+        "id": "a8d73b87-f700-45ac-a319-373c47636f6b",
+        "purpose": "L03 blank",
+        "status": "published"
+      },
+      {
+        "id": "e2219a2b-e63f-4da1-bf7a-616e3706fdb0",
+        "purpose": "L04 deadline",
+        "status": "closed"
+      },
+      {
+        "id": "d2d645e2-eca6-412e-9c02-eef593908993",
+        "purpose": "L04 close while filling",
+        "status": "closed"
+      },
+      {
+        "id": "5f04f06e-3fcc-4073-bf64-c424394eabdd",
+        "purpose": "L05 auth",
+        "status": "published"
+      }
+    ]
+  },
+  {
+    "runId": "f8-1791986410082-final",
+    "stage": "PASS",
+    "completed": true,
+    "accounts": [
+      "owner",
+      "respondent"
+    ],
+    "resources": [
+      {
+        "id": "a630ea1a-2e55-49ec-8c4e-b59f641984c2",
+        "purpose": "L01 single",
+        "status": "published"
+      },
+      {
+        "id": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+        "purpose": "L02 multiple",
+        "status": "published"
+      },
+      {
+        "id": "727ddf75-7695-49a3-a276-c85e6fc42470",
+        "purpose": "L03 blank",
+        "status": "published"
+      },
+      {
+        "id": "342b8b68-0251-44e5-bff0-a59ed6d91dc0",
+        "purpose": "L04 deadline",
+        "status": "closed"
+      },
+      {
+        "id": "8fae00f2-64b6-4e07-87bb-6456cc94cd9a",
+        "purpose": "L04 close while filling",
+        "status": "closed"
+      },
+      {
+        "id": "f27ae5e1-d073-4fdb-873b-7b76284f5670",
+        "purpose": "L05 auth",
+        "status": "published"
+      }
+    ]
+  },
+  {
+    "runId": "f8-1791987582885-reader-final",
+    "stage": "PASS",
+    "completed": true,
+    "accounts": [
+      "owner",
+      "respondent"
+    ],
+    "resources": [
+      {
+        "id": "8956cb1c-d00b-4893-bad3-21179bd8f9c7",
+        "purpose": "L01 single",
+        "status": "published"
+      },
+      {
+        "id": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+        "purpose": "L02 multiple",
+        "status": "published"
+      },
+      {
+        "id": "41a28e68-7cbf-4456-8f11-67976383106e",
+        "purpose": "L03 blank",
+        "status": "published"
+      },
+      {
+        "id": "34aeb4ce-0e51-42d4-b0cd-f1e5cbc641e9",
+        "purpose": "L04 deadline",
+        "status": "closed"
+      },
+      {
+        "id": "a7a982d8-5697-40b1-b698-87cd25094251",
+        "purpose": "L04 close while filling",
+        "status": "closed"
+      },
+      {
+        "id": "a26b8ecc-3d45-4060-aaf7-840e9eb87d83",
+        "purpose": "L05 auth",
+        "status": "published"
+      }
+    ]
+  }
+]

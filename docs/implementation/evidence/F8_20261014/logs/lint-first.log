@@ -1,0 +1,9 @@
+
+> lint
+> eslint .
+
+
+C:\Users\user\Desktop\custom-form-service-web\app\domain\response-page.ts
+  4:15  error  'ReceiptDto' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)

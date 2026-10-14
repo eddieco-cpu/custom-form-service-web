@@ -1,0 +1,115 @@
+
+> test:e2e
+> playwright test --config=playwright.f8.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:21452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:9052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 20 tests using 1 worker
+
+(node:29816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery (1.2s)
+  x   2 [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery (5.9s)
+(node:41576) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  3 [chromium] › tests\e2e\f8-browser.spec.ts:78:1 › F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits (1.3s)
+  ok  4 [chromium] › tests\e2e\f8-browser.spec.ts:85:53 › F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset (510ms)
+  ok  5 [chromium] › tests\e2e\f8-browser.spec.ts:85:53 › F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset (636ms)
+  ok  6 [chromium] › tests\e2e\f8-browser.spec.ts:95:1 › F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write (1.5s)
+  ok  7 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow (850ms)
+  ok  8 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow (831ms)
+  ok  9 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow (790ms)
+  ok 10 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow (847ms)
+  ok 11 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow (790ms)
+  ok 12 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow (705ms)
+  ok 13 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow (767ms)
+  ok 14 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow (809ms)
+  ok 15 [chromium] › tests\e2e\f8-browser.spec.ts:113:1 › F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201 (1.6s)
+  ok 16 [chromium] › tests\e2e\f8-browser.spec.ts:121:1 › F8-B06 network interruption and malformed 201 preserve answers and do not show success (1.2s)
+  ok 17 [chromium] › tests\e2e\f8-browser.spec.ts:126:1 › F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit (917ms)
+  x  18 [chromium] › tests\e2e\f8-browser.spec.ts:133:1 › F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page (644ms)
+(node:12516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  19 [chromium] › tests\e2e\f8-browser.spec.ts:139:1 › F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit (1.0m)
+(node:17520) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 20 [chromium] › tests\e2e\f8-browser.spec.ts:146:1 › F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable (957ms)
+
+
+  1) [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery
+
+    Error: expect(locator).toHaveValue(expected) failed
+
+    Locator:  getByLabel('文字', { exact: true })
+    Expected: "  合成 😀文字  "
+    Received: "  合成 😀 文字  "
+    Timeout:  5000ms
+
+    Call log:
+      - Expect "toHaveValue" getByLabel('文字', { exact: true }) with timeout 5000ms
+      - waiting for getByLabel('文字', { exact: true })
+        14 × locator resolved to <input type="text" value="  合成 😀 文字  " class="editor-control" id="v-0-3-answer-00000000-0000-4000-8000-000000000001"/>
+           - unexpected value "  合成 😀 文字  "
+
+
+      73 |   await complete(page); expect(posts(s)).toHaveLength(1); expect(posts(s)[0]!.body).toContain('9007199254740993.1234567890123456789')
+      74 |   if (mode === 'single') { await expect(submit(page)).toHaveCount(0); await expect(article(page, 0)).toContainText('合成'); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible() }
+    > 75 |   else { await expect(page.getByLabel('文字', { exact: true })).toHaveValue('  合成 😀文字  '); await submit(page).click(); await complete(page, true); expect(posts(s)).toHaveLength(2) }
+         |                                                               ^
+      76 |   await page.reload(); await expect(page.getByLabel('文字', { exact: true })).toHaveValue(''); expect(s.requests.filter(r => r.path.endsWith('/latest'))).toHaveLength(0); await expect(submit(page)).toBeEnabled()
+      77 | })
+      78 | test('F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits', async ({ page }) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f8-browser.spec.ts:75:63
+
+    Error Context: output\playwright\f8\built-first-artifacts\f8-browser-F8-B01-B03-mult-ed589-resh-empty-with-no-prequery-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\f8-browser.spec.ts:133:1 › F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "Expected 1 {\"kind\":\"requestfailed\",\"method\":\"POST\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses\",\"reason\":\"net::ERR_ABORTED\",\"count\":1,\"diagnosticCount\":0}; observed 0",
+    + ]
+
+      64 | async function complete(page: Page, cross = false) { await expect(page.getByRole('dialog', { name: '提交成功' })).toBeVisible(); await page.getByRole('dialog', { name: '提交成功' }).getByRole('button', { name: cross ? 'Close' : '完成', exact: true }).click() }
+      65 | async function confirmNext(page: Page, accept: boolean, action: () => Promise<unknown>) { const handled = page.waitForEvent('dialog').then(async d => { accept ? await d.accept() : await d.dismiss() }); await action(); await handled }
+    > 66 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (!s) return; const issues = verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics); await info.attach('declared-network-and-wire', { body: stringifyExactJson({ requests: s.requests, expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' }); expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([]) })
+         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        ^
+      67 |
+      68 | for (const mode of ['single', 'multiple'] as const) test(`F8-B01/B03 ${mode} blank entry, successful Dialog/clean, refresh empty with no prequery`, async ({ page }) => {
+      69 |   const s = await start(page, definition(mode)); expect(s.requests.filter(r => r.path.endsWith('/latest'))).toHaveLength(0)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f8-browser.spec.ts:66:504
+
+    Error Context: output\playwright\f8\built-first-artifacts\f8-browser-F8-B07-Submit-p-d2ffa-on-does-not-update-new-page-chromium\error-context.md
+
+  3) [chromium] › tests\e2e\f8-browser.spec.ts:139:1 › F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit
+
+    Test timeout of 60000ms exceeded.
+
+    Error: locator.click: Target page, context or browser has been closed
+
+      141 |   await confirmNext(page, false, () => page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click()); await expect(page).toHaveURL(`http://localhost:3000${view}`)
+      142 |   const reloadDialog = page.waitForEvent('dialog').then(async d => { expect(d.type()).toBe('beforeunload'); await d.dismiss() }); await page.reload().catch(() => {}); await reloadDialog
+    > 143 |   await page.getByRole('button', { name: '使用者選單' }).click(); await confirmNext(page, false, () => page.getByRole('button', { name: '登出', exact: true }).click()); expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(0)
+          |                                                     ^
+      144 |   await page.getByRole('button', { name: '使用者選單' }).click(); await confirmNext(page, true, () => page.getByRole('button', { name: '登出', exact: true }).click()); await expect(page).toHaveURL('http://localhost:3000/login'); expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1)
+      145 | })
+      146 | test('F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable', async ({ page }, info) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f8-browser.spec.ts:143:53
+
+    Error Context: output\playwright\f8\built-first-artifacts\f8-browser-F8-B08-dirty-na-18673-ut-and-Delete-single-permit-chromium\error-context.md
+
+  3 failed
+    [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery
+    [chromium] › tests\e2e\f8-browser.spec.ts:133:1 › F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page
+    [chromium] › tests\e2e\f8-browser.spec.ts:139:1 › F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit
+  17 passed (1.5m)

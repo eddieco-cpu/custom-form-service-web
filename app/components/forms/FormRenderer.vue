@@ -3,7 +3,10 @@ import type { AnswerDefinition, AnswerModel, AnswerInput } from '../../domain/an
 import { numberAnswer } from '../../domain/answer'
 import { validateConfig } from '../../domain/definition-validation'
 import type { ConfigByType } from '../../domain/api/form'
-const props = defineProps<{ definition: AnswerDefinition; readonly?: boolean; disabled?: boolean; preview?: boolean }>()
+import type { FieldIssue } from '../../domain/models'
+import { trimWhiteSpace } from '../../utils/unicode'
+const props = defineProps<{ definition: AnswerDefinition; readonly?: boolean; disabled?: boolean; preview?: boolean; issues?: readonly FieldIssue[] }>()
+const root = useTemplateRef('root')
 const model = defineModel<AnswerModel>('model', { required: true })
 const rendererId = useId()
 function inputId(key: string) { return `${rendererId}-answer-${key}` }
@@ -14,14 +17,22 @@ function choices(key: string) { const a = model.value.values[key]; return a?.typ
 function rating(key: string) { const a = model.value.values[key]; return a?.type === 'rating' ? a.value : undefined }
 function bounds(q: AnswerDefinition['questions'][number]) { const c = validateConfig(q.type, q.config, q.key); return c.kind === 'valid' ? c.candidate as ConfigByType['rating'] : {} }
 function toggle(key: string, option: string, checked: boolean) { update(key, { type: 'multiple_choice', optionKeys: checked ? [...choices(key), option] : choices(key).filter(o => o !== option) }) }
+function focusIssue(key: string) {
+  const article = root.value?.querySelector<HTMLElement>(`[data-renderer-key="${CSS.escape(key)}"]`)
+  if (!article) return
+  const control = article.querySelector<HTMLElement>('input:not([disabled]),textarea:not([disabled]),select:not([disabled]),button:not([disabled])') ?? article
+  article.scrollIntoView({ block: 'center' }); control.focus({ preventScroll: true })
+}
+defineExpose({ focusIssue })
 </script>
 <template>
-  <div class="space-y-5">
-    <article v-for="(q, index) in definition.questions" :key="q.key" class="min-w-0 space-y-3 rounded-lg border border-gray-200 p-4" :data-renderer-key="q.key">
+  <div ref="root" class="space-y-5">
+    <article v-for="(q, index) in definition.questions" :key="q.key" tabindex="-1" class="min-w-0 space-y-3 rounded-lg border border-gray-200 p-4" :data-renderer-key="q.key" :aria-invalid="issues?.some(i => i.targetKey === q.key) ? 'true' : undefined" :aria-describedby="issues?.some(i => i.targetKey === q.key) ? `${inputId(q.key)}-errors` : undefined">
       <h3 class="whitespace-pre-wrap break-words font-semibold">{{ index + 1 }}. {{ q.title || (preview ? '（暫無內容）' : '') }} <span v-if="q.required" class="text-sm text-red-700">必填</span></h3>
       <p v-if="q.description" class="whitespace-pre-wrap break-words text-sm text-gray-600">{{ q.description }}</p>
+      <ul v-if="issues?.some(i => i.targetKey === q.key)" :id="`${inputId(q.key)}-errors`" class="space-y-1 text-sm text-red-700" role="alert"><li v-for="(issue, i) in issues.filter(i => i.targetKey === q.key)" :key="i">{{ issue.message }}</li></ul>
       <template v-if="q.type === 'text' || q.type === 'number'">
-        <p v-if="readonly" class="whitespace-pre-wrap break-words">{{ text(q.key) || '尚未作答' }}</p>
+        <p v-if="readonly" class="whitespace-pre-wrap break-words">{{ (q.type === 'text' ? !!trimWhiteSpace(text(q.key)) : text(q.key) !== '') ? text(q.key) : '尚未作答' }}</p>
         <template v-else>
           <label class="sr-only" :for="inputId(q.key)">{{ q.title || `題目 ${index + 1}` }}</label>
           <textarea v-if="q.type === 'text' && (('variant' in q.config ? q.config.variant : undefined)) === 'textarea'" :id="inputId(q.key)" :value="text(q.key)" :placeholder="'placeholder' in q.config ? q.config.placeholder : undefined" :disabled="disabled" class="editor-control" rows="3" @input="update(q.key, { type: 'text', raw: ($event.target as HTMLTextAreaElement).value })" />

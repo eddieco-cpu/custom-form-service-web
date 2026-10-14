@@ -1,0 +1,20 @@
+
+> test:e2e
+> playwright test --config=playwright.f6.config.ts --grep Preview isolation|Stars/Range|Renderer readonly|F6-R1
+
+[WebServer]
+[WebServer]  ERROR  (node:18828) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+
+Running 5 tests using 1 worker
+
+(node:35856) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f6-browser.spec.ts:157:1 › F6-B10/B12 Preview isolation/reset/keyboard focus, desktop and mobile layout, exact raw Number (10.7s)
+  ok 2 [chromium] › tests\e2e\f6-browser.spec.ts:178:1 › F6-B11 Stars/Range unoperated vs zero, min>1, 100 stars/10 columns, clearing/required (3.5s)
+  ok 3 [chromium] › tests\e2e\f6-browser.spec.ts:193:1 › F6 Renderer readonly keeps exact answers and offers no write/clear controls (1.4s)
+  ok 4 [chromium] › tests\e2e\f6-browser.spec.ts:235:1 › F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated (1.9s)
+  ok 5 [chromium] › tests\e2e\f6-browser.spec.ts:267:1 › F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree (1.9s)
+
+  5 passed (27.5s)

@@ -1,0 +1,14 @@
+
+> typecheck
+> nuxt typecheck && tsc --noEmit -p tsconfig.tools.json
+
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 936.84ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 971.59ms
+tests/e2e/f8-browser.spec.ts(19,5): error TS2322: Type '({ title: string; options: { label: string; id: string; value: string; sortOrder: number; }[]; config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; } | { ...; }; ... 4 more ...; sortOrder: number; } | { ...; } | { ...; } | { ...; } | { ....' is not assignable to type 'readonly QuestionDto[]'.
+  Type '{ title: string; options: { label: string; id: string; value: string; sortOrder: number; }[]; config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; } | { ...; }; ... 4 more ...; sortOrder: number; } | { ...; } | { ...; } | { ...; } | { .....' is not assignable to type 'QuestionDto'.
+    Type '{ title: string; options: { label: string; id: string; value: string; sortOrder: number; }[]; config: { readonly placeholder?: string; readonly min?: ExactNumber; readonly max?: ExactNumber; } | { ...; }; ... 4 more ...; sortOrder: number; }' is not assignable to type 'QuestionDto'.
+      Type '{ title: string; options: { label: string; id: string; value: string; sortOrder: number; }[]; config: { readonly placeholder?: string; readonly min?: ExactNumber; readonly max?: ExactNumber; } | { ...; }; ... 4 more ...; sortOrder: number; }' is not assignable to type '{ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }; readonl...'.
+        Types of property 'config' are incompatible.
+          Type '{ readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; } | { variant: "textarea"; }' is not assignable to type '{ readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }'.
+            Type '{ variant: "textarea"; }' has no properties in common with type '{ readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }'.

@@ -1,0 +1,202 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f8.config.ts",
+      "--grep",
+      "White_Space-only"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f8.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8/built-whitespace-before-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f8-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8\\built-whitespace-before-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f8-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f8/built-whitespace-before-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f8-browser.spec.ts",
+      "file": "f8-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5676,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\nExpected substring: \u001b[32m\"尚未作答\"\u001b[39m\nReceived string:    \u001b[31m\"1. 文字  　\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <article tabindex=\"-1\" data-renderer-key=\"00000000-0000-4000-8000-000000000001\" class=\"min-w-0 space-y-3 rounded-lg border border-gray-200 p-4\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"1. 文字  　\"\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\nExpected substring: \u001b[32m\"尚未作答\"\u001b[39m\nReceived string:    \u001b[31m\"1. 文字  　\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <article tabindex=\"-1\" data-renderer-key=\"00000000-0000-4000-8000-000000000001\" class=\"min-w-0 space-y-3 rounded-lg border border-gray-200 p-4\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"1. 文字  　\"\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f8-browser.spec.ts:206:84",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f8-browser.spec.ts",
+                      "column": 84,
+                      "line": 206
+                    },
+                    "snippet": "  204 | test('F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST', async ({ page }) => {\n  205 |   const s = await start(page, definition('single')); await page.getByLabel('文字', { exact: true }).fill('\\u00a0\\u3000'); await submit(page).click(); await complete(page)\n> 206 |   expect(posts(s)[0]!.body).toBe('{\"answers\":[]}'); await expect(article(page, 0)).toContainText('尚未作答'); await expect(article(page, 4)).toContainText('尚未作答')\n      |                                                                                    ^\n  207 | })\n  208 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f8-browser.spec.ts",
+                        "column": 84,
+                        "line": 206
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoContainText\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\nExpected substring: \u001b[32m\"尚未作答\"\u001b[39m\nReceived string:    \u001b[31m\"1. 文字  　\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toContainText\" locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for locator('[data-renderer-key=\"00000000-0000-4000-8000-000000000001\"]')\u001b[22m\n\u001b[2m    14 × locator resolved to <article tabindex=\"-1\" data-renderer-key=\"00000000-0000-4000-8000-000000000001\" class=\"min-w-0 space-y-3 rounded-lg border border-gray-200 p-4\">…</article>\u001b[22m\n\u001b[2m       - unexpected value \"1. 文字  　\"\u001b[22m\n\n\n  204 | test('F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST', async ({ page }) => {\n  205 |   const s = await start(page, definition('single')); await page.getByLabel('文字', { exact: true }).fill('\\u00a0\\u3000'); await submit(page).click(); await complete(page)\n> 206 |   expect(posts(s)[0]!.body).toBe('{\"answers\":[]}'); await expect(article(page, 0)).toContainText('尚未作答'); await expect(article(page, 4)).toContainText('尚未作答')\n      |                                                                                    ^\n  207 | })\n  208 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f8-browser.spec.ts:206:84"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-14T13:25:17.784Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-and-wire",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1Ni4wLjgwNzguNCIsIm5vZGVWZXJzaW9uIjoidjI0LjIxLjAiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOltdfSJ9XSwiZXhwZWN0ZWQiOltdLCJhY3R1YWwiOltdLCJkaWFnbm9zdGljcyI6W10sImlzc3VlcyI6W10sImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdfQ=="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8\\built-whitespace-before-artifacts\\f8-browser-F8-B02-optional-40ab1-readonly-after-omitted-POST-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f8-browser.spec.ts",
+                    "column": 84,
+                    "line": 206
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "fa47edaa56d024508943-08a78243f659f1b14475",
+          "file": "f8-browser.spec.ts",
+          "line": 204,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-14T13:25:14.250Z",
+    "duration": 9927.292,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

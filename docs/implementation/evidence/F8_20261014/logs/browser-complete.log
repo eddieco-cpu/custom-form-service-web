@@ -1,0 +1,42 @@
+
+> test:e2e
+> playwright test --config=playwright.f8.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:18580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:39456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 25 tests using 1 worker
+
+(node:35376) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery (1.3s)
+  ok  2 [chromium] › tests\e2e\f8-browser.spec.ts:68:53 › F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery (1.5s)
+  ok  3 [chromium] › tests\e2e\f8-browser.spec.ts:78:1 › F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits (1.4s)
+  ok  4 [chromium] › tests\e2e\f8-browser.spec.ts:85:53 › F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset (646ms)
+  ok  5 [chromium] › tests\e2e\f8-browser.spec.ts:85:53 › F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset (568ms)
+  ok  6 [chromium] › tests\e2e\f8-browser.spec.ts:95:1 › F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write (1.4s)
+  ok  7 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow (863ms)
+  ok  8 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow (763ms)
+  ok  9 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow (881ms)
+  ok 10 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow (869ms)
+  ok 11 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow (834ms)
+  ok 12 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow (890ms)
+  ok 13 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow (871ms)
+  ok 14 [chromium] › tests\e2e\f8-browser.spec.ts:101:218 › F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow (879ms)
+  ok 15 [chromium] › tests\e2e\f8-browser.spec.ts:113:1 › F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201 (1.7s)
+  ok 16 [chromium] › tests\e2e\f8-browser.spec.ts:121:1 › F8-B06 network interruption and malformed 201 preserve answers and do not show success (1.2s)
+  ok 17 [chromium] › tests\e2e\f8-browser.spec.ts:126:1 › F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit (1.0s)
+  ok 18 [chromium] › tests\e2e\f8-browser.spec.ts:133:1 › F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page (661ms)
+  ok 19 [chromium] › tests\e2e\f8-browser.spec.ts:138:1 › F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit (2.8s)
+  ok 20 [chromium] › tests\e2e\f8-browser.spec.ts:145:1 › F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable (865ms)
+  ok 21 [chromium] › tests\e2e\f8-browser.spec.ts:155:1 › F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary (825ms)
+  ok 22 [chromium] › tests\e2e\f8-browser.spec.ts:168:54 › F8-B05 normal closed blank readonly, explicit Latest and unchanged URL (545ms)
+  ok 23 [chromium] › tests\e2e\f8-browser.spec.ts:168:54 › F8-B05 normal expired blank readonly, explicit Latest and unchanged URL (560ms)
+  ok 24 [chromium] › tests\e2e\f8-browser.spec.ts:174:1 › F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly (877ms)
+  ok 25 [chromium] › tests\e2e\f8-browser.spec.ts:181:1 › F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt (809ms)
+
+  25 passed (46.7s)

@@ -1,0 +1,12 @@
+
+> test:unit
+> vitest run tests/unit/f8-response-page.spec.ts tests/unit/f5-answer.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f7-form-management.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/api-client.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  6 passed (6)
+      Tests  191 passed (191)
+   Start at  20:44:59
+   Duration  694ms (transform 44%, import 38%, tests 16%, worker 1%)

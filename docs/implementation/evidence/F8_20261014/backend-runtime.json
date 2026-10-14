@@ -1,0 +1,11 @@
+{
+  "at": "2026-10-14T20:50:34.9813095+08:00",
+  "pid": 29108,
+  "processName": "dotnet.exe",
+  "assemblyPath": "C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/bin/Debug/net10.0/CustomFormService.Api.dll",
+  "commandReferencesAssembly": true,
+  "productVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "sha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+  "dbIdentity": "UNCONFIRMED",
+  "migration": "UNCONFIRMED"
+}

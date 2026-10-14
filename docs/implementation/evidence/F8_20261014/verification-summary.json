@@ -1,0 +1,2715 @@
+{
+  "scope": "F8 development self-tests; not formal acceptance",
+  "baseHead": "134629a8ce9d2b276ec7a3a10a6843977814f41b",
+  "runs": [
+    {
+      "file": "browser/built-chrome-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:18:41.489Z",
+        "duration": 6724.735,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chrome",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1462
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chrome",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 429
+        }
+      ]
+    },
+    {
+      "file": "browser/built-complete-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:05:32.873Z",
+        "duration": 46726.896,
+        "expected": 25,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1259
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1529
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1433
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 646
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 568
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1372
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 863
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 763
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 881
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 869
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 834
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 890
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 871
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 879
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1671
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1155
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1037
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 661
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2828
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 865
+        },
+        {
+          "title": "F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 825
+        },
+        {
+          "title": "F8-B05 normal closed blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 545
+        },
+        {
+          "title": "F8-B05 normal expired blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 560
+        },
+        {
+          "title": "F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 877
+        },
+        {
+          "title": "F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 809
+        }
+      ]
+    },
+    {
+      "file": "browser/built-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T12:59:04.519Z",
+        "duration": 48735.076,
+        "expected": 18,
+        "skipped": 0,
+        "unexpected": 2,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1147
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 11137
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1303
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 450
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 449
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1390
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 818
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 804
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 798
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 789
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 769
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 844
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 825
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 814
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1575
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1155
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 945
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 651
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 12784
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 960
+        }
+      ]
+    },
+    {
+      "file": "browser/built-delivery-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:17:10.980Z",
+        "duration": 25429.862,
+        "expected": 26,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 983
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1209
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1187
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 387
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 379
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1244
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 611
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 610
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 643
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 633
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 633
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 635
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 645
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 621
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1415
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 947
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 667
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 419
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2632
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 721
+        },
+        {
+          "title": "F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 661
+        },
+        {
+          "title": "F8-B05 normal closed blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 343
+        },
+        {
+          "title": "F8-B05 normal expired blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 349
+        },
+        {
+          "title": "F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 591
+        },
+        {
+          "title": "F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 651
+        },
+        {
+          "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1314
+        }
+      ]
+    },
+    {
+      "file": "browser/built-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:32:03.427Z",
+        "duration": 26696.207000000002,
+        "expected": 28,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 950
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1258
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1167
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 464
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 382
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1212
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 627
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 640
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 646
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 671
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 608
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 570
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 743
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 719
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1421
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 915
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 659
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 507
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2611
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 734
+        },
+        {
+          "title": "F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 675
+        },
+        {
+          "title": "F8-B05 normal closed blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 325
+        },
+        {
+          "title": "F8-B05 normal expired blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 325
+        },
+        {
+          "title": "F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 636
+        },
+        {
+          "title": "F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 588
+        },
+        {
+          "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1365
+        },
+        {
+          "title": "F8-B08 same-component hash history obeys dirty cancel/confirm and reloads blank without extra me or Latest",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 327
+        },
+        {
+          "title": "F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 646
+        }
+      ]
+    },
+    {
+      "file": "browser/built-first-results.json",
+      "stats": {
+        "startTime": "2026-10-14T12:49:49.755Z",
+        "duration": 92826.41500000001,
+        "expected": 17,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1161
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 5898
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1347
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 510
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 636
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1479
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 850
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 831
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 790
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 847
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 790
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 705
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 767
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 809
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1587
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1157
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 917
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 644
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "timedOut",
+          "expected": "passed",
+          "duration": 60044
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 957
+        }
+      ]
+    },
+    {
+      "file": "browser/built-msedge-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:18:49.152Z",
+        "duration": 6132.3820000000005,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "msedge",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1030
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "msedge",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 499
+        }
+      ]
+    },
+    {
+      "file": "browser/built-reader-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:15:51.646Z",
+        "duration": 28298.225000000002,
+        "expected": 29,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 926
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1248
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1060
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 548
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 434
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1307
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 622
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 652
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 624
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 652
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 632
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 662
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 641
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 638
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1418
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 944
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 773
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 516
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2681
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 871
+        },
+        {
+          "title": "F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 719
+        },
+        {
+          "title": "F8-B05 normal closed blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 439
+        },
+        {
+          "title": "F8-B05 normal expired blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 370
+        },
+        {
+          "title": "F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 691
+        },
+        {
+          "title": "F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 651
+        },
+        {
+          "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1373
+        },
+        {
+          "title": "F8-B08 same-component hash history obeys dirty cancel/confirm and reloads blank without extra me or Latest",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 399
+        },
+        {
+          "title": "F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 736
+        },
+        {
+          "title": "F8-B05 early error close waits for current status GET; Closed then uses dirty cancellation flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 719
+        }
+      ]
+    },
+    {
+      "file": "browser/built-status-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:56:02.499Z",
+        "duration": 27075.833,
+        "expected": 29,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 978
+        },
+        {
+          "title": "F8-B01/B03 multiple blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1202
+        },
+        {
+          "title": "F8-B02 required validation focuses first control, optional whitespace omitted and all optional [] submits",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1103
+        },
+        {
+          "title": "F8-B04 single successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 384
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 397
+        },
+        {
+          "title": "F8-B04 Latest missing/500/malformed retain model; read failure is not unknown write",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1271
+        },
+        {
+          "title": "F8-B05 AUTH_REQUIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 649
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_INVALID local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 560
+        },
+        {
+          "title": "F8-B05 AUTH_TOKEN_EXPIRED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 631
+        },
+        {
+          "title": "F8-B05 AUTH_USER_DISABLED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 627
+        },
+        {
+          "title": "F8-B05 FORM_NOT_FOUND local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 596
+        },
+        {
+          "title": "F8-B05 SUBMISSION_DEADLINE_EXCEEDED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 571
+        },
+        {
+          "title": "F8-B05 FORM_NOT_SUBMITTABLE local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 563
+        },
+        {
+          "title": "F8-B05 RESPONSE_ALREADY_SUBMITTED local preservation, qualification and Dialog flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 605
+        },
+        {
+          "title": "F8-B06 multiple 500, successful Latest and Form reload keep duplicateRisk until confirmed reliable 201",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1403
+        },
+        {
+          "title": "F8-B06 network interruption and malformed 201 preserve answers and do not show success",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 896
+        },
+        {
+          "title": "F8-B07 Latest started before Visibility stays stale; metadata/Close preserve dirty answers and management pending mutually excludes Submit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 687
+        },
+        {
+          "title": "F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 402
+        },
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2630
+        },
+        {
+          "title": "F8-B02/B08 mobile stars 100, duplicate rating labels and Range initial min, long answers readable",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 733
+        },
+        {
+          "title": "F8-B02 injected Answer paths use omitted request index, Question ID and complete unknown summary",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 680
+        },
+        {
+          "title": "F8-B05 normal closed blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 357
+        },
+        {
+          "title": "F8-B05 normal expired blank readonly, explicit Latest and unchanged URL",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 368
+        },
+        {
+          "title": "F8-B03 deadline passes during pending but valid 201 still succeeds and becomes clean readonly",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 601
+        },
+        {
+          "title": "F8-B08 dirty answer Delete confirmation includes discard; 204 replaces list exactly once without native re-prompt",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 656
+        },
+        {
+          "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1359
+        },
+        {
+          "title": "F8-B08 same-component hash history obeys dirty cancel/confirm and reloads blank without extra me or Latest",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 434
+        },
+        {
+          "title": "F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 712
+        },
+        {
+          "title": "F8-B05 early error close waits for current status GET; Closed then uses dirty cancellation flow",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 606
+        }
+      ]
+    },
+    {
+      "file": "browser/built-whitespace-before-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:25:14.250Z",
+        "duration": 9927.292,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-B02 optional White_Space-only text remains unanswered in single readonly after omitted POST",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 5676
+        }
+      ]
+    },
+    {
+      "file": "browser/live-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:00:06.482Z",
+        "duration": 28531.663,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-L01..L05 real Submit, independent Latest, Cookie/CORS, complete replacement and retained synthetic resources",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 24388
+        }
+      ]
+    },
+    {
+      "file": "browser/live-first-results.json",
+      "stats": {
+        "startTime": "2026-10-14T13:34:25.345Z",
+        "duration": 25877.979,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-L01..L05 real Submit, independent Latest, Cookie/CORS, complete replacement and retained synthetic resources",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 21798
+        }
+      ]
+    },
+    {
+      "file": "browser/live-reader-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:19:39.243Z",
+        "duration": 26515.870000000003,
+        "expected": 1,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F8-L01..L05 real Submit, independent Latest, Cookie/CORS, complete replacement and retained synthetic resources",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 22407
+        }
+      ]
+    },
+    {
+      "file": "browser/f7-built-f8-regression-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:02:21.140Z",
+        "duration": 53007.005,
+        "expected": 31,
+        "skipped": 0,
+        "unexpected": 3,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 651
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 971
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 894
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 942
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 411
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 264
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 280
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 276
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 651
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1009
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 10760
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 439
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 659
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 997
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 884
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 5711
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "project": "chromium",
+          "status": "failed",
+          "expected": "passed",
+          "duration": 5770
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1847
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 940
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1035
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 884
+        },
+        {
+          "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 491
+        },
+        {
+          "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 893
+        },
+        {
+          "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 476
+        },
+        {
+          "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 863
+        },
+        {
+          "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 739
+        },
+        {
+          "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 759
+        },
+        {
+          "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1482
+        },
+        {
+          "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1466
+        },
+        {
+          "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 562
+        },
+        {
+          "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 810
+        },
+        {
+          "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 578
+        },
+        {
+          "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 494
+        },
+        {
+          "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1059
+        }
+      ]
+    },
+    {
+      "file": "browser/f7-built-f8-regression-corrected-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:10:52.781Z",
+        "duration": 33921.062999999995,
+        "expected": 34,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 637
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1088
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 926
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 929
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 559
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 309
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 283
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 323
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 694
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1037
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 807
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 466
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 693
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1057
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 961
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 883
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 933
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 2064
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1049
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1086
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 909
+        },
+        {
+          "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 620
+        },
+        {
+          "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 945
+        },
+        {
+          "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 540
+        },
+        {
+          "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 949
+        },
+        {
+          "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 916
+        },
+        {
+          "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 786
+        },
+        {
+          "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1505
+        },
+        {
+          "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1500
+        },
+        {
+          "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 688
+        },
+        {
+          "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 811
+        },
+        {
+          "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 628
+        },
+        {
+          "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 600
+        },
+        {
+          "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1185
+        }
+      ]
+    },
+    {
+      "file": "browser/f6-fixture-results.json",
+      "stats": {
+        "startTime": "2026-10-14T14:12:55.337Z",
+        "duration": 27480.875,
+        "expected": 5,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F6-B10/B12 Preview isolation/reset/keyboard focus, desktop and mobile layout, exact raw Number",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 10739
+        },
+        {
+          "title": "F6-B11 Stars/Range unoperated vs zero, min>1, 100 stars/10 columns, clearing/required",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 3544
+        },
+        {
+          "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1429
+        },
+        {
+          "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1906
+        },
+        {
+          "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+          "project": "chromium",
+          "status": "passed",
+          "expected": "passed",
+          "duration": 1884
+        }
+      ]
+    }
+  ],
+  "retained": [
+    {
+      "runId": "f8-1791984869005-first",
+      "stage": "PASS",
+      "completed": true,
+      "accounts": [
+        "owner",
+        "respondent"
+      ],
+      "resources": [
+        {
+          "id": "2aa53df3-bf6c-4763-8b62-c355ac4d8755",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "5033acca-4cd5-4312-acf7-db422f39d66d",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "a8d73b87-f700-45ac-a319-373c47636f6b",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "e2219a2b-e63f-4da1-bf7a-616e3706fdb0",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "d2d645e2-eca6-412e-9c02-eef593908993",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "5f04f06e-3fcc-4073-bf64-c424394eabdd",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "runId": "f8-1791986410082-final",
+      "stage": "PASS",
+      "completed": true,
+      "accounts": [
+        "owner",
+        "respondent"
+      ],
+      "resources": [
+        {
+          "id": "a630ea1a-2e55-49ec-8c4e-b59f641984c2",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "727ddf75-7695-49a3-a276-c85e6fc42470",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "342b8b68-0251-44e5-bff0-a59ed6d91dc0",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "8fae00f2-64b6-4e07-87bb-6456cc94cd9a",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "f27ae5e1-d073-4fdb-873b-7b76284f5670",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ]
+    },
+    {
+      "runId": "f8-1791987582885-reader-final",
+      "stage": "PASS",
+      "completed": true,
+      "accounts": [
+        "owner",
+        "respondent"
+      ],
+      "resources": [
+        {
+          "id": "8956cb1c-d00b-4893-bad3-21179bd8f9c7",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "41a28e68-7cbf-4456-8f11-67976383106e",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "34aeb4ce-0e51-42d4-b0cd-f1e5cbc641e9",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "a7a982d8-5697-40b1-b698-87cd25094251",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "a26b8ecc-3d45-4060-aaf7-840e9eb87d83",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ]
+    }
+  ],
+  "secretScan": "PASS (known synthetic passwords/JWT excluded)",
+  "evidence": [
+    {
+      "path": "backend-runtime.json",
+      "sha256": "598aa3391077dbf9cccdc7c050fdbee07a810352de9cf9199bdd2fe0bb8ecf78",
+      "rawPath": "output/playwright/f8/backend-runtime.json",
+      "rawSha256": "24000581ec9d2f4dcbbe24085696de16498c63a5296df9d47f9362f1ca3e8783",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-chrome-smoke.log",
+      "sha256": "5088d9b1fcc0d7ec48442aae6dee0d0eebd37792e63f7075c4df6de6e56b2737",
+      "rawPath": "output/playwright/f8/browser-chrome-smoke.log",
+      "rawSha256": "51232d028a564950e29e097031e3235529364ccc8bbe91b6cd037c81d3be9a62",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-complete.log",
+      "sha256": "f5da6c322201b2b54365d005a17b9579c24ce95c0e26d8e8f59183505213b5b3",
+      "rawPath": "output/playwright/f8/browser-complete.log",
+      "rawSha256": "ae484919956937f7fbf481bdac406dee5948f525b3fb442ec30c90637e778da0",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-corrected.log",
+      "sha256": "e936022aa4b0b40fc6141cfb4a49708fbc723025deee847ef637576018c19424",
+      "rawPath": "output/playwright/f8/browser-corrected.log",
+      "rawSha256": "76d9d6949f360c874daf074bd2d1212f05e4b8f5d2e327d18d592af26bdf730a",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-delivery.log",
+      "sha256": "2249f0862931ffff1bf41c38cb5db5e370251ad6ea919742550c512c2901795e",
+      "rawPath": "output/playwright/f8/browser-delivery.log",
+      "rawSha256": "f96e63278c1594f8152c7de96a1f40f7e5c43d8f435fadf4b137e3399ad8ae43",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-final.log",
+      "sha256": "e5a977cc9c8a224199384f669ff67ba5bb22c04c9298efc90fa18ab6d248cf22",
+      "rawPath": "output/playwright/f8/browser-final.log",
+      "rawSha256": "556d59a4339dc01ddd18f20b00fdfe04ed5c57d701986ae26165c8d54ee3cc0c",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-first.log",
+      "sha256": "9565de8c1d1a2d7348a83dd1d157d1e385547b62280f9a8ab85b4897a0a93f83",
+      "rawPath": "output/playwright/f8/browser-first.log",
+      "rawSha256": "d1f3b4f1a8b61c1610d6df37b362baf0b3d66ff6ecbe6ea783bd478e25bb443a",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-live-final.log",
+      "sha256": "207d892dbd9c6a0853224620a361fc543cdcccc9be51592ee645d92adf495352",
+      "rawPath": "output/playwright/f8/browser-live-final.log",
+      "rawSha256": "288e641c4c788c8865d22dcfbdadc83aab158069e98ce9d74c9194130c2bd2db",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-live-first.log",
+      "sha256": "2179850c51de98d875aa5e7a317510630884312e82ed51d2b400f36e465cad22",
+      "rawPath": "output/playwright/f8/browser-live-first.log",
+      "rawSha256": "8282178d0df6e68a9af3f0347b17aac4830dc7350a6be94ca8a57a47d627bfe1",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-live-reader-final.log",
+      "sha256": "0ea9aa462ec040beec4c1e96922fe1cb330650bbdac4c69f73f18bdfc636500f",
+      "rawPath": "output/playwright/f8/browser-live-reader-final.log",
+      "rawSha256": "379f759576e4a9a8301df251a3a50851c32ff70fefcb951e8c41f612a1e97fc4",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-msedge-smoke.log",
+      "sha256": "67e12f57093ffc1651b4b1b559dfbfbbaefd78404a178ed72bd6487703695866",
+      "rawPath": "output/playwright/f8/browser-msedge-smoke.log",
+      "rawSha256": "26367cdadb6522415e57cfd0e8e0e15e184393101690c4edac8dbc4dc4b802d1",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-reader-final.log",
+      "sha256": "d971d1cd51e37faf53e5d754b0f98fb1181ba1dd6e7ff8eb4b4a19658809c3c2",
+      "rawPath": "output/playwright/f8/browser-reader-final.log",
+      "rawSha256": "bc51994b5f54b594dcc4343e381846ad39013f578c98aa561414912a8d726240",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-status-final.log",
+      "sha256": "869feac7de4f7b03732b427ca8d529cddc0ecf5d7b144d45399adfb6f436891f",
+      "rawPath": "output/playwright/f8/browser-status-final.log",
+      "rawSha256": "d7e3dc9783a26463670db7fd5b37333899444e1c09fdba48d598aa9f4a4b0ee1",
+      "normalized": true
+    },
+    {
+      "path": "logs/browser-whitespace-before.log",
+      "sha256": "2e7d52efc93a1daad15607174047f03e59a0b764eb621d57b6045b17991e65e2",
+      "rawPath": "output/playwright/f8/browser-whitespace-before.log",
+      "rawSha256": "72ad5f95d7616e5a865013c9e2477fe9d359e78ce517cc41d7019d947f441993",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-closeout.log",
+      "sha256": "6153c96dd8c32637e8bda1f2babc43a32d316fd42ba7103d8fec96be500f9f06",
+      "rawPath": "output/playwright/f8/build-closeout.log",
+      "rawSha256": "0e3d7c80db8fa30be9ca83c697aef31b797cbc349e707b1356fc3233cdce53d0",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-context.log",
+      "sha256": "90a6d36a74877fb9923a9c5f2bc022328c8b40647257a3b0737d1900de19b818",
+      "rawPath": "output/playwright/f8/build-context.log",
+      "rawSha256": "c1e534b68e8f201c0585850ebd606642a759b70232b6f5cafb7a421ab055565b",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-delivery.log",
+      "sha256": "88459ba333e42608ce06bde0a6fe63fd5a6a9fa8b3703d2f324cd427ff27aadd",
+      "rawPath": "output/playwright/f8/build-delivery.log",
+      "rawSha256": "626ae4f9d487cd17527b97b18ee46a45437c22095c619f87d1086fc962e1142b",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-final-source.log",
+      "sha256": "872b249ce9a04b3d8c8d8788c0ec0841a04abd9e4f43378149adaf631f906f9e",
+      "rawPath": "output/playwright/f8/build-final-source.log",
+      "rawSha256": "dd6e16389c415c1984eaeea7534bade9bddecadbf2de1fc043b83de4d66a556e",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-first.log",
+      "sha256": "6566225d56ddd2d2ef61a16a52967b9c83a3c2645829b5406b8410a0731a544b",
+      "rawPath": "output/playwright/f8/build-first.log",
+      "rawSha256": "69b9b81cd95a05ba9a4b465f24c670165d640edef98bb230fab6f967eab735ed",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-regression-corrected.log",
+      "sha256": "8e4390e39d89fb9332947e2d6223decea0109bca4680d3e29523bb9ec9672c2f",
+      "rawPath": "output/playwright/f8/build-regression-corrected.log",
+      "rawSha256": "8c5428de79399be123b8eb323c0a466d3986599f3ad73ea595dc3a179b9909cd",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-status-corrected.log",
+      "sha256": "9de026b1e0921ae3bbe834cfd287fdbeb358ce2f34c6f1e8e010917f94b0dab7",
+      "rawPath": "output/playwright/f8/build-status-corrected.log",
+      "rawSha256": "5c0e52c96c5c42c204246ae444aa228c128dc6975ad6e3432bb82fa7b7ac3222",
+      "normalized": true
+    },
+    {
+      "path": "logs/build-whitespace-corrected.log",
+      "sha256": "f5643140c5428019f6cb5e59c5470aaabcc658b5033896f9344d3944f9abf455",
+      "rawPath": "output/playwright/f8/build-whitespace-corrected.log",
+      "rawSha256": "9fd7e8137bbcbada3bda794330af46d47604803feef176fb7832bef8fe5ce853",
+      "normalized": true
+    },
+    {
+      "path": "logs/document-check-first.log",
+      "sha256": "a7b1b7e1ca10637e260a6cd8509037ed6496b6e5466edfc41e3003dc08297237",
+      "rawPath": "output/playwright/f8/document-check-first.log",
+      "rawSha256": "0739da3a66ffa6ba513d85cfb13b4861f3b324b63bb2c9c6647e7846f20ae42d",
+      "normalized": true
+    },
+    {
+      "path": "environment.json",
+      "sha256": "e108bde16c96789ff85ac4ddba42c22d1bdffa54b762ebb11d9c4a4e4bd3702d",
+      "rawPath": "output/playwright/f8/environment.json",
+      "rawSha256": "92e29d478d6d397034b368092080fe67b1567ba9d848753d330bd050cd20bf80",
+      "normalized": true
+    },
+    {
+      "path": "logs/f6-harness-typecheck.log",
+      "sha256": "5ea3097675cbd3a5836b9bb9ca5b0bffed60b6dccc65f5744f22a70211043da9",
+      "rawPath": "output/playwright/f8/f6-harness-typecheck.log",
+      "rawSha256": "66598f24ee96d5c96b5da6749ff5a40e1b0eac5af49766ee840d30833bdd48cd",
+      "normalized": true
+    },
+    {
+      "path": "logs/f6-renderer-regression.log",
+      "sha256": "671a9d8e4fa9d83f4d8d9234af98b3eb081e03425cb63cd74a4bb659712a41c9",
+      "rawPath": "output/playwright/f8/f6-renderer-regression.log",
+      "rawSha256": "75b66f25bbf659b775e4dec089285247613e5a851d2cd2de0ff8042dbc065f9c",
+      "normalized": true
+    },
+    {
+      "path": "logs/f7-regression-corrected.log",
+      "sha256": "edf39199328ff7bf237dcbeee71c332c0f60b0f2c3135fafb90e4fda8d24da22",
+      "rawPath": "output/playwright/f8/f7-regression-corrected.log",
+      "rawSha256": "0cc86905f4b6baa2c7e91f54d662cfda697e71c8167c09c33dcaa98bf5210317",
+      "normalized": true
+    },
+    {
+      "path": "logs/f7-regression-first.log",
+      "sha256": "a2193cdc387bc4d366bd8b23d95af06149ab770a05c3ba35a96053355e0580e8",
+      "rawPath": "output/playwright/f8/f7-regression-first.log",
+      "rawSha256": "a0588080321990367ae83355224666c649bb3fc26ae1584a96bd19291a8b07f4",
+      "normalized": true
+    },
+    {
+      "path": "f8-1791984869005-first-sanitized.json",
+      "sha256": "a25b0a98c5843262a2a084ccf1441fef53d639d8966c155a68f2a4ec60aae3e9",
+      "rawPath": "output/playwright/f8/f8-1791984869005-first-sanitized.json",
+      "rawSha256": "8783e42d295cfa6f5cd6d077c320b6737eaf234868fa613650f010b660736787",
+      "normalized": true
+    },
+    {
+      "path": "f8-1791986410082-final-sanitized.json",
+      "sha256": "7aa683851a5949122ffc809c7f504bd045c98835240cf74b150f93e959080d20",
+      "rawPath": "output/playwright/f8/f8-1791986410082-final-sanitized.json",
+      "rawSha256": "8666b83676521cf5abc15ef4da67564d1ec6ee281ce377d739df99f35a36a07b",
+      "normalized": true
+    },
+    {
+      "path": "f8-1791987582885-reader-final-sanitized.json",
+      "sha256": "93256c4d127a2411eef5795b4421627139827897068f8ac4aab32614596dfe4c",
+      "rawPath": "output/playwright/f8/f8-1791987582885-reader-final-sanitized.json",
+      "rawSha256": "249d16943716c4dbbb1917f91109e03444145a64b3d9b8d1891a8336195c4150",
+      "normalized": true
+    },
+    {
+      "path": "final-source-build-digest.json",
+      "sha256": "4c2bc67f9876e8b153be935c1749515710d1c0392bcc166133a55ac88ab47d36",
+      "rawPath": "output/playwright/f8/final-source-build-digest.json",
+      "rawSha256": "3682bc3d6e9088c9efa62bac82278acb42924c3b991c62a5941dd8bbbed0c1f3",
+      "normalized": true
+    },
+    {
+      "path": "logs/lint-closeout.log",
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45",
+      "rawPath": "output/playwright/f8/lint-closeout.log",
+      "rawSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "normalized": true
+    },
+    {
+      "path": "logs/lint-corrected.log",
+      "sha256": "8e90f03be6486855527eb6e204a676944f3c6efedf25437c2fda20a732e18305",
+      "rawPath": "output/playwright/f8/lint-corrected.log",
+      "rawSha256": "5bae5105497ef480efd670a708a8cd8996e81c6cde1c5c18db5759c24ff67242",
+      "normalized": true
+    },
+    {
+      "path": "logs/lint-delivery.log",
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45",
+      "rawPath": "output/playwright/f8/lint-delivery.log",
+      "rawSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "normalized": true
+    },
+    {
+      "path": "logs/lint-final.log",
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45",
+      "rawPath": "output/playwright/f8/lint-final.log",
+      "rawSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "normalized": true
+    },
+    {
+      "path": "logs/lint-first.log",
+      "sha256": "54a9d0ed101f9383867bf87832fe091c1b9b3e14245591fcd0beedd5d2e6caa1",
+      "rawPath": "output/playwright/f8/lint-first.log",
+      "rawSha256": "8005bf2f59ae45d085cd64045bccc90d06393fd7505d6ec5711a0cf06f9f082d",
+      "normalized": true
+    },
+    {
+      "path": "retained-live-runs.json",
+      "sha256": "1fd3e0526fd444b14f1274fdf4e39ed788afbe7d1961651388b1a20ac95bc2dc",
+      "rawPath": "output/playwright/f8/retained-live-runs.json",
+      "rawSha256": "b3bde4c7ab06ee09171b944ed789e25778707f59eb11c9ed062be016f3c825d9",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-closeout.log",
+      "sha256": "dc0a24d5ef8ed6bc31221ac5d8c5c556b3cfb1701e2159009af18cf19cc6aa5b",
+      "rawPath": "output/playwright/f8/typecheck-closeout.log",
+      "rawSha256": "924f0b00570597b60c1cfeb85ce48da064b9dfe44c6b49bccfde87227b21fe72",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-complete.log",
+      "sha256": "bca94f0c06098309375169426d0bfda0002354830fbfb411f6ccfe56ce80719c",
+      "rawPath": "output/playwright/f8/typecheck-complete.log",
+      "rawSha256": "92502dd13a7d73fce93fe5168c0ff97aafe4534522fd950ea74c7dbcecbe1d75",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-corrected.log",
+      "sha256": "1b4c2dea165df7a124316a59566854f055bdd8f156b23b404b9ad3b0060c5d1a",
+      "rawPath": "output/playwright/f8/typecheck-corrected.log",
+      "rawSha256": "f031762cd42e0415b70226feb427f8ade8794c4573a9842ac59bda4c8a9c1d9d",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-delivery.log",
+      "sha256": "d90d7816f1c86030e6216d8ee0e0724a07dbeed33a23179312a5b46bbd3878ac",
+      "rawPath": "output/playwright/f8/typecheck-delivery.log",
+      "rawSha256": "bf0c6bf539249bdc2da127d83b009fe146672314a13769038dc5204c093f7a00",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-final.log",
+      "sha256": "e32b5eb0b2d303376fda549364341734f69e23c4d16b4247447d7c3aeb791dcf",
+      "rawPath": "output/playwright/f8/typecheck-final.log",
+      "rawSha256": "25dcf0dff5c3ad733989369421a751bc098c76e0a315b6f0de9831da4b762724",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-first.log",
+      "sha256": "0b29c7ae0003a9349c45e9ad5ff1c7928824930a1fbf93e72295548af4ff21db",
+      "rawPath": "output/playwright/f8/typecheck-first.log",
+      "rawSha256": "6c1009b4e907b29c4ebe7fc593a94a9f58854e732c5f18778580ce0dc211a089",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-regression-corrected.log",
+      "sha256": "6522a50c36aaf755116516762988565c3ef6b526ed6e9d8243dee830d573a63e",
+      "rawPath": "output/playwright/f8/typecheck-regression-corrected.log",
+      "rawSha256": "1fc338504c815dfbe2f742dd45b401cae34a3deb5a060ba78c84c6e1e35b7878",
+      "normalized": true
+    },
+    {
+      "path": "logs/typecheck-with-tests.log",
+      "sha256": "5a8c0b2d4ee16a2eb3276f35fad3942241eb576e4b646dec79a494ac5b35a891",
+      "rawPath": "output/playwright/f8/typecheck-with-tests.log",
+      "rawSha256": "4fe83fee31d5ae71862ded44bf1ef7737955a5a81789a4d12bbd518738ffc0ac",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-closeout.log",
+      "sha256": "a3439194cc926c707973ef497632fd69be718ad3216e533162b8bdfc2da5d56e",
+      "rawPath": "output/playwright/f8/unit-closeout.log",
+      "rawSha256": "fc1032b64401ad43fabb1da2041c7a6af2497a177f31f7d40336fa7ae4ceedd7",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-delivery.log",
+      "sha256": "243654e1e88d218863e8dcd029c0626da32ba17edee8f777a3d132eb0e581fb6",
+      "rawPath": "output/playwright/f8/unit-delivery.log",
+      "rawSha256": "7546a5e62f110faa9b8393df1953a31d07421ebb762fb844a8ed8fff76b046b6",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-final.log",
+      "sha256": "15339d302769605adffc2dddec4b2c51606a80aecda18808a45bfd242110c1f8",
+      "rawPath": "output/playwright/f8/unit-final.log",
+      "rawSha256": "0e3031792d22042e1e830642960c73cea2816ad2af3a4cb7830317be07e7dc21",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-first.log",
+      "sha256": "7a4b512a02fd69673ce31114415a37bc5b450b19f22962730420061c74cde559",
+      "rawPath": "output/playwright/f8/unit-first.log",
+      "rawSha256": "c1e8dc6e28ac1667a9b6d58aeba54d0a972b7533f42d07dd563632723dfdb9f9",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-second.log",
+      "sha256": "a1959c84505fe5966341433fffc51dfd6edc33822033c55496605affa68f799e",
+      "rawPath": "output/playwright/f8/unit-second.log",
+      "rawSha256": "61c991c04e1ad3c7453feff93866e2aa1a4ab452ee2df35e0fc0aeb80cc05a1d",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-status-before.log",
+      "sha256": "1c7b8a9f718a3950ba4efdec274b4742849f06f1b486d8f78257171faa745de3",
+      "rawPath": "output/playwright/f8/unit-status-before.log",
+      "rawSha256": "c6ee6d71b5dd96a2bc5b021de908de4af7b927bf8f944f5b3fd2f69297be1207",
+      "normalized": true
+    },
+    {
+      "path": "logs/unit-third.log",
+      "sha256": "56a9d77f337a03cb8d11ee9c9190fcf654b8fb73f79fd6b09c6f3d25c878e0ce",
+      "rawPath": "output/playwright/f8/unit-third.log",
+      "rawSha256": "9da096ecce1fb907ac86a0480b4b9a47de6fc48fc1b5357cdcc131acf42ed0cf",
+      "normalized": true
+    },
+    {
+      "path": "whitespace-before-source.json",
+      "sha256": "e37d268fa89baf623820eab05c82a3825e2923a7cc9f72aab97330bf3ec825b9",
+      "rawPath": "output/playwright/f8/whitespace-before-source.json",
+      "rawSha256": "efa1b5051d49a75ea175126c839aa15f4d173edd92fcc0c9fbca6dc80942715d",
+      "normalized": true
+    },
+    {
+      "path": "browser/built-chrome-smoke-results.json",
+      "sha256": "2bb10592d3a0dacbe8aef8d82089be7092dc28090ae788450a688b2d9584d112",
+      "rawPath": "output/playwright/f8/built-chrome-smoke-results.json",
+      "rawSha256": "8087c84f967cfecea56f648e768526635857a45738b1154be931d278d41486d4",
+      "normalized": true
+    },
+    {
+      "path": "browser/built-complete-results.json",
+      "sha256": "8d261395bdf68481ee916dc0837e8d4026e486b2cd9b7fbc696a5701d34a87e2",
+      "rawPath": "output/playwright/f8/built-complete-results.json",
+      "rawSha256": "be38dab9d9844ca0d35588e02f83ce80f09cacb018711172dde8a636c6afbb7e",
+      "normalized": true
+    },
+    {
+      "path": "images/built-complete-results-mobile-answer.png",
+      "sha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "rawPath": "output/playwright/f8/built-complete-results.json#mobile-answer.png",
+      "rawSha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-corrected-results.json",
+      "sha256": "4b3a0338c6ba069232d2d82bbabcb961e9c13c479bf606b4b298798f988d5fa2",
+      "rawPath": "output/playwright/f8/built-corrected-results.json",
+      "rawSha256": "846b8f0328ed452f46158e3f6d4b084a9c33b6ec2678f48641be7ca080b8c4bf",
+      "normalized": true
+    },
+    {
+      "path": "images/built-corrected-results-mobile-answer.png",
+      "sha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "rawPath": "output/playwright/f8/built-corrected-results.json#mobile-answer.png",
+      "rawSha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-delivery-results.json",
+      "sha256": "e0bf93eb427a4a63174ad7c9526ca261b6f78eefdb77020b03ed509e127b98f1",
+      "rawPath": "output/playwright/f8/built-delivery-results.json",
+      "rawSha256": "20bb75c30c7f5b4a1ceab1ac0f70be574947f23d3495c5c43bac4c4a07cd60f5",
+      "normalized": true
+    },
+    {
+      "path": "images/built-delivery-results-mobile-answer.png",
+      "sha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "rawPath": "output/playwright/f8/built-delivery-results.json#mobile-answer.png",
+      "rawSha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-final-results.json",
+      "sha256": "c81ba1e4588f7b97285e7889783b714f11c6c36b4c5d88609879ff52df63a460",
+      "rawPath": "output/playwright/f8/built-final-results.json",
+      "rawSha256": "8a3b1b769f5e57bd47f879b2461ee06264af5fe89a57b84f9942cc1b9dcd5ee5",
+      "normalized": true
+    },
+    {
+      "path": "images/built-final-results-mobile-answer.png",
+      "sha256": "a9292c76072a5996b1102fcd5f942435cac4e37fa768b3eb9ccd6316873dfd30",
+      "rawPath": "output/playwright/f8/built-final-results.json#mobile-answer.png",
+      "rawSha256": "a9292c76072a5996b1102fcd5f942435cac4e37fa768b3eb9ccd6316873dfd30",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-first-results.json",
+      "sha256": "817904b2305b5a5906c48d93de960e07f1a4c8bfe56bbcb79770d1462dd8f86c",
+      "rawPath": "output/playwright/f8/built-first-results.json",
+      "rawSha256": "02428742d98c4d965bf195847ad86401c0c63b4dff7874dd9e6078a81a5ea596",
+      "normalized": true
+    },
+    {
+      "path": "images/built-first-results-mobile-answer.png",
+      "sha256": "710476153ea9d39f3eb6f938d0d57f00c5fb1392a3ca77ad6b3a4a7accf93a73",
+      "rawPath": "output/playwright/f8/built-first-results.json#mobile-answer.png",
+      "rawSha256": "710476153ea9d39f3eb6f938d0d57f00c5fb1392a3ca77ad6b3a4a7accf93a73",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-msedge-smoke-results.json",
+      "sha256": "33cf7fd09c9f91f6626aeddc759c0774dfc895737a3ec8f39d6395d7e262aa96",
+      "rawPath": "output/playwright/f8/built-msedge-smoke-results.json",
+      "rawSha256": "a25326ce71a8f234cece575c6ba9a6e0f6167735c26046808517cbc6535f08be",
+      "normalized": true
+    },
+    {
+      "path": "browser/built-reader-final-results.json",
+      "sha256": "1b6580d0676c2f9a6267612b4933ba1be5f2f4ff2e4ebce33bd358be6b0ddcdd",
+      "rawPath": "output/playwright/f8/built-reader-final-results.json",
+      "rawSha256": "04eccc10248b464cdae5ba5bd8bc4dff61ba9d7c1364ee6d39bfdf6c61b4f87a",
+      "normalized": true
+    },
+    {
+      "path": "images/built-reader-final-results-mobile-answer.png",
+      "sha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "rawPath": "output/playwright/f8/built-reader-final-results.json#mobile-answer.png",
+      "rawSha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-status-final-results.json",
+      "sha256": "8c0ad0077d00fecff9acd38320bc13f0dcaed81d4524acbd2a5697d6d18c433f",
+      "rawPath": "output/playwright/f8/built-status-final-results.json",
+      "rawSha256": "12c8814a1b058324aefa96cf56b3f8c8b278e2117a4cb27788f8bec04fd22be4",
+      "normalized": true
+    },
+    {
+      "path": "images/built-status-final-results-mobile-answer.png",
+      "sha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "rawPath": "output/playwright/f8/built-status-final-results.json#mobile-answer.png",
+      "rawSha256": "b7119d183cfa48e1ca6b40fe26b3e6c1a614fd3f938477ab757d4cfe478a1f5b",
+      "normalized": false
+    },
+    {
+      "path": "browser/built-whitespace-before-results.json",
+      "sha256": "eff521d3b201bfe3ed3a9d6d3f35fb834f4c0fefe1cd4097e41cfa695a34bf3f",
+      "rawPath": "output/playwright/f8/built-whitespace-before-results.json",
+      "rawSha256": "35c7eab143baad9009f359a8a3258dc444182de75a8de845f4089356631b9de1",
+      "normalized": true
+    },
+    {
+      "path": "browser/live-final-results.json",
+      "sha256": "337e0c709ef3a2b81787fbd4a86c90a52ddf09592fbe5a293e36c12c8a988e8b",
+      "rawPath": "output/playwright/f8/live-final-results.json",
+      "rawSha256": "43d0b2c9c7a8eb0dcfdf6cf69403231981ee7e37281ab217e566927666706b54",
+      "normalized": true
+    },
+    {
+      "path": "images/live-final-results-live-multiple.png",
+      "sha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "rawPath": "output/playwright/f8/live-final-results.json#live-multiple.png",
+      "rawSha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "normalized": false
+    },
+    {
+      "path": "browser/live-first-results.json",
+      "sha256": "4c5b40105dad1779155915360f4f0e7ac345fd367acce2ba91bea9f502fe4f68",
+      "rawPath": "output/playwright/f8/live-first-results.json",
+      "rawSha256": "ab66c11c4e4294c0bdc9949ff9f3f25fcdbe3cf64717b5ed9d86bc1984191d60",
+      "normalized": true
+    },
+    {
+      "path": "images/live-first-results-live-multiple.png",
+      "sha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "rawPath": "output/playwright/f8/live-first-results.json#live-multiple.png",
+      "rawSha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "normalized": false
+    },
+    {
+      "path": "browser/live-reader-final-results.json",
+      "sha256": "ec16b414f06a820e4214d8432873d9016e0548ea68230a042f2341faa6564360",
+      "rawPath": "output/playwright/f8/live-reader-final-results.json",
+      "rawSha256": "116835515a569a9c9363d8077aaf56ccd275e0c51b9ae3c2e6625d61f64e90ab",
+      "normalized": true
+    },
+    {
+      "path": "images/live-reader-final-results-live-multiple.png",
+      "sha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "rawPath": "output/playwright/f8/live-reader-final-results.json#live-multiple.png",
+      "rawSha256": "65de53eca620390fdabd0cd7289f728b635083ebfa9f5b48f86048d9a126c9c0",
+      "normalized": false
+    },
+    {
+      "path": "browser/f7-built-f8-regression-results.json",
+      "sha256": "84efbf704f32316e074de222e661b823da0779ecfffa3fe396f9faa8ba3109ea",
+      "rawPath": "output/playwright/f7/built-f8-regression-results.json",
+      "rawSha256": "2be78bc1c790cdae8afdfa09319beef9c1fbc9c022676b44586d5771aa4dd153",
+      "normalized": true
+    },
+    {
+      "path": "browser/f7-built-f8-regression-corrected-results.json",
+      "sha256": "51f8b8ec4ee412e02007eba8b60222d4d003ba66df342d076848125829f91c1f",
+      "rawPath": "output/playwright/f7/built-f8-regression-corrected-results.json",
+      "rawSha256": "044b4053906e671b3cddd161c10c81b0ecff5ad70810aa9fe1dcb61f7ae0325a",
+      "normalized": true
+    },
+    {
+      "path": "browser/f6-fixture-results.json",
+      "sha256": "27ff1ed27b85758b1f2025035e380b0b2845a353b3598a6118b6a9928acca759",
+      "rawPath": "output/playwright/f6/fixture-results.json",
+      "rawSha256": "2e920dfcb647c4bef9655a92ba2714d66ea81d918ec795e01d3a2acc695df97c",
+      "normalized": true
+    },
+    {
+      "path": "collect.mjs.txt",
+      "sha256": "467053c96a0669f0b956d34c26bdac01a307721a13c34cf664d8c757525870d8",
+      "rawPath": "output/playwright/f8/collect.mjs",
+      "rawSha256": "d7d92d9e30015c3b94b45430e13bd6704801104fe8d387e9a83e74b3878aae98",
+      "normalized": true
+    }
+  ]
+}

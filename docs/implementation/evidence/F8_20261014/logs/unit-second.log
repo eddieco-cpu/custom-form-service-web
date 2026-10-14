@@ -1,0 +1,28 @@
+
+> test:unit
+> vitest run tests/unit/f8-response-page.spec.ts tests/unit/f5-answer.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f7-form-management.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/api-client.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+ ❯ tests/unit/f8-response-page.spec.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 1 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/f8-response-page.spec.ts [ tests/unit/f8-response-page.spec.ts ]
+Error: Use stringifyExactJson for ExactNumber
+ ❯ ExactNumber.toJSON app/utils/exact-number.ts:46:27
+     44|   toString(): string { return this.token }
+     45|   valueOf(): never { throw new Error('ExactNumber cannot be implicitly…
+     46|   toJSON(): never { throw new Error('Use stringifyExactJson for ExactN…
+       |                           ^
+     47| }
+     48|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/1]⎯
+
+
+ Test Files  1 failed | 5 passed (6)
+      Tests  143 passed (143)
+   Start at  20:44:31
+   Duration  677ms (transform 44%, import 38%, tests 16%, worker 2%)
