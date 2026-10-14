@@ -570,6 +570,24 @@ Owner 指定修正基準 `0aff8bb754f077d5df90209a123e024e5b5a83a3`、目標 `8e
 
 **停於局部獨立複核通過、F6 code review 通過，待 Owner 確認後續階段。** 正式驗收延後、accepted 不變；既有實機／受控特殊 Auth／資源／DB identity／migration 缺口不解除，不推送、不展開 F7。本次僅追加 review 文件／去敏證據與進度，本機文件 SHA 見 Git log。
 
+### 9.24 F6 結案確認與 F7 規劃交付（2026-10-14）
+
+Owner 本次明確確認 **F6-R1／F6-R2 結案、F6 code review 通過**；正式驗收延後、accepted 不變、既有缺口保留。接手 master／`47dbce558bc628d250911f56af621ba8da2e8093` 與指定基準一致、工作樹乾淨；依最新 AGENTS／development skill、正式規格、本計畫 F7／§7／§7.1，交付 [F7 精簡實作計畫 v1.0](F7_Implementation_Plan.md)。涵蓋 Lifecycle／Visibility／Delete／Count／分享的資格、確認與導航，保存／發布分離、寫入互斥／unknown 核對、Visibility 白名單合併保留 dirty 定義，以及必要 unit／Browser／真實 API 與專用測資安排、既有缺口的本輪影響。
+
+本次僅文件與唯讀核對：Node 24.21.0／npm 11.19.0、選用套件 installed／lockfile 一致、backend manifest 108／108；08:51:44～47 台北時間 health／readiness／OpenAPI 均 200，F7 端點描述可見。後端 checkout SHA 與快照相同、既存 untracked SNAPSHOT.md 未動，磁碟 DLL 版本／hash 承接 F6；目前程序 assembly 綁定讀取受 PermissionDenied、DB identity／migration 仍 UNCONFIRMED，不以 metadata 冒稱 R7／R9 真實操作 PASS。無產品測試／Browser／業務 API 讀寫／DB 操作，歷史報告與失敗證據保留。
+
+**停於「F7 計畫待 Owner review」**，尚不開發；沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」，不新增中途測試計畫核准 gate。正式驗收延後、accepted 不變，既有缺口未解除。本次僅本計畫／README 進度與 F7 計畫三份文件，未提交、未推送、不展開 F8，接手 HEAD 不變；文件核對與最終 Git 狀態見交付訊息。
+
+### 9.25 F7 授權開發與自測交付（2026-10-14）
+
+Owner 通過 F7 精簡實作計畫 v1.0，授權整輪開發、必要自測、範圍內修正與本機提交，不新增中途測試計畫核准 gate；另明確要求跨寫入舊 GET 隔離、允許正常 API 專用合成測資，Delete 僅作用於明列本輪資源。依基準 `47dbce558bc628d250911f56af621ba8da2e8093` 完成 Lifecycle／Visibility／Delete／Count／Clipboard 與唯讀定義；共用 Form lease／revision 隔離 Form、GET me＋Form 資格核對、Count／候選 GET，晚回不得覆蓋新基準或解除未知鎖。政策回應只合併 metadata／Visibility，未保存定義保留；API 否定資格留在 App 共用 coordinator，SPA 返回不復活。見 [F7 開發報告](F7_Development_Report.md)／[去敏證據](evidence/F7_20261014/verification-summary.json)，計畫 v1.1 只同步授權補充，§9.24 歷史保留。
+
+lint／strict typecheck／fresh build／F6 harness strict PASS，受影響 unit **231／231**；F7 fixture Browser 完整 24 案 **23 PASS／1 FAIL**，測試導航同步修正後受影響 **2／2 PASS**，逐案最新 24 個不同案例 PASS；Chrome／Edge smoke 各 2／2 PASS。F6 受影響 fixture 先 16／16、共用資格鎖補強後 8／8，政策初值斷言單案 1／1 PASS。真實 API L01～L06、Draft／Published／Closed × 三政策九格矩陣與正常 Cookie 換帳號資格補驗分次 PASS，含保存／發布分離、自然到期 Close、Count 0→1→1→2、Delete 204／404／清單讀回及 AUTH_REQUIRED dirty 返回；fixture 與真實結果分列，首次 FAIL／修正重測及失敗測資全部保留。
+
+本輪正常建立 4 個合成帳號／15 份 Form，僅 6 份明列 delete-* 專用資源 soft-delete，9 份未刪保留；歷史 F6 帳號／五份 Draft／證據未動。backend manifest 108／108，開發時唯讀程序 probe 補確認 runtime assembly 綁定同快照 SHA；DB identity／migration 仍 UNCONFIRMED。真實 invalid／expired／disabled、Server commit 故障、實機與其他未覆蓋歷史缺口保留；未造簽 Token、SQL 改資料或重建 DB。
+
+**停於「F7 開發完成、待集中 review」**；正式驗收維持延後、accepted 不變，不代填 code review／AI／人工驗收 PASS。本輪作單一目的本機提交，完整 SHA 與最終 Git 狀態見交付訊息／Git log；不推送、不展開 F8。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

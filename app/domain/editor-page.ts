@@ -20,13 +20,14 @@ export interface EditorPageState {
 }
 export const editorPageState = (): EditorPageState => ({ session: null, permission: null, issues: [], error: null, readError: null, checking: false, unavailable: false })
 interface Effects {
-  auth: () => AuthState; authSession: AuthSession; scope: RequestScope; service: ReturnType<typeof formService>
+  auth: () => AuthState; authSession: AuthSession; scope: RequestScope; service: Pick<ReturnType<typeof formService>, 'detail' | 'create' | 'update'>
   operation: (saved: boolean) => OperationState; resource: () => string; path: () => string
   // A permit remains valid only while the content revision and page are unchanged.
   authorize: () => (() => boolean) | undefined; finishDiscard: () => void
   confirmDuplicate: () => boolean; confirmAccount: () => boolean
   navigate: (target: string | ReturnType<typeof loginLocation>, replace: boolean) => Promise<unknown>
   toast: (message: string) => void
+  permissionAllowed?: () => boolean
 }
 export class EditorPageController {
   private disposed = false
@@ -37,12 +38,12 @@ export class EditorPageController {
   get dirty(): boolean { return !!this.state.session && editorDirty(this.state.session.definition, this.state.session.baseline) }
   get canWrite(): boolean {
     const { permission: p, session: s, unavailable } = this.state, a = this.effects.auth()
-    return !this.disposed && !unavailable && !!s && !!p && a.outcome === 'authenticated' && a.phase === 'settled'
+    return !this.disposed && !unavailable && !this.operation.permissionDenied(a.sessionRevision) && (this.effects.permissionAllowed?.() ?? true) && !!s && !!p && a.outcome === 'authenticated' && a.phase === 'settled'
       && p.userId === a.user?.id && p.revision === a.sessionRevision && p.resource === this.effects.resource()
       && (!('id' in s.definition.metadata) || (s.definition.metadata.userId === a.user?.id && s.definition.metadata.status === 'draft'))
   }
   get operation(): OperationState { return this.effects.operation(!!this.id) }
-  get inputDisabled(): boolean { return !this.canWrite || this.state.checking || this.operation.snapshot.loading }
+  get inputDisabled(): boolean { return !this.canWrite || this.state.checking || (this.operation.snapshot.loading && this.operation.activePolicy !== 'visibility') }
   authChanged(): void { if (!this.canWrite) this.state.permission = null }
   contextChanged(): void {
     this.readGeneration++; this.effects.scope.invalidate()
@@ -78,6 +79,7 @@ export class EditorPageController {
     }
     if (result.kind === 'api-error' && ['FORM_ACCESS_DENIED', 'FORM_NOT_EDITABLE', 'FORM_NOT_FOUND'].includes(result.error.code)) {
       this.state.permission = null; this.state.unavailable = true
+      if (result.error.code === 'FORM_ACCESS_DENIED') this.operation.denyPermission(this.effects.auth().sessionRevision)
     }
   }
   async load(id: string, manual = false): Promise<void> {
@@ -85,10 +87,11 @@ export class EditorPageController {
     const permit = manual ? this.effects.authorize() : () => true
     if (!permit) return
     const generation = ++this.readGeneration
+    const readCurrent = this.operation.captureRead()
     const ticket = this.effects.scope.begin(); this.state.checking = true; this.state.readError = null
     try {
       const result = await this.effects.service.detail(id, ticket.signal)
-      if (!ticket.isCurrent() || !permit()) return
+      if (!ticket.isCurrent() || !readCurrent() || !permit()) return
       if (result.kind === 'success') {
         const a = this.effects.auth()
         if (a.outcome !== 'authenticated' || !a.user || (result.value.status === 'draft' && result.value.userId !== a.user.id)) {
@@ -97,10 +100,17 @@ export class EditorPageController {
         const operation = this.effects.operation(true)
         const adopted = operation.reconcile(() => {
           this.state.session = loadEditor(result.value); this.state.issues = []; this.state.unavailable = false; this.grant(); return true
-        }, ticket.isCurrent)
+        }, () => ticket.isCurrent() && readCurrent())
         if (adopted && result.value.status !== 'draft') { this.state.permission = null; await this.effects.navigate(`/forms/${id}`, true) }
       }
       else {
+        if (manual && result.kind === 'api-error' && result.error.code === 'FORM_NOT_FOUND') {
+          this.operation.reconcile(() => {
+            this.state.session = null; this.state.permission = null; this.state.unavailable = true
+            this.state.error = null; this.state.readError = formReadError(result); return true
+          }, () => ticket.isCurrent() && readCurrent())
+          return
+        }
         this.handleFailure(result, false)
         if (isSessionFailure(result) && !this.state.session) await this.effects.navigate(loginLocation(this.effects.path()), true)
       }
@@ -114,10 +124,11 @@ export class EditorPageController {
     const permit = savedId ? this.effects.authorize() : () => true
     if (!permit) return
     const generation = ++this.readGeneration
+    const readCurrent = this.operation.captureRead()
     let ticket = this.effects.scope.begin(); this.state.checking = true; this.state.permission = null
     try {
       const candidate = await this.effects.authSession.candidate()
-      if (!ticket.isCurrent() || !candidate.isCurrent() || !permit()) return
+      if (!ticket.isCurrent() || !readCurrent() || !candidate.isCurrent() || !permit()) return
       if (candidate.result.kind !== 'success') { this.handleFailure(candidate.result, false); return }
       const user = candidate.result.value
       if (!savedId && oldUserId !== undefined && oldUserId !== user.id && !this.effects.confirmAccount()) return
@@ -126,13 +137,14 @@ export class EditorPageController {
       ticket = this.effects.scope.begin()
       if (savedId) {
         const result = await this.effects.service.detail(savedId, ticket.signal)
-        if (!ticket.isCurrent() || !permit()) return
+        if (!ticket.isCurrent() || !readCurrent() || !permit()) return
         if (result.kind !== 'success') { this.handleFailure(result, false); return }
         if (result.value.userId !== user.id || result.value.status !== 'draft') {
           this.state.unavailable = true
           this.state.error = { kind: 'access-denied', placement: 'dialog', message: '目前帳號或表單狀態無法保存這份定義。', details: [], knownCode: false }; return
         }
-        this.operation.reconcile(() => { this.state.session = loadEditor(result.value); this.state.issues = []; this.state.unavailable = false; this.grant(); return true }, ticket.isCurrent)
+        const adopted = this.operation.reconcile(() => { this.state.session = loadEditor(result.value); this.state.issues = []; this.state.unavailable = false; this.grant(); return true }, () => ticket.isCurrent() && readCurrent())
+        if (adopted) this.operation.confirmPermission()
       }
       else {
         if (!ticket.isCurrent() || this.id) return

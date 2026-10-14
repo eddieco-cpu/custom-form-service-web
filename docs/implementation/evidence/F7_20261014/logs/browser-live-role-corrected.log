@@ -1,0 +1,18 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts --grep real cached Owner
+
+[WebServer]
+[WebServer]  ERROR  (node:19692) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:39368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:34424) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f7-live.spec.ts:171:1 › F7-L06 real cached Owner versus current Cookie role denial, SPA persistence and qualified recovery (4.2s)
+
+  1 passed (8.3s)

@@ -12,6 +12,7 @@ dist/
 !.env.example
 output/playwright/
 output/f6/
+output/f7/
 playwright-report/
 test-results/
 !docs/test-results/

@@ -1,0 +1,36 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts --grep saved publish|Clipboard fallback
+
+[WebServer]
+[WebServer]  ERROR  (node:16656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:20304) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:35496) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [edge] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing (1ms)
+(node:39428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  2 [edge] › tests\e2e\f7-browser.spec.ts:124:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates (1ms)
+
+
+  1) [edge] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing
+
+    Error: browserType.launch: Unsupported chromium channel "edge"
+
+    Error Context: output\playwright\f7\built-edge-smoke-artifacts\f7-browser-F7-B01-saved-pu-16700--dirty-cancel-sends-nothing-edge\error-context.md
+
+  2) [edge] › tests\e2e\f7-browser.spec.ts:124:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates
+
+    Error: browserType.launch: Unsupported chromium channel "edge"
+
+    Error Context: output\playwright\f7\built-edge-smoke-artifacts\f7-browser-F7-B09-Clipboar-9a622-tion-updates-nonOwner-gates-edge\error-context.md
+
+  2 failed
+    [edge] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing
+    [edge] › tests\e2e\f7-browser.spec.ts:124:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates

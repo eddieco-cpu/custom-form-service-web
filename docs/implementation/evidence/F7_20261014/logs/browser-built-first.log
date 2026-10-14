@@ -1,0 +1,245 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:2852) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:35112) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 19 tests using 1 worker
+
+(node:9344) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing (1.2s)
+  ok  2 [chromium] › tests\e2e\f7-browser.spec.ts:63:1 › F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count (591ms)
+  ok  3 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data (916ms)
+  ok  4 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data (942ms)
+  ok  5 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data (910ms)
+  ok  6 [chromium] › tests\e2e\f7-browser.spec.ts:77:1 › F7-B04 Visibility retains pending edits and exact definition; all writes serialize (531ms)
+  x   7 [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly (347ms)
+(node:33184) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   8 [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus (767ms)
+(node:25224) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   9 [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification (405ms)
+(node:16684) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  10 [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes (416ms)
+(node:26308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  11 [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes (410ms)
+(node:30640) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  12 [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes (413ms)
+(node:30232) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  13 [chromium] › tests\e2e\f7-browser.spec.ts:113:1 › F7-B08 Count zero and explicit repeat, no automatic poll (5.3s)
+(node:37776) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 14 [chromium] › tests\e2e\f7-browser.spec.ts:118:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates (522ms)
+  ok 15 [chromium] › tests\e2e\f7-browser.spec.ts:123:76 › F7-B09 nonOwner Closed owner_only has correct Statistics link only (270ms)
+  ok 16 [chromium] › tests\e2e\f7-browser.spec.ts:123:76 › F7-B09 nonOwner Closed respondents has correct Statistics link only (258ms)
+  ok 17 [chromium] › tests\e2e\f7-browser.spec.ts:123:76 › F7-B09 nonOwner Closed public has correct Statistics link only (263ms)
+  ok 18 [chromium] › tests\e2e\f7-browser.spec.ts:127:1 › F7-B10 old Form GET after Close success stays stale after pending ends (621ms)
+  x  19 [chromium] › tests\e2e\f7-browser.spec.ts:134:1 › F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles (647ms)
+
+
+  1) [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉')
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:89:78
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B05-policy-e-f57e4-nt-adoption-gates-correctly-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByRole('dialog', { name: '操作訊息' }).getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉')
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:100:218
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B06-Publish--f8529-nd-first-actual-field-focus-chromium\error-context.md
+
+  3) [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉')
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:105:78
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B07-conflict-4b734-ever-restores-qualification-chromium\error-context.md
+
+  4) [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉')
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:111:48
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B07-AUTH-REQ-6c758-retains-but-disables-writes-chromium\error-context.md
+
+  5) [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes
+
+    Error: locator.check: Clicking the checkbox did not change its state
+    Call log:
+      - waiting for getByRole('radio', { name: '所有人', exact: true })
+        - locator resolved to <input type="radio" name="v-0-8" value="public"/>
+      - attempting click action
+        - waiting for element to be visible, enabled and stable
+        - element is visible, enabled and stable
+        - scrolling into view if needed
+        - done scrolling
+        - performing click action
+        - click action done
+        - waiting for scheduled navigations to finish
+        - navigations have finished
+
+
+      108 | for (const code of ['AUTH_REQUIRED', 'AUTH_TOKEN_INVALID', 'AUTH_TOKEN_EXPIRED']) test(`F7-B07 ${code} dialog then dirty cancel retains but disables writes`, async ({ page }) => {
+      109 |   const s = await start(page); await field(page, 'form.title').fill('登入失效保留'); s.expected.push(expectedHttp('PATCH', `${root}/result-visibility`, 401, 1)); s.write = r => reply(r, error(code), 401)
+    > 110 |   await page.getByRole('radio', { name: '所有人', exact: true }).check(); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible(); await page.keyboard.press('Escape'); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible()
+          |                                                               ^
+      111 |   page.once('dialog', d => d.dismiss()); await closeError(page); await expect(field(page, 'form.title')).toHaveValue('登入失效保留'); await expect(save(page)).toBeDisabled(); await expect(page).toHaveURL(`http://localhost:3000${edit}`); clean(s)
+      112 | })
+      113 | test('F7-B08 Count zero and explicit repeat, no automatic poll', async ({ page }) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:110:63
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B07-AUTH-TOK-612a8-retains-but-disables-writes-chromium\error-context.md
+
+  6) [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉')
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:111:48
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B07-AUTH-TOK-0d9e6-retains-but-disables-writes-chromium\error-context.md
+
+  7) [chromium] › tests\e2e\f7-browser.spec.ts:113:1 › F7-B08 Count zero and explicit repeat, no automatic poll
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('不同填答者人數：0')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('不同填答者人數：0') with timeout 5000ms
+      - waiting for getByText('不同填答者人數：0')
+
+
+      113 | test('F7-B08 Count zero and explicit repeat, no automatic poll', async ({ page }) => {
+      114 |   const s = await start(page, { ...form(), status: 'published' }); expect(s.requests.filter(r => r.path.endsWith('/respondent-count'))).toHaveLength(0)
+    > 115 |   await page.getByRole('button', { name: '查看填答人數' }).click(); await expect(page.getByText('不同填答者人數：0')).toBeVisible(); s.count = 2
+          |                                                                                                         ^
+      116 |   await page.getByRole('button', { name: '查看填答人數' }).click(); await expect(page.getByText('不同填答者人數：2')).toBeVisible(); expect(s.requests.filter(r => r.path.endsWith('/respondent-count'))).toHaveLength(2); clean(s)
+      117 | })
+      118 | test('F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates', async ({ page }, info) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:115:105
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B08-Count-ze-42bd1-it-repeat-no-automatic-poll-chromium\error-context.md
+
+  8) [chromium] › tests\e2e\f7-browser.spec.ts:134:1 › F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles
+
+    Error: locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:
+        1) <button type="button" aria-label="關閉" data-slot="close" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')
+        2) <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3">…</button> aka getByText('關閉', { exact: true })
+
+    Call log:
+      - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })
+
+
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+      53 | const save = (page: Page) => page.getByRole('button', { name: '保存', exact: true })
+    > 54 | async function closeError(page: Page) { await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).click() }
+         |                                                                                                                                           ^
+      55 | test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing', async ({ page }) => {
+      56 |   const s = await start(page); await field(page, 'form.title').fill('新標題'); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+      57 |   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
+        at closeError (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:54:139)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:139:138
+
+    Error Context: output\playwright\f7\built-first-artifacts\f7-browser-F7-B11-old-GET--539d2-lock-a-fresh-GET-reconciles-chromium\error-context.md
+
+  8 failed
+    [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly
+    [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus
+    [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification
+    [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes
+    [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes
+    [chromium] › tests\e2e\f7-browser.spec.ts:108:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes
+    [chromium] › tests\e2e\f7-browser.spec.ts:113:1 › F7-B08 Count zero and explicit repeat, no automatic poll
+    [chromium] › tests\e2e\f7-browser.spec.ts:134:1 › F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles
+  11 passed (24.2s)

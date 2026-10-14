@@ -58,13 +58,13 @@ export class FormReadController<T> {
   captureAuthPresentation(manual: boolean): ReadAuthPresentation {
     return manual && this.state.data !== null ? 'dialog' : 'redirect'
   }
-  async read(load: (signal: AbortSignal) => Promise<ApiResult<T>>, manual = false, adopt?: (value: T, ticket: RequestTicket) => void | Promise<void>, authPresentation = this.captureAuthPresentation(manual)): Promise<void> {
+  async read(load: (signal: AbortSignal) => Promise<ApiResult<T>>, manual = false, adopt?: (value: T, ticket: RequestTicket) => void | Promise<void>, authPresentation = this.captureAuthPresentation(manual), fresh: () => boolean = () => true): Promise<void> {
     if (this.disposed || this.state.dialog) return
     const ticket = this.scope.begin()
     this.state.error = null
     try {
       const result = await load(ticket.signal)
-      if (!ticket.isCurrent()) return
+      if (!ticket.isCurrent() || !fresh()) return
       if (result.kind === 'success') {
         if (adopt) await adopt(result.value, ticket)
         else this.state.data = result.value
@@ -82,7 +82,7 @@ export class FormReadController<T> {
       else this.state.error = formReadError(result)
     }
     catch {
-      if (ticket.isCurrent()) this.state.error = formReadError({ kind: 'contract-error', status: 200, message: '無法確認讀取結果。', sent: true })
+      if (ticket.isCurrent() && fresh()) this.state.error = formReadError({ kind: 'contract-error', status: 200, message: '無法確認讀取結果。', sent: true })
     }
     finally { this.scope.finish(ticket) }
   }

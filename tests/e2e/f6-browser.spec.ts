@@ -76,7 +76,7 @@ test('F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op 
 })
 test('F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag', async ({ page }, info) => {
   const state = await mock(page); await page.setViewportSize({ width: 1440, height: 900 }); await page.goto(edit)
-  await expect(save(page)).toBeDisabled(); await expect(page.getByText('此設定目前僅供檢視')).toBeVisible(); await expect(page.getByText(/F7 接入/)).toHaveCount(0)
+  await expect(save(page)).toBeDisabled(); await expect(page.getByRole('radio', { name: '填答者', exact: true })).toBeChecked(); await expect(page.getByText(/F7 接入/)).toHaveCount(0)
   await field(page, `${Q[2]}.type`).selectOption('text'); await page.getByRole('button', { name: '取消', exact: true }).click(); await expect(field(page, `${Q[2]}.type`)).toHaveValue('single_choice')
   await expect(field(page, `${O[0]}.label`)).toHaveValue('既有甲'); await field(page, `${Q[2]}.type`).selectOption('multiple_choice'); await expect(field(page, `${O[0]}.label`)).toHaveValue('既有甲')
   await field(page, `${Q[2]}.type`).selectOption('text'); await page.getByRole('button', { name: '確認切換' }).click(); await field(page, `${Q[2]}.type`).selectOption('single_choice')

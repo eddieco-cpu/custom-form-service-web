@@ -1,0 +1,71 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:31768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:38140) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 24 tests using 1 worker
+
+(node:21472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing (963ms)
+  ok  2 [chromium] › tests\e2e\f7-browser.spec.ts:63:1 › F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count (662ms)
+  ok  3 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data (928ms)
+  ok  4 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data (910ms)
+  ok  5 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data (876ms)
+  ok  6 [chromium] › tests\e2e\f7-browser.spec.ts:77:1 › F7-B04 Visibility retains pending edits and exact definition; all writes serialize (490ms)
+  ok  7 [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly (1.4s)
+  ok  8 [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus (962ms)
+  x   9 [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification (5.7s)
+(node:7308) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 10 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes (674ms)
+  ok 11 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes (637ms)
+  ok 12 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes (610ms)
+  ok 13 [chromium] › tests\e2e\f7-browser.spec.ts:119:1 › F7-B08 Count zero and explicit repeat, no automatic poll (388ms)
+  ok 14 [chromium] › tests\e2e\f7-browser.spec.ts:124:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates (446ms)
+  ok 15 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed owner_only has correct Statistics link only (269ms)
+  ok 16 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed respondents has correct Statistics link only (254ms)
+  ok 17 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed public has correct Statistics link only (266ms)
+  ok 18 [chromium] › tests\e2e\f7-browser.spec.ts:133:1 › F7-B10 old Form GET after Close success stays stale after pending ends (666ms)
+  ok 19 [chromium] › tests\e2e\f7-browser.spec.ts:140:1 › F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles (983ms)
+  ok 20 [chromium] › tests\e2e\f7-browser.spec.ts:149:1 › F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once (994ms)
+  ok 21 [chromium] › tests\e2e\f7-browser.spec.ts:159:1 › F7-B13 disabled error retains Header and definition; no global logout or unknown write lock (584ms)
+  ok 22 [chromium] › tests\e2e\f7-browser.spec.ts:165:1 › F7-B14 Clipboard success stores the complete Published URL and no fallback (257ms)
+  ok 23 [chromium] › tests\e2e\f7-browser.spec.ts:170:1 › F7-B15 nonOwner Draft remains formal 404 without management (273ms)
+  ok 24 [chromium] › tests\e2e\f7-browser.spec.ts:174:1 › F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial (721ms)
+
+
+  1) [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: '核對登入與管理資格' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: '核對登入與管理資格' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: '核對登入與管理資格' })
+
+
+      106 |   page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入表單', exact: true }).click(); await expect(save(page)).toBeDisabled(); await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible()
+      107 |   await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await page.goBack()
+    > 108 |   await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeDisabled()
+          |                                                                 ^
+      109 |   await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '發布', exact: true })).toBeEnabled(); clean(s)
+      110 | })
+      111 | for (const code of ['AUTH_REQUIRED', 'AUTH_TOKEN_INVALID', 'AUTH_TOKEN_EXPIRED']) test(`F7-B07 ${code} dialog then dirty cancel retains but disables writes`, async ({ page }) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:108:65
+
+    Error Context: output\playwright\f7\built-permission-artifacts\f7-browser-F7-B07-conflict-4b734-ever-restores-qualification-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification
+  23 passed (25.8s)

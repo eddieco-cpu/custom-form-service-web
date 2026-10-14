@@ -1,0 +1,46 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:2816) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:41068) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:36452) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\f7-live.spec.ts:10:1 › F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and dedicated Delete readback (19.6s)
+
+
+  1) [chromium] › tests\e2e\f7-live.spec.ts:10:1 › F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and dedicated Delete readback
+
+    Error: dialog.accept: Cannot accept dialog which is already handled!
+
+      116 |     expected.push(expectedHttp('PATCH', `${api}/forms/${authDraft.id}/result-visibility`, 401, 1)); await page.getByRole('radio', { name: '所有人', exact: true }).click(); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible()
+      117 |     page.once('dialog', d => d.dismiss()); await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }).click(); await expect(page.getByLabel('表單標題', { exact: true })).toHaveValue(`${runId} Auth retained`); await expect(page.getByRole('button', { name: '保存', exact: true })).toBeDisabled()
+    > 118 |     page.once('dialog', d => d.accept()); await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '我的表單', exact: true }).click(); await expect(page).toHaveURL(/\/login\?redirect=/)
+          |                                ^
+      119 |     await page.getByRole('textbox', { name: 'Email' }).fill(accounts[0]!.email); await page.getByLabel('密碼', { exact: true }).fill(password); await page.getByRole('button', { name: '登入', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/forms')
+      120 |     expect((await read(authDraft.id, 'Auth retained Draft independent GET')).title).toBe(`${runId} Auth boundary retained`)
+      121 |     await Promise.all(inFlight); expect(cors.every(v => v.origin === 'http://localhost:3000' && v.credentials === 'true')).toBe(true)
+        at _Page.<anonymous> (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-live.spec.ts:118:32)
+
+    Error: browserContext.close: Protocol error (Target.disposeBrowserContext): Failed to find context with id 5D9E04AE810A1BB39C27CCA5B8C2CCDB
+
+      124 |     await Promise.allSettled(inFlight); await persist()
+      125 |     const indexPath = `${dir}/retained-live-runs.json`; let index: unknown[] = []; try { index = JSON.parse(await readFile(indexPath, 'utf8')) as unknown[] } catch { /* first run */ }
+    > 126 |     await writeFile(indexPath, JSON.stringify([...index, { runId, stage, completed, accounts: accounts.map(v => v.alias), resources }], null, 2)); await secondContext.close()
+          |                                                                                                                                                    ^
+      127 |   }
+      128 | })
+      129 |
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-live.spec.ts:126:148
+
+    Error Context: output\playwright\f7\live-first-artifacts\f7-live-F7-L01-L06-real-Co-00674-d-dedicated-Delete-readback-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f7-live.spec.ts:10:1 › F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and dedicated Delete readback

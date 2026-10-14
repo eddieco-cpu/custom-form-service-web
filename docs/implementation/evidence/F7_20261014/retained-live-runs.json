@@ -1,0 +1,138 @@
+[
+  {
+    "runId": "f7-1791945344721",
+    "completed": false,
+    "stage": "L06 dirty true AUTH_REQUIRED and return",
+    "accounts": [
+      "owner",
+      "other"
+    ],
+    "resources": [
+      {
+        "id": "73d69f23-fcbc-483a-a2a5-38246520c822",
+        "purpose": "main lifecycle/policy/Count",
+        "deletionAuthorized": false,
+        "deleted": false
+      },
+      {
+        "id": "65044dab-f253-4e60-a09e-ecc0d9081252",
+        "purpose": "natural deadline",
+        "deletionAuthorized": false,
+        "deleted": false
+      },
+      {
+        "id": "5aa01149-d2dd-4efc-aebc-56899d7649a6",
+        "purpose": "delete-draft",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "fa51edbd-8dc5-4b14-91e2-91f1f24a034e",
+        "purpose": "delete-published",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "c78454bd-4d2c-4f5d-9083-9635a9cb26ce",
+        "purpose": "delete-closed",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "8bbedd52-5501-4c8a-9fab-c01c8fa20987",
+        "purpose": "Auth boundary retained",
+        "deletionAuthorized": false,
+        "deleted": false
+      }
+    ]
+  },
+  {
+    "runId": "f7-1791945744889",
+    "completed": true,
+    "stage": "PASS",
+    "accounts": [
+      "owner",
+      "other"
+    ],
+    "resources": [
+      {
+        "id": "1a7ec460-cb74-451e-b361-7bfb45fa0edf",
+        "purpose": "main lifecycle/policy/Count",
+        "deletionAuthorized": false,
+        "deleted": false
+      },
+      {
+        "id": "216e82cf-b58c-4e48-9629-e4a6c3225501",
+        "purpose": "natural deadline",
+        "deletionAuthorized": false,
+        "deleted": false
+      },
+      {
+        "id": "c0f83392-8559-47db-a113-2bed12ae527f",
+        "purpose": "delete-draft",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "cb6be08c-db59-4ef0-b9c9-49b29cdc8fbf",
+        "purpose": "delete-published",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "c62a0ccf-8053-4623-a0d0-809d7280be59",
+        "purpose": "delete-closed",
+        "deletionAuthorized": true,
+        "deleted": true
+      },
+      {
+        "id": "9fadfeee-9b84-46c2-86ca-c75e830b119a",
+        "purpose": "Auth boundary retained",
+        "deletionAuthorized": false,
+        "deleted": false
+      }
+    ]
+  },
+  {
+    "runId": "f7-matrix-1791946261307",
+    "sourceRun": "f7-1791945744889",
+    "completed": true,
+    "accounts": "reused owner/other from sourceRun",
+    "resources": [
+      {
+        "id": "c18de9f8-f874-4159-becd-d4cb6069bd18",
+        "purpose": "F7 policy matrix; retained; no Delete",
+        "deletionAuthorized": false,
+        "deleted": false
+      }
+    ]
+  },
+  {
+    "runId": "f7-role-1791948212853",
+    "sourceRun": "f7-1791945744889",
+    "completed": false,
+    "accounts": "reused owner/other from sourceRun",
+    "resources": [
+      {
+        "id": "ca8d8db2-67f2-4a1f-9695-7a72a0f56e6d",
+        "purpose": "F7 qualification; retained Published; no Delete",
+        "deletionAuthorized": false,
+        "deleted": false
+      }
+    ]
+  },
+  {
+    "runId": "f7-role-1791948760592",
+    "sourceRun": "f7-1791945744889",
+    "completed": true,
+    "accounts": "reused owner/other from sourceRun",
+    "resources": [
+      {
+        "id": "588a7164-62aa-4d66-b022-b2c02c8065fb",
+        "purpose": "F7 qualification; retained Published; no Delete",
+        "deletionAuthorized": false,
+        "deleted": false
+      }
+    ]
+  }
+]

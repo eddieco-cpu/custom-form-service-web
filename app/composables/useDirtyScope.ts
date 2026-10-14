@@ -24,7 +24,7 @@ export function useDirtyScope(options: DirtyScopeOptions) {
   onUnmounted(() => { stop(); removeGuard(); removeAfter(); removeError(); scope.clear(); window.removeEventListener('beforeunload', beforeUnload) })
   return {
     dirty,
-    authorizeAction: (actionId: string) => scope.authorize(actionId, ask),
+    authorizeAction: (actionId: string, confirmation: () => boolean = ask) => scope.authorize(actionId, confirmation),
     finishAction: () => scope.clear(),
     async navigateWithPermit(permit: DiscardPermit, target: RouteLocationRaw, replace = false) {
       if (!scope.bindNavigation(permit, router.resolve(target).fullPath)) return false

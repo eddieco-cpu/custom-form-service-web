@@ -1,0 +1,16 @@
+
+> lint
+> eslint .
+
+
+C:\Users\user\Desktop\custom-form-service-web\app\composables\useFormEditor.ts
+   4:29  error  '../domain/editor' imported multiple times             import/no-duplicates
+   5:28  error  '../domain/editor' imported multiple times             import/no-duplicates
+  24:7   error  'management' is never reassigned. Use 'const' instead  prefer-const
+
+C:\Users\user\Desktop\custom-form-service-web\tests\unit\f7-form-management.spec.ts
+  6:15  error  'OperationPolicy' is defined but never used. Allowed unused vars must match /^_/u  @typescript-eslint/no-unused-vars
+  9:22  error  'Q' is defined but never used. Allowed unused vars must match /^_/u                @typescript-eslint/no-unused-vars
+
+✖ 5 problems (5 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.

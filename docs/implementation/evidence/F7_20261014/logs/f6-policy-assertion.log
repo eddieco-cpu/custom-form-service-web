@@ -1,0 +1,18 @@
+
+> test:e2e
+> playwright test --config=playwright.f6.config.ts --grep F6-B02/B03 --reporter=line,json --output=output/f7/development-20261014/f6-policy-assertion-artifacts
+
+
+[WebServer]
+[WebServer]  ERROR  (node:21412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+
+Running 1 test using 1 worker
+
+
+(node:9736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/1] [chromium] › tests\e2e\f6-browser.spec.ts:77:1 › F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag
+  1 passed (10.5s)

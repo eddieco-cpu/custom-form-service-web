@@ -1,0 +1,45 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts --grep real cached Owner
+
+[WebServer]
+[WebServer]  ERROR  (node:30016) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:23900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:17412) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\f7-live.spec.ts:171:1 › F7-L06 real cached Owner versus current Cookie role denial, SPA persistence and qualified recovery (8.8s)
+
+
+  1) [chromium] › tests\e2e\f7-live.spec.ts:171:1 › F7-L06 real cached Owner versus current Cookie role denial, SPA persistence and qualified recovery
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('button', { name: '核對登入與管理資格' })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('button', { name: '核對登入與管理資格' }) with timeout 5000ms
+      - waiting for getByRole('button', { name: '核對登入與管理資格' })
+
+
+      203 |     await deny(); const beforeSpa = meRequests
+      204 |     await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await page.goBack()
+    > 205 |     await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa)
+          |                                                                   ^
+      206 |     observations.push({ label: 'SPA return did not restore cached Owner', meRequests, ownerCommands: 0 })
+      207 |     await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '使用者選單' })).toContainText('other'); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa + 1)
+      208 |     observations.push({ label: 'explicit current other identity has no Owner commands', meRequests, ownerCommands: 0 })
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-live.spec.ts:205:67
+
+    Error Context: output\playwright\f7\live-role-artifacts\f7-live-F7-L06-real-cached-88a18-ence-and-qualified-recovery-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f7-live.spec.ts:171:1 › F7-L06 real cached Owner versus current Cookie role denial, SPA persistence and qualified recovery

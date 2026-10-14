@@ -1,6 +1,6 @@
 import { createApiClient } from './api-client'
-import { decodeFormDetail, decodeSummaryPage } from '../domain/api/decoders'
-import type { CreateFormRequest, DraftDeltaRequest, FormStatus } from '../domain/api/form'
+import { decodeCount, decodeFormDetail, decodeSummaryPage } from '../domain/api/decoders'
+import type { CreateFormRequest, DraftDeltaRequest, FormStatus, ResultVisibility } from '../domain/api/form'
 
 export interface FormsQuery { readonly page: number; readonly status?: FormStatus }
 export function formsPath(query: FormsQuery): string {
@@ -12,7 +12,17 @@ export function formsPath(query: FormsQuery): string {
 }
 export function formService(baseUrl: string) {
   const request = createApiClient({ baseUrl })
+  const decoded = (id: string, status?: FormStatus) => (value: unknown) => {
+    const dto = decodeFormDetail(value)
+    if (dto.id.toLowerCase() !== id.toLowerCase() || (status && dto.status !== status)) throw new Error('Unexpected form resource')
+    return dto
+  }
   return {
+    publish: (id: string, signal?: AbortSignal) => request({ path: `/forms/${encodeURIComponent(id)}/publish`, method: 'POST', signal, expectedStatus: 200, decode: decoded(id, 'published') }),
+    close: (id: string, signal?: AbortSignal) => request({ path: `/forms/${encodeURIComponent(id)}/close`, method: 'POST', signal, expectedStatus: 200, decode: decoded(id, 'closed') }),
+    remove: (id: string, signal?: AbortSignal) => request({ path: `/forms/${encodeURIComponent(id)}`, method: 'DELETE', signal, expectedStatus: 204, decode: () => undefined }),
+    visibility: (id: string, resultVisibility: ResultVisibility, signal?: AbortSignal) => request({ path: `/forms/${encodeURIComponent(id)}/result-visibility`, method: 'PATCH', body: { resultVisibility }, signal, expectedStatus: 200, decode: decoded(id) }),
+    count: (id: string, signal?: AbortSignal) => request({ path: `/forms/${encodeURIComponent(id)}/respondent-count`, method: 'GET', signal, expectedStatus: 200, decode: value => { const dto = decodeCount(value); if (dto.count < 0) throw new Error('Invalid count'); return dto } }),
     create: (body: CreateFormRequest, signal?: AbortSignal) => request({ path: '/forms', method: 'POST', body, signal, expectedStatus: 201, decode: decodeFormDetail }),
     update: (id: string, body: DraftDeltaRequest, signal?: AbortSignal) => request({
       path: `/forms/${encodeURIComponent(id)}`, method: 'PATCH', body, signal, expectedStatus: 200,

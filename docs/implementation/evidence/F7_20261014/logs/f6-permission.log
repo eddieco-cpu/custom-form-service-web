@@ -1,0 +1,25 @@
+
+> test:e2e
+> playwright test --config=playwright.f6.config.ts --grep F6-B07|F6-B09 conflict --reporter=json --output=output/f7/development-20261014/f6-permission-artifacts
+
+
+[WebServer]
+[WebServer]  ERROR  (node:13192) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+
+Running 8 tests using 1 worker
+
+(node:24964) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+
+(Use `node --trace-warnings ...` to show where the warning was created)
+
+[1/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)
+[2/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)
+[3/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)
+[4/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)
+[5/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)
+[6/8] [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)
+[7/8] [chromium] › tests\e2e\f6-browser.spec.ts:149:1 › F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored
+[8/8] [chromium] › tests\e2e\f6-browser.spec.ts:211:1 › F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes
+  8 passed (28.6s)

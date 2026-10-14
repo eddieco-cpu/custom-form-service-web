@@ -1,0 +1,18 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:32456) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:41712) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:26812) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f7-live.spec.ts:10:1 › F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and dedicated Delete readback (19.6s)
+
+  1 passed (23.8s)

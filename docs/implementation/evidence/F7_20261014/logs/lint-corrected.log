@@ -1,0 +1,11 @@
+
+> lint
+> eslint .
+
+
+C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts
+  4:36  error  '../../app/domain/api/form' imported multiple times  import/no-duplicates
+  5:40  error  '../../app/domain/api/form' imported multiple times  import/no-duplicates
+
+✖ 2 problems (2 errors, 0 warnings)
+  1 error and 0 warnings potentially fixable with the `--fix` option.
