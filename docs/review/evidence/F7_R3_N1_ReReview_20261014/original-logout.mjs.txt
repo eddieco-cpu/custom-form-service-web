@@ -1,0 +1,51 @@
+import { chromium,expect } from '@playwright/test';
+import fs from 'node:fs';
+const dest='docs/review/evidence/F7_R3_N1_ReReview_20261014';
+const id='00000000-0000-4000-8000-000000000050',ownerId='00000000-0000-4000-8000-000000000051',qid='00000000-0000-4000-8000-000000000005';
+const api='http://localhost:5000/api/v1',root=`${api}/forms/${id}`,view=`/forms/${id}`;
+const owner={id:ownerId,displayName:'F7 reviewer synthetic Owner',email:'f7-review@example.test',avatarUrl:null};
+const form=status=>({id,userId:ownerId,creatorDisplayName:owner.displayName,title:'F7 independent synthetic form',description:null,status,responseMode:'multiple',responseIdentity:'anonymous',resultVisibility:'owner_only',submissionDeadlineAt:null,createdAt:'2026-10-10T00:00:00Z',updatedAt:'2026-10-11T00:00:00Z',questions:[{id:qid,type:'text',title:'Synthetic optional text',description:null,required:false,sortOrder:0,config:{},options:[]}]});
+const browser=await chromium.launch({headless:true});
+const result={target:'313d87a4fc9696348808ec28dc5d55f86b716d0c',method:'Fresh built; all backend requests intercepted; original Published clean/Close unknown data and trigger, plus Closed clean/Visibility unknown',browserVersion:browser.version(),createdAt:new Date().toISOString(),cases:[]};
+const headers={'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true','access-control-allow-methods':'GET,POST,PATCH,DELETE','access-control-allow-headers':'content-type'};
+for(const status of ['published','closed'])for(const unknown of [false,true]){
+  const name=`${status} ${unknown?'unknown accepts once':'clean confirms zero'} logout 204 replaces login`;
+  const context=await browser.newContext({viewport:{width:1440,height:900}}),page=await context.newPage();
+  const state={requests:[],outcomes:[],diagnostics:[],errors:[],unexpected:[],prompts:0,loggedOut:false};
+  page.on('pageerror',e=>state.errors.push(e.message));
+  page.on('console',m=>{if(m.type()==='error'||m.text().includes('[Vue warn]'))state.diagnostics.push({text:m.text(),url:m.location().url});});
+  page.on('requestfailed',r=>state.outcomes.push({kind:'requestfailed',method:r.method(),url:r.url(),reason:r.failure()?.errorText}));
+  page.on('response',r=>{if(r.status()>=400)state.outcomes.push({kind:'response',method:r.request().method(),url:r.url(),status:r.status()});});
+  page.on('dialog',async d=>{state.prompts++;await d.accept();});
+  await page.route('http://localhost:5000/**',async r=>{
+    const req=r.request(),method=req.method(),url=req.url(),path=new URL(url).pathname;
+    if(method==='OPTIONS')return r.fulfill({status:204,headers});
+    state.requests.push({method,path,body:req.postData()});
+    const reply=(body,code=200)=>r.fulfill({status:code,headers,contentType:'application/json',body:JSON.stringify(body)});
+    if(url===`${api}/users/me`&&method==='GET')return reply(state.loggedOut?{error:{code:'AUTH_REQUIRED',message:'Synthetic anonymous'}}:owner,state.loggedOut?401:200);
+    if(url===root&&method==='GET')return reply(form(status));
+    if(url===`${api}/auth/logout`&&method==='POST'){state.loggedOut=true;return r.fulfill({status:204,headers});}
+    if(unknown&&status==='published'&&url===`${root}/close`&&method==='POST')return r.abort('failed');
+    if(unknown&&status==='closed'&&url===`${root}/result-visibility`&&method==='PATCH')return r.abort('failed');
+    state.unexpected.push({method,path});return reply({error:{code:'INTERNAL_SERVER_ERROR',message:'Unexpected synthetic request'}},500);
+  });
+  try{
+    await page.goto(`http://localhost:3000${view}`);await expect(page.getByText('建立者：',{exact:false}).first()).toBeVisible();
+    if(unknown){
+      if(status==='published'){await page.getByRole('button',{name:'關閉表單',exact:true}).click();await page.getByRole('button',{name:'確認關閉',exact:true}).click();}
+      else await page.getByRole('radio',{name:'所有人',exact:true}).click();
+      const dialog=page.getByRole('dialog',{name:'操作訊息'});await expect(dialog).toBeVisible();await dialog.getByRole('button',{name:'關閉',exact:true}).filter({hasText:'關閉'}).click();
+      await expect(page.getByRole('button',{name:'重新載入並核對'})).toBeVisible();
+    }
+    const historyBefore=await page.evaluate(()=>history.length);
+    await page.getByRole('button',{name:'使用者選單'}).click();const response=page.waitForResponse(r=>r.url()===`${api}/auth/logout`&&r.request().method()==='POST');
+    await page.getByRole('button',{name:'登出',exact:true}).click();expect((await response).status()).toBe(204);
+    await expect(page).toHaveURL('http://localhost:3000/login');await expect(page.getByLabel('Email',{exact:true})).toBeVisible();await expect(page.getByText('未登入',{exact:true})).toBeVisible();
+    await expect(page.getByRole('button',{name:'使用者選單'})).toHaveCount(0);await expect(page.getByRole('button',{name:'重新載入並核對'})).toHaveCount(0);
+    expect(state.prompts).toBe(unknown?1:0);expect(state.requests.filter(r=>r.path.endsWith('/auth/logout'))).toEqual([{method:'POST',path:'/api/v1/auth/logout',body:null}]);expect(state.requests.filter(r=>r.path.endsWith('/users/me'))).toHaveLength(1);expect(await page.evaluate(()=>history.length)).toBe(historyBefore);expect(state.unexpected).toHaveLength(0);expect(state.errors).toHaveLength(0);
+    await page.screenshot({path:`${dest}/logout-${status}-${unknown?'unknown':'clean'}.png`,fullPage:true});
+    result.cases.push({name,result:'PASS',prompts:state.prompts,historyBefore,historyAfter:await page.evaluate(()=>history.length),url:page.url(),...state});
+  }catch(e){result.cases.push({name,result:'FAIL',message:e.message,...state});}
+  finally{await context.close();fs.writeFileSync(`${dest}/original-logout.json`,JSON.stringify(result,null,2)+'\n');}
+}
+await browser.close();console.log(JSON.stringify(result,null,2));if(result.cases.some(c=>c.result!=='PASS'))process.exitCode=1;

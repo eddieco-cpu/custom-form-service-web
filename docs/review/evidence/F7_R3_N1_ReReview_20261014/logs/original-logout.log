@@ -1,0 +1,144 @@
+{
+  "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+  "method": "Fresh built; all backend requests intercepted; original Published clean/Close unknown data and trigger, plus Closed clean/Visibility unknown",
+  "browserVersion": "156.0.8078.4",
+  "createdAt": "2026-10-14T11:42:39.845Z",
+  "cases": [
+    {
+      "name": "published clean confirms zero logout 204 replaces login",
+      "result": "FAIL",
+      "message": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('textbox', { name: 'Email', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('textbox', { name: 'Email', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'Email', exact: true })\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "prompts": 0,
+      "loggedOut": true
+    },
+    {
+      "name": "published unknown accepts once logout 204 replaces login",
+      "result": "FAIL",
+      "message": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "body": null
+        }
+      ],
+      "outcomes": [
+        {
+          "kind": "requestfailed",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "prompts": 0,
+      "loggedOut": false
+    },
+    {
+      "name": "closed clean confirms zero logout 204 replaces login",
+      "result": "FAIL",
+      "message": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('textbox', { name: 'Email', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('textbox', { name: 'Email', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'Email', exact: true })\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "prompts": 0,
+      "loggedOut": true
+    },
+    {
+      "name": "closed unknown accepts once logout 204 replaces login",
+      "result": "FAIL",
+      "message": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "PATCH",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "body": "{\"resultVisibility\":\"public\"}"
+        }
+      ],
+      "outcomes": [
+        {
+          "kind": "requestfailed",
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "prompts": 0,
+      "loggedOut": false
+    }
+  ]
+}

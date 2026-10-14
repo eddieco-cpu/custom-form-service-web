@@ -1,0 +1,90 @@
+(node:18016) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "sources": 7,
+  "build": 157,
+  "commands": [
+    {
+      "result": "PASS"
+    },
+    {
+      "result": "PASS"
+    },
+    {
+      "result": "PASS"
+    },
+    {
+      "result": "PASS",
+      "passed": 167
+    },
+    {
+      "result": "PASS",
+      "passed": 51
+    },
+    {
+      "result": "PASS",
+      "passed": 4
+    },
+    {
+      "result": "PASS",
+      "passed": 11,
+      "skipped": 2
+    },
+    {
+      "result": "PASS",
+      "passed": 2
+    },
+    {
+      "result": "PASS"
+    },
+    {
+      "result": "PASS",
+      "passed": 4
+    },
+    {
+      "result": "PASS",
+      "passed": 17
+    }
+  ],
+  "originalLogout": [
+    {
+      "name": "published clean confirms zero logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 0
+    },
+    {
+      "name": "published unknown accepts once logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 1
+    },
+    {
+      "name": "closed clean confirms zero logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 0
+    },
+    {
+      "name": "closed unknown accepts once logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 1
+    }
+  ],
+  "headerCases": 17,
+  "errors": [],
+  "secretMatchedFiles": 0,
+  "protectedDiffExit": 0,
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "chromium": "156.0.8078.4",
+    "packages": {
+      "nuxt": "4.6.1",
+      "@nuxt/ui": "4.11.3",
+      "vue": "3.5.43",
+      "nitropack": "2.13.4",
+      "vite": "8.3.4",
+      "vitest": "5.0.3",
+      "@playwright/test": "1.64.0",
+      "typescript": "5.9.3"
+    }
+  }
+}

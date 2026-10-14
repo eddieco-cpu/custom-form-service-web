@@ -1,0 +1,100 @@
+fatal: path 'docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/commit-whitespace-first.log' exists on disk, but not in 'bfae7a7e767dff8762732535fb1f87bb09fb6b8c'
+fatal: path 'docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/commit.log' exists on disk, but not in 'bfae7a7e767dff8762732535fb1f87bb09fb6b8c'
+fatal: path 'docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/staged-diff-final.log' exists on disk, but not in 'bfae7a7e767dff8762732535fb1f87bb09fb6b8c'
+{
+  "sources": 7,
+  "manifests": [
+    {
+      "directory": "docs/implementation/evidence/F7_R3_N1_Correction_20261014",
+      "total": 29,
+      "matches": 29
+    },
+    {
+      "directory": "docs/review/evidence/F7_20261014",
+      "total": 51,
+      "matches": 51
+    },
+    {
+      "directory": "docs/implementation/evidence/F7_20261014",
+      "total": 70,
+      "matches": 70
+    },
+    {
+      "directory": "docs/implementation/evidence/F7_R1_R4_Correction_20261014",
+      "total": 41,
+      "matches": 41
+    },
+    {
+      "directory": "docs/review/evidence/F7_R1_R4_ReReview_20261014",
+      "total": 41,
+      "matches": 41
+    }
+  ],
+  "rawCompared": 26,
+  "build": 157,
+  "buildMatched": 157,
+  "secondCommitProtectedDiff": 0,
+  "digestFilesUnchanged": true,
+  "failures": [],
+  "backend": {
+    "snapshot": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "checkout": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "status": "?? SNAPSHOT.md",
+    "manifestCount": 108,
+    "manifestMatches": 108,
+    "runtimeReverified": false
+  },
+  "secretScan": {
+    "textFiles": 29,
+    "privateFilesCompared": 2,
+    "matchedFiles": 0,
+    "noStorageStateTrace": true
+  },
+  "runs": [
+    {
+      "label": "f7-full",
+      "startTime": "2026-10-14T10:58:16.920Z",
+      "duration": 59270.858,
+      "expected": 50,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    {
+      "label": "reviewer-close",
+      "startTime": "2026-10-14T11:05:08.161Z",
+      "duration": 8307.607999999998,
+      "expected": 1,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    {
+      "label": "f3-built",
+      "startTime": "2026-10-14T11:00:06.119Z",
+      "duration": 12257.593,
+      "expected": 4,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    {
+      "label": "f6-built",
+      "startTime": "2026-10-14T11:01:06.990Z",
+      "duration": 19847.441000000003,
+      "expected": 11,
+      "skipped": 2,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    {
+      "label": "f6-scope",
+      "startTime": "2026-10-14T11:02:20.578Z",
+      "duration": 18692.116,
+      "expected": 2,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    }
+  ]
+}

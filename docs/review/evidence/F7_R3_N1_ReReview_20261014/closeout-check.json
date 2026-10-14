@@ -1,0 +1,31 @@
+{
+  "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+  "checkedAt": "2026-10-14T11:55:03.850Z",
+  "result": "PASS",
+  "issues": [],
+  "history": {
+    "readmeMatchesTargetAfterRemovingNewParagraph": true,
+    "totalPlanMatchesTargetAfterRemovingNewSection": true
+  },
+  "sourceHashMatches": 7,
+  "sourceHashCount": 7,
+  "freshBuildHashMatches": 157,
+  "freshBuildHashCount": 157,
+  "protectedDiffExit": 0,
+  "docLinks": 37,
+  "missingLinks": [],
+  "priorManifestCount": 44,
+  "expectedUpdatedEvidence": [],
+  "changedTrackedFiles": [
+    "README.md",
+    "docs/implementation/V1_Frontend_Implementation_Plan.md"
+  ],
+  "diffCheckExit": 0,
+  "secretScan": {
+    "textFiles": 44,
+    "privateCredentialFilesCompared": 2,
+    "matchedFiles": 0,
+    "noStorageStateTrace": true
+  },
+  "commit": "Single-purpose local docs commit; SHA and final status in delivery/Git log"
+}

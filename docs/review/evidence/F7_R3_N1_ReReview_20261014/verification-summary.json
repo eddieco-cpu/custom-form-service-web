@@ -1,0 +1,3216 @@
+{
+  "version": "1.0",
+  "date": "2026-10-14",
+  "timezone": "Asia/Taipei",
+  "baseline": "6d9c843a012cb0a24e194f1de2020ab294554f1b",
+  "product": "bfae7a7e767dff8762732535fb1f87bb09fb6b8c",
+  "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+  "initialGitState": "clean",
+  "branch": "master",
+  "stage": "F7-R3-N1 independent re-review complete; F7 code review passed; Owner confirmation pending",
+  "findings": [],
+  "closure": {
+    "N1": "CLOSED",
+    "R3": "CLOSED",
+    "R1": "CLOSED (retained)",
+    "R2": "CLOSED (retained)",
+    "R4": "CLOSED (retained)"
+  },
+  "F7CodeReview": "PASS - prior full review plus R1-R4 and N1 independent corrections; formal acceptance deferred",
+  "versions": {
+    "node": "24.21.0",
+    "npm": "11.19.0",
+    "chromium": "156.0.8078.4",
+    "packages": {
+      "nuxt": "4.6.1",
+      "@nuxt/ui": "4.11.3",
+      "vue": "3.5.43",
+      "nitropack": "2.13.4",
+      "vite": "8.3.4",
+      "vitest": "5.0.3",
+      "@playwright/test": "1.64.0",
+      "typescript": "5.9.3"
+    }
+  },
+  "sourceHashes": [
+    {
+      "file": "app/components/AppHeader.vue",
+      "sha256": "10e82aaa83ee21b31f647b392969f38f1e1e55bb28b422562e8038ca3c93657b",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "app/domain/dirty-scope.ts",
+      "sha256": "f7838eedff12f1c730a2ff611c0425477272d5cbed2789d48cfcb11e5765c3ac",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "app/composables/useDirtyScope.ts",
+      "sha256": "012a5ee44ad43b09bcabcc61f78a783dd81f4f978b2352d0ce46f2f3ca0798d2",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "app/components/forms/FormReadPage.vue",
+      "sha256": "d17d2916511db15ddc491389a3a27e339f9efcd260ed70f7d473379ae11b0e2c",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "app/composables/useFormEditor.ts",
+      "sha256": "484d70a0ebc9a231d5e78b71fa3b48d1df6b9f1d327b94c70ee3d9c502eef8a1",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "sha256": "4cd2edd2098dd09d4c4e059234c491327fae1ef7bb827c6708a622ea3cee2465",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    },
+    {
+      "file": "tests/e2e/f7-browser.spec.ts",
+      "sha256": "f37e0ddb1ef78ab9d180d632c2d8e009b5be00dfaf1fd2b244ead5143f8bec05",
+      "matchesCorrection": true,
+      "matchesTarget": true
+    }
+  ],
+  "build": {
+    "files": 157,
+    "digest": "fresh-build-digest.json",
+    "buildId": "97031f0d-a4ed-4b34-bd22-81114661ec04",
+    "preReviewerCorrectionBuild": "157/157 audited before npm run build",
+    "noSourceChangeOrRebuildBetweenRuns": true
+  },
+  "commands": [
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exit": 0,
+      "log": "logs/lint.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exit": 0,
+      "log": "logs/typecheck.log"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exit": 0,
+      "log": "logs/build.log",
+      "warning": "DEP0155 retained"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/scoped-state.spec.ts tests/unit/f3-auth.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f7-form-management.spec.ts tests/unit/f4-form-read.spec.ts",
+      "result": "PASS",
+      "passed": 167,
+      "files": 5,
+      "exit": 0,
+      "log": "logs/unit.log"
+    },
+    {
+      "command": "F7_MODE=built F7_RUN_LABEL=n1-independent-rereview npm run test:e2e -- --config=playwright.f7.config.ts",
+      "result": "PASS",
+      "passed": 51,
+      "exit": 0,
+      "log": "logs/browser-f7.log"
+    },
+    {
+      "command": "npm run test:e2e -- --config=output/f7/n1-rereview-20261014/playwright.f3-built.config.ts --grep 'F3-B06|F3-B08|F3-B10|F3-B14'",
+      "result": "PASS",
+      "passed": 4,
+      "exit": 0,
+      "log": "logs/browser-f3.log"
+    },
+    {
+      "command": "F6_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/n1-independent-f6-built-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'F6-B06|F6-B07|F6-B08|F6-B09' --reporter=line,json --output=output/playwright/f7/n1-independent-f6-built-artifacts",
+      "result": "PASS",
+      "passed": 11,
+      "skipped": 2,
+      "exit": 0,
+      "log": "logs/browser-f6-built.log"
+    },
+    {
+      "command": "F6_MODE=fixture PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/n1-independent-f6-scope-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'same-component ID update|pending old GET' --reporter=line,json --output=output/playwright/f7/n1-independent-f6-scope-artifacts",
+      "result": "PASS",
+      "passed": 2,
+      "exit": 0,
+      "log": "logs/browser-f6-scope.log"
+    },
+    {
+      "command": "npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json",
+      "result": "PASS",
+      "exit": 0,
+      "log": "logs/harness-typecheck.log"
+    },
+    {
+      "command": "node output/f7/n1-rereview-20261014/original-logout.mjs",
+      "result": "PASS",
+      "passed": 4,
+      "exit": 0,
+      "log": "logs/original-logout-final.log"
+    },
+    {
+      "command": "node --experimental-transform-types output/f7/n1-rereview-20261014/header-isolation.mjs",
+      "result": "PASS",
+      "passed": 17,
+      "exit": 0,
+      "log": "logs/header-isolation-final.log"
+    }
+  ],
+  "runs": [
+    {
+      "file": "browser/built-n1-independent-rereview-results.json",
+      "stats": {
+        "startTime": "2026-10-14T11:33:36.627Z",
+        "duration": 56367.339,
+        "expected": 51,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B04 Visibility retains pending edits and exact definition; all writes serialize",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 400
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B06 Publish full saved index, unknown summary and first actual field focus",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "method": "POST",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B08 Count zero and explicit repeat, no automatic poll",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B13 disabled error retains Header and definition; no global logout or unknown write lock",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B14 Clipboard success stores the complete Published URL and no fallback",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B15 nonOwner Draft remains formal 404 without management",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R1 first non-control error stays in summary while first editable Publish control receives focus",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 403,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 403
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 404
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "status": 409,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 2,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 2
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+                      "method": "POST",
+                      "status": 409
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "DELETE",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "DELETE",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "method": "GET",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/auth/logout",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/auth/logout",
+                      "method": "POST",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/auth/logout"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/auth/logout",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/auth/logout",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    },
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/auth/logout"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "status": 400,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+                      "method": "PATCH",
+                      "status": 400
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/respondent-count",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/respondent-count",
+                      "method": "GET",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/respondent-count"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/n1-independent-f3-built-results.json",
+      "stats": {
+        "startTime": "2026-10-14T11:37:44.827Z",
+        "duration": 11181.437,
+        "expected": 4,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        },
+        {
+          "title": "F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/n1-independent-f6-built-results.json",
+      "stats": {
+        "startTime": "2026-10-14T11:38:47.999Z",
+        "duration": 18955.215,
+        "expected": 11,
+        "skipped": 2,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "POST",
+                      "url": "http://localhost:5000/api/v1/forms",
+                      "status": 401
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 401
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED",
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_FAILED"
+                    },
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 500
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B08 Create unknown retains input and every retry prompts duplicate risk",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 409,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "diagnosticCount": 1
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED",
+                      "count": 1,
+                      "diagnosticCount": 0
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 409
+                    },
+                    {
+                      "kind": "requestfailed",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "status": "skipped",
+          "results": [
+            {
+              "status": "skipped",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        },
+        {
+          "title": "F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403,
+                      "count": 2,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "diagnosticCount": 2
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404,
+                      "count": 1,
+                      "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "diagnosticCount": 1
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 403
+                    },
+                    {
+                      "kind": "response",
+                      "method": "PATCH",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    },
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                    }
+                  ],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "status": "skipped",
+          "results": [
+            {
+              "status": "skipped",
+              "errors": [],
+              "diagnostics": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "file": "browser/n1-independent-f6-scope-results.json",
+      "stats": {
+        "startTime": "2026-10-14T11:41:08.086Z",
+        "duration": 15357.15,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "status": "expected",
+          "results": [
+            {
+              "status": "passed",
+              "errors": [],
+              "diagnostics": [
+                {
+                  "expected": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED",
+                      "count": 1,
+                      "diagnosticCount": 0
+                    }
+                  ],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                      "reason": "net::ERR_ABORTED"
+                    }
+                  ],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "originalLogout": {
+    "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+    "method": "Fresh built; all backend requests intercepted; original Published clean/Close unknown data and trigger, plus Closed clean/Visibility unknown",
+    "browserVersion": "156.0.8078.4",
+    "createdAt": "2026-10-14T11:43:43.753Z",
+    "cases": [
+      {
+        "name": "published clean confirms zero logout 204 replaces login",
+        "result": "PASS",
+        "prompts": 0,
+        "historyBefore": 2,
+        "historyAfter": 2,
+        "url": "http://localhost:3000/login",
+        "requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/users/me",
+            "body": null
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "body": null
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/auth/logout",
+            "body": null
+          }
+        ],
+        "outcomes": [],
+        "diagnostics": [],
+        "errors": [],
+        "unexpected": [],
+        "loggedOut": true
+      },
+      {
+        "name": "published unknown accepts once logout 204 replaces login",
+        "result": "PASS",
+        "prompts": 1,
+        "historyBefore": 2,
+        "historyAfter": 2,
+        "url": "http://localhost:3000/login",
+        "requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/users/me",
+            "body": null
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "body": null
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "body": null
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/auth/logout",
+            "body": null
+          }
+        ],
+        "outcomes": [
+          {
+            "kind": "requestfailed",
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+          }
+        ],
+        "errors": [],
+        "unexpected": [],
+        "loggedOut": true
+      },
+      {
+        "name": "closed clean confirms zero logout 204 replaces login",
+        "result": "PASS",
+        "prompts": 0,
+        "historyBefore": 2,
+        "historyAfter": 2,
+        "url": "http://localhost:3000/login",
+        "requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/users/me",
+            "body": null
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "body": null
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/auth/logout",
+            "body": null
+          }
+        ],
+        "outcomes": [],
+        "diagnostics": [],
+        "errors": [],
+        "unexpected": [],
+        "loggedOut": true
+      },
+      {
+        "name": "closed unknown accepts once logout 204 replaces login",
+        "result": "PASS",
+        "prompts": 1,
+        "historyBefore": 2,
+        "historyAfter": 2,
+        "url": "http://localhost:3000/login",
+        "requests": [
+          {
+            "method": "GET",
+            "path": "/api/v1/users/me",
+            "body": null
+          },
+          {
+            "method": "GET",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "body": null
+          },
+          {
+            "method": "PATCH",
+            "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "body": "{\"resultVisibility\":\"public\"}"
+          },
+          {
+            "method": "POST",
+            "path": "/api/v1/auth/logout",
+            "body": null
+          }
+        ],
+        "outcomes": [
+          {
+            "kind": "requestfailed",
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+          }
+        ],
+        "errors": [],
+        "unexpected": [],
+        "loggedOut": true
+      }
+    ]
+  },
+  "reviewerDiagnostics": [
+    {
+      "name": "published clean confirms zero logout 204 replaces login",
+      "expected": [],
+      "issues": []
+    },
+    {
+      "name": "published unknown accepts once logout 204 replaces login",
+      "expected": [
+        {
+          "kind": "requestfailed",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED",
+          "count": 1,
+          "diagnostic": "Failed to load resource: net::ERR_FAILED",
+          "diagnosticCount": 1
+        }
+      ],
+      "issues": []
+    },
+    {
+      "name": "closed clean confirms zero logout 204 replaces login",
+      "expected": [],
+      "issues": []
+    },
+    {
+      "name": "closed unknown accepts once logout 204 replaces login",
+      "expected": [
+        {
+          "kind": "requestfailed",
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "reason": "net::ERR_FAILED",
+          "count": 1,
+          "diagnostic": "Failed to load resource: net::ERR_FAILED",
+          "diagnosticCount": 1
+        }
+      ],
+      "issues": []
+    }
+  ],
+  "headerIsolation": {
+    "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+    "method": "Unmodified AppHeader script setup compiled; actual Vue memory router, DirtyScope/RequestScope/OperationState/AuthSession/FormRead; synthetic fetch and render only",
+    "cases": [
+      {
+        "name": "clean own cleanup replaces login once, consumes old permit, ends fresh ticket loading",
+        "result": "PASS",
+        "asks": 0,
+        "headerTickets": 2,
+        "busy": false,
+        "loading": false,
+        "oldPermitReusable": false
+      },
+      {
+        "name": "unknown own cleanup replaces login once, consumes old permit, ends fresh ticket loading",
+        "result": "PASS",
+        "asks": 1,
+        "headerTickets": 2,
+        "busy": false,
+        "loading": false,
+        "oldPermitReusable": false
+      },
+      {
+        "name": "pending content rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "content",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": false,
+        "loadingEnded": true
+      },
+      {
+        "name": "pending session rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "session",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": false,
+        "loadingEnded": true
+      },
+      {
+        "name": "pending request rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "request",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": true,
+        "loadingEnded": true
+      },
+      {
+        "name": "pending write rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "write",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": false,
+        "loadingEnded": true
+      },
+      {
+        "name": "pending leave rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "leave",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": false,
+        "loadingEnded": true
+      },
+      {
+        "name": "pending unmount rejects old 204 cleanup and navigation",
+        "result": "PASS",
+        "external": "unmount",
+        "oldCleanup": false,
+        "oldNavigation": false,
+        "oldFinallyPreservesNewRequest": false,
+        "loadingEnded": true
+      },
+      {
+        "name": "unknown after-cleanup content rejects reserved login without asking again",
+        "result": "PASS",
+        "external": "content",
+        "staleNavigation": false,
+        "noSecondAsk": true,
+        "subsequentDirtyAsk": true,
+        "loadingEnded": true
+      },
+      {
+        "name": "unknown after-cleanup session rejects reserved login without asking again",
+        "result": "PASS",
+        "external": "session",
+        "staleNavigation": false,
+        "noSecondAsk": true,
+        "subsequentDirtyAsk": true,
+        "loadingEnded": true
+      },
+      {
+        "name": "unknown after-cleanup request rejects reserved login without asking again",
+        "result": "PASS",
+        "external": "request",
+        "staleNavigation": false,
+        "noSecondAsk": true,
+        "subsequentDirtyAsk": true,
+        "loadingEnded": true
+      },
+      {
+        "name": "unknown after-cleanup write rejects reserved login without asking again",
+        "result": "PASS",
+        "external": "write",
+        "staleNavigation": false,
+        "noSecondAsk": true,
+        "subsequentDirtyAsk": true,
+        "loadingEnded": true
+      },
+      {
+        "name": "unknown navigation rejected clears authorization and loading",
+        "result": "PASS",
+        "navigation": "rejected",
+        "authorizationCleared": true,
+        "loadingEnded": true,
+        "nextNavigationAsks": true
+      },
+      {
+        "name": "unknown navigation error clears authorization and loading",
+        "result": "PASS",
+        "navigation": "error",
+        "authorizationCleared": true,
+        "loadingEnded": true,
+        "nextNavigationAsks": true
+      },
+      {
+        "name": "unknown dirty scope unmount clears unused original authorization",
+        "result": "PASS",
+        "originalPermitCleared": true,
+        "unmountedBridge": true
+      },
+      {
+        "name": "unknown unmount during completed cleanup navigation removes bridge and ends new request",
+        "result": "PASS",
+        "completedActionUnmounted": true,
+        "bridgeRemoved": true,
+        "loadingEnded": true,
+        "oldPermitReusable": false
+      },
+      {
+        "name": "consumed permit cannot repeat cleanup; completed target does not authorize another route",
+        "result": "PASS",
+        "cleanups": 1,
+        "asks": 2
+      }
+    ]
+  },
+  "diagnosticHistory": {
+    "headerFirst": {
+      "exit": 1,
+      "caseCount": 16,
+      "failedCases": [
+        {
+          "name": "unknown after-cleanup write rejects reserved login without asking again",
+          "result": "FAIL",
+          "message": "AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:\n\n'/login' !== '/form'\n\n    at file:///C:/Users/user/Desktop/custom-form-service-web/output/f7/n1-rereview-20261014/header-isolation.mjs:93:10\n    at async run (file:///C:/Users/user/Desktop/custom-form-service-web/output/f7/n1-rereview-20261014/header-isolation.mjs:64:100)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/f7/n1-rereview-20261014/header-isolation.mjs:85:61"
+        }
+      ],
+      "classification": "Probe setup: visibility unknown blocks attempted visibility write, so no external revision advanced; scoped renderer missing getRootNode. Original log/script/JSON retained; corrected to an available delete policy with explicit revision assertion and renderer DOM-root interface."
+    },
+    "headerSecond": {
+      "exit": 0,
+      "cases": 16,
+      "passed": 16
+    },
+    "headerFinal": {
+      "exit": 0,
+      "cases": 17,
+      "passed": 17,
+      "added": "Completed cleanup navigation unmount and active bridge removal"
+    },
+    "browserFirst": {
+      "exit": 1,
+      "caseCount": 4,
+      "failedCases": [
+        {
+          "name": "published clean confirms zero logout 204 replaces login",
+          "result": "FAIL",
+          "message": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('textbox', { name: 'Email', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('textbox', { name: 'Email', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'Email', exact: true })\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v1/users/me",
+              "body": null
+            },
+            {
+              "method": "GET",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+              "body": null
+            },
+            {
+              "method": "POST",
+              "path": "/api/v1/auth/logout",
+              "body": null
+            }
+          ],
+          "outcomes": [],
+          "diagnostics": [],
+          "errors": [],
+          "unexpected": [],
+          "prompts": 0,
+          "loggedOut": true
+        },
+        {
+          "name": "published unknown accepts once logout 204 replaces login",
+          "result": "FAIL",
+          "message": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v1/users/me",
+              "body": null
+            },
+            {
+              "method": "GET",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+              "body": null
+            },
+            {
+              "method": "POST",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+              "body": null
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "requestfailed",
+              "method": "POST",
+              "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+              "reason": "net::ERR_FAILED"
+            }
+          ],
+          "diagnostics": [
+            {
+              "text": "Failed to load resource: net::ERR_FAILED",
+              "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+            }
+          ],
+          "errors": [],
+          "unexpected": [],
+          "prompts": 0,
+          "loggedOut": false
+        },
+        {
+          "name": "closed clean confirms zero logout 204 replaces login",
+          "result": "FAIL",
+          "message": "expect(locator).toBeVisible() failed\n\nLocator: getByRole('textbox', { name: 'Email', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n  - Expect \"toBeVisible\" getByRole('textbox', { name: 'Email', exact: true }) with timeout 5000ms\n  - waiting for getByRole('textbox', { name: 'Email', exact: true })\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v1/users/me",
+              "body": null
+            },
+            {
+              "method": "GET",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+              "body": null
+            },
+            {
+              "method": "POST",
+              "path": "/api/v1/auth/logout",
+              "body": null
+            }
+          ],
+          "outcomes": [],
+          "diagnostics": [],
+          "errors": [],
+          "unexpected": [],
+          "prompts": 0,
+          "loggedOut": true
+        },
+        {
+          "name": "closed unknown accepts once logout 204 replaces login",
+          "result": "FAIL",
+          "message": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n",
+          "requests": [
+            {
+              "method": "GET",
+              "path": "/api/v1/users/me",
+              "body": null
+            },
+            {
+              "method": "GET",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+              "body": null
+            },
+            {
+              "method": "PATCH",
+              "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+              "body": "{\"resultVisibility\":\"public\"}"
+            }
+          ],
+          "outcomes": [
+            {
+              "kind": "requestfailed",
+              "method": "PATCH",
+              "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+              "reason": "net::ERR_FAILED"
+            }
+          ],
+          "diagnostics": [
+            {
+              "text": "Failed to load resource: net::ERR_FAILED",
+              "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+            }
+          ],
+          "errors": [],
+          "unexpected": [],
+          "prompts": 0,
+          "loggedOut": false
+        }
+      ],
+      "classification": "Probe selectors: accessible Email name includes required marker (exact textbox name mismatch) and error Dialog has X plus text Close button. Original evidence retained; corrected to Email label and text Close; same behavioral expectations, source and build."
+    },
+    "browserFinal": {
+      "exit": 0,
+      "cases": 4,
+      "passed": 4
+    }
+  },
+  "evidenceAudit": "correction-evidence-audit.json",
+  "rawEvidence": "output/f7/n1-rereview-20261014",
+  "protectedDiffExit": 0,
+  "boundaries": {
+    "productAndTestsReadOnly": true,
+    "realBusinessRequests": "NOT RUN",
+    "realWrites": "NOT RUN",
+    "realDelete": "NOT RUN",
+    "realCookieLogout": "NOT RUN (fixture only)",
+    "historicalIntegration": "Applicable F3/F6/F7 history retained; no fresh live claim",
+    "realInvalidExpiredDisabledAndCommitFault": "BLOCKED",
+    "dbIdentityMigration": "UNCONFIRMED",
+    "realDeviceAndFormalAIManualAcceptance": "NOT RUN",
+    "extraChromeEdgeFirefoxWebKit": "NOT RUN this re-review",
+    "npmCiAuditAndUnaffectedFullSuite": "NOT RUN",
+    "accepted": "unchanged",
+    "existingGaps": "unchanged",
+    "F8": "NOT RUN",
+    "push": "NOT RUN"
+  },
+  "logNormalization": "LF/line trailing whitespace/EOF blank lines only; raw retained",
+  "screenshots": "Four synthetic empty-login images byte-identical; Closed unknown and correction source image visually inspected"
+}

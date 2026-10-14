@@ -620,6 +620,14 @@ lint／strict typecheck／fresh build／harness strict PASS；受影響 unit **1
 
 **停於「F7-R3-N1 修正完成、待局部獨立複核」。** 未代宣告 R3／F7 code review 結案；正式驗收延後、accepted／既有缺口不變。單一目的本機提交 SHA 見 Git log／交付訊息；不推送、不展開 F8，歷史報告／證據與進度保留。
 
+### 9.30 F7-R3-N1 局部獨立複核與 F7 review 結論（2026-10-14）
+
+Owner 指定修正基準 `6d9c843a012cb0a24e194f1de2020ab294554f1b`、產品修正 `bfae7a7e767dff8762732535fb1f87bb09fb6b8c`、最新交付 `313d87a4fc9696348808ec28dc5d55f86b716d0c`，授權局部獨立複核、必要工程／unit／fresh built Browser、報告／證據及本機提交，不另設計畫 gate。核對40檔diff、修正報告／證據原件及兩次提交，第二提交僅證據格式／metadata／說明、產品與tests不變。原 Published clean／Close unknown 與 Closed clean／Visibility unknown 四案獨立PASS；17項實際 Header／Vue Router 診斷確認舊permit消耗不重用、自身清理可完成導航、外部content／Session／RequestScope／Form write revision仍擋舊操作，finally及完成／拒絕／錯誤／卸載清授權。**無新增 findings；N1 CLOSED、R3 CLOSED，R1／R2／R4維持CLOSED，F7 code review通過。** 見 [N1 複核及最終報告](../review/F7_R3_N1_Correction_ReReview_Report_20261014.md)／[獨立證據](../review/evidence/F7_R3_N1_ReReview_20261014/verification-summary.json)。
+
+本次lint／strict typecheck／fresh build／F6 harness strict PASS，受影響unit167／167（5files），final source F7完整built51／51、F3登出built4／4、F6 built11 PASS／2 skipped／scope fixture2／2。原R3 SPA／beforeunload、可靠採用及Delete單次導航保持；七份source、修正manifest29／29、本機raw26／26、build前157／157、歷史review／開發／修正／複核51／70／41／41與backend108筆相符。reviewer 首輪fixture／renderer及Browser定位失敗保留並明列適用限制，修正診斷未放寬產品斷言，原產品／tests／歷史FAIL不改。
+
+**停於「F7-R3-N1 局部獨立複核完成、F7 code review 通過，待 Owner 確認」。** 正式驗收延後、accepted與既有受控特殊Auth／交易故障／DB identity／migration／實機等缺口不變；真實整合僅沿用適用歷史原件，無真實業務API／寫入／Delete／新測資。本次僅新增報告／去敏證據及本節／README進度，單一目的本機文件提交SHA見Git log／交付訊息，不推送、不展開F8。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

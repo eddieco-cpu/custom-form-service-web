@@ -1,0 +1,162 @@
+{
+  "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+  "method": "Fresh built; all backend requests intercepted; original Published clean/Close unknown data and trigger, plus Closed clean/Visibility unknown",
+  "browserVersion": "156.0.8078.4",
+  "createdAt": "2026-10-14T11:43:43.753Z",
+  "cases": [
+    {
+      "name": "published clean confirms zero logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 0,
+      "historyBefore": 2,
+      "historyAfter": 2,
+      "url": "http://localhost:3000/login",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "loggedOut": true
+    },
+    {
+      "name": "published unknown accepts once logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 1,
+      "historyBefore": 2,
+      "historyAfter": 2,
+      "url": "http://localhost:3000/login",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [
+        {
+          "kind": "requestfailed",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "loggedOut": true
+    },
+    {
+      "name": "closed clean confirms zero logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 0,
+      "historyBefore": 2,
+      "historyAfter": 2,
+      "url": "http://localhost:3000/login",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "loggedOut": true
+    },
+    {
+      "name": "closed unknown accepts once logout 204 replaces login",
+      "result": "PASS",
+      "prompts": 1,
+      "historyBefore": 2,
+      "historyAfter": 2,
+      "url": "http://localhost:3000/login",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "PATCH",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "body": "{\"resultVisibility\":\"public\"}"
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/auth/logout",
+          "body": null
+        }
+      ],
+      "outcomes": [
+        {
+          "kind": "requestfailed",
+          "method": "PATCH",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+          "reason": "net::ERR_FAILED"
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: net::ERR_FAILED",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "loggedOut": true
+    }
+  ]
+}

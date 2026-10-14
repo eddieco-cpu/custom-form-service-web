@@ -1,0 +1,8 @@
+
+> typecheck
+> nuxt typecheck && tsc --noEmit -p tsconfig.tools.json
+
+[nuxt] i Compiled #build/router.options.mjs in 632.21ms
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 1766.45ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 1801.83ms

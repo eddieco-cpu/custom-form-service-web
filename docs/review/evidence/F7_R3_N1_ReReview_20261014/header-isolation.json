@@ -1,0 +1,150 @@
+{
+  "target": "313d87a4fc9696348808ec28dc5d55f86b716d0c",
+  "method": "Unmodified AppHeader script setup compiled; actual Vue memory router, DirtyScope/RequestScope/OperationState/AuthSession/FormRead; synthetic fetch and render only",
+  "cases": [
+    {
+      "name": "clean own cleanup replaces login once, consumes old permit, ends fresh ticket loading",
+      "result": "PASS",
+      "asks": 0,
+      "headerTickets": 2,
+      "busy": false,
+      "loading": false,
+      "oldPermitReusable": false
+    },
+    {
+      "name": "unknown own cleanup replaces login once, consumes old permit, ends fresh ticket loading",
+      "result": "PASS",
+      "asks": 1,
+      "headerTickets": 2,
+      "busy": false,
+      "loading": false,
+      "oldPermitReusable": false
+    },
+    {
+      "name": "pending content rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "content",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": false,
+      "loadingEnded": true
+    },
+    {
+      "name": "pending session rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "session",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": false,
+      "loadingEnded": true
+    },
+    {
+      "name": "pending request rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "request",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": true,
+      "loadingEnded": true
+    },
+    {
+      "name": "pending write rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "write",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": false,
+      "loadingEnded": true
+    },
+    {
+      "name": "pending leave rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "leave",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": false,
+      "loadingEnded": true
+    },
+    {
+      "name": "pending unmount rejects old 204 cleanup and navigation",
+      "result": "PASS",
+      "external": "unmount",
+      "oldCleanup": false,
+      "oldNavigation": false,
+      "oldFinallyPreservesNewRequest": false,
+      "loadingEnded": true
+    },
+    {
+      "name": "unknown after-cleanup content rejects reserved login without asking again",
+      "result": "PASS",
+      "external": "content",
+      "staleNavigation": false,
+      "noSecondAsk": true,
+      "subsequentDirtyAsk": true,
+      "loadingEnded": true
+    },
+    {
+      "name": "unknown after-cleanup session rejects reserved login without asking again",
+      "result": "PASS",
+      "external": "session",
+      "staleNavigation": false,
+      "noSecondAsk": true,
+      "subsequentDirtyAsk": true,
+      "loadingEnded": true
+    },
+    {
+      "name": "unknown after-cleanup request rejects reserved login without asking again",
+      "result": "PASS",
+      "external": "request",
+      "staleNavigation": false,
+      "noSecondAsk": true,
+      "subsequentDirtyAsk": true,
+      "loadingEnded": true
+    },
+    {
+      "name": "unknown after-cleanup write rejects reserved login without asking again",
+      "result": "PASS",
+      "external": "write",
+      "staleNavigation": false,
+      "noSecondAsk": true,
+      "subsequentDirtyAsk": true,
+      "loadingEnded": true
+    },
+    {
+      "name": "unknown navigation rejected clears authorization and loading",
+      "result": "PASS",
+      "navigation": "rejected",
+      "authorizationCleared": true,
+      "loadingEnded": true,
+      "nextNavigationAsks": true
+    },
+    {
+      "name": "unknown navigation error clears authorization and loading",
+      "result": "PASS",
+      "navigation": "error",
+      "authorizationCleared": true,
+      "loadingEnded": true,
+      "nextNavigationAsks": true
+    },
+    {
+      "name": "unknown dirty scope unmount clears unused original authorization",
+      "result": "PASS",
+      "originalPermitCleared": true,
+      "unmountedBridge": true
+    },
+    {
+      "name": "unknown unmount during completed cleanup navigation removes bridge and ends new request",
+      "result": "PASS",
+      "completedActionUnmounted": true,
+      "bridgeRemoved": true,
+      "loadingEnded": true,
+      "oldPermitReusable": false
+    },
+    {
+      "name": "consumed permit cannot repeat cleanup; completed target does not authorize another route",
+      "result": "PASS",
+      "cleanups": 1,
+      "asks": 2
+    }
+  ]
+}

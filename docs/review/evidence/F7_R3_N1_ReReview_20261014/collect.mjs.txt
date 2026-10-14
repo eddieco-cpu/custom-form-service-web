@@ -1,0 +1,60 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import cp from 'node:child_process';
+import crypto from 'node:crypto';
+import { registerHooks } from 'node:module';
+import { chromium } from '@playwright/test';
+registerHooks({resolve(s,c,n){try{return n(s,c);}catch(e){if(s.startsWith('.'))return n(`${s}.ts`,c);throw e;}}});
+const {verifyNetworkDiagnostics,expectedNetwork}=await import('../../../tests/helpers/f6-network-diagnostics.ts');
+const dest='docs/review/evidence/F7_R3_N1_ReReview_20261014',raw='output/f7/n1-rereview-20261014';
+const target='313d87a4fc9696348808ec28dc5d55f86b716d0c';
+const read=f=>fs.readFileSync(f,'utf8').replace(/\r\n/g,'\n');
+const json=f=>JSON.parse(read(f));
+const bytes=f=>f.endsWith('.png')?fs.readFileSync(f):Buffer.from(read(f));
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(`${d}/${e.name}`):[`${d}/${e.name}`]);
+const git=args=>cp.execFileSync('git',args,{encoding:'utf8'}).replace(/\r\n/g,'\n');
+fs.mkdirSync(`${dest}/logs`,{recursive:true});fs.mkdirSync(`${dest}/browser`,{recursive:true});
+for(const f of walk(raw).filter(f=>f.endsWith('.log'))){const clean=read(f).replace(/[ \t]+$/gm,'').trimEnd();fs.writeFileSync(`${dest}/logs/${path.basename(f)}`,clean?clean+'\n':'');}
+for(const f of walk(raw).filter(f=>f.endsWith('.mjs')||f.endsWith('.config.ts')))fs.copyFileSync(f,`${dest}/${path.basename(f)}.txt`);
+for(const name of ['header-isolation-first.json','header-isolation-second.json','original-logout-first.json'])fs.copyFileSync(`${raw}/${name}`,`${dest}/${name}`);
+const inputs=['built-n1-independent-rereview-results.json','n1-independent-f3-built-results.json','n1-independent-f6-built-results.json','n1-independent-f6-scope-results.json'];
+const flatten=r=>(r.suites??[]).flatMap(flatten).concat((r.specs??[]).flatMap(s=>s.tests.map(t=>({title:s.title,status:t.status,results:t.results.map(x=>({status:x.status,errors:x.errors,diagnostics:(x.attachments??[]).filter(a=>a.name==='declared-network-diagnostics'&&a.body).map(a=>JSON.parse(Buffer.from(a.body,'base64').toString('utf8')))}))}))));
+const runs=inputs.map(f=>{fs.copyFileSync(`output/playwright/f7/${f}`,`${dest}/browser/${f}`);const data=json(`${dest}/browser/${f}`);return{file:`browser/${f}`,stats:data.stats,cases:flatten(data)};});
+const sourceHashes=json('docs/implementation/evidence/F7_R3_N1_Correction_20261014/verification-summary.json').sources.map(e=>({file:e.file,sha256:hash(bytes(e.file)),matchesCorrection:hash(bytes(e.file))===e.sha256,matchesTarget:hash(Buffer.from(git(['show',`${target}:${e.file}`])))===e.sha256}));
+const build=walk('.output').sort().map(f=>({file:f,sha256:hash(fs.readFileSync(f))}));
+fs.writeFileSync(`${dest}/fresh-build-digest.json`,JSON.stringify({target,createdAt:new Date().toISOString(),buildCommand:'npm run build',capture:'After independent fresh built runs and preview shutdown; sources unchanged and no rebuild between runs',files:build},null,2)+'\n');
+const latest=json('.output/public/_nuxt/builds/latest.json');
+const original=json(`${dest}/original-logout.json`),header=json(`${dest}/header-isolation.json`);
+const root='http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050';
+const diagnostics=original.cases.map(c=>{const expected=c.name.includes('unknown')?[expectedNetwork(c.name.startsWith('published')?'POST':'PATCH',`${root}/${c.name.startsWith('published')?'close':'result-visibility'}`,'net::ERR_FAILED',1,1)]:[];return{name:c.name,expected,issues:verifyNetworkDiagnostics(expected,c.outcomes,c.diagnostics)};});
+const firstHeader=json(`${dest}/header-isolation-first.json`),secondHeader=json(`${dest}/header-isolation-second.json`),firstBrowser=json(`${dest}/original-logout-first.json`);
+const commands=[
+  {command:'npm run lint',result:'PASS',exit:0,log:'logs/lint.log'},
+  {command:'npm run typecheck',result:'PASS',exit:0,log:'logs/typecheck.log'},
+  {command:'npm run build',result:'PASS',exit:0,log:'logs/build.log',warning:'DEP0155 retained'},
+  {command:'npm run test:unit -- tests/unit/scoped-state.spec.ts tests/unit/f3-auth.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f7-form-management.spec.ts tests/unit/f4-form-read.spec.ts',result:'PASS',passed:167,files:5,exit:0,log:'logs/unit.log'},
+  {command:'F7_MODE=built F7_RUN_LABEL=n1-independent-rereview npm run test:e2e -- --config=playwright.f7.config.ts',result:'PASS',passed:51,exit:0,log:'logs/browser-f7.log'},
+  {command:"npm run test:e2e -- --config=output/f7/n1-rereview-20261014/playwright.f3-built.config.ts --grep 'F3-B06|F3-B08|F3-B10|F3-B14'",result:'PASS',passed:4,exit:0,log:'logs/browser-f3.log'},
+  {command:"F6_MODE=built PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/n1-independent-f6-built-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'F6-B06|F6-B07|F6-B08|F6-B09' --reporter=line,json --output=output/playwright/f7/n1-independent-f6-built-artifacts",result:'PASS',passed:11,skipped:2,exit:0,log:'logs/browser-f6-built.log'},
+  {command:"F6_MODE=fixture PLAYWRIGHT_JSON_OUTPUT_NAME=output/playwright/f7/n1-independent-f6-scope-results.json npm run test:e2e -- --config=playwright.f6.config.ts --grep 'same-component ID update|pending old GET' --reporter=line,json --output=output/playwright/f7/n1-independent-f6-scope-artifacts",result:'PASS',passed:2,exit:0,log:'logs/browser-f6-scope.log'},
+  {command:'npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json',result:'PASS',exit:0,log:'logs/harness-typecheck.log'},
+  {command:'node output/f7/n1-rereview-20261014/original-logout.mjs',result:'PASS',passed:4,exit:0,log:'logs/original-logout-final.log'},
+  {command:'node --experimental-transform-types output/f7/n1-rereview-20261014/header-isolation.mjs',result:'PASS',passed:17,exit:0,log:'logs/header-isolation-final.log'},
+];
+const browser=await chromium.launch({headless:true});const chromiumVersion=browser.version();await browser.close();
+const versions={node:process.versions.node,npm:'11.19.0',chromium:chromiumVersion,packages:Object.fromEntries(['nuxt','@nuxt/ui','vue','nitropack','vite','vitest','@playwright/test','typescript'].map(p=>[p,json(`node_modules/${p}/package.json`).version]))};
+const protectedPaths=['app','tests','scripts','package.json','package-lock.json','AGENTS.md','.agents','.gitignore','nuxt.config.ts','playwright.f7.config.ts','playwright.f6.config.ts','playwright.f3.config.ts','docs/specs','docs/test-plan','docs/test-results','docs/implementation/F7_Implementation_Plan.md','docs/implementation/F7_Development_Report.md','docs/implementation/F7_R1_R4_Correction_Report.md','docs/implementation/F7_R3_N1_Correction_Report.md','docs/implementation/evidence','docs/review/F7_Independent_Code_Review_Report_20261014.md','docs/review/F7_R1_R4_Correction_ReReview_Report_20261014.md','docs/review/evidence/F7_20261014','docs/review/evidence/F7_R1_R4_ReReview_20261014'];
+const protectedDiffExit=cp.spawnSync('git',['diff','--quiet',target,'--',...protectedPaths]).status;
+const summary={version:'1.0',date:'2026-10-14',timezone:'Asia/Taipei',baseline:'6d9c843a012cb0a24e194f1de2020ab294554f1b',product:'bfae7a7e767dff8762732535fb1f87bb09fb6b8c',target,initialGitState:'clean',branch:'master',stage:'F7-R3-N1 independent re-review complete; F7 code review passed; Owner confirmation pending',findings:[],closure:{N1:'CLOSED',R3:'CLOSED',R1:'CLOSED (retained)',R2:'CLOSED (retained)',R4:'CLOSED (retained)'},F7CodeReview:'PASS - prior full review plus R1-R4 and N1 independent corrections; formal acceptance deferred',versions,sourceHashes,build:{files:build.length,digest:'fresh-build-digest.json',buildId:latest.id,preReviewerCorrectionBuild:'157/157 audited before npm run build',noSourceChangeOrRebuildBetweenRuns:true},commands,runs,originalLogout:original,reviewerDiagnostics:diagnostics,headerIsolation:header,
+  diagnosticHistory:{headerFirst:{exit:1,caseCount:firstHeader.cases.length,failedCases:firstHeader.cases.filter(c=>c.result!=='PASS'),classification:'Probe setup: visibility unknown blocks attempted visibility write, so no external revision advanced; scoped renderer missing getRootNode. Original log/script/JSON retained; corrected to an available delete policy with explicit revision assertion and renderer DOM-root interface.'},headerSecond:{exit:0,cases:secondHeader.cases.length,passed:secondHeader.cases.filter(c=>c.result==='PASS').length},headerFinal:{exit:0,cases:17,passed:17,added:'Completed cleanup navigation unmount and active bridge removal'},browserFirst:{exit:1,caseCount:firstBrowser.cases.length,failedCases:firstBrowser.cases.filter(c=>c.result!=='PASS'),classification:'Probe selectors: accessible Email name includes required marker (exact textbox name mismatch) and error Dialog has X plus text Close button. Original evidence retained; corrected to Email label and text Close; same behavioral expectations, source and build.'},browserFinal:{exit:0,cases:4,passed:4}},
+  evidenceAudit:'correction-evidence-audit.json',rawEvidence:raw,protectedDiffExit,
+  boundaries:{productAndTestsReadOnly:true,realBusinessRequests:'NOT RUN',realWrites:'NOT RUN',realDelete:'NOT RUN',realCookieLogout:'NOT RUN (fixture only)',historicalIntegration:'Applicable F3/F6/F7 history retained; no fresh live claim',realInvalidExpiredDisabledAndCommitFault:'BLOCKED',dbIdentityMigration:'UNCONFIRMED',realDeviceAndFormalAIManualAcceptance:'NOT RUN',extraChromeEdgeFirefoxWebKit:'NOT RUN this re-review',npmCiAuditAndUnaffectedFullSuite:'NOT RUN',accepted:'unchanged',existingGaps:'unchanged',F8:'NOT RUN',push:'NOT RUN'},logNormalization:'LF/line trailing whitespace/EOF blank lines only; raw retained',screenshots:'Four synthetic empty-login images byte-identical; Closed unknown and correction source image visually inspected'};
+fs.writeFileSync(`${dest}/verification-summary.json`,JSON.stringify(summary,null,2)+'\n');
+const privateFiles=fs.readdirSync('output/playwright/f7').filter(f=>f.endsWith('-private-credentials.json'));
+const privateValues=privateFiles.flatMap(f=>json(`output/playwright/f7/${f}`).map(e=>e.password)).filter(Boolean);
+const secretMatches=walk(dest).filter(f=>!f.endsWith('.png')).filter(f=>{const s=read(f);return privateValues.some(v=>s.includes(v))||/eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(s)||/"(?:password|access_token|refresh_token|signingKey)"\s*:\s*"[^"\r\n]+"/.test(s);});
+fs.writeFileSync(`${dest}/artifact-manifest.json`,JSON.stringify({hashEncoding:'UTF-8 text normalized to LF; PNG binary bytes',files:walk(dest).filter(f=>!f.endsWith('artifact-manifest.json')).sort().map(f=>({file:f.slice(dest.length+1),bytes:bytes(f).length,sha256:hash(bytes(f))})),actualSecretMatchedFiles:secretMatches.length},null,2)+'\n');
+const errors=[...sourceHashes.filter(s=>!s.matchesCorrection||!s.matchesTarget),...diagnostics.filter(s=>s.issues.length),...original.cases.filter(c=>c.result!=='PASS'),...header.cases.filter(c=>c.result!=='PASS'),...runs.filter(r=>r.stats.unexpected||r.stats.flaky)];
+console.log(JSON.stringify({sources:sourceHashes.length,build:build.length,commands:commands.map(c=>({result:c.result,passed:c.passed,skipped:c.skipped})),originalLogout:original.cases.map(c=>({name:c.name,result:c.result,prompts:c.prompts})),headerCases:header.cases.length,errors,secretMatchedFiles:secretMatches.length,protectedDiffExit,versions},null,2));
+if(errors.length||secretMatches.length||protectedDiffExit)process.exitCode=1;

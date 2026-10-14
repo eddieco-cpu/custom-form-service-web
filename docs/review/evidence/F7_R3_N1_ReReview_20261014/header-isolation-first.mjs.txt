@@ -1,0 +1,117 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import { registerHooks } from 'node:module';
+import { pathToFileURL } from 'node:url';
+import * as Vue from 'vue';
+import { createRouter,createMemoryHistory,RouterView,useRoute,useRouter } from 'vue-router';
+import { parse,compileScript } from '@vue/compiler-sfc';
+import ts from 'typescript';
+registerHooks({resolve(s,c,n){const context=c.parentURL?.startsWith('data:')?{...c,parentURL:pathToFileURL(path.resolve('app/components/AppHeader.vue')).href}:c;try{return n(s,context);}catch(e){if(s.startsWith('.'))return n(`${s}.ts`,context);throw e;}}});
+const {useDirtyScope}=await import('../../../app/composables/useDirtyScope.ts');
+const {useRequestScope:realRequestScope}=await import('../../../app/composables/useRequestScope.ts');
+const {useOperationState}=await import('../../../app/composables/useOperationState.ts');
+const {useActiveDirtyScope}=await import('../../../app/composables/useActiveDirtyScope.ts');
+const {useFormRead}=await import('../../../app/composables/useFormRead.ts');
+const {AuthSession,initialAuthState}=await import('../../../app/domain/auth-state.ts');
+const {DirtyScope}=await import('../../../app/domain/dirty-scope.ts');
+const {ref,watch,createRenderer,h,getCurrentInstance,nextTick}=Vue;
+const source=fs.readFileSync('app/components/AppHeader.vue','utf8');
+const compiled=compileScript(parse(source,{filename:'AppHeader.vue'}).descriptor,{id:'independent-header'}).content;
+const executable=ts.transpileModule(compiled,{compilerOptions:{module:ts.ModuleKind.ESNext,target:ts.ScriptTarget.ES2022}}).outputText;
+const Header=(await import(`data:text/javascript;base64,${Buffer.from(executable).toString('base64')}`)).default;
+Header.render=()=>h('header'); // Actual setup/controllers; visual UI tested independently in fresh Browser.
+const owner={id:'00000000-0000-4000-8000-000000000051',email:'probe@example.test',displayName:'Synthetic Owner',avatarUrl:null};
+const other={...owner,id:'00000000-0000-4000-8000-000000000052',displayName:'Synthetic Other'};
+const results={target:'313d87a4fc9696348808ec28dc5d55f86b716d0c',method:'Unmodified AppHeader script setup compiled; actual Vue memory router, DirtyScope/RequestScope/OperationState/AuthSession/FormRead; synthetic fetch and render only',cases:[]};
+const hold=()=>{let resolve;const promise=new Promise(r=>resolve=r);return{promise,resolve};};
+async function until(f){for(let i=0;i<500;i++){if(f())return;await new Promise(r=>setTimeout(r,1));}throw new Error('Probe did not settle');}
+async function setup(unknown=false){
+  const auth=ref(initialAuthState()),busy=ref(false),responses=hold(),events=[],tickets=[],requests=[];
+  const session=new AuthSession(auth.value,async()=>({kind:'success',status:200,value:owner}));session.login(owner);
+  const ctx={auth,busy,session,events,tickets,requests,responses,asks:0,answers:[true],loginGuard:undefined,unmounted:false};
+  const Empty={render:()=>h('div')};let page;
+  const Page={setup(){
+    page=useFormRead(()=> 'form:00000000-0000-4000-8000-000000000050');ctx.page=page;
+    page.state.data={title:'Original data'};ctx.content=ref(1);watch(()=>page.state.data,()=>ctx.content.value++,{flush:'sync'});
+    ctx.form=useOperationState('delta',()=> 'form:00000000-0000-4000-8000-000000000050');ctx.peer=useOperationState('visibility',()=> 'form:00000000-0000-4000-8000-000000000050');
+    ctx.dirty=useDirtyScope({isDirty:()=>false,revision:()=>ctx.content.value,captureContext:()=>ctx.form.operation.value.captureRead(),needsReconciliation:()=>{void ctx.form.state.value;return ctx.form.operation.value.anyUnknown;}});
+    const originalAuthorize=ctx.dirty.authorizeAction;ctx.dirty.authorizeAction=(...a)=>{ctx.originalPermit=originalAuthorize(...a);return ctx.originalPermit;};
+    useActiveDirtyScope().register(ctx.dirty);return()=>h('main');
+  }};
+  const router=createRouter({history:createMemoryHistory(),routes:[{path:'/form',component:Page},{path:'/login',component:Empty},{path:'/other',component:Empty}]});ctx.router=router;
+  router.beforeEach(async to=>{if(to.fullPath==='/login'&&ctx.loginGuard)return await ctx.loginGuard();});router.onError(e=>events.push({expectedRouterError:e.message}));
+  await router.push('/form');
+  globalThis.window={confirm:()=>{ctx.asks++;return ctx.answers.shift()??false;},addEventListener:(name,handler)=>events.push({add:name}),removeEventListener:(name,handler)=>events.push({remove:name})};
+  Object.assign(globalThis,Vue,{useAuth:()=>({state:auth,session,busy}),useRoute,useRouter,useDirtyScope,useOperationState,useActiveDirtyScope,useNuxtApp:()=>getCurrentInstance().appContext.app,useRuntimeConfig:()=>({public:{apiBaseUrl:'http://localhost:5000/api/v1'}}),useDialogFocus:()=>({capture(){},restore:async()=>{}}),useRequestScope:(resource,revision)=>{
+    const result=realRequestScope(resource,revision);
+    if(resource().startsWith('/')){ctx.headerScope=result;const begin=result.scope.begin.bind(result.scope);result.scope.begin=()=>{const ticket=begin();tickets.push(ticket);return ticket;};}
+    return result;
+  }});
+  globalThis.fetch=async(url,options)=>{requests.push({url,method:options.method});return responses.promise;};
+  const renderer=createRenderer({createElement:()=>({}),createText:()=>({}),createComment:()=>({}),insert(){},remove(){},setText(){},setElementText(){},parentNode:()=>null,nextSibling:()=>null,patchProp(){}});
+  const Root={setup(){return()=>h('div',[h(Header),h(RouterView)]);}};
+  const app=renderer.createApp(Root);app.use(router);app.mount({});ctx.app=app;
+  ctx.header=app._instance.subTree.children[0].component.setupState;
+  await router.isReady();await nextTick();
+  if(unknown)await ctx.peer.operation.value.run({},async()=>({kind:'transport-error',reason:'network',sent:true}),()=>true);
+  ctx.dispose=()=>{if(!ctx.unmounted){app.unmount();ctx.unmounted=true;}};
+  ctx.complete=()=>responses.resolve(new Response(null,{status:204}));
+  ctx.write=()=>ctx.peer.operation.value.run({},async()=>({kind:'local-error',message:'synthetic write',sent:false}),()=>true);
+  ctx.nextDirtyNavigation=async()=>{ctx.answers=[false];const before=ctx.asks;await router.push('/other');assert.equal(ctx.asks,before+1);assert.equal(router.currentRoute.value.fullPath,'/form');};
+  return ctx;
+}
+async function run(name,test){let ctx;try{ctx=await setup(name.includes('unknown'));const evidence=await test(ctx);results.cases.push({name,result:'PASS',...evidence});}catch(e){results.cases.push({name,result:'FAIL',message:e.stack});}finally{ctx?.dispose();await nextTick();fs.writeFileSync('docs/review/evidence/F7_R3_N1_ReReview_20261014/header-isolation.json',JSON.stringify(results,null,2)+'\n');}}
+for(const unknown of [false,true])await run(`${unknown?'unknown':'clean'} own cleanup replaces login once, consumes old permit, ends fresh ticket loading`,async ctx=>{
+  const initial=ctx.auth.value.sessionRevision,task=ctx.header.logout();await until(()=>ctx.requests.length===1);ctx.complete();await task;
+  assert.equal(ctx.auth.value.sessionRevision,initial+1);assert.equal(ctx.auth.value.outcome,'anonymous');assert.equal(ctx.auth.value.user,null);assert.equal(ctx.router.currentRoute.value.fullPath,'/login');
+  assert.equal(ctx.asks,unknown?1:0);assert.equal(ctx.busy.value,false);assert.equal(ctx.headerScope.loading.value,false);assert.equal(ctx.tickets.length,2);assert.equal(ctx.tickets[0].isCurrent(),false);
+  assert.equal(await ctx.dirty.navigateWithPermit(ctx.originalPermit,'/login',true),false);
+  return{asks:ctx.asks,headerTickets:ctx.tickets.length,busy:false,loading:false,oldPermitReusable:false};
+});
+for(const change of ['content','session','request','write','leave','unmount'])await run(`pending ${change} rejects old 204 cleanup and navigation`,async ctx=>{
+  const task=ctx.header.logout();await until(()=>ctx.requests.length===1);const initial=ctx.auth.value.sessionRevision;let extra;
+  if(change==='content')ctx.page.state.data={title:'External content'};
+  if(change==='session')ctx.session.login(other);
+  if(change==='request')extra=ctx.headerScope.scope.begin();
+  if(change==='write')await ctx.write();
+  if(change==='leave')await ctx.router.push('/other');
+  if(change==='unmount')ctx.dispose();
+  ctx.complete();await task;assert.equal(ctx.auth.value.outcome,'authenticated');assert.equal(ctx.auth.value.sessionRevision,initial+(change==='session'?1:0));assert.notEqual(ctx.router.currentRoute.value.fullPath,'/login');assert.equal(ctx.busy.value,false);
+  if(extra){assert.equal(ctx.headerScope.loading.value,true);ctx.headerScope.scope.finish(extra);}
+  assert.equal(ctx.headerScope.loading.value,false);assert.equal(await ctx.dirty.navigateWithPermit(ctx.originalPermit,'/login',true),false);
+  return{external:change,oldCleanup:false,oldNavigation:false,oldFinallyPreservesNewRequest:!!extra,loadingEnded:true};
+});
+for(const change of ['content','session','request','write'])await run(`unknown after-cleanup ${change} rejects reserved login without asking again`,async ctx=>{
+  let extra;ctx.loginGuard=async()=>{
+    if(change==='content')ctx.page.state.data={title:'External content after cleanup'};
+    if(change==='session')ctx.session.login(other);
+    if(change==='request')extra=ctx.headerScope.scope.begin();
+    if(change==='write')await ctx.write();
+  };
+  const task=ctx.header.logout();await until(()=>ctx.requests.length===1);ctx.complete();await task;
+  assert.equal(ctx.router.currentRoute.value.fullPath,'/form');assert.equal(ctx.asks,1);assert.equal(ctx.busy.value,false);
+  if(extra){assert.equal(ctx.headerScope.loading.value,true);ctx.headerScope.scope.finish(extra);}
+  assert.equal(ctx.headerScope.loading.value,false);assert.equal(await ctx.dirty.navigateWithPermit(ctx.originalPermit,'/login',true),false);
+  ctx.loginGuard=undefined;await ctx.nextDirtyNavigation();return{external:change,staleNavigation:false,noSecondAsk:true,subsequentDirtyAsk:true,loadingEnded:true};
+});
+for(const outcome of ['rejected','error'])await run(`unknown navigation ${outcome} clears authorization and loading`,async ctx=>{
+  ctx.loginGuard=()=>{if(outcome==='error')throw new Error('Synthetic navigation error');return false;};
+  const task=ctx.header.logout();await until(()=>ctx.requests.length===1);ctx.complete();if(outcome==='error')await assert.rejects(task,/Synthetic navigation error/);else await task;
+  assert.equal(ctx.router.currentRoute.value.fullPath,'/form');assert.equal(ctx.asks,1);assert.equal(ctx.busy.value,false);assert.equal(ctx.headerScope.loading.value,false);assert.equal(await ctx.dirty.navigateWithPermit(ctx.originalPermit,'/login',true),false);
+  ctx.loginGuard=undefined;await ctx.nextDirtyNavigation();return{navigation:outcome,authorizationCleared:true,loadingEnded:true,nextNavigationAsks:true};
+});
+await run('unknown dirty scope unmount clears both original and completed authorization',async ctx=>{
+  const permit=ctx.dirty.authorizeAction('probe',()=>true);ctx.dispose();assert.equal(ctx.dirty.captureCurrent(permit)(),false);assert.equal(await ctx.dirty.navigateWithPermit(permit,'/login',true),false);
+  return{originalPermitCleared:true,unmountedBridge:true};
+});
+// Domain transfer target/reuse check independent of the new repo unit assertions.
+try{
+  const scope=new DirtyScope();scope.update(true,1);let asks=0,cleanups=0;const old=scope.authorize('logout',()=>{asks++;return true;});
+  assert.equal(scope.completeNavigation(old,'/login',()=>{cleanups++;scope.update(true,2);return()=>true;}),true);
+  assert.equal(scope.valid(old),false);assert.equal(scope.completeNavigation(old,'/login',()=>{cleanups++;return()=>true;}),false);assert.equal(cleanups,1);
+  assert.equal(scope.allowNavigation('/other',()=>{asks++;return false;}),false);assert.equal(asks,2);assert.equal(scope.allowNavigation('/login',()=>false),false);
+  results.cases.push({name:'consumed permit cannot repeat cleanup; completed target does not authorize another route',result:'PASS',cleanups,asks});
+}catch(e){results.cases.push({name:'domain target/reuse',result:'FAIL',message:e.stack});}
+fs.writeFileSync('docs/review/evidence/F7_R3_N1_ReReview_20261014/header-isolation.json',JSON.stringify(results,null,2)+'\n');
+console.log(JSON.stringify(results,null,2));if(results.cases.some(c=>c.result!=='PASS'))process.exitCode=1;
