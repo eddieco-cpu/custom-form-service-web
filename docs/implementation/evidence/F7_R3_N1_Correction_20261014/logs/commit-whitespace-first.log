@@ -1,0 +1,24 @@
+bfae7a7 fix: preserve authorized logout navigation after cleanup
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-first.log:5: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-first.log:8: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-reviewer-close.log:5: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-reviewer-close.log:8: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f3-built.log:5: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f3-built.log:8: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-built.log:5: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-built.log:8: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-scope.log:5: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-scope.log:8: trailing whitespace.
++[WebServer]
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/lint-delivery.log:4: new blank line at EOF.
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/lint-first.log:4: new blank line at EOF.
+docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/unit-first.log:13: new blank line at EOF.

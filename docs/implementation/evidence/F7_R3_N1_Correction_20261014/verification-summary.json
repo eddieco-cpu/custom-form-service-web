@@ -2,7 +2,7 @@
   "version": "1.0",
   "date": "2026-10-14",
   "timezone": "Asia/Taipei",
-  "createdAt": "2026-10-14T11:09:17.814Z",
+  "createdAt": "2026-10-14T11:20:09.099Z",
   "baseline": "6d9c843a012cb0a24e194f1de2020ab294554f1b",
   "branch": "master",
   "initialGitState": "clean",
@@ -889,6 +889,7 @@
   ],
   "protectedDiff": "",
   "secretMatches": [],
+  "logNormalization": "Delivered logs: LF, trailing line whitespace and EOF blank lines normalized; raw originals retained. Initial committed log whitespace check FAIL preserved; follow-up documentation correction only.",
   "backend": {
     "snapshotCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
     "checkoutCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",

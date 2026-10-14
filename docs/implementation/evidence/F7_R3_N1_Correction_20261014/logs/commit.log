@@ -1,0 +1,30 @@
+[master bfae7a7] fix: preserve authorized logout navigation after cleanup
+ 37 files changed, 5847 insertions(+), 14 deletions(-)
+ create mode 100644 docs/implementation/F7_R3_N1_Correction_Report.md
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/artifact-manifest.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/browser/f3-built-results.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/browser/f6-built-results.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/browser/f6-scope-results.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/browser/f7-full-results.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/browser/reviewer-close-results.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/closeout-checks.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/closeout.mjs.txt
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/collect.mjs.txt
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/fresh-build-digest.json
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/images/logout-unknown-login.png
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-first.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/browser-reviewer-close.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/build.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/collect-first.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/collect-second.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f3-built.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-built.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/f6-scope.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/harness-typecheck.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/lint-delivery.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/lint-first.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/typecheck-delivery.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/typecheck.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/logs/unit-first.log
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/playwright.f3-built.config.ts.txt
+ create mode 100644 docs/implementation/evidence/F7_R3_N1_Correction_20261014/verification-summary.json

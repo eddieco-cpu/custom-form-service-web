@@ -28,23 +28,23 @@
     },
     {
       "file": "closeout-checks.json",
-      "bytes": 1452,
-      "sha256": "9a409ff5041a48102d085ef9e90841d660463e5b2f2b8f6ab4fc1f5f7a49f5dc"
+      "bytes": 1643,
+      "sha256": "72e9dc3b7cd1d241e803a2750bea9c4090824f158652414c9ed8627fedf6caf9"
     },
     {
       "file": "closeout.mjs.txt",
-      "bytes": 4619,
-      "sha256": "54eae3b9905b71e49000a0982d6c99eb59f8628671c11e9229f48cfc95417e75"
+      "bytes": 5056,
+      "sha256": "9b75831959998927cba0a60100dbaabd308ef8b55560a10b2b371463aa0e1758"
     },
     {
       "file": "collect.mjs.txt",
-      "bytes": 7808,
-      "sha256": "273c7ff252d36a02a9a8a5813b7796e6b60ef43de96cd00f1f8a1c0bcd62a946"
+      "bytes": 8186,
+      "sha256": "7ff69d319c875dd88bb53016e0e2e349f5d03ee2f78ff5296b3345acde338b61"
     },
     {
       "file": "fresh-build-digest.json",
       "bytes": 25604,
-      "sha256": "f4aef977689cca22b37df754afa2db840064f46a6246d0073d5ab039e2135ed2"
+      "sha256": "5515d867c616c313f2503ccfcee740498b743eb853598b45c523301f74b612f5"
     },
     {
       "file": "images/logout-unknown-login.png",
@@ -53,13 +53,13 @@
     },
     {
       "file": "logs/browser-first.log",
-      "bytes": 8243,
-      "sha256": "e396d1d9b9c08e8fd785cab4ff44af84ee3d148efd8aa47b0ec21a207f3e893e"
+      "bytes": 8241,
+      "sha256": "38136bbf9aae401d48493d91260f559f21b9fa62355f17b6e21ad90296e2b2e3"
     },
     {
       "file": "logs/browser-reviewer-close.log",
-      "bytes": 870,
-      "sha256": "8a78050f5e9c80029a9e8c3ac27d800f2d9560721286a53bad7a110efc0b04f5"
+      "bytes": 868,
+      "sha256": "a9b2d9401b1b07ab47709606183bb7c96f7e17b28a14da6b0d6eea2f588fc784"
     },
     {
       "file": "logs/build.log",
@@ -77,19 +77,29 @@
       "sha256": "39f1c6fdc1b573af6ce1c5d4e60eacb93f282becb063a494ed8236b3a2435497"
     },
     {
+      "file": "logs/commit-whitespace-first.log",
+      "bytes": 1549,
+      "sha256": "7919c9abef9e072985d1a60b7e74ceade5aaa1791666150fe58d3b69a7b43dbc"
+    },
+    {
+      "file": "logs/commit.log",
+      "bytes": 2961,
+      "sha256": "c71d3d3d15a1a8c4a23cf4109d8421006b5d296cf8e6d67fc3abd839ca240ccd"
+    },
+    {
       "file": "logs/f3-built.log",
-      "bytes": 1425,
-      "sha256": "f75b5ed7e794397254d73fb635ccce7c3103b02860c8fa5226c43b8ad31b7ff4"
+      "bytes": 1423,
+      "sha256": "c6b437394b9681487f5ebb198a686ba10eb19d57b390764c4b5f1a89533a78e4"
     },
     {
       "file": "logs/f6-built.log",
-      "bytes": 2828,
-      "sha256": "998346315a4e3e5c827248e4affae4708fe8e3ca801151dd61bf7701859995d9"
+      "bytes": 2826,
+      "sha256": "a924f184881fc733ca47da18998cd5c405f249c3c45882cc1887d4212916fef2"
     },
     {
       "file": "logs/f6-scope.log",
-      "bytes": 922,
-      "sha256": "0e6912b3f378775e81ac1b6b5d6b66bb6367cdb69e617672f447effe23492f49"
+      "bytes": 920,
+      "sha256": "f1aa88e20d7d81012f2189e1674059a5e6ef002d57183136178823e4c2592735"
     },
     {
       "file": "logs/harness-typecheck.log",
@@ -98,13 +108,18 @@
     },
     {
       "file": "logs/lint-delivery.log",
-      "bytes": 20,
-      "sha256": "6ba41d3386946f3480608c0bcb80bb893d785c187db4178012a840ea9081d89b"
+      "bytes": 19,
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45"
     },
     {
       "file": "logs/lint-first.log",
-      "bytes": 20,
-      "sha256": "6ba41d3386946f3480608c0bcb80bb893d785c187db4178012a840ea9081d89b"
+      "bytes": 19,
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45"
+    },
+    {
+      "file": "logs/staged-diff-final.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
     },
     {
       "file": "logs/typecheck-delivery.log",
@@ -118,8 +133,8 @@
     },
     {
       "file": "logs/unit-first.log",
-      "bytes": 400,
-      "sha256": "222064a65ea734a1a104c5214c7935bb540177ed0b28e179d3f7c981d62cc1f3"
+      "bytes": 399,
+      "sha256": "a5c3ccabe9642043674c6cfbeec31f06eb8585664fe675b3069c1baefb5e40ba"
     },
     {
       "file": "playwright.f3-built.config.ts.txt",
@@ -128,8 +143,8 @@
     },
     {
       "file": "verification-summary.json",
-      "bytes": 30506,
-      "sha256": "2097432a325fa07933df51e3a0773e0bb3605e2aa29ee44da18b174684e58f8f"
+      "bytes": 30728,
+      "sha256": "baed6314823351c369a4c64c1f798450bebac569a3cccef75c8292d94db35901"
     }
   ]
 }

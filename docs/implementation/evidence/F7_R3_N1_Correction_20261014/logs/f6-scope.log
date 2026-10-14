@@ -2,10 +2,10 @@
 > test:e2e
 > playwright test --config=playwright.f6.config.ts --grep same-component ID update|pending old GET --reporter=list,json --output=output/playwright/f7/n1-f6-scope-artifacts
 
-[WebServer] 
+[WebServer]
 [WebServer]  ERROR  (node:38648) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use node --trace-warnings ... to show where the warning was created)
-[WebServer] 
+[WebServer]
 
 Running 2 tests using 1 worker
 

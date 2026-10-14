@@ -22,10 +22,14 @@ const buildMismatch = build.filter(f => sha(fs.readFileSync(f.file)) !== f.sha25
 const formats = docs.map(([file, content]) => ({ file, noControlCharacters: !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(content), finalNewline: content.endsWith('\n'), fencesBalanced: (content.match(/^```/gm)?.length ?? 0) % 2 === 0 }))
 const protectedDiff = git(['diff', '--name-only', baseline, '--', 'docs/review', 'docs/specs', 'docs/implementation/F7_Development_Report.md', 'docs/implementation/F7_R1_R4_Correction_Report.md', 'docs/implementation/F7_Implementation_Plan.md', 'docs/implementation/evidence/F7_20261014', 'docs/implementation/evidence/F7_R1_R4_Correction_20261014', 'tests/e2e/f3-browser.spec.ts', 'tests/e2e/f6-browser.spec.ts', 'tests/e2e/f7-live.spec.ts', 'AGENTS.md', 'package.json', 'package-lock.json'])
 git(['diff', '--check'])
-fs.copyFileSync(`${work}/collect.log`, `${dest}/logs/collect-first.log`); fs.copyFileSync(`${work}/collect-second.log`, `${dest}/logs/collect-second.log`)
+for (const [source, target] of [['collect.log', 'collect-first.log'], ['collect-second.log', 'collect-second.log']]) {
+  const clean = text(`${work}/${source}`).replace(/[ \t]+$/gm, '').trimEnd()
+  fs.writeFileSync(`${dest}/logs/${target}`, clean ? clean + '\n' : '')
+}
 fs.copyFileSync(`${work}/closeout.mjs`, `${dest}/closeout.mjs.txt`)
+if (fs.existsSync(`${work}/staged-diff-final.log`)) fs.copyFileSync(`${work}/staged-diff-final.log`, `${dest}/logs/staged-diff-final.log`)
 const secrets = walk(dest).filter(f => !f.endsWith('.png') && /eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|["'](?:password|access_token|refresh_token|signingKey)["']\s*:\s*["'][^"']+/.test(text(f)))
-const checks = { createdAt: new Date().toISOString(), preserved, links: { total: links.length, missing: links.filter(l => !l.exists) }, formats, sources, build: { total: build.length, matches: build.length - buildMismatch.length }, protectedDiff, secretMatches: secrets, screenshots: 'Synthetic empty login image visually inspected', diffCheck: 'PASS' }
+const checks = { createdAt: new Date().toISOString(), preserved, links: { total: links.length, missing: links.filter(l => !l.exists) }, formats, sources, build: { total: build.length, matches: build.length - buildMismatch.length }, protectedDiff, secretMatches: secrets, screenshots: 'Synthetic empty login image visually inspected', diffCheck: 'PASS', stagedDiffCheck: 'PASS, exit 0; staged-diff-final.log has no diagnostics', logNormalization: 'LF + line-end whitespace + EOF blanks; initial Git check failure and raw logs retained' }
 if (!Object.values(preserved).every(Boolean) || links.some(l => !l.exists) || sources.some(s => !s.matches) || buildMismatch.length || formats.some(f => !f.noControlCharacters || !f.finalNewline || !f.fencesBalanced) || protectedDiff.trim() || secrets.length) throw new Error(JSON.stringify(checks))
 fs.writeFileSync(`${dest}/closeout-checks.json`, JSON.stringify(checks, null, 2) + '\n')
 const files = walk(dest).filter(f => !f.endsWith('artifact-manifest.json')).sort().map(file => ({ file: path.relative(dest, file).replaceAll('\\', '/'), bytes: bytes(file).length, sha256: sha(bytes(file)) }))

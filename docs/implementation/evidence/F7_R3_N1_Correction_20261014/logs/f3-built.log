@@ -2,10 +2,10 @@
 > test:e2e
 > playwright test --config=output/f7/n1-correction-20261014/playwright.f3-built.config.ts --grep F3-B06|F3-B08|F3-B10|F3-B14
 
-[WebServer] 
+[WebServer]
 [WebServer]  ERROR  (node:32264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use node --trace-warnings ... to show where the warning was created)
-[WebServer] 
+[WebServer]
 [WebServer] (node:33448) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
 [WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
 

@@ -52,6 +52,8 @@
 
 本次產品測試首次執行均 PASS；沒有將計畫當成執行或修改既有失敗預期。evidence 收集器首輪誤以 repo root 解讀另置 F3 config 的 reporter 相對路徑而 ENOENT；改讀實際已完成原件後核對 PASS，原收集失敗／成功 log 保留，未重跑或變更產品。原 N1 FAIL 與各歷史首次 FAIL 均未覆寫。去敏 [證據索引](evidence/F7_R3_N1_Correction_20261014/artifact-manifest.json) 包含 reporter／logs／一次性 config／收集器／source／build digest；raw 在 ignored `output/f7/n1-correction-20261014/`、另名 Playwright 目錄。登入頁圖片已目視，欄位為空；無實際密碼／Cookie／Token、storageState／trace。
 
+產品提交 `bfae7a7e767dff8762732535fb1f87bb09fb6b8c` 的 staged diff check 曾指出新 log 的行尾空白／EOF 空行，但命令未中止而繼續提交；此格式檢查 **FAIL** 保留在 `logs/commit-whitespace-first.log`。後續只正規化交付 log 的 LF／行尾空白／EOF 空行、更新收集器／manifest 與本說明，raw 原件與原提交不改寫；重新核對後追加文件提交。產品、測試、build 未變，無須重跑產品測試；最後 staged diff check **PASS** 另留原件。
+
 ## 5. 歷史整合、缺口、Git 與停止點
 
 按本次授權沿用適用的歷史 F3／F6／F7 正常整合證據及 [原 F7 開發報告](F7_Development_Report.md)／[review 適用界線](../review/F7_R1_R4_Correction_ReReview_Report_20261014.md)。本次真實業務 API／寫入／Delete／新帳號／Form／Response／SQL／DB reset／volume 操作均 **NOT RUN**；既存專用測資保留，沒有再次業務讀回。

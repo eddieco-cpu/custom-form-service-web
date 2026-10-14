@@ -22,7 +22,10 @@ const inputs = [
   ['f6-scope', 'output/playwright/f7/n1-f6-scope-results.json'],
 ]
 const runs = inputs.map(([name, file]) => { const report = json(file); copy(file, `browser/${name}-results.json`); return { name, stats: report.stats, cases: flatten(report.suites) } })
-for (const file of walk(work).filter(f => f.endsWith('.log') && !path.basename(f).startsWith('collect'))) copy(file, `logs/${path.basename(file)}`)
+for (const file of walk(work).filter(f => f.endsWith('.log') && !path.basename(f).startsWith('collect'))) {
+  const clean = text(file).replace(/[ \t]+$/gm, '').trimEnd()
+  fs.mkdirSync(`${dest}/logs`, { recursive: true }); fs.writeFileSync(`${dest}/logs/${path.basename(file)}`, clean ? clean + '\n' : '')
+}
 copy(`${work}/collect.mjs`, 'collect.mjs.txt'); copy(`${work}/playwright.f3-built.config.ts`, 'playwright.f3-built.config.ts.txt')
 const images = walk('output/playwright/f7/built-n1-correction-first-artifacts').filter(f => f.endsWith('logout-unknown-login.png'))
 for (const file of images) copy(file, `images/${path.basename(file)}`)
@@ -46,7 +49,7 @@ if (runs.some(r => r.stats.unexpected || r.stats.flaky) || historical.some(h => 
 write('verification-summary.json', { version: '1.0', date: '2026-10-14', timezone: 'Asia/Taipei', createdAt: new Date().toISOString(), baseline, branch: git(['branch', '--show-current']), initialGitState: 'clean', stage: 'F7-R3-N1 corrected; local independent re-review pending', closedFindings: ['R1', 'R2', 'R4'], versions, sources,
   checks: { lint: 'PASS (lint-delivery.log)', strictTypecheck: 'PASS (typecheck-delivery.log)', build: 'PASS (build.log)', unit: '167/167 PASS, 5 files (unit-first.log)', harnessTypecheck: 'PASS (harness-typecheck.log)', diffCheck: 'PASS' },
   runs, before, after: runs.flatMap(r => r.cases.filter(c => c.title.includes('F7-R3-N1'))), coverage: 'Full 50 F7 cases first passed; then only the appended reviewer Close-unknown case ran (1/1). Production sources/build unchanged across all runs. Final test source hashes include that append.',
-  buildFiles: build.length, historical, protectedDiff, secretMatches: secrets,
+  buildFiles: build.length, historical, protectedDiff, secretMatches: secrets, logNormalization: 'Delivered logs: LF, trailing line whitespace and EOF blank lines normalized; raw originals retained. Initial committed log whitespace check FAIL preserved; follow-up documentation correction only.',
   backend: { snapshotCommit: '7591633137c5a6f57c1fce8e1ba19ab394015880', checkoutCommit: execFileSync('git', ['-C', 'C:/Users/user/Desktop/custom-form-service', 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), manifest: { total: backend.length, matches: backend.filter(f => f.matches).length }, runtimeReverified: false, realBusinessRequests: 0, realWrites: 0, realDeletes: 0, databaseOperations: 0 },
   fixtures: 'All Browser business API requests intercepted. F7/F3/F6 built use one fresh production build; F6 scope uses dev harness.', limitations: ['Formal AI/manual acceptance deferred; accepted unchanged', 'Real invalid/expired/disabled and server-commit fault BLOCKED', 'DB identity/migration UNCONFIRMED', 'Fresh real integration, real device, Chrome/Edge/Firefox/WebKit additional runs, npm ci/audit, F8/F9 NOT RUN'] })
 write('artifact-manifest.json', { hashEncoding: 'UTF-8 text normalized to LF; PNG binary bytes', files: walk(dest).filter(f => !f.endsWith('artifact-manifest.json')).sort().map(file => ({ file: path.relative(dest, file).replaceAll('\\', '/'), bytes: bytes(file).length, sha256: sha(bytes(file)) })) })
