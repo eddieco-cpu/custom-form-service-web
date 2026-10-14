@@ -1,0 +1,2421 @@
+{
+  "date": "2026-10-14",
+  "timezone": "Asia/Taipei",
+  "kind": "F6-R1/R2 independent local re-review; not formal acceptance",
+  "baseline": "0aff8bb754f077d5df90209a123e024e5b5a83a3",
+  "target": "8e858455b6ce191b6a1607d3c03eda0dd2cea5f4",
+  "startingGitState": "clean; master",
+  "node": "24.21.0",
+  "npm": "11.19.0",
+  "installedVersions": {
+    "nuxt": "4.6.1",
+    "vue": "3.5.43",
+    "@nuxt/ui": "4.11.3",
+    "tailwindcss": "4.3.3",
+    "typescript": "5.9.3",
+    "vitest": "5.0.3",
+    "@playwright/test": "1.64.0",
+    "lossless-json": "4.3.1"
+  },
+  "browser": "156.0.8078.4",
+  "checks": [
+    {
+      "command": "npm run lint",
+      "output": "output/f6/r1-r2-rereview-20261014/lint.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f"
+    },
+    {
+      "command": "npm run typecheck",
+      "output": "output/f6/r1-r2-rereview-20261014/typecheck.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "d8743fda191df029064272f8f4c242817f738a25770be7de94a1d6805ddb54af"
+    },
+    {
+      "command": "npm run build",
+      "output": "output/f6/r1-r2-rereview-20261014/build.log",
+      "exitCode": 0,
+      "result": "PASS; fresh production build; DEP0155 retained",
+      "sha256": "59ecb35cf0bdc6b221ae096c20bed34d1c587e4b58ba28e0b70a9d524c244359"
+    },
+    {
+      "command": "npm run test:unit -- tests/unit/f6-network-diagnostics.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f5-answer.spec.ts",
+      "output": "output/f6/r1-r2-rereview-20261014/unit.log",
+      "exitCode": 0,
+      "result": "PASS: 60/60, 3 files",
+      "sha256": "0700988bff40f295784dc9f9b5516923393b114e4dc195f90087f0ac27271b7c"
+    },
+    {
+      "command": "npx vue-tsc --noEmit -p tests/fixtures/f6/browser/tsconfig.json",
+      "output": "output/f6/r1-r2-rereview-20261014/harness-typecheck.log",
+      "exitCode": 0,
+      "result": "PASS",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "command": "F6_MODE=built; PLAYWRIGHT_JSON_OUTPUT_NAME=output/f6/r1-r2-rereview-20261014/built-results.json; npm run test:e2e -- --config=playwright.f6.config.ts --reporter=list,json --output=output/f6/r1-r2-rereview-20261014/built-artifacts",
+      "output": "output/f6/r1-r2-rereview-20261014/built-browser.log",
+      "exitCode": 0,
+      "result": "PASS: 23; skipped 4; synthetic API",
+      "sha256": "a060290064524808c13b4c036ae87438a4a36101335441ff5666442c9d5ea7c3"
+    },
+    {
+      "command": "F6_MODE=fixture; PLAYWRIGHT_JSON_OUTPUT_NAME=output/f6/r1-r2-rereview-20261014/harness-results.json; npm run test:e2e -- --config=playwright.f6.config.ts --grep=\"Renderer readonly|same-component ID update|pending old GET|Renderer instances|F6-R2\" --reporter=list,json --output=output/f6/r1-r2-rereview-20261014/harness-artifacts",
+      "output": "output/f6/r1-r2-rereview-20261014/harness-browser.log",
+      "exitCode": 0,
+      "result": "PASS: 6; synthetic API",
+      "sha256": "fd84ec253a9c0f631e3e982e43c91ba367978f00b96717e7f66614061d4017fa"
+    },
+    {
+      "command": "node output/f6/r1-r2-rereview-20261014/evidence-audit.mjs",
+      "output": "output/f6/r1-r2-rereview-20261014/evidence-audit.log",
+      "exitCode": 0,
+      "result": "PASS: retained correction hashes and before/after assertions",
+      "sha256": "61e112164241f7def7e1e9991cd419cb6e8c952a553455451db4385cf13b595d"
+    },
+    {
+      "command": "node output/f6/r1-r2-rereview-20261014/renderer-spotcheck.mjs",
+      "output": "output/f6/r1-r2-rereview-20261014/renderer-spotcheck-final2.log",
+      "exitCode": 0,
+      "result": "PASS: 6 identity/model checks in existing dev harness",
+      "sha256": "77da059302061d7752204ce1186cdb13415e7e84788d78e4406a9aead8128b46"
+    },
+    {
+      "command": "initial one-off Renderer probe",
+      "output": "output/f6/r1-r2-rereview-20261014/renderer-spotcheck-initial.log",
+      "exitCode": 1,
+      "result": "FAIL: attempted pointer click on sr-only text label; no product/test edits",
+      "sha256": "b8c62b2fbdc0c396d891fc3ac2b080c96c5418356d5050a0bec6c3389ebc0983"
+    },
+    {
+      "command": "extended one-off Renderer probe",
+      "output": "output/f6/r1-r2-rereview-20261014/renderer-spotcheck-model-initial.log",
+      "exitCode": 1,
+      "result": "FAIL: native JSON output became stale after ExactNumber BigInt in Stars-only fixture; diagnostic scope mismatch",
+      "sha256": "72fb87c60aab741267419d1a5d98326f9e1d51ff34a56ee3f295d3aedc5134f3"
+    },
+    {
+      "command": "extended probe debugging",
+      "output": "output/f6/r1-r2-rereview-20261014/renderer-spotcheck-debug.log",
+      "exitCode": 1,
+      "result": "FAIL: retained same model extraction error",
+      "sha256": "9e5e991aef974e85ac4e7ea9f2ef6b3adb5a015923444eea642ca176921a28d0"
+    },
+    {
+      "command": "extended probe runtime debugging",
+      "output": "output/f6/r1-r2-rereview-20261014/renderer-spotcheck-runtime-debug.log",
+      "exitCode": 1,
+      "result": "FAIL: native JSON.stringify BigInt in diagnostic output; retained",
+      "sha256": "6edfad6706c03b35c6cc1e99e715cd3fe1e1fd07fb7639125f2336b93feb7424"
+    }
+  ],
+  "freshBuildIndexSha256": "2d8cd85f2569ba4d13254866cb5be5f1ee23706afa2746e44e98621b506b31c9",
+  "built": {
+    "stats": {
+      "startTime": "2026-10-14T00:18:38.531Z",
+      "duration": 25509.588,
+      "expected": 23,
+      "skipped": 4,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "api": "intercepted synthetic",
+    "cases": [
+      {
+        "title": "F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op and second delta",
+        "location": "f6-browser.spec.ts:61",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag",
+        "location": "f6-browser.spec.ts:77",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained",
+        "location": "f6-browser.spec.ts:94",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 400,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 400
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard",
+        "location": "f6-browser.spec.ts:101",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 401
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)",
+        "location": "f6-browser.spec.ts:115",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "diagnosticCount": 1
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 401
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks",
+        "location": "f6-browser.spec.ts:134",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "requestfailed",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_FAILED",
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: net::ERR_FAILED",
+                  "diagnosticCount": 1
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 500,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "requestfailed",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_FAILED"
+                },
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 500
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: net::ERR_FAILED",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B08 Create unknown retains input and every retry prompts duplicate risk",
+        "location": "f6-browser.spec.ts:143",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored",
+        "location": "f6-browser.spec.ts:149",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 409,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                  "diagnosticCount": 1
+                },
+                {
+                  "kind": "requestfailed",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_ABORTED",
+                  "count": 1,
+                  "diagnosticCount": 0
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 409
+                },
+                {
+                  "kind": "requestfailed",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_ABORTED"
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B10/B12 Preview isolation/reset/keyboard focus, desktop and mobile layout, exact raw Number",
+        "location": "f6-browser.spec.ts:157",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B11 Stars/Range unoperated vs zero, min>1, 100 stars/10 columns, clearing/required",
+        "location": "f6-browser.spec.ts:178",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B12 empty preview does not require Draft validation or write placeholders",
+        "location": "f6-browser.spec.ts:189",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+        "location": "f6-browser.spec.ts:193",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "attachments": []
+      },
+      {
+        "title": "F6-B03 sparse order move and undo preserves clean baseline, Option label/value stays stable",
+        "location": "f6-browser.spec.ts:197",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B05 Create error map points to newly added Option and retains unknown detail",
+        "location": "f6-browser.spec.ts:202",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 400,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "POST",
+                  "url": "http://localhost:5000/api/v1/forms",
+                  "status": 400
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+                  "url": "http://localhost:5000/api/v1/forms"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+        "location": "f6-browser.spec.ts:205",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "attachments": []
+      },
+      {
+        "title": "F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes",
+        "location": "f6-browser.spec.ts:211",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 403,
+                  "count": 2,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                  "diagnosticCount": 2
+                },
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 403
+                },
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 403
+                },
+                {
+                  "kind": "response",
+                  "method": "PATCH",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                },
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+        "location": "f6-browser.spec.ts:217",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "attachments": []
+      },
+      {
+        "title": "F6 new disabled bootstrap has a read error and explicit retry, never an empty page or automatic Create",
+        "location": "f6-browser.spec.ts:228",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/users/me",
+                  "status": 403,
+                  "count": 1,
+                  "diagnostic": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                  "diagnosticCount": 1
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/users/me",
+                  "status": 403
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+                  "url": "http://localhost:5000/api/v1/users/me"
+                }
+              ],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+        "location": "f6-browser.spec.ts:235",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "same-title-stars-observation",
+            "data": {
+              "afterLabel": [
+                {
+                  "key": "00000000-0000-4000-8000-000000000070",
+                  "text": "尚未作答",
+                  "checked": false,
+                  "id": "v-0-18-answer-00000000-0000-4000-8000-000000000070-zero",
+                  "name": "v-0-18-answer-00000000-0000-4000-8000-000000000070",
+                  "labelControl": "00000000-0000-4000-8000-000000000070"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000071",
+                  "text": "0 分",
+                  "checked": true,
+                  "id": "v-0-18-answer-00000000-0000-4000-8000-000000000071-zero",
+                  "name": "v-0-18-answer-00000000-0000-4000-8000-000000000071",
+                  "labelControl": "00000000-0000-4000-8000-000000000071"
+                }
+              ],
+              "bothZero": [
+                {
+                  "text": "0 分",
+                  "checked": true
+                },
+                {
+                  "text": "0 分",
+                  "checked": true
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R2 rejects unrelated resource 404",
+        "location": "f6-browser.spec.ts:252",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "unexpected-network-observation",
+            "data": {
+              "console": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:3000/f6-unexpected-404.png"
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:3000/f6-unexpected-404.png",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:3000/f6-unexpected-404.png"
+                }
+              ],
+              "issues": [
+                "Unexpected request outcome {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\",\"status\":404}",
+                "Unexpected diagnostic {\"text\":\"Failed to load resource: the server responded with a status of 404 (Not Found)\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\"}"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R2 rejects unrelated resource requestfailed",
+        "location": "f6-browser.spec.ts:252",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "unexpected-network-observation",
+            "data": {
+              "console": [
+                {
+                  "text": "Failed to load resource: net::ERR_FAILED",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [
+                {
+                  "kind": "requestfailed",
+                  "method": "GET",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png",
+                  "reason": "net::ERR_FAILED"
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: net::ERR_FAILED",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                }
+              ],
+              "issues": [
+                "Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\",\"reason\":\"net::ERR_FAILED\"}",
+                "Unexpected diagnostic {\"text\":\"Failed to load resource: net::ERR_FAILED\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\"}"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+        "location": "f6-browser.spec.ts:267",
+        "status": "skipped",
+        "expectedStatus": "skipped",
+        "attachments": []
+      }
+    ]
+  },
+  "harness": {
+    "stats": {
+      "startTime": "2026-10-14T00:19:57.862Z",
+      "duration": 15791.105000000001,
+      "expected": 6,
+      "skipped": 0,
+      "unexpected": 0,
+      "flaky": 0
+    },
+    "api": "intercepted synthetic",
+    "cases": [
+      {
+        "title": "F6 Renderer readonly keeps exact answers and offers no write/clear controls",
+        "location": "f6-browser.spec.ts:193",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+        "location": "f6-browser.spec.ts:205",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+        "location": "f6-browser.spec.ts:217",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [
+                {
+                  "kind": "requestfailed",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_ABORTED",
+                  "count": 1,
+                  "diagnosticCount": 0
+                }
+              ],
+              "actual": [
+                {
+                  "kind": "requestfailed",
+                  "method": "GET",
+                  "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+                  "reason": "net::ERR_ABORTED"
+                }
+              ],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R2 rejects unrelated resource 404",
+        "location": "f6-browser.spec.ts:252",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "unexpected-network-observation",
+            "data": {
+              "console": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:3000/f6-unexpected-404.png"
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [
+                {
+                  "kind": "response",
+                  "method": "GET",
+                  "url": "http://localhost:3000/f6-unexpected-404.png",
+                  "status": 404
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                  "url": "http://localhost:3000/f6-unexpected-404.png"
+                }
+              ],
+              "issues": [
+                "Unexpected request outcome {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\",\"status\":404}",
+                "Unexpected diagnostic {\"text\":\"Failed to load resource: the server responded with a status of 404 (Not Found)\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\"}"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R2 rejects unrelated resource requestfailed",
+        "location": "f6-browser.spec.ts:252",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "unexpected-network-observation",
+            "data": {
+              "console": [
+                {
+                  "text": "Failed to load resource: net::ERR_FAILED",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [
+                {
+                  "kind": "requestfailed",
+                  "method": "GET",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png",
+                  "reason": "net::ERR_FAILED"
+                }
+              ],
+              "diagnostics": [
+                {
+                  "text": "Failed to load resource: net::ERR_FAILED",
+                  "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                }
+              ],
+              "issues": [
+                "Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\",\"reason\":\"net::ERR_FAILED\"}",
+                "Unexpected diagnostic {\"text\":\"Failed to load resource: net::ERR_FAILED\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\"}"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+        "location": "f6-browser.spec.ts:267",
+        "status": "passed",
+        "expectedStatus": "passed",
+        "attachments": [
+          {
+            "name": "renderer-instance-identities",
+            "data": {
+              "initial": [
+                {
+                  "key": "00000000-0000-4000-8000-000000000070",
+                  "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                  "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                  "owner": "left"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000071",
+                  "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                  "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                  "owner": "left"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000070",
+                  "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                  "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                  "owner": "right"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000071",
+                  "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                  "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                  "owner": "right"
+                }
+              ],
+              "final": [
+                {
+                  "key": "00000000-0000-4000-8000-000000000071",
+                  "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                  "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                  "owner": "left"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000070",
+                  "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                  "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                  "owner": "left"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000071",
+                  "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                  "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                  "owner": "right"
+                },
+                {
+                  "key": "00000000-0000-4000-8000-000000000070",
+                  "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                  "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                  "owner": "right"
+                }
+              ]
+            }
+          },
+          {
+            "name": "declared-network-diagnostics",
+            "data": {
+              "expected": [],
+              "actual": [],
+              "diagnostics": [],
+              "issues": []
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "correctionEvidenceAudit": {
+    "kind": "independent audit of retained correction evidence; not reexecution",
+    "reports": [
+      {
+        "file": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/before-results.json",
+        "sha256": "61bea30cb1d9b4def931e887e9371ddbb79472d277c91a79d692d405d99611c5",
+        "stats": {
+          "startTime": "2026-10-13T14:05:54.820Z",
+          "duration": 16851.014,
+          "expected": 0,
+          "skipped": 0,
+          "unexpected": 3,
+          "flaky": 0
+        },
+        "selectedCases": [
+          {
+            "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+            "status": "failed",
+            "errors": [
+              "TimeoutError: locator.check: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '預覽', exact: true }).locator('[data-renderer-key]').first().getByRole('radio', { name: '0 分', exact: true })\u001b[22m\n\n\n  229 |   await second.locator('label').filter({ hasText: /^0 分$/ }).click()\n  230 |   const afterLabel = await cards.evaluateAll(els => els.map(el => ({ key: el.getAttribute('data-renderer-key'), text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked, id: el.querySelector('input[type=radio]')?.id, name: el.querySelector<HTMLInputElement>('input[type=radio]')?.name, labelControl: el.querySelector<HTMLLabelElement>('label')?.control?.closest('[data-renderer-key]')?.getAttribute('data-renderer-key') })))\n> 231 |   await first.getByRole('radio', { name: '0 分', exact: true }).check(); await second.getByRole('radio', { name: '0 分', exact: true }).check()\n      |                                                                ^\n  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n  234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:231:64"
+            ],
+            "attachments": []
+          },
+          {
+            "title": "F6-R2 rejects unrelated resource 404",
+            "status": "failed",
+            "errors": [
+              "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n\n  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30"
+            ],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:3000/f6-unexpected-404.png"
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R2 rejects unrelated resource requestfailed",
+            "status": "failed",
+            "errors": [
+              "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoThrow\u001b[2m()\u001b[22m\n\nReceived function did not throw\n\n  247 |   await expect.poll(() => state.console.some(m => m.url === url)).toBe(true)\n  248 |   await info.attach('unexpected-network-observation', { body: JSON.stringify({ console: state.console.filter(m => m.url === url) }), contentType: 'application/json' })\n> 249 |   expect(() => clean(state)).toThrow()\n      |                              ^\n  250 | })\n  251 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:249:30"
+            ],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "file": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/before-r1-results.json",
+        "sha256": "7fad5c8ea688fc325ef0b208c27589ef47385ec27bc2fbecfc796ebeb5a1b982",
+        "stats": {
+          "startTime": "2026-10-13T14:07:10.143Z",
+          "duration": 4918.285,
+          "expected": 0,
+          "skipped": 0,
+          "unexpected": 1,
+          "flaky": 0
+        },
+        "selectedCases": [
+          {
+            "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+            "status": "failed",
+            "errors": [
+              "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"00000000-0000-4000-8000-000000000070\",\u001b[22m\n\u001b[32m-   \"00000000-0000-4000-8000-000000000071\",\u001b[39m\n\u001b[31m+   \"00000000-0000-4000-8000-000000000070\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  232 |   const bothZero = await cards.evaluateAll(els => els.map(el => ({ text: el.querySelector('p[aria-live]')?.textContent, checked: el.querySelector<HTMLInputElement>('input[type=radio]')?.checked })))\n  233 |   await info.attach('same-title-stars-observation', { body: JSON.stringify({ afterLabel, bothZero }), contentType: 'application/json' }); await page.screenshot({ path: info.outputPath('same-title-stars.png') })\n> 234 |   expect(afterLabel.map(q => q.labelControl)).toEqual([uuid(70), uuid(71)])\n      |                                               ^\n  235 |   expect(afterLabel.map(q => q.text)).toEqual(['尚未作答', '0 分']); expect(afterLabel.map(q => q.checked)).toEqual([false, true])\n  236 |   expect(bothZero).toEqual([{ text: '0 分', checked: true }, { text: '0 分', checked: true }])\n  237 |   await first.getByRole('radio', { name: '3 分', exact: true }).click(); await expect(first.locator('p[aria-live]')).toHaveText('3 分'); await expect(first.getByRole('radio', { name: '0 分', exact: true })).not.toBeChecked(); await expect(second.getByRole('radio', { name: '0 分', exact: true })).toBeChecked(); await expect(second.locator('p[aria-live]')).toHaveText('0 分')\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f6-browser.spec.ts:234:47"
+            ],
+            "attachments": [
+              {
+                "name": "same-title-stars-observation",
+                "data": {
+                  "afterLabel": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "text": "0 分",
+                      "checked": true,
+                      "id": "Same rating title-zero",
+                      "name": "Same rating title",
+                      "labelControl": "00000000-0000-4000-8000-000000000070"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "text": "尚未作答",
+                      "checked": false,
+                      "id": "Same rating title-zero",
+                      "name": "Same rating title",
+                      "labelControl": "00000000-0000-4000-8000-000000000070"
+                    }
+                  ],
+                  "bothZero": [
+                    {
+                      "text": "0 分",
+                      "checked": false
+                    },
+                    {
+                      "text": "0 分",
+                      "checked": true
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "file": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/built-first-results.json",
+        "sha256": "b327530541d33cbd60977001e612dc5d36c6ba32ae0300ddd78630e639785f38",
+        "stats": {
+          "startTime": "2026-10-13T14:14:09.445Z",
+          "duration": 25750.557,
+          "expected": 23,
+          "skipped": 4,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "selectedCases": [
+          {
+            "title": "F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "same-title-stars-observation",
+                "data": {
+                  "afterLabel": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "text": "尚未作答",
+                      "checked": false,
+                      "id": "v-0-18-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-18-answer-00000000-0000-4000-8000-000000000070",
+                      "labelControl": "00000000-0000-4000-8000-000000000070"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "text": "0 分",
+                      "checked": true,
+                      "id": "v-0-18-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-18-answer-00000000-0000-4000-8000-000000000071",
+                      "labelControl": "00000000-0000-4000-8000-000000000071"
+                    }
+                  ],
+                  "bothZero": [
+                    {
+                      "text": "0 分",
+                      "checked": true
+                    },
+                    {
+                      "text": "0 分",
+                      "checked": true
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R2 rejects unrelated resource 404",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:3000/f6-unexpected-404.png"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:3000/f6-unexpected-404.png",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:3000/f6-unexpected-404.png"
+                    }
+                  ],
+                  "issues": [
+                    "Unexpected request outcome {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\",\"status\":404}",
+                    "Unexpected diagnostic {\"text\":\"Failed to load resource: the server responded with a status of 404 (Not Found)\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\"}"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R2 rejects unrelated resource requestfailed",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                    }
+                  ],
+                  "issues": [
+                    "Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\",\"reason\":\"net::ERR_FAILED\"}",
+                    "Unexpected diagnostic {\"text\":\"Failed to load resource: net::ERR_FAILED\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\"}"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+            "status": "skipped",
+            "errors": [],
+            "attachments": []
+          }
+        ]
+      },
+      {
+        "file": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/harness-delivery-results.json",
+        "sha256": "338d82f0e547661d5e7a76e6b4af2113c50518dbd8f6163f8601b4438656b426",
+        "stats": {
+          "startTime": "2026-10-13T14:17:19.170Z",
+          "duration": 15674.877999999999,
+          "expected": 6,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "selectedCases": [
+          {
+            "title": "F6-R2 rejects unrelated resource 404",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:3000/f6-unexpected-404.png"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [
+                    {
+                      "kind": "response",
+                      "method": "GET",
+                      "url": "http://localhost:3000/f6-unexpected-404.png",
+                      "status": 404
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+                      "url": "http://localhost:3000/f6-unexpected-404.png"
+                    }
+                  ],
+                  "issues": [
+                    "Unexpected request outcome {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\",\"status\":404}",
+                    "Unexpected diagnostic {\"text\":\"Failed to load resource: the server responded with a status of 404 (Not Found)\",\"url\":\"http://localhost:3000/f6-unexpected-404.png\"}"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R2 rejects unrelated resource requestfailed",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "unexpected-network-observation",
+                "data": {
+                  "console": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [
+                    {
+                      "kind": "requestfailed",
+                      "method": "GET",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png",
+                      "reason": "net::ERR_FAILED"
+                    }
+                  ],
+                  "diagnostics": [
+                    {
+                      "text": "Failed to load resource: net::ERR_FAILED",
+                      "url": "http://localhost:3000/f6-unexpected-requestfailed.png"
+                    }
+                  ],
+                  "issues": [
+                    "Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\",\"reason\":\"net::ERR_FAILED\"}",
+                    "Unexpected diagnostic {\"text\":\"Failed to load resource: net::ERR_FAILED\",\"url\":\"http://localhost:3000/f6-unexpected-requestfailed.png\"}"
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "renderer-instance-identities",
+                "data": {
+                  "initial": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "right"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "right"
+                    }
+                  ],
+                  "final": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "right"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "right"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "file": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/harness-identity-final-results.json",
+        "sha256": "9b4753680befd811fdbc6ed2d71c43176ebf7204d3ee69eb9667d2b238454a85",
+        "stats": {
+          "startTime": "2026-10-13T14:19:27.505Z",
+          "duration": 9803.647,
+          "expected": 1,
+          "skipped": 0,
+          "unexpected": 0,
+          "flaky": 0
+        },
+        "selectedCases": [
+          {
+            "title": "F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree",
+            "status": "passed",
+            "errors": [],
+            "attachments": [
+              {
+                "name": "renderer-instance-identities",
+                "data": {
+                  "initial": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "right"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "right"
+                    }
+                  ],
+                  "final": [
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-2-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-2-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "left"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000071",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000071-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000071",
+                      "owner": "right"
+                    },
+                    {
+                      "key": "00000000-0000-4000-8000-000000000070",
+                      "id": "v-0-3-answer-00000000-0000-4000-8000-000000000070-zero",
+                      "name": "v-0-3-answer-00000000-0000-4000-8000-000000000070",
+                      "owner": "right"
+                    }
+                  ]
+                }
+              },
+              {
+                "name": "declared-network-diagnostics",
+                "data": {
+                  "expected": [],
+                  "actual": [],
+                  "diagnostics": [],
+                  "issues": []
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "checks": {
+      "sha256MatchesCorrectionSummary": true,
+      "beforeR2FailedBecauseHelperDidNotThrow": true,
+      "beforeR1WrongLabelTargetObserved": true,
+      "afterR1CorrectLabelAndBothZeroChecked": true,
+      "afterInstancesFourUniqueStableIds": true
+    }
+  },
+  "rendererSpotcheck": {
+    "kind": "independent spotcheck of actual Renderer through existing dev harness; synthetic in-memory definition only; no live API writes",
+    "browser": "156.0.8078.4",
+    "injected": {
+      "component": "F6RendererInstancesHarness",
+      "questionCount": 7
+    },
+    "numericInput": "unfinished raw string for identity-only scope; valid ExactNumber handled by built B10 and F5 unit",
+    "checks": {
+      "uniqueTextNumberTextareaIds": true,
+      "labelsPointWithinCorrectInstanceAndQuestion": true,
+      "radioAndCheckboxGroupsIsolated": true,
+      "modelIsolationIncludingNumberRaw": true,
+      "selectAndMultiSelectIsolation": true,
+      "renameReorderPreserveIdentity": true
+    },
+    "initial": [
+      {
+        "instance": "left",
+        "inputs": [
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000090",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000091",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000092",
+            "name": "",
+            "tag": "TEXTAREA",
+            "type": "textarea",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000095",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-one",
+            "ariaLabel": "Same choice"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000096",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-multiple",
+            "ariaLabel": "Same choice"
+          }
+        ],
+        "labels": [
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "targetKey": "00000000-0000-4000-8000-000000000090",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "targetKey": "00000000-0000-4000-8000-000000000091",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "targetKey": "00000000-0000-4000-8000-000000000092",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "left"
+          }
+        ]
+      },
+      {
+        "instance": "right",
+        "inputs": [
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000090",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000091",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000092",
+            "name": "",
+            "tag": "TEXTAREA",
+            "type": "textarea",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000095",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-one",
+            "ariaLabel": "Same choice"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000096",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-multiple",
+            "ariaLabel": "Same choice"
+          }
+        ],
+        "labels": [
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "targetKey": "00000000-0000-4000-8000-000000000090",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "targetKey": "00000000-0000-4000-8000-000000000091",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "targetKey": "00000000-0000-4000-8000-000000000092",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "right"
+          }
+        ]
+      }
+    ],
+    "final": [
+      {
+        "instance": "left",
+        "inputs": [
+          {
+            "key": "00000000-0000-4000-8000-000000000096",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-multiple",
+            "ariaLabel": "Renamed same title"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000095",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-one",
+            "ariaLabel": "Renamed same title"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-2-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000092",
+            "name": "",
+            "tag": "TEXTAREA",
+            "type": "textarea",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000091",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "id": "v-0-2-answer-00000000-0000-4000-8000-000000000090",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          }
+        ],
+        "labels": [
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "targetKey": "00000000-0000-4000-8000-000000000092",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "targetKey": "00000000-0000-4000-8000-000000000091",
+            "targetInstance": "left"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "targetKey": "00000000-0000-4000-8000-000000000090",
+            "targetInstance": "left"
+          }
+        ]
+      },
+      {
+        "instance": "right",
+        "inputs": [
+          {
+            "key": "00000000-0000-4000-8000-000000000096",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-multiple",
+            "ariaLabel": "Renamed same title"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000095",
+            "id": "",
+            "name": "",
+            "tag": "SELECT",
+            "type": "select-one",
+            "ariaLabel": "Renamed same title"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000094",
+            "tag": "INPUT",
+            "type": "checkbox",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "id": "",
+            "name": "v-0-3-answer-00000000-0000-4000-8000-000000000093",
+            "tag": "INPUT",
+            "type": "radio",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000092",
+            "name": "",
+            "tag": "TEXTAREA",
+            "type": "textarea",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000091",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "id": "v-0-3-answer-00000000-0000-4000-8000-000000000090",
+            "name": "",
+            "tag": "INPUT",
+            "type": "text",
+            "ariaLabel": null
+          }
+        ],
+        "labels": [
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000094",
+            "targetKey": "00000000-0000-4000-8000-000000000094",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000093",
+            "targetKey": "00000000-0000-4000-8000-000000000093",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000092",
+            "targetKey": "00000000-0000-4000-8000-000000000092",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000091",
+            "targetKey": "00000000-0000-4000-8000-000000000091",
+            "targetInstance": "right"
+          },
+          {
+            "key": "00000000-0000-4000-8000-000000000090",
+            "targetKey": "00000000-0000-4000-8000-000000000090",
+            "targetInstance": "right"
+          }
+        ]
+      }
+    ],
+    "models": [
+      {
+        "00000000-0000-4000-8000-000000000070": {
+          "type": "rating"
+        },
+        "00000000-0000-4000-8000-000000000071": {
+          "type": "rating"
+        },
+        "00000000-0000-4000-8000-000000000091": {
+          "type": "number",
+          "raw": "incomplete-number"
+        },
+        "00000000-0000-4000-8000-000000000093": {
+          "type": "single_choice",
+          "optionKey": "00000000-0000-4000-8000-000000000501"
+        },
+        "00000000-0000-4000-8000-000000000095": {
+          "type": "single_choice",
+          "optionKey": "00000000-0000-4000-8000-000000000501"
+        }
+      },
+      {
+        "00000000-0000-4000-8000-000000000070": {
+          "type": "rating"
+        },
+        "00000000-0000-4000-8000-000000000071": {
+          "type": "rating"
+        },
+        "00000000-0000-4000-8000-000000000090": {
+          "type": "text",
+          "raw": "right text"
+        },
+        "00000000-0000-4000-8000-000000000092": {
+          "type": "text",
+          "raw": "right textarea"
+        },
+        "00000000-0000-4000-8000-000000000093": {
+          "type": "single_choice",
+          "optionKey": "00000000-0000-4000-8000-000000000502"
+        },
+        "00000000-0000-4000-8000-000000000094": {
+          "type": "multiple_choice",
+          "optionKeys": [
+            "00000000-0000-4000-8000-000000000501"
+          ]
+        },
+        "00000000-0000-4000-8000-000000000095": {
+          "type": "single_choice",
+          "optionKey": "00000000-0000-4000-8000-000000000502"
+        },
+        "00000000-0000-4000-8000-000000000096": {
+          "type": "multiple_choice",
+          "optionKeys": [
+            "00000000-0000-4000-8000-000000000501",
+            "00000000-0000-4000-8000-000000000502"
+          ]
+        }
+      }
+    ],
+    "requests": [
+      {
+        "method": "GET",
+        "url": "http://localhost:5000/api/v1/users/me"
+      }
+    ],
+    "errors": [],
+    "diagnostics": []
+  },
+  "probeLimit": "Text/Number/Choice inspection reused the existing Stars harness via in-memory definition replacement; Number identity used unfinished raw text, not a valid exact value in its native JSON model output. Valid exact Number remains covered by fresh built B10 and F5 answer unit.",
+  "historicalFiles": [
+    {
+      "path": "docs/review/F6_Independent_Code_Review_Report_20261013.md",
+      "sha256": "a611a01b9bec0d8982ffdfbf8cc4faa543468e3df996c76594f0759a98fa6733",
+      "status": "UNCHANGED; historical review/live conclusions retained"
+    },
+    {
+      "path": "docs/review/evidence/F6_Independent_Verification_20261013.json",
+      "sha256": "2a4a5ba81c463b36f57f95932d570e9cb3edc6b91d3567813b82fc0137b47b6c",
+      "status": "UNCHANGED; historical review/live conclusions retained"
+    },
+    {
+      "path": "docs/implementation/evidence/F6_20261013/live-f6-1791895080750-sanitized.json",
+      "sha256": "bfc5bb73e0bf0a9465958e05b7f9d158eff2c7a035b2d5a60d58d467574b4642",
+      "status": "UNCHANGED; historical review/live conclusions retained"
+    },
+    {
+      "path": "docs/implementation/evidence/F6_20261013/live-f6-1791895169561-sanitized.json",
+      "sha256": "21f9172de21c2ca16a00e911595284c983ef5a7abfd7d74282ce8b5cd11b7b58",
+      "status": "UNCHANGED; historical review/live conclusions retained"
+    },
+    {
+      "path": "docs/implementation/evidence/F6_20261013/live-f6-1791895220225-sanitized.json",
+      "sha256": "e088770e680fa330e8aacb1729b3fab957d55f1e9948707d725b3dc771d23495",
+      "status": "UNCHANGED; historical review/live conclusions retained"
+    }
+  ],
+  "backend": {
+    "snapshotSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifestEntries": 108,
+    "manifestMismatches": 0,
+    "runtimeThisReview": "NOT RUN; historical assembly version 1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880 retained",
+    "databaseIdentityAndMigration": "UNCONFIRMED",
+    "realRequests": 0,
+    "realWrites": 0
+  },
+  "findings": [],
+  "closure": {
+    "F6-R1": "CLOSED",
+    "F6-R2": "CLOSED",
+    "F6CodeReview": "PASS; other approved review conclusions retained"
+  },
+  "remaining": {
+    "realDeviceSoftKeyboardSafeArea": "BLOCKED/NOT RUN; retained",
+    "controlledLiveAuthAndResourceStates": "BLOCKED/NOT RUN; retained",
+    "formalAcceptance": "NOT RUN; deferred",
+    "liveRerun": "NOT RUN; intentionally excluded",
+    "chromeEdgeFirefoxWebKit": "NOT RUN this local re-review",
+    "npmCiAudit": "NOT RUN; no dependency changes"
+  },
+  "deliveryChecks": {
+    "result": "PASS",
+    "checks": [
+      {
+        "name": "Markdown links/table columns/fences/control characters/final newline",
+        "result": "PASS",
+        "files": 3,
+        "links": 113
+      },
+      {
+        "name": "README and total plan history preserved except new appended review entries",
+        "result": "PASS"
+      },
+      {
+        "name": "Evidence parsed, synthetic-only payloads, no auth secret fields, results match report",
+        "result": "PASS"
+      },
+      {
+        "name": "Protected tracked product/tests/specs/history/dependencies vs target, git diff --check",
+        "result": "PASS",
+        "detail": "Host Git exit 0; LF-to-CRLF advisories retained"
+      }
+    ],
+    "screenshot": "Visually inspected; only synthetic fixture definition/answers"
+  },
+  "acceptedChanged": false,
+  "push": false,
+  "F7": "NOT RUN",
+  "stop": "F6-R1/R2 局部獨立複核通過、F6 code review 通過，待 Owner 確認後續階段",
+  "documentCommitSha": "See delivery message and Git log; excluded to avoid self-reference"
+}
