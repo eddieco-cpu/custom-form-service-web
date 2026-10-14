@@ -1,0 +1,1662 @@
+{
+  "version": "1.0",
+  "date": "2026-10-14",
+  "timezone": "Asia/Taipei",
+  "createdAt": "2026-10-14T08:34:48.543Z",
+  "baseline": "0af30dc877fca68b1cd74fb5741c06e6456d89bd",
+  "stage": "F7-R1–R4 corrected; local independent re-review pending",
+  "initialGitState": "clean",
+  "branch": "master",
+  "versions": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "packages": {
+      "nuxt": "4.6.1",
+      "@nuxt/ui": "4.11.3",
+      "vue": "3.5.43",
+      "nitropack": "2.13.4",
+      "vite": "8.3.4",
+      "vitest": "5.0.3",
+      "@playwright/test": "1.64.0",
+      "typescript": "5.9.3"
+    },
+    "browsers": {
+      "chromium": "156.0.8078.4",
+      "chrome": "156.0.8078.12",
+      "msedge": "155.0.4283.45"
+    }
+  },
+  "sourceHashes": [
+    {
+      "file": "app/components/forms/FormEditor.vue",
+      "sha256": "bead60049fb6590252c671fd66f30103f6b695572df3849193d44e37e7ce544b",
+      "gitBlob": "ed4c3dd51b83a374a1ed887b0891814dfd70bf12"
+    },
+    {
+      "file": "app/components/forms/FormManagement.vue",
+      "sha256": "be4e7b4f48ddb440c096dbbe17ecd1f7a50b2431b82f37dda2c2d80ab3d89014",
+      "gitBlob": "6a4f601fabf68d3b92d965bf6c9b96156b9d54e8"
+    },
+    {
+      "file": "app/components/forms/FormReadPage.vue",
+      "sha256": "17f3052ebe73982b04065a730ff23b34020a4af90f92f162eb2803abd0cb4ff2",
+      "gitBlob": "9a7b3c4946b646a29f21b7635f15d300d032015e"
+    },
+    {
+      "file": "app/composables/useFormDetail.ts",
+      "sha256": "33f9ef1c58049dcfcd91019393bf85fa2cbce46392d37c369c33453d618f29b5",
+      "gitBlob": "7be6fbe8a2a991ad93cfa389d5df1002829c2661"
+    },
+    {
+      "file": "app/composables/useFormEditor.ts",
+      "sha256": "ce50add3c5d8b53b78c04b0ec174d1fdef540a88b85f284aef5aef34fc5b4db1",
+      "gitBlob": "ef6b63834e6ece569e417731cdad1918dfdcea0b"
+    },
+    {
+      "file": "app/composables/useFormManagement.ts",
+      "sha256": "f8ff9ee1349eaea3e71ce7f22c803eacc71af03016f604da761d88c7b9ff4268",
+      "gitBlob": "2ed6d5401b4316cd4107797fba47f7b5028ea423"
+    },
+    {
+      "file": "app/domain/form-management.ts",
+      "sha256": "c0cc796bd372f090b519b75678f647a99cdd8e0db9a4539e4018fb0faf8dd207",
+      "gitBlob": "9710219d5167d853fe001c7ca4c63cf714a66e68"
+    },
+    {
+      "file": "tests/e2e/f7-browser.spec.ts",
+      "sha256": "4d37de2feb8c48825e17fd8945cfffa8ca582fcf9213e064293329c5f6115523",
+      "gitBlob": "afa112020762db7c05e693b85d96ea54c11ea1bd"
+    },
+    {
+      "file": "tests/unit/f7-form-management.spec.ts",
+      "sha256": "b447cc131c137c2ac2348ea18b1dc6b971db6d0ed25d3e4454fb1598a7aea9f3",
+      "gitBlob": "4435c7d61f28de63930579298c9544a63847b3e9"
+    }
+  ],
+  "commands": {
+    "lint": "PASS (lint-delivery.log)",
+    "typecheck": "PASS (typecheck-delivery.log)",
+    "build": "PASS (build-third.log)",
+    "unit": "304/304 PASS, 10 files (unit-complete.log)",
+    "harnessStrict": "PASS (harness-typecheck.log)",
+    "diffCheck": "PASS"
+  },
+  "browser": [
+    {
+      "name": "first",
+      "source": "output/playwright/f7/built-r1-r4-correction-first-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:21:55.164Z",
+        "duration": 173757.219,
+        "expected": 19,
+        "skipped": 0,
+        "unexpected": 19,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "line": 55,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "line": 63,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B04 Visibility retains pending edits and exact definition; all writes serialize",
+          "line": 77,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly",
+          "line": 87,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B06 Publish full saved index, unknown summary and first actual field focus",
+          "line": 97,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification",
+          "line": 103,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B08 Count zero and explicit repeat, no automatic poll",
+          "line": 119,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "line": 124,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "line": 133,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "line": 140,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once",
+          "line": 149,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B13 disabled error retains Header and definition; no global logout or unknown write lock",
+          "line": 159,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B14 Clipboard success stores the complete Published URL and no fallback",
+          "line": 165,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B15 nonOwner Draft remains formal 404 without management",
+          "line": 170,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "line": 174,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "line": 184,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R1 first non-control error stays in summary while first editable Publish control receives focus",
+          "line": 196,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "line": 223,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "line": 229,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "line": 243,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "line": 250,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "timedOut"
+        },
+        {
+          "title": "F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH",
+          "line": 258,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH",
+          "line": 273,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 282,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 282,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "line": 296,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "line": 306,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "line": 315,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "line": 321,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "name": "second",
+      "source": "output/playwright/f7/built-r1-r4-correction-second-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:26:06.495Z",
+        "duration": 39357.566999999995,
+        "expected": 37,
+        "skipped": 0,
+        "unexpected": 1,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "line": 55,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "line": 63,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B04 Visibility retains pending edits and exact definition; all writes serialize",
+          "line": 77,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly",
+          "line": 87,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B06 Publish full saved index, unknown summary and first actual field focus",
+          "line": 97,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification",
+          "line": 103,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B08 Count zero and explicit repeat, no automatic poll",
+          "line": 119,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "line": 124,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "line": 133,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "line": 140,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once",
+          "line": 149,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B13 disabled error retains Header and definition; no global logout or unknown write lock",
+          "line": 159,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B14 Clipboard success stores the complete Published URL and no fallback",
+          "line": 165,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B15 nonOwner Draft remains formal 404 without management",
+          "line": 170,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "line": 174,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "line": 184,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R1 first non-control error stays in summary while first editable Publish control receives focus",
+          "line": 196,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "unexpected",
+          "result": "failed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "line": 223,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "line": 229,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "line": 243,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "line": 250,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH",
+          "line": 259,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH",
+          "line": 274,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 283,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 283,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "line": 297,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "line": 307,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "line": 316,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "line": 322,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "name": "final",
+      "source": "output/playwright/f7/built-r1-r4-correction-final-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:28:28.273Z",
+        "duration": 33620.595,
+        "expected": 38,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing",
+          "line": 55,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count",
+          "line": 63,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data",
+          "line": 69,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B04 Visibility retains pending edits and exact definition; all writes serialize",
+          "line": 77,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly",
+          "line": 87,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B06 Publish full saved index, unknown summary and first actual field focus",
+          "line": 97,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification",
+          "line": 103,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes",
+          "line": 111,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B08 Count zero and explicit repeat, no automatic poll",
+          "line": 119,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates",
+          "line": 124,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed owner_only has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed respondents has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B09 nonOwner Closed public has correct Statistics link only",
+          "line": 129,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B10 old Form GET after Close success stays stale after pending ends",
+          "line": 133,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles",
+          "line": 140,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once",
+          "line": 149,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B13 disabled error retains Header and definition; no global logout or unknown write lock",
+          "line": 159,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B14 Clipboard success stores the complete Published URL and no fallback",
+          "line": 165,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B15 nonOwner Draft remains formal 404 without management",
+          "line": 170,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial",
+          "line": 174,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "line": 184,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R1 first non-control error stays in summary while first editable Publish control receives focus",
+          "line": 196,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "line": 223,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+          "line": 229,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+          "line": 243,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+          "line": 250,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH",
+          "line": 259,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH",
+          "line": 274,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 283,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty",
+          "line": 283,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears",
+          "line": 297,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast",
+          "line": 307,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "line": 316,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "line": 322,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "name": "f6-built",
+      "source": "output/playwright/f7/correction-f6-built-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:30:06.537Z",
+        "duration": 17514.914,
+        "expected": 15,
+        "skipped": 2,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op and second delta",
+          "line": 61,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag",
+          "line": 77,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained",
+          "line": 94,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard",
+          "line": 101,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit)",
+          "line": 115,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks",
+          "line": 134,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B08 Create unknown retains input and every retry prompts duplicate risk",
+          "line": 143,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored",
+          "line": 149,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B05 Create error map points to newly added Option and retains unknown detail",
+          "line": 202,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "line": 205,
+          "project": "chromium",
+          "expectedStatus": "skipped",
+          "outcome": "skipped",
+          "result": "skipped"
+        },
+        {
+          "title": "F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes",
+          "line": 211,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "line": 217,
+          "project": "chromium",
+          "expectedStatus": "skipped",
+          "outcome": "skipped",
+          "result": "skipped"
+        }
+      ]
+    },
+    {
+      "name": "f6-scope",
+      "source": "output/playwright/f7/correction-f6-scope-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:31:11.783Z",
+        "duration": 11567.466999999999,
+        "expected": 2,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F6-B06 same-component ID update is guarded and old response cannot replace current resource",
+          "line": 205,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F6-B09 pending old GET cannot suppress or overwrite a new resource read",
+          "line": 217,
+          "project": "chromium",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "name": "chrome",
+      "source": "output/playwright/f7/built-chrome-r1-r4-correction-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:33:22.213Z",
+        "duration": 6381.368,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "line": 184,
+          "project": "chrome",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "line": 223,
+          "project": "chrome",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "line": 322,
+          "project": "chrome",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    },
+    {
+      "name": "msedge",
+      "source": "output/playwright/f7/built-msedge-r1-r4-correction-smoke-results.json",
+      "stats": {
+        "startTime": "2026-10-14T08:33:54.658Z",
+        "duration": 6973.884,
+        "expected": 3,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      },
+      "cases": [
+        {
+          "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+          "line": 184,
+          "project": "msedge",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+          "line": 223,
+          "project": "msedge",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        },
+        {
+          "title": "F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work",
+          "line": 322,
+          "project": "msedge",
+          "expectedStatus": "passed",
+          "outcome": "expected",
+          "result": "passed"
+        }
+      ]
+    }
+  ],
+  "reviewerRegression": {
+    "before": [
+      {
+        "name": "R1 saved incomplete Rating publication must focus first editable invalid field",
+        "result": "FAIL",
+        "expectedFocusedField": "00000000-0000-4000-8000-000000000005.config.min",
+        "active": {
+          "tag": "BUTTON",
+          "text": "發布",
+          "field": null
+        },
+        "publishRequests": 0,
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "R2 Clipboard completion after SPA leave must not emit old success toast",
+        "result": "FAIL",
+        "expected": "No toast owned by disposed Form page",
+        "observed": {
+          "url": "http://localhost:3000/",
+          "staleToastVisible": true,
+          "copied": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050"
+        },
+        "errors": [],
+        "diagnostics": [],
+        "unexpected": []
+      },
+      {
+        "name": "R2 Clipboard reject after qualification denial must not expose old fallback",
+        "result": "FAIL",
+        "expected": "No late fallback after qualification changes",
+        "observed": {
+          "fallbackUrl": "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050",
+          "ownerShareButtons": 0,
+          "denied": true
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 403,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 403
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 403 (Forbidden)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R3 Published lifecycle unknown must retain reconciliation dirty guard on SPA leave",
+        "result": "FAIL",
+        "expected": "One dirty prompt; dismiss retains Form URL and unknown",
+        "observed": {
+          "prompts": 0,
+          "url": "http://localhost:3000/"
+        },
+        "expectedNetwork": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED",
+            "count": 1
+          }
+        ],
+        "failures": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R3 Published lifecycle unknown must retain reconciliation beforeunload guard",
+        "result": "FAIL",
+        "expected": "One beforeunload prompt; dismiss keeps unknown page",
+        "observed": {
+          "prompts": 0,
+          "meRequests": 2,
+          "closeRequests": 1
+        },
+        "expectedNetwork": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED",
+            "count": 1
+          }
+        ],
+        "failures": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close",
+            "reason": "net::ERR_FAILED"
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: net::ERR_FAILED",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/close"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R4 Visibility authoritative 404 plus discard cancel must revoke Draft save qualification",
+        "result": "FAIL",
+        "expected": "Preserve dirty definition but prohibit subsequent Draft PATCH",
+        "observed": {
+          "prompts": 1,
+          "saveEnabled": true,
+          "publishEnabled": false,
+          "definitionPatches": 1
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 404,
+            "count": 1
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 404,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility",
+            "status": 404
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 404
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/result-visibility"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          }
+        ],
+        "unexpected": []
+      },
+      {
+        "name": "R4 Publish 409 and failed reload must keep Draft save revoked",
+        "result": "FAIL",
+        "expected": "Known Published stops definition save even if candidate and reload fail",
+        "observed": {
+          "editable": true,
+          "saveEnabled": true,
+          "definitionPatches": 1
+        },
+        "expectedDiagnostics": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+            "status": 409,
+            "count": 1
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500,
+            "count": 2
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 409,
+            "count": 1
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500,
+            "count": 1
+          }
+        ],
+        "responses": [
+          {
+            "method": "POST",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish",
+            "status": 409
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          },
+          {
+            "method": "PATCH",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 409
+          },
+          {
+            "method": "GET",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+            "status": 500
+          }
+        ],
+        "errors": [],
+        "diagnostics": [
+          {
+            "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/publish"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          },
+          {
+            "text": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+            "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050"
+          }
+        ],
+        "unexpected": []
+      }
+    ],
+    "after": [
+      {
+        "title": "F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes",
+        "line": 184,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback",
+        "line": 223,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R2 reviewer Clipboard reject after management denial creates no late fallback",
+        "line": 229,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock",
+        "line": 243,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking",
+        "line": 250,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH",
+        "line": 259,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      },
+      {
+        "title": "F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH",
+        "line": 274,
+        "project": "chromium",
+        "expectedStatus": "passed",
+        "outcome": "expected",
+        "result": "passed"
+      }
+    ],
+    "expectation": "All original seven behavior expectations retained",
+    "beforeCount": 7,
+    "afterCount": 7
+  },
+  "backend": {
+    "reference": "backend-ref/SNAPSHOT.md",
+    "snapshotCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "checkoutCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "manifest": {
+      "total": 108,
+      "matches": 108,
+      "failures": []
+    },
+    "runtimeReverified": false,
+    "businessApiRequests": 0,
+    "writes": 0,
+    "deletes": 0,
+    "databaseOperations": 0
+  },
+  "historicalEvidence": [
+    {
+      "directory": "docs/review/evidence/F7_20261014",
+      "total": 51,
+      "matched": 51,
+      "failures": []
+    },
+    {
+      "directory": "docs/implementation/evidence/F7_20261014",
+      "total": 70,
+      "matched": 70,
+      "failures": []
+    }
+  ],
+  "protectedDiff": "",
+  "secretMatches": [],
+  "fixtures": "All Browser API requests intercepted; f6-scope uses dev harness. Other Browser runs use fresh production build.",
+  "historicalLive": "Applicable F7 L01–L06/policy matrix/role evidence retained; no fresh backend integration claim",
+  "limitations": [
+    "Formal AI/manual acceptance deferred; accepted unchanged",
+    "True invalid/expired/disabled Auth and server-commit fault remain BLOCKED",
+    "DB identity/migration UNCONFIRMED",
+    "Real device/touch/keyboard/safe-area, Firefox/WebKit, npm ci/audit, F8/F9 NOT RUN",
+    "No full intermediate source snapshot; first build digest preserved, final source/build hashes recorded"
+  ]
+}

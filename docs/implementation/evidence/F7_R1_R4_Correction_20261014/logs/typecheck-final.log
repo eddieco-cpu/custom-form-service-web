@@ -1,0 +1,23 @@
+
+> typecheck
+> nuxt typecheck && tsc --noEmit -p tsconfig.tools.json
+
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 768.25ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 790.17ms
+tests/e2e/f7-browser.spec.ts(186,31): error TS2345: Argument of type '{ questions: ({ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; } | { ...; } | { ...; } | { ...; } | { ...; })[]; ... 11 more ...; updatedAt: string; }' is not assignable to parameter of type 'FormDetailDto'.
+  Types of property 'questions' are incompatible.
+    Type '({ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; } | { config: { max: number; }; ... 6 more ...; options: readonly OptionDto[]; } | { ...; } | { ...; } | { ...; })[]' is not assignable to type 'readonly QuestionDto[]'.
+      Type '{ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; } | { config: { max: number; }; ... 6 more ...; options: readonly OptionDto[]; } | { ...; } | { ...; } | { ...; }' is not assignable to type 'QuestionDto'.
+        Type '{ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; }' is not assignable to type 'QuestionDto'.
+          Type '{ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; }' is not assignable to type '{ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }; readonl...'.
+            The types of 'config.max' are incompatible between these types.
+              Type 'number' is not assignable to type 'ExactNumber'.
+tests/unit/f7-form-management.spec.ts(61,188): error TS2345: Argument of type '{ questions: ({ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { ...; }; readonly options: readonly OptionDto[]; } | ... 7 more ... | { ...; })[]; ... 11 more ...; updatedAt: string; }' is not assignable to parameter of type 'FormDetailDto'.
+  Types of property 'questions' are incompatible.
+    Type '({ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }; readon...' is not assignable to type 'readonly QuestionDto[]'.
+      Type '{ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }; readonl...' is not assignable to type 'QuestionDto'.
+        Type '{ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; }' is not assignable to type 'QuestionDto'.
+          Type '{ config: { max: number; }; id: string; type: "number"; title: string; description: string | null; required: boolean; sortOrder: number; options: readonly OptionDto[]; }' is not assignable to type '{ readonly id: string; readonly type: "number"; readonly title: string; readonly description: string | null; readonly required: boolean; readonly sortOrder: number; readonly config: { readonly placeholder?: string | undefined; readonly min?: ExactNumber | undefined; readonly max?: ExactNumber | undefined; }; readonl...'.
+            The types of 'config.max' are incompatible between these types.
+              Type 'number' is not assignable to type 'ExactNumber'.

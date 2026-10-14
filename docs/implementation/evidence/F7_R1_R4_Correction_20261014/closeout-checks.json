@@ -1,0 +1,75 @@
+{
+  "createdAt": "2026-10-14T08:41:25.450Z",
+  "preserved": {
+    "readme": true,
+    "plan": true
+  },
+  "links": {
+    "total": 20,
+    "missing": []
+  },
+  "formats": [
+    {
+      "file": "docs/implementation/F7_R1_R4_Correction_Report.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    },
+    {
+      "file": "README.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    },
+    {
+      "file": "docs/implementation/V1_Frontend_Implementation_Plan.md",
+      "noControlCharacters": true,
+      "finalNewline": true,
+      "fencesBalanced": true
+    }
+  ],
+  "sources": [
+    {
+      "file": "app/components/forms/FormEditor.vue",
+      "matches": true
+    },
+    {
+      "file": "app/components/forms/FormManagement.vue",
+      "matches": true
+    },
+    {
+      "file": "app/components/forms/FormReadPage.vue",
+      "matches": true
+    },
+    {
+      "file": "app/composables/useFormDetail.ts",
+      "matches": true
+    },
+    {
+      "file": "app/composables/useFormEditor.ts",
+      "matches": true
+    },
+    {
+      "file": "app/composables/useFormManagement.ts",
+      "matches": true
+    },
+    {
+      "file": "app/domain/form-management.ts",
+      "matches": true
+    },
+    {
+      "file": "tests/e2e/f7-browser.spec.ts",
+      "matches": true
+    },
+    {
+      "file": "tests/unit/f7-form-management.spec.ts",
+      "matches": true
+    }
+  ],
+  "protectedDiff": "",
+  "secretMatches": [],
+  "screenshots": "Three synthetic images visually inspected",
+  "diffCheck": "PASS",
+  "backendNotModified": "108/108 verified by collector; checkout original untracked SNAPSHOT.md retained",
+  "preview": "No 3000 listener after test teardown"
+}

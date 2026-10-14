@@ -28,7 +28,6 @@ export function useFormEditor(mode: 'new' | 'edit') {
     confirmDuplicate: () => window.confirm('先前建立結果尚未確認，再次保存可能建立重複表單，是否繼續？'),
     confirmAccount: () => window.confirm('是否以目前登入帳號繼續編輯這份尚未保存的內容？'),
     navigate: (target, replace) => replace ? router.replace(target) : router.push(target), toast: title => toast.add({ title, color: 'success' }),
-    permissionAllowed: () => !management?.state.denied,
   })
   const management = useFormManagement({
     saved: () => state.session?.baseline.definition, eligible: () => controller.canWrite, dirty: () => controller.dirty,

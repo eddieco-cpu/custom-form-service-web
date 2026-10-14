@@ -1,0 +1,10 @@
+
+> lint
+> eslint .
+
+
+C:\Users\user\Desktop\custom-form-service-web\tests\unit\f7-form-management.spec.ts
+  69:56  error  void is only valid as a return type or generic type argument  @typescript-eslint/no-invalid-void-type
+
+✖ 1 problem (1 error, 0 warnings)
+

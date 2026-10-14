@@ -4,11 +4,25 @@ const props = defineProps<{ mode: 'form' | 'edit' }>()
 const { state, loading, auth, owner, refresh, reader, verify, operation } = useFormDetail(props.mode)
 const content = ref(0)
 watch(() => state.data, () => { content.value++ }, { flush: 'sync' })
+const dirty = useDirtyScope({ isDirty: () => false, revision: () => content.value,
+  needsReconciliation: () => { void operation.state.value; return operation.operation.value!.anyUnknown } })
+useActiveDirtyScope().register(dirty)
+function authorize(confirmed = false) {
+  const permit = dirty.authorizeAction('form-management', confirmed ? () => true : undefined)
+  return permit ? () => content.value === permit.revision : undefined
+}
+async function reconcile(verifyIdentity = false) {
+  if (operation.state.value.loading) return false
+  const permit = authorize(); if (!permit) return false
+  try { if (verifyIdentity) return await verify(permit); await refresh(permit); return false }
+  finally { dirty.finishAction() }
+}
 const management = useFormManagement({
   saved: () => state.data ? loadEditor(state.data).baseline.definition : undefined, eligible: () => owner.value,
-  dirty: () => false, revision: () => content.value, adopt: dto => { state.data = dto },
+  dirty: () => dirty.dirty.value, revision: () => content.value, adopt: dto => { state.data = dto },
   clear: () => { state.data = null; state.error = { kind: 'not-found', placement: 'page', message: '找不到表單', details: [], knownCode: true } },
-  deny: () => {}, issues: () => {}, authorize: () => () => true, finishDiscard: () => {}, reload: refresh, verify,
+  deny: () => {}, issues: () => {}, authorize, finishDiscard: dirty.finishAction,
+  reload: async () => { await reconcile() }, verify: () => reconcile(true),
 })
 const focus = useDialogFocus(() => document.querySelector<HTMLElement>('main h1'))
 async function reload() { focus.capture(); await management.reload() }

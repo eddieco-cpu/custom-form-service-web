@@ -33,6 +33,7 @@ export function useFormManagement(bridge: ManagementBridge) {
   })
   watch(() => route.params.formId, () => controller.reset(), { flush: 'sync' })
   watch(() => auth.state.value.sessionRevision, () => { state.confirmation = null }, { flush: 'sync' })
+  watch([resource, () => auth.state.value.sessionRevision, () => controller.metadata?.id, () => controller.metadata?.status, () => controller.canManage], () => controller.invalidateCopy(), { flush: 'sync' })
   watch([visibility.state, () => auth.state.value.sessionRevision], () => { state.denied = visibility.operation.value!.permissionDenied(auth.state.value.sessionRevision) }, { immediate: true, flush: 'sync' })
   onBeforeUnmount(() => controller.dispose())
   async function reload() {

@@ -12,7 +12,7 @@ import { stringifyExactJson } from '../../app/utils/exact-json'
 const user = { id: uuid(51), email: 'f7-unit@example.test', displayName: '合成建立者', avatarUrl: null }
 const ok = <T>(value: T, status = 200): ApiResult<T> => ({ kind: 'success', status, value })
 const fail = (code: string, status = 400): ApiResult<never> => ({ kind: 'api-error', status, error: { code, message: '合成錯誤' } })
-function deferred<T>() { let resolve!: (v: T) => void; const promise = new Promise<T>(r => { resolve = r }); return { promise, resolve } }
+function deferred<T>() { let resolve!: (v: T) => void, reject!: (reason: Error) => void; const promise = new Promise<T>((r, j) => { resolve = r; reject = j }); return { promise, resolve, reject } }
 function setup(status: FormStatus = 'draft') {
   const a = initialAuthState(), me = vi.fn(async () => ok(user)), auth = new AuthSession(a, me); auth.login(user)
   const e = editorPageState(); e.session = loadEditor({ ...form(), status }); let rev = 0, resource = '/forms/unit/edit', permission = true, discard = true
@@ -33,7 +33,7 @@ function setup(status: FormStatus = 'draft') {
     saved: () => e.session?.baseline.definition, eligible: () => permission && a.outcome === 'authenticated' && !!e.session && e.session.definition.metadata && 'userId' in e.session.definition.metadata && e.session.definition.metadata.userId === a.user?.id,
     dirty: () => !!e.session && editorDirty(e.session.definition, e.session.baseline),
     adopt: (dto, policy) => { e.session = policy === 'visibility' ? mergeVisibility(e.session!, dto) : loadEditor(dto); rev++ }, clear,
-    deny: () => { permission = false }, issues, authorize, finishDiscard: vi.fn(), reload,
+    deny: () => { permission = false; e.permission = null }, issues, authorize, finishDiscard: vi.fn(), reload,
     operation: p => ops[p as keyof typeof ops], writeScope: scope(), countScope: scope(), candidateScope: scope(), service, navigate, toast,
   })
   const editor = new EditorPageController(e, { auth: () => a, authSession: auth, scope: scope(), service,
@@ -43,6 +43,51 @@ function setup(status: FormStatus = 'draft') {
     edit: (title: string) => { e.session!.definition.title = title; rev++ }, discard: (v: boolean) => { discard = v }, context: () => { resource = '/away' } }
 }
 describe('F7 management behavior', () => {
+  it.each(['FORM_NOT_FOUND', 'FORM_NOT_EDITABLE', 'FORM_ALREADY_PUBLISHED', 'FORM_ALREADY_CLOSED', 'FORM_INVALID_STATE_TRANSITION'])('R4 %s also revokes F6 save until reliable current adoption', async code => {
+    const t = setup(); t.edit('保留 dirty'); t.discard(false)
+    t.service.visibility.mockResolvedValue(fail(code, code === 'FORM_NOT_FOUND' ? 404 : 409))
+    await t.manager.visibility('public'); await t.manager.closeError(); await t.editor.save()
+    expect(t.e.session!.definition.title).toBe('保留 dirty'); expect(t.editor.canWrite).toBe(false); expect(t.service.update).not.toHaveBeenCalled()
+    t.service.detail.mockResolvedValue(fail('INTERNAL_SERVER_ERROR', 500)); await t.editor.load(uuid(50), true); await t.editor.save()
+    expect(t.editor.canWrite).toBe(false); expect(t.service.update).not.toHaveBeenCalled()
+    t.service.detail.mockResolvedValue(ok(form())); await t.editor.load(uuid(50), true)
+    expect(t.editor.canWrite).toBe(true); t.edit('可靠基準後修改'); await t.editor.save(); expect(t.service.update).toHaveBeenCalledTimes(1)
+  })
+  it('R4 ordinary validation does not revoke Draft save qualification', async () => {
+    const t = setup(); t.edit('可修正'); t.service.visibility.mockResolvedValue(fail('VALIDATION_ERROR'))
+    await t.manager.visibility('public'); expect(t.editor.canWrite).toBe(true); await t.editor.save(); expect(t.service.update).toHaveBeenCalledTimes(1)
+  })
+  it('R1 repeats complete saved Publish issues without saving or requesting Publish', () => {
+    const t = setup(), original = form(), dto = { ...original, questions: original.questions.map((q, index) => index === 4 ? { ...q, type: 'rating' as const, config: { max: 5 } } : q) }; t.e.session = loadEditor(dto)
+    t.manager.begin('publish'); t.manager.begin('publish')
+    expect(t.issues).toHaveBeenCalledTimes(2); expect(t.issues.mock.calls[0]).toEqual(t.issues.mock.calls[1])
+    expect(t.issues.mock.calls[0]![0]).toContainEqual({ targetKey: dto.questions[4]!.id, field: 'config.min', message: '發布須提供完整評分範圍' })
+    expect(t.service.publish).not.toHaveBeenCalled(); expect(t.service.update).not.toHaveBeenCalled(); expect(t.state.confirmation).toBeNull()
+  })
+  it.each(['dispose', 'resource', 'id', 'session', 'denial', 'status', 'generation'] as const)('R2 late Clipboard success/reject is isolated after %s', async change => {
+    for (const reject of [false, true]) {
+      const t = setup('published'), pending = deferred<undefined>(), captured = vi.fn(() => pending.promise)
+      const copy = t.manager.copy('http://localhost:3000', captured)
+      expect(captured).toHaveBeenCalledWith(`http://localhost:3000/forms/${uuid(50)}`)
+      if (change === 'dispose') t.manager.dispose()
+      if (change === 'resource') t.context()
+      if (change === 'id') t.e.session = loadEditor({ ...form(), id: uuid(99), status: 'published' })
+      if (change === 'session') t.auth.login(user)
+      if (change === 'denial') { t.service.visibility.mockResolvedValue(fail('FORM_ACCESS_DENIED', 403)); await t.manager.visibility('public') }
+      if (change === 'status') { t.e.session = loadEditor({ ...form(), status: 'closed' }); t.manager.invalidateCopy() }
+      if (change === 'generation') await t.manager.copy('http://localhost:3000', async () => {})
+      t.toast.mockClear()
+      // A rejected clipboard API uses the same deferred command context.
+      if (reject) pending.reject(new Error('synthetic clipboard denial'))
+      else pending.resolve(undefined)
+      await copy; expect(t.toast).not.toHaveBeenCalled(); expect(t.state.fallbackUrl).toBeNull()
+    }
+  })
+  it('R2 current Clipboard success and manual fallback retain captured Closed URL', async () => {
+    const t = setup('closed'); await t.manager.copy('http://localhost:3000', async () => { throw new Error('synthetic denial') })
+    expect(t.state.fallbackUrl).toBe(`http://localhost:3000/forms/${uuid(50)}/statistics`)
+    await t.manager.copy('http://localhost:3000', async () => {}); expect(t.toast).toHaveBeenCalledWith('統計連結已複製'); expect(t.state.fallbackUrl).toBeNull()
+  })
   it.each(['draft', 'published', 'closed'] as const)('Owner %s qualification follows lifecycle', status => {
     const t = setup(status); expect(t.manager.allowed('delete')).toBe(true)
     expect(t.manager.allowed('publish')).toBe(status === 'draft'); expect(t.manager.allowed('close')).toBe(status === 'published')

@@ -44,6 +44,7 @@ export class FormManagementController {
   private disposed = false
   private authFlow?: { path: string; session: number }
   private countGeneration = 0
+  private copyGeneration = 0
   constructor(readonly state: ManagementState, private readonly effects: Effects) {}
   get saved() { return this.effects.saved() }
   get metadata() { const m = this.saved?.metadata; return m && 'id' in m ? m : undefined }
@@ -59,12 +60,26 @@ export class FormManagementController {
       && (command === 'delete' || (command === 'publish' ? status === 'draft' && !this.effects.dirty() : status === 'published'))
   }
   reset(): void {
+    this.invalidateCopy()
     this.countGeneration++
     this.effects.writeScope.invalidate(); this.effects.countScope.invalidate(); this.effects.candidateScope.invalidate()
     Object.assign(this.state, managementState()); this.authFlow = undefined
     this.state.denied = this.effects.operation('visibility').permissionDenied(this.effects.auth().sessionRevision)
   }
   dispose(): void { this.disposed = true; this.reset() }
+  invalidateCopy(): void { this.copyGeneration++; this.state.fallbackUrl = null }
+  async copy(origin: string, writeText: (url: string) => Promise<void>): Promise<void> {
+    const meta = this.metadata
+    if (!this.canManage || !meta || !['published', 'closed'].includes(meta.status)) return
+    const generation = ++this.copyGeneration, resource = this.effects.resource(), session = this.effects.auth().sessionRevision
+    const { id, status } = meta
+    const url = `${origin}/forms/${id}${status === 'closed' ? '/statistics' : ''}`
+    const message = status === 'closed' ? '統計連結已複製' : '填答連結已複製'
+    const current = () => generation === this.copyGeneration && this.canManage && resource === this.effects.resource()
+      && session === this.effects.auth().sessionRevision && id === this.metadata?.id && status === this.metadata.status
+    try { await writeText(url); if (current()) { this.state.fallbackUrl = null; this.effects.toast(message) } }
+    catch { if (current()) this.state.fallbackUrl = url }
+  }
   reconciled(): void { this.state.unavailable = false; this.state.candidate = null; this.state.selected = this.metadata ? this.saved?.resultVisibility : undefined }
   begin(command: ManagementCommand): void {
     if (!this.allowed(command) || !this.metadata) return
@@ -140,8 +155,11 @@ export class FormManagementController {
     }
     if (result.kind === 'api-error') {
       if (result.error.code === 'FORM_ACCESS_DENIED') { this.state.denied = true; this.effects.operation('visibility').denyPermission(this.effects.auth().sessionRevision); this.effects.deny() }
-      if (['FORM_NOT_FOUND', 'FORM_NOT_EDITABLE', 'FORM_ALREADY_PUBLISHED', 'FORM_ALREADY_CLOSED', 'FORM_INVALID_STATE_TRANSITION'].includes(result.error.code)) this.state.unavailable = true
+      if (['FORM_NOT_FOUND', 'FORM_NOT_EDITABLE', 'FORM_ALREADY_PUBLISHED', 'FORM_ALREADY_CLOSED', 'FORM_INVALID_STATE_TRANSITION'].includes(result.error.code)) {
+        this.state.unavailable = true; this.effects.deny()
+      }
     }
+    if (!this.canManage) this.invalidateCopy()
   }
   private async fetchCandidate(id: string): Promise<void> {
     const fresh = this.effects.operation('visibility').captureRead(), ticket = this.effects.candidateScope.begin()

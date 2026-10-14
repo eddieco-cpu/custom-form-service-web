@@ -5,7 +5,6 @@ const props = defineProps<{ manager: ReturnType<typeof useFormManagement>; showV
 const emit = defineEmits<{ closed: [] }>()
 const { state, controller, busy, unknown, visibilityState } = props.manager
 const focus = useDialogFocus(() => document.querySelector<HTMLElement>('main h1'))
-const toast = useToast()
 const status = computed(() => controller.metadata?.status)
 const labels = { publish: '發布表單', close: '關閉表單', delete: '刪除表單' }
 const description = computed(() => state.confirmation?.command === 'publish' ? '發布後表單定義將凍結，僅結果可見性可另調整。'
@@ -16,10 +15,7 @@ defineExpose({ begin })
 async function confirm(value: boolean) { await controller.confirm(value); await focus.restore() }
 async function close() { await controller.closeError(); await focus.restore(); emit('closed') }
 async function copy() {
-  const id = controller.metadata?.id; if (!id) return
-  const url = `${window.location.origin}/forms/${id}${status.value === 'closed' ? '/statistics' : ''}`
-  try { await navigator.clipboard.writeText(url); toast.add({ title: status.value === 'closed' ? '統計連結已複製' : '填答連結已複製', color: 'success' }); state.fallbackUrl = null }
-  catch { state.fallbackUrl = url }
+  await controller.copy(window.location.origin, url => navigator.clipboard.writeText(url))
 }
 const visibilityExplanation = computed(() => ({ owner_only: '僅建立者', respondents: '建立者及填答者', public: '所有人' })[controller.saved?.resultVisibility ?? 'owner_only'])
 </script>

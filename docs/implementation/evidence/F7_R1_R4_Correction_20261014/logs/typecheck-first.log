@@ -1,0 +1,10 @@
+
+> typecheck
+> nuxt typecheck && tsc --noEmit -p tsconfig.tools.json
+
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 1126.71ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 1152.25ms
+tests/e2e/f7-browser.spec.ts(185,27): error TS2540: Cannot assign to 'questions' because it is a read-only property.
+tests/e2e/f7-browser.spec.ts(197,27): error TS2540: Cannot assign to 'questions' because it is a read-only property.
+tests/unit/f7-form-management.spec.ts(61,56): error TS2540: Cannot assign to 'config' because it is a read-only property.

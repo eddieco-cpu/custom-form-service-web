@@ -14,7 +14,12 @@ const definition = computed(() => state.session?.definition)
 const form = useTemplateRef<Form<EditorDefinition>>('form')
 const managementView = useTemplateRef<{ begin: (command: 'publish') => void }>('managementView')
 // Vue unwraps exposed refs on component instances; unref supports both runtime and public Form types.
-const errors = computed(() => unref(form.value?.errors) ?? [])
+const errors = computed(() => {
+  const issues = state.issues.map(i => ({ name: `${i.targetKey}.${i.field}`, message: i.message }))
+  // UForm.setErrors retains registered fields only; structural Publish issues
+  // must still appear in the complete summary even when no control exists.
+  return [...issues, ...(unref(form.value?.errors) ?? []).filter(error => !issues.some(issue => issue.name === error.name && issue.message === error.message))]
+})
 const preview = ref(false), previewRun = ref(0)
 const pendingType = ref<{ key: string; type: QuestionType }>()
 const announce = ref('')
@@ -27,13 +32,20 @@ function validation(): FormError[] {
   return result.kind === 'invalid' ? result.issues.map(i => ({ name: `${i.targetKey}.${i.field}`, message: i.message })) : []
 }
 function focusField(name?: string) {
-  if (!name) return
-  const target = [...document.querySelectorAll<HTMLElement>('[data-editor-field]')].find(el => el.dataset.editorField === name && !el.matches(':disabled'))
+  if (!name) return false
+  const target = [...document.querySelectorAll<HTMLElement>('[data-editor-field]')].find(el => el.dataset.editorField === name
+    && !el.matches(':disabled, [readonly], [aria-disabled="true"]') && el.getClientRects().length > 0)
   target?.focus({ preventScroll: true }); target?.scrollIntoView({ block: 'center' })
+  return !!target
 }
-watch(() => state.issues, async issues => { await nextTick(); form.value?.setErrors(issues.map(i => ({ name: `${i.targetKey}.${i.field}`, message: i.message }))) })
+function focusIssues() { state.issues.some(issue => focusField(`${issue.targetKey}.${issue.field}`)) }
+watch(() => state.issues, async issues => {
+  await nextTick(); form.value?.setErrors(issues.map(i => ({ name: `${i.targetKey}.${i.field}`, message: i.message })))
+  await nextTick()
+  if (!state.error && !management.state.error) focusIssues()
+})
 async function save() { focus.capture(); await controller.save() }
-async function closeError() { await controller.closeError(); await focus.restore(); const issue = state.issues[0]; if (issue) focusField(`${issue.targetKey}.${issue.field}`) }
+async function closeError() { await controller.closeError(); await focus.restore(); focusIssues() }
 function change(update: (d: EditorDefinition) => EditorDefinition) { if (definition.value) controller.update(update(definition.value)) }
 function type(key: string, target: QuestionType, confirmed = false) {
   if (!definition.value || inputDisabled.value) return
@@ -107,7 +119,7 @@ async function reload() { focus.capture(); if (id.value) await management.reload
         </VueDraggable>
         <UButton type="button" color="neutral" variant="outline" :disabled="inputDisabled" @click="change(d => addQuestion(d))">新增題目</UButton>
       </UForm>
-      <FormsFormManagement v-if="id" ref="managementView" :manager="management" hide-publish @closed="focusField(state.issues[0] ? `${state.issues[0].targetKey}.${state.issues[0].field}` : undefined)" />
+      <FormsFormManagement v-if="id" ref="managementView" :manager="management" hide-publish @closed="focusIssues" />
       <div class="editor-save-bar fixed inset-x-0 bottom-0 z-30 border-t border-gray-200 bg-white p-4 pb-[calc(1rem+env(safe-area-inset-bottom))] md:static md:border-0 md:bg-transparent md:p-0"><div class="flex gap-3"><UButton class="flex-1 justify-center md:flex-none" :disabled="inputDisabled || operation.state.value.blocked || (!!id && !dirty.dirty.value)" :loading="operation.state.value.loading" @click="form?.submit()">{{ id ? '保存' : '保存草稿' }}</UButton><UButton v-if="id" :disabled="!management.controller.allowed('publish')" @click="managementView?.begin('publish')">發布</UButton></div><p v-if="id && controller.dirty" class="mt-1 text-sm text-gray-600">請先保存後再發布。</p></div>
     </template>
     <FeedbackActionErrorDialog v-if="state.error" :open="true" :presentation="state.error" managed-focus @close="closeError" />

@@ -1,0 +1,31 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+const base = '0af30dc877fca68b1cd74fb5741c06e6456d89bd'
+const dest = 'docs/implementation/evidence/F7_R1_R4_Correction_20261014'
+const text = file => fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n')
+const git = args => execFileSync('git', args, { encoding: 'utf8', stdio: ['ignore', 'pipe', 'pipe'] }).replace(/\r\n/g, '\n')
+const sha = data => crypto.createHash('sha256').update(data).digest('hex')
+const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)])
+const report = 'docs/implementation/F7_R1_R4_Correction_Report.md'
+const plan = 'docs/implementation/V1_Frontend_Implementation_Plan.md'
+const readme = text('README.md'), start = readme.indexOf('最新修正進度'), end = readme.indexOf('\n\n', start) + 2
+const planText = text(plan), planStart = planText.indexOf('### 9.27'), planEnd = planText.indexOf('## 10.', planStart)
+const preserved = { readme: readme.slice(0, start) + readme.slice(end) === git(['show', `${base}:README.md`]), plan: planText.slice(0, planStart) + planText.slice(planEnd) === git(['show', `${base}:${plan}`]) }
+const docs = [[report, text(report)], ['README.md', readme.slice(start, end)], [plan, planText.slice(planStart, planEnd)]]
+const links = docs.flatMap(([file, content]) => [...content.matchAll(/\[[^\]]+\]\(([^)]+)\)/g)].map(m => ({ file, target: m[1], exists: fs.existsSync(path.resolve(path.dirname(file), m[1].split('#')[0])) })))
+const summary = JSON.parse(text(`${dest}/verification-summary.json`))
+const sources = summary.sourceHashes.map(s => ({ file: s.file, matches: sha(Buffer.from(text(s.file))) === s.sha256 && git(['hash-object', '--', s.file]).trim() === s.gitBlob }))
+const formats = docs.map(([file, content]) => ({ file, noControlCharacters: !/[\u0000-\u0008\u000b\u000c\u000e-\u001f]/.test(content), finalNewline: content.endsWith('\n'), fencesBalanced: (content.match(/^```/gm)?.length ?? 0) % 2 === 0 }))
+const protectedDiff = git(['diff', '--name-only', base, '--', 'docs/review', 'docs/specs', 'docs/implementation/F7_Development_Report.md', 'docs/implementation/F7_Implementation_Plan.md', 'docs/implementation/evidence/F7_20261014', 'tests/e2e/f6-browser.spec.ts', 'tests/e2e/f7-live.spec.ts', 'AGENTS.md', 'package.json', 'package-lock.json'])
+git(['diff', '--check'])
+fs.copyFileSync('output/f7/correction-20261014/collect-second.log', `${dest}/logs/collect-second.log`)
+fs.copyFileSync('output/f7/correction-20261014/closeout.mjs', `${dest}/closeout.mjs.txt`)
+const secrets = walk(dest).filter(f => !f.endsWith('.png') && /eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+|["'](?:password|access_token|refresh_token|signingKey)["']\s*:\s*["'][^"']+/.test(text(f)))
+const checks = { createdAt: new Date().toISOString(), preserved, links: { total: links.length, missing: links.filter(l => !l.exists) }, formats, sources, protectedDiff, secretMatches: secrets, screenshots: 'Three synthetic images visually inspected', diffCheck: 'PASS', backendNotModified: '108/108 verified by collector; checkout original untracked SNAPSHOT.md retained', preview: 'No 3000 listener after test teardown' }
+if (!Object.values(preserved).every(Boolean) || links.some(l => !l.exists) || sources.some(s => !s.matches) || formats.some(f => !f.noControlCharacters || !f.finalNewline || !f.fencesBalanced) || protectedDiff.trim() || secrets.length) throw new Error(JSON.stringify(checks))
+fs.writeFileSync(`${dest}/closeout-checks.json`, JSON.stringify(checks, null, 2) + '\n')
+const files = walk(dest).filter(f => !f.endsWith('artifact-manifest.json')).sort().map(file => { const data = file.endsWith('.png') ? fs.readFileSync(file) : Buffer.from(text(file)); return { file: path.relative(dest, file).replaceAll('\\', '/'), bytes: data.length, sha256: sha(data) } })
+fs.writeFileSync(`${dest}/artifact-manifest.json`, JSON.stringify({ hashEncoding: 'UTF-8 text normalized to LF; PNG binary bytes', files }, null, 2) + '\n')
+console.log(JSON.stringify({ preserved, links: checks.links, sources: sources.length, files: files.length, protectedDiff, secretMatches: secrets }))

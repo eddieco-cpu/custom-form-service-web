@@ -144,7 +144,7 @@ test('F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles',
   s.expected.push(expectedNetwork('POST', `${root}/close`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
   await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page); pending.release(); await expect(page.getByText('正在載入表單…')).toHaveCount(0)
   await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible()
-  s.get = undefined; await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeEnabled(); clean(s)
+  s.get = undefined; page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeEnabled(); clean(s)
 })
 test('F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once', async ({ page }) => {
   const s = await start(page); await field(page, 'form.title').fill('刪除不明保留')
@@ -178,4 +178,154 @@ test('F7-B16 readonly qualification must adopt a successful Form GET; failure ca
   await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByText('載入失敗，請手動重試。')).toBeVisible()
   await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0)
   s.get = undefined; await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); clean(s)
+})
+
+// The seven independently failing reviewer scenarios retain their original expectations.
+test('F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes', async ({ page }, info) => {
+  const original = form(), dto = { ...original, questions: [{ ...original.questions[4]!, type: 'rating' as const, config: { max: 5 } }] }
+  const s = await start(page, dto), publish = page.getByRole('button', { name: '發布', exact: true })
+  for (let run = 0; run < 2; run++) {
+    await publish.click(); await expect(field(page, `${Q[4]}.config.min`)).toBeFocused()
+    await expect(page.getByRole('list', { name: '欄位錯誤摘要' })).toContainText('發布須提供完整評分範圍')
+    await expect(field(page, `${Q[4]}.config.min`)).toHaveValue('')
+    await expect(page.getByRole('dialog')).toHaveCount(0)
+  }
+  expect(s.requests.filter(r => ['POST', 'PATCH'].includes(r.method))).toHaveLength(0)
+  await page.screenshot({ path: info.outputPath('publish-local-focus.png'), fullPage: true }); clean(s)
+})
+test('F7-R1 first non-control error stays in summary while first editable Publish control receives focus', async ({ page }) => {
+  const original = form(), dto = { ...original, questions: [{ ...original.questions[2]!, type: 'single_choice' as const, config: {}, options: [] }, { ...original.questions[4]!, type: 'rating' as const, config: {} }] }
+  const s = await start(page, dto); await page.getByRole('button', { name: '發布', exact: true }).click()
+  await expect(page.getByRole('list', { name: '欄位錯誤摘要' }).locator('li')).toHaveCount(3)
+  await expect(page.getByRole('list', { name: '欄位錯誤摘要' })).toContainText('發布至少需要一個選項')
+  await expect(field(page, `${Q[4]}.config.min`)).toBeFocused()
+  expect(s.requests.filter(r => ['POST', 'PATCH'].includes(r.method))).toHaveLength(0); clean(s)
+})
+type ClipboardHarness = { copied: string[]; commands: { resolve: () => void; reject: () => void }[] }
+async function pendingClipboard(page: Page) {
+  await page.addInitScript(() => {
+    const harness: ClipboardHarness = { copied: [], commands: [] }
+    Object.assign(window, { f7Clipboard: harness })
+    Object.defineProperty(navigator, 'clipboard', { configurable: true, value: { writeText: (url: string) => {
+      harness.copied.push(url)
+      return new Promise<void>((resolve, reject) => harness.commands.push({ resolve, reject: () => reject(new Error('synthetic clipboard denial')) }))
+    } } })
+  })
+}
+async function settleClipboard(page: Page, reject = false, index = 0) {
+  await page.evaluate(async ({ reject, index }) => {
+    const harness = (window as unknown as { f7Clipboard: ClipboardHarness }).f7Clipboard
+    harness.commands[index]![reject ? 'reject' : 'resolve']()
+    await new Promise<void>(resolve => requestAnimationFrame(() => resolve()))
+    await new Promise<void>(resolve => requestAnimationFrame(() => resolve()))
+  }, { reject, index })
+}
+test('F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback', async ({ page }) => {
+  await pendingClipboard(page); const s = await start(page, { ...form(), status: 'published' })
+  await page.getByRole('button', { name: '複製填答連結' }).click()
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/')
+  await settleClipboard(page); await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0); await expect(page.getByLabel('完整分享連結')).toHaveCount(0); clean(s)
+})
+test('F7-R2 reviewer Clipboard reject after management denial creates no late fallback', async ({ page }) => {
+  await pendingClipboard(page); const s = await start(page, { ...form(), status: 'published' })
+  await page.getByRole('button', { name: '複製填答連結' }).click()
+  s.expected.push(expectedHttp('PATCH', `${root}/result-visibility`, 403, 1)); s.write = r => reply(r, error('FORM_ACCESS_DENIED'), 403)
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page)
+  await expect(page.getByRole('button', { name: '複製填答連結' })).toHaveCount(0)
+  await settleClipboard(page, true); await expect(page.getByLabel('完整分享連結')).toHaveCount(0); await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0); clean(s)
+})
+async function unknownClose(page: Page) {
+  const s = await start(page, { ...form(), status: 'published' })
+  s.expected.push(expectedNetwork('POST', `${root}/close`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
+  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page)
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); return s
+}
+test('F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock', async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0
+  page.on('dialog', async d => { expect(d.type()).toBe('confirm'); prompts++; await d.dismiss() })
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click()
+  await expect.poll(() => prompts).toBe(1); await expect(page).toHaveURL(`http://localhost:3000${view}`)
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+})
+test('F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking', async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0
+  page.on('dialog', async d => { expect(d.type()).toBe('beforeunload'); prompts++; await d.dismiss() })
+  const unload = page.waitForEvent('dialog', d => d.type() === 'beforeunload')
+  void page.reload().catch(() => {}); await unload
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
+  expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+})
+test('F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH', async ({ page }) => {
+  const s = await start(page); await field(page, 'form.title').fill('404 本地保留')
+  s.expected.push(expectedHttp('PATCH', `${root}/result-visibility`, 404, 1)); s.write = r => reply(r, error('FORM_NOT_FOUND'), 404)
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); let prompts = 0
+  page.once('dialog', async d => { prompts++; await d.dismiss() }); await closeError(page)
+  await expect(field(page, 'form.title')).toHaveValue('404 本地保留'); await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveAttribute('readonly', '')
+  expect(prompts).toBe(1); expect(s.requests.filter(r => r.method === 'PATCH' && r.path === new URL(root).pathname)).toHaveLength(0)
+  const gets = s.requests.filter(r => r.method === 'GET').length
+  page.once('dialog', d => d.dismiss()); await page.getByRole('button', { name: '重新載入並核對' }).click(); expect(s.requests.filter(r => r.method === 'GET')).toHaveLength(gets)
+  s.expected.push(expectedHttp('GET', root, 500, 1)); s.get = r => reply(r, error('INTERNAL_SERVER_ERROR'), 500)
+  page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入並核對' }).click(); await closeError(page); await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveValue('404 本地保留')
+  s.get = undefined; s.write = undefined; page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入並核對' }).click()
+  await expect(field(page, 'form.title')).not.toHaveAttribute('readonly', ''); await field(page, 'form.title').fill('可靠 GET 後修改'); await save(page).click(); await expect(save(page)).toBeDisabled()
+  expect(s.requests.filter(r => r.method === 'PATCH' && r.path === new URL(root).pathname)).toHaveLength(1); clean(s)
+})
+test('F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH', async ({ page }) => {
+  const s = await start(page); s.expected.push(expectedHttp('POST', `${root}/publish`, 409, 1), expectedHttp('GET', root, 500, 2))
+  s.write = r => reply(r, error('FORM_ALREADY_PUBLISHED'), 409); s.get = r => reply(r, error('INTERNAL_SERVER_ERROR'), 500)
+  await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '確認發布' }).click(); await closeError(page); await closeError(page)
+  await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveAttribute('readonly', ''); await expect(field(page, 'form.title')).toHaveValue(form().title)
+  expect(s.requests.filter(r => r.method === 'PATCH' && r.path === new URL(root).pathname)).toHaveLength(0)
+  s.get = undefined; s.dto = { ...s.dto, status: 'published' }; await page.getByRole('button', { name: '重新載入並核對' }).click()
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(save(page)).toHaveCount(0); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); clean(s)
+})
+for (const status of ['published', 'closed'] as const) test(`F7-R3 ${status} Visibility unknown: cancel/failure retain lock, current adoption clears dirty`, async ({ page }) => {
+  const s = await start(page, { ...form(), status }); s.expected.push(expectedNetwork('PATCH', `${root}/result-visibility`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
+  await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page)
+  let prompts = 0, accept = false; page.on('dialog', async d => { prompts++; if (accept) await d.accept(); else await d.dismiss() })
+  const gets = s.requests.filter(r => r.method === 'GET').length
+  await page.getByRole('button', { name: '重新載入並核對' }).click(); expect(prompts).toBe(1); expect(s.requests.filter(r => r.method === 'GET')).toHaveLength(gets)
+  await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeDisabled()
+  accept = true; s.expected.push(expectedHttp('GET', root, 500, 1)); s.get = r => reply(r, error('INTERNAL_SERVER_ERROR'), 500)
+  await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByText('載入失敗，請手動重試。')).toBeVisible(); expect(prompts).toBe(2)
+  await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeDisabled()
+  s.get = undefined; s.dto = { ...s.dto, resultVisibility: 'public' }; await page.getByRole('button', { name: '重新載入並核對' }).click()
+  await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeChecked(); await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeEnabled(); expect(prompts).toBe(3)
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/'); expect(prompts).toBe(3); clean(s)
+})
+test('F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears', async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0
+  page.on('dialog', async d => { prompts++; await d.dismiss() })
+  s.expected.push(expectedHttp('DELETE', root, 400, 1)); s.write = r => reply(r, error('VALIDATION_ERROR'), 400)
+  await page.getByRole('button', { name: '刪除表單', exact: true }).click(); await expect(page.getByRole('dialog', { name: '刪除表單' })).toContainText('待核對')
+  await page.getByRole('button', { name: '確認刪除' }).click(); await closeError(page); expect(prompts).toBe(0)
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect.poll(() => prompts).toBe(1); await expect(page).toHaveURL(`http://localhost:3000${view}`)
+  s.write = undefined; await page.getByRole('button', { name: '刪除表單', exact: true }).click(); await page.getByRole('button', { name: '確認刪除' }).click()
+  await expect(page).toHaveURL('http://localhost:3000/forms'); expect(prompts).toBe(1); expect(s.requests.filter(r => r.method === 'DELETE')).toHaveLength(2); clean(s)
+})
+test('F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast', async ({ page }) => {
+  const s = await start(page, { ...form(), status: 'closed' }); s.expected.push(expectedNetwork('DELETE', root, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
+  await page.getByRole('button', { name: '刪除表單', exact: true }).click(); await page.getByRole('button', { name: '確認刪除' }).click(); await closeError(page)
+  let prompts = 0; page.on('dialog', async d => { prompts++; await d.accept() })
+  s.expected.push(expectedHttp('GET', root, 404, 1)); s.get = r => reply(r, error('FORM_NOT_FOUND'), 404)
+  await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByText('找不到表單', { exact: true })).toBeVisible(); expect(prompts).toBe(1)
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(page.getByText('表單已刪除', { exact: true })).toHaveCount(0)
+  await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/'); expect(prompts).toBe(1); clean(s)
+})
+test('F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled', async ({ page }) => {
+  const s = await unknownClose(page); let prompts = 0; page.on('dialog', async d => { prompts++; await d.dismiss() })
+  await page.getByRole('button', { name: '使用者選單' }).click(); await page.getByRole('button', { name: '登出', exact: true }).click()
+  expect(prompts).toBe(1); expect(s.requests.filter(r => r.path.endsWith('/logout'))).toHaveLength(0); await expect(page).toHaveURL(`http://localhost:3000${view}`)
+  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); clean(s)
+})
+test('F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work', async ({ page }) => {
+  await pendingClipboard(page); const s = await start(page, { ...form(), status: 'published' }); await page.getByRole('button', { name: '複製填答連結' }).click()
+  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(page.getByRole('button', { name: '複製統計連結' })).toBeVisible()
+  await settleClipboard(page); await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0); await expect(page.getByText('統計連結已複製', { exact: true })).toHaveCount(0)
+  await page.getByRole('button', { name: '複製統計連結' }).click(); await page.getByRole('button', { name: '複製統計連結' }).click()
+  await settleClipboard(page, true, 2); await expect(page.getByLabel('完整分享連結')).toHaveValue(`http://localhost:3000${view}/statistics`)
+  await settleClipboard(page, false, 1); await expect(page.getByLabel('完整分享連結')).toHaveValue(`http://localhost:3000${view}/statistics`); await expect(page.getByText('統計連結已複製', { exact: true })).toHaveCount(0)
+  await page.getByLabel('完整分享連結').focus(); expect(await page.getByLabel('完整分享連結').evaluate((el: HTMLInputElement) => el.selectionEnd! - el.selectionStart!)).toBe(`http://localhost:3000${view}/statistics`.length)
+  await page.getByRole('button', { name: '取消手動複製' }).click(); await expect(page.getByLabel('完整分享連結')).toHaveCount(0); clean(s)
 })

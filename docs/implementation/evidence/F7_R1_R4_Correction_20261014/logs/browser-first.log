@@ -1,0 +1,598 @@
+
+> test:e2e
+> playwright test --config=playwright.f7.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:5176) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:14768) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 38 tests using 1 worker
+
+(node:6736) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   1 [chromium] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing (5.2s)
+(node:8892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  2 [chromium] › tests\e2e\f7-browser.spec.ts:63:1 › F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count (672ms)
+  x   3 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data (5.1s)
+(node:23244) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  4 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 published Delete 204 replaces; dirty confirms once, cancel keeps data (959ms)
+  ok  5 [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 closed Delete 204 replaces; dirty confirms once, cancel keeps data (958ms)
+  x   6 [chromium] › tests\e2e\f7-browser.spec.ts:77:1 › F7-B04 Visibility retains pending edits and exact definition; all writes serialize (5.1s)
+(node:35268) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   7 [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly (5.2s)
+(node:42660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   8 [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus (5.2s)
+(node:16584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x   9 [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification (5.2s)
+(node:42084) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  10 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes (5.2s)
+(node:41252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  11 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes (5.2s)
+(node:22984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  12 [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes (5.2s)
+(node:41028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 13 [chromium] › tests\e2e\f7-browser.spec.ts:119:1 › F7-B08 Count zero and explicit repeat, no automatic poll (447ms)
+  ok 14 [chromium] › tests\e2e\f7-browser.spec.ts:124:1 › F7-B09 Clipboard fallback exposes complete URL; Closed policy description updates; nonOwner gates (439ms)
+  ok 15 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed owner_only has correct Statistics link only (286ms)
+  ok 16 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed respondents has correct Statistics link only (285ms)
+  ok 17 [chromium] › tests\e2e\f7-browser.spec.ts:129:76 › F7-B09 nonOwner Closed public has correct Statistics link only (290ms)
+  ok 18 [chromium] › tests\e2e\f7-browser.spec.ts:133:1 › F7-B10 old Form GET after Close success stays stale after pending ends (666ms)
+  ok 19 [chromium] › tests\e2e\f7-browser.spec.ts:140:1 › F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles (1.1s)
+  x  20 [chromium] › tests\e2e\f7-browser.spec.ts:149:1 › F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once (5.1s)
+(node:6728) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  21 [chromium] › tests\e2e\f7-browser.spec.ts:159:1 › F7-B13 disabled error retains Header and definition; no global logout or unknown write lock (5.2s)
+(node:16584) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 22 [chromium] › tests\e2e\f7-browser.spec.ts:165:1 › F7-B14 Clipboard success stores the complete Published URL and no fallback (369ms)
+  x  23 [chromium] › tests\e2e\f7-browser.spec.ts:170:1 › F7-B15 nonOwner Draft remains formal 404 without management (5.1s)
+(node:17384) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 24 [chromium] › tests\e2e\f7-browser.spec.ts:174:1 › F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial (764ms)
+  x  25 [chromium] › tests\e2e\f7-browser.spec.ts:184:1 › F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes (5.1s)
+(node:38920) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  26 [chromium] › tests\e2e\f7-browser.spec.ts:196:1 › F7-R1 first non-control error stays in summary while first editable Publish control receives focus (5.2s)
+(node:17960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 27 [chromium] › tests\e2e\f7-browser.spec.ts:223:1 › F7-R2 reviewer Clipboard resolve after SPA leave creates no stale toast or fallback (447ms)
+  ok 28 [chromium] › tests\e2e\f7-browser.spec.ts:229:1 › F7-R2 reviewer Clipboard reject after management denial creates no late fallback (673ms)
+  x  29 [chromium] › tests\e2e\f7-browser.spec.ts:243:1 › F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock (837ms)
+(node:40524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  30 [chromium] › tests\e2e\f7-browser.spec.ts:250:1 › F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking (1.0m)
+(node:39272) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  31 [chromium] › tests\e2e\f7-browser.spec.ts:258:1 › F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH (5.2s)
+(node:4104) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  32 [chromium] › tests\e2e\f7-browser.spec.ts:273:1 › F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH (5.2s)
+(node:18796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 33 [chromium] › tests\e2e\f7-browser.spec.ts:282:56 › F7-R3 published Visibility unknown: cancel/failure retain lock, current adoption clears dirty (891ms)
+  ok 34 [chromium] › tests\e2e\f7-browser.spec.ts:282:56 › F7-R3 closed Visibility unknown: cancel/failure retain lock, current adoption clears dirty (857ms)
+  x  35 [chromium] › tests\e2e\f7-browser.spec.ts:296:1 › F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears (1.5s)
+(node:40036) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 36 [chromium] › tests\e2e\f7-browser.spec.ts:306:1 › F7-R3 Closed Delete unknown retains lock until current 404 adoption, without success toast (1.1s)
+  ok 37 [chromium] › tests\e2e\f7-browser.spec.ts:315:1 › F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled (1.0s)
+  ok 38 [chromium] › tests\e2e\f7-browser.spec.ts:321:1 › F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work (812ms)
+
+
+  1) [chromium] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:56:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B01-saved-pu-16700--dirty-cancel-sends-nothing-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:70:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B03-draft-De-1fa79-irms-once-cancel-keeps-data-chromium\error-context.md
+
+  3) [chromium] › tests\e2e\f7-browser.spec.ts:77:1 › F7-B04 Visibility retains pending edits and exact definition; all writes serialize 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:78:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B04-Visibili-54860-nition-all-writes-serialize-chromium\error-context.md
+
+  4) [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:88:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B05-policy-e-f57e4-nt-adoption-gates-correctly-chromium\error-context.md
+
+  5) [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:98:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B06-Publish--f8529-nd-first-actual-field-focus-chromium\error-context.md
+
+  6) [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:104:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B07-conflict-4b734-ever-restores-qualification-chromium\error-context.md
+
+  7) [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:112:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B07-AUTH-REQ-6c758-retains-but-disables-writes-chromium\error-context.md
+
+  8) [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:112:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B07-AUTH-TOK-612a8-retains-but-disables-writes-chromium\error-context.md
+
+  9) [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:112:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B07-AUTH-TOK-0d9e6-retains-but-disables-writes-chromium\error-context.md
+
+  10) [chromium] › tests\e2e\f7-browser.spec.ts:149:1 › F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:150:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B12-Delete-u-3597f-onsumes-reload-consent-once-chromium\error-context.md
+
+  11) [chromium] › tests\e2e\f7-browser.spec.ts:159:1 › F7-B13 disabled error retains Header and definition; no global logout or unknown write lock 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:160:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B13-disabled-133c4-ogout-or-unknown-write-lock-chromium\error-context.md
+
+  12) [chromium] › tests\e2e\f7-browser.spec.ts:170:1 › F7-B15 nonOwner Draft remains formal 404 without management 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('找不到表單', { exact: true })
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('找不到表單', { exact: true }) with timeout 5000ms
+      - waiting for getByText('找不到表單', { exact: true })
+
+
+      170 | test('F7-B15 nonOwner Draft remains formal 404 without management', async ({ page }) => {
+      171 |   const s = await mock(page, form(), true); sets.set(page, s); s.expected.push(expectedHttp('GET', root, 404, 1)); s.get = r => reply(r, error('FORM_NOT_FOUND'), 404)
+    > 172 |   await page.goto(edit); await expect(page.getByText('找不到表單', { exact: true })).toBeVisible(); await expect(page.getByRole('button', { name: '發布', exact: true })).toHaveCount(0); clean(s)
+          |                                                                                 ^
+      173 | })
+      174 | test('F7-B16 readonly qualification must adopt a successful Form GET; failure cannot unlock the denial', async ({ page }) => {
+      175 |   const s = await start(page, { ...form(), status: 'published' }); s.expected.push(expectedHttp('PATCH', `${root}/result-visibility`, 403, 1)); s.write = r => reply(r, error('FORM_ACCESS_DENIED'), 403)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:172:81
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-B15-nonOwner-f9430-rmal-404-without-management-chromium\error-context.md
+
+  13) [chromium] › tests\e2e\f7-browser.spec.ts:184:1 › F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:186:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R1-reviewer--91b56-ull-summary-and-zero-writes-chromium\error-context.md
+
+  14) [chromium] › tests\e2e\f7-browser.spec.ts:196:1 › F7-R1 first non-control error stays in summary while first editable Publish control receives focus 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:198:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R1-first-non-878f1-lish-control-receives-focus-chromium\error-context.md
+
+  15) [chromium] › tests\e2e\f7-browser.spec.ts:243:1 › F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      245 |   page.on('dialog', async d => { expect(d.type()).toBe('confirm'); prompts++; await d.dismiss() })
+      246 |   await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click()
+    > 247 |   await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
+          |                                                                                 ^
+      248 |   await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+      249 | })
+      250 | test('F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking', async ({ page }) => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:247:81
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R3-reviewer--5e27e-ves-the-reconciliation-lock-chromium\error-context.md
+
+  16) [chromium] › tests\e2e\f7-browser.spec.ts:250:1 › F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking 
+
+    Test timeout of 60000ms exceeded.
+
+    Error: expect(received).rejects.toThrow(expected)
+
+    Expected pattern: /ERR_ABORTED|interrupted/
+    Received message: "page.reload: Test timeout of 60000ms exceeded.
+    Call log:
+      - waiting for navigation until \"load\"
+    "
+
+          251 |   const s = await unknownClose(page); let prompts = 0
+          252 |   page.on('dialog', async d => { expect(d.type()).toBe('beforeunload'); prompts++; await d.dismiss() })
+        > 253 |   await expect(page.reload()).rejects.toThrow(/ERR_ABORTED|interrupted/)
+              |                     ^
+          254 |   await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
+          255 |   expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
+          256 |   await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+
+          at tests/e2e/f7-browser.spec.ts:253:21
+
+      251 |   const s = await unknownClose(page); let prompts = 0
+      252 |   page.on('dialog', async d => { expect(d.type()).toBe('beforeunload'); prompts++; await d.dismiss() })
+    > 253 |   await expect(page.reload()).rejects.toThrow(/ERR_ABORTED|interrupted/)
+          |                                       ^
+      254 |   await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
+      255 |   expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
+      256 |   await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:253:39
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R3-reviewer--7f2a3-itializing-App-or-unlocking-chromium\error-context.md
+
+  17) [chromium] › tests\e2e\f7-browser.spec.ts:258:1 › F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:259:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R4-reviewer--fee06-ontent-but-revokes-F6-PATCH-chromium\error-context.md
+
+  18) [chromium] › tests\e2e\f7-browser.spec.ts:273:1 › F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByText('建立者：').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByText('建立者：').first() with timeout 5000ms
+      - waiting for getByText('建立者：').first()
+
+
+      47 | }
+      48 | const sets = new WeakMap<Page, Awaited<ReturnType<typeof mock>>>()
+    > 49 | async function start(page: Page, dto = form(), nonOwner = false) { const s = await mock(page, dto, nonOwner); sets.set(page, s); await page.goto(dto.status === 'draft' ? edit : view); await expect(page.getByText('建立者：', { exact: false }).first()).toBeVisible(); return s }
+         |                                                                                                                                                                                                                                                        ^
+      50 | function clean(s: Awaited<ReturnType<typeof mock>>) { expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics)).toEqual([]) }
+      51 | test.afterEach(async ({ page }, info) => { const s = sets.get(page); if (s) await info.attach('declared-network-diagnostics', { body: JSON.stringify({ expected: s.expected, actual: s.outcomes, diagnostics: s.diagnostics, issues: verifyNetworkDiagnostics(s.expected, s.outcomes, s.diagnostics) }), contentType: 'application/json' }) })
+      52 | const field = (page: Page, name: string) => page.locator(`[data-editor-field="${name}"]`)
+        at start (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:49:248)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:274:13
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R4-reviewer--d0fa8-nt-GET-prohibit-Draft-PATCH-chromium\error-context.md
+
+  19) [chromium] › tests\e2e\f7-browser.spec.ts:296:1 › F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears 
+
+    Error: expect(received).toBe(expected) // Object.is equality
+
+    Expected: 1
+    Received: 0
+
+      300 |   await page.getByRole('button', { name: '刪除表單', exact: true }).click(); await expect(page.getByRole('dialog', { name: '刪除表單' })).toContainText('待核對')
+      301 |   await page.getByRole('button', { name: '確認刪除' }).click(); await closeError(page); expect(prompts).toBe(0)
+    > 302 |   await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
+          |                                                                                                                                                                                                             ^
+      303 |   s.write = undefined; await page.getByRole('button', { name: '刪除表單', exact: true }).click(); await page.getByRole('button', { name: '確認刪除' }).click()
+      304 |   await expect(page).toHaveURL('http://localhost:3000/forms'); expect(prompts).toBe(1); expect(s.requests.filter(r => r.method === 'DELETE')).toHaveLength(2); clean(s)
+      305 | })
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f7-browser.spec.ts:302:205
+
+    Error Context: output\playwright\f7\built-r1-r4-correction-first-artifacts\f7-browser-F7-R3-unknown-C-c9336-s-discard-permit-204-clears-chromium\error-context.md
+
+  19 failed
+    [chromium] › tests\e2e\f7-browser.spec.ts:55:1 › F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/cancel sends nothing 
+    [chromium] › tests\e2e\f7-browser.spec.ts:69:65 › F7-B03 draft Delete 204 replaces; dirty confirms once, cancel keeps data 
+    [chromium] › tests\e2e\f7-browser.spec.ts:77:1 › F7-B04 Visibility retains pending edits and exact definition; all writes serialize 
+    [chromium] › tests\e2e\f7-browser.spec.ts:87:1 › F7-B05 policy explicit failure restores; unknown reload cancel/failure/current adoption gates correctly 
+    [chromium] › tests\e2e\f7-browser.spec.ts:97:1 › F7-B06 Publish full saved index, unknown summary and first actual field focus 
+    [chromium] › tests\e2e\f7-browser.spec.ts:103:1 › F7-B07 conflict candidate waits for dirty consent and failed reload never restores qualification 
+    [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_REQUIRED dialog then dirty cancel retains but disables writes 
+    [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_INVALID dialog then dirty cancel retains but disables writes 
+    [chromium] › tests\e2e\f7-browser.spec.ts:111:83 › F7-B07 AUTH_TOKEN_EXPIRED dialog then dirty cancel retains but disables writes 
+    [chromium] › tests\e2e\f7-browser.spec.ts:149:1 › F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once 
+    [chromium] › tests\e2e\f7-browser.spec.ts:159:1 › F7-B13 disabled error retains Header and definition; no global logout or unknown write lock 
+    [chromium] › tests\e2e\f7-browser.spec.ts:170:1 › F7-B15 nonOwner Draft remains formal 404 without management 
+    [chromium] › tests\e2e\f7-browser.spec.ts:184:1 › F7-R1 reviewer incomplete saved Rating focuses min repeatedly with full summary and zero writes 
+    [chromium] › tests\e2e\f7-browser.spec.ts:196:1 › F7-R1 first non-control error stays in summary while first editable Publish control receives focus 
+    [chromium] › tests\e2e\f7-browser.spec.ts:243:1 › F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock 
+    [chromium] › tests\e2e\f7-browser.spec.ts:250:1 › F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking 
+    [chromium] › tests\e2e\f7-browser.spec.ts:258:1 › F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH 
+    [chromium] › tests\e2e\f7-browser.spec.ts:273:1 › F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit Draft PATCH 
+    [chromium] › tests\e2e\f7-browser.spec.ts:296:1 › F7-R3 unknown Close Delete uses one confirmation; failed Delete revokes discard permit, 204 clears 
+  19 passed (2.9m)

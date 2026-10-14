@@ -1,0 +1,64 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import { chromium } from '@playwright/test'
+
+const root = process.cwd(), output = 'output/f7/correction-20261014'
+const dest = 'docs/implementation/evidence/F7_R1_R4_Correction_20261014'
+const baseline = '0af30dc877fca68b1cd74fb5741c06e6456d89bd'
+const sha = data => crypto.createHash('sha256').update(data).digest('hex')
+const normalized = file => file.endsWith('.png') ? fs.readFileSync(file) : Buffer.from(fs.readFileSync(file, 'utf8').replace(/\r\n/g, '\n'))
+const walk = dir => fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)])
+const json = file => JSON.parse(fs.readFileSync(file, 'utf8'))
+const write = (name, value) => { fs.mkdirSync(path.dirname(`${dest}/${name}`), { recursive: true }); fs.writeFileSync(`${dest}/${name}`, JSON.stringify(value, null, 2) + '\n') }
+const copy = (source, target) => { fs.mkdirSync(path.dirname(`${dest}/${target}`), { recursive: true }); fs.copyFileSync(source, `${dest}/${target}`) }
+const git = args => execFileSync('git', args, { cwd: root, encoding: 'utf8' }).trim()
+const flatten = (suites = []) => suites.flatMap(s => [...(s.specs ?? []).flatMap(spec => spec.tests.map(t => ({ title: spec.title, line: spec.line, project: t.projectName, expectedStatus: t.expectedStatus, outcome: t.status, result: t.results.at(-1)?.status }))), ...flatten(s.suites)])
+const runs = [
+  ['first', 'output/playwright/f7/built-r1-r4-correction-first-results.json'],
+  ['second', 'output/playwright/f7/built-r1-r4-correction-second-results.json'],
+  ['final', 'output/playwright/f7/built-r1-r4-correction-final-results.json'],
+  ['f6-built', 'output/playwright/f7/correction-f6-built-results.json'],
+  ['f6-scope', 'output/playwright/f7/correction-f6-scope-results.json'],
+  ['chrome', 'output/playwright/f7/built-chrome-r1-r4-correction-smoke-results.json'],
+  ['msedge', 'output/playwright/f7/built-msedge-r1-r4-correction-smoke-results.json'],
+]
+const browser = runs.map(([name, source]) => { const report = json(source); copy(source, `browser/${name}-results.json`); return { name, source, stats: report.stats, cases: flatten(report.suites) } })
+for (const file of walk(output).filter(f => f.endsWith('.log'))) copy(file, `logs/${path.basename(file)}`)
+copy(`${output}/collect.mjs`, 'collect.mjs.txt')
+copy(`${output}/build-first-digest.json`, 'build-first-digest.json')
+for (const file of walk('output/playwright/f7/built-r1-r4-correction-final-artifacts').filter(f => f.endsWith('.png'))) copy(file, `images/${path.basename(file)}`)
+write('build-final-digest.json', { createdAt: new Date().toISOString(), files: walk('.output').sort().map(file => ({ file: file.replaceAll('\\', '/'), sha256: sha(fs.readFileSync(file)) })) })
+const sources = [ 'app/components/forms/FormEditor.vue', 'app/components/forms/FormManagement.vue', 'app/components/forms/FormReadPage.vue', 'app/composables/useFormDetail.ts', 'app/composables/useFormEditor.ts', 'app/composables/useFormManagement.ts', 'app/domain/form-management.ts', 'tests/e2e/f7-browser.spec.ts', 'tests/unit/f7-form-management.spec.ts' ]
+const sourceHashes = sources.map(file => ({ file, sha256: sha(normalized(file)), gitBlob: git(['hash-object', '--', file]) }))
+const backend = fs.readFileSync('backend-ref/MANIFEST.sha256', 'utf8').trim().split(/\r?\n/).map(line => { const [, expected, file] = line.match(/^([a-f0-9]{64})\s+(.+)$/); return { file, matches: sha(fs.readFileSync(`backend-ref/${file}`)) === expected } })
+const history = ['docs/review/evidence/F7_20261014', 'docs/implementation/evidence/F7_20261014'].map(dir => {
+  const manifest = json(`${dir}/artifact-manifest.json`)
+  const files = manifest.files.map(item => ({ file: item.file, matches: sha(normalized(`${dir}/${item.file}`)) === item.sha256 }))
+  return { directory: dir, total: files.length, matched: files.filter(f => f.matches).length, failures: files.filter(f => !f.matches) }
+})
+const before = [...json('docs/review/evidence/F7_20261014/browser-probes.json').cases, ...json('docs/review/evidence/F7_20261014/browser-extra-probes-first.json').cases].filter(c => c.result === 'FAIL')
+const after = browser.find(r => r.name === 'final').cases.filter(c => c.title.includes('reviewer'))
+const versions = { node: process.version, npm: execFileSync('npm.cmd', ['--version'], { shell: true, encoding: 'utf8' }).trim(), packages: {} }
+for (const name of ['nuxt', '@nuxt/ui', 'vue', 'nitropack', 'vite', 'vitest', '@playwright/test', 'typescript']) versions.packages[name] = json(`node_modules/${name}/package.json`).version
+versions.browsers = {}
+for (const channel of ['chromium', 'chrome', 'msedge']) {
+  const browser = await chromium.launch({ headless: true, ...(channel === 'chromium' ? {} : { channel }) })
+  versions.browsers[channel] = browser.version(); await browser.close()
+}
+const protectedDiff = git(['diff', '--name-only', baseline, '--', 'docs/review', 'docs/specs', 'docs/implementation/F7_Development_Report.md', 'docs/implementation/F7_Implementation_Plan.md', 'docs/implementation/evidence/F7_20261014', 'package.json', 'package-lock.json', 'AGENTS.md', '.agents', 'tests/e2e/f7-live.spec.ts'])
+const secretMatches = []
+for (const file of walk(dest).filter(f => !f.endsWith('.png'))) {
+  const data = fs.readFileSync(file, 'utf8')
+  if (/eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(data) || /["'](?:password|access_token|refresh_token|signingKey)["']\s*:\s*["'][^"']+/.test(data)) secretMatches.push(file)
+}
+const summary = { version: '1.0', date: '2026-10-14', timezone: 'Asia/Taipei', createdAt: new Date().toISOString(), baseline, stage: 'F7-R1–R4 corrected; local independent re-review pending', initialGitState: 'clean', branch: git(['branch', '--show-current']), versions, sourceHashes,
+  commands: { lint: 'PASS (lint-delivery.log)', typecheck: 'PASS (typecheck-delivery.log)', build: 'PASS (build-third.log)', unit: '304/304 PASS, 10 files (unit-complete.log)', harnessStrict: 'PASS (harness-typecheck.log)', diffCheck: 'PASS' },
+  browser, reviewerRegression: { before, after, expectation: 'All original seven behavior expectations retained', beforeCount: before.length, afterCount: after.length },
+  backend: { reference: 'backend-ref/SNAPSHOT.md', snapshotCommit: '7591633137c5a6f57c1fce8e1ba19ab394015880', checkoutCommit: execFileSync('git', ['-C', 'C:/Users/user/Desktop/custom-form-service', 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim(), manifest: { total: backend.length, matches: backend.filter(f => f.matches).length, failures: backend.filter(f => !f.matches) }, runtimeReverified: false, businessApiRequests: 0, writes: 0, deletes: 0, databaseOperations: 0 },
+  historicalEvidence: history, protectedDiff, secretMatches, fixtures: 'All Browser API requests intercepted; f6-scope uses dev harness. Other Browser runs use fresh production build.', historicalLive: 'Applicable F7 L01–L06/policy matrix/role evidence retained; no fresh backend integration claim', limitations: ['Formal AI/manual acceptance deferred; accepted unchanged', 'True invalid/expired/disabled Auth and server-commit fault remain BLOCKED', 'DB identity/migration UNCONFIRMED', 'Real device/touch/keyboard/safe-area, Firefox/WebKit, npm ci/audit, F8/F9 NOT RUN', 'No full intermediate source snapshot; first build digest preserved, final source/build hashes recorded'] }
+if (backend.some(f => !f.matches) || history.some(h => h.failures.length) || protectedDiff || secretMatches.length || before.length !== 7 || after.length !== 7 || after.some(c => c.result !== 'passed')) throw new Error('Evidence audit failed: ' + JSON.stringify({ history, protectedDiff, secretMatches, before: before.length, after }))
+write('verification-summary.json', summary)
+write('artifact-manifest.json', { hashEncoding: 'UTF-8 text normalized to LF; PNG binary bytes', files: walk(dest).filter(f => !f.endsWith('artifact-manifest.json')).sort().map(file => ({ file: path.relative(dest, file).replaceAll('\\', '/'), bytes: normalized(file).length, sha256: sha(normalized(file)) })) })
+console.log(JSON.stringify({ browser: browser.map(r => ({ name: r.name, stats: r.stats })), backendManifest: summary.backend.manifest, historicalEvidence: history, versions, before: before.length, after: after.length, sourceFiles: sourceHashes.length, secretMatches }))

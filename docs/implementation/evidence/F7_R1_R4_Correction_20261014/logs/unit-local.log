@@ -1,0 +1,13 @@
+
+> test:unit
+> vitest run tests/unit/f7-form-management.spec.ts tests/unit/f6-editor-page.spec.ts tests/unit/f5-definition-request.spec.ts tests/unit/f5-config-omission.spec.ts tests/unit/scoped-state.spec.ts tests/unit/f4-form-read.spec.ts tests/unit/api-client.spec.ts tests/unit/f5-editor.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  10 passed (10)
+      Tests  303 passed (303)
+   Start at  16:17:57
+   Duration  641ms (import 44%, transform 41%, tests 13%, worker 2%)
+

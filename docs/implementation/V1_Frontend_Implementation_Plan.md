@@ -596,6 +596,14 @@ Owner 指定前基準 `47dbce558bc628d250911f56af621ba8da2e8093`、交付 `08402
 
 **停於「F7 集中 review 完成、待 Owner 確認」。** 正式驗收維持延後、accepted不變、既有受控特殊Auth／交易故障／DB identity／migration／實機等缺口保留。僅追加報告／去敏證據及本節、README進度，原報告／FAIL／資料原件保留；單一目的本機提交SHA見Git log，不推送、不展開F8。
 
+### 9.27 F7-R1～R4 授權局部修正（2026-10-14）
+
+Owner 採納 [F7 獨立 review](../review/F7_Independent_Code_Review_Report_20261014.md) 四項 P2，直接授權修正、必要自測／受影響回歸與本機提交，不另設計畫核准 gate。接手 HEAD `0af30dc877fca68b1cd74fb5741c06e6456d89bd`、工作樹乾淨；完成管理 404／Lifecycle 資格撤銷同步約束 F6 保存、唯讀 unknown 的 DirtyScope／ActiveDirtyScope／beforeunload、Clipboard context／copy 世代隔離及本地 Publish 首個可編輯控制聚焦／完整摘要。見 [局部修正報告](F7_R1_R4_Correction_Report.md)／[去敏證據](evidence/F7_R1_R4_Correction_20261014/verification-summary.json)。
+
+lint／strict typecheck／fresh build／F6 harness strict PASS；unit **304／304（10 files）**，final F7 built **38／38**（原 reviewer 七案原預期均 PASS）、F6 built **15 PASS／2 skipped**／scope harness **2／2**，Chrome／Edge smoke 各 **3／3**。原 FAIL 及本次首輪 19 PASS／19 FAIL、第二輪 37 PASS／1 FAIL／修正重跑均保留；補保留無控制的結構錯誤摘要，三筆斷言未放寬。歷史 review manifest 51／51、開發 70／70、backend-ref 108／108 相符；真實整合只沿用適用歷史證據，本次無新增真實寫入／Delete／測資或 DB 操作。
+
+**停於「F7-R1～R4 修正完成、待局部獨立複核」。** 原 review／報告／首次失敗／真實測資保留，未宣告 code review 通過；正式驗收延後、accepted 不變、既有受控 Auth／交易故障／DB identity／migration／實機等缺口保留。單一目的本機提交 SHA 見 Git log／交付訊息，不推送、不展開 F8。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
