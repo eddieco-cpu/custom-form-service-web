@@ -1,0 +1,1 @@
+Initial sandbox probes: backend checkout git reads Permission denied; Get-NetTCPConnection showed no listeners in sandbox. No business writes attempted.

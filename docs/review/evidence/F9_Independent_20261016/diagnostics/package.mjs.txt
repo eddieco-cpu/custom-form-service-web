@@ -1,0 +1,30 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import crypto from 'node:crypto'
+const input='output/playwright/f9-review-20261015',raw=input+'/raw',dest='docs/review/evidence/F9_Independent_20261016',liveDir='output/playwright/f9'
+const read=p=>fs.readFile(p,'utf8'),json=async p=>JSON.parse(await read(p)),sha=b=>crypto.createHash('sha256').update(b).digest('hex')
+const secrets=[]
+for(const file of (await fs.readdir(liveDir)).filter(f=>f.endsWith('-private-credentials.json')))secrets.push((await json(liveDir+'/'+file)).password)
+let scanned=0,decoded=0
+function scan(s,label){scanned++;for(const secret of secrets)if(secret&&s.includes(secret))throw Error('Actual password detected '+label);if(/eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(s))throw Error('JWT pattern '+label);if(/"(?:password|cookie|authorization|access_token)"\s*:\s*"[^"\s]+"/i.test(s))throw Error('Secret field '+label)}
+function deep(o,label){if(!o||typeof o!=='object')return;if(o.contentType==='application/json'&&o.body){const text=Buffer.from(o.body,'base64').toString();scan(text,label+' decoded attachment');decoded++}for(const v of Object.values(o))if(v&&typeof v==='object')deep(v,label)}
+async function copy(src,target,normalize=false){const bytes=await fs.readFile(src);let text=bytes.toString();scan(text,src);if(src.endsWith('.json'))deep(JSON.parse(text),src);if(normalize)text=text.replace(/^\uFEFF/,'').replaceAll('\r\n','\n').split('\n').map(l=>l.trimEnd()).join('\n').trimEnd()+'\n';await fs.mkdir(path.dirname(dest+'/'+target),{recursive:true});await fs.writeFile(dest+'/'+target,normalize?text:bytes);manifest.push({path:target,source:src,rawSha256:sha(bytes),deliveredSha256:sha(normalize?text:bytes),normalization:normalize?'BOM/newline/trailing whitespace only':'none'})}
+await fs.mkdir(dest,{recursive:true});const manifest=[]
+for(const name of await fs.readdir(raw))if(/\.(?:json|log|txt)$/.test(name))await copy(raw+'/'+name,'execution/'+name,name.endsWith('.log')||name.endsWith('.txt'))
+for(const name of ['audit.mjs','oracle.py','reviewer.spec.ts','reviewer.vitest.config.ts','reviewer.browser.spec.ts','reviewer.playwright.config.ts','package.mjs'])await copy(input+'/'+name,'diagnostics/'+name+'.txt')
+const liveFile=(await fs.readdir(liveDir)).find(f=>/^f9-.*-independent-review-20261015-sanitized\.json$/.test(f))
+await copy(liveDir+'/'+liveFile,'live/'+liveFile)
+const run=await json(liveDir+'/'+liveFile)
+for(const file of (await fs.readdir(liveDir)).filter(f=>f.includes('review-20261015')&&f.endsWith('-results.json')))await copy(liveDir+'/'+file,'browser/'+file)
+const resources={runId:run.runId,accounts:run.accounts,forms:run.resources.map(r=>({...r,retained:true,purpose:r.purpose})),responses:run.receipts.map(({id,formId,alias,label})=>({id,formId,alias,purpose:label,retained:true})),existingHistoricalDeletedId:'a167ebf3-025e-4c3f-9264-aef082818952 (read only)',rules:'All new review resources retained. No prior account/form/response written. No DELETE/SQL/reset.'}
+await fs.writeFile(dest+'/resource-index.json',JSON.stringify(resources,null,2)+'\n')
+const unit=await json(raw+'/unit-results.json'),independent=await json(raw+'/reviewer-unit.json'),oracle=await json(raw+'/review-oracle.json'),audit=await json(raw+'/evidence-audit.json')
+const summary={frontend:'20381116101824aeccca405eaaf4336f6fea9784',base:'e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0',backend:'7591633137c5a6f57c1fce8e1ba19ab394015880',node:process.version,unit:{passed:unit.numPassedTests,failed:unit.numFailedTests,total:unit.numTotalTests},independentUnit:{passed:independent.numPassedTests,total:independent.numTotalTests},fixtureBrowser:{f9Product:23,harness:8,regression:26,chrome:2,edge:2,independentBuilt:1,independentHarness:1,passed:63},live:{runId:run.runId,runnerTests:3,cases:run.cases,passed:run.cases.filter(c=>c.result==='PASS').length,blocked:run.cases.filter(c=>c.result==='BLOCKED').length,corsResponses:run.wire.length,diagnosticIssues:run.diagnosticIssues,errors:run.errors,violations:run.violations},oracle:{bodies:oracle.bodies,definitions:oracle.definitions.length,submissions:oracle.submissions.length},snapshot:audit.snapshot.length,source:audit.source.length,sourceDigest:audit.sourceDigest,historicalCopies:audit.historicalCopies.length,historicalFinal:{fixture:59,real:42},formalAcceptance:'NOT RUN',humanAcceptance:'NOT RUN',accepted:'unchanged',stoppingPoint:'F9 集中 review 完成、待 Owner 確認'}
+await fs.writeFile(dest+'/verification-summary.json',JSON.stringify(summary,null,2)+'\n')
+await fs.mkdir(dest+'/images',{recursive:true})
+const built=await json(liveDir+'/built-review-20261015-ready-results.json')
+async function images(s){for(const spec of s.specs??[])for(const t of spec.tests??[])for(const r of t.results??[])for(const a of r.attachments??[])if(a.name==='mobile-long-names.png'&&a.body)await fs.writeFile(dest+'/images/'+a.name,Buffer.from(a.body,'base64'));for(const child of s.suites??[])await images(child)}
+await images(built)
+const imageFile=run.runId+'-live-current-names.png';await fs.copyFile(liveDir+'/'+imageFile,dest+'/images/live-current-names.png')
+await fs.writeFile(dest+'/raw-copy-index.json',JSON.stringify({files:manifest,scannedTextFiles:scanned,decodedJsonAttachments:decoded,actualPasswordValuesChecked:secrets.length,privateCredentialsCopied:false},null,2)+'\n')
+console.log(JSON.stringify({destination:dest,unit:summary.unit,independentUnit:summary.independentUnit,fixtureBrowser:summary.fixtureBrowser,live:{runId:run.runId,passed:summary.live.passed,blocked:summary.live.blocked},oracle:summary.oracle,files:manifest.length,scanned,decoded},null,2))

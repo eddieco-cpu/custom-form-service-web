@@ -1,0 +1,381 @@
+{
+  "engine": "Python stdlib Decimal; independently assert fixed known definitions against Create readback and answer inputs against POST wire/Receipt, aggregate latest whole Receipt per alias, exact full body and instant comparison",
+  "runs": [
+    "f9-1792077354728-live-initial",
+    "f9-1792077429649-instant-retest",
+    "f9-1792077518649-boundary-retest"
+  ],
+  "definitions": [
+    {
+      "id": "13171069-72f0-4496-a7e3-53172849f6cf",
+      "result": "PASS"
+    },
+    {
+      "id": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "result": "PASS"
+    },
+    {
+      "id": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "result": "PASS"
+    },
+    {
+      "id": "7fd53492-9180-4aa8-9fc5-0425c21817a0",
+      "result": "PASS"
+    },
+    {
+      "id": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "result": "PASS"
+    },
+    {
+      "id": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "result": "PASS"
+    },
+    {
+      "id": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS"
+    },
+    {
+      "id": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "result": "PASS"
+    },
+    {
+      "id": "687dae75-2727-47d9-a525-7c1acdde8690",
+      "result": "PASS"
+    },
+    {
+      "id": "e9da4c52-473a-428b-93a6-cb5098c7afeb",
+      "result": "PASS"
+    },
+    {
+      "id": "2a070ff6-33b4-4dea-b253-42c7a58fc338",
+      "result": "PASS"
+    },
+    {
+      "id": "612aa351-c315-4646-b556-6aa1a99fbf2e",
+      "result": "PASS"
+    },
+    {
+      "id": "6dd95313-ec9f-4ed8-b7bc-f5aff9bd79b8",
+      "result": "PASS"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "e0d9ab98-cef1-4330-908f-3551065859fe",
+      "formId": "13171069-72f0-4496-a7e3-53172849f6cf",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "892f61a0-ec5f-48cf-8446-a10df10c944f",
+      "formId": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "166167bd-c191-4c5f-9ad6-e95adb3407a8",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "4d0e9185-bcd9-4297-a97f-b77cdcd2118e",
+      "formId": "7fd53492-9180-4aa8-9fc5-0425c21817a0",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "9647ceea-55ea-4323-b6b8-1b69d28765db",
+      "formId": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "aa3583a4-5dd4-445c-a3f7-5a46b84f785c",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "8f2fbf01-352a-47d6-95c3-f75b0c7fe199",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "A",
+      "label": "historical full, excluded by next complete response",
+      "result": "PASS"
+    },
+    {
+      "id": "e513b98d-11b2-427a-82b0-591fab63c32f",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "A",
+      "label": "effective A omits text/optional",
+      "result": "PASS"
+    },
+    {
+      "id": "d0e2b701-f772-4c8f-a751-743a19714e94",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "B",
+      "label": "effective B same name",
+      "result": "PASS"
+    },
+    {
+      "id": "1be16e8c-fb64-481e-ba22-072a99739d92",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "C",
+      "label": "effective C same name distinct ID",
+      "result": "PASS"
+    },
+    {
+      "id": "7b0720fc-1ce1-4eb7-80c1-debae0263b2c",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "A",
+      "label": "historical full, excluded by next complete response",
+      "result": "PASS"
+    },
+    {
+      "id": "8598340e-0ea1-40ca-88e6-747d722a52b8",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "A",
+      "label": "effective A omits text/optional",
+      "result": "PASS"
+    },
+    {
+      "id": "3e657ea6-84c5-40ec-8113-e3acb04e68c3",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "B",
+      "label": "effective B same name",
+      "result": "PASS"
+    },
+    {
+      "id": "e9803b40-61e6-4f09-999f-adf177943c62",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "C",
+      "label": "effective C same name distinct ID",
+      "result": "PASS"
+    }
+  ],
+  "bodies": 27,
+  "checks": [
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "13171069-72f0-4496-a7e3-53172849f6cf",
+      "result": "PASS",
+      "bodySha256": "60984c4200cce3acb10233132d691fdfd530f166559e70de4cfb58c328d92b50"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "result": "PASS",
+      "bodySha256": "33a29f3de2298f73c7b1f312eaf435d29151f1b93602ccbac9605cce10b9aeba"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "result": "PASS",
+      "bodySha256": "33a29f3de2298f73c7b1f312eaf435d29151f1b93602ccbac9605cce10b9aeba"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "result": "PASS",
+      "bodySha256": "860251ad927242778176e89889cc5c0d971f9654fd69f5dc84767097970c9363"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "result": "PASS",
+      "bodySha256": "860251ad927242778176e89889cc5c0d971f9654fd69f5dc84767097970c9363"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "C",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "result": "PASS",
+      "bodySha256": "860251ad927242778176e89889cc5c0d971f9654fd69f5dc84767097970c9363"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "guest",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "result": "PASS",
+      "bodySha256": "860251ad927242778176e89889cc5c0d971f9654fd69f5dc84767097970c9363"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "7fd53492-9180-4aa8-9fc5-0425c21817a0",
+      "result": "PASS",
+      "bodySha256": "b1a26fefcf7f93e2759c7294a1231de1f8dfdcdeedbded18c088819ababe6341"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "result": "PASS",
+      "bodySha256": "7845c93077a97c13429c4af2c18f51709ed6922c76002f43506344654e893d85"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "result": "PASS",
+      "bodySha256": "7845c93077a97c13429c4af2c18f51709ed6922c76002f43506344654e893d85"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "result": "PASS",
+      "bodySha256": "63d1f0df4ac0cdcb72f58123ac4c2148feb3f3eb5aa0b33e0e136974f3208384"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "result": "PASS",
+      "bodySha256": "63d1f0df4ac0cdcb72f58123ac4c2148feb3f3eb5aa0b33e0e136974f3208384"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "C",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "result": "PASS",
+      "bodySha256": "63d1f0df4ac0cdcb72f58123ac4c2148feb3f3eb5aa0b33e0e136974f3208384"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "matrix fixed input",
+      "alias": "guest",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "result": "PASS",
+      "bodySha256": "63d1f0df4ac0cdcb72f58123ac4c2148feb3f3eb5aa0b33e0e136974f3208384"
+    },
+    {
+      "runId": "f9-1792077354728-live-initial",
+      "label": "fixed independent oracle before rename",
+      "alias": "guest",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "e69c44f3cb11e9e53dde1649e23018b6a24d8a23fbfe30960badcbec2e2c454a"
+    },
+    {
+      "runId": "f9-1792077429649-instant-retest",
+      "label": "fixed independent oracle before rename",
+      "alias": "guest",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "result": "PASS",
+      "bodySha256": "1bb0bed862215b02ea86ed9bdf35adfeeed8258a4133bc9350c1ad271f004309"
+    },
+    {
+      "runId": "f9-1792077429649-instant-retest",
+      "label": "independent GET before rename",
+      "alias": "A",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "result": "PASS",
+      "bodySha256": "1bb0bed862215b02ea86ed9bdf35adfeeed8258a4133bc9350c1ad271f004309"
+    },
+    {
+      "runId": "f9-1792077429649-instant-retest",
+      "label": "new policy and current names",
+      "alias": "B",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "result": "PASS",
+      "bodySha256": "ab58c6e71520bad1c7a402272a515d80420c1feeb0c5bca5aabbc5db463915b9"
+    },
+    {
+      "runId": "f9-1792077429649-instant-retest",
+      "label": "fresh private UI reflects current names",
+      "alias": "B",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "result": "PASS",
+      "bodySha256": "ab58c6e71520bad1c7a402272a515d80420c1feeb0c5bca5aabbc5db463915b9"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "fixed independent oracle before rename",
+      "alias": "guest",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "e69c44f3cb11e9e53dde1649e23018b6a24d8a23fbfe30960badcbec2e2c454a"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "independent GET before rename",
+      "alias": "A",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "e69c44f3cb11e9e53dde1649e23018b6a24d8a23fbfe30960badcbec2e2c454a"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "new policy and current names",
+      "alias": "B",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "4eb6ea5c12741997bec8d1bf47390bc727ba0f5be3be35ed85a7670c024ed5b2"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "fresh private UI reflects current names",
+      "alias": "B",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "4eb6ea5c12741997bec8d1bf47390bc727ba0f5be3be35ed85a7670c024ed5b2"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "restored public current names",
+      "alias": "guest",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "929377ae4359e130fa39a60d2eb90ae23b22227d7b44b4ec0637af2460221cd4"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "public current-name UI readback",
+      "alias": "guest",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "result": "PASS",
+      "bodySha256": "929377ae4359e130fa39a60d2eb90ae23b22227d7b44b4ec0637af2460221cd4"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "zero fixed oracle",
+      "alias": "guest",
+      "formId": "687dae75-2727-47d9-a525-7c1acdde8690",
+      "result": "PASS",
+      "bodySha256": "9713dbef728c53d22ea4f004a8ec36334005f8e96c3328ea3d4fc1bf5c653075"
+    },
+    {
+      "runId": "f9-1792077518649-boundary-retest",
+      "label": "zero fixed oracle",
+      "alias": "guest",
+      "formId": "e9da4c52-473a-428b-93a6-cb5098c7afeb",
+      "result": "PASS",
+      "bodySha256": "7af8b1186ca000057ebc28c0ecf0d0d3fc2e30d361e78dec4609ac699f4dd924"
+    }
+  ]
+}

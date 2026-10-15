@@ -1,0 +1,62 @@
+import { it, expect } from 'vitest'
+import { AuthSession, initialAuthState } from '../../../app/domain/auth-state'
+import { StatisticsReadController } from '../../../app/domain/statistics-read'
+import { RequestScope } from '../../../app/domain/request-scope'
+import { statistics, uuid } from '../../../tests/fixtures/f9/payloads'
+const user = { id: uuid(90), email: 'review-only@example.test', displayName: 'Reviewer synthetic', avatarUrl: null }
+const ok = (value: any) => ({ kind: 'success', status: 200, value }) as any
+const failure = (code = 'AUTH_REQUIRED', status = 401) => ({ kind: 'api-error', status, error: { code, message: 'synthetic' } }) as any
+function defer() { let resolve!: (v: any) => void; const promise = new Promise<any>(r => resolve = r); return { promise, resolve } }
+function setup(me: () => Promise<any> = async () => ok(user)) {
+  let path = '/forms/' + uuid(50) + '/statistics?review=1#details', revision = 0, loading = false, reloads = 0
+  const navigations: any[] = [], state = { data: null, error: null, dialog: null } as any
+  const session = new AuthSession(initialAuthState(), me)
+  const scope = new RequestScope(() => path, () => revision, v => loading = v)
+  const reader = new StatisticsReadController(state, scope, { path: () => path, revision: () => revision, invalidate: e => session.invalidate(e), navigate: async location => { navigations.push(location) } })
+  session.subscribe(change => { if (change.source !== 'bootstrap') revision++; if (reader.credentialChanged(change)) reloads++ })
+  return { reader, session, state, navigations, loading: () => loading, reloads: () => reloads, move: () => { path += '&next'; reader.contextChanged() } }
+}
+for (const event of ['login', 'logout', 'verify', 'invalidate', 'route', 'dispose']) {
+  it('review: external ' + event + ' revokes pending Auth dialog navigation', async () => {
+    const s = setup(async () => ok({ ...user, id: uuid(91) }))
+    await s.reader.read(async () => ok(statistics(true)))
+    await s.reader.read(async () => failure(), true)
+    expect(s.state.dialog).not.toBeNull()
+    if (event === 'login') s.session.login(user)
+    else if (event === 'logout') s.session.logout()
+    else if (event === 'verify') await s.session.verify()
+    else if (event === 'invalidate') s.session.invalidate(failure())
+    else if (event === 'route') s.move()
+    else s.reader.dispose()
+    await s.reader.closeAuth(); await s.reader.closeAuth()
+    expect(s.navigations).toEqual([]); expect(s.state.data).toBeNull(); expect(s.state.dialog).toBeNull()
+  })
+}
+for (const lateMe of [ok(user), failure(), failure('AUTH_USER_DISABLED', 403)]) {
+  it('review: Statistics 401 cancels older bootstrap ' + lateMe.kind + '/' + lateMe.status, async () => {
+    const d = defer(), s = setup(() => d.promise), boot = s.session.initialize()
+    await s.reader.read(async () => failure()); d.resolve(lateMe); await boot
+    expect(s.session.state.outcome).toBe('anonymous'); expect(s.session.state.user).toBeNull()
+    expect(s.navigations).toHaveLength(1); expect(s.reloads()).toBe(0); expect(s.loading()).toBe(false)
+  })
+}
+for (const event of ['login', 'logout']) for (const meResult of [ok(user), failure(), failure('AUTH_USER_DISABLED', 403)]) {
+  it('review: ' + event + ' retains revision and Header against late bootstrap ' + meResult.kind + '/' + meResult.status, async () => {
+    const d = defer(), s = setup(() => d.promise), boot = s.session.initialize()
+    if (event === 'login') s.session.login({ ...user, id: uuid(91) }); else s.session.logout()
+    const revision = s.session.state.sessionRevision; d.resolve(meResult); await boot
+    expect(s.session.state.sessionRevision).toBe(revision)
+    expect(s.session.state.outcome).toBe(event === 'login' ? 'authenticated' : 'anonymous')
+    expect(s.session.state.user?.id).toBe(event === 'login' ? uuid(91) : undefined)
+  })
+}
+for (const result of [ok(statistics(true)), failure(), failure('STATISTICS_ACCESS_DENIED', 403)]) {
+  it('review: uncancellable stale body after query/hash update leaves B pending and Header intact ' + result.kind + '/' + result.status, async () => {
+    const s = setup(), a = defer(), b = defer(); s.session.login(user)
+    const old = s.reader.read(() => a.promise); s.move(); const next = s.reader.read(() => b.promise)
+    a.resolve(result); await old
+    expect(s.loading()).toBe(true); expect(s.state.data).toBeNull(); expect(s.state.error).toBeNull(); expect(s.navigations).toEqual([])
+    expect(s.session.state.user?.id).toBe(user.id)
+    b.resolve(ok(statistics(false))); await next; expect(s.loading()).toBe(false); expect(s.state.data).not.toBeNull()
+  })
+}

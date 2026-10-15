@@ -1,0 +1,23 @@
+{
+  "time": "2026-10-16T00:07:38.2053796+08:00",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendStatus": [
+    "?? SNAPSHOT.md"
+  ],
+  "process": {
+    "ProcessId": 34068,
+    "CommandLine": "\"dotnet\" exec \"C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll\""
+  },
+  "health": [
+    {
+      "status": 200,
+      "body": "{\"status\":\"healthy\"}",
+      "path": "/health"
+    },
+    {
+      "status": 200,
+      "body": "Healthy",
+      "path": "/health/ready"
+    }
+  ]
+}

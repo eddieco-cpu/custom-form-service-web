@@ -1,0 +1,18 @@
+{
+  "time": "2026-10-15T16:08:19.696Z",
+  "frontendHead": "20381116101824aeccca405eaaf4336f6fea9784",
+  "productAndExistingTrackedFilesUnchanged": true,
+  "reportLinks": "PASS",
+  "knownPasswordScan": "PASS",
+  "jwtAndSecretFields": "PASS",
+  "decodedJsonAttachments": 54,
+  "textFilesScanned": 112,
+  "imagesVisuallyInspected": [
+    "mobile-long-names.png",
+    "live-current-names.png"
+  ],
+  "formalAcceptance": "NOT RUN",
+  "humanAcceptance": "NOT RUN",
+  "accepted": "unchanged",
+  "nextPlan": "After Owner confirms concentrated review closeout; no F10 execution"
+}

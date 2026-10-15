@@ -1,0 +1,111 @@
+"""Read-only independent oracle: stdlib Decimal, no product/test mapper imports."""
+import json, sys, re, hashlib
+from pathlib import Path
+from decimal import Decimal
+from datetime import datetime, timezone
+
+ROOT = Path.cwd()
+OUT = ROOT / 'output/playwright/f9-review-20261015/raw'
+def parse(s): return json.loads(s, parse_float=Decimal)
+def instant(s):
+    m = re.fullmatch(r'(.*?)(?:\.(\d+))?(Z|[+-]\d\d:\d\d)', s)
+    base = datetime.fromisoformat(m[1] + m[3].replace('Z', '+00:00'))
+    return Decimal(int(base.timestamp())) + Decimal('0.' + (m[2] or '0'))
+def canonical(x):
+    if isinstance(x, dict): return {k: instant(v) if k == 'submissionDeadlineAt' and v else canonical(v) for k,v in x.items()}
+    if isinstance(x, list): return [canonical(v) for v in x]
+    return x
+def audit(paths):
+    runs = [parse(p.read_text(encoding='utf-8-sig')) for p in paths]
+    forms = {}
+    for run in runs:
+        for w in run['wire']:
+            if w['method'] == 'POST' and w['url'].endswith('/forms') and w['status'] == 201:
+                dto = parse(w['response']); forms[dto['id']] = dto
+    checked = []; submission_checks = []
+    definition_checks = []
+    seen_forms = set()
+    for run in runs:
+        for resource in run['resources']:
+            fid = resource['id']
+            if fid in seen_forms: continue
+            seen_forms.add(fid); dto = forms[fid]; original = resource['input']
+            for key in ['title','description','responseMode','responseIdentity','resultVisibility','submissionDeadlineAt']:
+                assert canonical({key:dto[key]}) == canonical({key:original[key]}), (fid,key,'creation readback differs')
+            assert len(dto['questions']) == len(original['questions'])
+            for got,want in zip(dto['questions'], original['questions']):
+                actual = {k:v for k,v in got.items() if k not in ['id','options']}
+                actual['options'] = [{k:v for k,v in opt.items() if k != 'id'} for opt in got['options']]
+                assert actual == {**want,'options':want.get('options',[])}, (fid,got['title'],'definition readback differs')
+            definition_checks.append({'id':fid,'result':'PASS'})
+    all_writes = [w for run in runs for w in run['wire'] if w['method'] == 'POST' and w['url'].endswith('/responses') and w['status'] == 201]
+    seen_receipts = set()
+    for run in runs:
+        resources = {r['id']: r for r in run['resources']}
+        for receipt in run['receipts']:
+            if receipt['id'] in seen_receipts: continue
+            seen_receipts.add(receipt['id'])
+            fid = receipt['formId']; form = forms[fid]; alias = receipt['alias']; resource = resources[fid]
+            opts = lambda q,i: form['questions'][q]['options'][i]['id']
+            if resource['purpose'].startswith('L01'):
+                values = ['矩陣答案', 0, opts(2,0), [opts(3,0), opts(3,1)], 0]
+            elif receipt['label'].startswith('historical'):
+                values = ['過去不可補',55,opts(2,2),[opts(3,2)],1,55,55,'歷史 optional 不可補']
+            elif alias == 'A':
+                values = [None,9007199254740992,opts(2,0),[opts(3,0),opts(3,1)],0,Decimal('0.12345678901234567890123456789'),1,None]
+            elif alias == 'B':
+                values = ['Case\n字',9007199254740993,opts(2,0),[opts(3,0),opts(3,1)],2,Decimal('0.12345678901234567890123456789'),Decimal('1.0')]
+            else:
+                values = ['Case\n字',0,opts(2,1),[opts(3,1)],2,0,Decimal('1e0')]
+            expected_answers = [{'questionId':form['questions'][i]['id'],'value':v} for i,v in enumerate(values) if v is not None]
+            dto = parse(receipt['body'])
+            assert dto['answers'] == expected_answers and dto['formId'] == fid, (receipt['id'],'fixed input to receipt differs')
+            w = next(w for w in all_writes if parse(w['response'])['id'] == receipt['id'])
+            assert parse(w['body']) == {'answers':expected_answers}, (receipt['id'],'fixed input request differs')
+            assert canonical(parse(w['response'])) == canonical(dto), (receipt['id'],'wire receipt differs')
+            submission_checks.append({'id':receipt['id'],'formId':fid,'alias':alias,'label':receipt['label'],'result':'PASS'})
+    for run in runs:
+        resources = {r['id']: r for r in run['resources']}
+        accounts = {a['alias']: a for a in run['accounts']}
+        for read in run['reads']:
+            if read['status'] != 200: continue
+            body = parse(read['body']); fid = body['formId']; resource = resources[fid]; form = forms[fid]
+            input_ = resource['input']; identified = input_['responseIdentity'] == 'identified'
+            renamed = any(s in read['label'] for s in ['current names', 'current-name', 'zero fixed oracle'])
+            # Each read has a stable phase; names come from the fixed input sequence, never expectedBody.
+            names = {'A': 'F9 目前建立者' if renamed else 'F9 合成建立者', 'B': 'F9 目前填答者' if renamed else 'F9 合成同名', 'C': 'F9 合成同名'}
+            latest = {}
+            for receipt in run['receipts']:
+                if receipt['formId'] != fid: continue
+                dto = parse(receipt['body']); alias = receipt['alias']; key = (instant(dto['submittedAt']), dto['id'])
+                if alias not in latest or key > latest[alias][0]: latest[alias] = (key, dto)
+            answers = {a: {v['questionId']: v['value'] for v in r[1]['answers']} for a,r in latest.items()}
+            def item(value, aliases):
+                result = {**value, 'count': len(aliases)}
+                if identified: result['respondents'] = sorted([{'id': accounts[a]['id'], 'displayName': names[a]} for a in aliases], key=lambda p: (p['displayName'], p['id']))
+                return result
+            questions = []
+            for q in sorted(form['questions'], key=lambda v:v['sortOrder']):
+                available = {a: aa[q['id']] for a,aa in answers.items() if q['id'] in aa}
+                typ = q['type']; items = []
+                if typ in ['single_choice', 'multiple_choice']:
+                    for opt in sorted(q['options'], key=lambda v:v['sortOrder']):
+                        hit = [a for a,v in available.items() if opt['id'] == v or isinstance(v,list) and opt['id'] in v]
+                        items.append(item({'optionId':opt['id'], 'label':opt['label'], 'value':opt['value']}, hit))
+                else:
+                    values = list(range(q['config']['min'], q['config']['max']+1)) if typ == 'rating' else set(available.values())
+                    groups = [(v, [a for a,av in available.items() if av == v]) for v in values]
+                    groups.sort(key=(lambda g:(-len(g[1]),g[0])) if typ == 'text' else lambda g:g[0])
+                    items = [item({'value':v}, aliases) for v,aliases in groups]
+                questions.append({'questionId':q['id'], 'title':q['title'], 'description':q['description'], 'type':typ, 'count':len(available), 'statistics':items})
+            visibility = 'respondents' if any(s in read['label'] for s in ['new policy', 'fresh private']) else input_['resultVisibility']
+            expected = {'formId':fid, 'title':input_['title'], 'description':input_['description'], 'creatorDisplayName':names['A'], 'responseMode':input_['responseMode'], 'resultVisibility':visibility, 'submissionDeadlineAt':input_['submissionDeadlineAt'], 'count':len(latest), 'questions':questions}
+            assert canonical(body) == canonical(expected), (run['runId'], read['label'], 'independent full-body mismatch')
+            checked.append({'runId':run['runId'], 'label':read['label'], 'alias':read['alias'], 'formId':fid, 'result':'PASS', 'bodySha256':hashlib.sha256(read['body'].encode()).hexdigest()})
+    return {'engine':'Python stdlib Decimal; independently assert fixed known definitions against Create readback and answer inputs against POST wire/Receipt, aggregate latest whole Receipt per alias, exact full body and instant comparison', 'runs':[r['runId'] for r in runs], 'definitions':definition_checks, 'submissions':submission_checks, 'bodies':len(checked), 'checks':checked}
+
+paths = [Path(p) for p in sys.argv[2:]]
+result = audit(paths)
+target = OUT / sys.argv[1]
+target.write_text(json.dumps(result,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'result':'PASS','bodies':result['bodies'],'runs':result['runs']},ensure_ascii=False))

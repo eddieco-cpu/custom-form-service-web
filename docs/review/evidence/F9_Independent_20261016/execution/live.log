@@ -1,0 +1,20 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:27092) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:31604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:36904) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f9-live.spec.ts:204:3 › F9 true backend read and UI › F9-L01 anonymous/identified × three policies × four real Cookie contexts (24 cells) (4.1s)
+  ok 2 [chromium] › tests\e2e\f9-live.spec.ts:226:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read (974ms)
+  ok 3 [chromium] › tests\e2e\f9-live.spec.ts:272:3 › F9 true backend read and UI › F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority (9.3s)
+
+  3 passed (22.5s)

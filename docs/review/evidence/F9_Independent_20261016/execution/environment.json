@@ -1,0 +1,37 @@
+{
+  "time": "2026-10-15T23:52:51.2999349+08:00",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendStatus": [
+    "?? SNAPSHOT.md"
+  ],
+  "process": {
+    "ProcessId": 34068,
+    "CommandLine": "\"dotnet\" exec \"C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll\""
+  },
+  "dllPath": "C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/bin/Debug/net10.0/CustomFormService.Api.dll",
+  "dllProductVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "dllSha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+  "endpoints": [
+    {
+      "body": "{\"status\":\"healthy\"}",
+      "status": 200,
+      "path": "/health"
+    },
+    {
+      "body": "Healthy",
+      "status": 200,
+      "path": "/health/ready"
+    },
+    {
+      "body": {
+        "statisticsPaths": [
+          "/api/v1/forms/{formId}/statistics"
+        ],
+        "version": "1.0.0",
+        "openapi": "3.1.1"
+      },
+      "status": 200,
+      "path": "/openapi/v1.json"
+    }
+  ]
+}

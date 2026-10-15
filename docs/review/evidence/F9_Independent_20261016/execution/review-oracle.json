@@ -1,0 +1,307 @@
+{
+  "engine": "Python stdlib Decimal; independently assert fixed known definitions against Create readback and answer inputs against POST wire/Receipt, aggregate latest whole Receipt per alias, exact full body and instant comparison",
+  "runs": [
+    "f9-1792079923977-independent-review-20261015"
+  ],
+  "definitions": [
+    {
+      "id": "22dfc07f-7ed6-43f5-b3b8-d9c16c32cbb9",
+      "result": "PASS"
+    },
+    {
+      "id": "ca77d345-f3f3-4511-afce-0c6474be267c",
+      "result": "PASS"
+    },
+    {
+      "id": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "result": "PASS"
+    },
+    {
+      "id": "0c5add23-353e-4007-9717-81eaaef64c81",
+      "result": "PASS"
+    },
+    {
+      "id": "8d5b4bfa-4135-4629-af1e-04528698737f",
+      "result": "PASS"
+    },
+    {
+      "id": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "result": "PASS"
+    },
+    {
+      "id": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS"
+    },
+    {
+      "id": "9ab54654-1392-4f70-8183-8574f3346c54",
+      "result": "PASS"
+    },
+    {
+      "id": "1007b3cd-e080-40a1-86d7-bff3f72c5c4e",
+      "result": "PASS"
+    },
+    {
+      "id": "184e7e98-2f94-4264-8d8b-7e3bd24ec853",
+      "result": "PASS"
+    },
+    {
+      "id": "d2fb9aa7-ee33-460c-b304-3df6b1776f83",
+      "result": "PASS"
+    },
+    {
+      "id": "c578516b-2531-44bb-8053-c94b575a1afe",
+      "result": "PASS"
+    }
+  ],
+  "submissions": [
+    {
+      "id": "5edb1508-628f-430c-9dda-4959d756ebbf",
+      "formId": "22dfc07f-7ed6-43f5-b3b8-d9c16c32cbb9",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "65c829b2-2264-460e-bad2-caa5eb9619de",
+      "formId": "ca77d345-f3f3-4511-afce-0c6474be267c",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "5a9eed6f-ebb7-4cc5-9a2a-be9539135d13",
+      "formId": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "83c029b3-f671-4944-b631-f3dc2f746d36",
+      "formId": "0c5add23-353e-4007-9717-81eaaef64c81",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "7376db1f-46dc-4877-be0d-82d4d8bd895d",
+      "formId": "8d5b4bfa-4135-4629-af1e-04528698737f",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "f8e50ab6-9a6a-4493-b596-2da3132a55de",
+      "formId": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "result": "PASS"
+    },
+    {
+      "id": "f5ae73e8-d888-426f-8a68-dc4715bcb5e2",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "alias": "A",
+      "label": "historical full, excluded by next complete response",
+      "result": "PASS"
+    },
+    {
+      "id": "3ee08a40-6fc8-4018-9786-6992d9efd7b9",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "alias": "A",
+      "label": "effective A omits text/optional",
+      "result": "PASS"
+    },
+    {
+      "id": "15451ed6-e7f8-4ff2-923c-b1aa39632408",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "alias": "B",
+      "label": "effective B same name",
+      "result": "PASS"
+    },
+    {
+      "id": "a5b778a5-5f1b-4c12-a944-d74090ab10a4",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "alias": "C",
+      "label": "effective C same name distinct ID",
+      "result": "PASS"
+    }
+  ],
+  "bodies": 22,
+  "checks": [
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "22dfc07f-7ed6-43f5-b3b8-d9c16c32cbb9",
+      "result": "PASS",
+      "bodySha256": "c73f0a567a46260856606fab64d44ab744a11733d5709530d2ca84b3cb1408dc"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "ca77d345-f3f3-4511-afce-0c6474be267c",
+      "result": "PASS",
+      "bodySha256": "26add9c4330cb2d3f6a0d22cba856d136d5be24e1d7c7fe456f7c2799b72fd82"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "ca77d345-f3f3-4511-afce-0c6474be267c",
+      "result": "PASS",
+      "bodySha256": "26add9c4330cb2d3f6a0d22cba856d136d5be24e1d7c7fe456f7c2799b72fd82"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "result": "PASS",
+      "bodySha256": "48e5a6d0485bd5db7ec3552ffd4ed2a26fbbf2c83d75f1210068b298f05c87ba"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "result": "PASS",
+      "bodySha256": "48e5a6d0485bd5db7ec3552ffd4ed2a26fbbf2c83d75f1210068b298f05c87ba"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "C",
+      "formId": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "result": "PASS",
+      "bodySha256": "48e5a6d0485bd5db7ec3552ffd4ed2a26fbbf2c83d75f1210068b298f05c87ba"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "guest",
+      "formId": "acb80247-8aa1-4327-aa0e-422abfb175a6",
+      "result": "PASS",
+      "bodySha256": "48e5a6d0485bd5db7ec3552ffd4ed2a26fbbf2c83d75f1210068b298f05c87ba"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "0c5add23-353e-4007-9717-81eaaef64c81",
+      "result": "PASS",
+      "bodySha256": "8bc40d28e0633608e60bef99a49dbd16e009ed9a9c7f852bdcf006a2b9ccf1a6"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "8d5b4bfa-4135-4629-af1e-04528698737f",
+      "result": "PASS",
+      "bodySha256": "cdf51747512dabe33a362673fe6f95ad1bc7334747530fb1a8b83f784cd1fb4e"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "8d5b4bfa-4135-4629-af1e-04528698737f",
+      "result": "PASS",
+      "bodySha256": "cdf51747512dabe33a362673fe6f95ad1bc7334747530fb1a8b83f784cd1fb4e"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "A",
+      "formId": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "result": "PASS",
+      "bodySha256": "ae637f417e16dbd8c4267466e931426b69e27c31a655a02b2f1d631e4083b3db"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "B",
+      "formId": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "result": "PASS",
+      "bodySha256": "ae637f417e16dbd8c4267466e931426b69e27c31a655a02b2f1d631e4083b3db"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "C",
+      "formId": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "result": "PASS",
+      "bodySha256": "ae637f417e16dbd8c4267466e931426b69e27c31a655a02b2f1d631e4083b3db"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "matrix fixed input",
+      "alias": "guest",
+      "formId": "a9bf0971-8891-4f59-8b81-956ec68779d9",
+      "result": "PASS",
+      "bodySha256": "ae637f417e16dbd8c4267466e931426b69e27c31a655a02b2f1d631e4083b3db"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "fixed independent oracle before rename",
+      "alias": "guest",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "cae2b4ae07a512de96b289616386e2ee65f52f295df9e151f0f1641963e2cf46"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "independent GET before rename",
+      "alias": "A",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "cae2b4ae07a512de96b289616386e2ee65f52f295df9e151f0f1641963e2cf46"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "new policy and current names",
+      "alias": "B",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "23d91a0d4da3c555b13a8dccc333b6e89b001016e00953b895ff5385c1f4754f"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "fresh private UI reflects current names",
+      "alias": "B",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "23d91a0d4da3c555b13a8dccc333b6e89b001016e00953b895ff5385c1f4754f"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "restored public current names",
+      "alias": "guest",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "3486784db8eb26ca6cd310d3c712edfe1e17dc1be3835f21fffc502a166bf3b4"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "public current-name UI readback",
+      "alias": "guest",
+      "formId": "2bd47e2f-a2cd-422e-9bf4-7aadfcb85005",
+      "result": "PASS",
+      "bodySha256": "3486784db8eb26ca6cd310d3c712edfe1e17dc1be3835f21fffc502a166bf3b4"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "zero fixed oracle",
+      "alias": "guest",
+      "formId": "9ab54654-1392-4f70-8183-8574f3346c54",
+      "result": "PASS",
+      "bodySha256": "fbc6b9b210b81e51a95a55339a6f5145b6feb57ef24b5fc1289bc0ac15453a73"
+    },
+    {
+      "runId": "f9-1792079923977-independent-review-20261015",
+      "label": "zero fixed oracle",
+      "alias": "guest",
+      "formId": "1007b3cd-e080-40a1-86d7-bff3f72c5c4e",
+      "result": "PASS",
+      "bodySha256": "dca1c5c6f31425d027711f434f876533191caef8d61e8d6b1bee4ec879ace9e6"
+    }
+  ]
+}

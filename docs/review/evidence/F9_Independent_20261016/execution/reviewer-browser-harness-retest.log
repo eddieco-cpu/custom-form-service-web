@@ -1,0 +1,14 @@
+
+> test:e2e
+> playwright test --config=output/playwright/f9-review-20261015/reviewer.playwright.config.ts --grep external Login
+
+[WebServer] (node:3360) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:44264) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › output\playwright\f9-review-20261015\reviewer.browser.spec.ts:37:1 › review harness: external Login removes manual 401 dialog; fresh 403 cannot navigate or restore private names (374ms)
+
+  1 passed (1.9s)

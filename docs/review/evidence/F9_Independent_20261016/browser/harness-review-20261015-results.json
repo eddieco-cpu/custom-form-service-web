@@ -1,0 +1,528 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f9.config.ts",
+      "--grep",
+      "F9-B02"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f9.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9/harness-review-20261015-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f9-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9\\harness-review-20261015-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f9-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f9/harness-review-20261015-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node output/playwright/f9/harness-output/server/index.mjs",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "f9-browser.spec.ts",
+      "file": "f9-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "product fresh build",
+          "file": "f9-browser.spec.ts",
+          "line": 50,
+          "column": 6,
+          "specs": [
+            {
+              "title": "F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "separate fixture control build",
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+                        "line": 51,
+                        "column": 8
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 0,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:31.149Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "separate fixture control build",
+                          "location": {
+                            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+                            "line": 51,
+                            "column": 8
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-b27633e34244451fa67a",
+              "file": "f9-browser.spec.ts",
+              "line": 135,
+              "column": 3
+            }
+          ]
+        },
+        {
+          "title": "thin fixture control build",
+          "file": "f9-browser.spec.ts",
+          "line": 154,
+          "column": 6,
+          "specs": [
+            {
+              "title": "F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 370,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:31.149Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifV0sImV4cGVjdGVkIjpbXSwiYWN0dWFsIjpbXSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-4c89dcfc3a087756bc92",
+              "file": "f9-browser.spec.ts",
+              "line": 156,
+              "column": 52
+            },
+            {
+              "title": "F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 291,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:31.642Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifV0sImV4cGVjdGVkIjpbXSwiYWN0dWFsIjpbXSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-0fc09dd5902c08bc70f7",
+              "file": "f9-browser.spec.ts",
+              "line": 156,
+              "column": 52
+            },
+            {
+              "title": "F9-B02 same component A late 200, B loading/finally, Session switch and unmount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 311,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:31.939Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-765ac42e70fd9ba3ba0c",
+              "file": "f9-browser.spec.ts",
+              "line": 166,
+              "column": 48
+            },
+            {
+              "title": "F9-B02 same component A late 401, B loading/finally, Session switch and unmount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 294,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:32.254Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-0caea3bda521cf99a543",
+              "file": "f9-browser.spec.ts",
+              "line": 166,
+              "column": 48
+            },
+            {
+              "title": "F9-B02 same component A late 403, B loading/finally, Session switch and unmount",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 295,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:32.554Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNjAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-51933b72e0410bcea25a",
+              "file": "f9-browser.spec.ts",
+              "line": 166,
+              "column": 48
+            },
+            {
+              "title": "F9-B02 pending private response after login cannot restore names or change Header/route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 253,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:32.855Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-70f41e41671a0805b812",
+              "file": "f9-browser.spec.ts",
+              "line": 185,
+              "column": 64
+            },
+            {
+              "title": "F9-B02 pending private response after verify cannot restore names or change Header/route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 258,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:33.113Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-2b68651fe3ed652ed448",
+              "file": "f9-browser.spec.ts",
+              "line": 185,
+              "column": 64
+            },
+            {
+              "title": "F9-B02 pending private response after unmount cannot restore names or change Header/route",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 259,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T15:59:33.376Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTYuMC44MDc4LjQiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInJlYXNvbiI6Im5ldDo6RVJSX0FCT1JURUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpY0NvdW50IjowfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwicmVhc29uIjoibmV0OjpFUlJfQUJPUlRFRCJ9XSwiZGlhZ25vc3RpY3MiOltdLCJpc3N1ZXMiOltdLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXX0="
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-4a3a0801060f5384194a",
+              "file": "f9-browser.spec.ts",
+              "line": 185,
+              "column": 64
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T15:59:30.293Z",
+    "duration": 3957.789,
+    "expected": 8,
+    "skipped": 1,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

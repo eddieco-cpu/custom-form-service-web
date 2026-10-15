@@ -1,0 +1,45 @@
+{
+  "snapshot": 108,
+  "source": 93,
+  "digest": "3547457891d3165544b00165c7db58e15023f04f740f48697f7632c8d52d00f2",
+  "historicalCopies": 43,
+  "historicalFixture": 59,
+  "historicalReal": 42,
+  "dependencies": 15,
+  "harnessLeaks": 0,
+  "currentRuns": [
+    {
+      "file": "built-review-20261015-ready-results.json",
+      "stats": {
+        "startTime": "2026-10-15T15:55:35.972Z",
+        "duration": 43009.232,
+        "expected": 23,
+        "skipped": 8,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "built-review-20261015-results.json",
+      "stats": {
+        "startTime": "2026-10-15T15:54:34.803Z",
+        "duration": 2456.454,
+        "expected": 0,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    },
+    {
+      "file": "regression-review-20261015-results.json",
+      "stats": {
+        "startTime": "2026-10-15T15:56:58.951Z",
+        "duration": 28951.377,
+        "expected": 26,
+        "skipped": 0,
+        "unexpected": 0,
+        "flaky": 0
+      }
+    }
+  ]
+}

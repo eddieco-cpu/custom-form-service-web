@@ -1,0 +1,227 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f9.config.ts",
+      "--grep",
+      "public bad-Cookie AUTH_TOKEN_INVALID|private AUTH_REQUIRED"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f9.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9/built-msedge-review-20261015-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "msedge",
+        "name": "msedge",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f9-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9\\built-msedge-review-20261015-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "msedge",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f9-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "msedge"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "msedge"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f9/built-msedge-review-20261015-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "f9-browser.spec.ts",
+      "file": "f9-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "product fresh build",
+          "file": "f9-browser.spec.ts",
+          "line": 50,
+          "column": 6,
+          "specs": [
+            {
+              "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "msedge",
+                  "projectName": "msedge",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 861,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T16:01:22.549Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTUuMC40MjgzLjQ1IiwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifSx7Im1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2F1dGgvbG9naW4ifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifV0sImV4cGVjdGVkIjpbeyJraW5kIjoicmVzcG9uc2UiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwic3RhdHVzIjo0MDEsImNvdW50IjoxLCJkaWFnbm9zdGljIjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAxIChVbmF1dGhvcml6ZWQpIiwiZGlhZ25vc3RpY0NvdW50IjoxfSx7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJzdGF0dXMiOjQwMSwiY291bnQiOjIsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDEgKFVuYXV0aG9yaXplZCkiLCJkaWFnbm9zdGljQ291bnQiOjJ9XSwiYWN0dWFsIjpbeyJraW5kIjoicmVzcG9uc2UiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwic3RhdHVzIjo0MDF9LHsia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInN0YXR1cyI6NDAxfSx7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJzdGF0dXMiOjQwMX1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMSAoVW5hdXRob3JpemVkKSIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUifSx7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDEgKFVuYXV0aG9yaXplZCkiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIn0seyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAxIChVbmF1dGhvcml6ZWQpIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiaXNzdWVzIjpbXSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W119"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-2deb5dae59007ca05bb9",
+              "file": "f9-browser.spec.ts",
+              "line": 123,
+              "column": 85
+            },
+            {
+              "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 60000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "msedge",
+                  "projectName": "msedge",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 370,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-10-15T16:01:23.724Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "fixture-network.json",
+                          "contentType": "application/json",
+                          "body": "eyJzb3VyY2UiOiJmaXh0dXJlIGludGVyY2VwdGVkIGJ1c2luZXNzIEFQSSIsImJyb3dzZXIiOiIxNTUuMC40MjgzLjQ1IiwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MifV0sImV4cGVjdGVkIjpbeyJraW5kIjoicmVzcG9uc2UiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwic3RhdHVzIjo0MDEsImNvdW50IjoxLCJkaWFnbm9zdGljIjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAxIChVbmF1dGhvcml6ZWQpIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSIsInN0YXR1cyI6NDAxfV0sImRpYWdub3N0aWNzIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAxIChVbmF1dGhvcml6ZWQpIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9XSwiaXNzdWVzIjpbXSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W119"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "24b2c807491d7aec5f1c-26a630ae00f9c779911a",
+              "file": "f9-browser.spec.ts",
+              "line": 146,
+              "column": 68
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T16:01:19.186Z",
+    "duration": 5802.974,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

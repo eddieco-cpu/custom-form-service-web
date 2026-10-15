@@ -1,0 +1,47 @@
+import { test, expect } from '@playwright/test'
+import { statistics, uuid } from '../../../tests/fixtures/f9/payloads'
+import { stringifyExactJson } from '../../../app/utils/exact-json'
+import { expectedHttp, verifyNetworkDiagnostics } from '../../../tests/helpers/f6-network-diagnostics'
+const api = 'http://localhost:5000/api/v1', path = '/forms/'+uuid(50)+'/statistics?review=1#full', url = api+'/forms/'+uuid(50)+'/statistics'
+const user={id:uuid(71),email:'review-browser@example.test',displayName:'舊合成身分',avatarUrl:null}
+const failure=(code:string)=>({error:{code,message:'Synthetic review'}})
+function gate(){let release!:()=>void;const promise=new Promise<void>(r=>release=r);return{promise,release}}
+async function setup(page:any){
+  const expected:any[]=[],actual:any[]=[],diagnostics:any[]=[],errors:string[]=[],requests:any[]=[],unexpected:string[]=[]
+  page.on('pageerror',(e:any)=>errors.push(e.message))
+  page.on('console',(m:any)=>{if(m.type()==='error'||m.text().includes('[Vue warn]'))diagnostics.push({text:m.text(),url:m.location().url})})
+  page.on('response',(r:any)=>{if(r.status()>=400)actual.push({kind:'response',method:r.request().method(),url:r.url(),status:r.status()})})
+  page.on('requestfailed',(r:any)=>actual.push({kind:'requestfailed',method:r.method(),url:r.url(),reason:r.failure().errorText}))
+  const state={me:async(r:any)=>reply(r,user),stats:async(r:any)=>reply(r,statistics(true))}
+  const reply=(r:any,body:any,status=200)=>r.fulfill({status,contentType:'application/json',headers:{'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'},body:stringifyExactJson(body)})
+  await page.route(api+'/**',async(r:any)=>{
+    requests.push({method:r.request().method(),url:r.request().url()})
+    if(r.request().method()==='GET'&&r.request().url()===api+'/users/me')return state.me(r)
+    if(r.request().method()==='GET'&&r.request().url()===url)return state.stats(r)
+    unexpected.push(r.request().method()+' '+r.request().url());return reply(r,failure('INTERNAL_SERVER_ERROR'),500)
+  })
+  const finish=async(info:any)=>{const issues=verifyNetworkDiagnostics(expected,actual,diagnostics);await info.attach('review-diagnostics.json',{contentType:'application/json',body:JSON.stringify({requests,expected,actual,diagnostics,errors,unexpected,issues})});expect(errors).toEqual([]);expect(unexpected).toEqual([]);expect(issues).toEqual([])}
+  return{state,reply,expected,requests,finish}
+}
+test('review built: own Statistics 401 wins against late bootstrap 200 without Header resurrection or repeated navigation',async({page},info)=>{
+  const s=await setup(page),me=gate();let received=false
+  s.state.me=async r=>{received=true;await me.promise;await s.reply(r,user)}
+  s.state.stats=async r=>s.reply(r,failure('AUTH_REQUIRED'),401)
+  s.expected.push(expectedHttp('GET',url,401,1))
+  await page.goto(path);await expect.poll(()=>received).toBe(true)
+  await expect(page).toHaveURL(/\/login\?redirect=/);expect(new URL(page.url()).searchParams.get('redirect')).toBe(path)
+  const location=page.url();me.release();await expect(page.locator('header')).toContainText('未登入')
+  await expect(page.getByRole('textbox',{name:'Email'})).toBeVisible();await expect(page).toHaveURL(location)
+  expect(s.requests).toHaveLength(2);await s.finish(info)
+})
+test('review harness: external Login removes manual 401 dialog; fresh 403 cannot navigate or restore private names',async({page},info)=>{
+  test.skip(process.env.F9_MODE!=='harness','requires separate test controls')
+  const s=await setup(page);await page.goto(path);await expect(page.getByRole('region',{name:'統計根資訊'})).toBeVisible()
+  s.state.stats=async r=>s.reply(r,failure('AUTH_TOKEN_EXPIRED'),401);s.expected.push(expectedHttp('GET',url,401,1))
+  await page.getByRole('button',{name:'重新載入統計'}).click();await expect(page.getByRole('dialog')).toBeVisible()
+  s.state.stats=async r=>s.reply(r,failure('STATISTICS_ACCESS_DENIED'),403);s.expected.push(expectedHttp('GET',url,403,1))
+  await page.evaluate(u=>window.f9Harness.login(u),{...user,id:uuid(72),displayName:'新合成身分'})
+  await expect(page.getByRole('dialog')).toHaveCount(0);await expect(page.getByRole('alert')).toContainText('您沒有查看此統計的權限')
+  await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0);await expect(page.locator('header')).toContainText('新合成身分')
+  await expect(page).toHaveURL('http://localhost:3000'+path);expect(s.requests.filter(r=>r.url===url)).toHaveLength(3);await s.finish(info)
+})

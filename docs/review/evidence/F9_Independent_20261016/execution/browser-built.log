@@ -1,0 +1,40 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:44720) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] node:internal/modules/cjs/loader:1568
+[WebServer]   throw err;
+[WebServer]   ^
+[WebServer]
+[WebServer] Error: Cannot find module 'C:\Users\user\Desktop\custom-form-service-web\.output\server\index.mjs'
+[WebServer]     at Module._resolveFilename (node:internal/modules/cjs/loader:1564:15)
+[WebServer]     at wrapResolveFilename (node:internal/modules/cjs/loader:1118:27)
+[WebServer]     at defaultResolveImplForCJSLoading (node:internal/modules/cjs/loader:1142:10)
+[WebServer]     at resolveForCJSWithHooks (node:internal/modules/cjs/loader:1169:12)
+[WebServer]     at Module._load (node:internal/modules/cjs/loader:1341:5)
+[WebServer]     at wrapModuleLoad (node:internal/modules/cjs/loader:261:19)
+[WebServer]     at Module.executeUserEntryPoint [as runMain] (node:internal/modules/run_main:154:5)
+[WebServer]     at node:internal/main/run_main_module:33:47 {
+[WebServer]   code: 'MODULE_NOT_FOUND',
+[WebServer]   requireStack: []
+[WebServer] }
+[WebServer]
+[WebServer] Node.js v24.21.0
+[WebServer]
+[WebServer]  ERROR  The command node server/index.mjs exited with a non-zero status (1)
+[WebServer]
+[WebServer]     at ExecProcess._waitForOutput (/C:/Users/user/Desktop/custom-form-service-web/node_modules/tinyexec/dist/main.mjs:300:122)
+[WebServer]     at process.processTicksAndRejections (node:internal/process/task_queues:104:5)
+[WebServer]     at async run (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/preview-BAt7B1q5.mjs:257:4)
+[WebServer]     at async Object.run (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/index.mjs:42:12)
+[WebServer]     at async runCommand (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/_shared-YyGADOl7.mjs:313:47)
+[WebServer]     at async runCommand (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/_shared-YyGADOl7.mjs:296:5)
+[WebServer]     at async runMain (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/_shared-YyGADOl7.mjs:505:10)
+[WebServer]     at async runMain (/C:/Users/user/Desktop/custom-form-service-web/node_modules/@nuxt/cli/dist/index.mjs:100:2)
+[WebServer]
+[WebServer]
+Error: Process from config.webServer was not able to start. Exit code: 1

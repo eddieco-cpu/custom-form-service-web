@@ -1,0 +1,5 @@
+
+> test:unit
+> vitest run tests/unit/f9-statistics-read.spec.ts tests/unit/f9-statistics-view.spec.ts tests/unit/f3-auth.spec.ts tests/unit/scoped-state.spec.ts tests/unit/api-client.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts tests/unit/f7-form-management.spec.ts tests/unit/f8-response-page.spec.ts --reporter=json --outputFile=output/playwright/f9-review-20261015/raw/unit-results.json
+
+JSON report written to C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9-review-20261015/raw/unit-results.json

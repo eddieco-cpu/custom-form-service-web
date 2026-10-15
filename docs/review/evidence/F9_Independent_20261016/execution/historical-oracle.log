@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\custom-form-service-web\output\playwright\f9-review-20261015\oracle.py", line 67, in <module>
+    result = audit(paths)
+             ^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\custom-form-service-web\output\playwright\f9-review-20261015\oracle.py", line 62, in audit
+    assert canonical(body) == canonical(expected), (run['runId'], read['label'], 'independent full-body mismatch')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: ('f9-1792077518649-boundary-retest', 'zero fixed oracle', 'independent full-body mismatch')

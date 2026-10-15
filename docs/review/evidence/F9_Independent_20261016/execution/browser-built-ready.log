@@ -1,0 +1,49 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:41524) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:31916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+(node:41940) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=true independent parallel public (298ms)
+  ok  2 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=false independent parallel public (257ms)
+  ok  3 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=true independent parallel public (251ms)
+  ok  4 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=false independent parallel public (248ms)
+  ok  5 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=true independent parallel public (253ms)
+  ok  6 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=false independent parallel public (247ms)
+  ok  7 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=true independent parallel public (242ms)
+  ok  8 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=false independent parallel public (247ms)
+  ok  9 [chromium] › tests\e2e\f9-browser.spec.ts:66:3 › product fresh build › F9-B01/B03 complete roots, five types, exact values, literal text, same names/labels, optional zero and privacy (368ms)
+  ok 10 [chromium] › tests\e2e\f9-browser.spec.ts:85:3 › product fresh build › F9-B01 large content 30/200/120/2000/101 complete and readable at 390px; keyboard retry/link (534ms)
+  ok 11 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 400 VALIDATION_ERROR retains URL/details and retry (308ms)
+  ok 12 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 404 FORM_NOT_FOUND retains URL/details and retry (297ms)
+  ok 13 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 409 FORM_STATISTICS_NOT_AVAILABLE retains URL/details and retry (302ms)
+  ok 14 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 STATISTICS_ACCESS_DENIED retains URL/details and retry (323ms)
+  ok 15 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 AUTH_USER_DISABLED retains URL/details and retry (293ms)
+  ok 16 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 500 INTERNAL_SERVER_ERROR retains URL/details and retry (317ms)
+  ok 17 [chromium] › tests\e2e\f9-browser.spec.ts:111:3 › product fresh build › F9-B01 network, timeout and malformed never retain private content; no automatic retries (30.4s)
+  ok 18 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout (742ms)
+  ok 19 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout (763ms)
+  ok 20 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout (706ms)
+  ok 21 [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push (798ms)
+  ok 22 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture) (249ms)
+  ok 23 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_EXPIRED remains readable (fixture) (259ms)
+  -  24 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation
+  -  25 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation
+  -  26 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 200, B loading/finally, Session switch and unmount
+  -  27 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 401, B loading/finally, Session switch and unmount
+  -  28 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 403, B loading/finally, Session switch and unmount
+  -  29 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after login cannot restore names or change Header/route
+  -  30 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after verify cannot restore names or change Header/route
+  -  31 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after unmount cannot restore names or change Header/route
+
+  8 skipped
+  23 passed (43.0s)

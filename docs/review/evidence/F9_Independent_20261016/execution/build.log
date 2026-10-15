@@ -1,0 +1,109 @@
+
+> build
+> nuxt build
+
+Building Nuxt for production...
+• Loading Nuxt config
+• Nuxt 4.6.1 (with Nitro 2.13.4, Vite 8.3.4 and Vue 3.5.43)
+• Setting up modules
+• Preparing app
+• Nitro preset: node-server
+• Generating types
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 1156.72ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 1184.74ms
+• Bundling client
+i Building client...
+i vite v8.3.4 building client environment for production...
+transforming...
+✓ 1136 modules transformed.
+rendering chunks...
+computing gzip size...
+i node_modules/.cache/nuxt/.nuxt/dist/client/manifest.json                  12.06 kB │ gzip:  1.67 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/error-500.CmR4p1fc.css    1.95 kB │ gzip:  0.72 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/error-404.DpKY_dMl.css    2.70 kB │ gzip:  0.92 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/entry.Dv04f7sy.css      195.85 kB │ gzip: 26.56 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/G_Dx4BrM.js               0.04 kB │ gzip:  0.06 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BDNMzG2s.js               0.08 kB │ gzip:  0.09 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DK3Fl9T5.js               0.15 kB │ gzip:  0.15 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BX57FN7F.js               0.18 kB │ gzip:  0.16 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DxkKbWqz.js               0.24 kB │ gzip:  0.19 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/CC9TMBz4.js               0.25 kB │ gzip:  0.19 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BZPRtX7B.js               0.26 kB │ gzip:  0.21 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BU-Vieej.js               0.30 kB │ gzip:  0.23 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/ClSRzxfS.js               0.51 kB │ gzip:  0.29 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Bd-YC6_K.js               0.55 kB │ gzip:  0.38 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/CTpMkH0w.js               0.58 kB │ gzip:  0.35 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/D55XGH9e.js               0.67 kB │ gzip:  0.48 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Cf56fRfm.js               0.80 kB │ gzip:  0.53 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BeaBI-c4.js               0.87 kB │ gzip:  0.52 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Cfiyoafy.js               1.00 kB │ gzip:  0.64 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/kl-ubFGE.js               1.10 kB │ gzip:  0.70 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Dx9m6JTQ.js               1.99 kB │ gzip:  0.69 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DBz7Dm6x.js               2.07 kB │ gzip:  0.80 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/pol8OtjW.js               2.46 kB │ gzip:  1.10 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/54IG3h2D.js               2.69 kB │ gzip:  1.28 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Hgm0JKzj.js               2.72 kB │ gzip:  1.19 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/CMJCu_ak.js               4.09 kB │ gzip:  1.75 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/D3Di4Di6.js               4.21 kB │ gzip:  1.58 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DLjeZWul.js               5.16 kB │ gzip:  2.29 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BMeQHvmr.js               5.69 kB │ gzip:  1.58 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BmDtUo4K.js               7.29 kB │ gzip:  2.94 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/4meKYcVn.js               8.18 kB │ gzip:  3.36 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/GYr9jBUg.js               8.27 kB │ gzip:  3.44 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/C-odFBx-.js               8.29 kB │ gzip:  3.10 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/B7ko0e5v.js               9.23 kB │ gzip:  3.72 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DFzJzEx7.js               9.86 kB │ gzip:  4.18 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/etJT_veE.js              10.09 kB │ gzip:  3.09 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/CeydEC4j.js              13.94 kB │ gzip:  5.83 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/s5LFNtkh.js              23.32 kB │ gzip:  8.39 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/WgbSiO4a.js              24.56 kB │ gzip:  8.01 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DkWcw3f1.js              25.77 kB │ gzip:  7.55 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BZCTSBer.js              31.33 kB │ gzip:  9.75 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/g3KELcAE.js              32.27 kB │ gzip: 12.67 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/G4zmRm-g.js              46.26 kB │ gzip: 14.66 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/BSyP4YEz.js              47.15 kB │ gzip: 15.13 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/CLF355rT.js              55.90 kB │ gzip: 17.17 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DvfgrZvj.js              74.38 kB │ gzip: 25.37 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/DP5y-68_.js              85.55 kB │ gzip: 25.42 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Bscb_uQo.js              91.16 kB │ gzip: 26.78 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/MNQ1Xzy4.js              93.59 kB │ gzip: 36.36 kB
+node_modules/.cache/nuxt/.nuxt/dist/client/_nuxt/Ri9R2uCj.js             111.97 kB │ gzip: 38.77 kB
+
+i ✓ built in 1.85s
+√ Client built in 1880ms
+• Bundling server
+i Building server...
+i vite v8.3.4 building ssr environment for production...
+transforming...
+✓ 2 modules transformed.
+rendering chunks...
+i node_modules/.cache/nuxt/.nuxt/dist/server/styles.mjs  0.06 kB
+node_modules/.cache/nuxt/.nuxt/dist/server/server.mjs  0.17 kB │ map: 0.28 kB
+
+i ✓ built in 23ms
+√ Server built in 46ms
+• Building Nitro server
+[nitro] √ Generated public .output/public
+[nitro] i Building Nuxt Nitro server (preset: node-server, compatibility date: 2025-07-15)
+(node:42004) [DEP0155] DeprecationWarning: Use of deprecated trailing slash pattern mapping "./" in the "exports" field module resolution of the package at C:\Users\user\Desktop\custom-form-service-web\node_modules\@vue\shared\package.json imported from C:\Users\user\Desktop\custom-form-service-web\node_modules\nuxt\dist\runtime\server\renderer\error-template.js. Mapping specifiers ending in "/" is no longer supported.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+
+[nitro]  ERROR  Error: EPERM: operation not permitted, mkdir 'C:\Users\user\Desktop\custom-form-service-web\.output\server\node_modules\unhead'
+
+
+undefined
+
+
+ ERROR  EPERM: operation not permitted, mkdir 'C:\Users\user\Desktop\custom-form-service-web\.output\server\node_modules\unhead'
+
+    at async Object.mkdir (node:internal/fs/promises:1564:10)
+    at async writePackage (/C:/Users/user/Desktop/custom-form-service-web/node_modules/nitropack/dist/rollup/index.mjs:534:11)
+    at async Promise.all (index 2)
+    at async Object.buildEnd (/C:/Users/user/Desktop/custom-form-service-web/node_modules/nitropack/dist/rollup/index.mjs:612:7)
+    at async Promise.all (index 1)
+    at async PluginDriver.hookParallel (/C:/Users/user/Desktop/custom-form-service-web/node_modules/rollup/dist/es/shared/node-entry.js:23473:9)
+    at async /C:/Users/user/Desktop/custom-form-service-web/node_modules/rollup/dist/es/shared/node-entry.js:24472:13
+    at async catchUnfinishedHookActions (/C:/Users/user/Desktop/custom-form-service-web/node_modules/rollup/dist/es/shared/node-entry.js:23917:16)
+    at async rollupInternal (/C:/Users/user/Desktop/custom-form-service-web/node_modules/rollup/dist/es/shared/node-entry.js:24444:5)
+    at async buildProduction (/C:/Users/user/Desktop/custom-form-service-web/node_modules/nitropack/dist/core/index.mjs:1590:19)

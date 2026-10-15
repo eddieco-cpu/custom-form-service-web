@@ -1,0 +1,300 @@
+{
+  "frontend": "20381116101824aeccca405eaaf4336f6fea9784",
+  "base": "e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0",
+  "backend": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "node": "v24.21.0",
+  "unit": {
+    "passed": 284,
+    "failed": 0,
+    "total": 284
+  },
+  "independentUnit": {
+    "passed": 18,
+    "total": 18
+  },
+  "fixtureBrowser": {
+    "f9Product": 23,
+    "harness": 8,
+    "regression": 26,
+    "chrome": 2,
+    "edge": 2,
+    "independentBuilt": 1,
+    "independentHarness": 1,
+    "passed": 63
+  },
+  "live": {
+    "runId": "f9-1792079923977-independent-review-20261015",
+    "runnerTests": 3,
+    "cases": [
+      {
+        "id": "L01 anonymous/owner_only/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/owner_only/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/owner_only/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/owner_only/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/respondents/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/respondents/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/respondents/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/respondents/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/public/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/public/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/public/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 anonymous/public/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/owner_only/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/owner_only/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/owner_only/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/owner_only/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/respondents/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/respondents/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/respondents/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/respondents/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/public/A",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/public/B",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/public/C",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 identified/public/guest",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L01 private actual Login return + manual missing-Cookie AUTH_REQUIRED Dialog",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 zero anonymous complete roots/choice/rating/empty lists",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 zero identified complete roots/choice/rating/empty lists",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Draft/A 409",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Draft/C 404",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Draft/guest 404",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Published/A 409",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Published/C 409",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 Published/guest 404",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 expired Published/A 409",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 expired Published/C 409",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 expired Published/guest 404",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 natural deadline retains Published and saved deadline",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 retained deleted UUID from F7",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 random absent UUID",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L03 invalid UUID before Auth",
+        "source": "real API + Browser; independent fixed expectations",
+        "result": "PASS"
+      },
+      {
+        "id": "L04 invalid Cookie",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      },
+      {
+        "id": "L04 expired Cookie",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      },
+      {
+        "id": "L04 disabled Cookie",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      },
+      {
+        "id": "L04 disabled Creator",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      },
+      {
+        "id": "L04 real Server fault",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      },
+      {
+        "id": "L04 real timeout",
+        "source": "real API",
+        "result": "BLOCKED",
+        "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。"
+      }
+    ],
+    "passed": 42,
+    "blocked": 6,
+    "corsResponses": 150,
+    "diagnosticIssues": [],
+    "errors": [],
+    "violations": []
+  },
+  "oracle": {
+    "bodies": 22,
+    "definitions": 12,
+    "submissions": 10
+  },
+  "snapshot": 108,
+  "source": 93,
+  "sourceDigest": "3547457891d3165544b00165c7db58e15023f04f740f48697f7632c8d52d00f2",
+  "historicalCopies": 43,
+  "historicalFinal": {
+    "fixture": 59,
+    "real": 42
+  },
+  "formalAcceptance": "NOT RUN",
+  "humanAcceptance": "NOT RUN",
+  "accepted": "unchanged",
+  "stoppingPoint": "F9 集中 review 完成、待 Owner 確認"
+}

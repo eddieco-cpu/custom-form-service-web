@@ -1,0 +1,178 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=output/playwright/f9-review-20261015/reviewer.playwright.config.ts",
+      "--grep",
+      "external Login"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9-review-20261015\\reviewer.playwright.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9-review-20261015",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9-review-20261015/raw/reviewer-browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9-review-20261015",
+        "testIgnore": [],
+        "testMatch": [
+          "reviewer.browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9-review-20261015\\raw\\reviewer-browser-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9-review-20261015",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9-review-20261015",
+        "testIgnore": [],
+        "testMatch": "reviewer.browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9-review-20261015\\raw\\reviewer-browser-harness-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node output/playwright/f9/harness-output/server/index.mjs",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      },
+      "cwd": "C:\\Users\\user\\Desktop\\custom-form-service-web\\"
+    }
+  },
+  "suites": [
+    {
+      "title": "reviewer.browser.spec.ts",
+      "file": "reviewer.browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "review harness: external Login removes manual 401 dialog; fresh 403 cannot navigate or restore private names",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 374,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T16:02:43.636Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "review-diagnostics.json",
+                      "contentType": "application/json",
+                      "body": "eyJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9LHsibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJzdGF0dXMiOjQwMSwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDEgKFVuYXV0aG9yaXplZCkiLCJkaWFnbm9zdGljQ291bnQiOjF9LHsia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyIsInN0YXR1cyI6NDAzLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMyAoRm9yYmlkZGVuKSIsImRpYWdub3N0aWNDb3VudCI6MX1dLCJhY3R1YWwiOlt7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IkdFVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJzdGF0dXMiOjQwMX0seyJraW5kIjoicmVzcG9uc2UiLCJtZXRob2QiOiJHRVQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwic3RhdHVzIjo0MDN9XSwiZGlhZ25vc3RpY3MiOlt7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDEgKFVuYXV0aG9yaXplZCkiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIn0seyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAzIChGb3JiaWRkZW4pIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvc3RhdGlzdGljcyJ9XSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImlzc3VlcyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "a2cf5da8c26655f219a1-a89360aed0a57ff42f5c",
+          "file": "reviewer.browser.spec.ts",
+          "line": 37,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T16:02:42.793Z",
+    "duration": 1924.31,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

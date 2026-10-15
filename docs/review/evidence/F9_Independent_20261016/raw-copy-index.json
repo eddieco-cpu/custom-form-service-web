@@ -1,0 +1,386 @@
+{
+  "files": [
+    {
+      "path": "execution/audit-final.log",
+      "source": "output/playwright/f9-review-20261015/raw/audit-final.log",
+      "rawSha256": "06f5db8c5a960e3c608a86313b9d96b7f6629f643dba5aa3e8f921e7c1b0adb3",
+      "deliveredSha256": "c511827cbdfe7ecf30b93ad5b7c47cd0b734ad622a169a88ec2a5a69716afdea",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/audit-first.log",
+      "source": "output/playwright/f9-review-20261015/raw/audit-first.log",
+      "rawSha256": "549742c45f585dc93afc7428773aace8c92bda617f52095fb9332bdbef22073d",
+      "deliveredSha256": "6a4489e065e118bf9d57929e02bf142d075ef0bbfd6161433f5f8618a34a4678",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/backend-contract-comparison.json",
+      "source": "output/playwright/f9-review-20261015/raw/backend-contract-comparison.json",
+      "rawSha256": "b34f07d86339f69577f44067e4f7bf5e8d66c50f73ae534a4ea922f58148b805",
+      "deliveredSha256": "b34f07d86339f69577f44067e4f7bf5e8d66c50f73ae534a4ea922f58148b805",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/browser-built-ready.log",
+      "source": "output/playwright/f9-review-20261015/raw/browser-built-ready.log",
+      "rawSha256": "59ddf326b46cddd97876358a7b705608b8adff84917a309b0d518a084a11bde0",
+      "deliveredSha256": "e29fc5c58d62d083c994f2ac5769654614ac3cface9981eb8639d56c09453c62",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/browser-built.log",
+      "source": "output/playwright/f9-review-20261015/raw/browser-built.log",
+      "rawSha256": "bc0caab2964d4949b7ca4270421870110713caa28597eb3975650afeb3118783",
+      "deliveredSha256": "51e92e2ea012503e983e6ddf765f44aa3cd8d41f2f290e30dc9bd0ed04fda6c9",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/build-elevated.log",
+      "source": "output/playwright/f9-review-20261015/raw/build-elevated.log",
+      "rawSha256": "ab390257bde3eb1669f7678fb4ec166e4cfff26a228cb0a208906fb66de782cb",
+      "deliveredSha256": "8060da6a9100c5eb2895e6410a014adf5aac04c2a01c65ed32058c885c3f9dcc",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/build.log",
+      "source": "output/playwright/f9-review-20261015/raw/build.log",
+      "rawSha256": "21bf605af17b4717f9e8157a96ec5a43d32e67328bbce86729c7fc7a243bdcb4",
+      "deliveredSha256": "0f06fba846874849ba5514fede25012c2db2f69b810fbb597e700e8f4defe5b1",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/chrome.log",
+      "source": "output/playwright/f9-review-20261015/raw/chrome.log",
+      "rawSha256": "8fe1488cc47fc5cecbae66f688ffd8d4cb835e3e8f2cab096a643f3e1997daaa",
+      "deliveredSha256": "122559de1f1a7628f47e4b732dfe71937193258947917afa080e5cf4fc40da68",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/edge.log",
+      "source": "output/playwright/f9-review-20261015/raw/edge.log",
+      "rawSha256": "77b1b30c4cef66f7d86d6b2f424bd4d2b8251ab7c2a4572955d93fd7b2180d9f",
+      "deliveredSha256": "031fe0baf29f3e9cfafb7c6c0f33370ff27fd05c166fc80c3c7c55fc7650cf58",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/environment.json",
+      "source": "output/playwright/f9-review-20261015/raw/environment.json",
+      "rawSha256": "0d0689280da21957e8d015ef84f9dffd0a33dd2a94c1fa9c0e3225352a72d85e",
+      "deliveredSha256": "0d0689280da21957e8d015ef84f9dffd0a33dd2a94c1fa9c0e3225352a72d85e",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/evidence-audit.json",
+      "source": "output/playwright/f9-review-20261015/raw/evidence-audit.json",
+      "rawSha256": "cabe37ddb3576c53161487930db1621f871c7930ffee1235a31d0adeaab13259",
+      "deliveredSha256": "cabe37ddb3576c53161487930db1621f871c7930ffee1235a31d0adeaab13259",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/harness-browser.log",
+      "source": "output/playwright/f9-review-20261015/raw/harness-browser.log",
+      "rawSha256": "4ccf337de4f092d8b63682bce19de176107f28d3ce991dd32646172f72a12fe6",
+      "deliveredSha256": "950149c714630330c56acdd90d7a0ff9cb6000b3a4eb1912e350e19968331332",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/harness-build.log",
+      "source": "output/playwright/f9-review-20261015/raw/harness-build.log",
+      "rawSha256": "590cf26bf173f9d7796bebf2380e36695f666d89d9f93d7a9a18ac4a7e83c4af",
+      "deliveredSha256": "4c3c9da6ff1a2d361863c45d39d6de1d429a0a20de95459ee933fb2713cd688b",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/harness-strict.log",
+      "source": "output/playwright/f9-review-20261015/raw/harness-strict.log",
+      "rawSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "deliveredSha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/historical-oracle-complete.log",
+      "source": "output/playwright/f9-review-20261015/raw/historical-oracle-complete.log",
+      "rawSha256": "06892b980f5d4efa31682ef43dd3b597f3f23d849428838657ef946155f124b5",
+      "deliveredSha256": "f6d9ef526743774ff196d6a6b273cd90d773480b75e8f8250d2aff5caed36342",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/historical-oracle-definitions.log",
+      "source": "output/playwright/f9-review-20261015/raw/historical-oracle-definitions.log",
+      "rawSha256": "06892b980f5d4efa31682ef43dd3b597f3f23d849428838657ef946155f124b5",
+      "deliveredSha256": "f6d9ef526743774ff196d6a6b273cd90d773480b75e8f8250d2aff5caed36342",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/historical-oracle-retest.log",
+      "source": "output/playwright/f9-review-20261015/raw/historical-oracle-retest.log",
+      "rawSha256": "06892b980f5d4efa31682ef43dd3b597f3f23d849428838657ef946155f124b5",
+      "deliveredSha256": "f6d9ef526743774ff196d6a6b273cd90d773480b75e8f8250d2aff5caed36342",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/historical-oracle.json",
+      "source": "output/playwright/f9-review-20261015/raw/historical-oracle.json",
+      "rawSha256": "2569ea31b2c7a309303b3d9919c936627176230aa4abbfa37ed3b903d787aa28",
+      "deliveredSha256": "2569ea31b2c7a309303b3d9919c936627176230aa4abbfa37ed3b903d787aa28",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/historical-oracle.log",
+      "source": "output/playwright/f9-review-20261015/raw/historical-oracle.log",
+      "rawSha256": "61bd2bb3d31f972279a1a66b5b9c2cd52c2a426800d59a082c89267ee4eea45e",
+      "deliveredSha256": "d149a64c212f297f2d3bceb933b9c03b4dd8f8583e80a98b2ae68fb116e44d79",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/initial-environment-failure.txt",
+      "source": "output/playwright/f9-review-20261015/raw/initial-environment-failure.txt",
+      "rawSha256": "8ce8a34205e465659ebc3e00e754aa46c295b48b1051500103963fc971c4eca5",
+      "deliveredSha256": "a76abd979d4e733ec6a7c76e8caa15ad997a76e36c8766a0c119599f4ac11c71",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/lint.log",
+      "source": "output/playwright/f9-review-20261015/raw/lint.log",
+      "rawSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "deliveredSha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/live.log",
+      "source": "output/playwright/f9-review-20261015/raw/live.log",
+      "rawSha256": "edc03ca1a9f8971b2caf913d2811aea5a6a8a622761c13747df574df4701a79e",
+      "deliveredSha256": "86a08b34e4e14c5f97078759f36f5890348e1bcdec2f45bdbd42edfe7be13e24",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/regression.log",
+      "source": "output/playwright/f9-review-20261015/raw/regression.log",
+      "rawSha256": "2c5375462aaf1b852e86550b597b27b9493c5830f3e660f653241d6fbaab6492",
+      "deliveredSha256": "c407bdaa9f8298eabe950889f640d25bda84a65e390c7493a08ef0634f95b023",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/review-oracle-complete.log",
+      "source": "output/playwright/f9-review-20261015/raw/review-oracle-complete.log",
+      "rawSha256": "51d4790ac6c5c8cd2cfa094c63f7cd9c6ebeaf64efddb548df45750fcf7084e6",
+      "deliveredSha256": "06a0f41e19ec9aed418f1e3327405427683cfd11aee2d850e30f680b134cf414",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/review-oracle-definitions.log",
+      "source": "output/playwright/f9-review-20261015/raw/review-oracle-definitions.log",
+      "rawSha256": "51d4790ac6c5c8cd2cfa094c63f7cd9c6ebeaf64efddb548df45750fcf7084e6",
+      "deliveredSha256": "06a0f41e19ec9aed418f1e3327405427683cfd11aee2d850e30f680b134cf414",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/review-oracle.json",
+      "source": "output/playwright/f9-review-20261015/raw/review-oracle.json",
+      "rawSha256": "d046f41d99642ee2b279cb92a7613b42ac8f8dbdedb6a547123860af93e413ea",
+      "deliveredSha256": "d046f41d99642ee2b279cb92a7613b42ac8f8dbdedb6a547123860af93e413ea",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/review-oracle.log",
+      "source": "output/playwright/f9-review-20261015/raw/review-oracle.log",
+      "rawSha256": "51d4790ac6c5c8cd2cfa094c63f7cd9c6ebeaf64efddb548df45750fcf7084e6",
+      "deliveredSha256": "06a0f41e19ec9aed418f1e3327405427683cfd11aee2d850e30f680b134cf414",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/reviewer-browser-built-results.json",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-built-results.json",
+      "rawSha256": "9c76ec267bae7fde4f6ac8d85ebb511d9fc1d9590ca3f8b1f4d37463e900fcde",
+      "deliveredSha256": "9c76ec267bae7fde4f6ac8d85ebb511d9fc1d9590ca3f8b1f4d37463e900fcde",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/reviewer-browser-built.log",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-built.log",
+      "rawSha256": "163f163185c36ce9c61ad277a17b5b9da9f137c0c6d80401df8a72a55a78e6d4",
+      "deliveredSha256": "02b480c9366bd9a05c9a4059142d408f56b78a16c3f8f9c722bee770a74af1f3",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/reviewer-browser-harness-precondition-results.json",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-harness-precondition-results.json",
+      "rawSha256": "3a00a237cc0b9604d11a5e27165185faaf78ed5c53d26ee28044e68cc1c1daab",
+      "deliveredSha256": "3a00a237cc0b9604d11a5e27165185faaf78ed5c53d26ee28044e68cc1c1daab",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/reviewer-browser-harness-results.json",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-harness-results.json",
+      "rawSha256": "55bec8acb5bb8ae396b5044ab9eeb3fdd5c5bdd4b8c35da365311fba37d415d6",
+      "deliveredSha256": "55bec8acb5bb8ae396b5044ab9eeb3fdd5c5bdd4b8c35da365311fba37d415d6",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/reviewer-browser-harness-retest.log",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-harness-retest.log",
+      "rawSha256": "623acaa1b679c7617a528779cc3b44663b338c5eb78ad85950107f94a3a9500a",
+      "deliveredSha256": "d09c724b03fb3c627a9debe2b88bc347621dfe80fc652bbc9476f080c0abdc76",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/reviewer-browser-harness.log",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-browser-harness.log",
+      "rawSha256": "774a6c0a4d414e3385a0e248d2326258f6d3b38628c274f4dd201df1fd97f95a",
+      "deliveredSha256": "fcf86a6548d6c2688700b315366bc013235ed3b5f30d1315274d096a30d566cf",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/reviewer-unit.json",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-unit.json",
+      "rawSha256": "5be540c02f968c42315cf8af2877cf15c2db8dd8bddeebf40222cfcef51586f0",
+      "deliveredSha256": "5be540c02f968c42315cf8af2877cf15c2db8dd8bddeebf40222cfcef51586f0",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/reviewer-unit.log",
+      "source": "output/playwright/f9-review-20261015/raw/reviewer-unit.log",
+      "rawSha256": "06a07a5d582f2d4f0125104e435da88d3bd2bc1000a53def59685d27bdc9f625",
+      "deliveredSha256": "ce12dde3cb4a8243644506099c07bfb9ade3ff4d1675f8f27c88482c26fa42ae",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/service-closeout.json",
+      "source": "output/playwright/f9-review-20261015/raw/service-closeout.json",
+      "rawSha256": "7c3367ef53ea36f136801fe157386880a288c65be860e226a3a594eba5deebeb",
+      "deliveredSha256": "7c3367ef53ea36f136801fe157386880a288c65be860e226a3a594eba5deebeb",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/typecheck.log",
+      "source": "output/playwright/f9-review-20261015/raw/typecheck.log",
+      "rawSha256": "08177d7c1fc0bb1219351a4bbc955dad1edef8953a0102766ead3321c90a819d",
+      "deliveredSha256": "59d0604873cb1131c9a7e93527bb7f2de536eeee4fd26e44264b6e0a505fa730",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "execution/unit-results.json",
+      "source": "output/playwright/f9-review-20261015/raw/unit-results.json",
+      "rawSha256": "988426b69837d0935ee8648b5a13d0419cda57cb436b0a94895dbd9a52b38899",
+      "deliveredSha256": "988426b69837d0935ee8648b5a13d0419cda57cb436b0a94895dbd9a52b38899",
+      "normalization": "none"
+    },
+    {
+      "path": "execution/unit.log",
+      "source": "output/playwright/f9-review-20261015/raw/unit.log",
+      "rawSha256": "610ec0d8a0bc7268510d891dea94ddeb7f3d1c93a820647d95ceb953a7534992",
+      "deliveredSha256": "6a59e13a541f0c5da792ae437905ae0c7f70d72ca5c6d4e653175100f62a05f9",
+      "normalization": "BOM/newline/trailing whitespace only"
+    },
+    {
+      "path": "diagnostics/audit.mjs.txt",
+      "source": "output/playwright/f9-review-20261015/audit.mjs",
+      "rawSha256": "a838dce32132350d14eda44af103718f716ac1c7f93c533048191aaf472a0841",
+      "deliveredSha256": "a838dce32132350d14eda44af103718f716ac1c7f93c533048191aaf472a0841",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/oracle.py.txt",
+      "source": "output/playwright/f9-review-20261015/oracle.py",
+      "rawSha256": "24354e86dbf2bdc95544b4e869e433c8b66dd5e38511aa5ab6151ecbeac1db85",
+      "deliveredSha256": "24354e86dbf2bdc95544b4e869e433c8b66dd5e38511aa5ab6151ecbeac1db85",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/reviewer.spec.ts.txt",
+      "source": "output/playwright/f9-review-20261015/reviewer.spec.ts",
+      "rawSha256": "698e57abd4300c8b9aeb56f6d127d3332670e521d14ccfa9b2f3bcefcdf65cb2",
+      "deliveredSha256": "698e57abd4300c8b9aeb56f6d127d3332670e521d14ccfa9b2f3bcefcdf65cb2",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/reviewer.vitest.config.ts.txt",
+      "source": "output/playwright/f9-review-20261015/reviewer.vitest.config.ts",
+      "rawSha256": "2c389eb31f79decbe627a6dbb06ee863462c6b1c2412eeb1f2429945e08ebb7e",
+      "deliveredSha256": "2c389eb31f79decbe627a6dbb06ee863462c6b1c2412eeb1f2429945e08ebb7e",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/reviewer.browser.spec.ts.txt",
+      "source": "output/playwright/f9-review-20261015/reviewer.browser.spec.ts",
+      "rawSha256": "4d43f68039d3d0ace193ab7d561dba81d5f5a2e17d8cb3240df988e751ef36bf",
+      "deliveredSha256": "4d43f68039d3d0ace193ab7d561dba81d5f5a2e17d8cb3240df988e751ef36bf",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/reviewer.playwright.config.ts.txt",
+      "source": "output/playwright/f9-review-20261015/reviewer.playwright.config.ts",
+      "rawSha256": "84d3085376147d5f0c8c3b74f9e3b451ef1d739280f0a840c462b0582b9ed855",
+      "deliveredSha256": "84d3085376147d5f0c8c3b74f9e3b451ef1d739280f0a840c462b0582b9ed855",
+      "normalization": "none"
+    },
+    {
+      "path": "diagnostics/package.mjs.txt",
+      "source": "output/playwright/f9-review-20261015/package.mjs",
+      "rawSha256": "3718afb012bec257ecd9ecf8f4c9c215bccb83654bd5a4deb35e3374a9a0d279",
+      "deliveredSha256": "3718afb012bec257ecd9ecf8f4c9c215bccb83654bd5a4deb35e3374a9a0d279",
+      "normalization": "none"
+    },
+    {
+      "path": "live/f9-1792079923977-independent-review-20261015-sanitized.json",
+      "source": "output/playwright/f9/f9-1792079923977-independent-review-20261015-sanitized.json",
+      "rawSha256": "90b5226b832bd7bad1846b50a4e2c6997bafc88219a023d8f8545d1f0d11b4b2",
+      "deliveredSha256": "90b5226b832bd7bad1846b50a4e2c6997bafc88219a023d8f8545d1f0d11b4b2",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/built-chrome-review-20261015-results.json",
+      "source": "output/playwright/f9/built-chrome-review-20261015-results.json",
+      "rawSha256": "3e632169dd58d0d148d62195325fd0e081ea02514ae13ad12316ef8720e887d2",
+      "deliveredSha256": "3e632169dd58d0d148d62195325fd0e081ea02514ae13ad12316ef8720e887d2",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/built-msedge-review-20261015-results.json",
+      "source": "output/playwright/f9/built-msedge-review-20261015-results.json",
+      "rawSha256": "8d224f07ef870a7549643162ae4cd1ed7b0f98389092096843adc387c621ac9d",
+      "deliveredSha256": "8d224f07ef870a7549643162ae4cd1ed7b0f98389092096843adc387c621ac9d",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/built-review-20261015-ready-results.json",
+      "source": "output/playwright/f9/built-review-20261015-ready-results.json",
+      "rawSha256": "53c537557cdbee8976201032f4646901db9cb44325e1555820d38883c8991fe5",
+      "deliveredSha256": "53c537557cdbee8976201032f4646901db9cb44325e1555820d38883c8991fe5",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/built-review-20261015-results.json",
+      "source": "output/playwright/f9/built-review-20261015-results.json",
+      "rawSha256": "60cfccd157ea4fefb555c904d17cb0a6ad016e0fdea8f579593fb3d8b1f1a1dc",
+      "deliveredSha256": "60cfccd157ea4fefb555c904d17cb0a6ad016e0fdea8f579593fb3d8b1f1a1dc",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/harness-review-20261015-results.json",
+      "source": "output/playwright/f9/harness-review-20261015-results.json",
+      "rawSha256": "e2b1ceac5daccae40591b81eae6f879a2a06f69ef276f27cc2ca1d0c4bdaae75",
+      "deliveredSha256": "e2b1ceac5daccae40591b81eae6f879a2a06f69ef276f27cc2ca1d0c4bdaae75",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/live-independent-review-20261015-results.json",
+      "source": "output/playwright/f9/live-independent-review-20261015-results.json",
+      "rawSha256": "fe9f2054ea828370f49ef7501f875c61aa5a3c3901c08eaa5c49ea1d101ad05e",
+      "deliveredSha256": "fe9f2054ea828370f49ef7501f875c61aa5a3c3901c08eaa5c49ea1d101ad05e",
+      "normalization": "none"
+    },
+    {
+      "path": "browser/regression-review-20261015-results.json",
+      "source": "output/playwright/f9/regression-review-20261015-results.json",
+      "rawSha256": "8e59cbba79752bff3765c92e50aa30cc50deed86199afe5ada74ec64b22f603b",
+      "deliveredSha256": "8e59cbba79752bff3765c92e50aa30cc50deed86199afe5ada74ec64b22f603b",
+      "normalization": "none"
+    }
+  ],
+  "scannedTextFiles": 108,
+  "decodedJsonAttachments": 54,
+  "actualPasswordValuesChecked": 4,
+  "privateCredentialsCopied": false
+}

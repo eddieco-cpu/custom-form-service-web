@@ -1,0 +1,24 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+const dest='docs/review/evidence/F9_Independent_20261016',report='docs/review/F9_Independent_Code_Review_Report_20261016.md'
+const sha=b=>crypto.createHash('sha256').update(b).digest('hex')
+const secrets=[];for(const name of await fs.readdir('output/playwright/f9'))if(name.endsWith('-private-credentials.json'))secrets.push(JSON.parse(await fs.readFile('output/playwright/f9/'+name,'utf8')).password)
+async function files(dir){const out=[];for(const e of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())out.push(...await files(p));else out.push(p)}return out}
+const missing=[];const text=await fs.readFile(report,'utf8')
+for(const m of text.matchAll(/\]\(([^)]+)\)/g)){if(/^(?:https?:|#)/.test(m[1]))continue;const target=path.resolve(path.dirname(report),m[1].split('#')[0]);try{await fs.access(target)}catch{missing.push(m[1])}}
+if(missing.length)throw Error('Missing report links: '+missing.join(','))
+const modified=execFileSync('git',['diff','--name-only','20381116101824aeccca405eaaf4336f6fea9784'],{encoding:'utf8'}).trim()
+if(modified)throw Error('Existing tracked files changed: '+modified)
+let scanned=0,decoded=0
+function scan(text,label){scanned++;for(const s of secrets)if(s&&text.includes(s))throw Error('Actual password '+label);if(/eyJ[A-Za-z0-9_-]{10,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(text))throw Error('JWT '+label);if(/"(?:password|cookie|authorization|access_token)"\s*:\s*"[^"\s]+"/i.test(text))throw Error('Secret field '+label)}
+function deep(o,label){if(!o||typeof o!=='object')return;if(o.contentType==='application/json'&&o.body){scan(Buffer.from(o.body,'base64').toString(),label+' attachment');decoded++}for(const v of Object.values(o))if(v&&typeof v==='object')deep(v,label)}
+for(const f of [report,...await files(dest)])if(!f.endsWith('.png')){const text=await fs.readFile(f,'utf8');scan(text,f);if(f.endsWith('.json'))deep(JSON.parse(text),f)}
+const checks={time:new Date().toISOString(),frontendHead:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(),productAndExistingTrackedFilesUnchanged:true,reportLinks:'PASS',knownPasswordScan:'PASS',jwtAndSecretFields:'PASS',decodedJsonAttachments:decoded,textFilesScanned:scanned,imagesVisuallyInspected:['mobile-long-names.png','live-current-names.png'],formalAcceptance:'NOT RUN',humanAcceptance:'NOT RUN',accepted:'unchanged',nextPlan:'After Owner confirms concentrated review closeout; no F10 execution'}
+await fs.writeFile(dest+'/closeout-checks.json',JSON.stringify(checks,null,2)+'\n')
+await fs.copyFile('output/playwright/f9-review-20261015/closeout.mjs',dest+'/diagnostics/closeout.mjs.txt')
+const paths=[report,...(await files(dest)).filter(f=>!f.endsWith('artifact-manifest.json'))].sort()
+const entries=[];for(const p of paths)entries.push({path:p.replaceAll('\\','/'),sha256:sha(await fs.readFile(p))})
+await fs.writeFile(dest+'/artifact-manifest.json',JSON.stringify({algorithm:'SHA-256',excludes:'artifact-manifest.json itself',files:entries},null,2)+'\n')
+console.log(JSON.stringify({links:'PASS',protected:'PASS',secretScan:'PASS',decoded,files:entries.length},null,2))

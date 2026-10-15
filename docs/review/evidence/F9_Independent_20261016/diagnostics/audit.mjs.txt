@@ -1,0 +1,58 @@
+import fs from 'node:fs/promises'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+const root = process.cwd(), out = 'output/playwright/f9-review-20261015/raw', dev = 'docs/implementation/evidence/F9_20261015', raw = 'output/playwright/f9'
+const read = p => fs.readFile(p, 'utf8'), json = async p => JSON.parse(await read(p)), hash = b => crypto.createHash('sha256').update(b).digest('hex')
+const norm = s => s.replace(/^\uFEFF/, '').replaceAll('\r\n','\n').split('\n').map(l => l.trimEnd()).join('\n').trimEnd()
+const audit = { head:execFileSync('git',['rev-parse','HEAD'],{encoding:'utf8'}).trim(), snapshot:[], source:[], historicalCopies:[], historyRuns:[], currentRuns:[] }
+for (const line of (await read('backend-ref/MANIFEST.sha256')).trim().split(/\r?\n/)) {
+  const [, expected, p] = /^(\w+)\s+(.+)$/.exec(line)
+  const actual = hash(await fs.readFile(path.join('backend-ref',p)))
+  if(expected!==actual) throw Error('snapshot mismatch '+p)
+  audit.snapshot.push({path:p,sha256:actual})
+}
+const source = await json(dev+'/build-source.json')
+for (const file of source.appSource) {
+  const actual=hash(await fs.readFile(file.path)); if(actual!==file.sha256)throw Error('source changed '+file.path)
+  audit.source.push({path:file.path,sha256:actual})
+}
+audit.sourceDigest=hash(JSON.stringify(audit.source))
+if(audit.sourceDigest!==source.sourceDigest) throw Error('source digest differs')
+for(const [folder,names] of [['browser',(await fs.readdir(dev+'/browser'))],['execution',(await fs.readdir(dev+'/execution'))],['commands',(await fs.readdir(dev+'/commands'))]]) {
+  for(const name of names) {
+    let rp=raw+'/'+name; try{await fs.access(rp)}catch{rp='output/playwright/'+name;try{await fs.access(rp)}catch{continue}}
+    const a=await fs.readFile(dev+'/'+folder+'/'+name), b=await fs.readFile(rp)
+    const equal=a.equals(b), normalized=!equal&&norm(a.toString())===norm(b.toString())
+    if(!equal&&!normalized) throw Error('raw copy mismatch '+name)
+    audit.historicalCopies.push({path:folder+'/'+name,rawPath:rp,rawSha256:hash(b),deliveredSha256:hash(a),comparison:equal?'exact bytes':'BOM/newline/trailing whitespace only'})
+  }
+}
+function cases(report) {
+  const result=[]
+  const walk=s=>{for(const spec of s.specs??[])for(const t of spec.tests??[])for(const r of t.results??[]) result.push({file:spec.file,title:spec.title,project:t.projectName,status:r.status,errors:r.errors??[],attachments:(r.attachments??[]).map(a=>({name:a.name,type:a.contentType,...(a.body&&a.contentType==='application/json'?{value:JSON.parse(Buffer.from(a.body,'base64').toString())}:{})}))});for(const child of s.suites??[])walk(child)}
+  walk(report);return result
+}
+for(const label of ['built-network-retry','built-locator-retest','harness-initial','regression-auth','regression-f3-return-retest','built-chrome-smoke','built-msedge-smoke','live-live-initial','live-instant-retest','live-boundary-retest']) {
+  const report=await json(raw+'/'+label+'-results.json'), items=cases(report)
+  audit.historyRuns.push({label,config:report.config,stats:report.stats,cases:items})
+}
+const final=new Map()
+for(const r of audit.historyRuns.filter(r=>!r.label.startsWith('live-')))for(const c of r.cases){const key=c.project+'|'+c.title;if(c.status!=='skipped'||!final.has(key))final.set(key,{run:r.label,...c})}
+audit.historicalFixtureFinal=[...final.values()];if(audit.historicalFixtureFinal.filter(c=>c.status==='passed').length!==59)throw Error('59 count differs')
+const real=new Map()
+for(const name of ['f9-1792077354728-live-initial','f9-1792077429649-instant-retest','f9-1792077518649-boundary-retest']) {
+  const run=await json(raw+'/'+name+'-sanitized.json');for(const c of run.cases)real.set(c.id,{runId:name,...c})
+}
+audit.historicalRealFinal=[...real.values()];if(audit.historicalRealFinal.filter(c=>c.result==='PASS').length!==42)throw Error('42 count differs')
+for(const name of (await fs.readdir(raw)).filter(n=>n.includes('review-20261015')&&n.endsWith('-results.json'))) {
+  const report=await json(raw+'/'+name);audit.currentRuns.push({file:name,stats:report.stats,cases:cases(report)})
+}
+const installed=await json('package.json'), lock=await json('package-lock.json');audit.dependencies=[]
+for(const [name,version]of Object.entries({...installed.dependencies,...installed.devDependencies})){const pkg=await json('node_modules/'+name+'/package.json'),locked=lock.packages['node_modules/'+name].version;if(pkg.version!==version||locked!==version)throw Error('version differs '+name);audit.dependencies.push({name,declared:version,installed:pkg.version,locked})}
+async function files(dir){const result=[];for(const e of await fs.readdir(dir,{withFileTypes:true})){const p=path.join(dir,e.name);if(e.isDirectory())result.push(...await files(p));else result.push(p)}return result}
+audit.freshBuild=[];audit.harnessLeaks=[]
+for(const p of await files('.output')){const b=await fs.readFile(p);audit.freshBuild.push({path:p.replaceAll('\\','/'),sha256:hash(b)});if(/\.(?:js|mjs|json|html)$/.test(p)&&/f9Harness|controls\.client|fixtures\/f9/.test(b.toString()))audit.harnessLeaks.push(p)}
+if(audit.harnessLeaks.length)throw Error('harness leaked into product')
+await fs.writeFile(out+'/evidence-audit.json',JSON.stringify(audit,null,2)+'\n')
+console.log(JSON.stringify({snapshot:audit.snapshot.length,source:audit.source.length,digest:audit.sourceDigest,historicalCopies:audit.historicalCopies.length,historicalFixture:59,historicalReal:42,dependencies:audit.dependencies.length,harnessLeaks:audit.harnessLeaks.length,currentRuns:audit.currentRuns.map(r=>({file:r.file,stats:r.stats}))},null,2))
