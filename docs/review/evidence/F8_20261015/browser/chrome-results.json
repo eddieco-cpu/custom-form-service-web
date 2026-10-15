@@ -1,0 +1,214 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f8.config.ts",
+      "--grep",
+      "B01/B03 single|B04 multiple"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f8.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8/built-chrome-independent-smoke-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chrome",
+        "name": "chrome",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f8-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8\\built-chrome-independent-smoke-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chrome",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f8-browser.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium",
+          "channel": "chrome"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chrome"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f8/built-chrome-independent-smoke-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "f8-browser.spec.ts",
+      "file": "f8-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F8-B01/B03 single blank entry, successful Dialog/clean, refresh empty with no prequery",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1501,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T09:44:27.969Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-and-wire",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1Ni4wLjgwNzguMTIiLCJub2RlVmVyc2lvbiI6InYyNC4yMS4wIiwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwiYm9keSI6IntcImFuc3dlcnNcIjpbe1wicXVlc3Rpb25JZFwiOlwiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDAxXCIsXCJ2YWx1ZVwiOlwi5ZCI5oiQIPCfmIBcXG7mloflrZdcIn0se1wicXVlc3Rpb25JZFwiOlwiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDAyXCIsXCJ2YWx1ZVwiOjkwMDcxOTkyNTQ3NDA5OTMuMTIzNDU2Nzg5MDEyMzQ1Njc4OX0se1wicXVlc3Rpb25JZFwiOlwiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDAzXCIsXCJ2YWx1ZVwiOlwiMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDExXCJ9LHtcInF1ZXN0aW9uSWRcIjpcIjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwNFwiLFwidmFsdWVcIjpbXCIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMTRcIl19LHtcInF1ZXN0aW9uSWRcIjpcIjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwNVwiLFwidmFsdWVcIjowfV19In0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH1dLCJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fa47edaa56d024508943-89c8d6a0990667670aa1",
+          "file": "f8-browser.spec.ts",
+          "line": 68,
+          "column": 53
+        },
+        {
+          "title": "F8-B04 multiple successful Latest before dirty replacement/cancel, full missing optional reset",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chrome",
+              "projectName": "chrome",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 762,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T09:44:29.985Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-and-wire",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1Ni4wLjgwNzguMTIiLCJub2RlVmVyc2lvbiI6InYyNC4yMS4wIiwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMvbWUvbGF0ZXN0IiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzL21lL2xhdGVzdCIsImJvZHkiOm51bGx9XSwiZXhwZWN0ZWQiOltdLCJhY3R1YWwiOltdLCJkaWFnbm9zdGljcyI6W10sImlzc3VlcyI6W10sImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fa47edaa56d024508943-9ff5c93d84b73bc65f6e",
+          "file": "f8-browser.spec.ts",
+          "line": 85,
+          "column": 53
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T09:44:22.317Z",
+    "duration": 9627.448,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

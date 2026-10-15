@@ -1,0 +1,29 @@
+{
+  "at": "2026-10-15T17:45:42.6669122+08:00",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendStatus": [
+    "?? SNAPSHOT.md"
+  ],
+  "boundProcesses": [],
+  "productVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "dllSha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+  "dbIdentity": "UNCONFIRMED",
+  "migration": "UNCONFIRMED",
+  "metadata": [
+    {
+      "url": "http://localhost:5000/health",
+      "reason": "HttpRequestException",
+      "result": "BLOCKED"
+    },
+    {
+      "url": "http://localhost:5000/health/ready",
+      "reason": "HttpRequestException",
+      "result": "BLOCKED"
+    },
+    {
+      "url": "http://localhost:5000/openapi/v1.json",
+      "reason": "HttpRequestException",
+      "result": "BLOCKED"
+    }
+  ]
+}

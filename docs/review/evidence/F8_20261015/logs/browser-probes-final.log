@@ -1,0 +1,14 @@
+(node:19076) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "passed": 4,
+  "failures": [
+    {
+      "name": "late status candidate after same-component URL change cannot navigate home or replace new blank context",
+      "error": "AssertionError [ERR_ASSERTION]: Expected values to be strictly deep-equal:\n+ actual - expected\n\n+ [\n+   'Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050\",\"reason\":\"net::ERR_ABORTED\"}'\n+ ]\n- []\n\n    at scenario (file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:37:202)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:59:3",
+      "networkIssues": [
+        "Unexpected request outcome {\"kind\":\"requestfailed\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050\",\"reason\":\"net::ERR_ABORTED\"}"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "at": "2026-10-15T09:56:01.748Z",
+  "target": "b9f91e825173cbe81721061978e2d20dd5698c6d",
+  "checks": {
+    "reviewArtifactManifest": 56,
+    "reviewRawHashes": 53,
+    "links": 47,
+    "tables": 5,
+    "sourceBuildFiles": 156,
+    "protectedDiffExit": 0,
+    "all": "PASS"
+  },
+  "gitScope": "Only new review report and evidence; product/tests/specs/history unchanged",
+  "commit": "Full local documentation commit SHA supplied in delivery message / git log",
+  "accepted": "unchanged",
+  "push": "NOT RUN",
+  "F9": "NOT RUN"
+}

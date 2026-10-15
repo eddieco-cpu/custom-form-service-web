@@ -1,0 +1,49 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import assert from 'node:assert/strict';
+import { registerHooks } from 'node:module';
+registerHooks({resolve(s,c,n){try{return n(s,c);}catch(e){if(s.startsWith('.'))return n(`${s}.ts`,c);throw e;}}});
+const { parseExactJson, stringifyExactJson } = await import('../../../app/utils/exact-json.ts');
+const { semanticEqual } = await import('../../../app/domain/editor.ts');
+const { trimWhiteSpace } = await import('../../../app/utils/unicode.ts');
+const { decodeReceipt, decodeFormDetail } = await import('../../../app/domain/api/decoders.ts');
+const { requireSubmittedReceipt } = await import('../../../app/domain/response-mapping.ts');
+const { savedAnswerDefinition } = await import('../../../app/domain/answer.ts');
+const prefix='docs/implementation/evidence/F8_20261014/';
+const json=f=>JSON.parse(fs.readFileSync(f,'utf8').replace(/^\uFEFF/,''));
+const hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const normalized=f=>Buffer.from(fs.readFileSync(f,'utf8').replace(/^\uFEFF/,'').split(/\r?\n/).map(l=>l.replace(/[\t ]+$/,'')).join('\n').replace(/\n*$/,'\n'));
+const summary=json(prefix+'verification-summary.json'), manifest=json(prefix+'artifact-manifest.json'), digest=json(prefix+'final-source-build-digest.json');
+const result={target:'b9f91e825173cbe81721061978e2d20dd5698c6d',base:'134629a8ce9d2b276ec7a3a10a6843977814f41b',at:new Date().toISOString(),artifactChecks:[],rawChecks:[],sourceChecks:[],backendSnapshot:[],liveRuns:[]};
+for(const x of manifest){const p=prefix+x.path;result.artifactChecks.push({path:x.path,matches:hash(fs.readFileSync(p))===x.sha256||hash(normalized(p))===x.sha256});}
+for(const x of summary.evidence){
+  let bytes;
+  if(x.rawPath.includes('#')){const [f,name]=x.rawPath.split('#');const data=json(f);const find=s=>{for(const spec of s.specs??[])for(const t of spec.tests??[])for(const r of t.results??[])for(const a of r.attachments??[])if(a.name===name&&a.body)return Buffer.from(a.body,'base64');for(const child of s.suites??[]){const v=find(child);if(v)return v;}};bytes=find(data);}
+  else bytes=fs.readFileSync(x.rawPath);
+  result.rawChecks.push({path:x.rawPath,matches:!!bytes&&hash(bytes)===x.rawSha256,normalizedDelivery:x.path});
+}
+for(const x of digest.sources)result.sourceChecks.push({path:x.path,matches:hash(fs.readFileSync(x.path))===x.sha256||hash(normalized(x.path))===x.sha256});
+for(const line of fs.readFileSync('backend-ref/MANIFEST.sha256','utf8').trim().split(/\r?\n/)){const [,expected,name]=/^([0-9a-f]+)\s+(.+)$/.exec(line);result.backendSnapshot.push({path:name,matches:hash(fs.readFileSync('backend-ref/'+name))===expected});}
+const project=answers=>Object.fromEntries(answers.map(a=>[a.questionId,Array.isArray(a.value)?[...a.value].sort():typeof a.value==='string'&&!(a.value.includes('-')&&a.value.length===36)?trimWhiteSpace(a.value):a.value]));
+for(const file of ['f8-1791984869005-first-sanitized.json','f8-1791986410082-final-sanitized.json','f8-1791987582885-reader-final-sanitized.json']){
+  const run=json(prefix+file), successful=run.receipts.map(x=>({record:x,dto:decodeReceipt(parseExactJson(x.body))}));
+  const checks=[];
+  for(const {record,dto} of successful){assert.equal(record.id,dto.id);assert.equal(record.formId,dto.formId);assert.equal(record.submittedAt,dto.submittedAt);
+    const matches=run.requests.map((r,index)=>({r,index})).filter(({r})=>r.method==='POST'&&r.path===`/api/v1/forms/${dto.formId}/responses`&&semanticEqual(project(parseExactJson(r.body).answers),project(dto.answers)));
+    assert(matches.length,record.label+' wire mismatch');checks.push({label:record.label,id:dto.id,formId:dto.formId,wireRequestIndexes:matches.map(x=>x.index),exactSemanticMatch:true});
+  }
+  const latest=run.reads.filter(r=>r.status===200&&Object.hasOwn(JSON.parse(r.body),'formId'));
+  const latestChecks=latest.map(r=>{const dto=decodeReceipt(parseExactJson(r.body)),match=successful.find(x=>semanticEqual(x.dto,dto));assert(match,r.label+' latest mismatch');return{label:r.label,id:dto.id,matches201:match.record.label};});
+  const noResponse=run.reads.filter(r=>r.status===404);assert(noResponse.every(r=>JSON.parse(r.body).error.code==='RESPONSE_NOT_FOUND'));
+  const expired=decodeFormDetail(parseExactJson(run.reads.find(r=>r.label==='L04 expired Form still Published').body));assert.equal(expired.status,'published');
+  const deadlineReceipt=successful.find(x=>x.record.label==='L04 before deadline');requireSubmittedReceipt(savedAnswerDefinition(expired),deadlineReceipt.dto,expired.id);
+  assert.equal(successful.length,7);assert.equal(latest.length,8);assert.equal(noResponse.length,2);assert.equal(run.completed,true);assert.equal(run.resources.length,6);
+  assert(run.cors.every(r=>r.origin==='http://localhost:3000'&&r.credentials==='true'));assert.deepEqual(run.errors,[]);assert.deepEqual(run.violations,[]);assert.deepEqual(run.diagnosticIssues,[]);
+  assert.equal(new Set(successful.filter(x=>x.record.label.startsWith('L02')).map(x=>x.dto.id)).size,3);
+  result.liveRuns.push({file,runId:run.runId,completed:run.completed,requests:run.requests.length,corsResponses:run.cors.length,resources:run.resources,receipts:checks,independentLatest:latestChecks,noResponse:noResponse.map(x=>x.label),l04DefinitionAwareCheck:true,l01ExactNumber:successful.find(x=>x.record.label==='L01 Owner 201').dto.answers[1].value.token,l02LatestAnswerCounts:successful.filter(x=>x.record.label.startsWith('L02')).map(x=>x.dto.answers.length),l03Empty:successful.find(x=>x.record.label.startsWith('L03')).dto.answers.length===0});
+}
+const all=[...result.artifactChecks,...result.rawChecks,...result.sourceChecks,...result.backendSnapshot];assert(all.every(x=>x.matches),JSON.stringify(all.filter(x=>!x.matches)));
+result.summary={artifacts:result.artifactChecks.length,raw:result.rawChecks.length,sources:result.sourceChecks.length,backendSnapshot:result.backendSnapshot.length,liveRuns:result.liveRuns.length,successfulReceipts:result.liveRuns.reduce((n,r)=>n+r.receipts.length,0),independentLatest200:result.liveRuns.reduce((n,r)=>n+r.independentLatest.length,0),independentLatest404:result.liveRuns.length*2,mismatches:[]};
+result.applicability={finalSourceDigest:'All 12 delivery source files match current read-only source and delivery HEAD; final build snapshot is historical, independently rebuilt for this review',live:'Historical execution evidence only, no live case re-executed and no new business writes; all raw originals verified',independentDefinitionBoundary:'L04 includes original saved FormDetail and was rechecked against current definition-aware mapper; other cases checked wire/Receipt/Latest exact semantics + live test source; no new authorized FormDetail reads performed',database:'UNCONFIRMED; not inferred from API or DLL metadata'};
+fs.writeFileSync('output/playwright/f8-review/evidence-audit.json',JSON.stringify(result,null,2)+'\n');console.log(JSON.stringify(result.summary,null,2));

@@ -1,0 +1,95 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import { registerHooks } from 'node:module';
+import * as Vue from 'vue';
+import { createRouter, createMemoryHistory, RouterView, useRoute, useRouter } from 'vue-router';
+registerHooks({ resolve(s,c,n) { try { return n(s,c); } catch(e) { if(s.startsWith('.')) return n(`${s}.ts`,c); throw e; } } });
+const { useFormResponse } = await import('../../../app/composables/useFormResponse.ts');
+const { useFormManagement } = await import('../../../app/composables/useFormManagement.ts');
+const { useOperationState } = await import('../../../app/composables/useOperationState.ts');
+const { useRequestScope } = await import('../../../app/composables/useRequestScope.ts');
+const { useDirtyScope } = await import('../../../app/composables/useDirtyScope.ts');
+const { useActiveDirtyScope } = await import('../../../app/composables/useActiveDirtyScope.ts');
+const { AuthSession, initialAuthState } = await import('../../../app/domain/auth-state.ts');
+const { stringifyExactJson, parseExactJson } = await import('../../../app/utils/exact-json.ts');
+const { form, uuid, Q } = await import('../../../tests/fixtures/f5/payloads.ts');
+const response = (body,status=200) => new Response(stringifyExactJson(body), {status,headers:{'content-type':'application/json'}});
+const error = (code,status=500) => response({error:{code,message:'Synthetic controlled failure'}},status);
+const deferred = () => { let resolve; const promise = new Promise(r=>resolve=r); return {promise,resolve}; };
+const user = {id:uuid(51),email:'review-only@example.test',displayName:'Synthetic review',avatarUrl:null};
+const until = async f => {for(let i=0;i<1000;i++){if(f())return;await new Promise(r=>setTimeout(r,1));}throw Error('Probe did not settle');};
+const results = {target:'b9f91e825173cbe81721061978e2d20dd5698c6d',method:'Unmodified useFormResponse + real Vue reactivity/memory router + actual AuthSession, scopes, operations, management, dirty; synthetic fetch/render only',cases:[]};
+async function setup(mode='multiple') {
+  const auth=Vue.ref(initialAuthState()), requests=[], confirms=[], unload=new Set(), dto={...form(),status:'published',responseMode:mode,submissionDeadlineAt:null};
+  const ctx={auth,requests,confirms,unload,dto,asks:0,user,handlers:{},app:null};
+  const session=new AuthSession(auth.value,async()=>responseToResult(await ctx.fetch('http://localhost:5000/api/v1/users/me',{method:'GET'})));session.login(user);ctx.session=session;
+  async function responseToResult(r){const raw=await r.text();return r.status===200?{kind:'success',status:200,value:JSON.parse(raw)}:{kind:'api-error',status:r.status,error:JSON.parse(raw).error};}
+  ctx.fetch=async(url,options={})=>{const path=new URL(url).pathname, method=options.method??'GET';requests.push({path,method,body:options.body??null});
+    const key=path.endsWith('/users/me')?'me':path.endsWith('/responses/me/latest')?'latest':path.endsWith('/responses')?'submit':method==='GET'?'form':path.endsWith('/close')?'close':'management';
+    if(ctx.handlers[key])return ctx.handlers[key](url,options);
+    if(key==='me')return response(ctx.user);
+    if(key==='form')return response({...ctx.dto,id:path.split('/').at(-1)});
+    if(key==='latest')return response({id:uuid(81),formId:uuid(50),submittedAt:'2026-10-14T10:00:00.1234567Z',answers:[]});
+    if(key==='submit')return response({id:uuid(82),formId:uuid(50),submittedAt:'2026-10-14T10:00:00.1234567Z',answers:parseExactJson(options.body).answers},201);
+    return error('INTERNAL_SERVER_ERROR');};
+  globalThis.fetch=ctx.fetch;
+  globalThis.window={confirm:()=>{ctx.asks++;return confirms.shift()??false;},addEventListener:(name,handler)=>{if(name==='beforeunload')unload.add(handler);},removeEventListener:(name,handler)=>{if(name==='beforeunload')unload.delete(handler);}};
+  Object.assign(globalThis,Vue,{useAuth:()=>({state:auth,session,busy:Vue.ref(false)}),useRoute,useRouter,useRuntimeConfig:()=>({public:{apiBaseUrl:'http://localhost:5000/api/v1'}}),useToast:()=>({add(){}}),useFormManagement,useRequestScope,useDirtyScope,useOperationState,useActiveDirtyScope,useNuxtApp:()=>Vue.getCurrentInstance().appContext.app});
+  const Page={setup(){ctx.page=useFormResponse('form');return()=>Vue.h('main');}}, Empty={render:()=>Vue.h('div')};
+  const router=createRouter({history:createMemoryHistory(),routes:[{path:'/forms/:formId',component:Page},{path:'/away',component:Empty},{path:'/login',component:Empty},{path:'/',component:Empty}]});ctx.router=router;
+  await router.push(`/forms/${uuid(50)}`);
+  const root={getRootNode:()=>root},renderer=Vue.createRenderer({createElement:()=>({getRootNode:()=>root}),createText:()=>({getRootNode:()=>root}),createComment:()=>({getRootNode:()=>root}),insert(){},remove(){},setText(){},setElementText(){},parentNode:()=>null,nextSibling:()=>null,patchProp(){}});
+  const app=renderer.createApp({render:()=>Vue.h(RouterView)});app.use(router);app.mount(root);ctx.app=app;
+  await until(()=>ctx.page.state.form&&!ctx.page.state.checking);await Vue.nextTick();
+  ctx.dispose=()=>app.unmount();
+  ctx.unknown=async()=>{ctx.handlers.submit=()=>error('INTERNAL_SERVER_ERROR');await ctx.page.controller.submit();await ctx.page.controller.closeError();};
+  ctx.managerUnknown=async()=>{await ctx.page.management.lifecycleState;ctx.page.management.controller.begin('close');await ctx.page.management.controller.confirm(true);await ctx.page.management.controller.closeError();};
+  return ctx;
+}
+async function run(name,fn){let ctx;try{ctx=await setup(name.includes('single')?'single':'multiple');const evidence=await fn(ctx);results.cases.push({name,result:'PASS',...evidence});}catch(e){results.cases.push({name,result:'FAIL',error:e.stack});}finally{ctx?.dispose();}}
+await run('ended response context clears only response limits; failed new Form read retains management unknown',async c=>{
+  await c.unknown();assert(c.page.operation.state.value.duplicateRisk);await c.managerUnknown();assert(c.page.management.unknown.value);
+  const pending=deferred();c.handlers.form=()=>pending.promise;c.confirms.push(true);await c.router.push(`/forms/${uuid(50)}#new-context`);
+  await until(()=>c.page.state.checking);assert.equal(c.page.operation.state.value.duplicateRisk,false);assert(c.page.management.unknown.value);assert.equal(c.page.canSubmit.value,false);
+  pending.resolve(error('INTERNAL_SERVER_ERROR'));await until(()=>!c.page.state.checking);assert(c.page.management.unknown.value);assert.equal(c.page.canSubmit.value,false);
+  return {responseRiskCleared:true,managementUnknownRetained:true,failedReadNoGrant:true};
+});
+await run('response context reset does not release pending shared form lease; old completion cannot adopt',async c=>{
+  const pending=deferred();c.handlers.submit=()=>pending.promise;c.page.state.model.values[Q[0]]={type:'text',raw:'Synthetic pending input'};
+  const work=c.page.controller.submit();await until(()=>c.page.operation.state.value.loading);c.confirms.push(true);await c.router.push(`/forms/${uuid(50)}#next`);
+  assert.equal(c.page.state.form,null);assert(c.page.operation.state.value.loading);assert(c.page.management.busy.value);assert.equal(c.page.canSubmit.value,false);
+  pending.resolve(response({id:uuid(84),formId:uuid(50),submittedAt:'2026-10-14T10:00:00Z',answers:[{questionId:Q[0],value:'Synthetic pending input'}]},201));await work;
+  await until(()=>c.page.state.form&&!c.page.state.checking);assert.equal(c.page.state.success,false);assert.equal(c.page.state.model.values[Q[0]].raw,'');assert.equal(c.page.operation.state.value.loading,false);
+  return {leaseRetainedWhilePending:true,old201Ignored:true,newContextBlank:true};
+});
+await run('single Latest cancellation and ordinary Form GET retain knownSubmitted; no implicit regrant',async c=>{
+  c.page.state.model.values[Q[0]]={type:'text',raw:'Synthetic local'};c.confirms.push(false);await c.page.controller.latest();assert(c.page.state.knownSubmitted);assert(c.page.readonly.value);assert.equal(c.page.state.model.values[Q[0]].raw,'Synthetic local');
+  c.confirms.push(true);await c.page.controller.load(true);assert(c.page.state.knownSubmitted);assert(c.page.readonly.value);
+  c.session.logout();c.session.login(user);c.confirms.push(true);await c.page.controller.load(true);assert.equal(c.page.controller.hasPermission,false);assert.equal(c.page.canSubmit.value,false);
+  return {knownSurvivesCancelAndFormGET:true,ordinaryGETCannotRestoreRevokedGrant:true};
+});
+await run('multiple risk survives Latest404 and known failed retry; only reliable later201 clears',async c=>{
+  await c.unknown();c.handlers.latest=()=>error('RESPONSE_NOT_FOUND',404);await c.page.controller.latest();await c.page.controller.closeError();assert(c.page.operation.state.value.duplicateRisk);
+  c.handlers.submit=()=>error('VALIDATION_ERROR',400);c.confirms.push(true);await c.page.controller.submit();await c.page.controller.closeError();assert(c.page.operation.state.value.duplicateRisk);
+  const before=c.requests.filter(x=>x.path.endsWith('/responses')).length;c.confirms.push(false);await c.page.controller.submit();assert.equal(c.requests.filter(x=>x.path.endsWith('/responses')).length,before);
+  delete c.handlers.submit;c.confirms.push(true);await c.page.controller.submit();assert(c.page.state.success);assert.equal(c.page.operation.state.value.duplicateRisk,false);
+  return {riskRetainedAcross404And400:true,cancelZeroPost:true,reliable201Clears:true};
+});
+await run('old Form GET across Submit remains permanently stale and cannot clear response risk',async c=>{
+  const pending=deferred();c.handlers.form=()=>pending.promise;const read=c.page.controller.load(true);await until(()=>c.page.state.checking);
+  // A same-resource peer write can start while the GET is pending.
+  await c.page.management.controller.visibility('public');assert(c.page.management.unknown.value);
+  pending.resolve(response(c.dto));await read;assert(c.page.management.unknown.value);assert.equal(c.page.state.checking,false);
+  return {oldGETCannotReleaseManagementUnknown:true};
+});
+await run('finally of old Latest cannot clear new context Latest loading',async c=>{
+  const old=deferred(),fresh=deferred();c.handlers.latest=()=>old.promise;const a=c.page.controller.latest();c.confirms.push(true);await c.router.push(`/forms/${uuid(50)}#later`);await until(()=>c.page.state.form&&!c.page.state.checking);
+  c.handlers.latest=()=>fresh.promise;const b=c.page.controller.latest();assert(c.page.state.latestLoading);old.resolve(response({id:uuid(83),formId:uuid(50),submittedAt:'2026-10-14T10:00:00Z',answers:[]}));await a;assert(c.page.state.latestLoading);
+  fresh.resolve(response({id:uuid(84),formId:uuid(50),submittedAt:'2026-10-14T10:00:01Z',answers:[]}));await b;assert.equal(c.page.state.latestLoading,false);assert.equal(c.page.state.submittedAt,'2026-10-14T10:00:01Z');return {oldFinallyIsolated:true};
+});
+await run('new respondent verification does not resurrect a deleted-resource denial on failed Form lookup',async c=>{
+  c.handlers.submit=()=>error('FORM_NOT_FOUND',404);await c.page.controller.submit();c.confirms.push(false);await c.page.controller.closeError();assert(c.page.state.unavailable);
+  c.session.logout();c.user={...user,id:uuid(52)};c.handlers.form=()=>error('FORM_NOT_FOUND',404);c.confirms.push(true);await c.page.controller.verifyPermission();assert.equal(c.page.controller.hasPermission,false);assert.equal(c.page.canSubmit.value,false);assert(c.page.state.unavailable);return {denialNotRevived:true};
+});
+fs.writeFileSync('output/playwright/f8-review/composable-probes.json',JSON.stringify(results,null,2)+'\n');
+console.log(JSON.stringify({passed:results.cases.filter(x=>x.result==='PASS').length,failed:results.cases.filter(x=>x.result==='FAIL').map(x=>({name:x.name,error:x.error}))},null,2));

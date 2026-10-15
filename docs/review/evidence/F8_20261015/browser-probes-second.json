@@ -1,0 +1,233 @@
+{
+  "target": "b9f91e825173cbe81721061978e2d20dd5698c6d",
+  "method": "Independent fresh-built Chromium UI diagnostics; all business API intercepted; no live requests or test/source edits",
+  "cases": [
+    {
+      "name": "201 exact-number semantic mismatch is unknown; local input survives and multiple retry requires explicit consent",
+      "result": "FAIL",
+      "error": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n\n    at close (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:42:97)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:46:158\n    at async scenario (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:37:102)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:44:3",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "body": "{\"answers\":[{\"questionId\":\"00000000-0000-4000-8000-000000000002\",\"value\":9007199254740993}]}"
+        }
+      ],
+      "expected": [],
+      "actual": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "get": null,
+      "latest": null,
+      "networkIssues": []
+    },
+    {
+      "name": "Latest missing required answer rejects entire candidate and leaves local input and Submit eligibility",
+      "result": "FAIL",
+      "error": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉', { exact: true })\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n\n    at close (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:42:97)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:51:232\n    at async scenario (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:37:102)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:50:3",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/responses/me/latest",
+          "body": null
+        }
+      ],
+      "expected": [],
+      "actual": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "get": null,
+      "post": null,
+      "networkIssues": []
+    },
+    {
+      "name": "early FORM_NOT_SUBMITTABLE close + candidate GET500 creates fresh read-error Dialog without guessing Closed",
+      "result": "FAIL",
+      "error": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉')\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n\n    at close (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:42:97)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:56:85\n    at async scenario (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:37:102)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:54:3",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "body": "{\"answers\":[{\"questionId\":\"00000000-0000-4000-8000-000000000001\",\"value\":\"Synthetic preserve through status failure\"}]}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        }
+      ],
+      "expected": [
+        {
+          "kind": "response",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "status": 409,
+          "count": 1,
+          "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "diagnosticCount": 1
+        },
+        {
+          "kind": "response",
+          "method": "GET",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "status": 500,
+          "count": 1,
+          "diagnostic": "Failed to load resource: the server responded with a status of 500 (Internal Server Error)",
+          "diagnosticCount": 1
+        }
+      ],
+      "actual": [
+        {
+          "kind": "response",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "status": 409
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "latest": null,
+      "networkIssues": [
+        "Expected 1 {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050\",\"status\":500,\"count\":1,\"diagnostic\":\"Failed to load resource: the server responded with a status of 500 (Internal Server Error)\",\"diagnosticCount\":1}; observed 0",
+        "Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050: expected 1; observed 0; matching requests 0"
+      ]
+    },
+    {
+      "name": "late status candidate after same-component URL change cannot navigate home or replace new blank context",
+      "result": "FAIL",
+      "error": "locator.click: Error: strict mode violation: getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }) resolved to 2 elements:\n    1) <button type=\"button\" aria-label=\"關閉\" data-slot=\"close\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors text-sm gap-1.5 text-default hover:bg-elevated active:bg-elevated outline-inverted/25 focus-visible:outline-3 hover:disabled:bg-transparent dark:hover:disabled:bg-transparent hover:aria-disabled:bg-transparent dark:hover:aria-disabled:bg-transparent p-1.5 absolute top-4 …>…</button> aka getByLabel('關閉')\n    2) <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 text-inverted bg-primary hover:bg-primary/75 active:bg-primary/75 disabled:bg-primary aria-disabled:bg-primary outline-primary/25 focus-visible:outline-3\">…</button> aka getByText('關閉')\n\nCall log:\n\u001b[2m  - waiting for getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true })\u001b[22m\n\n    at close (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:42:97)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:61:85\n    at async scenario (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f8-review\\browser-probes.mjs:37:102)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:59:3",
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "body": "{\"answers\":[{\"questionId\":\"00000000-0000-4000-8000-000000000001\",\"value\":\"Synthetic old input\"}]}"
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        }
+      ],
+      "expected": [
+        {
+          "kind": "response",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "status": 409,
+          "count": 1,
+          "diagnostic": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "diagnosticCount": 1
+        }
+      ],
+      "actual": [
+        {
+          "kind": "response",
+          "method": "POST",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "status": 409
+        }
+      ],
+      "diagnostics": [
+        {
+          "text": "Failed to load resource: the server responded with a status of 409 (Conflict)",
+          "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/responses"
+        }
+      ],
+      "errors": [],
+      "unexpected": [],
+      "latest": null,
+      "networkIssues": []
+    },
+    {
+      "name": "formal five-type success focuses a live fallback after single Submit removal; readonly exact long answer remains readable",
+      "result": "PASS",
+      "removedSubmitFocusRestored": true,
+      "exactReadonlyNoOverflow": true,
+      "requests": [
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/users/me",
+          "body": null
+        },
+        {
+          "method": "GET",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050",
+          "body": null
+        },
+        {
+          "method": "POST",
+          "path": "/api/v1/forms/00000000-0000-4000-8000-000000000050/responses",
+          "body": "{\"answers\":[{\"questionId\":\"00000000-0000-4000-8000-000000000001\",\"value\":\"Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response Synthetic long response\"},{\"questionId\":\"00000000-0000-4000-8000-000000000002\",\"value\":9007199254740993.1234567890123456789}]}"
+        }
+      ],
+      "expected": [],
+      "actual": [],
+      "diagnostics": [],
+      "errors": [],
+      "unexpected": [],
+      "get": null,
+      "post": null,
+      "latest": null,
+      "networkIssues": []
+    }
+  ],
+  "browserVersion": "156.0.8078.4"
+}

@@ -1,0 +1,48 @@
+{
+  "target": "b9f91e825173cbe81721061978e2d20dd5698c6d",
+  "method": "Unmodified useFormResponse + real Vue reactivity/memory router + actual AuthSession, scopes, operations, management, dirty; synthetic fetch/render only",
+  "cases": [
+    {
+      "name": "ended response context clears only response limits; failed new Form read retains management unknown",
+      "result": "PASS",
+      "responseRiskCleared": true,
+      "managementUnknownRetained": true,
+      "failedReadNoGrant": true
+    },
+    {
+      "name": "response context reset does not release pending shared form lease; old completion cannot adopt",
+      "result": "PASS",
+      "leaseRetainedWhilePending": true,
+      "old201Ignored": true,
+      "newContextBlank": true
+    },
+    {
+      "name": "single Latest cancellation and ordinary Form GET retain knownSubmitted; no implicit regrant",
+      "result": "PASS",
+      "knownSurvivesCancelAndFormGET": true,
+      "ordinaryGETCannotRestoreRevokedGrant": true
+    },
+    {
+      "name": "multiple risk survives Latest404 and known failed retry; only reliable later201 clears",
+      "result": "PASS",
+      "riskRetainedAcross404And400": true,
+      "cancelZeroPost": true,
+      "reliable201Clears": true
+    },
+    {
+      "name": "old Form GET across Submit remains permanently stale and cannot clear response risk",
+      "result": "PASS",
+      "oldGETCannotReleaseManagementUnknown": true
+    },
+    {
+      "name": "finally of old Latest cannot clear new context Latest loading",
+      "result": "PASS",
+      "oldFinallyIsolated": true
+    },
+    {
+      "name": "new respondent verification does not resurrect a deleted-resource denial on failed Form lookup",
+      "result": "PASS",
+      "denialNotRevived": true
+    }
+  ]
+}

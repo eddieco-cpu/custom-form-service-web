@@ -1,0 +1,12 @@
+(node:4868) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+C:\Users\user\Desktop\custom-form-service-web\app\utils\exact-number.ts:46
+  toJSON(): never { throw new Error('Use stringifyExactJson for ExactNumber') }
+                          ^
+
+Error: Use stringifyExactJson for ExactNumber
+    at ExactNumber.toJSON (C:\Users\user\Desktop\custom-form-service-web\app\utils\exact-number.ts:46:27)
+    at JSON.stringify (<anonymous>)
+    at file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/browser-probes.mjs:70:143
+
+Node.js v24.21.0

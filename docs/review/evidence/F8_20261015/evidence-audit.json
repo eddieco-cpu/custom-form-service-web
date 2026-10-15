@@ -1,0 +1,1733 @@
+{
+  "target": "b9f91e825173cbe81721061978e2d20dd5698c6d",
+  "base": "134629a8ce9d2b276ec7a3a10a6843977814f41b",
+  "at": "2026-10-15T09:46:46.569Z",
+  "artifactChecks": [
+    {
+      "path": "backend-runtime.json",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-chrome-smoke.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-complete.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-delivery.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-first.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-live-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-live-first.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-live-reader-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-msedge-smoke.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-reader-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-status-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/browser-whitespace-before.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-closeout.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-context.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-delivery.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-final-source.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-first.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-regression-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-status-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/build-whitespace-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/document-check-first.log",
+      "matches": true
+    },
+    {
+      "path": "environment.json",
+      "matches": true
+    },
+    {
+      "path": "logs/f6-harness-typecheck.log",
+      "matches": true
+    },
+    {
+      "path": "logs/f6-renderer-regression.log",
+      "matches": true
+    },
+    {
+      "path": "logs/f7-regression-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/f7-regression-first.log",
+      "matches": true
+    },
+    {
+      "path": "f8-1791984869005-first-sanitized.json",
+      "matches": true
+    },
+    {
+      "path": "f8-1791986410082-final-sanitized.json",
+      "matches": true
+    },
+    {
+      "path": "f8-1791987582885-reader-final-sanitized.json",
+      "matches": true
+    },
+    {
+      "path": "final-source-build-digest.json",
+      "matches": true
+    },
+    {
+      "path": "logs/lint-closeout.log",
+      "matches": true
+    },
+    {
+      "path": "logs/lint-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/lint-delivery.log",
+      "matches": true
+    },
+    {
+      "path": "logs/lint-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/lint-first.log",
+      "matches": true
+    },
+    {
+      "path": "retained-live-runs.json",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-closeout.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-complete.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-delivery.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-first.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-regression-corrected.log",
+      "matches": true
+    },
+    {
+      "path": "logs/typecheck-with-tests.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-closeout.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-delivery.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-final.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-first.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-second.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-status-before.log",
+      "matches": true
+    },
+    {
+      "path": "logs/unit-third.log",
+      "matches": true
+    },
+    {
+      "path": "whitespace-before-source.json",
+      "matches": true
+    },
+    {
+      "path": "browser/built-chrome-smoke-results.json",
+      "matches": true
+    },
+    {
+      "path": "browser/built-complete-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-complete-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-corrected-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-corrected-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-delivery-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-delivery-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-final-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-final-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-first-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-first-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-msedge-smoke-results.json",
+      "matches": true
+    },
+    {
+      "path": "browser/built-reader-final-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-reader-final-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-status-final-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/built-status-final-results-mobile-answer.png",
+      "matches": true
+    },
+    {
+      "path": "browser/built-whitespace-before-results.json",
+      "matches": true
+    },
+    {
+      "path": "browser/live-final-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/live-final-results-live-multiple.png",
+      "matches": true
+    },
+    {
+      "path": "browser/live-first-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/live-first-results-live-multiple.png",
+      "matches": true
+    },
+    {
+      "path": "browser/live-reader-final-results.json",
+      "matches": true
+    },
+    {
+      "path": "images/live-reader-final-results-live-multiple.png",
+      "matches": true
+    },
+    {
+      "path": "browser/f7-built-f8-regression-results.json",
+      "matches": true
+    },
+    {
+      "path": "browser/f7-built-f8-regression-corrected-results.json",
+      "matches": true
+    },
+    {
+      "path": "browser/f6-fixture-results.json",
+      "matches": true
+    },
+    {
+      "path": "collect.mjs.txt",
+      "matches": true
+    },
+    {
+      "path": "verification-summary.json",
+      "matches": true
+    },
+    {
+      "path": "closeout-checks.json",
+      "matches": true
+    },
+    {
+      "path": "check-closeout.mjs.txt",
+      "matches": true
+    }
+  ],
+  "rawChecks": [
+    {
+      "path": "output/playwright/f8/backend-runtime.json",
+      "matches": true,
+      "normalizedDelivery": "backend-runtime.json"
+    },
+    {
+      "path": "output/playwright/f8/browser-chrome-smoke.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-chrome-smoke.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-complete.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-complete.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-delivery.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-delivery.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-final.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-first.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-live-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-live-final.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-live-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-live-first.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-live-reader-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-live-reader-final.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-msedge-smoke.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-msedge-smoke.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-reader-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-reader-final.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-status-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-status-final.log"
+    },
+    {
+      "path": "output/playwright/f8/browser-whitespace-before.log",
+      "matches": true,
+      "normalizedDelivery": "logs/browser-whitespace-before.log"
+    },
+    {
+      "path": "output/playwright/f8/build-closeout.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-closeout.log"
+    },
+    {
+      "path": "output/playwright/f8/build-context.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-context.log"
+    },
+    {
+      "path": "output/playwright/f8/build-delivery.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-delivery.log"
+    },
+    {
+      "path": "output/playwright/f8/build-final-source.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-final-source.log"
+    },
+    {
+      "path": "output/playwright/f8/build-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-first.log"
+    },
+    {
+      "path": "output/playwright/f8/build-regression-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-regression-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/build-status-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-status-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/build-whitespace-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/build-whitespace-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/document-check-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/document-check-first.log"
+    },
+    {
+      "path": "output/playwright/f8/environment.json",
+      "matches": true,
+      "normalizedDelivery": "environment.json"
+    },
+    {
+      "path": "output/playwright/f8/f6-harness-typecheck.log",
+      "matches": true,
+      "normalizedDelivery": "logs/f6-harness-typecheck.log"
+    },
+    {
+      "path": "output/playwright/f8/f6-renderer-regression.log",
+      "matches": true,
+      "normalizedDelivery": "logs/f6-renderer-regression.log"
+    },
+    {
+      "path": "output/playwright/f8/f7-regression-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/f7-regression-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/f7-regression-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/f7-regression-first.log"
+    },
+    {
+      "path": "output/playwright/f8/f8-1791984869005-first-sanitized.json",
+      "matches": true,
+      "normalizedDelivery": "f8-1791984869005-first-sanitized.json"
+    },
+    {
+      "path": "output/playwright/f8/f8-1791986410082-final-sanitized.json",
+      "matches": true,
+      "normalizedDelivery": "f8-1791986410082-final-sanitized.json"
+    },
+    {
+      "path": "output/playwright/f8/f8-1791987582885-reader-final-sanitized.json",
+      "matches": true,
+      "normalizedDelivery": "f8-1791987582885-reader-final-sanitized.json"
+    },
+    {
+      "path": "output/playwright/f8/final-source-build-digest.json",
+      "matches": true,
+      "normalizedDelivery": "final-source-build-digest.json"
+    },
+    {
+      "path": "output/playwright/f8/lint-closeout.log",
+      "matches": true,
+      "normalizedDelivery": "logs/lint-closeout.log"
+    },
+    {
+      "path": "output/playwright/f8/lint-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/lint-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/lint-delivery.log",
+      "matches": true,
+      "normalizedDelivery": "logs/lint-delivery.log"
+    },
+    {
+      "path": "output/playwright/f8/lint-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/lint-final.log"
+    },
+    {
+      "path": "output/playwright/f8/lint-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/lint-first.log"
+    },
+    {
+      "path": "output/playwright/f8/retained-live-runs.json",
+      "matches": true,
+      "normalizedDelivery": "retained-live-runs.json"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-closeout.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-closeout.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-complete.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-complete.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-delivery.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-delivery.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-final.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-first.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-regression-corrected.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-regression-corrected.log"
+    },
+    {
+      "path": "output/playwright/f8/typecheck-with-tests.log",
+      "matches": true,
+      "normalizedDelivery": "logs/typecheck-with-tests.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-closeout.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-closeout.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-delivery.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-delivery.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-final.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-final.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-first.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-first.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-second.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-second.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-status-before.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-status-before.log"
+    },
+    {
+      "path": "output/playwright/f8/unit-third.log",
+      "matches": true,
+      "normalizedDelivery": "logs/unit-third.log"
+    },
+    {
+      "path": "output/playwright/f8/whitespace-before-source.json",
+      "matches": true,
+      "normalizedDelivery": "whitespace-before-source.json"
+    },
+    {
+      "path": "output/playwright/f8/built-chrome-smoke-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-chrome-smoke-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-complete-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-complete-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-complete-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-complete-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-corrected-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-corrected-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-corrected-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-corrected-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-delivery-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-delivery-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-delivery-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-delivery-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-final-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-final-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-final-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-final-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-first-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-first-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-first-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-first-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-msedge-smoke-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-msedge-smoke-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-reader-final-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-reader-final-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-reader-final-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-reader-final-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-status-final-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-status-final-results.json"
+    },
+    {
+      "path": "output/playwright/f8/built-status-final-results.json#mobile-answer.png",
+      "matches": true,
+      "normalizedDelivery": "images/built-status-final-results-mobile-answer.png"
+    },
+    {
+      "path": "output/playwright/f8/built-whitespace-before-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/built-whitespace-before-results.json"
+    },
+    {
+      "path": "output/playwright/f8/live-final-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/live-final-results.json"
+    },
+    {
+      "path": "output/playwright/f8/live-final-results.json#live-multiple.png",
+      "matches": true,
+      "normalizedDelivery": "images/live-final-results-live-multiple.png"
+    },
+    {
+      "path": "output/playwright/f8/live-first-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/live-first-results.json"
+    },
+    {
+      "path": "output/playwright/f8/live-first-results.json#live-multiple.png",
+      "matches": true,
+      "normalizedDelivery": "images/live-first-results-live-multiple.png"
+    },
+    {
+      "path": "output/playwright/f8/live-reader-final-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/live-reader-final-results.json"
+    },
+    {
+      "path": "output/playwright/f8/live-reader-final-results.json#live-multiple.png",
+      "matches": true,
+      "normalizedDelivery": "images/live-reader-final-results-live-multiple.png"
+    },
+    {
+      "path": "output/playwright/f7/built-f8-regression-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/f7-built-f8-regression-results.json"
+    },
+    {
+      "path": "output/playwright/f7/built-f8-regression-corrected-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/f7-built-f8-regression-corrected-results.json"
+    },
+    {
+      "path": "output/playwright/f6/fixture-results.json",
+      "matches": true,
+      "normalizedDelivery": "browser/f6-fixture-results.json"
+    },
+    {
+      "path": "output/playwright/f8/collect.mjs",
+      "matches": true,
+      "normalizedDelivery": "collect.mjs.txt"
+    }
+  ],
+  "sourceChecks": [
+    {
+      "path": "app/components/forms/FormReadPage.vue",
+      "matches": true
+    },
+    {
+      "path": "app/components/forms/FormRenderer.vue",
+      "matches": true
+    },
+    {
+      "path": "app/components/forms/FormSubmitSuccessDialog.vue",
+      "matches": true
+    },
+    {
+      "path": "app/composables/useFormResponse.ts",
+      "matches": true
+    },
+    {
+      "path": "app/domain/operation-state.ts",
+      "matches": true
+    },
+    {
+      "path": "app/domain/response-page.ts",
+      "matches": true
+    },
+    {
+      "path": "app/domain/response-mapping.ts",
+      "matches": true
+    },
+    {
+      "path": "app/services/response.ts",
+      "matches": true
+    },
+    {
+      "path": "tests/unit/f8-response-page.spec.ts",
+      "matches": true
+    },
+    {
+      "path": "tests/e2e/f8-browser.spec.ts",
+      "matches": true
+    },
+    {
+      "path": "tests/e2e/f8-live.spec.ts",
+      "matches": true
+    },
+    {
+      "path": "playwright.f8.config.ts",
+      "matches": true
+    }
+  ],
+  "backendSnapshot": [
+    {
+      "path": ".env.example",
+      "matches": true
+    },
+    {
+      "path": ".gitignore",
+      "matches": true
+    },
+    {
+      "path": "compose.yaml",
+      "matches": true
+    },
+    {
+      "path": "CustomFormService.sln",
+      "matches": true
+    },
+    {
+      "path": "docs/configuration/environment-configuration.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Acceptance_Execution_Report.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Coverage_Index.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Historical_Status.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/00-v1-overview.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/01-v1-domain-specification.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/02-v1-database-specification.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03a-v1-api-contract-common.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03b-v1-api-contract-auth-user-form.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03c-v1-api-contract-submission-statistics.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/04-v1-error-catalog.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/05-v1-system-constraints.md",
+      "matches": true
+    },
+    {
+      "path": "docs/test-plan/R11_Acceptance_Test.md",
+      "matches": true
+    },
+    {
+      "path": "docs/test-plan/R11_Manual_Tests.http",
+      "matches": true
+    },
+    {
+      "path": "dotnet-tools.json",
+      "matches": true
+    },
+    {
+      "path": "global.json",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "matches": true
+    },
+    {
+      "path": "SNAPSHOT.md",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Development.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Production.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Staging.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AccessTokenCookie.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AccessTokenCookieOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AppCorsOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AuthenticationServiceCollectionExtensions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/CurrentUserContext.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/JwtOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/JwtTokenService.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/PasswordCredentialService.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/StatisticsCredentialResolver.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/V1Cors.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Errors/ApiErrorModels.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Errors/ApiErrors.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Forms/FormResponses.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Responses/RespondentCountResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Responses/ResponseReceipt.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Statistics/StatisticsResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Users/UserResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/AuthController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/FormsController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/HealthController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/ResponsesController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/StatisticsController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/UsersController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/CustomFormService.Api.csproj",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/CustomFormService.Api.http",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Answer.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Form.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Option.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Question.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Response.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/User.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/UserIdentity.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Enums/V1Enums.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/ApplicationDbContext.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/AnswerConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/FormConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/OptionConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/QuestionConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/ResponseConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserIdentityConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/DraftDefinitionWriter.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/FormAggregateLock.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.Designer.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/ApplicationDbContextModelSnapshot.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlEnumMappings.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Middleware/ApiExceptionMiddleware.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Program.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Properties/launchSettings.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Queries/StatisticsAggregator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Queries/StatisticsQuery.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DefinitionNumber.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DraftDefinitionChangeSet.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DraftDefinitionDelta.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/FormDefinitionCandidate.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/FormDefinitionValidator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/RequestJson.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/SubmissionAnswerValidator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/TextRules.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/UnsupportedJsonContentTypeFilter.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/AuthUserEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/ConfigurationTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/CustomFormService.IntegrationTests.csproj",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/DatabaseSchemaTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/EngineeringEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateContract.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateSafety.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.DeadlinePrecision.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Lifecycle.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.LifecycleReview.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.LocalRepair.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.OptionPersistence.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.ResponseQueries.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Statistics.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Submission.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionAtomicity.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionConcurrency.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/MSTestSettings.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/SubmissionAnswerValidatorTests.cs",
+      "matches": true
+    }
+  ],
+  "liveRuns": [
+    {
+      "file": "f8-1791984869005-first-sanitized.json",
+      "runId": "f8-1791984869005-first",
+      "completed": true,
+      "requests": 71,
+      "corsResponses": 70,
+      "resources": [
+        {
+          "id": "2aa53df3-bf6c-4763-8b62-c355ac4d8755",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "5033acca-4cd5-4312-acf7-db422f39d66d",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "a8d73b87-f700-45ac-a319-373c47636f6b",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "e2219a2b-e63f-4da1-bf7a-616e3706fdb0",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "d2d645e2-eca6-412e-9c02-eef593908993",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "5f04f06e-3fcc-4073-bf64-c424394eabdd",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ],
+      "receipts": [
+        {
+          "label": "L01 Owner 201",
+          "id": "db8ba4d1-2899-4582-856c-574c9d8966ac",
+          "formId": "2aa53df3-bf6c-4763-8b62-c355ac4d8755",
+          "wireRequestIndexes": [
+            12
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L01 respondent 201",
+          "id": "d316a9bf-6297-4f7f-b359-a778c4e9fdac",
+          "formId": "2aa53df3-bf6c-4763-8b62-c355ac4d8755",
+          "wireRequestIndexes": [
+            19
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 complete first",
+          "id": "6a4ef19c-867e-4d15-a5e6-2231aa246d4e",
+          "formId": "5033acca-4cd5-4312-acf7-db422f39d66d",
+          "wireRequestIndexes": [
+            26
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 latest omits optional",
+          "id": "8fd6ff2a-6621-4bc4-a50c-e3de1be1fc23",
+          "formId": "5033acca-4cd5-4312-acf7-db422f39d66d",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 same answers new Response",
+          "id": "ce19a5ed-79e6-48a4-989c-30969ff0c46d",
+          "formId": "5033acca-4cd5-4312-acf7-db422f39d66d",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L03 answers empty",
+          "id": "87f865dd-87b9-4cdc-b96d-c1c01da121fc",
+          "formId": "a8d73b87-f700-45ac-a319-373c47636f6b",
+          "wireRequestIndexes": [
+            36
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L04 before deadline",
+          "id": "dbf00427-1932-481a-ba5f-112d3337f8ab",
+          "formId": "e2219a2b-e63f-4da1-bf7a-616e3706fdb0",
+          "wireRequestIndexes": [
+            42
+          ],
+          "exactSemanticMatch": true
+        }
+      ],
+      "independentLatest": [
+        {
+          "label": "L01 Owner independent Latest",
+          "id": "db8ba4d1-2899-4582-856c-574c9d8966ac",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L05 respondent reads only self",
+          "id": "d316a9bf-6297-4f7f-b359-a778c4e9fdac",
+          "matches201": "L01 respondent 201"
+        },
+        {
+          "label": "L05 Owner still own latest",
+          "id": "db8ba4d1-2899-4582-856c-574c9d8966ac",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L02 independent complete latest",
+          "id": "8fd6ff2a-6621-4bc4-a50c-e3de1be1fc23",
+          "matches201": "L02 latest omits optional"
+        },
+        {
+          "label": "L02 repeated content independent Latest",
+          "id": "ce19a5ed-79e6-48a4-989c-30969ff0c46d",
+          "matches201": "L02 same answers new Response"
+        },
+        {
+          "label": "L03 private anonymous independent Latest",
+          "id": "87f865dd-87b9-4cdc-b96d-c1c01da121fc",
+          "matches201": "L03 answers empty"
+        },
+        {
+          "label": "L04 expired Latest",
+          "id": "dbf00427-1932-481a-ba5f-112d3337f8ab",
+          "matches201": "L04 before deadline"
+        },
+        {
+          "label": "L04 Closed Latest",
+          "id": "dbf00427-1932-481a-ba5f-112d3337f8ab",
+          "matches201": "L04 before deadline"
+        }
+      ],
+      "noResponse": [
+        "L04 rejected submission left no Response",
+        "L05 newly verified account no borrowed answers"
+      ],
+      "l04DefinitionAwareCheck": true,
+      "l01ExactNumber": "9007199254740993.12345678901234567890123456789",
+      "l02LatestAnswerCounts": [
+        5,
+        2,
+        2
+      ],
+      "l03Empty": true
+    },
+    {
+      "file": "f8-1791986410082-final-sanitized.json",
+      "runId": "f8-1791986410082-final",
+      "completed": true,
+      "requests": 71,
+      "corsResponses": 71,
+      "resources": [
+        {
+          "id": "a630ea1a-2e55-49ec-8c4e-b59f641984c2",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "727ddf75-7695-49a3-a276-c85e6fc42470",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "342b8b68-0251-44e5-bff0-a59ed6d91dc0",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "8fae00f2-64b6-4e07-87bb-6456cc94cd9a",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "f27ae5e1-d073-4fdb-873b-7b76284f5670",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ],
+      "receipts": [
+        {
+          "label": "L01 Owner 201",
+          "id": "e1510c63-c552-4546-bef9-2e10188206b7",
+          "formId": "a630ea1a-2e55-49ec-8c4e-b59f641984c2",
+          "wireRequestIndexes": [
+            12
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L01 respondent 201",
+          "id": "e929b924-6be2-4122-a953-c37f5b19bc31",
+          "formId": "a630ea1a-2e55-49ec-8c4e-b59f641984c2",
+          "wireRequestIndexes": [
+            19
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 complete first",
+          "id": "f9aed62a-1466-42b6-9b4d-3cdc6c2a4460",
+          "formId": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+          "wireRequestIndexes": [
+            26
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 latest omits optional",
+          "id": "2bd6231f-d220-4163-b8e0-887035cab04b",
+          "formId": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 same answers new Response",
+          "id": "519480cd-ddde-46a4-81d4-3fc799a4f59f",
+          "formId": "3f843c57-7cd9-446b-a8f4-d9489fb3a408",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L03 answers empty",
+          "id": "2c9a4154-4ac0-497d-8f3b-5b0ed52e68d7",
+          "formId": "727ddf75-7695-49a3-a276-c85e6fc42470",
+          "wireRequestIndexes": [
+            36
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L04 before deadline",
+          "id": "b334af3a-0889-46f9-9a54-a89ed354e5ab",
+          "formId": "342b8b68-0251-44e5-bff0-a59ed6d91dc0",
+          "wireRequestIndexes": [
+            42
+          ],
+          "exactSemanticMatch": true
+        }
+      ],
+      "independentLatest": [
+        {
+          "label": "L01 Owner independent Latest",
+          "id": "e1510c63-c552-4546-bef9-2e10188206b7",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L05 respondent reads only self",
+          "id": "e929b924-6be2-4122-a953-c37f5b19bc31",
+          "matches201": "L01 respondent 201"
+        },
+        {
+          "label": "L05 Owner still own latest",
+          "id": "e1510c63-c552-4546-bef9-2e10188206b7",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L02 independent complete latest",
+          "id": "2bd6231f-d220-4163-b8e0-887035cab04b",
+          "matches201": "L02 latest omits optional"
+        },
+        {
+          "label": "L02 repeated content independent Latest",
+          "id": "519480cd-ddde-46a4-81d4-3fc799a4f59f",
+          "matches201": "L02 same answers new Response"
+        },
+        {
+          "label": "L03 private anonymous independent Latest",
+          "id": "2c9a4154-4ac0-497d-8f3b-5b0ed52e68d7",
+          "matches201": "L03 answers empty"
+        },
+        {
+          "label": "L04 expired Latest",
+          "id": "b334af3a-0889-46f9-9a54-a89ed354e5ab",
+          "matches201": "L04 before deadline"
+        },
+        {
+          "label": "L04 Closed Latest",
+          "id": "b334af3a-0889-46f9-9a54-a89ed354e5ab",
+          "matches201": "L04 before deadline"
+        }
+      ],
+      "noResponse": [
+        "L04 rejected submission left no Response",
+        "L05 newly verified account no borrowed answers"
+      ],
+      "l04DefinitionAwareCheck": true,
+      "l01ExactNumber": "9007199254740993.12345678901234567890123456789",
+      "l02LatestAnswerCounts": [
+        5,
+        2,
+        2
+      ],
+      "l03Empty": true
+    },
+    {
+      "file": "f8-1791987582885-reader-final-sanitized.json",
+      "runId": "f8-1791987582885-reader-final",
+      "completed": true,
+      "requests": 71,
+      "corsResponses": 70,
+      "resources": [
+        {
+          "id": "8956cb1c-d00b-4893-bad3-21179bd8f9c7",
+          "purpose": "L01 single",
+          "status": "published"
+        },
+        {
+          "id": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+          "purpose": "L02 multiple",
+          "status": "published"
+        },
+        {
+          "id": "41a28e68-7cbf-4456-8f11-67976383106e",
+          "purpose": "L03 blank",
+          "status": "published"
+        },
+        {
+          "id": "34aeb4ce-0e51-42d4-b0cd-f1e5cbc641e9",
+          "purpose": "L04 deadline",
+          "status": "closed"
+        },
+        {
+          "id": "a7a982d8-5697-40b1-b698-87cd25094251",
+          "purpose": "L04 close while filling",
+          "status": "closed"
+        },
+        {
+          "id": "a26b8ecc-3d45-4060-aaf7-840e9eb87d83",
+          "purpose": "L05 auth",
+          "status": "published"
+        }
+      ],
+      "receipts": [
+        {
+          "label": "L01 Owner 201",
+          "id": "86db05df-dde8-4c13-a82b-42b769cb5500",
+          "formId": "8956cb1c-d00b-4893-bad3-21179bd8f9c7",
+          "wireRequestIndexes": [
+            12
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L01 respondent 201",
+          "id": "3d455c20-6c21-4ede-a486-5b6965838265",
+          "formId": "8956cb1c-d00b-4893-bad3-21179bd8f9c7",
+          "wireRequestIndexes": [
+            19
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 complete first",
+          "id": "c10c778e-b1c0-42b7-adf2-905cbb08eee5",
+          "formId": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+          "wireRequestIndexes": [
+            26
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 latest omits optional",
+          "id": "a526cbbc-ad2c-4dda-9d38-854acb76ece2",
+          "formId": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L02 same answers new Response",
+          "id": "f0a95443-907c-4e8d-8469-e22df6b8b4ad",
+          "formId": "7bdc7af7-ad6a-4a46-be9b-3e1a1bf69e7e",
+          "wireRequestIndexes": [
+            27,
+            30
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L03 answers empty",
+          "id": "07858bc2-06b9-4b16-9eec-e5a1a497a5e4",
+          "formId": "41a28e68-7cbf-4456-8f11-67976383106e",
+          "wireRequestIndexes": [
+            36
+          ],
+          "exactSemanticMatch": true
+        },
+        {
+          "label": "L04 before deadline",
+          "id": "a4bc8574-8f1a-491f-91dc-a750eccde375",
+          "formId": "34aeb4ce-0e51-42d4-b0cd-f1e5cbc641e9",
+          "wireRequestIndexes": [
+            42
+          ],
+          "exactSemanticMatch": true
+        }
+      ],
+      "independentLatest": [
+        {
+          "label": "L01 Owner independent Latest",
+          "id": "86db05df-dde8-4c13-a82b-42b769cb5500",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L05 respondent reads only self",
+          "id": "3d455c20-6c21-4ede-a486-5b6965838265",
+          "matches201": "L01 respondent 201"
+        },
+        {
+          "label": "L05 Owner still own latest",
+          "id": "86db05df-dde8-4c13-a82b-42b769cb5500",
+          "matches201": "L01 Owner 201"
+        },
+        {
+          "label": "L02 independent complete latest",
+          "id": "a526cbbc-ad2c-4dda-9d38-854acb76ece2",
+          "matches201": "L02 latest omits optional"
+        },
+        {
+          "label": "L02 repeated content independent Latest",
+          "id": "f0a95443-907c-4e8d-8469-e22df6b8b4ad",
+          "matches201": "L02 same answers new Response"
+        },
+        {
+          "label": "L03 private anonymous independent Latest",
+          "id": "07858bc2-06b9-4b16-9eec-e5a1a497a5e4",
+          "matches201": "L03 answers empty"
+        },
+        {
+          "label": "L04 expired Latest",
+          "id": "a4bc8574-8f1a-491f-91dc-a750eccde375",
+          "matches201": "L04 before deadline"
+        },
+        {
+          "label": "L04 Closed Latest",
+          "id": "a4bc8574-8f1a-491f-91dc-a750eccde375",
+          "matches201": "L04 before deadline"
+        }
+      ],
+      "noResponse": [
+        "L04 rejected submission left no Response",
+        "L05 newly verified account no borrowed answers"
+      ],
+      "l04DefinitionAwareCheck": true,
+      "l01ExactNumber": "9007199254740993.12345678901234567890123456789",
+      "l02LatestAnswerCounts": [
+        5,
+        2,
+        2
+      ],
+      "l03Empty": true
+    }
+  ],
+  "summary": {
+    "artifacts": 84,
+    "raw": 81,
+    "sources": 12,
+    "backendSnapshot": 108,
+    "liveRuns": 3,
+    "successfulReceipts": 21,
+    "independentLatest200": 24,
+    "independentLatest404": 6,
+    "mismatches": []
+  },
+  "applicability": {
+    "finalSourceDigest": "All 12 delivery source files match current read-only source and delivery HEAD; final build snapshot is historical, independently rebuilt for this review",
+    "live": "Historical execution evidence only, no live case re-executed and no new business writes; all raw originals verified",
+    "independentDefinitionBoundary": "L04 includes original saved FormDetail and was rechecked against current definition-aware mapper; other cases checked wire/Receipt/Latest exact semantics + live test source; no new authorized FormDetail reads performed",
+    "database": "UNCONFIRMED; not inferred from API or DLL metadata"
+  }
+}

@@ -1,0 +1,25 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import crypto from 'node:crypto';
+import cp from 'node:child_process';
+import assert from 'node:assert/strict';
+const dest='docs/review/evidence/F8_20261015',raw='output/playwright/f8-review',report='docs/review/F8_Independent_Code_Review_Report_20261015.md';
+const json=f=>JSON.parse(fs.readFileSync(f,'utf8').replace(/^\uFEFF/,'')),hash=b=>crypto.createHash('sha256').update(b).digest('hex');
+const walk=d=>fs.readdirSync(d,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(`${d}/${e.name}`):[`${d}/${e.name}`]);
+const norm=s=>s.replace(/^\uFEFF/,'').replace(/\r\n/g,'\n').replace(/[\t ]+$/gm,'').replace(/\n*$/,'\n');
+const summary=json(`${dest}/verification-summary.json`),badRaw=summary.rawEvidence.filter(x=>hash(fs.readFileSync(x.rawPath))!==x.rawSha256),oldManifest=json(`${dest}/artifact-manifest.json`),badDelivered=oldManifest.files.filter(x=>hash(fs.readFileSync(`${dest}/${x.path}`))!==x.sha256);
+assert.deepEqual(badRaw,[]);assert.deepEqual(badDelivered,[]);
+const source=fs.readFileSync(report,'utf8'),links=[...source.matchAll(/\]\(([^)]+)\)/g)].map(m=>m[1]).filter(x=>!/^https?:/.test(x));
+const badLinks=links.filter(x=>!fs.existsSync(path.resolve(path.dirname(report),x.split('#')[0])));assert.deepEqual(badLinks,[]);
+assert.equal(source.split('```').length%2,1);assert(!/[\t ]+$/m.test(source));
+const tables=[];let current=[];for(const line of source.split(/\r?\n/)){if(line.startsWith('|')){current.push(line.replace(/\\\|/g,'').split('|').length);}else if(current.length){tables.push(current);current=[];}}if(current.length)tables.push(current);assert(tables.every(t=>new Set(t).size===1));
+const protectedPaths=['app','tests','scripts','package.json','package-lock.json','AGENTS.md','.agents','docs/specs','docs/implementation','docs/test-plan','docs/test-results','README.md','playwright.f8.config.ts','playwright.f6.config.ts','playwright.f7.config.ts'];
+const protectedDiff=cp.spawnSync('git',['diff','--quiet','b9f91e825173cbe81721061978e2d20dd5698c6d','--',...protectedPaths],{windowsHide:true}).status;assert.equal(protectedDiff,0);
+const result={at:new Date().toISOString(),target:'b9f91e825173cbe81721061978e2d20dd5698c6d',checks:{reviewArtifactManifest:oldManifest.files.length,reviewRawHashes:summary.rawEvidence.length,links:links.length,tables:tables.length,sourceBuildFiles:json(`${dest}/fresh-build-digest.json`).build.length,protectedDiffExit:protectedDiff,all:'PASS'},gitScope:'Only new review report and evidence; product/tests/specs/history unchanged',commit:'Full local documentation commit SHA supplied in delivery message / git log',accepted:'unchanged',push:'NOT RUN',F9:'NOT RUN'};
+fs.writeFileSync(`${raw}/closeout-checks.json`,JSON.stringify(result,null,2)+'\n');fs.writeFileSync(`${dest}/closeout-checks.json`,JSON.stringify(result,null,2)+'\n');fs.writeFileSync(`${dest}/diagnostics/closeout.mjs.txt`,norm(fs.readFileSync(`${raw}/closeout.mjs`,'utf8')));
+summary.closeout=result;fs.writeFileSync(`${dest}/verification-summary.json`,JSON.stringify(summary,null,2)+'\n');
+const secrets=fs.readdirSync('output/playwright/f8').filter(f=>f.endsWith('-private-credentials.json')).flatMap(f=>json(`output/playwright/f8/${f}`).map(a=>a.password)).filter(Boolean);
+const files=walk(dest).filter(f=>!f.endsWith('artifact-manifest.json'));
+for(const f of [...files,report].filter(f=>!f.endsWith('.png'))){const s=fs.readFileSync(f,'utf8');assert(!secrets.some(x=>s.includes(x)),f);assert(!/eyJ[A-Za-z0-9_-]{15,}\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/.test(s),f);assert(!/"(?:password|access_token|refresh_token|signingKey)"\s*:\s*"[^"\r\n]+"/.test(s),f);}
+fs.writeFileSync(`${dest}/artifact-manifest.json`,JSON.stringify({hashEncoding:'Exact delivered bytes (normalized UTF-8 LF text, original PNG bytes)',files:files.map(f=>({path:f.slice(dest.length+1),sha256:hash(fs.readFileSync(f))})),secretScan:'PASS (known synthetic passwords/JWT/credential-value patterns; inline attachments included)'},null,2)+'\n');
+console.log(JSON.stringify({...result,finalEvidenceFiles:files.length,secretScan:'PASS'},null,2));

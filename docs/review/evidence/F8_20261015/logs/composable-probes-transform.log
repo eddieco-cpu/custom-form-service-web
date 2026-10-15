@@ -1,0 +1,19 @@
+(node:20444) ExperimentalWarning: Transform Types is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+{
+  "passed": 4,
+  "failed": [
+    {
+      "name": "ended response context clears only response limits; failed new Form read retains management unknown",
+      "error": "TypeError: Cannot read properties of undefined (reading 'value')\n    at file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:51:51\n    at async run (file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:49:117)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:50:1"
+    },
+    {
+      "name": "response context reset does not release pending shared form lease; old completion cannot adopt",
+      "error": "TypeError: Cannot read properties of undefined (reading 'value')\n    at file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:59:80\n    at until (file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:20:54)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:59:47\n    at run (file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:49:123)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:57:1"
+    },
+    {
+      "name": "multiple risk survives Latest404 and known failed retry; only reliable later201 clears",
+      "error": "TypeError: Cannot read properties of undefined (reading 'value')\n    at file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:72:175\n    at async run (file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:49:117)\n    at async file:///C:/Users/user/Desktop/custom-form-service-web/output/playwright/f8-review/composable-probes.mjs:71:1"
+    }
+  ]
+}

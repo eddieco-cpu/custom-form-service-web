@@ -1,0 +1,72 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import cp from 'node:child_process';
+import { registerHooks } from 'node:module';
+import { chromium, expect } from '@playwright/test';
+registerHooks({resolve(s,c,n){try{return n(s,c);}catch(e){if(s.startsWith('.'))return n(`${s}.ts`,c);throw e;}}});
+const { form, uuid, Q } = await import('../../../tests/fixtures/f5/payloads.ts');
+const { stringifyExactJson, parseExactJson } = await import('../../../app/utils/exact-json.ts');
+const { ExactNumber } = await import('../../../app/utils/exact-number.ts');
+const { expectedHttp, verifyNetworkDiagnostics } = await import('../../../tests/helpers/f6-network-diagnostics.ts');
+const host='http://localhost:3000',api='http://localhost:5000/api/v1',url=`${host}/forms/${uuid(50)}`,root=`${api}/forms/${uuid(50)}`;
+const user={id:uuid(51),email:'independent-review@example.test',displayName:'F8 review synthetic',avatarUrl:null};
+const headers={'access-control-allow-origin':host,'access-control-allow-credentials':'true'};
+const error=(code)=>({error:{code,message:'Synthetic controlled error'}});
+const deferred=()=>{let resolve;const promise=new Promise(r=>resolve=r);return{promise,resolve};};
+const reply=(r,body,status=200)=>r.fulfill({status,headers,contentType:'application/json',body:stringifyExactJson(body)});
+const receipt=(answers=[])=>({id:uuid(80),formId:uuid(50),submittedAt:'2026-10-14T10:00:00.1234567Z',answers});
+const results={target:'b9f91e825173cbe81721061978e2d20dd5698c6d',method:'Independent fresh-built Chromium UI diagnostics; all business API intercepted; no live requests or test/source edits',cases:[]};
+const serverLog=fs.openSync('output/playwright/f8-review/probe-preview.log','w');
+const server=cp.spawn(process.execPath,['.output/server/index.mjs'],{env:{...process.env,NITRO_HOST:'localhost',NITRO_PORT:'3000'},windowsHide:true,stdio:['ignore',serverLog,serverLog]});
+let browser;
+try{
+  for(let i=0;i<100;i++){try{const r=await fetch(host+'/login');if(r.ok)break;}catch{}if(server.exitCode!==null)throw Error('Owned preview server failed');await new Promise(r=>setTimeout(r,100));}
+  browser=await chromium.launch({headless:true});results.browserVersion=browser.version();
+  async function scenario(name,fn,required=false){const context=await browser.newContext(),page=await context.newPage(),s={requests:[],expected:[],actual:[],diagnostics:[],errors:[],unexpected:[],dto:{...form(),title:'Independent F8 review',status:'published',responseMode:'multiple',submissionDeadlineAt:null,questions:form().questions.map((q,i)=>({...q,title:['文字','數字','單選','多選','評分'][i],required:required&&i===0}))},get:null,post:null,latest:null};
+    page.on('pageerror',e=>s.errors.push(e.message));page.on('console',m=>{if(m.type()==='error'||m.text().includes('[Vue warn]'))s.diagnostics.push({text:m.text(),url:m.location().url});});
+    page.on('response',r=>{if(r.status()>=400)s.actual.push({kind:'response',method:r.request().method(),url:r.url(),status:r.status()});});page.on('requestfailed',r=>s.actual.push({kind:'requestfailed',method:r.method(),url:r.url(),reason:r.failure().errorText}));
+    await page.route(api+'/**',async r=>{const req=r.request(),path=new URL(req.url()).pathname,method=req.method();s.requests.push({method,path,body:req.postData()});
+      if(method==='OPTIONS'){await r.fulfill({status:204,headers:{...headers,'access-control-allow-methods':'GET,POST,PATCH,DELETE','access-control-allow-headers':'content-type'}});return;}
+      if(path.endsWith('/users/me'))return reply(r,user);
+      if(path.endsWith('/responses/me/latest'))return s.latest?s.latest(r):reply(r,receipt());
+      if(path.endsWith('/responses'))return s.post?s.post(r):reply(r,receipt(parseExactJson(req.postData()).answers),201);
+      if(method==='GET'&&path.endsWith('/'+uuid(50)))return s.get?s.get(r):reply(r,s.dto);
+      s.unexpected.push({path,method});return reply(r,error('INTERNAL_SERVER_ERROR'),500);
+    });
+    let evidence;
+    try{await page.goto(url);await expect(page.getByLabel('文字',{exact:true})).toBeVisible();evidence=await fn(page,s);s.networkIssues=verifyNetworkDiagnostics(s.expected,s.actual,s.diagnostics);assert.deepEqual(s.networkIssues,[]);assert.deepEqual(s.errors,[]);assert.deepEqual(s.unexpected,[]);results.cases.push({name,result:'PASS',...evidence,...s});}
+    catch(e){s.networkIssues=verifyNetworkDiagnostics(s.expected,s.actual,s.diagnostics);results.cases.push({name,result:'FAIL',error:e.stack,...s});await page.screenshot({path:`output/playwright/f8-review/probe-fail-${results.cases.length}.png`});}
+    finally{await context.close();}
+  }
+  const submit=p=>p.getByRole('button',{name:'提交表單',exact:true}),latest=p=>p.getByRole('button',{name:'查看我的填答',exact:true});
+  const close=p=>p.getByRole('dialog',{name:'操作訊息'}).getByRole('button',{name:'關閉',exact:true}).filter({hasText:'關閉'}).click();
+  const accept=async(p,yes,action)=>{const wait=p.waitForEvent('dialog').then(d=>yes?d.accept():d.dismiss());await action();await wait;};
+  await scenario('201 exact-number semantic mismatch is unknown; local input survives and multiple retry requires explicit consent',async(p,s)=>{
+    await p.getByLabel('數字',{exact:true}).fill('9007199254740993');s.post=r=>reply(r,receipt([{questionId:Q[1],value:ExactNumber.from('9007199254740992')}]),201);
+    await submit(p).click();await expect(p.getByRole('dialog')).toContainText('未能確認');await expect(p.getByRole('dialog',{name:'提交成功'})).toHaveCount(0);await close(p);await expect(p.getByLabel('數字',{exact:true})).toHaveValue('9007199254740993');
+    const count=s.requests.filter(x=>x.path.endsWith('/responses')).length;await accept(p,false,()=>submit(p).click());assert.equal(s.requests.filter(x=>x.path.endsWith('/responses')).length,count);
+    return{preservedExactInput:true,wrong201NotAdopted:true,cancelZeroPost:true};
+  });
+  await scenario('Latest missing required answer rejects entire candidate and leaves local input and Submit eligibility',async(p,s)=>{
+    await p.getByLabel('文字',{exact:true}).fill('Synthetic retained required answer');s.latest=r=>reply(r,receipt([{questionId:Q[4],value:0}]));await latest(p).click();await expect(p.getByRole('dialog')).toContainText('載入失敗');await close(p);await expect(p.getByLabel('文字',{exact:true})).toHaveValue('Synthetic retained required answer');await expect(submit(p)).toBeEnabled();
+    return{wholeCandidateRejected:true,localAndEligibilityPreserved:true};
+  },true);
+  await scenario('early FORM_NOT_SUBMITTABLE close + candidate GET500 creates fresh read-error Dialog without guessing Closed',async(p,s)=>{
+    const wait=deferred();await p.getByLabel('文字',{exact:true}).fill('Synthetic preserve through status failure');s.post=r=>reply(r,error('FORM_NOT_SUBMITTABLE'),409);s.get=async r=>{await wait.promise;await reply(r,error('INTERNAL_SERVER_ERROR'),500);};s.expected.push(expectedHttp('POST',root+'/responses',409,1),expectedHttp('GET',root,500,1));
+    await submit(p).click();await expect(p.getByRole('dialog')).toBeVisible();await close(p);await expect(p.getByRole('dialog')).toBeVisible();wait.resolve();await expect(p.getByRole('dialog')).toContainText('載入失敗');await close(p);await expect(p).toHaveURL(url);await expect(submit(p)).toBeDisabled();await expect(p.locator(`[data-renderer-key="${Q[0]}"]`)).toContainText('Synthetic preserve');
+    return{freshReadError:true,noGuessedClosedOrAutoRetry:true};
+  });
+  await scenario('late status candidate after same-component URL change cannot navigate home or replace new blank context',async(p,s)=>{
+    const wait=deferred(),replied=deferred();await p.getByLabel('文字',{exact:true}).fill('Synthetic old input');s.post=r=>reply(r,error('FORM_NOT_SUBMITTABLE'),409);let reads=0;s.get=async r=>{if(reads++===0){await wait.promise;await reply(r,{...s.dto,status:'closed'});replied.resolve();}else await reply(r,s.dto);};s.expected.push(expectedHttp('POST',root+'/responses',409,1));
+    await submit(p).click();await expect(p.getByRole('dialog')).toBeVisible();await close(p);await accept(p,true,()=>p.evaluate(()=>{location.hash='new-review-context';}));await expect(p).toHaveURL(url+'#new-review-context');await expect(p.getByLabel('文字',{exact:true})).toHaveValue('');wait.resolve();await replied.promise;await expect(p).toHaveURL(url+'#new-review-context');await expect(submit(p)).toBeEnabled();await expect(p.getByRole('dialog')).toHaveCount(0);
+    return{oldCandidateIgnored:true,newContextBlankAndEligible:true};
+  });
+  await scenario('formal five-type success focuses a live fallback after single Submit removal; readonly exact long answer remains readable',async(p,s)=>{
+    // A fresh adopted single definition, no server-side mutation.
+    s.dto={...s.dto,responseMode:'single'};await p.reload();await p.getByLabel('文字',{exact:true}).fill('Synthetic long response '.repeat(40));await p.getByLabel('數字',{exact:true}).fill('9007199254740993.1234567890123456789');await submit(p).click();await expect(p.getByRole('dialog',{name:'提交成功'})).toBeVisible();await p.getByRole('dialog',{name:'提交成功'}).getByRole('button',{name:'完成',exact:true}).click();await expect(submit(p)).toHaveCount(0);await expect(p.locator(`[data-renderer-key="${Q[1]}"]`)).toContainText('9007199254740993.1234567890123456789');await expect(p.getByRole('heading',{name:'表單',exact:true})).toBeFocused();
+    await p.setViewportSize({width:320,height:640});assert(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await p.screenshot({path:'output/playwright/f8-review/independent-readonly-320.png'});
+    return{removedSubmitFocusRestored:true,exactReadonlyNoOverflow:true};
+  });
+}finally{await browser?.close();server.kill();fs.closeSync(serverLog);fs.writeFileSync('output/playwright/f8-review/browser-probes.json',JSON.stringify(results,(k,v)=>k==='dto'||typeof v==='function'?undefined:v,2)+'\n');}
+console.log(JSON.stringify({passed:results.cases.filter(x=>x.result==='PASS').length,failures:results.cases.filter(x=>x.result==='FAIL').map(x=>({name:x.name,error:x.error,networkIssues:x.networkIssues}))},null,2));
+if(results.cases.some(x=>x.result==='FAIL'))process.exitCode=1;

@@ -1,0 +1,230 @@
+{
+  "hashEncoding": "Exact delivered bytes (normalized UTF-8 LF text, original PNG bytes)",
+  "files": [
+    {
+      "path": "backend-observation-first.json",
+      "sha256": "1226e173c94672ee6943c24e71081bd1a7c8306b6fffa43900ef3959e6c3a7db"
+    },
+    {
+      "path": "backend-observation.json",
+      "sha256": "7ac49bea26ac4da73bfa1e8b5073be81126f7c5074a7cdf77056f3eaa71641c4"
+    },
+    {
+      "path": "browser/chrome-results.json",
+      "sha256": "7b8f068e5c216060e2733e74b39c7b35ddeafc1d1c7ce18a17e02ce12b657388"
+    },
+    {
+      "path": "browser/f6-built-results.json",
+      "sha256": "8fb467de64e7a446cb7883aeda24e7a2a74af5e3bfa24d930ebd78bed3697f07"
+    },
+    {
+      "path": "browser/f6-fixture-results.json",
+      "sha256": "ef2b5f057b2efc6f279a40af02a8fe9c2ea896821ea7c2e67f5940fa22229479"
+    },
+    {
+      "path": "browser/f7-built-results.json",
+      "sha256": "c2bdd06a1313c40c852f74a39e3b88e2243878a7ccad021f757bdc2e39efe12d"
+    },
+    {
+      "path": "browser/f8-built-results.json",
+      "sha256": "3cd73b0190a3991c69473472b994c4d7dda4185951ce157bc540746e4a72104d"
+    },
+    {
+      "path": "browser/msedge-results.json",
+      "sha256": "71ca53d2c99d17a7c18876ce4d03f45c5a197ce2e79381d505067714b59ca187"
+    },
+    {
+      "path": "browser-probes-second.json",
+      "sha256": "f131fa769943d863c3d6097b244cbd175d2a7679cdd39d24358259835cc75a24"
+    },
+    {
+      "path": "browser-probes-third.json",
+      "sha256": "b1bb4a5edecb374a0a176fda6e40b83a13f9429ae173061336264e29aca5d25c"
+    },
+    {
+      "path": "browser-probes.json",
+      "sha256": "f551b0036e6a7234e9c291fcef516faad552255a9583dbe8eb23a41a6238f8ac"
+    },
+    {
+      "path": "closeout-checks.json",
+      "sha256": "fe196064cfa2d3363021d4805692bcfdda27106de42278c94662db2a991eb14f"
+    },
+    {
+      "path": "composable-probes-first.json",
+      "sha256": "b0e129fd259261b290e0f2f0b00653c7c9419b97c0b6e6e6c54cb20052b096e2"
+    },
+    {
+      "path": "composable-probes.json",
+      "sha256": "7f50df0cdaeaa823f171846f3c97a4ab2a9a4ea6d5b0c5c09f08b19b416248eb"
+    },
+    {
+      "path": "diagnostics/audit-evidence.mjs.txt",
+      "sha256": "d10bb5ddf8c6b3a0bc34815394cc10364b7ea80310803997fc4759564eef69b5"
+    },
+    {
+      "path": "diagnostics/browser-probes-first.mjs.txt",
+      "sha256": "a0e7599f7acff56d6be8a6b52c1c929daa50bba880056d55d2db5011da4e832e"
+    },
+    {
+      "path": "diagnostics/browser-probes-second.mjs.txt",
+      "sha256": "f02770cce08e6f79251f4d8e4487623613637b185c27ff492049b922a5777aa0"
+    },
+    {
+      "path": "diagnostics/browser-probes-third.mjs.txt",
+      "sha256": "67d39e944ae6c1398cd78774e6294c36d9f088cbc5de1914d03017a7ae259aef"
+    },
+    {
+      "path": "diagnostics/browser-probes.mjs.txt",
+      "sha256": "5f519a436cfa3ed709df86e1503f59da25e065bc496802859539c3d4f3f28453"
+    },
+    {
+      "path": "diagnostics/closeout.mjs.txt",
+      "sha256": "b8d3ce3f62b956972695e499226191d996a0bee2591c882467fe08a05dfed9f4"
+    },
+    {
+      "path": "diagnostics/collect-review.mjs.txt",
+      "sha256": "4e1ffcb340f23ce54bf66d3783bc8e52e526e51dd2af38ab47b6eef551715d8a"
+    },
+    {
+      "path": "diagnostics/composable-probes-first.mjs.txt",
+      "sha256": "aea75d52f8eea88eb89a99dcaec7dd3142be28109f10b0f6a96bfceba60d0086"
+    },
+    {
+      "path": "diagnostics/composable-probes.mjs.txt",
+      "sha256": "77fddaabc5860d9a7dbd5a03b9fb47256dd68b120752cb68b44a042f8e5797e9"
+    },
+    {
+      "path": "evidence-audit.json",
+      "sha256": "53ee46b4ef1eaac9016d6bd2f2f6894a3ab55a7711adf33ea0f56b926629d64d"
+    },
+    {
+      "path": "fresh-build-digest.json",
+      "sha256": "49957106fe1058dd1d769a2b6b22b240f10f7160973b76a2eb811880b67c0c00"
+    },
+    {
+      "path": "images/independent-readonly-320.png",
+      "sha256": "defaa9287eef58d14ec88d390b8115a2d92c387a4f1cf2dfb910ee3c72bc4d1c"
+    },
+    {
+      "path": "images/probe-fail-1-first.png",
+      "sha256": "c236832a5f6b1dc95f68f38b76982bed25be84cf82cf14e6c609835f246b1389"
+    },
+    {
+      "path": "images/probe-fail-1.png",
+      "sha256": "fc20edab0918d377aa53a85e08c6f1d9bee3b17913137e139532eef5c5f6aa7f"
+    },
+    {
+      "path": "images/probe-fail-2-first.png",
+      "sha256": "c802627da93e4c93733123874e8e2329381c83119cbb58eecf10fd3be5008503"
+    },
+    {
+      "path": "images/probe-fail-2.png",
+      "sha256": "c802627da93e4c93733123874e8e2329381c83119cbb58eecf10fd3be5008503"
+    },
+    {
+      "path": "images/probe-fail-3-first.png",
+      "sha256": "ea5f878e0141e6fc8d9ba10788595f056eace99f85167740a51624f405ba1be5"
+    },
+    {
+      "path": "images/probe-fail-3.png",
+      "sha256": "ea5f878e0141e6fc8d9ba10788595f056eace99f85167740a51624f405ba1be5"
+    },
+    {
+      "path": "images/probe-fail-4-first.png",
+      "sha256": "df4bc18140aa544d4fbeaeb72a6ff4ac1f6639ee495d41d306679c55fa410e8e"
+    },
+    {
+      "path": "images/probe-fail-4.png",
+      "sha256": "fa69188a2384f758caaed6c2a9fe0d8791804666eab251099b00e6f29c09eadd"
+    },
+    {
+      "path": "logs/browser-probes-complete.log",
+      "sha256": "846cc757b81b3f4dc542eeb41f8c4bad09b5b845fde574d07f35f023109a2c3f"
+    },
+    {
+      "path": "logs/browser-probes-final.log",
+      "sha256": "a8914294fbb1392b2f7b2fefe4791558503728ae361ac06b1600e6952314564b"
+    },
+    {
+      "path": "logs/browser-probes-first.log",
+      "sha256": "c023f1ba0dea01a8b38cdfe4aa13fe1e2337d05d94bfbc4eab5838b083f309fb"
+    },
+    {
+      "path": "logs/browser-probes-second.log",
+      "sha256": "c4bbfd3e8fd65625f196c64c8d7526c3887a12265f3aa51f66561aa293b7f001"
+    },
+    {
+      "path": "logs/build-first.log",
+      "sha256": "ca1ba5a8a4c23caaef178f9d399f25e28e39aa0054af32ddfcb5af33dc7c8fb3"
+    },
+    {
+      "path": "logs/chrome.log",
+      "sha256": "b54d9a0b86c36dd3f8f27cc90f7d0c5f7c912b04e5c756358a21b5f01e052407"
+    },
+    {
+      "path": "logs/composable-probes-final.log",
+      "sha256": "071e7e6e82725249394cbaf3123ca77ce05673553d840b323d664abd61779ede"
+    },
+    {
+      "path": "logs/composable-probes-transform.log",
+      "sha256": "02a2093a173c146480a82e7665d3293f963b82d9956201943acd42ee403c3897"
+    },
+    {
+      "path": "logs/composable-probes.log",
+      "sha256": "652c281c0b88b065c4f3a1388aa55a3b7f937011f151024b8c51b874ef33f7d4"
+    },
+    {
+      "path": "logs/evidence-audit-first.log",
+      "sha256": "caf5a3a5fcfc440a89d31ef3113e3f294c78f1de3a608b6b28409a7cd71c0fc8"
+    },
+    {
+      "path": "logs/f6-built.log",
+      "sha256": "68dc9e32c19c0450d891694a685f39cdef941c9b044a67c641e1363593c63742"
+    },
+    {
+      "path": "logs/f6-fixture.log",
+      "sha256": "b452e456dcd12238c43adc9e6bc25e64b9e4623de73d6d3aed1813b828de170c"
+    },
+    {
+      "path": "logs/f6-harness-typecheck.log",
+      "sha256": "5ea3097675cbd3a5836b9bb9ca5b0bffed60b6dccc65f5744f22a70211043da9"
+    },
+    {
+      "path": "logs/f7-browser.log",
+      "sha256": "ba97350f4d37cc48bb458927d07c397a0a5a26ec51c509fd3e39affc9509cbfa"
+    },
+    {
+      "path": "logs/f8-browser-first.log",
+      "sha256": "92f6cadc45e8e13170074cbf7b798fb85135e7faebc019519c1cc6d117a2622f"
+    },
+    {
+      "path": "logs/lint.log",
+      "sha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45"
+    },
+    {
+      "path": "logs/msedge.log",
+      "sha256": "b0fc51bb31933dac5cacb6dde0507a3e094556e09c65fded183044a428c733fd"
+    },
+    {
+      "path": "logs/probe-preview.log",
+      "sha256": "71a10d7b2224f3401d222424398be1b45716527d48f059bf7c81cae5dd3444f2"
+    },
+    {
+      "path": "logs/typecheck.log",
+      "sha256": "5dcc852ee24f6fb5b98566d61e6b4c757252876335704944f9d79f4d63759b44"
+    },
+    {
+      "path": "logs/unit-first.log",
+      "sha256": "77d790a6b2c508965075cde0c9f542217eae3bac8d95a2e4cdeecbb50c2c17c0"
+    },
+    {
+      "path": "logs/unit.log",
+      "sha256": "c667b43c4eb395960b28a033b26d3cd66511428e83b43e54c7ebd045ce62ff47"
+    },
+    {
+      "path": "verification-summary.json",
+      "sha256": "4d91e17148426a95adc2a7055bd84a89eb00a54f709d617014a4c667bed32bce"
+    }
+  ],
+  "secretScan": "PASS (known synthetic passwords/JWT/credential-value patterns; inline attachments included)"
+}
