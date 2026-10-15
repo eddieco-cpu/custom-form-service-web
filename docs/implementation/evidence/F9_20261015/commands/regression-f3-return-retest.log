@@ -1,0 +1,18 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts --grep F3-B02
+
+[WebServer]
+[WebServer]  ERROR  (node:7996) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:15540) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:39460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f3-browser.spec.ts:66:1 › F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me (420ms)
+
+  1 passed (4.7s)

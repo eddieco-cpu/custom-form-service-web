@@ -1,0 +1,24 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts --grep private|guest Header|bad-Cookie
+
+[WebServer]
+[WebServer]  ERROR  (node:20536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:39604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:4568) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f9-browser.spec.ts:111:3 › product fresh build › F9-B01 network, timeout and malformed never retain private content; no automatic retries (30.9s)
+  ok 2 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout (697ms)
+  ok 3 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout (691ms)
+  ok 4 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout (696ms)
+  ok 5 [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push (853ms)
+  ok 6 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture) (256ms)
+  ok 7 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_EXPIRED remains readable (fixture) (254ms)
+
+  7 passed (38.5s)

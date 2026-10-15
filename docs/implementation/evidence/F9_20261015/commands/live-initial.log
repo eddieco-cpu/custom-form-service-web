@@ -1,0 +1,60 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:40808) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:19096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 3 tests using 1 worker
+
+(node:37744) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f9-live.spec.ts:192:3 › F9 true backend read and UI › F9-L01 anonymous/identified × three policies × four real Cookie contexts (24 cells) (4.4s)
+  x  2 [chromium] › tests\e2e\f9-live.spec.ts:214:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read (254ms)
+  -  3 [chromium] › tests\e2e\f9-live.spec.ts:247:3 › F9 true backend read and UI › F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority
+
+
+  1) [chromium] › tests\e2e\f9-live.spec.ts:214:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read › L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 1
+
+    @@ -271,8 +271,8 @@
+            "type": "text",
+          },
+        ],
+        "responseMode": "multiple",
+        "resultVisibility": "public",
+    -   "submissionDeadlineAt": "2030-12-31T10:30:00.123456Z",
+    +   "submissionDeadlineAt": "2030-12-31T10:30:00.123456+00:00",
+        "title": "f9-1792077354728-live-initial L02 effective complete response",
+      }
+
+      119 | }
+      120 | function assertBody(body: string, expectedBody: StatisticsDto) {
+    > 121 |   expect(canonical(parseExactJson(body))).toEqual(canonical(parseExactJson(stringifyExactJson(expectedBody))))
+          |                                           ^
+      122 | }
+      123 | async function assertUI(page: Page, expectedBody: StatisticsDto) {
+      124 |   const region = page.getByRole('region', { name: '統計根資訊' }); await expect(region).toBeVisible()
+        at assertBody (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:121:43)
+        at statisticsPage (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:156:23)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:233:7
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:64:11
+        at step (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:63:3)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:232:5
+
+    Error Context: output\playwright\f9\live-live-initial-artifacts\f9-live-F9-true-backend-re-60540-adline-and-independent-read-chromium\error-context.md
+
+    Error Context: output\playwright\f9\live-live-initial-artifacts\f9-live-F9-true-backend-re-60540-adline-and-independent-read-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f9-live.spec.ts:214:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read
+  1 did not run
+  1 passed (12.9s)

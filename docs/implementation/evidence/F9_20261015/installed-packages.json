@@ -1,0 +1,80 @@
+{
+  "name": "custom-form-service-web",
+  "dependencies": {
+    "@iconify-json/lucide": {
+      "version": "1.2.142",
+      "resolved": "https://registry.npmjs.org/@iconify-json/lucide/-/lucide-1.2.142.tgz",
+      "overridden": false
+    },
+    "@nuxt/eslint": {
+      "version": "1.17.0",
+      "resolved": "https://registry.npmjs.org/@nuxt/eslint/-/eslint-1.17.0.tgz",
+      "overridden": false
+    },
+    "@nuxt/ui": {
+      "version": "4.11.3",
+      "resolved": "https://registry.npmjs.org/@nuxt/ui/-/ui-4.11.3.tgz",
+      "overridden": false
+    },
+    "@playwright/test": {
+      "version": "1.64.0",
+      "resolved": "https://registry.npmjs.org/@playwright/test/-/test-1.64.0.tgz",
+      "overridden": false
+    },
+    "@types/node": {
+      "version": "24.19.2",
+      "resolved": "https://registry.npmjs.org/@types/node/-/node-24.19.2.tgz",
+      "overridden": false
+    },
+    "@types/sortablejs": {
+      "version": "1.15.9",
+      "resolved": "https://registry.npmjs.org/@types/sortablejs/-/sortablejs-1.15.9.tgz",
+      "overridden": false
+    },
+    "eslint": {
+      "version": "10.12.0",
+      "resolved": "https://registry.npmjs.org/eslint/-/eslint-10.12.0.tgz",
+      "overridden": false
+    },
+    "lossless-json": {
+      "version": "4.3.1",
+      "resolved": "https://registry.npmjs.org/lossless-json/-/lossless-json-4.3.1.tgz",
+      "overridden": false
+    },
+    "nuxt": {
+      "version": "4.6.1",
+      "resolved": "https://registry.npmjs.org/nuxt/-/nuxt-4.6.1.tgz",
+      "overridden": false
+    },
+    "tailwindcss": {
+      "version": "4.3.3",
+      "resolved": "https://registry.npmjs.org/tailwindcss/-/tailwindcss-4.3.3.tgz",
+      "overridden": false
+    },
+    "typescript": {
+      "version": "5.9.3",
+      "resolved": "https://registry.npmjs.org/typescript/-/typescript-5.9.3.tgz",
+      "overridden": false
+    },
+    "vitest": {
+      "version": "5.0.3",
+      "resolved": "https://registry.npmjs.org/vitest/-/vitest-5.0.3.tgz",
+      "overridden": false
+    },
+    "vue-draggable-plus": {
+      "version": "0.6.1",
+      "resolved": "https://registry.npmjs.org/vue-draggable-plus/-/vue-draggable-plus-0.6.1.tgz",
+      "overridden": false
+    },
+    "vue-tsc": {
+      "version": "3.3.13",
+      "resolved": "https://registry.npmjs.org/vue-tsc/-/vue-tsc-3.3.13.tgz",
+      "overridden": false
+    },
+    "zod": {
+      "version": "4.6.5",
+      "resolved": "https://registry.npmjs.org/zod/-/zod-4.6.5.tgz",
+      "overridden": false
+    }
+  }
+}

@@ -1,0 +1,89 @@
+
+> test:unit
+> vitest run tests/unit/f9-statistics-read.spec.ts tests/unit/f9-statistics-view.spec.ts tests/unit/f3-auth.spec.ts tests/unit/scoped-state.spec.ts tests/unit/api-client.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+ ❯ tests/unit/f3-auth.spec.ts (0 test)
+ ❯ tests/unit/scoped-state.spec.ts (0 test)
+ ❯ tests/unit/api-client.spec.ts (0 test)
+ ❯ tests/unit/f9-statistics-view.spec.ts (0 test)
+ ❯ tests/unit/exact-number-gate.spec.ts (0 test)
+ ❯ tests/unit/f9-statistics-read.spec.ts (0 test)
+
+⎯⎯⎯⎯⎯⎯ Failed Suites 6 ⎯⎯⎯⎯⎯⎯⎯
+
+ FAIL  tests/unit/api-client.spec.ts [ tests/unit/api-client.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\ede92d7ce316e5c93740c479a28685e1ab5c395c'
+ ❯ app/domain/api/decoders.ts:1:1
+      1| import { ExactNumber, exactInteger } from '../../utils/exact-number'
+       | ^
+      2| import { parseInstant } from '../../utils/datetime'
+      3| import type { ApiError } from './error'
+ ❯ app/services/api-client.ts:2:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[1/6]⎯
+
+ FAIL  tests/unit/exact-number-gate.spec.ts [ tests/unit/exact-number-gate.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\651d6448b48329847e9b5917bf1f998ae592b52a'
+ ❯ tests/unit/exact-number-gate.spec.ts:4:1
+      2| import { ExactNumber, exactInteger, numberCandidate, withinBounds } fr…
+      3| import { cloneExact, parseExactJson, stringifyExactJson } from '../../…
+      4| import { decodeFormDetail, decodeReceipt, decodeStatistics } from '../…
+       | ^
+      5| import { bigInteger, formText, longDecimal, receiptText, statisticsTex…
+      6|
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[2/6]⎯
+
+ FAIL  tests/unit/f3-auth.spec.ts [ tests/unit/f3-auth.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\a62efde27a090ba630fa447e59a7f1e41d9a9307'
+ ❯ tests/unit/f3-auth.spec.ts:2:1
+      1| import { describe, it, expect, vi } from 'vitest'
+      2| import { AuthSession, initialAuthState } from '../../app/domain/auth-s…
+       | ^
+      3| import { loginRequest, registerRequest, profileRequest, loginSchema, r…
+      4| import { safeRedirect } from '../../app/utils/redirect'
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[3/6]⎯
+
+ FAIL  tests/unit/f9-statistics-read.spec.ts [ tests/unit/f9-statistics-read.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\ddda3cf0166a3472bc5302b80340c4b8a090aaeb'
+ ❯ app/domain/operation-state.ts:2:1
+      1| import type { ApiResult } from './api/result'
+      2| import { cloneExact } from '../utils/exact-json'
+       | ^
+      3|
+      4| export type OperationPolicy = 'delta' | 'visibility' | 'lifecycle' | '…
+ ❯ app/domain/error-presentation.ts:4:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[4/6]⎯
+
+ FAIL  tests/unit/f9-statistics-view.spec.ts [ tests/unit/f9-statistics-view.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\ede92d7ce316e5c93740c479a28685e1ab5c395c'
+ ❯ app/domain/api/decoders.ts:1:1
+      1| import { ExactNumber, exactInteger } from '../../utils/exact-number'
+       | ^
+      2| import { parseInstant } from '../../utils/datetime'
+      3| import type { ApiError } from './error'
+ ❯ tests/unit/f9-statistics-view.spec.ts:2:1
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[5/6]⎯
+
+ FAIL  tests/unit/scoped-state.spec.ts [ tests/unit/scoped-state.spec.ts ]
+Error: ENOENT: no such file or directory, open 'C:\Users\user\AppData\Local\Packages\sandbox.{2fa26f92-e418-4a5e-a87e-b94f4ac10be4}\AC\Temp\xjbL4CcukorOJhCcIWmue\ssr\6fb99db171ca04768cd172f833907ff3d2aa8c08'
+ ❯ tests/unit/scoped-state.spec.ts:2:1
+      1| import { describe, expect, it, vi } from 'vitest'
+      2| import { RequestScope } from '../../app/domain/request-scope'
+       | ^
+      3| import { OperationState, WriteCoordinator } from '../../app/domain/ope…
+      4| import { DirtyScope } from '../../app/domain/dirty-scope'
+
+⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯⎯[6/6]⎯
+
+
+ Test Files  6 failed | 1 passed (7)
+      Tests  5 passed (5)
+   Start at  20:59:00
+   Duration  637ms (import 55%, transform 29%, worker 13%, tests 2%)

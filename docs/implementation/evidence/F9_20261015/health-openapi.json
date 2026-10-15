@@ -1,0 +1,21 @@
+[
+  {
+    "path": "/health",
+    "status": 200,
+    "body": "{\"status\":\"healthy\"}"
+  },
+  {
+    "path": "/health/ready",
+    "status": 200,
+    "body": "Healthy"
+  },
+  {
+    "path": "/openapi/v1.json",
+    "status": 200,
+    "openapi": "3.1.1",
+    "version": "1.0.0",
+    "statisticsPath": [
+      "/api/v1/forms/{formId}/statistics"
+    ]
+  }
+]

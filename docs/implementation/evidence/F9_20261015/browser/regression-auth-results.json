@@ -1,0 +1,1111 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f9.config.ts",
+      "--grep",
+      "F3-B01 |F3-B02 |F3-B06 |F3-B07 |F3-B08 |F3-B10 |F3-B15 |F3-B16 |F7-R3.*logout|F7-R3 ActiveDirtyScope|F8-B07 verified new|F8-B08 dirty navigation"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f9.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9/regression-auth-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f3-browser.spec.ts",
+          "f3-reconciliation.spec.ts",
+          "f7-browser.spec.ts",
+          "f8-browser.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9\\regression-auth-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f3-browser.spec.ts",
+          "f3-reconciliation.spec.ts",
+          "f7-browser.spec.ts",
+          "f8-browser.spec.ts"
+        ],
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f9/regression-auth-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "f3-browser.spec.ts",
+      "file": "f3-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 836,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:35.352Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-e0efeb2d3eb32aef9659",
+          "file": "f3-browser.spec.ts",
+          "line": 33,
+          "column": 1
+        },
+        {
+          "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 394,
+                  "error": {
+                    "message": "Error: Unexpected fixture request: GET /api/v1/forms",
+                    "stack": "Error: Unexpected fixture request: GET /api/v1/forms\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts:21:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts",
+                      "column": 18,
+                      "line": 21
+                    },
+                    "snippet": "  19 |       else if (path.endsWith('/auth/register')) { state.register++; if (state.registerReply) await state.registerReply(route); else await route.fulfill({ status: 201, headers, json: user }) }\n  20 |       else if (path.endsWith('/auth/logout')) { state.logout++; if (state.logoutReply) await state.logoutReply(route); else await route.fulfill({ status: 204, headers }) }\n> 21 |       else throw new Error(`Unexpected fixture request: ${method} ${path}`)\n     |                  ^\n  22 |     }\n  23 |     finally { state.completed++ }\n  24 |   })"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts",
+                        "column": 18,
+                        "line": 21
+                      },
+                      "message": "Error: Unexpected fixture request: GET /api/v1/forms\n\n  19 |       else if (path.endsWith('/auth/register')) { state.register++; if (state.registerReply) await state.registerReply(route); else await route.fulfill({ status: 201, headers, json: user }) }\n  20 |       else if (path.endsWith('/auth/logout')) { state.logout++; if (state.logoutReply) await state.logoutReply(route); else await route.fulfill({ status: 204, headers }) }\n> 21 |       else throw new Error(`Unexpected fixture request: ${method} ${path}`)\n     |                  ^\n  22 |     }\n  23 |     finally { state.completed++ }\n  24 |   })\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts:21:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:36.324Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9\\regression-auth-artifacts\\f3-browser-F3-B02-bootstra-cb427-cked-target-without-more-me-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts",
+                    "column": 18,
+                    "line": 21
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-d14f217454f7a1473f8b",
+          "file": "f3-browser.spec.ts",
+          "line": 64,
+          "column": 1
+        },
+        {
+          "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1868,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:37.152Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-a1647fff088196b2fc12",
+          "file": "f3-browser.spec.ts",
+          "line": 127,
+          "column": 1
+        },
+        {
+          "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 660,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:39.150Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-8b5e248adf77b4ebe996",
+          "file": "f3-browser.spec.ts",
+          "line": 148,
+          "column": 1
+        },
+        {
+          "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:39.816Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-1f3319da41d9dff72fd9",
+          "file": "f3-browser.spec.ts",
+          "line": 165,
+          "column": 1
+        },
+        {
+          "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:40.682Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "8dc8751313097af338d1-312359aaaa5ebf7c1897",
+          "file": "f3-browser.spec.ts",
+          "line": 212,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "f3-reconciliation.spec.ts",
+      "file": "f3-reconciliation.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 903,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:42.245Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2b6ba9748571a989de4a-67ac37fa5f78c108ca93",
+          "file": "f3-reconciliation.spec.ts",
+          "line": 2,
+          "column": 1
+        },
+        {
+          "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 612,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:43.153Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "2b6ba9748571a989de4a-598745989e7e76e55df1",
+          "file": "f3-reconciliation.spec.ts",
+          "line": 27,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "f7-browser.spec.ts",
+      "file": "f7-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1043,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:43.824Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJyZWFzb24iOiJuZXQ6OkVSUl9GQUlMRUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJkaWFnbm9zdGljQ291bnQiOjF9XSwiYWN0dWFsIjpbeyJraW5kIjoicmVxdWVzdGZhaWxlZCIsIm1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9jbG9zZSIsInJlYXNvbiI6Im5ldDo6RVJSX0ZBSUxFRCJ9XSwiZGlhZ25vc3RpY3MiOlt7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UifV0sImlzc3VlcyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-557004424bfb5440f09c",
+          "file": "f7-browser.spec.ts",
+          "line": 321,
+          "column": 1
+        },
+        {
+          "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 519,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:44.873Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-0090cf4ad8969b506aa2",
+          "file": "f7-browser.spec.ts",
+          "line": 340,
+          "column": 93
+        },
+        {
+          "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 912,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:45.399Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIiwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSJ9XSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-c1309fc331ea4efd84f0",
+          "file": "f7-browser.spec.ts",
+          "line": 340,
+          "column": 93
+        },
+        {
+          "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 493,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:46.317Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-ae8d72d72edcce72b976",
+          "file": "f7-browser.spec.ts",
+          "line": 340,
+          "column": 93
+        },
+        {
+          "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 808,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:46.816Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIiwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSJ9XSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-c8b9afe623cddf699be9",
+          "file": "f7-browser.spec.ts",
+          "line": 340,
+          "column": 93
+        },
+        {
+          "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 742,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:47.630Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIiwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSJ9XSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-16227aebc13fcdf4b019",
+          "file": "f7-browser.spec.ts",
+          "line": 357,
+          "column": 56
+        },
+        {
+          "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 861,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:48.378Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIiwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQQVRDSCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSJ9XSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-b89905eb813de51b502e",
+          "file": "f7-browser.spec.ts",
+          "line": 357,
+          "column": 56
+        },
+        {
+          "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1429,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:49.244Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJyZWFzb24iOiJuZXQ6OkVSUl9GQUlMRUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJkaWFnbm9zdGljQ291bnQiOjF9LHsia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiUE9TVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvYXV0aC9sb2dvdXQiLCJzdGF0dXMiOjQwMCwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDAgKEJhZCBSZXF1ZXN0KSIsImRpYWdub3N0aWNDb3VudCI6MX1dLCJhY3R1YWwiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiUE9TVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL2Nsb3NlIiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn0seyJraW5kIjoicmVzcG9uc2UiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2F1dGgvbG9nb3V0IiwibWV0aG9kIjoiUE9TVCIsInN0YXR1cyI6NDAwfV0sImRpYWdub3N0aWNzIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0ZBSUxFRCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL2Nsb3NlIn0seyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAwIChCYWQgUmVxdWVzdCkiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2F1dGgvbG9nb3V0In1dLCJpc3N1ZXMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-b327402d3c0bb10ecfaf",
+          "file": "f7-browser.spec.ts",
+          "line": 364,
+          "column": 53
+        },
+        {
+          "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1466,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:50.678Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJyZWFzb24iOiJuZXQ6OkVSUl9GQUlMRUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJkaWFnbm9zdGljQ291bnQiOjF9LHsia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ291dCIsInJlYXNvbiI6Im5ldDo6RVJSX0ZBSUxFRCIsImNvdW50IjoxLCJkaWFnbm9zdGljIjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IG5ldDo6RVJSX0ZBSUxFRCIsImRpYWdub3N0aWNDb3VudCI6MX1dLCJhY3R1YWwiOlt7ImtpbmQiOiJyZXF1ZXN0ZmFpbGVkIiwibWV0aG9kIjoiUE9TVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL2Nsb3NlIiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn0seyJraW5kIjoicmVxdWVzdGZhaWxlZCIsIm1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2F1dGgvbG9nb3V0IiwicmVhc29uIjoibmV0OjpFUlJfRkFJTEVEIn1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9jbG9zZSJ9LHsidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2F1dGgvbG9nb3V0In1dLCJpc3N1ZXMiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-4724bb626e335790073f",
+          "file": "f7-browser.spec.ts",
+          "line": 364,
+          "column": 53
+        },
+        {
+          "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 509,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:52.149Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-b570917056348d32c9cb",
+          "file": "f7-browser.spec.ts",
+          "line": 374,
+          "column": 73
+        },
+        {
+          "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 793,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:52.663Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiUEFUQ0giLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSIsInN0YXR1cyI6NDAwLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMCAoQmFkIFJlcXVlc3QpIiwiZGlhZ25vc3RpY0NvdW50IjoxfV0sImFjdHVhbCI6W3sia2luZCI6InJlc3BvbnNlIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzdWx0LXZpc2liaWxpdHkiLCJtZXRob2QiOiJQQVRDSCIsInN0YXR1cyI6NDAwfV0sImRpYWdub3N0aWNzIjpbeyJ0ZXh0IjoiRmFpbGVkIHRvIGxvYWQgcmVzb3VyY2U6IHRoZSBzZXJ2ZXIgcmVzcG9uZGVkIHdpdGggYSBzdGF0dXMgb2YgNDAwIChCYWQgUmVxdWVzdCkiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSJ9XSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-1c59e0e7b826185af36c",
+          "file": "f7-browser.spec.ts",
+          "line": 374,
+          "column": 73
+        },
+        {
+          "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 581,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:53.462Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiR0VUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uZGVudC1jb3VudCIsInN0YXR1cyI6NDAxLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMSAoVW5hdXRob3JpemVkKSIsImRpYWdub3N0aWNDb3VudCI6MX1dLCJhY3R1YWwiOlt7ImtpbmQiOiJyZXNwb25zZSIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbmRlbnQtY291bnQiLCJtZXRob2QiOiJHRVQiLCJzdGF0dXMiOjQwMX1dLCJkaWFnbm9zdGljcyI6W3sidGV4dCI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMSAoVW5hdXRob3JpemVkKSIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbmRlbnQtY291bnQifV0sImlzc3VlcyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-b343cdb1825071396ca2",
+          "file": "f7-browser.spec.ts",
+          "line": 374,
+          "column": 73
+        },
+        {
+          "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 609,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:54.048Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-80f5e63cc625b745dee5",
+          "file": "f7-browser.spec.ts",
+          "line": 374,
+          "column": 73
+        },
+        {
+          "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1093,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:54.663Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-diagnostics",
+                      "contentType": "application/json",
+                      "body": "eyJleHBlY3RlZCI6W3sia2luZCI6InJlcXVlc3RmYWlsZWQiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJyZWFzb24iOiJuZXQ6OkVSUl9GQUlMRUQiLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiBuZXQ6OkVSUl9GQUlMRUQiLCJkaWFnbm9zdGljQ291bnQiOjF9XSwiYWN0dWFsIjpbeyJraW5kIjoicmVxdWVzdGZhaWxlZCIsIm1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9jbG9zZSIsInJlYXNvbiI6Im5ldDo6RVJSX0ZBSUxFRCJ9XSwiZGlhZ25vc3RpY3MiOlt7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogbmV0OjpFUlJfRkFJTEVEIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UifV0sImlzc3VlcyI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9965aa09920ca788fc2e-d128e9157515f72426c7",
+          "file": "f7-browser.spec.ts",
+          "line": 389,
+          "column": 1
+        }
+      ]
+    },
+    {
+      "title": "f8-browser.spec.ts",
+      "file": "f8-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 2572,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:55.777Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-and-wire",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1Ni4wLjgwNzguNCIsIm5vZGVWZXJzaW9uIjoidjI0LjIxLjAiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2F1dGgvbG9nb3V0IiwiYm9keSI6bnVsbH1dLCJleHBlY3RlZCI6W10sImFjdHVhbCI6W10sImRpYWdub3N0aWNzIjpbXSwiaXNzdWVzIjpbXSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W119"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fa47edaa56d024508943-09a4278891b9d4d8ff40",
+          "file": "f8-browser.spec.ts",
+          "line": 138,
+          "column": 1
+        },
+        {
+          "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1292,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-15T15:19:58.354Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "declared-network-and-wire",
+                      "contentType": "application/json",
+                      "body": "eyJicm93c2VyVmVyc2lvbiI6IjE1Ni4wLjgwNzguNCIsIm5vZGVWZXJzaW9uIjoidjI0LjIxLjAiLCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOltdfSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOltdfSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOltdfSJ9XSwiZXhwZWN0ZWQiOlt7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJzdGF0dXMiOjUwMCwiY291bnQiOjEsImRpYWdub3N0aWMiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA1MDAgKEludGVybmFsIFNlcnZlciBFcnJvcikiLCJkaWFnbm9zdGljQ291bnQiOjF9LHsia2luZCI6InJlc3BvbnNlIiwibWV0aG9kIjoiUE9TVCIsInVybCI6Imh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcyIsInN0YXR1cyI6NDAxLCJjb3VudCI6MSwiZGlhZ25vc3RpYyI6IkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMSAoVW5hdXRob3JpemVkKSIsImRpYWdub3N0aWNDb3VudCI6MX1dLCJhY3R1YWwiOlt7ImtpbmQiOiJyZXNwb25zZSIsIm1ldGhvZCI6IlBPU1QiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJzdGF0dXMiOjUwMH0seyJraW5kIjoicmVzcG9uc2UiLCJtZXRob2QiOiJQT1NUIiwidXJsIjoiaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwic3RhdHVzIjo0MDF9XSwiZGlhZ25vc3RpY3MiOlt7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA1MDAgKEludGVybmFsIFNlcnZlciBFcnJvcikiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMifSx7InRleHQiOiJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDEgKFVuYXV0aG9yaXplZCkiLCJ1cmwiOiJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMifV0sImlzc3VlcyI6W10sImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "fa47edaa56d024508943-e038f8fae4f7c7d8ca85",
+          "file": "f8-browser.spec.ts",
+          "line": 188,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T15:19:31.904Z",
+    "duration": 28398.833,
+    "expected": 23,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "entries": [
+    {
+      "command": "npm run lint",
+      "result": "PASS",
+      "exitCode": 0,
+      "log": "lint-final.log"
+    },
+    {
+      "command": "npm run typecheck",
+      "result": "PASS",
+      "exitCode": 0,
+      "log": "typecheck-final.log"
+    },
+    {
+      "command": "npm run build",
+      "result": "PASS",
+      "exitCode": 0,
+      "log": "f9-build-first.log"
+    },
+    {
+      "command": "node node_modules/nuxt/bin/nuxt.mjs build tests/fixtures/f9/browser",
+      "result": "PASS",
+      "exitCode": 0,
+      "log": "harness-build-final.log"
+    },
+    {
+      "command": "node node_modules/vue-tsc/bin/vue-tsc.js --noEmit -p tests/fixtures/f9/browser/tsconfig.json",
+      "result": "PASS",
+      "exitCode": 0,
+      "log": "harness-typecheck-final.log"
+    },
+    {
+      "command": "npm run test:unit -- F9/F3/scoped/api-client/exact-number/common-adapters --reporter=json --outputFile=output/playwright/f9/unit-final-results.json (full arguments in unit-final.log)",
+      "result": "PASS",
+      "exitCode": 0,
+      "tests": 185,
+      "log": "unit-final.log"
+    }
+  ],
+  "logCopyNormalization": "trailing whitespace and final blank lines only; original output files unchanged",
+  "sourceBuild": "fresh product build precedes all product Browser/live; separate fresh harness build"
+}

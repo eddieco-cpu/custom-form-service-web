@@ -1,0 +1,53 @@
+{
+  "observedAtTaipei": "2026-10-15T23:22:29.3711833+08:00",
+  "backendPath": "C:/Users/user/Desktop/custom-form-service",
+  "backendSha": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendGitStatus": "?? SNAPSHOT.md",
+  "pid": 34068,
+  "commandLine": "\"dotnet\" exec \"C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll\"",
+  "dllPath": "C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll",
+  "productVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "dllSha256": "06e2a62db9c4376701e75b0ce3e7283d34b129d378c884e33fb1cb764a0af180",
+  "contracts": [
+    {
+      "file": "00-v1-overview.md",
+      "sha256": "d6bff54a6fdfd7f2be1a5145d7b564940d30b31920f7fe59b518156f76116c11",
+      "matchesLive": true
+    },
+    {
+      "file": "01-v1-domain-specification.md",
+      "sha256": "3f1a836fd3133a111e684f18a836b7b43fed2479a0585f46c460d97af84ca594",
+      "matchesLive": true
+    },
+    {
+      "file": "02-v1-database-specification.md",
+      "sha256": "90079ad3e4d7a41882a3bc2b99859ab72e71892e523d0956bbcf86b551f8a257",
+      "matchesLive": true
+    },
+    {
+      "file": "03a-v1-api-contract-common.md",
+      "sha256": "1abb28c69af5fe505660db06cc6aa12224c6e20fe0948b440ca6dccda515fa9b",
+      "matchesLive": true
+    },
+    {
+      "file": "03b-v1-api-contract-auth-user-form.md",
+      "sha256": "3e6feeed460d3aa27fe9a3d3187d6551a56c426669c0852f9b8e3ef6e30c89fc",
+      "matchesLive": true
+    },
+    {
+      "file": "03c-v1-api-contract-submission-statistics.md",
+      "sha256": "e7ca4f2d2b85533f8453f9e07a60c276319b22ce76ce9fb736211c677ffcf7f0",
+      "matchesLive": true
+    },
+    {
+      "file": "04-v1-error-catalog.md",
+      "sha256": "c855ee35bb44572ec9eb3bfc68639bffa3ab8effcd951b7962d7a2ae2843c28e",
+      "matchesLive": true
+    },
+    {
+      "file": "05-v1-system-constraints.md",
+      "sha256": "1308c26dcb876d12bca494aa78d3e1a91e218ee2b26d1bb58b7b04daf979b50a",
+      "matchesLive": true
+    }
+  ]
+}

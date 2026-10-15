@@ -1,0 +1,3187 @@
+{
+  "unit": [
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) includes credentials, serializes exact numbers, and decodes direct receipt",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) handles 204 without reading the body",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) accepts typed request interfaces and classifies failed 204 decoders as contract failures",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 400",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 401",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 403",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 404",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 409",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 500",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: ",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: <html>error</html>",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"data\":{\"count\":1}}",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":\"1\"}",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":null}",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":2147483648}",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) rejects local lossy body and base escape before any fetch",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) times out body reads, aborts signal, finishes timer, and retries zero times",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "direct-resource client (mock fetch) network and abort results distinguish sent from never dispatched",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: contract-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: api-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest retains AUTH_REQUIRED routing classification",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors Latest retains AUTH_USER_DISABLED routing classification",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors decodes text definition / receipt / statistic without changing semantics",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors decodes number definition / receipt / statistic without changing semantics",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors decodes rating definition / receipt / statistic without changing semantics",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors decodes single_choice definition / receipt / statistic without changing semantics",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors decodes multiple_choice definition / receipt / statistic without changing semantics",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors validates resource nullable, enums, raw config, page and zero count",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors preserves anonymous absence / identified empty array and rejects null/missing roots",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors different contexts keep Auth, normal no-response, statistics and form absence distinct",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/api-client.spec.ts",
+      "title": "DTO / contextual errors maps immutable request positions by namespace, preserving unmapped details",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/common-adapters.spec.ts",
+      "title": "Unicode / candidate semantics trims only White_Space edges, preserving internal spaces, FEFF and ZWSP",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/common-adapters.spec.ts",
+      "title": "Unicode / candidate semantics counts code points without normalization and keeps passwords byte-for-byte",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/common-adapters.spec.ts",
+      "title": "Unicode / candidate semantics ASCII email lowercases while non-ASCII casing belongs to server",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/common-adapters.spec.ts",
+      "title": "exact datetime / baseline retains fraction and compares offset-equivalent instants",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/common-adapters.spec.ts",
+      "title": "exact datetime / baseline crosses days and validates leap years without JS rollover",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 9007199254740993 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0.123456789012345678901234567890123456789 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e80 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-101 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e400 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted -1e401 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e131071 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-16383 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0e1073741823 without native numbers",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) numeric equality 1 = 1.0",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) numeric equality 1.0 = 1e0",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) numeric equality -0 = 0",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) numeric equality 1000e-3 = 1",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order 9007199254740993 < 9007199254740994",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order 1e80 < 100000000000000000000000000000000000000000000000000000000000000000000000000000001",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order 0 < 1e-101",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order 1e400 < 1e401",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order -1e401 < -1e400",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order -2 < -1",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) fixed expected order 0.1 < 0.1000000000000000000001",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) compares inclusive bounds precisely and distinguishes unanswered from zero",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 01",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding +1",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding .1",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1.",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding NaN",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding Infinity",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1,2",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e131072",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e-16384",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e1073741824",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e-1073741824",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0.00e-16382",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) checks original fractional capacity before trimming trailing zeros",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/exact-number-gate.spec.ts",
+      "title": "F2 exact number feasibility gate (synthetic) only converts validated native integers; prevents accidental lossy serialization",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations shares the first Promise and keeps settled null across SPA navigation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations settles formal AUTH_REQUIRED as anonymous",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations settles formal AUTH_TOKEN_INVALID as anonymous",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations settles formal AUTH_TOKEN_EXPIRED as anonymous",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (contract-error)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations late bootstrap cannot overwrite login and settled navigation does not await it",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations late bootstrap cannot overwrite logout and settled navigation does not await it",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations late bootstrap cannot overwrite profile and settled navigation does not await it",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations only the latest explicit candidate may be adopted; profile keeps the session revision",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 session and generations a different User returned by PATCH advances the session revision (shared Cookie changed in another tab)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /profile?from=x#name",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /forms",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /forms/new",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /forms/invalid-id/edit?x=1",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect keeps known route /forms/11111111-1111-4111-8111-111111111111/statistics#result",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"https://evil.test/profile\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"//evil.test\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/\\\\evil.test\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/%5cevil.test\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/%2f%2fevil.test\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/profile%2funknown\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/profile?x=%zz\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/%00profile\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/login\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/login?redirect=/profile\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/unknown\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/forms/a/unknown\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects \"/profile\"",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 redirect rejects null",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics allows a@localhost through basic registration gate for final server validation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics allows \"a b\"@example.test through basic registration gate for final server validation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics allows 中文@example.test through basic registration gate for final server validation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics allows İ@example.test through basic registration gate for final server validation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics allows a@@example.test through basic registration gate for final server validation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for password length 9 without trimming",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for password length 10 without trimming",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for password length 128 without trimming",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for password length 129 without trimming",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for name length 100",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics uses Code Points for name length 101",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics login does not apply register email/password constraints and builders whitelist keys",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f3-auth.spec.ts",
+      "title": "F3 input semantics normalized no-op and editing back to baseline are clean",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me success ; stats first=true",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me success ; stats first=false",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 401; stats first=true",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 401; stats first=false",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 403; stats first=true",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 403; stats first=false",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me transport-error ; stats first=true",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me transport-error ; stats first=false",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true login changes and preserves reason",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true logout changes and preserves reason",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true verify changes and preserves reason",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true invalidate changes and preserves reason",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true profile changes and preserves reason",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects same-ID Profile rename does not clear or refetch; obsolete bootstrap cannot report a change",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (route) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (session) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (retry) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (dispose) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (route) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (session) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (retry) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (dispose) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (route) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (session) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (retry) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (dispose) or its finally",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_REQUIRED redirects once, keeps full path and never reload loops",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_TOKEN_INVALID redirects once, keeps full path and never reload loops",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_TOKEN_EXPIRED redirects once, keeps full path and never reload loops",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects manual refresh retracts names before pending; Auth dialog closes once and external login revokes navigation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-read.spec.ts",
+      "title": "F9 U02 separate bootstrap, credential epochs and current read effects retry failure cannot keep old names or leave loading pending; details survive",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary uses only one credentialed GET, no Body, and rejects another resource",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary retains all nine root meanings, nullable fields and exact numeric tokens",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary keeps zero success and anonymous omission / identified empty lists (false)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary keeps zero success and anonymous omission / identified empty lists (true)",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary never truncates questions, distributions, rating range, names or multiline Code Points",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable missing-root",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable null-people",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable mixed-people",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable bad-count",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable duplicate-people",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable unknown-root",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/f9-statistics-view.spec.ts",
+      "title": "F9 U01 independent display expectations and service boundary rejects unreliable bad-type",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "request ownership ignores late data/errors and old finally cannot clear new loading",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "request ownership invalidates resource even when fetch ignores abort",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "request ownership invalidates session even when fetch ignores abort",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "request ownership invalidates unmount even when fetch ignores abort",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle shares Delta uncertainty across same-Form saves/publish: transport-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle shares Delta uncertainty across same-Form saves/publish: api-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle shares Delta uncertainty across same-Form saves/publish: contract-error",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle does not extend Delta uncertainty to unrelated scopes or clear it on another operation success",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle locks same Form, permits another Form, snapshots before async, releases on all exits",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle keeps unknown lock across rejected/cancelled/stale reconciliation, unlocks only adoption",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle Latest/list adoption does not clear multiple/create duplicate risk",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "write lifecycle does not apply stale outcomes; local snapshot errors release loading and lease",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits completed logout cleanup transfers its false dirty permit once to the intended navigation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits completed logout cleanup transfers its true dirty permit once to the intended navigation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits external content changes before completion prohibit cleanup, and later changes reject the reserved navigation without reauthorizing",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits external session changes reject completed logout navigation without a second confirmation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits external request changes reject completed logout navigation without a second confirmation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits external write changes reject completed logout navigation without a second confirmation",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits a failed completion does not create a navigation permit or allow its old action to run twice",
+      "source": "fixture / unit",
+      "status": "PASS"
+    },
+    {
+      "file": "tests/unit/scoped-state.spec.ts",
+      "title": "discard permits cancel blocks; redirect shares one permit; next navigation/action asks again",
+      "source": "fixture / unit",
+      "status": "PASS"
+    }
+  ],
+  "browserHistory": [
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 200 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 200 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 401 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 401 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 403 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 403 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 500 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 500 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01/B03 complete roots, five types, exact values, literal text, same names/labels, optional zero and privacy",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 large content 30/200/120/2000/101 complete and readable at 390px; keyboard retry/link",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 400 VALIDATION_ERROR retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 404 FORM_NOT_FOUND retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 409 FORM_STATISTICS_NOT_AVAILABLE retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 403 STATISTICS_ACCESS_DENIED retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 403 AUTH_USER_DISABLED retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 500 INTERNAL_SERVER_ERROR retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 network, timeout and malformed never retain private content; no automatic retries",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 90,
+            "line": 128
+          },
+          "message": "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Email', exact: true })\u001b[22m\n\n\n  126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n  127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)\n> 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)\n      |                                                                                          ^\n  129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')\n  130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()\n  131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:128:90"
+        },
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 82,
+            "line": 47
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Expected 2 {\\\"kind\\\":\\\"response\\\",\\\"method\\\":\\\"GET\\\",\\\"url\\\":\\\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\\\",\\\"status\\\":401,\\\"count\\\":2,\\\"diagnostic\\\":\\\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\\\",\\\"diagnosticCount\\\":2}; observed 1\",\u001b[39m\n\u001b[31m+   \"Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)\n  46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })\n> 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])\n     |                                                                                  ^\n  48 | })\n  49 |\n  50 | test.describe('product fresh build', () => {\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:47:82"
+        }
+      ]
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 90,
+            "line": 128
+          },
+          "message": "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Email', exact: true })\u001b[22m\n\n\n  126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n  127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)\n> 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)\n      |                                                                                          ^\n  129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')\n  130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()\n  131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:128:90"
+        },
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 82,
+            "line": 47
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Expected 2 {\\\"kind\\\":\\\"response\\\",\\\"method\\\":\\\"GET\\\",\\\"url\\\":\\\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\\\",\\\"status\\\":401,\\\"count\\\":2,\\\"diagnostic\\\":\\\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\\\",\\\"diagnosticCount\\\":2}; observed 1\",\u001b[39m\n\u001b[31m+   \"Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)\n  46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })\n> 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])\n     |                                                                                  ^\n  48 | })\n  49 |\n  50 | test.describe('product fresh build', () => {\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:47:82"
+        }
+      ]
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 90,
+            "line": 128
+          },
+          "message": "TimeoutError: locator.fill: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: 'Email', exact: true })\u001b[22m\n\n\n  126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n  127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)\n> 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)\n      |                                                                                          ^\n  129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')\n  130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()\n  131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:128:90"
+        },
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 82,
+            "line": 47
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 4\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"Expected 2 {\\\"kind\\\":\\\"response\\\",\\\"method\\\":\\\"GET\\\",\\\"url\\\":\\\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\\\",\\\"status\\\":401,\\\"count\\\":2,\\\"diagnostic\\\":\\\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\\\",\\\"diagnosticCount\\\":2}; observed 1\",\u001b[39m\n\u001b[31m+   \"Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)\n  46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })\n> 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])\n     |                                                                                  ^\n  48 | })\n  49 |\n  50 | test.describe('product fresh build', () => {\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:47:82"
+        }
+      ]
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts",
+            "column": 138,
+            "line": 137
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/login\\?redirect=%2Fforms$/\u001b[39m\nReceived string:  \u001b[31m\"http://localhost:3000/login?redirect=/forms\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - locator resolved to <html lang=\"zh-Hant\">…</html>\u001b[22m\n\u001b[2m    - unexpected value \"http://localhost:3000/forms/00000000-0000-4000-8000-000000000050/statistics\"\u001b[22m\n\u001b[2m    13 × locator resolved to <html lang=\"zh-Hant\">…</html>\u001b[22m\n\u001b[2m       - unexpected value \"http://localhost:3000/login?redirect=/forms\"\u001b[22m\n\n\n  135 |   test('F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push', async ({ page }) => {\n  136 |     const s = await mock(page); s.loggedOut = true; s.expected.push(expectedHttp('GET', `${api}/users/me`, 401, 1))\n> 137 |     await page.goto(view); await loaded(page); await page.getByRole('button', { name: '我的表單', exact: true }).click(); await expect(page).toHaveURL(/\\/login\\?redirect=%2Fforms$/)\n      |                                                                                                                                          ^\n  138 |     await page.goBack(); await loaded(page); expect(s.requests.filter(r => r.url.endsWith('/users/me'))).toHaveLength(1)\n  139 |     await page.getByRole('link', { name: '查看表單', exact: true }).click(); await expect(page).toHaveURL(/\\/login\\?redirect=/)\n  140 |     await page.getByRole('textbox', { name: 'Email' }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await expect(page.getByRole('link', { name: '查看統計', exact: true })).toBeVisible()\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-browser.spec.ts:137:138"
+        }
+      ]
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 same component A late 200, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 same component A late 401, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B02 same component A late 403, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 network, timeout and malformed never retain private content; no automatic retries",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_EXPIRED remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 200, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 401, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 403, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after login cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after verify cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after unmount cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts",
+            "column": 18,
+            "line": 21
+          },
+          "message": "Error: Unexpected fixture request: GET /api/v1/forms\n\n  19 |       else if (path.endsWith('/auth/register')) { state.register++; if (state.registerReply) await state.registerReply(route); else await route.fulfill({ status: 201, headers, json: user }) }\n  20 |       else if (path.endsWith('/auth/logout')) { state.logout++; if (state.logoutReply) await state.logoutReply(route); else await route.fulfill({ status: 204, headers }) }\n> 21 |       else throw new Error(`Unexpected fixture request: ${method} ${path}`)\n     |                  ^\n  22 |     }\n  23 |     finally { state.completed++ }\n  24 |   })\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f3-browser.spec.ts:21:18"
+        }
+      ]
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+      "file": "f3-reconciliation.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+      "file": "f3-reconciliation.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+      "file": "f8-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+      "file": "f8-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-f3-return-retest",
+      "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-chrome-smoke",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chrome",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-chrome-smoke",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chrome",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-msedge-smoke",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "msedge",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-msedge-smoke",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "msedge",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "live-live-initial",
+      "title": "F9-L01 anonymous/identified × three policies × four real Cookie contexts (24 cells)",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "live-live-initial",
+      "title": "F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+            "column": 43,
+            "line": 121
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[33m@@ -271,8 +271,8 @@\u001b[39m\n\u001b[2m        \"type\": \"text\",\u001b[22m\n\u001b[2m      },\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"responseMode\": \"multiple\",\u001b[22m\n\u001b[2m    \"resultVisibility\": \"public\",\u001b[22m\n\u001b[32m-   \"submissionDeadlineAt\": \"2030-12-31T10:30:00.123456Z\",\u001b[39m\n\u001b[31m+   \"submissionDeadlineAt\": \"2030-12-31T10:30:00.123456+00:00\",\u001b[39m\n\u001b[2m    \"title\": \"f9-1792077354728-live-initial L02 effective complete response\",\u001b[22m\n\u001b[2m  }\u001b[22m\n\n  119 | }\n  120 | function assertBody(body: string, expectedBody: StatisticsDto) {\n> 121 |   expect(canonical(parseExactJson(body))).toEqual(canonical(parseExactJson(stringifyExactJson(expectedBody))))\n      |                                           ^\n  122 | }\n  123 | async function assertUI(page: Page, expectedBody: StatisticsDto) {\n  124 |   const region = page.getByRole('region', { name: '統計根資訊' }); await expect(region).toBeVisible()\n    at assertBody (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:121:43)\n    at statisticsPage (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:156:23)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:233:7\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:64:11\n    at step (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:63:3)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:232:5"
+        }
+      ]
+    },
+    {
+      "run": "live-live-initial",
+      "title": "F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "live-instant-retest",
+      "title": "F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "FAIL",
+      "errors": [
+        {
+          "location": {
+            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+            "column": 71,
+            "line": 166
+          },
+          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 0\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics\",\u001b[22m\n\u001b[31m+   \"/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics\",\u001b[39m\n\u001b[2m  ]\u001b[22m\n\n  164 |   await Promise.allSettled(pending)\n  165 |   const productRequests = wire.slice(before).filter(w => w.alias === alias && w.method === 'GET').map(w => new URL(w.url).pathname)\n> 166 |   expect(productRequests.filter(p => p.startsWith('/api/v1/forms/'))).toEqual([`/api/v1${path}`])\n      |                                                                       ^\n  167 | }\n  168 | async function independent(alias: Alias, form: FormDetailDto, label: string, expectedBody: StatisticsDto) {\n  169 |   const r = await call(alias, `/forms/${form.id}/statistics`); reads.push({ label, alias, url: `${api}/forms/${form.id}/statistics`, ...r, expected: expectedBody }); expect(r.status).toBe(200); assertBody(r.body, expectedBody)\n    at statisticsPage (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:166:71)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:250:7\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:66:11\n    at step (C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:65:3)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts:246:5"
+        }
+      ]
+    },
+    {
+      "run": "live-instant-retest",
+      "title": "F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "NOT RUN",
+      "errors": []
+    },
+    {
+      "run": "live-boundary-retest",
+      "title": "F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "live-boundary-retest",
+      "title": "F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority",
+      "file": "f9-live.spec.ts",
+      "project": "chromium",
+      "source": "real API + Browser",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    }
+  ],
+  "browserFinal": [
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 200 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 200 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 401 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 401 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 403 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 403 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 500 statsFirst=true independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 me 500 statsFirst=false independent parallel public",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01/B03 complete roots, five types, exact values, literal text, same names/labels, optional zero and privacy",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 large content 30/200/120/2000/101 complete and readable at 390px; keyboard retry/link",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 400 VALIDATION_ERROR retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 404 FORM_NOT_FOUND retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 409 FORM_STATISTICS_NOT_AVAILABLE retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 403 STATISTICS_ACCESS_DENIED retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 403 AUTH_USER_DISABLED retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-network-retry",
+      "title": "F9-B01 500 INTERNAL_SERVER_ERROR retains URL/details and retry",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 network, timeout and malformed never retain private content; no automatic retries",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 200, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 401, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 same component A late 403, B loading/finally, Session switch and unmount",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-locator-retest",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_EXPIRED remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after login cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after verify cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "harness-initial",
+      "title": "F9-B02 pending private response after unmount cannot restore names or change Header/route",
+      "file": "f9-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-f3-return-retest",
+      "title": "F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries",
+      "file": "f3-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login",
+      "file": "f3-reconciliation.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F3-B16 verified different User is adopted once and releases the Profile unknown gate",
+      "file": "f3-reconciliation.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3 ActiveDirtyScope prevents logout request when unknown discard is cancelled",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published clean confirms zero logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published unknown accepts once logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed clean confirms zero logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed unknown accepts once logout 204 clears and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 published unknown logout cancel preserves Session URL and unknown lock, zero request",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 closed unknown logout cancel preserves Session URL and unknown lock, zero request",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 unknown logout http failure preserves context and revokes discard authorization",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 unknown logout network failure preserves context and revokes discard authorization",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external content makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external write makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external session makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 pending logout external leave makes late 204 stale",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F7-R3-N1 reviewer Close unknown logout 204 uses one confirmation and replaces login",
+      "file": "f7-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit",
+      "file": "f8-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "regression-auth",
+      "title": "F8-B07 verified new respondent context clears previous duplicate risk and owner ability",
+      "file": "f8-browser.spec.ts",
+      "project": "chromium",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-chrome-smoke",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "chrome",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-chrome-smoke",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "chrome",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-msedge-smoke",
+      "title": "F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout",
+      "file": "f9-browser.spec.ts",
+      "project": "msedge",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    },
+    {
+      "run": "built-msedge-smoke",
+      "title": "F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)",
+      "file": "f9-browser.spec.ts",
+      "project": "msedge",
+      "source": "fixture / intercepted API",
+      "attempt": 0,
+      "status": "PASS",
+      "errors": []
+    }
+  ],
+  "realHistory": [
+    {
+      "id": "L01 anonymous/owner_only/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 private actual Login return + manual missing-Cookie AUTH_REQUIRED Dialog",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+      "source": "real API + Browser",
+      "result": "FAIL",
+      "detail": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[33m@@ -271,8 +271,8 @@\u001b[39m\n\u001b[2m        \"type\": \"text\",\u001b[22m\n\u001b[2m      },\u001b[22m\n\u001b[2m    ],\u001b[22m\n\u001b[2m    \"responseMode\": \"multiple\",\u001b[22m\n\u001b[2m    \"resultVisibility\": \"public\",\u001b[22m\n\u001b[32m-   \"submissionDeadlineAt\": \"2030-12-31T10:30:00.123456Z\",\u001b[39m\n\u001b[31m+   \"submissionDeadlineAt\": \"2030-12-31T10:30:00.123456+00:00\",\u001b[39m\n\u001b[2m    \"title\": \"f9-1792077354728-live-initial L02 effective complete response\",\u001b[22m\n\u001b[2m  }\u001b[22m",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077429649-instant-retest"
+    },
+    {
+      "id": "L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback",
+      "source": "real API + Browser",
+      "result": "FAIL",
+      "detail": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 0\u001b[39m\n\u001b[31m+ Received  + 1\u001b[39m\n\n\u001b[2m  Array [\u001b[22m\n\u001b[2m    \"/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics\",\u001b[22m\n\u001b[31m+   \"/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics\",\u001b[39m\n\u001b[2m  ]\u001b[22m",
+      "runId": "f9-1792077429649-instant-retest"
+    },
+    {
+      "id": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 zero anonymous complete roots/choice/rating/empty lists",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 zero identified complete roots/choice/rating/empty lists",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/C 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/C 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/C 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 natural deadline retains Published and saved deadline",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 retained deleted UUID from F7",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 random absent UUID",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 invalid UUID before Auth",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 invalid Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 expired Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 disabled Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 disabled Creator",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 real Server fault",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 real timeout",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    }
+  ],
+  "realFinal": [
+    {
+      "id": "L01 anonymous/owner_only/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/owner_only/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/respondents/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 anonymous/public/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/owner_only/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/respondents/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/A",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/B",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/C",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 identified/public/guest",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L01 private actual Login return + manual missing-Cookie AUTH_REQUIRED Dialog",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077354728-live-initial"
+    },
+    {
+      "id": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 zero anonymous complete roots/choice/rating/empty lists",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 zero identified complete roots/choice/rating/empty lists",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/C 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Draft/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/C 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 Published/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/A 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/C 409",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 expired Published/guest 404",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 natural deadline retains Published and saved deadline",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 retained deleted UUID from F7",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 random absent UUID",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L03 invalid UUID before Auth",
+      "source": "real API + Browser; independent fixed expectations",
+      "result": "PASS",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 invalid Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 expired Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 disabled Cookie",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 disabled Creator",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 real Server fault",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "id": "L04 real timeout",
+      "source": "real API",
+      "result": "BLOCKED",
+      "detail": "未提供已同意受控前置；不偽造 Token、不改 SQL／時鐘／Server。fixture 另列。",
+      "runId": "f9-1792077518649-boundary-retest"
+    }
+  ]
+}

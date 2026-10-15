@@ -18,6 +18,8 @@ async function mock(page: Page, initial: unknown = user) {
       else if (path.endsWith('/auth/login')) { state.login++; if (state.loginReply) await state.loginReply(route); else await route.fulfill({ status: 200, headers, json: user }) }
       else if (path.endsWith('/auth/register')) { state.register++; if (state.registerReply) await state.registerReply(route); else await route.fulfill({ status: 201, headers, json: user }) }
       else if (path.endsWith('/auth/logout')) { state.logout++; if (state.logoutReply) await state.logoutReply(route); else await route.fulfill({ status: 204, headers }) }
+      // F9 regression runs against the completed F4 list after this F3 login-return case.
+      else if (path === '/api/v1/forms' && method === 'GET') await route.fulfill({ status: 200, headers, json: { items: [], pagination: { page: 1, pageSize: 10, totalItems: 0, totalPages: 0 } } })
       else throw new Error(`Unexpected fixture request: ${method} ${path}`)
     }
     finally { state.completed++ }

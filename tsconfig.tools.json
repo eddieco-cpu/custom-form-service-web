@@ -8,5 +8,5 @@
     "checkJs": true
   },
   "include": ["*.config.ts", "*.config.mjs", "tests/**/*.ts", "scripts/**/*.ts", "scripts/**/*.mjs"],
-  "exclude": ["node_modules", ".nuxt", ".output", "backend-ref"]
+  "exclude": ["node_modules", ".nuxt", ".output", "backend-ref", "tests/fixtures/f9/browser/controls.client.ts"]
 }

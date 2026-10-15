@@ -1,0 +1,23 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts --grep F9-B02
+
+[WebServer] (node:44972) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 9 tests using 1 worker
+
+(node:37844) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -  1 [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push
+  ok 2 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation (362ms)
+  ok 3 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation (375ms)
+  ok 4 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 200, B loading/finally, Session switch and unmount (311ms)
+  ok 5 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 401, B loading/finally, Session switch and unmount (313ms)
+  ok 6 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 403, B loading/finally, Session switch and unmount (309ms)
+  ok 7 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after login cannot restore names or change Header/route (265ms)
+  ok 8 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after verify cannot restore names or change Header/route (260ms)
+  ok 9 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after unmount cannot restore names or change Header/route (280ms)
+
+  1 skipped
+  8 passed (4.2s)

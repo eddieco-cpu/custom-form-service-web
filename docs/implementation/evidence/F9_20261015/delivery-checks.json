@@ -1,0 +1,106 @@
+{
+  "directDependencies": 15,
+  "allVersionsMatch": true,
+  "dependencies": [
+    {
+      "name": "@nuxt/ui",
+      "declared": "4.11.3",
+      "locked": "4.11.3",
+      "installed": "4.11.3"
+    },
+    {
+      "name": "lossless-json",
+      "declared": "4.3.1",
+      "locked": "4.3.1",
+      "installed": "4.3.1"
+    },
+    {
+      "name": "nuxt",
+      "declared": "4.6.1",
+      "locked": "4.6.1",
+      "installed": "4.6.1"
+    },
+    {
+      "name": "tailwindcss",
+      "declared": "4.3.3",
+      "locked": "4.3.3",
+      "installed": "4.3.3"
+    },
+    {
+      "name": "vue-draggable-plus",
+      "declared": "0.6.1",
+      "locked": "0.6.1",
+      "installed": "0.6.1"
+    },
+    {
+      "name": "zod",
+      "declared": "4.6.5",
+      "locked": "4.6.5",
+      "installed": "4.6.5"
+    },
+    {
+      "name": "@iconify-json/lucide",
+      "declared": "1.2.142",
+      "locked": "1.2.142",
+      "installed": "1.2.142"
+    },
+    {
+      "name": "@nuxt/eslint",
+      "declared": "1.17.0",
+      "locked": "1.17.0",
+      "installed": "1.17.0"
+    },
+    {
+      "name": "@playwright/test",
+      "declared": "1.64.0",
+      "locked": "1.64.0",
+      "installed": "1.64.0"
+    },
+    {
+      "name": "@types/node",
+      "declared": "24.19.2",
+      "locked": "24.19.2",
+      "installed": "24.19.2"
+    },
+    {
+      "name": "@types/sortablejs",
+      "declared": "1.15.9",
+      "locked": "1.15.9",
+      "installed": "1.15.9"
+    },
+    {
+      "name": "eslint",
+      "declared": "10.12.0",
+      "locked": "10.12.0",
+      "installed": "10.12.0"
+    },
+    {
+      "name": "typescript",
+      "declared": "5.9.3",
+      "locked": "5.9.3",
+      "installed": "5.9.3"
+    },
+    {
+      "name": "vitest",
+      "declared": "5.0.3",
+      "locked": "5.0.3",
+      "installed": "5.0.3"
+    },
+    {
+      "name": "vue-tsc",
+      "declared": "3.3.13",
+      "locked": "3.3.13",
+      "installed": "3.3.13"
+    }
+  ],
+  "localLinks": "PASS",
+  "jsonParse": "PASS",
+  "evidenceFiles": 57,
+  "credentials": "Actual secret values and decoded JSON attachments checked by packaging script; private credentials/storageState/trace excluded",
+  "protectedFiles": "git diff confirms no specs, backend-ref or dependency/lockfile changes",
+  "formalAcceptance": "NOT RUN",
+  "sourceDigestRechecked": "PASS",
+  "logCopies": "only trailing whitespace/final blank lines normalized; ignored originals preserved",
+  "stagedSecretScan": "PASS; actual private credential values absent; no storageState/trace/private credentials staged",
+  "diffCheck": "PASS after log copy whitespace normalization"
+}

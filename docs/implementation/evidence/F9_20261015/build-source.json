@@ -1,0 +1,599 @@
+{
+  "frontendBaseSha": "e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0",
+  "branch": "master",
+  "note": "fresh npm run build before product Browser/live; product source unchanged through runs; harness built separately",
+  "appSource": [
+    {
+      "path": "app/app.config.ts",
+      "sha256": "df8f3db56279dfd3055b5b44b8d4740e493b6c6c0bbaf9596b4d8c33b5ca03e5"
+    },
+    {
+      "path": "app/app.vue",
+      "sha256": "13835503911e6a2082b5903ac57125c369a9eafd21c430522377db26d6a4d702"
+    },
+    {
+      "path": "app/assets/css/main.css",
+      "sha256": "cedd5993d4d7b0809fe825b1f96bf2db856c97f30f61725093cae8872ac5b344"
+    },
+    {
+      "path": "app/components/AppHeader.vue",
+      "sha256": "10e82aaa83ee21b31f647b392969f38f1e1e55bb28b422562e8038ca3c93657b"
+    },
+    {
+      "path": "app/components/auth/AuthGate.vue",
+      "sha256": "28c508b18de45ab57cb69bc3a008397a0a0633239d98d70c2d4efee436d51f2a"
+    },
+    {
+      "path": "app/components/feedback/ActionErrorDialog.vue",
+      "sha256": "21bb7134035ba62bb9f30603245cd7fdf68878a51e035b466dd97ebfa2d4f2ef"
+    },
+    {
+      "path": "app/components/feedback/FoundationFeedback.vue",
+      "sha256": "0006e7edcdeaaba00fa4dc273db8b648f2889ffc1dc9b38d470689df0e8ebabb"
+    },
+    {
+      "path": "app/components/feedback/ReadError.vue",
+      "sha256": "631baa381d3056f92d85c342d7e44976e67f2eb8c31a4d2c469d54d281061184"
+    },
+    {
+      "path": "app/components/forms/EditorField.vue",
+      "sha256": "19fa79c35b8387b7e389be66468fbc7a1343798e1b563676429bbee8059b0884"
+    },
+    {
+      "path": "app/components/forms/FormDefinitionView.vue",
+      "sha256": "96a2fb4a00cbbd3d9dfc3615a7e75f40cae16a1f237b6111f05b71cdaa593a3c"
+    },
+    {
+      "path": "app/components/forms/FormEditor.vue",
+      "sha256": "bead60049fb6590252c671fd66f30103f6b695572df3849193d44e37e7ce544b"
+    },
+    {
+      "path": "app/components/forms/FormManagement.vue",
+      "sha256": "be4e7b4f48ddb440c096dbbe17ecd1f7a50b2431b82f37dda2c2d80ab3d89014"
+    },
+    {
+      "path": "app/components/forms/FormPreviewDialog.vue",
+      "sha256": "08d61405bf158bee0813e14aa6eda51961a438e8c7b8e90035b205c057a4695b"
+    },
+    {
+      "path": "app/components/forms/FormReadPage.vue",
+      "sha256": "a4d8d280e3e530b4019b256dc5746266edd1074422ec80e37979dc5c002f108f"
+    },
+    {
+      "path": "app/components/forms/FormRenderer.vue",
+      "sha256": "643264e9aa9b1b0dc985153419103f0c2da805d1f3b8c56ed7fa5d6b2928c72d"
+    },
+    {
+      "path": "app/components/forms/FormRootInfo.vue",
+      "sha256": "6aa17d99416116487c4e7fe9ed67369c429ec8b1d0cef7034641ac96e320c1d6"
+    },
+    {
+      "path": "app/components/forms/FormsList.vue",
+      "sha256": "5770545f2b6d171983a4999356279f626e5453ddd5b47ed064832a349e29c6a8"
+    },
+    {
+      "path": "app/components/forms/FormSubmitSuccessDialog.vue",
+      "sha256": "38419f6e651614de8b3a47de75680d072778f7948554037e8319cb634c60bf7b"
+    },
+    {
+      "path": "app/components/forms/QuestionEditor.vue",
+      "sha256": "23a3e4616fe0f4b7ce7321021fbe2a375606a9f241d45603f0a0a44ce6cb268f"
+    },
+    {
+      "path": "app/components/forms/ResultVisibilityControl.vue",
+      "sha256": "e83bbc960c279a83a0196c807512510f3a5deea6ab2c5b5f06b09fbea6f6d16d"
+    },
+    {
+      "path": "app/components/questions/RatingRange.vue",
+      "sha256": "a54d30c35e644f137265c75738c836bf06a48accc3801f2d641f2274ff3acfe2"
+    },
+    {
+      "path": "app/components/questions/RatingStars.vue",
+      "sha256": "8de015fab42360849020902de11e69d2eee667c315a0dfe2b80e6a8dda7254e9"
+    },
+    {
+      "path": "app/components/statistics/StatisticsItem.vue",
+      "sha256": "f5aed44988cc94179ffd4ebb99f8d3bb046c784411f7c7aa4894ace4dc0d0993"
+    },
+    {
+      "path": "app/components/statistics/StatisticsQuestion.vue",
+      "sha256": "50174a3e29c9fae70c65c9f2af8a6c2d474575964892bf4b1d98aa95c3fa7f2b"
+    },
+    {
+      "path": "app/components/statistics/StatisticsRoot.vue",
+      "sha256": "be0d51a824fd3f6508597f07d7f804f56c8ff11e6f6e1f2a63a0a52f0c8e79ad"
+    },
+    {
+      "path": "app/components/UpcomingPage.vue",
+      "sha256": "46f63fc5e96e3cd11299878310a7e3095ec1b50cae98b62ab2493e1d35da8210"
+    },
+    {
+      "path": "app/components/UserAvatar.vue",
+      "sha256": "a38e45d0d819cf50893a30db4161ac0c2ba7aa54f98a2ac0ef649ffbbb320f9e"
+    },
+    {
+      "path": "app/composables/useActiveDirtyScope.ts",
+      "sha256": "808865269c908ea94e802e4f7026a25f55e4580b54737387d10289d16f080c24"
+    },
+    {
+      "path": "app/composables/useAuth.ts",
+      "sha256": "cc66e427718d1d7cc128b7f31f04e8ee4969246dd8efdac3399482d926c1f59b"
+    },
+    {
+      "path": "app/composables/useDialogFocus.ts",
+      "sha256": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4"
+    },
+    {
+      "path": "app/composables/useDirtyScope.ts",
+      "sha256": "012a5ee44ad43b09bcabcc61f78a783dd81f4f978b2352d0ce46f2f3ca0798d2"
+    },
+    {
+      "path": "app/composables/useFormDetail.ts",
+      "sha256": "33f9ef1c58049dcfcd91019393bf85fa2cbce46392d37c369c33453d618f29b5"
+    },
+    {
+      "path": "app/composables/useFormEditor.ts",
+      "sha256": "484d70a0ebc9a231d5e78b71fa3b48d1df6b9f1d327b94c70ee3d9c502eef8a1"
+    },
+    {
+      "path": "app/composables/useFormManagement.ts",
+      "sha256": "f8ff9ee1349eaea3e71ce7f22c803eacc71af03016f604da761d88c7b9ff4268"
+    },
+    {
+      "path": "app/composables/useFormRead.ts",
+      "sha256": "b14dc760a61131aecd8dbe5d95b208f1a9e7d9be65c3f81ad6bad59602b7f2c7"
+    },
+    {
+      "path": "app/composables/useFormResponse.ts",
+      "sha256": "caf2245fbf48c3017dc3af9bb1e7cc47e43bbd460f7b1b1d8a958a436b1b80df"
+    },
+    {
+      "path": "app/composables/useFormsList.ts",
+      "sha256": "da7e34a58c48f751e6eb81922aff4d17fe7e3cc2b357241c5c295384346b1bbe"
+    },
+    {
+      "path": "app/composables/useOperationState.ts",
+      "sha256": "f78c188fa4ae4b335c456fab043cab68d66ba09e768d08fec14071bae99f9dd7"
+    },
+    {
+      "path": "app/composables/useRequestScope.ts",
+      "sha256": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db"
+    },
+    {
+      "path": "app/composables/useStatistics.ts",
+      "sha256": "486e2ba8a62d49df1b04f584c0009fa13b51ad87c25c8c10f6bb588e3eee107b"
+    },
+    {
+      "path": "app/domain/answer.ts",
+      "sha256": "8d964dfd137887d98c22f654494344899c40058571c2a5f883499763fc3b2c02"
+    },
+    {
+      "path": "app/domain/api/decoders.ts",
+      "sha256": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c"
+    },
+    {
+      "path": "app/domain/api/error.ts",
+      "sha256": "09ecc1883223517a3fa579fe459ce7cdee2d6f0f051a66c1b3b4fa03b6ac437e"
+    },
+    {
+      "path": "app/domain/api/form.ts",
+      "sha256": "181a4b2eb1def8807e9184a0b4ab66db257562a056095ce73f19bf257c4b8816"
+    },
+    {
+      "path": "app/domain/api/response.ts",
+      "sha256": "cd214fcc0628ddceb81304deb85ea22e79ce3dd2ac5f1851e80ba288898625ec"
+    },
+    {
+      "path": "app/domain/api/result.ts",
+      "sha256": "eede7a90b0f9cb863fb8eaa172664ceca4fab2d6c90d9f111f5b646d45a91743"
+    },
+    {
+      "path": "app/domain/api/statistics.ts",
+      "sha256": "c6de5c309750201fb5a73cd429b8382b90493e53e06646ce3888602aea98a9f5"
+    },
+    {
+      "path": "app/domain/api/user.ts",
+      "sha256": "3230227fb2d202cc9633c6996762a4714dd77b60b2ceba370855a9b4f2bdbe54"
+    },
+    {
+      "path": "app/domain/auth-input.ts",
+      "sha256": "cba8d3df4096687de41f0a9993a48f304c5b4ee07507d5880758c12e7408f015"
+    },
+    {
+      "path": "app/domain/auth-state.ts",
+      "sha256": "6d5ca249714dd4212ae36f787f437b4d43182d72c22c4a51e99cca9e78277c88"
+    },
+    {
+      "path": "app/domain/definition-request.ts",
+      "sha256": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202"
+    },
+    {
+      "path": "app/domain/definition-validation.ts",
+      "sha256": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f"
+    },
+    {
+      "path": "app/domain/dirty-scope.ts",
+      "sha256": "f7838eedff12f1c730a2ff611c0425477272d5cbed2789d48cfcb11e5765c3ac"
+    },
+    {
+      "path": "app/domain/editor-page.ts",
+      "sha256": "248d703e3942f080b956154a8294ee59fab5bb68c841e3fd74da653ebbded425"
+    },
+    {
+      "path": "app/domain/editor.ts",
+      "sha256": "455fab2f4f7abe7793ba544d2bfcaff1a70f82c1acd81ddafeb91a941a0786ff"
+    },
+    {
+      "path": "app/domain/error-path.ts",
+      "sha256": "c14f80fffcd28fb517725243701c1761660a4f595efd588eb79f4b99a47da790"
+    },
+    {
+      "path": "app/domain/error-presentation.ts",
+      "sha256": "457bae1a19ec308126fd66bb4e57bc5b689a357e7eb147931dd9e5deed9ca6f7"
+    },
+    {
+      "path": "app/domain/form-management.ts",
+      "sha256": "c0cc796bd372f090b519b75678f647a99cdd8e0db9a4539e4018fb0faf8dd207"
+    },
+    {
+      "path": "app/domain/form-read.ts",
+      "sha256": "141364cf95ecadc51d048d6d1191aedf3c700f3222e641d5ebbd7862cca26737"
+    },
+    {
+      "path": "app/domain/models.ts",
+      "sha256": "6fa3b12bc3d0576f249834c2a19d99d1c22ff572c313f250668c184967822760"
+    },
+    {
+      "path": "app/domain/operation-state.ts",
+      "sha256": "2c41dfea92e30013c44a49b56a5213c4cd81784ab9e35948373fa84e6d4828dc"
+    },
+    {
+      "path": "app/domain/rating-input.ts",
+      "sha256": "9df555234879d1c07338f2b4826566d003a99a081b2783b58b4be1cba8f8bda3"
+    },
+    {
+      "path": "app/domain/request-scope.ts",
+      "sha256": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c"
+    },
+    {
+      "path": "app/domain/response-mapping.ts",
+      "sha256": "7036a773ca8823bfd46b8c9167f1194f3500741b121cf61024048f0548c26c83"
+    },
+    {
+      "path": "app/domain/response-page.ts",
+      "sha256": "b18d4b13fd8798b52a5080a9084eb1a93b423e34c51118b34a6544cce62ec7d1"
+    },
+    {
+      "path": "app/domain/statistics-read.ts",
+      "sha256": "396c1ef01b071120b70c6b4b7941841a1246c512048399795b2a126390328570"
+    },
+    {
+      "path": "app/domain/statistics-view.ts",
+      "sha256": "5b6d7c95203809781cf1bb22c2de1533c5479ae8f0b5b6fdd68125ba7fde32f0"
+    },
+    {
+      "path": "app/layouts/default.vue",
+      "sha256": "593e8219dfabb615bebf3bd336c395628c75f63f16e1fc9bca847966115c7ab3"
+    },
+    {
+      "path": "app/middleware/auth.ts",
+      "sha256": "3760eb76c6cc84e5bf687e0f7dff42e45a7c383592ba32faa87feb240b945e66"
+    },
+    {
+      "path": "app/middleware/guest.ts",
+      "sha256": "bb8725d92e4e20eb8533ca104fe09d393a82dea51a4bfb94a5b9e5c77e5c88e1"
+    },
+    {
+      "path": "app/pages/forms/[formId]/edit.vue",
+      "sha256": "3bcd39b5fee1f700427feb9e46957008870f9779c9ab98f9ccb89f4e07c7a3a0"
+    },
+    {
+      "path": "app/pages/forms/[formId]/index.vue",
+      "sha256": "b60c449b372207bf6c9c65353bc3cfca14d620bed4a9d7dcca34962cb7f10665"
+    },
+    {
+      "path": "app/pages/forms/[formId]/statistics.vue",
+      "sha256": "02946dfdbf405b90f0c9af122cd4445c0a0fc8070d5c31984f42a86e1bb680b3"
+    },
+    {
+      "path": "app/pages/forms/index.vue",
+      "sha256": "c8ffa2588f2025e31e632b0747b0af23435e5c7cf831977fed8b047405a10ffc"
+    },
+    {
+      "path": "app/pages/forms/new.vue",
+      "sha256": "670b00d3ef180c1ebe5c9c70603b3511245b2ec89ca0fbc2215c9ecac556c833"
+    },
+    {
+      "path": "app/pages/index.vue",
+      "sha256": "31e3b3bd33d5b7f0a672cd14f61647aa1b0e7121a805a1f7041dbd8860040887"
+    },
+    {
+      "path": "app/pages/login.vue",
+      "sha256": "4ca6bb7af9fdd440e3af08e3553e351677c881f5ff7882e73f62ca6aeb8678dc"
+    },
+    {
+      "path": "app/pages/profile.vue",
+      "sha256": "ff02abc80c389aa8f66f783b994cd8ea291b77832c5530f76402e515832b11db"
+    },
+    {
+      "path": "app/plugins/auth.client.ts",
+      "sha256": "9f05d167f29d8288673c7c43df6c581559d941d3019f35387e07c7b29e9f411e"
+    },
+    {
+      "path": "app/services/api-client.ts",
+      "sha256": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65"
+    },
+    {
+      "path": "app/services/auth.ts",
+      "sha256": "cf2a1674f83870424379b5c97d01b4d3225479e758335e6b86afe41a46fca1d1"
+    },
+    {
+      "path": "app/services/form.ts",
+      "sha256": "8d1231d4a5fee56206b9f5eaacb0eb096afb5aa3a8f06cec18acb98a5adf68dd"
+    },
+    {
+      "path": "app/services/response.ts",
+      "sha256": "24c87f4d77d0ea2fe29e97cc5d6b0eeac07918193ff0929c9f6feb272b9b95ec"
+    },
+    {
+      "path": "app/services/statistics.ts",
+      "sha256": "c04742597b95a4ae52134734233a92db9b330b6c3b8e0238ac2a25a4ec053476"
+    },
+    {
+      "path": "app/services/user.ts",
+      "sha256": "af29e7290f313ddfd33d6c09efef9e877e78946ac3cfeb1d918fa83e4e9ba870"
+    },
+    {
+      "path": "app/utils/datetime.ts",
+      "sha256": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c"
+    },
+    {
+      "path": "app/utils/exact-json.ts",
+      "sha256": "3c0f7d94301a911a0bafcdc2841d798de4d10ab18fb0d823a245223da65bf411"
+    },
+    {
+      "path": "app/utils/exact-number.ts",
+      "sha256": "8ba9e1095de16c3dec706ef76e55288ed82a0dcb5f37a02f3cde4ac6156c942a"
+    },
+    {
+      "path": "app/utils/redirect.ts",
+      "sha256": "98ee687833608c548e1f45ef3567c041c5ab2f686fe694a7ad3ad1b84f34e20e"
+    },
+    {
+      "path": "app/utils/unicode.ts",
+      "sha256": "9fcfb45b1ed393ea2f5d248df757b5919c21ac636d43f42a5707cbb8d407b19c"
+    },
+    {
+      "path": "nuxt.config.ts",
+      "sha256": "b55fc24a2587a2104b814cb7650cffc4d490cb4f6ccf861084c8f49c8c397499"
+    },
+    {
+      "path": "package.json",
+      "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2"
+    }
+  ],
+  "sourceDigest": "3547457891d3165544b00165c7db58e15023f04f740f48697f7632c8d52d00f2",
+  "publicAssets": [
+    {
+      "path": "_nuxt/4meKYcVn.js",
+      "sha256": "af1ecbb0d609a864157f65e94278ed1a0e8fb871af402b724d88b31a9117fe50"
+    },
+    {
+      "path": "_nuxt/54IG3h2D.js",
+      "sha256": "4ef0abbe5ff1defdc87da925c4ca3576f2aa1f716bcf0af87e9c82e40ccbddf2"
+    },
+    {
+      "path": "_nuxt/B7ko0e5v.js",
+      "sha256": "a4f156816114881539b6a2e0b3b00a945677694ae18a8e274262b2f544f79d2d"
+    },
+    {
+      "path": "_nuxt/Bd-YC6_K.js",
+      "sha256": "9a0eeba91abe942de1d9f5b61e42a43a37405e8f660821e75b6a0cbe46a802eb"
+    },
+    {
+      "path": "_nuxt/BDNMzG2s.js",
+      "sha256": "27e87fe62aa760227b7529576953d8314891fd2aec28e0a3f03aece406f2d7d7"
+    },
+    {
+      "path": "_nuxt/BeaBI-c4.js",
+      "sha256": "29796e0965fe2ca31334855ed771ff29bd1dbee83bd5168ad78dad4769374124"
+    },
+    {
+      "path": "_nuxt/BmDtUo4K.js",
+      "sha256": "2ff6be2e3860a97687b3155a6199b24e062474437b6f149b32b63a0276cd15e6"
+    },
+    {
+      "path": "_nuxt/BMeQHvmr.js",
+      "sha256": "d611427e615c532a63d6c750004a148e3a961e1e326639c6cb8548d2bba2f6d0"
+    },
+    {
+      "path": "_nuxt/Bscb_uQo.js",
+      "sha256": "b0a7dc743f0e3ce64764fa5d63dcaaeb88335cefceb984408566ef7884bc8478"
+    },
+    {
+      "path": "_nuxt/BSyP4YEz.js",
+      "sha256": "b3f7da4a4cf4ac042a1f190c4b5a05be4889adbdd1acf10592aa7256745aff30"
+    },
+    {
+      "path": "_nuxt/BU-Vieej.js",
+      "sha256": "5fc77033b2004d6bcc7629ea87a983b33b8df0f450afd3a6ceff90c1e6feb024"
+    },
+    {
+      "path": "_nuxt/builds/latest.json",
+      "sha256": "c81d2b92366f56577a4d6bc1c81909a2b14b488332014a623cae4e674b9c6425"
+    },
+    {
+      "path": "_nuxt/builds/meta/bb5a613a-00ed-4c99-ab7d-30a2ec51ec4d.json",
+      "sha256": "d6b3f6ac3b011c816b71f41fbd0c520043b70527689a8b9776388fa8524dbc1b"
+    },
+    {
+      "path": "_nuxt/BX57FN7F.js",
+      "sha256": "9a036a2134690b15e089aae1b77ae09332d623e6cb24a2fde0c3dd68fc877b9f"
+    },
+    {
+      "path": "_nuxt/BZCTSBer.js",
+      "sha256": "fafc723752a2c14f1e939fad57538ea0e99e28689026d0fce098e6063707e790"
+    },
+    {
+      "path": "_nuxt/BZPRtX7B.js",
+      "sha256": "187463b1fb9227b77418805f5e69af8039c1561b8b455eccd2f6ed35e0b339c6"
+    },
+    {
+      "path": "_nuxt/C-odFBx-.js",
+      "sha256": "99634dfda03681ef2b5fd1a0b32f8357ecafcb0afb3dca4b861684c1510a0050"
+    },
+    {
+      "path": "_nuxt/CC9TMBz4.js",
+      "sha256": "15f6409bd423c213eeb5efcadc32b3802eb5188efadf34f7c3f95ffbc9b7e468"
+    },
+    {
+      "path": "_nuxt/CeydEC4j.js",
+      "sha256": "52aa9909fe04997cc1bed80ba27dd85a71823bd26eed7a0f37036a5bdb5eaa44"
+    },
+    {
+      "path": "_nuxt/Cf56fRfm.js",
+      "sha256": "bfddff03dfd03f4b5a28b51a616985591904bd8eac27316f5353b652b4cd9b0d"
+    },
+    {
+      "path": "_nuxt/Cfiyoafy.js",
+      "sha256": "11e79b0137bc0388cbc9ca2c8fa26e1c5c6a0715c5aba526785d48aaec72d840"
+    },
+    {
+      "path": "_nuxt/CLF355rT.js",
+      "sha256": "b2920f522654eb756d69769c2418c5b45b27c4736a5c0bb975c002d367a04187"
+    },
+    {
+      "path": "_nuxt/ClSRzxfS.js",
+      "sha256": "725e3d2a1ada3f61e18e8012849aca4a5aec6acf3295b91675a83ebf98fb9103"
+    },
+    {
+      "path": "_nuxt/CMJCu_ak.js",
+      "sha256": "343c31d14ae86422359f63a2bf79c3109e575a3668f251fa94a8d5c2a329bbeb"
+    },
+    {
+      "path": "_nuxt/CTpMkH0w.js",
+      "sha256": "37ff50a2efcde030f9c423d9c035d0a2a43b484686a8d92b0cb4c51cbc1dea57"
+    },
+    {
+      "path": "_nuxt/D3Di4Di6.js",
+      "sha256": "4e44da6d113ff6c9a5afa50530608bde41adf0a5670f4e70e7ed42292caaa4d8"
+    },
+    {
+      "path": "_nuxt/D55XGH9e.js",
+      "sha256": "7661c142ff8dae0e7cb8df339350b68c9824e1eebbcaa0cd5761bc08fc2538ce"
+    },
+    {
+      "path": "_nuxt/DBz7Dm6x.js",
+      "sha256": "db1ff1a064dc6ce3e4f6497398c95f35ac3737a86c2083994921075913f53850"
+    },
+    {
+      "path": "_nuxt/DFzJzEx7.js",
+      "sha256": "8426d89d58ad8c6ded6b49433a71a0b3493eb55403028a9ca05f1f8307d13070"
+    },
+    {
+      "path": "_nuxt/DK3Fl9T5.js",
+      "sha256": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff"
+    },
+    {
+      "path": "_nuxt/DkWcw3f1.js",
+      "sha256": "f323e1df0528aee932b96c9e48ab5f9d85accf4a6db8634787091d529230b43d"
+    },
+    {
+      "path": "_nuxt/DLjeZWul.js",
+      "sha256": "781e3a05a0770b5fb860fab67319133b73ddb6f621d8c06e5c2b3e361a04fb74"
+    },
+    {
+      "path": "_nuxt/DP5y-68_.js",
+      "sha256": "7a26592644d0a54fd1daf00454d169a4a61ac1fba9148fac4c901833d1064e30"
+    },
+    {
+      "path": "_nuxt/DvfgrZvj.js",
+      "sha256": "53270178b632891e308450a97e46dd34098a5241dd566866f5d89051cef35cf2"
+    },
+    {
+      "path": "_nuxt/Dx9m6JTQ.js",
+      "sha256": "72d6008934ba29a5cae3c5562a0bef12d9279aa57512c575000c18e28934b9c3"
+    },
+    {
+      "path": "_nuxt/DxkKbWqz.js",
+      "sha256": "3b535b94a9df36774872865d421900413bef083f8da476daa90c0af83844866a"
+    },
+    {
+      "path": "_nuxt/entry.Dv04f7sy.css",
+      "sha256": "b9c4039c53673f9466b13dce92797154c42247fb6572e7c78e67d94ebaae626f"
+    },
+    {
+      "path": "_nuxt/error-404.DpKY_dMl.css",
+      "sha256": "830d0ba8a011835a2db0ccec96e3aab9f127ee4c23df5bdf48a95fbe3221cbf6"
+    },
+    {
+      "path": "_nuxt/error-500.CmR4p1fc.css",
+      "sha256": "f3232c01d773770b33b8d57ae2ca6c238ee2195b41bddd15f5e5971e92cb1a69"
+    },
+    {
+      "path": "_nuxt/etJT_veE.js",
+      "sha256": "6500ecdf21ac9681ea98211c91a47dbd0fe84a8fe7a40531f818fbf03f69a55d"
+    },
+    {
+      "path": "_nuxt/G_Dx4BrM.js",
+      "sha256": "fa3ac97301ce13a2e68f4e04ea845aa5d1d87ef6d033f9122acc750401ebe635"
+    },
+    {
+      "path": "_nuxt/g3KELcAE.js",
+      "sha256": "20899d5201e74d4813a7f916ee6f3ae44f7ae0a755eda6a0d9458e902b69cf6e"
+    },
+    {
+      "path": "_nuxt/G4zmRm-g.js",
+      "sha256": "ee83917cf20b503792ce692945b65d9efce854b2e6d8b82d394a0503a7fbf529"
+    },
+    {
+      "path": "_nuxt/GYr9jBUg.js",
+      "sha256": "651187bedc1a46cb909b90115ab7fb42ffe300a7dba4354b4b2c38afc210f492"
+    },
+    {
+      "path": "_nuxt/Hgm0JKzj.js",
+      "sha256": "6c149438ed227464072432aebe001dcede666653a92efd78f6654e177b6c65e1"
+    },
+    {
+      "path": "_nuxt/kl-ubFGE.js",
+      "sha256": "aa933ff88ed09e3ed6a7a2e1f8aff9bfec955b5b70bae1ee4cdf9aab17bcee2b"
+    },
+    {
+      "path": "_nuxt/MNQ1Xzy4.js",
+      "sha256": "30373e96dd704e5c28b4db6e8cf3c5af0976a62f62e0438c973749d9e8c7de64"
+    },
+    {
+      "path": "_nuxt/pol8OtjW.js",
+      "sha256": "07a95e2a25fec96fa450c3eebfa1c9a1fd6b7fcfb5b13b8ae70e1f0ee9229b6a"
+    },
+    {
+      "path": "_nuxt/Ri9R2uCj.js",
+      "sha256": "fc01ba5d4e17dc50f191bb7291d5281d6c917cc2654d24af639e77f3638b410a"
+    },
+    {
+      "path": "_nuxt/s5LFNtkh.js",
+      "sha256": "2a6682e5267e4ff4337e3fb2e1cbb59043464f9028d97c850eaa895aa345d455"
+    },
+    {
+      "path": "_nuxt/WgbSiO4a.js",
+      "sha256": "e51ef3340f1162bea4f440588fab997f0f5144555400eb1afb01a588834058d0"
+    },
+    {
+      "path": "favicon.svg",
+      "sha256": "a094fb9eafac843e8f22e2fb68b172cf8a32510b91092b41ad471a0eadb3d6e6"
+    }
+  ],
+  "serverEntry": "2d8cd85f2569ba4d13254866cb5be5f1ee23706afa2746e44e98621b506b31c9",
+  "node": "v24.21.0",
+  "origin": "http://localhost:3000",
+  "api": "http://localhost:5000/api/v1",
+  "serverBind": "127.0.0.1:3000 (Origin and API hostname remain localhost)",
+  "snapshotManifest": {
+    "files": 108,
+    "mismatches": 0
+  }
+}

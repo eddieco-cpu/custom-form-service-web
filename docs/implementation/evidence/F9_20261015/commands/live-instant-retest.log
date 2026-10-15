@@ -1,0 +1,51 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts --grep F9-L02|F9-L03
+
+[WebServer]
+[WebServer]  ERROR  (node:4460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:37832) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:43516) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › tests\e2e\f9-live.spec.ts:223:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read (729ms)
+  -  2 [chromium] › tests\e2e\f9-live.spec.ts:256:3 › F9 true backend read and UI › F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority
+
+
+  1) [chromium] › tests\e2e\f9-live.spec.ts:223:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read › L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 0
+    + Received  + 1
+
+      Array [
+        "/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics",
+    +   "/api/v1/forms/38f85042-0f63-4fc4-8b88-f3559ccac052/statistics",
+      ]
+
+      164 |   await Promise.allSettled(pending)
+      165 |   const productRequests = wire.slice(before).filter(w => w.alias === alias && w.method === 'GET').map(w => new URL(w.url).pathname)
+    > 166 |   expect(productRequests.filter(p => p.startsWith('/api/v1/forms/'))).toEqual([`/api/v1${path}`])
+          |                                                                       ^
+      167 | }
+      168 | async function independent(alias: Alias, form: FormDetailDto, label: string, expectedBody: StatisticsDto) {
+      169 |   const r = await call(alias, `/forms/${form.id}/statistics`); reads.push({ label, alias, url: `${api}/forms/${form.id}/statistics`, ...r, expected: expectedBody }); expect(r.status).toBe(200); assertBody(r.body, expectedBody)
+        at statisticsPage (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:166:71)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:250:7
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:66:11
+        at step (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:65:3)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-live.spec.ts:246:5
+
+    Error Context: output\playwright\f9\live-instant-retest-artifacts\f9-live-F9-true-backend-re-60540-adline-and-independent-read-chromium\error-context.md
+
+    Error Context: output\playwright\f9\live-instant-retest-artifacts\f9-live-F9-true-backend-re-60540-adline-and-independent-read-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\f9-live.spec.ts:223:3 › F9 true backend read and UI › F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read
+  1 did not run

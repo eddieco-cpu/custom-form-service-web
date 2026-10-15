@@ -650,6 +650,36 @@ backend manifest108筆相符，實際checkout／runtime DLL product version仍�
 
 **停於「F8 開發完成、待集中 review」。** 開發成果／核准規劃文件／報告／去敏證據作單一目的本機提交，完整SHA與Git狀態見Git log／交付訊息；尚未集中review，不宣告F8 code review或正式驗收PASS。正式驗收延後、accepted不變，不推送、不展開F9；§9.31原規劃歷史保留。
 
+### 9.33 F1～F8獨立整合補驗的Owner確認（2026-10-15）
+
+Owner明確採納[獨立整合補驗報告](../test-results/F1_F8_Independent_Integration_Supplement_Report.md)表列核心真實API／UI／路由結果；交付commit **`e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0`**。F3註冊／登入返回／Profile獨立讀回／登出、F6五型保存／精度／Server IDs、F7管理／權限／專用Delete、F8 single／multiple／Receipt／獨立Latest／空白與0／dirty取代等，按該報告範圍確認通過，與正式驗收分列。
+
+**F4已補驗缺口同步為核心補驗通過**：同一新Owner正常API建立21份、三頁10／10／1、UI三status篩選／刷新／row link、預列唯一list-shrink刪除後21→20之page3空200→只補page2一次、Owner／非Owner×三態×Form／edit共12入口，以及已刪／不存在／UUID錯誤與390px卡片。原歷史BLOCKED／FAIL不改寫，不藉此解除未執行的受控Auth／故障／競態或人工項。
+
+補驗新建11個合成帳號／39份Form／15份Response；僅預列4份專用Form soft delete，其餘35份Form及全部Response保留，歷史資料不動。既有code review結果與原報告／證據保留，包括[F8獨立review](../review/F8_Independent_Code_Review_Report_20261015.md)記錄的無新finding／code review通過；**特殊Auth／交易故障、實機與其他未驗證事項繼續保留，正式驗收未完成、accepted不變**。上輪DB只讀identity／migration／專用UUID觀察以原報告為準，不再沿歷史UNCONFIRMED籠統抹去已取得證據；runtime DI provider內部來源仍未獨立確認。
+
+### 9.34 F9精簡實作規劃交付（2026-10-15）
+
+Owner指定以上述`e25fe36`為基準，只授權規劃與同步進度。實際master／完整HEAD相符、起始工作樹乾淨；依最新AGENTS、development Skill、本計畫F9／§7／§7.1與正式契約交付[F9精簡實作計畫v1.0](F9_Implementation_Plan.md)：Statistics獨立讀取、九個Root欄位、五題型、Visibility／身分矩陣、具名／匿名隱私、UI／路由／錯誤分流、Auth bootstrap與真正換身分的世代隔離，以及必要unit／Browser／真實R10自測與缺前置處理。
+
+本次唯讀Node24.21.0／npm11.19.0、15項installed／lock相符、backend manifest108／108；實際後端checkout／DLL仍同快照SHA `7591633137c5a6f57c1fce8e1ba19ab394015880`、既存untracked SNAPSHOT.md未動，八份正式契約bytes一致，PID34068綁該DLL。19:47:17台北時間起health／readiness／OpenAPI200，列Statistics GET；**沒有業務API讀寫、Browser或統計結果驗證，不以metadata代稱R10自測PASS**。本次未啟停服務、查改DB或製造測資，特殊前置缺口保持。
+
+沿用**「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」**，不新增中途計畫核准關卡；F9必要真實自測屬開發階段，**完整前端驗收計畫於F9收尾後交付、審查，再於F10執行**。本次尚不準備／執行該完整驗收，不開發、不展開F10，正式驗收未完成、accepted不變。
+
+**停止於「F9 計畫待 Owner review」。** 僅新增F9計畫、追加本節／README進度及修正README當前能力摘要；既有補驗／review／產品／tests／依賴／規格／backend-ref等不動。install／lint／typecheck／build／unit／Browser／業務API讀寫／DB／正式AI與人工驗收均NOT RUN；文件連結／格式／diff靜態核對於交付前完成。三份文件留工作樹供review，本次不提交、HEAD維持接手SHA、不推送。
+
+### 9.35 F9 v1.0 核准、整輪開發與自測交付（2026-10-15）
+
+Owner 明確通過 F9 v1.0 review，以 `e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0` 授權整輪開發、必要自測、範圍內修正、受影響回歸、§6 正常 API 專用測資準備與單一目的本機提交；三份既有規劃文件一併核准。沿既定集中 review 節奏執行，沒有新增中途核准關卡。
+
+已完成 Statistics 直接 GET／me 並行、九欄位 Root 與五題型完整呈現、精確 Number／台北 Deadline、匿名省略／具名完整名單、獨立錯誤／登入返回及 path／credential／scope 隔離。共用 Auth 只增 App 私有 bootstrap／credential-change 與原因通知，保留既有 User DTO／sessionRevision／舊 me 世代語意。見 [開發報告](F9_Development_Report.md)、[逐案結果](evidence/F9_20261015/case-results.json) 與 [測資索引](evidence/F9_20261015/resource-index.json)。
+
+lint／strict typecheck／fresh build／harness strict PASS，unit185／185；F9 Chromium Browser31、受影響跨輪24、Chrome／Edge各2最終PASS。L01兩Identity×三政策×四身分24格、L02固定輸入的Body／UI／獨立讀回、L03零資料／狀態／自然到期／UUID共42分案真實PASS；L04六種特殊Cookie／停用／故障前置各BLOCKED。首敗與重測分列，非同義UTC字串比較及證據事件分段的測試問題已修正，統計／精度／隱私斷言維持。三個Run共用3個帳號，13份Form／14份Response去重全保留；無歷史Response改寫／刪除、SQL修改、DB／volume重建。
+
+前端接手 master／完整 SHA 相符，原三份規劃變更外無使用者未提交變更。後端實際 checkout／PID34068 DLL ProductVersion／八份正式契約均對應 `7591633137c5a6f57c1fce8e1ba19ab394015880`，health／ready／OpenAPI200；本輪沒有重查DB identity／migration／DI provider。原F1～F8補驗／review／失敗原件、未驗證缺口與accepted保留。
+
+**停止於「F9 開發完成、待集中 review」。** 本輪產品、已核准規劃、測試、報告及去敏證據作單一目的本機提交；完整SHA／提交後Git狀態見交付訊息。完整前端驗收計畫於F9收尾後另行交付、審查，再於F10執行；本次集中review／正式AI／人工驗收NOT RUN，不更新accepted、不推送、不展開F10。§9.34保留規劃交付歷史。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

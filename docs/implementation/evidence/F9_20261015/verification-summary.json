@@ -1,0 +1,48 @@
+{
+  "stoppingPoint": "F9 開發完成、待集中 review",
+  "unit": {
+    "total": 185,
+    "passed": 185,
+    "failed": 0,
+    "f9": 43
+  },
+  "fixtureBrowserFinal": {
+    "PASS": 59
+  },
+  "f9Chromium": 31,
+  "crossRoundRegression": 24,
+  "realFinal": {
+    "PASS": 42,
+    "BLOCKED": 6
+  },
+  "accounts": 3,
+  "forms": 13,
+  "receipts": 14,
+  "corsResponses": 183,
+  "realDiagnosticIssues": 0,
+  "sourceDigest": "3547457891d3165544b00165c7db58e15023f04f740f48697f7632c8d52d00f2",
+  "browserVersions": [
+    {
+      "id": "chromium|156.0.8078.4",
+      "run": "regression-auth",
+      "project": "chromium",
+      "version": "156.0.8078.4"
+    },
+    {
+      "id": "chrome|156.0.8078.12",
+      "run": "built-chrome-smoke",
+      "project": "chrome",
+      "version": "156.0.8078.12"
+    },
+    {
+      "id": "msedge|155.0.4283.45",
+      "run": "built-msedge-smoke",
+      "project": "msedge",
+      "version": "155.0.4283.45"
+    }
+  ],
+  "formalAcceptance": "NOT RUN",
+  "humanAcceptance": "NOT RUN",
+  "accepted": "unchanged",
+  "unexecutedCasesRetainedInHistory": true
+}

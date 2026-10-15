@@ -1,0 +1,197 @@
+
+> test:e2e
+> playwright test --config=playwright.f9.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:40916) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:36252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 26 tests using 1 worker
+
+(node:39944) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=true independent parallel public (306ms)
+  ok  2 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=false independent parallel public (268ms)
+  ok  3 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=true independent parallel public (256ms)
+  ok  4 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=false independent parallel public (268ms)
+  ok  5 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=true independent parallel public (250ms)
+  ok  6 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=false independent parallel public (274ms)
+  ok  7 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=true independent parallel public (250ms)
+  ok  8 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=false independent parallel public (254ms)
+  ok  9 [chromium] › tests\e2e\f9-browser.spec.ts:66:3 › product fresh build › F9-B01/B03 complete roots, five types, exact values, literal text, same names/labels, optional zero and privacy (398ms)
+  ok 10 [chromium] › tests\e2e\f9-browser.spec.ts:85:3 › product fresh build › F9-B01 large content 30/200/120/2000/101 complete and readable at 390px; keyboard retry/link (564ms)
+  ok 11 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 400 VALIDATION_ERROR retains URL/details and retry (326ms)
+  ok 12 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 404 FORM_NOT_FOUND retains URL/details and retry (320ms)
+  ok 13 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 409 FORM_STATISTICS_NOT_AVAILABLE retains URL/details and retry (304ms)
+  ok 14 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 STATISTICS_ACCESS_DENIED retains URL/details and retry (320ms)
+  ok 15 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 AUTH_USER_DISABLED retains URL/details and retry (323ms)
+  ok 16 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 500 INTERNAL_SERVER_ERROR retains URL/details and retry (333ms)
+  ok 17 [chromium] › tests\e2e\f9-browser.spec.ts:111:3 › product fresh build › F9-B01 network, timeout and malformed never retain private content; no automatic retries (30.4s)
+  x  18 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout (10.3s)
+(node:33236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  19 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout (10.3s)
+(node:36560) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  20 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout (10.3s)
+(node:7796) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  21 [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push (5.3s)
+  -  22 [chromium] › tests\e2e\f9-browser.spec.ts:150:52 › thin fixture control build › F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation
+  -  23 [chromium] › tests\e2e\f9-browser.spec.ts:150:52 › thin fixture control build › F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation
+  -  24 [chromium] › tests\e2e\f9-browser.spec.ts:160:48 › thin fixture control build › F9-B02 same component A late 200, B loading/finally, Session switch and unmount
+  -  25 [chromium] › tests\e2e\f9-browser.spec.ts:160:48 › thin fixture control build › F9-B02 same component A late 401, B loading/finally, Session switch and unmount
+  -  26 [chromium] › tests\e2e\f9-browser.spec.ts:160:48 › thin fixture control build › F9-B02 same component A late 403, B loading/finally, Session switch and unmount
+
+
+  1) [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Email', exact: true })
+
+
+      126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\/login\?redirect=/)
+      127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)
+    > 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)
+          |                                                                                          ^
+      129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')
+      130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()
+      131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\/login\?redirect=/)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:128:90
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "Expected 2 {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\",\"status\":401,\"count\":2,\"diagnostic\":\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\",\"diagnosticCount\":2}; observed 1",
+    +   "Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1",
+    + ]
+
+      45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)
+      46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })
+    > 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])
+         |                                                                                  ^
+      48 | })
+      49 |
+      50 | test.describe('product fresh build', () => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:47:82
+
+    Error Context: output\playwright\f9\built-network-retry-artifacts\f9-browser-product-fresh-b-45102-in-manual-Dialog-and-logout-chromium\error-context.md
+
+  2) [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Email', exact: true })
+
+
+      126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\/login\?redirect=/)
+      127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)
+    > 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)
+          |                                                                                          ^
+      129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')
+      130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()
+      131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\/login\?redirect=/)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:128:90
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "Expected 2 {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\",\"status\":401,\"count\":2,\"diagnostic\":\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\",\"diagnosticCount\":2}; observed 1",
+    +   "Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1",
+    + ]
+
+      45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)
+      46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })
+    > 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])
+         |                                                                                  ^
+      48 | })
+      49 |
+      50 | test.describe('product fresh build', () => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:47:82
+
+    Error Context: output\playwright\f9\built-network-retry-artifacts\f9-browser-product-fresh-b-a41a0-in-manual-Dialog-and-logout-chromium\error-context.md
+
+  3) [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout
+
+    TimeoutError: locator.fill: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for getByRole('textbox', { name: 'Email', exact: true })
+
+
+      126 |     const full = `${view}?source=private#result`; await page.goto(full); await expect(page).toHaveURL(/\/login\?redirect=/)
+      127 |     expect(new URL(page.url()).searchParams.get('redirect')).toBe(full)
+    > 128 |     s.stats = undefined; await page.getByRole('textbox', { name: 'Email', exact: true }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await loaded(page)
+          |                                                                                          ^
+      129 |     s.stats = r => reply(r, envelope(code), 401); await page.getByRole('button', { name: '重新載入統計' }).click(); await expect(page.getByRole('dialog')).toContainText('需要有效登入身分')
+      130 |     await expect(page.locator('[data-statistics-respondent]')).toHaveCount(0); await page.keyboard.press('Escape'); await page.mouse.click(1, 100); await expect(page.getByRole('dialog')).toBeVisible()
+      131 |     await page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click(); await expect(page).toHaveURL(/\/login\?redirect=/)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:128:90
+
+    Error: expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 4
+
+    - Array []
+    + Array [
+    +   "Expected 2 {\"kind\":\"response\",\"method\":\"GET\",\"url\":\"http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics\",\"status\":401,\"count\":2,\"diagnostic\":\"Failed to load resource: the server responded with a status of 401 (Unauthorized)\",\"diagnosticCount\":2}; observed 1",
+    +   "Diagnostic count for GET http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-000000000050/statistics: expected 2; observed 1; matching requests 1",
+    + ]
+
+      45 |   const issues = verifyNetworkDiagnostics(s.expected, s.actual, s.diagnostics)
+      46 |   await info.attach('fixture-network.json', { body: stringifyExactJson({ source: 'fixture intercepted business API', browser: browser.version(), requests: s.requests, expected: s.expected, actual: s.actual, diagnostics: s.diagnostics, issues, errors: s.errors, unexpected: s.unexpected }), contentType: 'application/json' })
+    > 47 |   expect(s.errors).toEqual([]); expect(s.unexpected).toEqual([]); expect(issues).toEqual([])
+         |                                                                                  ^
+      48 | })
+      49 |
+      50 | test.describe('product fresh build', () => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:47:82
+
+    Error Context: output\playwright\f9\built-network-retry-artifacts\f9-browser-product-fresh-b-c5f40-in-manual-Dialog-and-logout-chromium\error-context.md
+
+  4) [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push
+
+    Error: expect(page).toHaveURL(expected) failed
+
+    Expected pattern: /\/login\?redirect=%2Fforms$/
+    Received string:  "http://localhost:3000/login?redirect=/forms"
+    Timeout: 5000ms
+
+    Call log:
+      - Expect "toHaveURL" with timeout 5000ms
+        - locator resolved to <html lang="zh-Hant">…</html>
+        - unexpected value "http://localhost:3000/forms/00000000-0000-4000-8000-000000000050/statistics"
+        13 × locator resolved to <html lang="zh-Hant">…</html>
+           - unexpected value "http://localhost:3000/login?redirect=/forms"
+
+
+      135 |   test('F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push', async ({ page }) => {
+      136 |     const s = await mock(page); s.loggedOut = true; s.expected.push(expectedHttp('GET', `${api}/users/me`, 401, 1))
+    > 137 |     await page.goto(view); await loaded(page); await page.getByRole('button', { name: '我的表單', exact: true }).click(); await expect(page).toHaveURL(/\/login\?redirect=%2Fforms$/)
+          |                                                                                                                                          ^
+      138 |     await page.goBack(); await loaded(page); expect(s.requests.filter(r => r.url.endsWith('/users/me'))).toHaveLength(1)
+      139 |     await page.getByRole('link', { name: '查看表單', exact: true }).click(); await expect(page).toHaveURL(/\/login\?redirect=/)
+      140 |     await page.getByRole('textbox', { name: 'Email' }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill('fixture-only-input'); await page.getByRole('button', { name: '登入', exact: true }).click(); await expect(page.getByRole('link', { name: '查看統計', exact: true })).toBeVisible()
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\f9-browser.spec.ts:137:138
+
+    Error Context: output\playwright\f9\built-network-retry-artifacts\f9-browser-product-fresh-b-e5233-s-refetch-history-uses-push-chromium\error-context.md
+
+  4 failed
+    [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout
+    [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout
+    [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout
+    [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push
+  5 skipped
+  17 passed (1.5m)

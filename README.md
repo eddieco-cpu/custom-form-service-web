@@ -1,5 +1,11 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
+最新開發進度（2026-10-15）：**F9 開發完成、待集中 review。** Owner 通過 [F9 精簡實作計畫 v1.0](docs/implementation/F9_Implementation_Plan.md)，以指定 `e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0` 授權整輪開發、自測、範圍內修正、受影響回歸、正常 API 測資準備與單一目的本機提交；原三份規劃文件一併核准。已完成獨立 Statistics GET／Header me 並行、九欄位 Root、五題型與完整分布／合法名單、精確 Number／Deadline、獨立錯誤／登入返回與舊回應隔離；Auth 僅補 App 私有的 bootstrap／credential-change 通知。
+
+見 [F9 開發報告](docs/implementation/F9_Development_Report.md)／[逐案結果](docs/implementation/evidence/F9_20261015/case-results.json)／[測資索引](docs/implementation/evidence/F9_20261015/resource-index.json)。lint／strict typecheck／fresh build／harness strict PASS；unit **185／185**、F9 Chromium Browser **31**、受影響跨輪 **24**、Chrome／Edge smoke 各 **2** 最終 PASS。L01 24 格真實權限矩陣、L02 固定輸入／完整統計 Body／UI／獨立 GET、L03 零資料與狀態優先序共 **42 分案 PASS**，六個特殊 Cookie／停用／故障前置各 **BLOCKED**。三 Run 去重後 **3 個帳號／13 份 Form／14 份 Response 全保留**；首敗、修正及重測分列，未刪歷史資料、未改 SQL／DB／volume。
+
+Owner 先前採納 F1～F8 獨立整合補驗的核心真實 API／UI／路由結果，含 F4 非空分頁／越界／三態路由／手機等補驗，見 [原報告](docs/test-results/F1_F8_Independent_Integration_Supplement_Report.md)；既有 review／特殊 Auth／交易故障與其他未驗證事項保留。沿用「計畫確認 → 整輪開發、自測與範圍內修正 → 集中 review」；完整前端驗收計畫於 F9 收尾後另行交付審查，再於 F10 執行。本次集中 review／正式 AI／人工驗收 NOT RUN，accepted 不變；只作本機單一目的提交，不推送、不展開 F10。以下保留歷史進度。
+
 最新開發進度（2026-10-14）：**F8 開發完成、待集中 review。** Owner 通過 [F8 精簡實作計畫 v1.0](docs/implementation/F8_Implementation_Plan.md)，授權整輪開發、自測、範圍內修正、受影響回歸與單一目的本機提交；原三份規劃文件一併核准。以指定 `134629a8ce9d2b276ec7a3a10a6843977814f41b` 接手，已接正式 Submit／201 Receipt／主動 Latest／knownSubmitted，整份五型答案 mapping、填答資格／dirty／互斥／跨寫入舊 GET 隔離與 multiple duplicateRisk；沿 F5～F7 共用模型及機制，Preview 維持獨立。
 
 見 [F8 開發報告](docs/implementation/F8_Development_Report.md)／[去敏證據](docs/implementation/evidence/F8_20261014/verification-summary.json)。lint／strict typecheck／build／F6 harness strict PASS，受影響 unit **201／201**、F8 fresh built **29／29**、F7 回歸 **34／34**、F6 fixture 回歸 **5／5**、Chrome／Edge smoke 各 **2／2**。真實 API L01～L05 最新分組測試 PASS，正常保存／獨立 Latest／Cookie CORS；三個專用 Run 共 **6 個合成帳號／18 份 Form／21 份 Response 全保留**，無歷史資料寫入、真實 Delete／PATCH／SQL。首次 FAIL／修正／重跑與 fixture／真實結果分列；runtime assembly 綁定已重查，DB identity／migration仍 UNCONFIRMED，受控特殊 Auth／Server 提交故障 BLOCKED、實機與正式驗收 NOT RUN。F7 Owner 確認 R1／R2／R3／R4／R3-N1 全 CLOSED、code review 通過的紀錄保留；正式驗收延後、accepted／其他既有缺口不變。本輪僅本機提交，不推送、不展開 F9。以下保留歷史交付。
@@ -59,7 +65,7 @@ npm ci
 npm run dev
 ```
 
-前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；F4 提供本人表單清單與 Form 根資訊讀取／角色狀態路由，編輯／填答／管理及 new／statistics 仍待後續輪次。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；F4 提供本人表單清單與 Form 根資訊讀取／角色狀態路由；F6～F8 已提供 new／Draft編輯保存、Preview、生命週期與Owner管理、正式填答／Receipt／本人Latest。F9 已提供獨立 Statistics、完整分布與合法名單、公開／私有存取與登入返回，開發完成待集中 review。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
 
 ```powershell
 npm run lint

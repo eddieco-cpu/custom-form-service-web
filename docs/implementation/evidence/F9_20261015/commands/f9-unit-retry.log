@@ -1,0 +1,12 @@
+
+> test:unit
+> vitest run tests/unit/f9-statistics-read.spec.ts tests/unit/f9-statistics-view.spec.ts tests/unit/f3-auth.spec.ts tests/unit/scoped-state.spec.ts tests/unit/api-client.spec.ts tests/unit/exact-number-gate.spec.ts tests/unit/common-adapters.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  7 passed (7)
+      Tests  185 passed (185)
+   Start at  20:59:22
+   Duration  565ms (transform 45%, import 43%, tests 9%, worker 3%)

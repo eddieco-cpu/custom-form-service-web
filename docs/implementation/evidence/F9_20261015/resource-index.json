@@ -1,0 +1,1482 @@
+{
+  "accounts": [
+    {
+      "alias": "A",
+      "id": "c0ca7f08-160e-4582-8acb-0d38a8045050",
+      "email": "f9-1792077354728-live-initial-a@example.test",
+      "displayName": "F9 目前建立者",
+      "originRunId": "f9-1792077354728-live-initial",
+      "observedIn": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "alias": "B",
+      "id": "0a04a004-17cf-435a-9f0a-4cd07cc22630",
+      "email": "f9-1792077354728-live-initial-b@example.test",
+      "displayName": "F9 目前填答者",
+      "originRunId": "f9-1792077354728-live-initial",
+      "observedIn": "f9-1792077518649-boundary-retest"
+    },
+    {
+      "alias": "C",
+      "id": "75a47d59-ce66-48aa-aeeb-5313fd6ceb32",
+      "email": "f9-1792077354728-live-initial-c@example.test",
+      "displayName": "F9 合成同名",
+      "originRunId": "f9-1792077354728-live-initial",
+      "observedIn": "f9-1792077518649-boundary-retest"
+    }
+  ],
+  "forms": [
+    {
+      "id": "13171069-72f0-4496-a7e3-53172849f6cf",
+      "purpose": "L01 anonymous owner_only",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 anonymous owner_only",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "owner_only",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "purpose": "L01 anonymous respondents",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 anonymous respondents",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "respondents",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "purpose": "L01 anonymous public",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 anonymous public",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "7fd53492-9180-4aa8-9fc5-0425c21817a0",
+      "purpose": "L01 identified owner_only",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 identified owner_only",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "owner_only",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "purpose": "L01 identified respondents",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 identified respondents",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "respondents",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "purpose": "L01 identified public",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L01 identified public",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "purpose": "L02 effective complete response",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077354728-live-initial L02 effective complete response",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": "2030-12-31T10:30:00.123456Z",
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定長小數",
+            "description": null,
+            "sortOrder": 5,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "number",
+            "title": "固定數值等值",
+            "description": null,
+            "sortOrder": 6,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "text",
+            "title": "只在歷史回答的 optional",
+            "description": null,
+            "sortOrder": 7,
+            "required": false,
+            "config": {}
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "purpose": "L02 effective complete response",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077429649-instant-retest L02 effective complete response",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": "2030-12-31T10:30:00.123456Z",
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定長小數",
+            "description": null,
+            "sortOrder": 5,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "number",
+            "title": "固定數值等值",
+            "description": null,
+            "sortOrder": 6,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "text",
+            "title": "只在歷史回答的 optional",
+            "description": null,
+            "sortOrder": 7,
+            "required": false,
+            "config": {}
+          }
+        ]
+      },
+      "observedIn": "f9-1792077429649-instant-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "687dae75-2727-47d9-a525-7c1acdde8690",
+      "purpose": "L03 zero anonymous",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077518649-boundary-retest L03 zero anonymous",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "e9da4c52-473a-428b-93a6-cb5098c7afeb",
+      "purpose": "L03 zero identified",
+      "status": "closed",
+      "input": {
+        "title": "f9-1792077518649-boundary-retest L03 zero identified",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "identified",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "2a070ff6-33b4-4dea-b253-42c7a58fc338",
+      "purpose": "L03 retained Draft",
+      "status": "draft",
+      "input": {
+        "title": "f9-1792077518649-boundary-retest L03 retained Draft",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "612aa351-c315-4646-b556-6aa1a99fbf2e",
+      "purpose": "L03 retained Published",
+      "status": "published",
+      "input": {
+        "title": "f9-1792077518649-boundary-retest L03 retained Published",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "public",
+        "submissionDeadlineAt": null,
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    },
+    {
+      "id": "6dd95313-ec9f-4ed8-b7bc-f5aff9bd79b8",
+      "purpose": "L03 natural expired Published",
+      "status": "published",
+      "input": {
+        "title": "f9-1792077518649-boundary-retest L03 natural expired Published",
+        "description": "固定根說明\n第二行",
+        "responseMode": "multiple",
+        "responseIdentity": "anonymous",
+        "resultVisibility": "owner_only",
+        "submissionDeadlineAt": "2026-10-15T15:18:49.443Z",
+        "questions": [
+          {
+            "type": "text",
+            "title": "固定文字",
+            "description": "固定題目說明",
+            "sortOrder": 0,
+            "required": false,
+            "config": {
+              "variant": "textarea"
+            }
+          },
+          {
+            "type": "number",
+            "title": "固定數字",
+            "description": null,
+            "sortOrder": 1,
+            "required": false,
+            "config": {}
+          },
+          {
+            "type": "single_choice",
+            "title": "固定單選",
+            "description": null,
+            "sortOrder": 2,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定單選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定單選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定單選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "multiple_choice",
+            "title": "固定多選",
+            "description": null,
+            "sortOrder": 3,
+            "required": false,
+            "config": {},
+            "options": [
+              {
+                "label": "固定多選甲",
+                "value": "business-0",
+                "sortOrder": 0
+              },
+              {
+                "label": "固定多選乙",
+                "value": "business-1",
+                "sortOrder": 1
+              },
+              {
+                "label": "固定多選零票",
+                "value": "business-2",
+                "sortOrder": 2
+              }
+            ]
+          },
+          {
+            "type": "rating",
+            "title": "固定評分",
+            "description": null,
+            "sortOrder": 4,
+            "required": false,
+            "config": {
+              "min": 0,
+              "max": 2,
+              "variant": "range"
+            }
+          }
+        ]
+      },
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true,
+      "deletionAllowed": false
+    }
+  ],
+  "receipts": [
+    {
+      "id": "e0d9ab98-cef1-4330-908f-3551065859fe",
+      "formId": "13171069-72f0-4496-a7e3-53172849f6cf",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "892f61a0-ec5f-48cf-8446-a10df10c944f",
+      "formId": "af6cfa72-c67d-4abc-90b0-87fd310f97cf",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "166167bd-c191-4c5f-9ad6-e95adb3407a8",
+      "formId": "61776a97-ffd3-408e-91fb-93539eeb1fb4",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "4d0e9185-bcd9-4297-a97f-b77cdcd2118e",
+      "formId": "7fd53492-9180-4aa8-9fc5-0425c21817a0",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "9647ceea-55ea-4323-b6b8-1b69d28765db",
+      "formId": "cfb292fe-a83e-4802-acab-ed77acf1f0aa",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "aa3583a4-5dd4-445c-a3f7-5a46b84f785c",
+      "formId": "eb12cc34-6a0a-4cca-bc33-22d6c24d2e7c",
+      "alias": "B",
+      "label": "fixed matrix input",
+      "observedIn": "f9-1792077354728-live-initial",
+      "retained": true
+    },
+    {
+      "id": "8f2fbf01-352a-47d6-95c3-f75b0c7fe199",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "A",
+      "label": "historical full, excluded by next complete response",
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true
+    },
+    {
+      "id": "e513b98d-11b2-427a-82b0-591fab63c32f",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "A",
+      "label": "effective A omits text/optional",
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true
+    },
+    {
+      "id": "d0e2b701-f772-4c8f-a751-743a19714e94",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "B",
+      "label": "effective B same name",
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true
+    },
+    {
+      "id": "1be16e8c-fb64-481e-ba22-072a99739d92",
+      "formId": "5d26433d-68fe-40ca-9905-d9fa542bbb90",
+      "alias": "C",
+      "label": "effective C same name distinct ID",
+      "observedIn": "f9-1792077518649-boundary-retest",
+      "retained": true
+    },
+    {
+      "id": "7b0720fc-1ce1-4eb7-80c1-debae0263b2c",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "A",
+      "label": "historical full, excluded by next complete response",
+      "observedIn": "f9-1792077429649-instant-retest",
+      "retained": true
+    },
+    {
+      "id": "8598340e-0ea1-40ca-88e6-747d722a52b8",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "A",
+      "label": "effective A omits text/optional",
+      "observedIn": "f9-1792077429649-instant-retest",
+      "retained": true
+    },
+    {
+      "id": "3e657ea6-84c5-40ec-8113-e3acb04e68c3",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "B",
+      "label": "effective B same name",
+      "observedIn": "f9-1792077429649-instant-retest",
+      "retained": true
+    },
+    {
+      "id": "e9803b40-61e6-4f09-999f-adf177943c62",
+      "formId": "38f85042-0f63-4fc4-8b88-f3559ccac052",
+      "alias": "C",
+      "label": "effective C same name distinct ID",
+      "observedIn": "f9-1792077429649-instant-retest",
+      "retained": true
+    }
+  ],
+  "runIds": [
+    "f9-1792077354728-live-initial",
+    "f9-1792077429649-instant-retest",
+    "f9-1792077518649-boundary-retest"
+  ],
+  "readOnlyHistoricalDeletedId": "a167ebf3-025e-4c3f-9264-aef082818952",
+  "randomAbsentAndInvalidIds": [
+    {
+      "url": "http://localhost:5000/api/v1/forms/34a25bab-df4b-46ca-a003-b04f51cfaf9e/statistics",
+      "purpose": "random absent UUID"
+    },
+    {
+      "url": "http://localhost:5000/api/v1/forms/not-a-uuid/statistics",
+      "purpose": "invalid UUID before Auth"
+    }
+  ]
+}

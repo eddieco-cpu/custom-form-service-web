@@ -1,0 +1,1 @@
+{ "extends": "../../../../output/playwright/f9/harness-nuxt/tsconfig.app.json", "compilerOptions": { "strict": true }, "include": ["./controls.client.ts", "./controls.d.ts", "../../../../output/playwright/f9/harness-nuxt/nuxt.d.ts"], "exclude": [] }

@@ -1,0 +1,322 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f9.config.ts",
+      "--grep",
+      "F9-L02|F9-L03"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f9.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/f9/live-boundary-retest-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f9-live.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\f9\\live-boundary-retest-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "f9-live.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/f9/live-boundary-retest-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "PORT": "3000",
+        "HOST": "127.0.0.1"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "f9-live.spec.ts",
+      "file": "f9-live.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "F9 true backend read and UI",
+          "file": "f9-live.spec.ts",
+          "line": 175,
+          "column": 15,
+          "specs": [
+            {
+              "title": "F9-L02 fixed latest-whole semantics, number precision/grouping, current names/deadline and independent read",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 120000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+                        "line": 175,
+                        "column": 15
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 913,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "L02 fixed 4 historical / 3 people, whole latest omission / MC sum / exact numeric groups",
+                          "duration": 258
+                        },
+                        {
+                          "title": "L02 normal Profile/Visibility writes followed by fresh independent statistics and UI readback",
+                          "duration": 604
+                        }
+                      ],
+                      "startTime": "2026-10-15T15:18:38.670Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+                            "line": 175,
+                            "column": 15
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b11d14b6b11a0365bdec-362055d3329ce27ef163",
+              "file": "f9-live.spec.ts",
+              "line": 226,
+              "column": 3
+            },
+            {
+              "title": "F9-L03 zero success and true Draft/Published/deadline/not-found/UUID priority",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 180000,
+                  "annotations": [
+                    {
+                      "type": "serial",
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+                        "line": 175,
+                        "column": 15
+                      }
+                    }
+                  ],
+                  "expectedStatus": "passed",
+                  "projectId": "chromium",
+                  "projectName": "chromium",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 9312,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "steps": [
+                        {
+                          "title": "L03 zero anonymous complete roots/choice/rating/empty lists",
+                          "duration": 136
+                        },
+                        {
+                          "title": "L03 zero identified complete roots/choice/rating/empty lists",
+                          "duration": 128
+                        },
+                        {
+                          "title": "L03 Draft/A 409",
+                          "duration": 85
+                        },
+                        {
+                          "title": "L03 Draft/C 404",
+                          "duration": 83
+                        },
+                        {
+                          "title": "L03 Draft/guest 404",
+                          "duration": 71
+                        },
+                        {
+                          "title": "L03 Published/A 409",
+                          "duration": 67
+                        },
+                        {
+                          "title": "L03 Published/C 409",
+                          "duration": 67
+                        },
+                        {
+                          "title": "L03 Published/guest 404",
+                          "duration": 75
+                        },
+                        {
+                          "title": "L03 expired Published/A 409",
+                          "duration": 65
+                        },
+                        {
+                          "title": "L03 expired Published/C 409",
+                          "duration": 67
+                        },
+                        {
+                          "title": "L03 expired Published/guest 404",
+                          "duration": 60
+                        },
+                        {
+                          "title": "L03 natural deadline retains Published and saved deadline",
+                          "duration": 22
+                        },
+                        {
+                          "title": "L03 retained deleted UUID from F7",
+                          "duration": 62
+                        },
+                        {
+                          "title": "L03 random absent UUID",
+                          "duration": 59
+                        },
+                        {
+                          "title": "L03 invalid UUID before Auth",
+                          "duration": 61
+                        }
+                      ],
+                      "startTime": "2026-10-15T15:18:40.985Z",
+                      "annotations": [
+                        {
+                          "type": "serial",
+                          "location": {
+                            "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f9-live.spec.ts",
+                            "line": 175,
+                            "column": 15
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "b11d14b6b11a0365bdec-df1f2e3c1e5173355d3a",
+              "file": "f9-live.spec.ts",
+              "line": 272,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T15:18:35.173Z",
+    "duration": 15839.645,
+    "expected": 2,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}
