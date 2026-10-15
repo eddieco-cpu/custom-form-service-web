@@ -1,0 +1,16 @@
+
+> test:unit
+> vitest run
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  15 passed (15)
+      Tests  462 passed (462)
+   Start at  19:16:04
+   Duration  930ms (transform 45%, import 41%, tests 12%, worker 1%)
+
+  Transform  transforming modules took 2.55s · 45% of tracked time, re-done on every run
+             persist transforms across runs with fsModuleCache: true
+             learn more: https://vitest.dev/guide/improving-performance#caching-between-reruns

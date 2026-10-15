@@ -1,0 +1,4249 @@
+{
+  "at": "2026-10-15T11:29:07.806Z",
+  "source": "2f6dc4929e310c7e0ac1ef825dd1aefe63c97ab9",
+  "noProductEdits": true,
+  "f8": {
+    "runId": "f8-1792063222888-integration-20261015",
+    "receipts": 7,
+    "independentLatestMatchedCompleteReceipt": 8,
+    "submissionWiresMatched": 7,
+    "latest404": 2,
+    "browser": "156.0.8078.4",
+    "corsResponses": 70,
+    "diagnosticIssues": []
+  },
+  "f6": {
+    "runId": "f6-1792063190988",
+    "independentFormGets": 9,
+    "exactConfigReads": 8,
+    "binary": "156.0.8078.4"
+  },
+  "f7": {
+    "runId": "f7-1792063196451",
+    "independentFormGets": 16,
+    "visibilityResponseReadbackPairs": 9,
+    "authorizedUiDeletes": 3
+  },
+  "history": [
+    {
+      "manifest": "docs/review/evidence/F8_20261015/artifact-manifest.json",
+      "checked": 56,
+      "result": "PASS",
+      "checks": [
+        {
+          "path": "backend-observation-first.json",
+          "matches": true
+        },
+        {
+          "path": "backend-observation.json",
+          "matches": true
+        },
+        {
+          "path": "browser/chrome-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/f6-built-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/f6-fixture-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/f7-built-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/f8-built-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/msedge-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser-probes-second.json",
+          "matches": true
+        },
+        {
+          "path": "browser-probes-third.json",
+          "matches": true
+        },
+        {
+          "path": "browser-probes.json",
+          "matches": true
+        },
+        {
+          "path": "closeout-checks.json",
+          "matches": true
+        },
+        {
+          "path": "composable-probes-first.json",
+          "matches": true
+        },
+        {
+          "path": "composable-probes.json",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/audit-evidence.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/browser-probes-first.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/browser-probes-second.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/browser-probes-third.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/browser-probes.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/closeout.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/collect-review.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/composable-probes-first.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "diagnostics/composable-probes.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "evidence-audit.json",
+          "matches": true
+        },
+        {
+          "path": "fresh-build-digest.json",
+          "matches": true
+        },
+        {
+          "path": "images/independent-readonly-320.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-1-first.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-1.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-2-first.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-2.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-3-first.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-3.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-4-first.png",
+          "matches": true
+        },
+        {
+          "path": "images/probe-fail-4.png",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-probes-complete.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-probes-final.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-probes-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-probes-second.log",
+          "matches": true
+        },
+        {
+          "path": "logs/build-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/chrome.log",
+          "matches": true
+        },
+        {
+          "path": "logs/composable-probes-final.log",
+          "matches": true
+        },
+        {
+          "path": "logs/composable-probes-transform.log",
+          "matches": true
+        },
+        {
+          "path": "logs/composable-probes.log",
+          "matches": true
+        },
+        {
+          "path": "logs/evidence-audit-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/f6-built.log",
+          "matches": true
+        },
+        {
+          "path": "logs/f6-fixture.log",
+          "matches": true
+        },
+        {
+          "path": "logs/f6-harness-typecheck.log",
+          "matches": true
+        },
+        {
+          "path": "logs/f7-browser.log",
+          "matches": true
+        },
+        {
+          "path": "logs/f8-browser-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/lint.log",
+          "matches": true
+        },
+        {
+          "path": "logs/msedge.log",
+          "matches": true
+        },
+        {
+          "path": "logs/probe-preview.log",
+          "matches": true
+        },
+        {
+          "path": "logs/typecheck.log",
+          "matches": true
+        },
+        {
+          "path": "logs/unit-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/unit.log",
+          "matches": true
+        },
+        {
+          "path": "verification-summary.json",
+          "matches": true
+        }
+      ]
+    },
+    {
+      "manifest": "docs/review/evidence/F7_R3_N1_ReReview_20261014/artifact-manifest.json",
+      "checked": 44,
+      "result": "PASS",
+      "checks": [
+        {
+          "path": "audit.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "browser/built-n1-independent-rereview-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/n1-independent-f3-built-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/n1-independent-f6-built-results.json",
+          "matches": true
+        },
+        {
+          "path": "browser/n1-independent-f6-scope-results.json",
+          "matches": true
+        },
+        {
+          "path": "closeout-check.json",
+          "matches": true
+        },
+        {
+          "path": "closeout.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "collect.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "correction-evidence-audit.json",
+          "matches": true
+        },
+        {
+          "path": "fresh-build-digest.json",
+          "matches": true
+        },
+        {
+          "path": "header-isolation-first.json",
+          "matches": true
+        },
+        {
+          "path": "header-isolation-first.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "header-isolation-second.json",
+          "matches": true
+        },
+        {
+          "path": "header-isolation-second.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "header-isolation.json",
+          "matches": true
+        },
+        {
+          "path": "header-isolation.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "logout-closed-clean.png",
+          "matches": true
+        },
+        {
+          "path": "logout-closed-unknown.png",
+          "matches": true
+        },
+        {
+          "path": "logout-published-clean.png",
+          "matches": true
+        },
+        {
+          "path": "logout-published-unknown.png",
+          "matches": true
+        },
+        {
+          "path": "logs/audit.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-f3.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-f6-built.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-f6-scope.log",
+          "matches": true
+        },
+        {
+          "path": "logs/browser-f7.log",
+          "matches": true
+        },
+        {
+          "path": "logs/build.log",
+          "matches": true
+        },
+        {
+          "path": "logs/collection.log",
+          "matches": true
+        },
+        {
+          "path": "logs/harness-typecheck.log",
+          "matches": true
+        },
+        {
+          "path": "logs/header-isolation-final.log",
+          "matches": true
+        },
+        {
+          "path": "logs/header-isolation-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/header-isolation-second.log",
+          "matches": true
+        },
+        {
+          "path": "logs/lint.log",
+          "matches": true
+        },
+        {
+          "path": "logs/original-logout-final.log",
+          "matches": true
+        },
+        {
+          "path": "logs/original-logout-first.log",
+          "matches": true
+        },
+        {
+          "path": "logs/original-logout.log",
+          "matches": true
+        },
+        {
+          "path": "logs/preview.log",
+          "matches": true
+        },
+        {
+          "path": "logs/typecheck.log",
+          "matches": true
+        },
+        {
+          "path": "logs/unit.log",
+          "matches": true
+        },
+        {
+          "path": "original-logout-first.json",
+          "matches": true
+        },
+        {
+          "path": "original-logout-first.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "original-logout.json",
+          "matches": true
+        },
+        {
+          "path": "original-logout.mjs.txt",
+          "matches": true
+        },
+        {
+          "path": "playwright.f3-built.config.ts.txt",
+          "matches": true
+        },
+        {
+          "path": "verification-summary.json",
+          "matches": true
+        }
+      ]
+    }
+  ],
+  "sourceChecks": [
+    {
+      "path": "app/app.config.ts",
+      "sha256": "df8f3db56279dfd3055b5b44b8d4740e493b6c6c0bbaf9596b4d8c33b5ca03e5",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/app.vue",
+      "sha256": "13835503911e6a2082b5903ac57125c369a9eafd21c430522377db26d6a4d702",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/assets/css/main.css",
+      "sha256": "cedd5993d4d7b0809fe825b1f96bf2db856c97f30f61725093cae8872ac5b344",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/AppHeader.vue",
+      "sha256": "10e82aaa83ee21b31f647b392969f38f1e1e55bb28b422562e8038ca3c93657b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/UpcomingPage.vue",
+      "sha256": "46f63fc5e96e3cd11299878310a7e3095ec1b50cae98b62ab2493e1d35da8210",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/UserAvatar.vue",
+      "sha256": "a38e45d0d819cf50893a30db4161ac0c2ba7aa54f98a2ac0ef649ffbbb320f9e",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/auth/AuthGate.vue",
+      "sha256": "28c508b18de45ab57cb69bc3a008397a0a0633239d98d70c2d4efee436d51f2a",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/feedback/ActionErrorDialog.vue",
+      "sha256": "21bb7134035ba62bb9f30603245cd7fdf68878a51e035b466dd97ebfa2d4f2ef",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/feedback/FoundationFeedback.vue",
+      "sha256": "0006e7edcdeaaba00fa4dc273db8b648f2889ffc1dc9b38d470689df0e8ebabb",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/feedback/ReadError.vue",
+      "sha256": "631baa381d3056f92d85c342d7e44976e67f2eb8c31a4d2c469d54d281061184",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/EditorField.vue",
+      "sha256": "19fa79c35b8387b7e389be66468fbc7a1343798e1b563676429bbee8059b0884",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormDefinitionView.vue",
+      "sha256": "96a2fb4a00cbbd3d9dfc3615a7e75f40cae16a1f237b6111f05b71cdaa593a3c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormEditor.vue",
+      "sha256": "bead60049fb6590252c671fd66f30103f6b695572df3849193d44e37e7ce544b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormManagement.vue",
+      "sha256": "be4e7b4f48ddb440c096dbbe17ecd1f7a50b2431b82f37dda2c2d80ab3d89014",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormPreviewDialog.vue",
+      "sha256": "08d61405bf158bee0813e14aa6eda51961a438e8c7b8e90035b205c057a4695b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormReadPage.vue",
+      "sha256": "a4d8d280e3e530b4019b256dc5746266edd1074422ec80e37979dc5c002f108f",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormRenderer.vue",
+      "sha256": "643264e9aa9b1b0dc985153419103f0c2da805d1f3b8c56ed7fa5d6b2928c72d",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormRootInfo.vue",
+      "sha256": "6aa17d99416116487c4e7fe9ed67369c429ec8b1d0cef7034641ac96e320c1d6",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormSubmitSuccessDialog.vue",
+      "sha256": "38419f6e651614de8b3a47de75680d072778f7948554037e8319cb634c60bf7b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/FormsList.vue",
+      "sha256": "5770545f2b6d171983a4999356279f626e5453ddd5b47ed064832a349e29c6a8",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/QuestionEditor.vue",
+      "sha256": "23a3e4616fe0f4b7ce7321021fbe2a375606a9f241d45603f0a0a44ce6cb268f",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/forms/ResultVisibilityControl.vue",
+      "sha256": "e83bbc960c279a83a0196c807512510f3a5deea6ab2c5b5f06b09fbea6f6d16d",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/questions/RatingRange.vue",
+      "sha256": "a54d30c35e644f137265c75738c836bf06a48accc3801f2d641f2274ff3acfe2",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/components/questions/RatingStars.vue",
+      "sha256": "8de015fab42360849020902de11e69d2eee667c315a0dfe2b80e6a8dda7254e9",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useActiveDirtyScope.ts",
+      "sha256": "808865269c908ea94e802e4f7026a25f55e4580b54737387d10289d16f080c24",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useAuth.ts",
+      "sha256": "cc66e427718d1d7cc128b7f31f04e8ee4969246dd8efdac3399482d926c1f59b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useDialogFocus.ts",
+      "sha256": "d3a2d5f90da556b5630e56c7be2e848d2f907de6b74ddc059b930eb09a15bdb4",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useDirtyScope.ts",
+      "sha256": "012a5ee44ad43b09bcabcc61f78a783dd81f4f978b2352d0ce46f2f3ca0798d2",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormDetail.ts",
+      "sha256": "33f9ef1c58049dcfcd91019393bf85fa2cbce46392d37c369c33453d618f29b5",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormEditor.ts",
+      "sha256": "484d70a0ebc9a231d5e78b71fa3b48d1df6b9f1d327b94c70ee3d9c502eef8a1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormManagement.ts",
+      "sha256": "f8ff9ee1349eaea3e71ce7f22c803eacc71af03016f604da761d88c7b9ff4268",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormRead.ts",
+      "sha256": "b14dc760a61131aecd8dbe5d95b208f1a9e7d9be65c3f81ad6bad59602b7f2c7",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormResponse.ts",
+      "sha256": "caf2245fbf48c3017dc3af9bb1e7cc47e43bbd460f7b1b1d8a958a436b1b80df",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useFormsList.ts",
+      "sha256": "da7e34a58c48f751e6eb81922aff4d17fe7e3cc2b357241c5c295384346b1bbe",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useOperationState.ts",
+      "sha256": "f78c188fa4ae4b335c456fab043cab68d66ba09e768d08fec14071bae99f9dd7",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/composables/useRequestScope.ts",
+      "sha256": "d2b571d1529feba29d2a98b3d2b4daf76e439800a825815c1257a35d8256c3db",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/answer.ts",
+      "sha256": "8d964dfd137887d98c22f654494344899c40058571c2a5f883499763fc3b2c02",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/decoders.ts",
+      "sha256": "44430115dc5fed8c8e11bee6a2e0f79b62db9a7ca83083204463d666f81bdb9c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/error.ts",
+      "sha256": "09ecc1883223517a3fa579fe459ce7cdee2d6f0f051a66c1b3b4fa03b6ac437e",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/form.ts",
+      "sha256": "181a4b2eb1def8807e9184a0b4ab66db257562a056095ce73f19bf257c4b8816",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/response.ts",
+      "sha256": "cd214fcc0628ddceb81304deb85ea22e79ce3dd2ac5f1851e80ba288898625ec",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/result.ts",
+      "sha256": "eede7a90b0f9cb863fb8eaa172664ceca4fab2d6c90d9f111f5b646d45a91743",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/statistics.ts",
+      "sha256": "c6de5c309750201fb5a73cd429b8382b90493e53e06646ce3888602aea98a9f5",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/api/user.ts",
+      "sha256": "3230227fb2d202cc9633c6996762a4714dd77b60b2ceba370855a9b4f2bdbe54",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/auth-input.ts",
+      "sha256": "cba8d3df4096687de41f0a9993a48f304c5b4ee07507d5880758c12e7408f015",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/auth-state.ts",
+      "sha256": "eeff2899aa327c43c88cbfeac8c9f012fc40186385af7d94b38cdd9b96361d4c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/definition-request.ts",
+      "sha256": "2b6eb3bd07c0a286242ac52e08ac04e8d2721125d1f0edb69240a3bcb634d202",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/definition-validation.ts",
+      "sha256": "1611193a0b68605d9c9bfa4ac7366d0359fa2572ed6e271b8d77b172513f104f",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/dirty-scope.ts",
+      "sha256": "f7838eedff12f1c730a2ff611c0425477272d5cbed2789d48cfcb11e5765c3ac",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/editor-page.ts",
+      "sha256": "248d703e3942f080b956154a8294ee59fab5bb68c841e3fd74da653ebbded425",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/editor.ts",
+      "sha256": "455fab2f4f7abe7793ba544d2bfcaff1a70f82c1acd81ddafeb91a941a0786ff",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/error-path.ts",
+      "sha256": "c14f80fffcd28fb517725243701c1761660a4f595efd588eb79f4b99a47da790",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/error-presentation.ts",
+      "sha256": "457bae1a19ec308126fd66bb4e57bc5b689a357e7eb147931dd9e5deed9ca6f7",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/form-management.ts",
+      "sha256": "c0cc796bd372f090b519b75678f647a99cdd8e0db9a4539e4018fb0faf8dd207",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/form-read.ts",
+      "sha256": "141364cf95ecadc51d048d6d1191aedf3c700f3222e641d5ebbd7862cca26737",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/models.ts",
+      "sha256": "6fa3b12bc3d0576f249834c2a19d99d1c22ff572c313f250668c184967822760",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/operation-state.ts",
+      "sha256": "2c41dfea92e30013c44a49b56a5213c4cd81784ab9e35948373fa84e6d4828dc",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/rating-input.ts",
+      "sha256": "9df555234879d1c07338f2b4826566d003a99a081b2783b58b4be1cba8f8bda3",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/request-scope.ts",
+      "sha256": "d17f7334e4b1afae0ef28a4c3e07a534b2ba472ed8e9ba00cb467dd978a79c3c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/response-mapping.ts",
+      "sha256": "7036a773ca8823bfd46b8c9167f1194f3500741b121cf61024048f0548c26c83",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/domain/response-page.ts",
+      "sha256": "b18d4b13fd8798b52a5080a9084eb1a93b423e34c51118b34a6544cce62ec7d1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/layouts/default.vue",
+      "sha256": "593e8219dfabb615bebf3bd336c395628c75f63f16e1fc9bca847966115c7ab3",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/middleware/auth.ts",
+      "sha256": "3760eb76c6cc84e5bf687e0f7dff42e45a7c383592ba32faa87feb240b945e66",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/middleware/guest.ts",
+      "sha256": "bb8725d92e4e20eb8533ca104fe09d393a82dea51a4bfb94a5b9e5c77e5c88e1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/forms/[formId]/edit.vue",
+      "sha256": "3bcd39b5fee1f700427feb9e46957008870f9779c9ab98f9ccb89f4e07c7a3a0",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/forms/[formId]/index.vue",
+      "sha256": "b60c449b372207bf6c9c65353bc3cfca14d620bed4a9d7dcca34962cb7f10665",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/forms/[formId]/statistics.vue",
+      "sha256": "fd643e9413cc0897a98d08f3be6f03f55dcabb42bba365afe7ec675880cb4a39",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/forms/index.vue",
+      "sha256": "c8ffa2588f2025e31e632b0747b0af23435e5c7cf831977fed8b047405a10ffc",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/forms/new.vue",
+      "sha256": "670b00d3ef180c1ebe5c9c70603b3511245b2ec89ca0fbc2215c9ecac556c833",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/index.vue",
+      "sha256": "31e3b3bd33d5b7f0a672cd14f61647aa1b0e7121a805a1f7041dbd8860040887",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/login.vue",
+      "sha256": "4ca6bb7af9fdd440e3af08e3553e351677c881f5ff7882e73f62ca6aeb8678dc",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/pages/profile.vue",
+      "sha256": "ff02abc80c389aa8f66f783b994cd8ea291b77832c5530f76402e515832b11db",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/plugins/auth.client.ts",
+      "sha256": "9f05d167f29d8288673c7c43df6c581559d941d3019f35387e07c7b29e9f411e",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/services/api-client.ts",
+      "sha256": "09fb4805e4b442f42efefba68f083c042075a0387efdb4a3ed264b07fdd7fb65",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/services/auth.ts",
+      "sha256": "cf2a1674f83870424379b5c97d01b4d3225479e758335e6b86afe41a46fca1d1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/services/form.ts",
+      "sha256": "8d1231d4a5fee56206b9f5eaacb0eb096afb5aa3a8f06cec18acb98a5adf68dd",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/services/response.ts",
+      "sha256": "24c87f4d77d0ea2fe29e97cc5d6b0eeac07918193ff0929c9f6feb272b9b95ec",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/services/user.ts",
+      "sha256": "af29e7290f313ddfd33d6c09efef9e877e78946ac3cfeb1d918fa83e4e9ba870",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/utils/datetime.ts",
+      "sha256": "380b3199f63fcee4e06d023ca21fe4a99b33cf5c3c3eea7eb09ae6df06fd0f5c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/utils/exact-json.ts",
+      "sha256": "3c0f7d94301a911a0bafcdc2841d798de4d10ab18fb0d823a245223da65bf411",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/utils/exact-number.ts",
+      "sha256": "8ba9e1095de16c3dec706ef76e55288ed82a0dcb5f37a02f3cde4ac6156c942a",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/utils/redirect.ts",
+      "sha256": "98ee687833608c548e1f45ef3567c041c5ab2f686fe694a7ad3ad1b84f34e20e",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "app/utils/unicode.ts",
+      "sha256": "9fcfb45b1ed393ea2f5d248df757b5919c21ac636d43f42a5707cbb8d407b19c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "nuxt.config.ts",
+      "sha256": "b55fc24a2587a2104b814cb7650cffc4d490cb4f6ccf861084c8f49c8c397499",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "514545e78546b99dacd0b3b8c49e89d0f7dab5b26acb3da725d58c8551dbb1a2",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "package.json",
+      "sha256": "f2080881cd47f10e083cd54130f1e706c88f792dc6bd481e26bc80dee8422a25",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.config.ts",
+      "sha256": "a510e9d7099b2cc26fe368101ed72160d30882e1828a4d44efceb2a1ad8a40d2",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f2.config.ts",
+      "sha256": "ff7ea3090e6003dfcbc7e7c75e9ecb96d6fb430d6b5eaeef8b461c5158a0a080",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f3.config.ts",
+      "sha256": "103c2ab988687a10457e1f1200f9a0511c48a4d01c765b9fe964c6d76057c64a",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f4.config.ts",
+      "sha256": "c25f0166e8a8dba62e1344af954822f50ec5bd68175d00133e6c8153afb03a67",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f6.config.ts",
+      "sha256": "579f1f055013e313212aa363a5953575c0e70c305fa44467cd2a49926b530e29",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f7.config.ts",
+      "sha256": "b9af321ee3cc3c62e41430b5b3b5643fa61ff73c004cca285d0859571bdeae54",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "playwright.f8.config.ts",
+      "sha256": "5168d39fa20575dd480b69cbe53bef77e56d2903f1640328d2bdad2772258e89",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "scripts/static-smoke-server.mjs",
+      "sha256": "9721d4f6204105decac9e25c1bf3500e426713dd992979140e000d40192e89aa",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f2-common.spec.ts",
+      "sha256": "7aea9d295717a3fc8f57dab87e9ebd8430a1643f3e4686e5517e0d302ff57c02",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f3-browser.spec.ts",
+      "sha256": "32ece284961ca1c3549113eefd9c6c39c2e533722e0fc6737f4c6716e174703a",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f3-corrections.spec.ts",
+      "sha256": "27e31968463a6eb22f76a67d34d9f7f9f8b2588d8c659cec116dd855523d6c1e",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f3-email-live.spec.ts",
+      "sha256": "4fea707cea6092f287f5ca4471f258337d031c5f5959db3ced5b16f399922842",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f3-live.spec.ts",
+      "sha256": "defba61c3283dce7207784c8120c2222a83a7d7be36df80102ccd48757b0c276",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f3-reconciliation.spec.ts",
+      "sha256": "74aac02c644972dc7068137c479d284d0e0d22f49274cb00cf04ce84a0306150",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f4-browser.spec.ts",
+      "sha256": "af8d45d5ba7ab933c4ea0bcc94a12444fa4fe34f8f3ae648a05557816af66e33",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f4-live.spec.ts",
+      "sha256": "ff99c6580c26bc21fcfe5979a919bf6a8d46adc619e3e84103cea3eaa44a5407",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f6-browser.spec.ts",
+      "sha256": "408663bc8056d6c73e943ae604ee93e29de4b0a703c2e9734ac49cc69efc5dd0",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f6-live.spec.ts",
+      "sha256": "5b4e64b66e7b75fac32657e4d68cfc17e379d62a6e1382c758f74e23800fe128",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f7-browser.spec.ts",
+      "sha256": "f37e0ddb1ef78ab9d180d632c2d8e009b5be00dfaf1fd2b244ead5143f8bec05",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f7-live.spec.ts",
+      "sha256": "11ac1c2b3f10ba4af6153cbaeb001db53ab96ceafcdd3d0e55a26780a4282a79",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f8-browser.spec.ts",
+      "sha256": "7ce86b34c446b26707f825c407abd0265b84c0f4c260ed0fec5a2e2c0834bbb3",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/f8-live.spec.ts",
+      "sha256": "b0287a2c30e51e931aa3d814dd926eb8cfe0e8891a482b743e156ce53962496c",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/e2e/foundation-smoke.spec.ts",
+      "sha256": "75d7b35dc6f82d03c2ce7032e3640441c3554cc8d83dc2b19d11e0e05462fe78",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/app/app.vue",
+      "sha256": "ac76dc9615556c52d2d10d5991f1568422d275d53fd7c83fdb9b0f95698d8a21",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/app/pages/away.vue",
+      "sha256": "9e94e2f57b15dc8594b3538c288c4af8e8872588900fccbb56d5bfc0106438a1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/app/pages/redirect.vue",
+      "sha256": "875155031a5276073d1b19010b9fbc99bbf01998691c27ce48da9321ecb7e592",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/app/pages/scope/[id].vue",
+      "sha256": "ed880f5b68c23c817cb9f4fdc8d3d99d5b8cf66682315554118b19af05171ff8",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/nuxt.config.ts",
+      "sha256": "7ccf9207edc7205962aad1648faf7940358ab3814d67ceea1e36ba8609766680",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/browser/tsconfig.json",
+      "sha256": "e8a8281e32d65ce485d0446ca1717c42c96454184f3c6495800fcfbf98e81d05",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f2/payloads.ts",
+      "sha256": "78f0b15db9795e82d3ec69244011d732c25b610c72e740a9344a2b6f06a85535",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f3/browser/nuxt.config.ts",
+      "sha256": "0c0309ce05486cca1dcd8cce5f25ff61119a07884af176da16db8a161ace1a76",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f3/browser/public.vue",
+      "sha256": "5f6e1267719b2f749dab5cfa0e45d6faf46e6db8cc285870e317824db60205a4",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f4/browser/nuxt.config.ts",
+      "sha256": "d3a6baa26237f40c99d2bf5417ad894f4b1fc507b1f23237dc18b3d6a1863926",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f4/browser/session.vue",
+      "sha256": "2a1e8110b67c76bb2bd0638a1a393ae3be6a7d37c01f26cb7784d3ff893da2fd",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f4/browser/tsconfig.json",
+      "sha256": "13f1e7368bfe677a8e3d0bb08a7a3b8889ed0ee3d288246bbd7efaeb74aacc10",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f4/payloads.ts",
+      "sha256": "f928e706d199e58066f066efa6f75fb9cc96d036f14622638dab5081fc82ffe4",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f5/payloads.ts",
+      "sha256": "70ca95b75b263de7ac60e170994e83d836bddc4c8b9637b45bff78966ccd44e2",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f6/browser/instances.vue",
+      "sha256": "18a40131d3d6cc932fd15833de1cf4b2fce156ad3f39e164306676aab4ce73bd",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f6/browser/nuxt.config.ts",
+      "sha256": "d9227b30c1c72c55ce42463975d06efeb73cabcaf356b8e4d0ed66de1b0a8194",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f6/browser/renderer.vue",
+      "sha256": "510097a798ddbf3648f84981552e885e0ddb22896a43436a1da98d52740470e1",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f6/browser/scope.vue",
+      "sha256": "0a7fe2f8989d3bf259ec230d1cd52529c8123da09c44aa469be7ed69cb399e14",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/fixtures/f6/browser/tsconfig.json",
+      "sha256": "c8ffbca67015403e79dacadd1136c3b67f21945478dd549094acfccb74e1b2b8",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/helpers/f6-network-diagnostics.ts",
+      "sha256": "41e06e501173655eefefaec6b10725f8a7f01cdb7afd23d318c83e46be7db9ce",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/api-client.spec.ts",
+      "sha256": "4f29540f2621bf2fe2c397bb5a42a0a6027129fb33d725967dc170ba557c444b",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/common-adapters.spec.ts",
+      "sha256": "498fb98fe43a4ef25b58f4bca2321ed032d946e60720a582e684244f408cdb47",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/exact-number-gate.spec.ts",
+      "sha256": "f6b06383601a53574f007d9d91d3b729c3ee01253ee2f40ceb4a20dc3125bf77",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f3-auth.spec.ts",
+      "sha256": "05cae7cc4ea5eb984ee5071c46f74a6f919ca36f66e67c44ac4074d6205f595a",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f4-form-read.spec.ts",
+      "sha256": "04200549cf6f489d6acc204d473225c61e36cddf85d1f51c56d28ce2c1e412b7",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f5-answer.spec.ts",
+      "sha256": "f154dd625f330edbff3553e48262e4297937a5f8e5bf492291b05d74cc208186",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f5-config-omission.spec.ts",
+      "sha256": "5129f9e64e634aa95f20fbc0fd58667bc2188ca0fdcc0d3509c48726c055aa23",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f5-definition-request.spec.ts",
+      "sha256": "bfc42185a96dfcb7fc81d8e0ecf3c2cecefd8e75cabec25d864f0a4f6c50fb86",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f5-editor.spec.ts",
+      "sha256": "9621ef8d8e5664dfcdad58d1437ec5ae2c65bf23e487980d6bd77b9bd0880c16",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f6-editor-page.spec.ts",
+      "sha256": "1f42a4cb44c20379b890b5589a4fca581b2a2ca2ca1e68b9bd7298c8178b103d",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f6-network-diagnostics.spec.ts",
+      "sha256": "e548e1ad1a132c2c9e7f0b3dcd0f612f848c88924bdd0f31c25b7d0445b52309",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f7-form-management.spec.ts",
+      "sha256": "b447cc131c137c2ac2348ea18b1dc6b971db6d0ed25d3e4454fb1598a7aea9f3",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/f8-response-page.spec.ts",
+      "sha256": "459574baeb6f0d445cd61460012e22660dc72e07f050e09c1527bb75a0538c29",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/scoped-state.spec.ts",
+      "sha256": "4cd2edd2098dd09d4c4e059234c491327fae1ef7bb827c6708a622ea3cee2465",
+      "matchesReviewSource": true
+    },
+    {
+      "path": "tests/unit/tooling-smoke.spec.ts",
+      "sha256": "ed6082ec2ff738ee793c88bf2630bf0f74f7a036ce18d873bcdf7133c55ae2db",
+      "matchesReviewSource": true
+    }
+  ],
+  "backendSnapshot": [
+    {
+      "path": ".env.example",
+      "matches": true
+    },
+    {
+      "path": ".gitignore",
+      "matches": true
+    },
+    {
+      "path": "compose.yaml",
+      "matches": true
+    },
+    {
+      "path": "CustomFormService.sln",
+      "matches": true
+    },
+    {
+      "path": "docs/configuration/environment-configuration.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Acceptance_Execution_Report.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Coverage_Index.md",
+      "matches": true
+    },
+    {
+      "path": "docs/implementation/R11_Historical_Status.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/00-v1-overview.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/01-v1-domain-specification.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/02-v1-database-specification.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03a-v1-api-contract-common.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03b-v1-api-contract-auth-user-form.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/03c-v1-api-contract-submission-statistics.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/04-v1-error-catalog.md",
+      "matches": true
+    },
+    {
+      "path": "docs/specs/05-v1-system-constraints.md",
+      "matches": true
+    },
+    {
+      "path": "docs/test-plan/R11_Acceptance_Test.md",
+      "matches": true
+    },
+    {
+      "path": "docs/test-plan/R11_Manual_Tests.http",
+      "matches": true
+    },
+    {
+      "path": "dotnet-tools.json",
+      "matches": true
+    },
+    {
+      "path": "global.json",
+      "matches": true
+    },
+    {
+      "path": "README.md",
+      "matches": true
+    },
+    {
+      "path": "SNAPSHOT.md",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Development.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Production.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/appsettings.Staging.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AccessTokenCookie.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AccessTokenCookieOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AppCorsOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/AuthenticationServiceCollectionExtensions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/CurrentUserContext.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/JwtOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/JwtTokenService.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/PasswordCredentialService.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/StatisticsCredentialResolver.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Authentication/V1Cors.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Errors/ApiErrorModels.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Errors/ApiErrors.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Forms/FormResponses.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Responses/RespondentCountResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Responses/ResponseReceipt.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Statistics/StatisticsResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Contracts/Users/UserResponse.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/AuthController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/FormsController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/HealthController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/ResponsesController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/StatisticsController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Controllers/UsersController.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/CustomFormService.Api.csproj",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/CustomFormService.Api.http",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Answer.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Form.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Option.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Question.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/Response.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/User.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Entities/UserIdentity.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Domain/Enums/V1Enums.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/ApplicationDbContext.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/AnswerConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/FormConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/OptionConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/QuestionConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/ResponseConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Configurations/UserIdentityConfiguration.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/DraftDefinitionWriter.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/FormAggregateLock.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/20260928122537_InitialV1Schema.Designer.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/Migrations/ApplicationDbContextModelSnapshot.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlEnumMappings.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Infrastructure/Persistence/PostgreSqlOptions.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Middleware/ApiExceptionMiddleware.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Program.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Properties/launchSettings.json",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Queries/StatisticsAggregator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Queries/StatisticsQuery.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DefinitionNumber.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DraftDefinitionChangeSet.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/DraftDefinitionDelta.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/FormDefinitionCandidate.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/FormDefinitionValidator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/RequestJson.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/SubmissionAnswerValidator.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/TextRules.cs",
+      "matches": true
+    },
+    {
+      "path": "src/CustomFormService.Api/Validation/UnsupportedJsonContentTypeFilter.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/AuthUserEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/ConfigurationTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/CustomFormService.IntegrationTests.csproj",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/DatabaseSchemaTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/EngineeringEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateContract.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.CandidateSafety.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.DeadlinePrecision.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Lifecycle.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.LifecycleReview.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.LocalRepair.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.OptionPersistence.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.ResponseQueries.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Statistics.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.Submission.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionAtomicity.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/FormEndpointsTests.SubmissionConcurrency.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/MSTestSettings.cs",
+      "matches": true
+    },
+    {
+      "path": "tests/CustomFormService.IntegrationTests/SubmissionAnswerValidatorTests.cs",
+      "matches": true
+    }
+  ],
+  "packages": [
+    {
+      "name": "@nuxt/ui",
+      "version": "4.11.3",
+      "matchesLock": true
+    },
+    {
+      "name": "lossless-json",
+      "version": "4.3.1",
+      "matchesLock": true
+    },
+    {
+      "name": "nuxt",
+      "version": "4.6.1",
+      "matchesLock": true
+    },
+    {
+      "name": "tailwindcss",
+      "version": "4.3.3",
+      "matchesLock": true
+    },
+    {
+      "name": "vue-draggable-plus",
+      "version": "0.6.1",
+      "matchesLock": true
+    },
+    {
+      "name": "zod",
+      "version": "4.6.5",
+      "matchesLock": true
+    },
+    {
+      "name": "@iconify-json/lucide",
+      "version": "1.2.142",
+      "matchesLock": true
+    },
+    {
+      "name": "@nuxt/eslint",
+      "version": "1.17.0",
+      "matchesLock": true
+    },
+    {
+      "name": "@playwright/test",
+      "version": "1.64.0",
+      "matchesLock": true
+    },
+    {
+      "name": "@types/node",
+      "version": "24.19.2",
+      "matchesLock": true
+    },
+    {
+      "name": "@types/sortablejs",
+      "version": "1.15.9",
+      "matchesLock": true
+    },
+    {
+      "name": "eslint",
+      "version": "10.12.0",
+      "matchesLock": true
+    },
+    {
+      "name": "typescript",
+      "version": "5.9.3",
+      "matchesLock": true
+    },
+    {
+      "name": "vitest",
+      "version": "5.0.3",
+      "matchesLock": true
+    },
+    {
+      "name": "vue-tsc",
+      "version": "3.3.13",
+      "matchesLock": true
+    }
+  ],
+  "unit": {
+    "files": [
+      {
+        "path": "tests/unit/api-client.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "direct-resource client (mock fetch) includes credentials, serializes exact numbers, and decodes direct receipt",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) handles 204 without reading the body",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) accepts typed request interfaces and classifies failed 204 decoders as contract failures",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 400",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 401",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 403",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 404",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 409",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 500",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: ",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: <html>error</html>",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"data\":{\"count\":1}}",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":\"1\"}",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":null}",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":2147483648}",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) rejects local lossy body and base escape before any fetch",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) times out body reads, aborts signal, finishes timer, and retries zero times",
+            "status": "passed"
+          },
+          {
+            "name": "direct-resource client (mock fetch) network and abort results distinguish sent from never dispatched",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: contract-error",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: api-error",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest retains AUTH_REQUIRED routing classification",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors Latest retains AUTH_USER_DISABLED routing classification",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors decodes text definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors decodes number definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors decodes rating definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors decodes single_choice definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors decodes multiple_choice definition / receipt / statistic without changing semantics",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors validates resource nullable, enums, raw config, page and zero count",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors preserves anonymous absence / identified empty array and rejects null/missing roots",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors different contexts keep Auth, normal no-response, statistics and form absence distinct",
+            "status": "passed"
+          },
+          {
+            "name": "DTO / contextual errors maps immutable request positions by namespace, preserving unmapped details",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/common-adapters.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "Unicode / candidate semantics trims only White_Space edges, preserving internal spaces, FEFF and ZWSP",
+            "status": "passed"
+          },
+          {
+            "name": "Unicode / candidate semantics counts code points without normalization and keeps passwords byte-for-byte",
+            "status": "passed"
+          },
+          {
+            "name": "Unicode / candidate semantics ASCII email lowercases while non-ASCII casing belongs to server",
+            "status": "passed"
+          },
+          {
+            "name": "exact datetime / baseline retains fraction and compares offset-equivalent instants",
+            "status": "passed"
+          },
+          {
+            "name": "exact datetime / baseline crosses days and validates leap years without JS rollover",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/exact-number-gate.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 9007199254740993 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0.123456789012345678901234567890123456789 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e80 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-101 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e400 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted -1e401 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e131071 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-16383 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0e1073741823 without native numbers",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) numeric equality 1 = 1.0",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) numeric equality 1.0 = 1e0",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) numeric equality -0 = 0",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) numeric equality 1000e-3 = 1",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order 9007199254740993 < 9007199254740994",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order 1e80 < 100000000000000000000000000000000000000000000000000000000000000000000000000000001",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order 0 < 1e-101",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order 1e400 < 1e401",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order -1e401 < -1e400",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order -2 < -1",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) fixed expected order 0.1 < 0.1000000000000000000001",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) compares inclusive bounds precisely and distinguishes unanswered from zero",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 01",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding +1",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding .1",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1.",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding NaN",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding Infinity",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1,2",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e131072",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e-16384",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e1073741824",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e-1073741824",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0.00e-16382",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) checks original fractional capacity before trimming trailing zeros",
+            "status": "passed"
+          },
+          {
+            "name": "F2 exact number feasibility gate (synthetic) only converts validated native integers; prevents accidental lossy serialization",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f3-auth.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F3 session and generations shares the first Promise and keeps settled null across SPA navigation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations settles formal AUTH_REQUIRED as anonymous",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations settles formal AUTH_TOKEN_INVALID as anonymous",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations settles formal AUTH_TOKEN_EXPIRED as anonymous",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (contract-error)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations late bootstrap cannot overwrite login and settled navigation does not await it",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations late bootstrap cannot overwrite logout and settled navigation does not await it",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations late bootstrap cannot overwrite profile and settled navigation does not await it",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations only the latest explicit candidate may be adopted; profile keeps the session revision",
+            "status": "passed"
+          },
+          {
+            "name": "F3 session and generations a different User returned by PATCH advances the session revision (shared Cookie changed in another tab)",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /profile?from=x#name",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /forms",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /forms/new",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /forms/invalid-id/edit?x=1",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect keeps known route /forms/11111111-1111-4111-8111-111111111111/statistics#result",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"https://evil.test/profile\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"//evil.test\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/\\\\evil.test\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/%5cevil.test\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/%2f%2fevil.test\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/profile%2funknown\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/profile?x=%zz\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/%00profile\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/login\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/login?redirect=/profile\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/unknown\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/forms/a/unknown\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects \"/profile\"",
+            "status": "passed"
+          },
+          {
+            "name": "F3 redirect rejects null",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics allows a@localhost through basic registration gate for final server validation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics allows \"a b\"@example.test through basic registration gate for final server validation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics allows 中文@example.test through basic registration gate for final server validation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics allows İ@example.test through basic registration gate for final server validation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics allows a@@example.test through basic registration gate for final server validation",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for password length 9 without trimming",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for password length 10 without trimming",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for password length 128 without trimming",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for password length 129 without trimming",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for name length 100",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics uses Code Points for name length 101",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics login does not apply register email/password constraints and builders whitelist keys",
+            "status": "passed"
+          },
+          {
+            "name": "F3 input semantics normalized no-op and editing back to baseline are clean",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f4-form-read.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F4 read contract and routing sends only fixed pagination/status query fields",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 1 / 0 with reload budget true",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 3 / 0 with reload budget true",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 1 / 1 with reload budget true",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 2 / 2 with reload budget true",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 3 / 2 with reload budget true",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing aligns page 2 / 1 with reload budget false",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing routes draft using fresh detail and actual owner ID",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing routes published using fresh detail and actual owner ID",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing routes closed using fresh detail and actual owner ID",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing maps only formId validation to invalid link, retaining details",
+            "status": "passed"
+          },
+          {
+            "name": "F4 read contract and routing uses real service/client lossless decode, preserves datetime, signal and rejects wrong resource",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late success after key, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after key, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after key, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late success after session, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after session, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after session, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late success after dispose, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after dispose, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership ignores late api-error after dispose, including Auth/navigation/finally",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership retains a reliable snapshot on read failure, then manual retry replaces it",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership first AUTH_REQUIRED navigates after own revision invalidation",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership first AUTH_TOKEN_INVALID navigates after own revision invalidation",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership first AUTH_TOKEN_EXPIRED navigates after own revision invalidation",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership manual Auth keeps the Dialog outside invalidated resource scope until close",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external key",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external session",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external dispose",
+            "status": "passed"
+          },
+          {
+            "name": "F4 controller side effects and Auth flow ownership disabled resource failure retains User and never initiates logout/login",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment carries only the presentation through cleared query data and own Auth invalidation",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment retains initial automatic-read redirect policy through alignment",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment does not turn manual retry without loaded data into a Dialog",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment a captured Dialog policy does not leak to a later external query read",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external query",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external query, including late close",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external route",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external route, including late close",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external session",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external session, including late close",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external dispose",
+            "status": "passed"
+          },
+          {
+            "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external dispose, including late close",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f5-answer.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F5 five-type Answer domain initializes every type explicitly unanswered and optional blanks produce answers []",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain required text empty blocks submission",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain required number empty blocks submission",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain required single_choice empty blocks submission",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain required multiple_choice empty blocks submission",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain required rating empty blocks submission",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain keeps number 0 and Rating 0, distinguishes Range visual min from explicit answer, clearing restores empty",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain five valid values use only Server Question/Option IDs, with a fixed expected wire",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 0.123456789012345678901234567890123456789 without rounding or strings",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 9007199254740993 without rounding or strings",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 1e-100 without rounding or strings",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain 1 / 1.0 / 1e0 are equal in dirty; stale cached exact cannot override raw input",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number bad blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number NaN blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number Infinity blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number   blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number 01 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number -0.1 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional number 9007199254740993.123456789012345679 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain bounds compare exactly at the final decimal digit",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain text trim/codepoint rules preserve case and inner whitespace; optional nonempty out-of-range blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain rejects foreign Choice keys, value/label impostors, duplicate multiple selections and wrong input type",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating -1 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating 6 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating 1.5 blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating NaN blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating Infinity blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain invalid nonempty optional Rating null blocks",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain multiple selection is a set for dirty; clearing and snapshot independence are preserved",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain omission-aware map locates request index, missing Question ID and multi index; unknown paths stay summary",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain Preview supports local keys and independent empty sessions, but formal builder refuses missing IDs",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain rejects missing Option IDs and unknown model questions instead of leaking keys into formal Body",
+            "status": "passed"
+          },
+          {
+            "name": "F5 five-type Answer domain incomplete Rating has no invented bound or valid trial answer",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f5-config-omission.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F5-R1 optional config omission consistency text config[minLength] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[maxLength] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[variant] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[min] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[max] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice config[variant] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency multiple_choice config[variant] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[variant] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[min] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[max] undefined: Draft valid, Delta noop, dirty=false",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[minLength] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[maxLength] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[placeholder] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[variant] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[placeholder] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[min] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[max] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice config[variant] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency multiple_choice config[variant] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[variant] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[min] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[max] cleared: dirty=true and full replacement removes only that key",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[minLength] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[maxLength] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[placeholder] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[placeholder] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[variant] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[min] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[max] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice config[variant] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency multiple_choice config[variant] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[variant] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[min] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[max] null stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text unknown unknown=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number unknown unknown=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice unknown unknown=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency multiple_choice unknown unknown=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating unknown unknown=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text unknown unknown= stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text unknown min= stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number unknown variant=undefined stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice unknown placeholder=   stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[minLength] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[maxLength] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[placeholder] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[placeholder] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency text config[variant] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[min] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency number config[max] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency single_choice config[variant] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency multiple_choice config[variant] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[variant] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[min] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency rating config[max] illegal nonempty input stays dirty and is rejected",
+            "status": "passed"
+          },
+          {
+            "name": "F5-R1 optional config omission consistency generic comparison still distinguishes an unknown undefined key from omission",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f5-definition-request.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F5 fixed expected Create and Draft Delta new requires Visibility; valid minimum Create is a whitelisted normalized body",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta Create sends new complete questions/options without local keys or readonly metadata",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta unchanged loaded model produces noop; editing only title never fills config or sparse order",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta config replacement keeps original settings and omitted variant",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta fallback variant roundtrip and empty optional keys are noops",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta sparse reorder sends dense sortOrder, preserves ID/value and undo is noop",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta new then local delete emits nothing; existing option delete is id-only plus final sibling order",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta whole question removal sends one id-only delete without nested option deletion",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta Choice -> text sends type and complete target config without nonempty Option Delta",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta fixed expected: existing single_choice -> confirmed text -> single_choice explicitly deletes original IDs and creates new Options",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta Choice interchange preserves Options without fabricated deletion; nonChoice -> Choice creates them",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta description clearing uses null, deadline preserves subsecond precision until actually edited",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta number config equivalence is noop and changed bounds survive the exact wire",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta rejects forged tmp IDs, foreign-parent Option IDs and duplicate IDs before building",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta Body/path snapshot is immutable, indexes locate third screen question and unknown/deleted controls remain summary",
+            "status": "passed"
+          },
+          {
+            "name": "F5 fixed expected Create and Draft Delta saved response establishes new Server IDs and clean baseline only on explicit adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation Draft permits empty questions, Choice options and missing Rating bounds; Publish rejects each",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation past/equal deadline saves Draft; Publish compares exact ticks with injected time",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config null",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config undefined",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":null}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"broken\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"-1\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"1.0\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"2147483648\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"variant\":\"stars\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"unknown\":\"\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"2\",\"maxLength\":\"1\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"NaN\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"Infinity\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\" \"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"2\",\"max\":\"1\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":null}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided number config {\"variant\":\"input\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"-1\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"101\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"1.5\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"0\",\"max\":\"0\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":null}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"max\":\"100.0\"}",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation normalizes optional config empties but never null and validates Unicode codepoint lengths",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation label duplicates are allowed; duplicate normalized values, blank labels and nonChoice Options fail",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Draft / Publish validation rejects invalid, duplicate saved sortOrder and out-of-range Option values",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f5-editor.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F5 Editor models and operations new initial state is clean, unsaved and contains no automatic question or Visibility",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations decoded detail loads clean with raw omission, sparse order, exact bounds and deadline precision",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations DTO, editable model, baseline and preview snapshots are independent",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations creates text with explicit type defaults and local identity",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations creates number with explicit type defaults and local identity",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations creates single_choice with explicit type defaults and local identity",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations creates multiple_choice with explicit type defaults and local identity",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations creates rating with explicit type defaults and local identity",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations new labels fill the first unused number and values stay stable through label edits and reorder",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations Choice -> non-Choice requires confirmation; cancel does not change any data",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations Choice round trip through text never resurrects removed Options",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations Choice interchange preserves identity and values while changing variant",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations non-Choice switches use complete target defaults and retain common fields",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations variant changes retain compatible settings and reverting effective fallback clears dirty",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations sparse question and option order is restored from final membership, not operation history",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations add then remove clears dirty, existing visibility is excluded and invalid raw numeric input stays dirty",
+            "status": "passed"
+          },
+          {
+            "name": "F5 Editor models and operations existing Rating missing bounds stays missing without fallback 1/5",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f6-editor-page.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F6 editor page transitions new initialization is local and invalid/noop definition never sends",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions Create adopts Server IDs and baseline; later save uses delta with no temporary key",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions locks inputs/duplicate submit while pending and snapshots the payload",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions stale success never adopts/navigates/toasts and loading is released",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions switching resource during a read starts the new read and stale finally cannot clear its loading",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions Auth lapse preserves local input but cancels write eligibility (saved=false)",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions Auth lapse preserves local input but cancels write eligibility (saved=true)",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions new account change requires fresh me plus explicit consent, without creating or discarding input",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions edit account change cannot use old Owner grant and preserves content when access is denied",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions PATCH unknown only unlocks after a permitted current GET adoption; cancel/failed GET retains lock",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions a rejected reload permit cannot adopt even after a GET response",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions Create unknown requires every retry confirmation and list lookup is not success",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions wrong Owner success is uncertain, never a saved baseline (saved=false)",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions wrong Owner success is uncertain, never a saved baseline (saved=true)",
+            "status": "passed"
+          },
+          {
+            "name": "F6 editor page transitions FORM_NOT_EDITABLE candidate GET does not overwrite dirty input",
+            "status": "passed"
+          },
+          {
+            "name": "F6 rating interaction focus leaves undefined, score 0 is answered, optional clear resets and readonly never writes",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f6-network-diagnostics.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F6-R2 declared request/diagnostic pairing allows only exact expected HTTP and network outcomes/diagnostics",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects unrelated resource 404 even when console matches its actual response",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects unexpected requestfailed even when console matches the actual failure",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects wrong method",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects wrong URL",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects wrong status",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects wrong failure reason",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing rejects missing or extra requests and duplicate diagnostics",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing counts repeated intentional failures exactly",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing allows an explicitly expected cancellation without console diagnostic",
+            "status": "passed"
+          },
+          {
+            "name": "F6-R2 declared request/diagnostic pairing does not allow Vue warning, different diagnostic or a diagnostic without its request",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f7-form-management.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F7 management behavior R4 FORM_NOT_FOUND also revokes F6 save until reliable current adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R4 FORM_NOT_EDITABLE also revokes F6 save until reliable current adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R4 FORM_ALREADY_PUBLISHED also revokes F6 save until reliable current adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R4 FORM_ALREADY_CLOSED also revokes F6 save until reliable current adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R4 FORM_INVALID_STATE_TRANSITION also revokes F6 save until reliable current adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R4 ordinary validation does not revoke Draft save qualification",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R1 repeats complete saved Publish issues without saving or requesting Publish",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after dispose",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after resource",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after id",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after session",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after denial",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after status",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 late Clipboard success/reject is isolated after generation",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior R2 current Clipboard success and manual fallback retain captured Closed URL",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Owner draft qualification follows lifecycle",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Owner published qualification follows lifecycle",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Owner closed qualification follows lifecycle",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior dirty publication sends nothing, clean publication confirms and pushes a frozen resource",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior confirmation revision and Session changes revoke the old command",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Visibility preserves edits during pending, baseline, exact config, keys and microsecond deadline",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior policy no-op never sends, explicit failure and unknown keep definition and restore selection",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior a policy success does not reconcile an unknown Delta; Publish and save stay gated",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Publish maps full saved definition indices and preserves unknown details",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Delete authorizes once only after confirmation, 204 clears then replaces",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior unknown Delete locks all writes and does not clear, navigate or toast",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior old Form GET after a successful policy write cannot overwrite policy or baseline",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior old GET after unknown visibility cannot adopt or reconcile",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior old GET after unknown lifecycle cannot adopt or reconcile",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior old GET after unknown delete cannot adopt or reconcile",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior old qualification me cannot adopt Session after a write; old qualification Form cannot rebase",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior current authoritative 404 after unknown Delete discards and clears the gate without a second permit",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior same Form serializes all writes and a GET captured during pending stays stale",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Count is explicit, zero is success, repeats read and stale late result is ignored",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior Count failure is a read failure, preserves old count and never acquires an unknown lock",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior management denial revokes ability; stale write on changed resource has no effects",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior management AUTH_REQUIRED closing owns the current login flow",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior management AUTH_TOKEN_INVALID closing owns the current login flow",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior management AUTH_TOKEN_EXPIRED closing owns the current login flow",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior denial survives a new page operation and normal GET reconciliation until explicit identity verification",
+            "status": "passed"
+          },
+          {
+            "name": "F7 management behavior permission denial invalidates an already pending qualification/read even without a mutation",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/f8-response-page.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "F8 Definition-aware complete Receipt maps reordered five types with exact values, Option IDs, Rating zero and missing optional blank",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 0 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 1 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 2 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 3 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 4 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 5 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 6 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 7 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 8 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 9 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 10 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 11 without partial adoption",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects missing required, wrong form and duplicate question at the decoder boundary",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1.0 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1e0 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 0 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 9007199254740993 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt round trips precise JSON token 0.12345678901234567890123456789 and validates submitted semantic equality",
+            "status": "passed"
+          },
+          {
+            "name": "F8 Definition-aware complete Receipt rejects a decoded 201 whose normalized saved answers differ from the request",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation single enters empty, no Latest prequery; reliable 201 preserves raw and clean",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation multiple enters empty, no Latest prequery; reliable 201 preserves raw and clean",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation single Latest obtains success before replacement confirmation; cancel preserves model/baseline",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation multiple Latest obtains success before replacement confirmation; cancel preserves model/baseline",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation RESPONSE_NOT_FOUND Latest preserves input, baseline and known state",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation INTERNAL_SERVER_ERROR Latest preserves input, baseline and known state",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation multiple unknown followed by Latest and Form GET keeps duplicate risk; cancel retry sends zero POST",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation single unknown can be manually retried; AlreadySubmitted freezes local values until explicit Latest",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation invalid decoded 201 remains unknown with old baseline and no success Dialog",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation normal published expired/Closed enters blank without navigation, Latest stays available",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation normal closed expired/Closed enters blank without navigation, Latest stays available",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation deadline expires during pending but a current legitimate 201 still adopts success",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation AUTH_REQUIRED preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation AUTH_TOKEN_INVALID preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation AUTH_TOKEN_EXPIRED preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation disabled retains User and answers; missing form/Closed conflicts wait for explicit discard/navigation",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation management metadata preserves AnswerModel, baseline and dirty; owner denial is distinct from respondent eligibility",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation lifecycle unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation delete unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation visibility unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation submit late responses after context change cannot adopt/error/navigate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation latest late responses after context change cannot adopt/error/navigate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation form late responses after context change cannot adopt/error/navigate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation verify late responses after context change cannot adopt/error/navigate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation Latest started before a management success stays stale after lease ends",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation Latest started before a management unknown stays stale after lease ends",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation shared lease blocks concurrent Submit and management; submit freeze ends in finally",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation qualification GET at me stays stale after a management unknown; cannot clear its gate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation qualification GET at form stays stale after a management unknown; cannot clear its gate",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation verified different respondent ends local single/duplicate context without borrowing previous completion",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation reliable current Form 404 adopts missing after confirmation and releases Delete gate only",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation malformed Draft ownership does not throw or grant a usable response page",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation closing a not-submittable Dialog before its status GET resolves still follows confirmed Closed flow",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation status lookup AUTH_REQUIRED is a fresh read error, not a guessed Closed result",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation status lookup FORM_NOT_FOUND is a fresh read error, not a guessed Closed result",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation status lookup INTERNAL_SERVER_ERROR is a fresh read error, not a guessed Closed result",
+            "status": "passed"
+          },
+          {
+            "name": "F8 page transitions and request isolation manual Form/qualification read failures remain inline and keep policy lock; fresh success clears old read error",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/scoped-state.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "request ownership ignores late data/errors and old finally cannot clear new loading",
+            "status": "passed"
+          },
+          {
+            "name": "request ownership invalidates resource even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "name": "request ownership invalidates session even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "name": "request ownership invalidates unmount even when fetch ignores abort",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: transport-error",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: api-error",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: contract-error",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle does not extend Delta uncertainty to unrelated scopes or clear it on another operation success",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle locks same Form, permits another Form, snapshots before async, releases on all exits",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle keeps unknown lock across rejected/cancelled/stale reconciliation, unlocks only adoption",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle Latest/list adoption does not clear multiple/create duplicate risk",
+            "status": "passed"
+          },
+          {
+            "name": "write lifecycle does not apply stale outcomes; local snapshot errors release loading and lease",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits completed logout cleanup transfers its false dirty permit once to the intended navigation",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits completed logout cleanup transfers its true dirty permit once to the intended navigation",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits external content changes before completion prohibit cleanup, and later changes reject the reserved navigation without reauthorizing",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits external session changes reject completed logout navigation without a second confirmation",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits external request changes reject completed logout navigation without a second confirmation",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits external write changes reject completed logout navigation without a second confirmation",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits a failed completion does not create a navigation permit or allow its old action to run twice",
+            "status": "passed"
+          },
+          {
+            "name": "discard permits cancel blocks; redirect shares one permit; next navigation/action asks again",
+            "status": "passed"
+          }
+        ]
+      },
+      {
+        "path": "tests/unit/tooling-smoke.spec.ts",
+        "status": "passed",
+        "cases": [
+          {
+            "name": "Zod / Vitest tooling smoke parses a typed synthetic fixture and reports the invalid field path",
+            "status": "passed"
+          }
+        ]
+      }
+    ],
+    "tests": 462
+  },
+  "build": {
+    "command": "npm run build",
+    "result": "PASS",
+    "files": [
+      {
+        "path": ".output/nitro.json",
+        "sha256": "9c447517973b0a576c3051ae8fd55b98620d3c18441acf066d57404458404ca4"
+      },
+      {
+        "path": ".output/public/favicon.svg",
+        "sha256": "a094fb9eafac843e8f22e2fb68b172cf8a32510b91092b41ad471a0eadb3d6e6"
+      },
+      {
+        "path": ".output/public/_nuxt/9TbNOGjS.js",
+        "sha256": "db2dbbf84a4a42a1b107c73a9bed88991b0e70faca6da7c74696f3351b602ad0"
+      },
+      {
+        "path": ".output/public/_nuxt/B9-4-pbn.js",
+        "sha256": "c11e83ef9d37ef7fa088919289939ea6de1e4fee32f65e6cb13e4adcdf2240e1"
+      },
+      {
+        "path": ".output/public/_nuxt/BCKz2uHu.js",
+        "sha256": "34a7b48590e15e479b066d430bd5786cf3e2158fbab4c2531aadd3c839303201"
+      },
+      {
+        "path": ".output/public/_nuxt/BDNMzG2s.js",
+        "sha256": "27e87fe62aa760227b7529576953d8314891fd2aec28e0a3f03aece406f2d7d7"
+      },
+      {
+        "path": ".output/public/_nuxt/BgT0ugJb.js",
+        "sha256": "35109e58f97fd920d9cde9f0de146d45a88411b7a01c0f1cbb75b24eb26f4921"
+      },
+      {
+        "path": ".output/public/_nuxt/BLZ9afCB.js",
+        "sha256": "6e80443c3146b623af54b0604c45bd2b8e929c1a9561ca2dcf236275586dafd3"
+      },
+      {
+        "path": ".output/public/_nuxt/BNFMCl3d.js",
+        "sha256": "4b72f8dcc51eebc37909b64e395e380c87de779ffd0274affa0a5fca92163f6c"
+      },
+      {
+        "path": ".output/public/_nuxt/BNokmxul.js",
+        "sha256": "f0f01fe013f39db34ad94f62a13bdea6b519ddd728f0a48396701c0a5a19d10b"
+      },
+      {
+        "path": ".output/public/_nuxt/BoXpLox_.js",
+        "sha256": "f8943a879b5b5ac1d1611549e269dd24fa64a0d3b87bdf7ec712e08eae747d81"
+      },
+      {
+        "path": ".output/public/_nuxt/BqBlxfEK.js",
+        "sha256": "575cafea8f5407095d8127028ef754a1d2dcbc0cd0ce28d817aad663eed982a9"
+      },
+      {
+        "path": ".output/public/_nuxt/BtvRN05N.js",
+        "sha256": "4e7575d4129b28370a8d78d3775415556e912f41d09c5f4e3b255500b4f6b5f6"
+      },
+      {
+        "path": ".output/public/_nuxt/builds/latest.json",
+        "sha256": "12177c100e1193c6883a261c1d1ac2f42ebb8fe934a5af32dddb470ef4242944"
+      },
+      {
+        "path": ".output/public/_nuxt/builds/meta/5cd40982-9e6d-4890-b7e4-27b22c4e5845.json",
+        "sha256": "80b5646463dc5a0d6201e4d949b55dba4d40d3927cac3a85a39541667e2f86a8"
+      },
+      {
+        "path": ".output/public/_nuxt/CaB2JPC0.js",
+        "sha256": "d30ff18c6d4c37740c7afb0549cef03a293605ca3d3a674bc5991f4e22b8cb17"
+      },
+      {
+        "path": ".output/public/_nuxt/CBrqnQCR.js",
+        "sha256": "ebdced0ef1660d6d380a505462dae8653dfed4b0f9331bfe1ed8900b8a2f39f4"
+      },
+      {
+        "path": ".output/public/_nuxt/Clk6ENjG.js",
+        "sha256": "1a396569140dedf9280d3bc2ce27a407ac0286cddae4d3dc07594c24efe99dde"
+      },
+      {
+        "path": ".output/public/_nuxt/CMVHoJLw.js",
+        "sha256": "0cd8a1a42c15f5ca115c7cea570f7cf8bae364ffae4906fe8b72b90195c58cd3"
+      },
+      {
+        "path": ".output/public/_nuxt/CNjt3QZH.js",
+        "sha256": "ed933216fefc14c036589ab49407cb7db45ce904801901983e429c0de37f6e3c"
+      },
+      {
+        "path": ".output/public/_nuxt/CNpMoLXJ.js",
+        "sha256": "7a1a256255fcf6b59165402e9dbd5fb77eaacebb1bcd45cf531f88219793030d"
+      },
+      {
+        "path": ".output/public/_nuxt/co7GX1gf.js",
+        "sha256": "07ce13b04bcb252b86cec1ba0f5da9e656903f8ca3dfd8532fe8d6f8645bf07d"
+      },
+      {
+        "path": ".output/public/_nuxt/COJP5_uV.js",
+        "sha256": "77256ef3e26ad8c7fe01afea153ec2660183c750aa3c6717c23ee9bc04b7df5a"
+      },
+      {
+        "path": ".output/public/_nuxt/CPwYpn1u.js",
+        "sha256": "a91dcfc4a223e2c1672ab0d14361db2ea659f502599435b3fcc48bd60cb285e5"
+      },
+      {
+        "path": ".output/public/_nuxt/CrukXCBL.js",
+        "sha256": "5df2f45ca1207d92870ee8404561ad104aa53872ac7c2cd6649df6ef33d818d3"
+      },
+      {
+        "path": ".output/public/_nuxt/CTpMkH0w.js",
+        "sha256": "37ff50a2efcde030f9c423d9c035d0a2a43b484686a8d92b0cb4c51cbc1dea57"
+      },
+      {
+        "path": ".output/public/_nuxt/CyGU_5Z8.js",
+        "sha256": "91267e473f5f57b21fb61326cd2654db0404040518c3652e79ddebd1e2ef72b8"
+      },
+      {
+        "path": ".output/public/_nuxt/CZt2u1gx.js",
+        "sha256": "763676105b485f9ce2d18d5711b3d7e7d56820ac582154b68c66518ea10fbb0f"
+      },
+      {
+        "path": ".output/public/_nuxt/D9jWobcJ.js",
+        "sha256": "3fe87f6732541a961ea486899cf710dd669554ceeacb5282a858942293ddc35d"
+      },
+      {
+        "path": ".output/public/_nuxt/Db156uFH.js",
+        "sha256": "3fdbe25974d9e92f9df53b1f9756df0a9ee987855724c858b0cbe05005c7c1d7"
+      },
+      {
+        "path": ".output/public/_nuxt/DC3Tigql.js",
+        "sha256": "3e9c5229735cb72603117d8f1f845f156d3294f9ee564808778dc92aa719527d"
+      },
+      {
+        "path": ".output/public/_nuxt/DD1KGf0x.js",
+        "sha256": "5a149cfef1655d823225c60ef742e616325180fa2c68bdb29f8a41d2bec5a547"
+      },
+      {
+        "path": ".output/public/_nuxt/DgIjZemq.js",
+        "sha256": "6049bae458a3d0b98de8c1b134812facb31b9b704f2403a6d0b84cfc7c22988d"
+      },
+      {
+        "path": ".output/public/_nuxt/DgyUXEUU.js",
+        "sha256": "e12459f5f891d2042cfe1f9e86a4e32356d93d079b017ecd6b5fe0912241cc14"
+      },
+      {
+        "path": ".output/public/_nuxt/DiILCsTA.js",
+        "sha256": "725a9be8d24663108ccdb0ae8ca1e3127ae41f6aec90d1e2a8ad6436965bc57d"
+      },
+      {
+        "path": ".output/public/_nuxt/DK3Fl9T5.js",
+        "sha256": "a526d1bb3288ef04d001028843220a24b0867a4edf8c685b69506d6525af36ff"
+      },
+      {
+        "path": ".output/public/_nuxt/dL5tcZd5.js",
+        "sha256": "aed5fc5daa253eb9253877f23e0915dd08b4ff289ab29ee002d0af16af73c4f9"
+      },
+      {
+        "path": ".output/public/_nuxt/DLPf5EwX.js",
+        "sha256": "71c45a0d923e83abbc19965f1ba10a7895fe8a939595216ba84bba52794cddff"
+      },
+      {
+        "path": ".output/public/_nuxt/Ds-q6r3j.js",
+        "sha256": "6523129da238dae6c4929a177247c4085b830cd32d8f0ce7ea758f0a88a69a0f"
+      },
+      {
+        "path": ".output/public/_nuxt/Dt4zif15.js",
+        "sha256": "2711bdebb30451138bc576e46e0db12a6b694f0ada41a6083266e2a63aa5a0c8"
+      },
+      {
+        "path": ".output/public/_nuxt/DXzyxFW5.js",
+        "sha256": "ea9a5426702f7cb5c3ba54b4fcc5c00568c27d18244f1d3d77ed06c8f1f9ee9e"
+      },
+      {
+        "path": ".output/public/_nuxt/DZTJz4LM.js",
+        "sha256": "d66255b1838b561d0885d7ad8f07c2e0ff329364954e0dc0f1f9f7d08d191285"
+      },
+      {
+        "path": ".output/public/_nuxt/entry.Ch1glZHq.css",
+        "sha256": "008c530a422f805f730c7d32a1ae1a972d59693aab2192984ecfac2417d205ce"
+      },
+      {
+        "path": ".output/public/_nuxt/error-404.DpKY_dMl.css",
+        "sha256": "830d0ba8a011835a2db0ccec96e3aab9f127ee4c23df5bdf48a95fbe3221cbf6"
+      },
+      {
+        "path": ".output/public/_nuxt/error-500.CmR4p1fc.css",
+        "sha256": "f3232c01d773770b33b8d57ae2ca6c238ee2195b41bddd15f5e5971e92cb1a69"
+      },
+      {
+        "path": ".output/public/_nuxt/FhTs0GlM.js",
+        "sha256": "87478dded8c738bf2749630b12521fe849139e977bba54cb911490fbc44a3e90"
+      },
+      {
+        "path": ".output/public/_nuxt/L3pbOKjV.js",
+        "sha256": "44a132a4cb8133366870a45bb3d7eec36fe52e0ec40af1a10117dbbb23f814ff"
+      },
+      {
+        "path": ".output/public/_nuxt/m33rpDEk.js",
+        "sha256": "fc07844a423ec3245d507138cd4426151faa829cd33eed236f53666774a62c9f"
+      },
+      {
+        "path": ".output/public/_nuxt/N9djsEu6.js",
+        "sha256": "b10a0694034ef237ec6aa062edb46c2a77ee7fbbd0a24abecbcf288c69a10a6f"
+      },
+      {
+        "path": ".output/public/_nuxt/n9DtaV3z.js",
+        "sha256": "3a6b76b5a30b83d6b76a783d03f3d0674135f73228500937231bba33f89d190a"
+      },
+      {
+        "path": ".output/public/_nuxt/val5m0f-.js",
+        "sha256": "10f24eb866cabae40c8f35545efaeaaa31f27a37af50a28545ae4b61ec525db2"
+      },
+      {
+        "path": ".output/server/chunks/routes/renderer.mjs",
+        "sha256": "fa09d172c7c2bafc0dfd86ededc907896a3041c155cb82fbdfdf6e35bd36b64c"
+      },
+      {
+        "path": ".output/server/chunks/routes/renderer.mjs.map",
+        "sha256": "d088866ceebae4f0f613a60cd038aeaa72aa601f573f9fb83c266489caf45b45"
+      },
+      {
+        "path": ".output/server/chunks/virtual/entry.mjs",
+        "sha256": "9753b81b19063f393abe35421171e1dc804b1669f11370a016011c82bd7f09fb"
+      },
+      {
+        "path": ".output/server/chunks/virtual/entry.mjs.map",
+        "sha256": "0c8b20a44398f2de0ebc7f61cacc4d514be098f59d8f6aeaaa21a092a847ab01"
+      },
+      {
+        "path": ".output/server/chunks/virtual/precomputed.mjs",
+        "sha256": "c7f14eab102e9233b712bb23aeeee68756b1e2a6191c2132503a0408638b78de"
+      },
+      {
+        "path": ".output/server/chunks/virtual/precomputed.mjs.map",
+        "sha256": "f200142dc1264af5046a0b203596b56105a0eeca0623b2be3ed7c4868d827ae9"
+      },
+      {
+        "path": ".output/server/chunks/_/error-template.mjs",
+        "sha256": "8f3da15d73437e94d5239868a9ad5304c0d462da6904f923a85824959d6902e4"
+      },
+      {
+        "path": ".output/server/chunks/_/error-template.mjs.map",
+        "sha256": "8b41a0cb23e567006f20c8cf21c7829659183b12987724cac0112f0cb73f8004"
+      },
+      {
+        "path": ".output/server/chunks/_/nitro.mjs",
+        "sha256": "804b3b8648139761b4e0f08f6c1836675a6addae1ad501b32b0776e0255430aa"
+      },
+      {
+        "path": ".output/server/chunks/_/nitro.mjs.map",
+        "sha256": "3cc77cc44ad70ccd18eedfaa00d4ad7b669e5343a44a6aafea960c890dd66951"
+      },
+      {
+        "path": ".output/server/index.mjs",
+        "sha256": "2d8cd85f2569ba4d13254866cb5be5f1ee23706afa2746e44e98621b506b31c9"
+      },
+      {
+        "path": ".output/server/index.mjs.map",
+        "sha256": "900f0ec652ceaea782a84138f700193a72deb871c1c39dca865a4cb4d4adef01"
+      },
+      {
+        "path": ".output/server/node_modules/@babel/parser/lib/index.js",
+        "sha256": "82d72e197e27bf909ae10ffc8d1a969aeb94fe96ec96c4e9cb685a0a8229e40c"
+      },
+      {
+        "path": ".output/server/node_modules/@babel/parser/package.json",
+        "sha256": "fa70cca00587bdb335e8249fa40e9356ed7b7c9a4fc92b1e74245ab1b852cda1"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-core/dist/compiler-core.cjs.prod.js",
+        "sha256": "367c63eaf7af09c32c04e7511dcdf2961c11bf1fe604d9fe3b25880d0bd84ded"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-core/package.json",
+        "sha256": "23a72b210735eb489547600864ebcb498a0c992edf26c174545eb7b1f886df21"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-dom/dist/compiler-dom.cjs.prod.js",
+        "sha256": "9647d0baba9df0339fd933ca321a377379cdc2c685b6e0408038bbe1e5a7c5fe"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-dom/package.json",
+        "sha256": "91d4461f43d6fb985fe1cca8778317f9d5a224c54b48d6b55b70b77d187a4a70"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-ssr/dist/compiler-ssr.cjs.js",
+        "sha256": "74bfc9296564ef467e07a8fea01fff19e868dda7bcd3691c0ca5810f8d8e933d"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/compiler-ssr/package.json",
+        "sha256": "a197fdd82cb501fde4214e8f782d482d1e534ce8b08473e7d04caca0fe253e45"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/reactivity/dist/reactivity.cjs.prod.js",
+        "sha256": "3a794e3db1375918ed54507870a3ddcf572f05fb1580bb03c843d7d1642b9ed9"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/reactivity/package.json",
+        "sha256": "e0c289280e43aa554bfeac0d39779de7312003b6dcd547c01bb023c67b23cd9d"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/runtime-core/dist/runtime-core.cjs.prod.js",
+        "sha256": "ca1447e51c75dd83a9e6d6c57f1151859f2413354f5739cfab152e908c6cb184"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/runtime-core/package.json",
+        "sha256": "b02e5f4ba4d14b93c2c9c654d12b01b2725f378b336837ca8251acc695eb5d17"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/runtime-dom/dist/runtime-dom.cjs.prod.js",
+        "sha256": "2e3d05a3c167d5e46491f230b0cadccc3df27a13ac0d058092a7c71d426a5b54"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/runtime-dom/package.json",
+        "sha256": "060b17bee84956e1d9fa35b6e5923e04bc7f0612d89d6301022766af7a981d9d"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/server-renderer/dist/server-renderer.cjs.prod.js",
+        "sha256": "4c96539ad0843cab3f18773c5366d6b3a7f2fa780a16af54822b05b2a3c861dd"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/server-renderer/package.json",
+        "sha256": "545d67c244e2e1886cd76a75955572ec71b9ae16c02af31229319e8f1a9e2b02"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/shared/dist/shared.cjs.prod.js",
+        "sha256": "3e628d9fa8deaadfef6edcbed4cdf09ceeda25efe9dead20cd05ba03324d4531"
+      },
+      {
+        "path": ".output/server/node_modules/@vue/shared/package.json",
+        "sha256": "6884a68a6a20f0f40a7558d9d462440052c514e7e5fcb67f5bd91678ae2eedf0"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/package.json",
+        "sha256": "82667293f8d8b6d7d2c5549d3017cd9feea6fa96692c9d24f682a4c354db6d47"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/base64.js",
+        "sha256": "80493520c02cd3eb84ad4b788f78526fff2f41881e9a2211daba3067ad9793c7"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/constants.js",
+        "sha256": "caefdf560562338ffdcb9ee1ba41c604e3d37861317cc6c00eb1a724b18920d8"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/index.js",
+        "sha256": "8f453bd97162fedc108e5df7a82a8c7193a5dc9ea25411ab6526e6c88de9e8f0"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/javascript-source.js",
+        "sha256": "829bb5f57953d0c3282c9e476fae10e0efde5a4892e4c7ac3dea281371cc692c"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/operations.js",
+        "sha256": "491ad304443df1bf93ad640c1116053ca74c098f80409db4413e901a0895ba8b"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/parse.js",
+        "sha256": "1574a010c7dec0cf49a4cef97c7d2befd960f630576aa62b0d43ab30d80dddcc"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/stringify.js",
+        "sha256": "e2211b0636104036e5a0f30f8aeb717d83f476f2c8483a8c1035d4bd69fcb632"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/uneval.js",
+        "sha256": "014c51884701a85cfef6d02d4f91d6cea81c81a62a1ae304735a26963da29349"
+      },
+      {
+        "path": ".output/server/node_modules/devalue/src/utils.js",
+        "sha256": "f5c7aab123578624e699aed84d957e2fa1c73c5f7aaefbfba262014ff283f355"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/decode-codepoint.js",
+        "sha256": "98d97fd43e4db015e5afa7c69b1055cd1ade8114530ea01734add86184125271"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/decode.js",
+        "sha256": "e318cd751279428b7d7e6e9e4c0dc7cc8a4c78e8c2bd00d42da9f8e7b3ef5c07"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/generated/decode-data-html.js",
+        "sha256": "80b85ad02696af10d597c1353db7eb01fbbe4db5b922ac8693c29cbe18d53ac4"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/generated/decode-data-xml.js",
+        "sha256": "07e89fa83ca837b188e4cc52a8d6d2b6983fc5a63b15abad789da9be2ea777b6"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/internal/bin-trie-flags.js",
+        "sha256": "ddb6a8fcaab3a1fb6d60c576bf10302a554d71869b6466a14fc11a800264559a"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/internal/decode-shared.js",
+        "sha256": "e68061084a578fa4f95bd96407f2a4e272bb38615ae1b1076d1181981ce95549"
+      },
+      {
+        "path": ".output/server/node_modules/entities/dist/commonjs/package.json",
+        "sha256": "8005a3491db7d92f36ac66369861589f9c47123d3a7c71e643fc2c06168cd45a"
+      },
+      {
+        "path": ".output/server/node_modules/entities/package.json",
+        "sha256": "23b8155e392e40ef78b3e673ae1a661f6e12d631c1bf472fdf659fc73e0a063b"
+      },
+      {
+        "path": ".output/server/node_modules/estree-walker/dist/umd/estree-walker.js",
+        "sha256": "183597c40a43d2a2ebda3dc85ae2dd70e107b3e5cec305b02a5bffa54e0f4b9b"
+      },
+      {
+        "path": ".output/server/node_modules/estree-walker/package.json",
+        "sha256": "39ad598e5f9c279ce78c39be694413005ab6ea7083255224692c5adbca88017b"
+      },
+      {
+        "path": ".output/server/node_modules/hookable/dist/index.mjs",
+        "sha256": "377b65805bb3ae06066a557acb72834d753053199ab1af8ec719492006992c51"
+      },
+      {
+        "path": ".output/server/node_modules/hookable/package.json",
+        "sha256": "e4f30e2a2bc8f98f6e7d43229a41f72aac99de43dda10506af7d4d7d5d5f1625"
+      },
+      {
+        "path": ".output/server/node_modules/nostics/dist/formatters/ansi.mjs",
+        "sha256": "4397bf3a3f28ccbfbba54f3be270e89fb1318a149938db58539431703f302728"
+      },
+      {
+        "path": ".output/server/node_modules/nostics/dist/index.mjs",
+        "sha256": "cf738d98c6544a43c4ca86f3a2e09e80d2b85491d6679d480dbb455ba758704a"
+      },
+      {
+        "path": ".output/server/node_modules/nostics/package.json",
+        "sha256": "2ce7da36f8bc639766ce0ca9cf2705219b8a8a850ca482c4605a56a9c31a0028"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/array-set.js",
+        "sha256": "163bb3055aaea7140167740036a83161fd912c344b14f992754b80f21477d754"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/base64-vlq.js",
+        "sha256": "f3407e528f54ec0787bd0a71eeac0c99fffd98445916fcbe116dc69ca3be928b"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/base64.js",
+        "sha256": "651bf433cf05e9ec8cee0b94639483236a605d48279e83d3d5c5de81c21d6599"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/binary-search.js",
+        "sha256": "c7f4a47a125af0bd860443dfd71d2f412d1a97dcb53ab7038189d63b91dc32bd"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/mapping-list.js",
+        "sha256": "35ddb82861f11a70ab84cb47d620fcb28d7f884bb444644e06bde815b836ef9e"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/quick-sort.js",
+        "sha256": "1e2857cc4f6c9c36b764ce529f39b9243bed27aed809e895d7cec04c8a869266"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/source-map-consumer.js",
+        "sha256": "9ad10db386da13c1f95e6a680d6298dbb306c77f57a9a3539e4595b723a7654b"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/source-map-generator.js",
+        "sha256": "07894c9ea1e674263e2e7694d43d4fb935e98549b93946205b9536c1420696c0"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/source-node.js",
+        "sha256": "d1a0ef136bf0e974ba956506c88e91fef5d8681bbf10c486ff9566a7d6d76f3c"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/lib/util.js",
+        "sha256": "0629f3ae2f3049cda3a2e87ea651dcf0cc71108f4681795ab989a8ac1573fc03"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/package.json",
+        "sha256": "89916ed9fd10e7d237a8cdcf302807685ad859f345aba1f4076d03dfa298dc73"
+      },
+      {
+        "path": ".output/server/node_modules/source-map-js/source-map.js",
+        "sha256": "dc098456c2d9ab90a4c0a17cca9be16665b9813df20906553a98b0088a157be7"
+      },
+      {
+        "path": ".output/server/node_modules/ufo/dist/index.mjs",
+        "sha256": "893199faf3aafc1b2a03018de7c87738bcd78ed5153e7c2767d62e09b323b042"
+      },
+      {
+        "path": ".output/server/node_modules/ufo/package.json",
+        "sha256": "d5205f5e253a10b104da0aca28323f68d3a39de0d477b9964387b227ab3ae6f1"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/client.mjs",
+        "sha256": "4803fdf46b1e5ce3b22100968703df24c2345a21505464a09ff2baa389e81d0f"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/legacy.mjs",
+        "sha256": "a4b420182ff774c0a05fa28a3d35ab005db09ad6965ddd1e9dbe6305653159de"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/minify.mjs",
+        "sha256": "9123ebe28958b125f1313a5a014d8a380ebd27d5df540d52bf4348421cbde91f"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/parser.mjs",
+        "sha256": "c79ddf1a2d64d364c909ca787e8faccec3c9ae4e60bdd704a850b2de7bb2cdf9"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/plugins.mjs",
+        "sha256": "50032b123ecccd17817c187d0e3a03e3f7ddc17d6781dc0f59f54dd71e0f1d7a"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/server.mjs",
+        "sha256": "ab088d121b1daa08911af559a82a2a04afd83b24d94e69475b2e70243564604c"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.-hZVKou0.mjs",
+        "sha256": "0157139a16ad825480fbad3dc6bb19715679e082705016fdc68f70d9fe39a23f"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.BEmVMkeA.mjs",
+        "sha256": "8efe219c8fa6b39f74bd64bdd254d3ffa855094684bb0bcdf2a99403b30d3570"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.Bf_fPVYA.mjs",
+        "sha256": "26b5488f6e75a1f0f10caa7236953dedd65963d05a1dc04eade6f863d99a5e9e"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.BGFxPGPQ.mjs",
+        "sha256": "b2cb65ac3bf42263b7a86746f9ba1fced8c0e388b2c7b69f2f0c3978fbabb6d4"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.Bjbp1C8D.mjs",
+        "sha256": "2f5a14fa5b73a39b76d3cec663b87b159b4a1ecc5d6674ba819daf55959830ef"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.Bm4Y6XQI.mjs",
+        "sha256": "d619678fb9f31f47eef8ba44507ba7dd5be9261a3c524d00c97b9cd250ab4909"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.BQWSw36o.mjs",
+        "sha256": "7097347e132566944b360f31bb16bfe1c770138e1e5db7156fcf10d260286bbf"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.C5Bksi2B.mjs",
+        "sha256": "cf8875bd7249dfb9c2253b87d63d571f93830fe66557c89c1b04a53e75c8d5a4"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.CGPOfp5O.mjs",
+        "sha256": "9c15d2979b6ab967828caec9ae66b533e7d8b9ebadad7cd4726a221fc2df0c62"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.CHEy9ana.mjs",
+        "sha256": "98aba62d97b3ea5ade402be0975f5da18768512f2738ab4efc264fb78320f2c6"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.C_7zwq8E.mjs",
+        "sha256": "c0a1c95adb7a9b5a6a8d5cb553a792bd62e2f6b4c1a58aef32a4f8bd98cbba8c"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.D7HkBzZn.mjs",
+        "sha256": "586ada37dd35c7342f4a5f94e6deee79570fb3933804580ae7485fa050b55e5c"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.Dssd7L5I.mjs",
+        "sha256": "6a8bf1c9c2ed60ebc89c440ebbbee14ccf77b4843f407d53b3b5e08dbae7a8c5"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.jEy9BmRq.mjs",
+        "sha256": "f3d8cc03faa4ee18300729ccc0725085721e1bf74c7520157adf49455e13adaf"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.oZ7pkTV1.mjs",
+        "sha256": "012831f233af592c8e85c8dd415342bc012ade4663cbcc85d34c15e85f78cadb"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/shared/unhead.tQnRaXfX.mjs",
+        "sha256": "80514e7230d4a9920aa704acabec3d5a772afb948f7a6ffcbc48b11f55bb5f16"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/stream/client.mjs",
+        "sha256": "72579a3f66279d50bdec0efe0988a0be88d360b919e710fb8706d8ba4c4ca0d7"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/stream/iife.mjs",
+        "sha256": "c35dee06ac6719c9eb449bda075c422e11d6780b5aededf1e52f1322b73fc895"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/stream/server.mjs",
+        "sha256": "d4dfc413efe91684b45cb8cecb6169f7d6d2dd303be31208c17e4b5eef3745ef"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/dist/utils.mjs",
+        "sha256": "f535dda6aa4f5dfe9feac8a8e8814cc11c3706af68b3f459e282a4786d598baf"
+      },
+      {
+        "path": ".output/server/node_modules/unhead/package.json",
+        "sha256": "76a8ee1cb9257f7240b05fa8ac87e5ec4232eeaa02b7281d382f0776bfbd39dd"
+      },
+      {
+        "path": ".output/server/node_modules/vue/dist/vue.cjs.js",
+        "sha256": "330a009bbef2facd058d2be0f6058e7f4b08abfd3d7972de55df49c60205622d"
+      },
+      {
+        "path": ".output/server/node_modules/vue/dist/vue.cjs.prod.js",
+        "sha256": "80a33ee22e937e45bbf57b256f51b6f332d0dca61b598a7decff865c8478d411"
+      },
+      {
+        "path": ".output/server/node_modules/vue/index.js",
+        "sha256": "a5287f6056bc5c2c569d318063ee043f55a0d323fa7262f64456d58fd574f928"
+      },
+      {
+        "path": ".output/server/node_modules/vue/index.mjs",
+        "sha256": "be2f35590bee45e69850d0d8d48f0b8c8f5c0ef0ecf8a7265ab12fb7add6584d"
+      },
+      {
+        "path": ".output/server/node_modules/vue/package.json",
+        "sha256": "38970472da641a3148a956ec8155eb53e82ee1f8212059709f2ce4b8be0bc38f"
+      },
+      {
+        "path": ".output/server/node_modules/vue/server-renderer/index.mjs",
+        "sha256": "ddf4fc11a9d155f1d58084838ad0eb640d38b6b7724fac14a1e782efaaa2966c"
+      },
+      {
+        "path": ".output/server/node_modules/vue-bundle-renderer/dist/runtime.mjs",
+        "sha256": "2248fdcfa20093ba0f464b29eafd3e0cd7e1cf7d8e1b28d7dd666af58f9d3c81"
+      },
+      {
+        "path": ".output/server/node_modules/vue-bundle-renderer/package.json",
+        "sha256": "b9e3820ad20e71a33413de5cb260ccce665b8074678bc76415aaaf80f7ba963f"
+      },
+      {
+        "path": ".output/server/package.json",
+        "sha256": "fa792cdbaa1fd5f6a62ce58b9866f0113f1c96212d279a54189c484c18150519"
+      }
+    ]
+  }
+}

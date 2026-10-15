@@ -1,0 +1,32 @@
+{
+  "shellStatus": 0,
+  "command": "npm run preview",
+  "observedAt": "2026-10-15T19:30:02.9709721+08:00",
+  "purpose": "post-execution provenance check of same unchanged fresh build; core runs used their own reuseExistingServer=false preview",
+  "indexSha256": "2D8CD85F2569BA4D13254866CB5BE5F1EE23706AFA2746E44E98621B506B31C9",
+  "port": [
+    {
+      "LocalAddress": "::1",
+      "LocalPort": 3000,
+      "OwningProcess": 16316
+    }
+  ],
+  "buildLog": "execution/build.log",
+  "cwd": "C:/Users/user/Desktop/custom-form-service-web/.output",
+  "processes": [
+    {
+      "ProcessId": 40432,
+      "ParentProcessId": 41144,
+      "ExecutablePath": "C:\\nvm4w\\nodejs\\node.exe",
+      "CommandLine": "\"node\"   \"C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\.bin\\\\..\\@nuxt\\cli\\bin\\nuxi.mjs\" preview --host localhost --port 3000",
+      "CreationDate": "2026-10-15T19:29:26.89227+08:00"
+    },
+    {
+      "ProcessId": 16316,
+      "ParentProcessId": 40432,
+      "ExecutablePath": "C:\\nvm4w\\nodejs\\node.exe",
+      "CommandLine": "node server/index.mjs",
+      "CreationDate": "2026-10-15T19:29:30.638124+08:00"
+    }
+  ]
+}

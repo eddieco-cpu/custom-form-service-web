@@ -1,0 +1,78 @@
+
+> test:e2e
+> playwright test --config=playwright.integration-supplement.config.ts
+
+[WebServer]
+[WebServer]  ERROR  (node:27912) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:41820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 7 tests using 1 worker
+
+(node:31484) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\f6-live.spec.ts:13:1 › F6-L01..L04 real Create, delta, independent readback, exact config and deadline; retained synthetic data (5.4s)
+  ok 2 [chromium] › tests\e2e\f7-live.spec.ts:10:1 › F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and dedicated Delete readback (20.3s)
+  ok 3 [chromium] › tests\e2e\f7-live.spec.ts:133:1 › F7-L02 matrix continuation real three policies in Draft/Published/Closed with independent GET (2.8s)
+  ok 4 [chromium] › tests\e2e\f7-live.spec.ts:171:1 › F7-L06 real cached Owner versus current Cookie role denial, SPA persistence and qualified recovery (3.2s)
+  ok 5 [chromium] › tests\e2e\f8-live.spec.ts:11:1 › F8-L01..L05 real Submit, independent Latest, Cookie/CORS, complete replacement and retained synthetic resources (23.0s)
+  x  6 [chromium] › tests\e2e\integration-supplement.spec.ts:108:1 › Supplement A01-A04: real Profile readback, dirty logout and login return (12.3s)
+(node:13144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 7 [chromium] › tests\e2e\integration-supplement.spec.ts:159:1 › Supplement L01-L05: real 21 Forms, UI pagination/filter/shrink and full role-route matrix (9.5s)
+
+
+  1) [chromium] › tests\e2e\integration-supplement.spec.ts:108:1 › Supplement A01-A04: real Profile readback, dirty logout and login return › A03 dirty logout cancel zero POST / accept 204 / login return
+
+    TimeoutError: page.waitForResponse: Timeout 10000ms exceeded while waiting for event "response"
+
+      143 |       await expect(page.getByRole('textbox', { name: '姓名' })).toHaveValue('尚未保存姓名')
+      144 |       await page.getByRole('button', { name: '使用者選單' }).click()
+    > 145 |       const logout = page.waitForResponse(v => v.url().endsWith('/auth/logout'))
+          |                           ^
+      146 |       await native(page, r, true, () => page.getByRole('button', { name: '登出', exact: true }).click())
+      147 |       expect((await logout).status()).toBe(204); await expect(page).toHaveURL('http://localhost:3000/login')
+      148 |       expect((await page.context().cookies()).some(c => c.name === 'access_token')).toBe(false)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:145:27
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:38:13
+        at Object.step (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:37:5)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:138:5
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for getByRole('button', { name: '登出', exact: true })
+        - locator resolved to <button type="button" data-slot="base" class="rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 w-full justify-center ring ring-inset ring-accented text-default bg-default hover:bg-elevated active:bg-elevated disabled:bg-default aria-disabled:bg-default outline-inverted/25 focus-visible:outline-3 focus-visible:ring-inverted">…</button>
+      - attempting click action
+        2 × waiting for element to be visible, enabled and stable
+          - element is not stable
+        - retrying click action
+        - waiting 20ms
+        - waiting for element to be visible, enabled and stable
+        - element is not stable
+      - retrying click action
+        - waiting 100ms
+        - waiting for element to be visible, enabled and stable
+      - element was detached from the DOM, retrying
+
+
+      144 |       await page.getByRole('button', { name: '使用者選單' }).click()
+      145 |       const logout = page.waitForResponse(v => v.url().endsWith('/auth/logout'))
+    > 146 |       await native(page, r, true, () => page.getByRole('button', { name: '登出', exact: true }).click())
+          |                                                                                               ^
+      147 |       expect((await logout).status()).toBe(204); await expect(page).toHaveURL('http://localhost:3000/login')
+      148 |       expect((await page.context().cookies()).some(c => c.name === 'access_token')).toBe(false)
+      149 |       r.expected('GET', '/users/me', 401); await page.goto('/profile?return=supplement#name')
+        at action (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:146:95)
+        at native (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:69:9)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:146:13
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:38:13
+        at Object.step (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:37:5)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:138:5
+
+    Error Context: output\playwright\integration-supplement\artifacts\integration-supplement-Sup-dc250-rty-logout-and-login-return-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\integration-supplement.spec.ts:108:1 › Supplement A01-A04: real Profile readback, dirty logout and login return
+  6 passed (1.4m)

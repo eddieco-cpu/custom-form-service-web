@@ -1,0 +1,53 @@
+{
+  "purpose": "Preserve first failures without rewriting product assertions or historical results",
+  "failures": [
+    {
+      "stage": "unit first launch",
+      "command": "npm run test:unit",
+      "result": "FAIL (environment imports)",
+      "actual": "13 suites could not import due to ENOENT opening sandbox AC/Temp/.../ssr cache files; 2 files / 12 tests passed",
+      "evidence": "Original exec output in this chat; initial output was not redirected to a local log",
+      "change": "No code or assertions changed; reran identical command with normal local execution permission",
+      "retest": "15 files / 462 tests PASS; same scope rerun once with JSON reporter for per-case evidence"
+    },
+    {
+      "stage": "new A03 UI automation",
+      "actual": "After native dirty logout was cancelled, menu remained open; script clicked menu trigger again, closing it, then timed out locating Logout and awaiting its response",
+      "expected": "Cancelled logout sends zero POST and preserves input; subsequent confirmed logout returns 204 and navigates to login",
+      "change": "Only new script checks aria-expanded before opening menu; all product assertions retained",
+      "evidence": "execution/browser-first.log; execution/browser-first-results.json; execution/first-profile-error-context.md",
+      "retest": "targeted-second Auth group PASS"
+    },
+    {
+      "stage": "new R03 UI automation",
+      "actual": "Exact text locator for 星級題 missed heading 5. 星級題; no clear-button click occurred",
+      "expected": "All optional controls clear to unanswered and subsequent Receipt / independent Latest contain answers=[]",
+      "change": "Only new script locates rating article by known server Question UUID",
+      "evidence": "execution/targeted-second.log; execution/targeted-second-results.json; execution/first-rating-error-context.md; execution/supp-1792063345458-e2ba36-first-failure.png",
+      "retest": "interactive-final complete group PASS"
+    },
+    {
+      "stage": "READ ONLY index probe",
+      "actual": "First psql command contained backslash-escaped identifier quotes and returned syntax error at backslash before MigrationId; no SQL writes were issued",
+      "change": "Passed literal SQL over stdin in explicit BEGIN READ ONLY / COMMIT transaction",
+      "evidence": "Original exec output in this chat; successful selected-resource outputs in execution/db-readonly-index.log and execution/db-readonly-all.log",
+      "retest": "DB identity / migration and 11 users / 39 Forms / 15 Responses indexed; no business SQL mutation"
+    },
+    {
+      "stage": "collector history manifest",
+      "actual": "ERR_INVALID_ARG_TYPE at path.resolve: F7 manifest uses file instead of path",
+      "change": "Collector accepts each manifest's actual path or file property; expected SHA256 not changed",
+      "evidence": "Original exec output in this chat; final collector source and evidence-audit.json",
+      "retest": "F8 56/56 and F7 44/44 manifest bytes match"
+    },
+    {
+      "stage": "post-execution frontend process provenance",
+      "actual": "HTTP probe of extra sandbox-launched preview timed out after 5 seconds; first JSON's shellStatus=0 was a diagnostic construction artifact, not an HTTP status",
+      "change": "Preserved first JSON; stopped only own verified PIDs 16316/40432; launched same unchanged artifact with normal local permission; final probe explicitly records PASS/BLOCKED",
+      "evidence": "frontend-process-first.json; frontend-process.json",
+      "retest": "HTTP 200; own preview child PID 39508, parent 30444. This extra probe does not replace or change the already passed core Browser runs"
+    }
+  ],
+  "productFindings": [],
+  "automaticApprovalRejections": 0
+}

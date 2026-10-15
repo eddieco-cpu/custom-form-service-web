@@ -1,0 +1,295 @@
+{
+  "runId": "supp-1792063345458-e2ba36",
+  "title": "Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent",
+  "browser": "chromium",
+  "api": "real; no route interception",
+  "accounts": [
+    {
+      "alias": "interactive-owner",
+      "email": "supp-1792063345458-e2ba36-interactive-owner@example.test",
+      "id": "b9ef70f4-c74c-439a-908a-884bde40f480"
+    }
+  ],
+  "steps": [
+    {
+      "id": "D02 UI sort persists IDs, no-op remains disabled",
+      "status": "PASS"
+    },
+    {
+      "id": "D03 Preview independent answers; reopen empty; dirty SPA cancel/accept",
+      "status": "PASS"
+    },
+    {
+      "id": "R03 Range untouched / focus is no answer; first receipt empty",
+      "status": "PASS"
+    },
+    {
+      "id": "R03 all six answers including number0 Stars0 Range0",
+      "status": "PASS"
+    },
+    {
+      "id": "R03 optional clear all types produces [] / independent Latest",
+      "status": "FAIL",
+      "detail": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-renderer-key]').filter({ has: getByText('星級題', { exact: true }) }).getByRole('button', { name: '清除答案', exact: true })\u001b[22m\n"
+    }
+  ],
+  "resources": [
+    {
+      "id": "371c30cd-ebca-469c-973e-f287be14cae7",
+      "purpose": "interactive sort/Preview/Range/Latest/share; retained",
+      "status": "published",
+      "deleteAllowed": false
+    }
+  ],
+  "wires": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/register",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": "{\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"responseMode\":\"multiple\",\"resultVisibility\":\"public\",\"questions\":[{\"type\":\"text\",\"title\":\"文字題\",\"sortOrder\":0,\"config\":{\"variant\":\"textarea\"}},{\"type\":\"number\",\"title\":\"數字題\",\"sortOrder\":1,\"config\":{}},{\"type\":\"single_choice\",\"title\":\"單選題\",\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"type\":\"multiple_choice\",\"title\":\"多選題\",\"sortOrder\":3,\"config\":{},\"options\":[{\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"type\":\"rating\",\"title\":\"星級題\",\"sortOrder\":4,\"config\":{\"variant\":\"stars\",\"min\":0,\"max\":5}},{\"type\":\"rating\",\"title\":\"滑桿題\",\"sortOrder\":5,\"config\":{\"variant\":\"range\",\"min\":0,\"max\":5}}]}",
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"variant\":\"stars\",\"min\":0,\"max\":5},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"variant\":\"range\",\"min\":0,\"max\":5},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.5932171+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.5932171+00:00\"}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.593217+00:00\"}"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": "{\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"sortOrder\":0},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"sortOrder\":1}]}",
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{},\"options\":[]},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.924109+00:00\"}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{},\"options\":[]},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.924109+00:00\"}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"items\":[{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.924109+00:00\"}],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":1,\"totalPages\":1}}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{},\"options\":[]},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:26.924109+00:00\"}"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7/publish",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{},\"options\":[]},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:28.488575+00:00\"}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"userId\":\"b9ef70f4-c74c-439a-908a-884bde40f480\",\"creatorDisplayName\":\"補驗 interactive-owner\",\"title\":\"supp-1792063345458-e2ba36 互動專用\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"type\":\"number\",\"title\":\"數字題\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{},\"options\":[]},{\"id\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"type\":\"text\",\"title\":\"文字題\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"variant\":\"textarea\"},\"options\":[]},{\"id\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"type\":\"single_choice\",\"title\":\"單選題\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"select\"},\"options\":[{\"id\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\",\"label\":\"單一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"6cbca0f4-56b3-44c5-81e1-eda18d8fd948\",\"label\":\"單二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"type\":\"multiple_choice\",\"title\":\"多選題\",\"description\":null,\"required\":false,\"sortOrder\":3,\"config\":{},\"options\":[{\"id\":\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\",\"label\":\"多一\",\"value\":\"one\",\"sortOrder\":0},{\"id\":\"96205d9c-a6ab-4f37-ac1b-4a460f536289\",\"label\":\"多二\",\"value\":\"two\",\"sortOrder\":1}]},{\"id\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"type\":\"rating\",\"title\":\"星級題\",\"description\":null,\"required\":false,\"sortOrder\":4,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"type\":\"rating\",\"title\":\"滑桿題\",\"description\":null,\"required\":false,\"sortOrder\":5,\"config\":{\"max\":5,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-15T11:22:26.593217+00:00\",\"updatedAt\":\"2026-10-15T11:22:28.488575+00:00\"}"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7/responses",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": "{\"answers\":[]}",
+      "response": "{\"id\":\"3646aec6-2fa5-4054-98c9-29858ab6abe6\",\"formId\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"submittedAt\":\"2026-10-15T11:22:28.737464+00:00\",\"answers\":[]}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7/responses/me/latest",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"3646aec6-2fa5-4054-98c9-29858ab6abe6\",\"formId\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"submittedAt\":\"2026-10-15T11:22:28.737464+00:00\",\"answers\":[]}"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7/responses",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": "{\"answers\":[{\"questionId\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"value\":0},{\"questionId\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"value\":\"第一份完整\"},{\"questionId\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"value\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\"},{\"questionId\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"value\":[\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\"]},{\"questionId\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"value\":0},{\"questionId\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"value\":0}]}",
+      "response": "{\"id\":\"489246b1-3600-4dff-9f76-ea9ab9d037ab\",\"formId\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"submittedAt\":\"2026-10-15T11:22:29.317966+00:00\",\"answers\":[{\"questionId\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"value\":0},{\"questionId\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"value\":\"第一份完整\"},{\"questionId\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"value\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\"},{\"questionId\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"value\":[\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\"]},{\"questionId\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"value\":0},{\"questionId\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"value\":0}]}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/371c30cd-ebca-469c-973e-f287be14cae7/responses/me/latest",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "body": null,
+      "response": "{\"id\":\"489246b1-3600-4dff-9f76-ea9ab9d037ab\",\"formId\":\"371c30cd-ebca-469c-973e-f287be14cae7\",\"submittedAt\":\"2026-10-15T11:22:29.317966+00:00\",\"answers\":[{\"questionId\":\"658237ec-42cb-4b8c-b13f-1a28aefbe34d\",\"value\":0},{\"questionId\":\"29f4ee80-72b0-4c5a-8249-bb42e8c05ac8\",\"value\":\"第一份完整\"},{\"questionId\":\"4ed768fa-e57a-468c-ae57-ebe6fc83247f\",\"value\":\"f6046fbe-4df6-4740-8513-1d7105a5be55\"},{\"questionId\":\"e41b05cd-1433-4baa-90e1-4ad488ae5186\",\"value\":[\"ea2acca5-a5e8-4b39-bf6a-a5b87b20a167\"]},{\"questionId\":\"fdfdf9b1-6abf-4eec-af99-17838a6fdae1\",\"value\":0},{\"questionId\":\"a30a0cf9-b3b3-434a-bbbe-0021aaae4d78\",\"value\":0}]}"
+    }
+  ],
+  "routes": [
+    {
+      "url": "http://localhost:3000/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/login?redirect=/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7/edit",
+      "page": "interactive-owner"
+    },
+    {
+      "url": "http://localhost:3000/forms/371c30cd-ebca-469c-973e-f287be14cae7",
+      "page": "interactive-owner"
+    }
+  ],
+  "dialogs": [
+    {
+      "type": "confirm",
+      "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+      "accepted": false
+    },
+    {
+      "type": "confirm",
+      "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+      "accepted": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "expectedErrors": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ]
+}

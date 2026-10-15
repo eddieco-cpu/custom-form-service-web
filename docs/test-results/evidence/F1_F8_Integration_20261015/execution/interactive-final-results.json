@@ -1,0 +1,209 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.integration-supplement.config.ts",
+      "--grep",
+      "Supplement D"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.integration-supplement.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/integration-supplement/interactive-final-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "integration-supplement.spec.ts",
+          "f6-live.spec.ts",
+          "f7-live.spec.ts",
+          "f8-live.spec.ts"
+        ],
+        "timeout": 180000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\integration-supplement\\interactive-final-artifacts",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "integration-supplement.spec.ts",
+          "f6-live.spec.ts",
+          "f7-live.spec.ts",
+          "f8-live.spec.ts"
+        ],
+        "timeout": 180000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "screenshot": "off",
+          "actionTimeout": 10000,
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/integration-supplement/interactive-final-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000
+    }
+  },
+  "suites": [
+    {
+      "title": "integration-supplement.spec.ts",
+      "file": "integration-supplement.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 180000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 5983,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "steps": [
+                    {
+                      "title": "D02 UI sort persists IDs, no-op remains disabled",
+                      "duration": 381
+                    },
+                    {
+                      "title": "D03 Preview independent answers; reopen empty; dirty SPA cancel/accept",
+                      "duration": 1076
+                    },
+                    {
+                      "title": "R03 Range untouched / focus is no answer; first receipt empty",
+                      "duration": 451
+                    },
+                    {
+                      "title": "R03 all six answers including number0 Stars0 Range0",
+                      "duration": 565
+                    },
+                    {
+                      "title": "R03 optional clear all types produces [] / independent Latest",
+                      "duration": 593
+                    },
+                    {
+                      "title": "R05 Latest dirty cancel retains; consent completely clears",
+                      "duration": 471
+                    },
+                    {
+                      "title": "M07 real Clipboard URLs / Closed Statistics link route",
+                      "duration": 630
+                    },
+                    {
+                      "title": "D/R diagnostics / real credentialed CORS",
+                      "duration": 20
+                    }
+                  ],
+                  "startTime": "2026-10-15T11:23:22.167Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "e2c170e3e20a81ef2a7e-6d8ebbbbafc79019ad2e",
+          "file": "integration-supplement.spec.ts",
+          "line": 247,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-15T11:23:17.334Z",
+    "duration": 11802.710000000001,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,18 @@
+
+> test:e2e
+> playwright test --config=playwright.integration-supplement.config.ts --grep Supplement D
+
+[WebServer]
+[WebServer]  ERROR  (node:38144) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:31332) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:38960) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\integration-supplement.spec.ts:247:1 › Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent (6.0s)
+
+  1 passed (11.8s)

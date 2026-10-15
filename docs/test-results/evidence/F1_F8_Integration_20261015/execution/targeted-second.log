@@ -1,0 +1,43 @@
+
+> test:e2e
+> playwright test --config=playwright.integration-supplement.config.ts --grep Supplement A|Supplement D
+
+[WebServer]
+[WebServer]  ERROR  (node:33096) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer]
+[WebServer] (node:17780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 2 tests using 1 worker
+
+(node:12164) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › tests\e2e\integration-supplement.spec.ts:108:1 › Supplement A01-A04: real Profile readback, dirty logout and login return (2.9s)
+  x  2 [chromium] › tests\e2e\integration-supplement.spec.ts:247:1 › Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent (14.6s)
+
+
+  1) [chromium] › tests\e2e\integration-supplement.spec.ts:247:1 › Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent › R03 optional clear all types produces [] / independent Latest
+
+    TimeoutError: locator.click: Timeout 10000ms exceeded.
+    Call log:
+      - waiting for locator('[data-renderer-key]').filter({ has: getByText('星級題', { exact: true }) }).getByRole('button', { name: '清除答案', exact: true })
+
+
+      314 |       await page.getByLabel('文字題', { exact: true }).fill(''); await page.getByLabel('數字題', { exact: true }).fill('')
+      315 |       await page.getByRole('combobox', { name: '單選題', exact: true }).selectOption(''); await page.getByLabel('多一', { exact: true }).uncheck()
+    > 316 |       for (const title of ['星級題', '滑桿題']) await page.locator('[data-renderer-key]').filter({ has: page.getByText(title, { exact: true }) }).getByRole('button', { name: '清除答案', exact: true }).click()
+          |                                                                                                                                                                                                ^
+      317 |       expect((await submit()).answers).toEqual([])
+      318 |     })
+      319 |     await r.step('R05 Latest dirty cancel retains; consent completely clears', async () => {
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:316:192
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:38:13
+        at Object.step (C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:37:5)
+        at C:\Users\user\Desktop\custom-form-service-web\tests\e2e\integration-supplement.spec.ts:313:5
+
+    Error Context: output\playwright\integration-supplement\targeted-second-artifacts\integration-supplement-Sup-d5001-ro-clear-and-Latest-consent-chromium\error-context.md
+
+  1 failed
+    [chromium] › tests\e2e\integration-supplement.spec.ts:247:1 › Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent
+  1 passed (23.3s)

@@ -1,0 +1,142 @@
+import { readFile, readdir, mkdir, writeFile, copyFile } from 'node:fs/promises'
+import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { dirname, basename, resolve } from 'node:path'
+import assert from 'node:assert/strict'
+import { parse, isLosslessNumber } from 'lossless-json'
+
+const out = 'output/playwright/integration-supplement'
+const dest = 'docs/test-results/evidence/F1_F8_Integration_20261015'
+const env = JSON.parse((await readFile(`${dest}/environment.json`, 'utf8')).replace(/^\uFEFF/, ''))
+const start = Date.parse(env.observedAt)
+const json = async path => JSON.parse((await readFile(path, 'utf8')).replace(/^\uFEFF/, ''))
+const save = async (path, value) => { await mkdir(dirname(path), { recursive: true }); await writeFile(path, JSON.stringify(value, null, 2) + '\n') }
+const hash = bytes => createHash('sha256').update(bytes).digest('hex')
+const within = name => { const t = Number(/(?:f[678]-|f7-(?:matrix|role)-|supp-)(\d{13})/.exec(name)?.[1]); return t >= start }
+const resources = [], accounts = [], files = [], runs = []
+for (const group of ['f6', 'f7', 'f8']) {
+  for (const file of (await readdir(`output/playwright/${group}`)).filter(f => within(f) && f.endsWith('-sanitized.json'))) {
+    const path = `output/playwright/${group}/${file}`, data = await json(path)
+    runs.push({ group, file, data }); files.push({ source: path, dest: `${dest}/live/${file}` })
+    if (data.resources) resources.push(...data.resources.map(r => ({ ...r, runId: data.runId, source: file, deleteAllowed: r.deletionAuthorized ?? false })))
+    if (data.retainedFormIds) resources.push(...data.retainedFormIds.map(id => ({ id, purpose: 'F6 minimal/five-type Draft persistence', runId: data.runId, source: file, deleteAllowed: false })))
+    if (data.id) resources.push({ id: data.id, purpose: data.purpose, runId: data.runId, source: file, deleteAllowed: false })
+    if (group === 'f6') accounts.push({ alias: 'f6-owner', email: `${data.runId}@example.test`, id: data.reads[0].dto.userId, runId: data.runId })
+    const privateFile = `output/playwright/${group}/${data.runId}-private-credentials.json`
+    try { const creds = await json(privateFile); accounts.push(...creds.map(a => ({ alias: a.alias, email: a.email, runId: data.runId }))) } catch { /* matrix and role reuse their source run, F6 has no password file */ }
+  }
+}
+const supplements = []
+for (const name of (await readdir(out)).filter(n => /^supp-\d{13}-[a-f\d]+\.json$/.test(n) && within(n))) {
+  const data = await json(`${out}/${name}`); supplements.push(data)
+  resources.push(...data.resources.map(r => ({ ...r, runId: data.runId, source: name })))
+  accounts.push(...data.accounts.map(a => ({ ...a, runId: data.runId })))
+  files.push({ source: `${out}/${name}`, dest: `${dest}/supplement/${name}` })
+}
+assert.equal(new Set(resources.map(r => r.id)).size, resources.length)
+assert.equal(new Set(accounts.map(a => a.email)).size, accounts.length)
+if (process.argv.includes('--prepare-db')) {
+  for (const r of resources) assert.match(r.id, /^[a-f\d]{8}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{4}-[a-f\d]{12}$/)
+  for (const a of accounts) assert.match(a.email, /^[a-z\d-]+@example\.test$/)
+  const ids = resources.map(r => `'${r.id}'::uuid`).join(',')
+  const emails = accounts.map(a => `'${a.email}'`).join(',')
+  await writeFile(`${out}/db-readonly.sql`, `BEGIN READ ONLY;
+SELECT json_build_object('database',current_database(),'user',current_user,'serverVersion',current_setting('server_version'));
+SELECT json_agg(row_to_json(m)) FROM (SELECT "MigrationId" FROM "__EFMigrationsHistory" ORDER BY "MigrationId") m;
+SELECT json_agg(row_to_json(u)) FROM (SELECT id,email,display_name FROM users WHERE email IN (${emails}) ORDER BY email) u;
+SELECT json_agg(row_to_json(f)) FROM (SELECT id,user_id,status,deleted_at FROM forms WHERE id IN (${ids}) ORDER BY id) f;
+SELECT json_agg(row_to_json(r)) FROM (SELECT id,form_id,user_id,submitted_at FROM responses WHERE form_id IN (${ids}) ORDER BY submitted_at,id) r;
+COMMIT;\n`)
+  console.log(JSON.stringify({ resources: resources.length, accounts: accounts.length, sql: 'READ ONLY, dedicated UUID/email allowlist only' })); process.exit(0)
+}
+
+function number(token) {
+  const [mantissa, exp = '0'] = token.toLowerCase().split('e'), negative = mantissa.startsWith('-')
+  const [integer, fraction = ''] = mantissa.replace(/^-/, '').split('.')
+  let digits = (integer + fraction).replace(/^0+/, ''), exponent = BigInt(exp) - BigInt(fraction.length)
+  if (!digits) return '0'
+  while (digits.endsWith('0')) { digits = digits.slice(0, -1); exponent++ }
+  return `${negative ? '-' : ''}${digits}e${exponent}`
+}
+function norm(value) {
+  if (isLosslessNumber(value)) return { exactNumber: number(value.value) }
+  if (Array.isArray(value)) return value.map(norm)
+  if (value && typeof value === 'object') return Object.fromEntries(Object.entries(value).sort(([a], [b]) => a.localeCompare(b)).map(([k, v]) => [k, norm(v)]))
+  return value
+}
+function normalizedAnswers(answers) { return answers.map(a => ({ questionId: a.questionId, value: typeof a.value === 'string' ? a.value.replace(/^\p{White_Space}+|\p{White_Space}+$/gu, '') : a.value })).sort((a, b) => a.questionId.localeCompare(b.questionId)) }
+const audit = { at: new Date().toISOString(), source: env.frontendHead, noProductEdits: true, f8: {}, f6: {}, f7: {}, history: [], sourceChecks: [], backendSnapshot: [], packages: [], unit: {}, build: {} }
+const f8 = runs.find(r => r.group === 'f8').data
+assert.equal(f8.completed, true)
+let matchedReads = 0, matchedWires = 0
+for (const read of f8.reads.filter(r => r.status === 200)) {
+  const body = parse(read.body); if (!body.answers) continue
+  const receipt = f8.receipts.find(r => r.id === body.id); assert.ok(receipt, read.label)
+  assert.deepEqual(norm(body), norm(parse(receipt.body)), read.label); matchedReads++
+}
+for (const receipt of f8.receipts) {
+  const dto = parse(receipt.body)
+  assert.ok(f8.requests.some(r => r.method === 'POST' && r.path === `/api/v1/forms/${dto.formId}/responses` && JSON.stringify(norm(normalizedAnswers(parse(r.body).answers))) === JSON.stringify(norm(normalizedAnswers(dto.answers))))); matchedWires++
+}
+audit.f8 = { runId: f8.runId, receipts: f8.receipts.length, independentLatestMatchedCompleteReceipt: matchedReads, submissionWiresMatched: matchedWires, latest404: f8.reads.filter(r => r.status === 404).length, browser: f8.browserVersion, corsResponses: f8.cors.length, diagnosticIssues: f8.diagnosticIssues }
+const f6 = runs.find(r => r.group === 'f6').data
+assert.equal(f6.completed, true)
+let exactConfigReads = 0
+for (const read of parse(await readFile(`output/playwright/f6/${runs.find(r => r.group === 'f6').file}`, 'utf8')).reads) {
+  for (const q of read.dto.questions) if (q.type === 'number' && q.config.max) {
+    assert.equal(number(q.config.max.value), number('9007199254740993.1234567890123456789')); exactConfigReads++
+  }
+}
+audit.f6 = { runId: f6.runId, independentFormGets: f6.reads.length, exactConfigReads, binary: f6.binary }
+const matrix = runs.find(r => r.file.startsWith('f7-matrix')).data
+assert.equal(matrix.completed, true); assert.equal(matrix.pairs.length, 9)
+for (const pair of matrix.pairs) { assert.deepEqual(pair.response, pair.readback); assert.equal(pair.readback.status, pair.lifecycle); assert.equal(pair.readback.resultVisibility, pair.value) }
+const mainF7 = runs.find(r => r.group === 'f7' && r.data.resources).data
+for (const req of mainF7.requests.filter(r => r.method === 'DELETE')) assert.ok(mainF7.resources.some(r => r.id === req.path.split('/').at(-1) && r.deletionAuthorized && r.deleted))
+audit.f7 = { runId: mainF7.runId, independentFormGets: mainF7.reads.length, visibilityResponseReadbackPairs: matrix.pairs.length, authorizedUiDeletes: mainF7.requests.filter(r => r.method === 'DELETE').length }
+
+for (const manifestPath of ['docs/review/evidence/F8_20261015/artifact-manifest.json', 'docs/review/evidence/F7_R3_N1_ReReview_20261014/artifact-manifest.json']) {
+  const manifest = await json(manifestPath), checks = []
+  for (const f of manifest.files) { const relative = f.path ?? f.file; const target = resolve(dirname(manifestPath), relative); const actual = hash(await readFile(target)); assert.equal(actual, f.sha256, target); checks.push({ path: relative, matches: true }) }
+  audit.history.push({ manifest: manifestPath, checked: checks.length, result: 'PASS', checks })
+}
+const sourcePaths = execFileSync('git', ['ls-tree', '-r', '--name-only', 'b9f91e825173cbe81721061978e2d20dd5698c6d', 'app', 'tests', 'scripts', 'package.json', 'package-lock.json', 'nuxt.config.ts', 'playwright.config.ts', 'playwright.f2.config.ts', 'playwright.f3.config.ts', 'playwright.f4.config.ts', 'playwright.f6.config.ts', 'playwright.f7.config.ts', 'playwright.f8.config.ts'], { encoding: 'utf8' }).trim().split(/\r?\n/)
+for (const path of sourcePaths) {
+  const raw = await readFile(path), original = execFileSync('git', ['show', `b9f91e825173cbe81721061978e2d20dd5698c6d:${path}`], { encoding: 'utf8' })
+  assert.equal(raw.toString('utf8').replace(/\r\n/g, '\n'), original.replace(/\r\n/g, '\n'), path)
+  audit.sourceChecks.push({ path, sha256: hash(raw), matchesReviewSource: true })
+}
+for (const line of (await readFile('backend-ref/MANIFEST.sha256', 'utf8')).trim().split(/\r?\n/)) {
+  const [, expected, path] = /^([a-f\d]{64})\s+(.+)$/.exec(line)
+  const actual = hash(await readFile(`backend-ref/${path}`)); assert.equal(actual, expected, path); audit.backendSnapshot.push({ path, matches: true })
+}
+const lock = await json('package-lock.json')
+for (const name of Object.keys((await json('package.json')).dependencies).concat(Object.keys((await json('package.json')).devDependencies))) {
+  const version = (await json(`node_modules/${name}/package.json`)).version; assert.equal(version, lock.packages[`node_modules/${name}`].version); audit.packages.push({ name, version, matchesLock: true })
+}
+const unit = await json(`${out}/unit-cases.json`)
+assert.equal(unit.numFailedTests, 0); assert.equal(unit.numPassedTests, 462)
+audit.unit = { files: unit.testResults.map(r => ({ path: r.name.replaceAll('\\', '/').split('/custom-form-service-web/')[1], status: r.status, cases: r.assertionResults.map(c => ({ name: c.fullName, status: c.status })) })), tests: unit.numPassedTests }
+const buildFiles = []
+async function walk(dir) { for (const item of await readdir(dir, { withFileTypes: true })) { const path = `${dir}/${item.name}`; if (item.isDirectory()) await walk(path); else buildFiles.push({ path, sha256: hash(await readFile(path)) }) } }
+await walk('.output'); audit.build = { command: 'npm run build', result: 'PASS', files: buildFiles }
+
+const dbLines = (await readFile(`${out}/db-readonly-all.log`, 'utf8')).replace(/^\uFEFF/, '').split(/\r?\n/).filter(x => x.startsWith('{') || x.startsWith('[')).map(x => JSON.parse(x))
+const [identity, migrations, dbUsers, dbForms, dbResponses] = dbLines
+assert.equal(dbForms.length, resources.length); assert.equal(dbUsers.length, accounts.length)
+for (const r of resources) { const persisted = dbForms.find(f => f.id === r.id); assert.ok(persisted); r.status = persisted.status; r.deleted = persisted.deleted_at !== null; r.userId = persisted.user_id; if (r.deleted) assert.equal(r.deleteAllowed, true) }
+for (const a of accounts) { const persisted = dbUsers.find(u => u.email === a.email); assert.ok(persisted); a.id = persisted.id }
+await save(`${dest}/resource-index.json`, { accounts, forms: resources, responses: dbResponses, totals: { accounts: accounts.length, createdForms: resources.length, retainedForms: resources.filter(r => !r.deleted).length, allowedSoftDeletedForms: resources.filter(r => r.deleted).length, responses: dbResponses.length }, provenance: 'Created by normal Browser UI/API only. Existing DB READ ONLY transaction used solely to complete dedicated UUID index and metadata; no SQL writes. Response semantic PASS uses independent HTTP Latest, not this index.', dbIdentity: identity, migrations })
+await save(`${dest}/evidence-audit.json`, audit)
+await save(`${dest}/case-steps.json`, supplements.map(s => ({ runId: s.runId, title: s.title, steps: s.steps, dialogs: s.dialogs, resourceIds: s.resources.map(r => r.id) })))
+for (const f of files) { await mkdir(dirname(f.dest), { recursive: true }); await copyFile(f.source, f.dest) }
+for (const name of await readdir(out)) {
+  if (/\.(png|log)$/.test(name) || /^(browser-first|targeted-second|interactive-final)-results\.json$/.test(name) || name.endsWith('-profile-readback.json')) files.push({ source: `${out}/${name}`, dest: `${dest}/execution/${name}` })
+}
+for (const f of files.filter(f => f.dest.includes('/execution/'))) { await mkdir(dirname(f.dest), { recursive: true }); await copyFile(f.source, f.dest) }
+for (const [source, name] of [
+  [`${out}/artifacts/integration-supplement-Sup-dc250-rty-logout-and-login-return-chromium/error-context.md`, 'first-profile-error-context.md'],
+  [`${out}/targeted-second-artifacts/integration-supplement-Sup-d5001-ro-clear-and-Latest-consent-chromium/error-context.md`, 'first-rating-error-context.md'],
+]) await copyFile(source, `${dest}/execution/${name}`)
+await copyFile(`${out}/collect.mjs`, `${dest}/collect.mjs.txt`)
+console.log(JSON.stringify({ resourceTotals: { accounts: accounts.length, forms: resources.length, responses: dbResponses.length }, f6: audit.f6, f7: audit.f7, f8: audit.f8, preservedHistory: audit.history.map(h => ({ manifest: h.manifest, checked: h.checked })), sources: sourcePaths.length, backend: audit.backendSnapshot.length, unitFiles: unit.testResults.length, unitTests: unit.numPassedTests }))

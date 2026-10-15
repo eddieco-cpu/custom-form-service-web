@@ -1,0 +1,34 @@
+{
+  "purpose": "post-execution provenance only; same unchanged fresh build. Core Browser used separate reuseExistingServer=false preview child processes.",
+  "port": [
+    {
+      "LocalAddress": "::1",
+      "LocalPort": 3000,
+      "OwningProcess": 39508
+    }
+  ],
+  "command": "npm run preview",
+  "observedAt": "2026-10-15T19:31:11.2168325+08:00",
+  "processes": [
+    {
+      "ProcessId": 30444,
+      "ParentProcessId": 37636,
+      "ExecutablePath": "C:\\nvm4w\\nodejs\\node.exe",
+      "CommandLine": "\"node\"   \"C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\.bin\\\\..\\@nuxt\\cli\\bin\\nuxi.mjs\" preview --host localhost --port 3000",
+      "CreationDate": "2026-10-15T19:30:35.50164+08:00"
+    },
+    {
+      "ProcessId": 39508,
+      "ParentProcessId": 30444,
+      "ExecutablePath": "C:\\nvm4w\\nodejs\\node.exe",
+      "CommandLine": "node server/index.mjs",
+      "CreationDate": "2026-10-15T19:30:38.608574+08:00"
+    }
+  ],
+  "indexSha256": "2D8CD85F2569BA4D13254866CB5BE5F1EE23706AFA2746E44E98621B506B31C9",
+  "cwd": "C:/Users/user/Desktop/custom-form-service-web/.output",
+  "shellProbe": {
+    "status": 200,
+    "result": "PASS"
+  }
+}

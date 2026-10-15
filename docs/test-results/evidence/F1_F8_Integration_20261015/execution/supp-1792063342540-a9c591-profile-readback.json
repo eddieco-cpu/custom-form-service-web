@@ -1,0 +1,6 @@
+{
+  "method": "GET",
+  "url": "http://localhost:5000/api/v1/users/me",
+  "status": 200,
+  "body": "{\"id\":\"1c628459-64a9-41aa-81a7-dbb7adaa8087\",\"email\":\"supp-1792063342540-a9c591-auth-owner@example.test\",\"displayName\":\"補驗更新 supp-1792063342540-a9c591 \\uD83D\\uDE00\",\"avatarUrl\":null}"
+}

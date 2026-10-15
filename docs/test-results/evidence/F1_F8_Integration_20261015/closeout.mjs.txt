@@ -1,0 +1,52 @@
+import { readFile, writeFile, readdir, stat } from 'node:fs/promises'
+import { execFileSync } from 'node:child_process'
+import { createHash } from 'node:crypto'
+import { resolve, dirname } from 'node:path'
+import assert from 'node:assert/strict'
+const root = 'docs/test-results/evidence/F1_F8_Integration_20261015'
+const report = 'docs/test-results/F1_F8_Independent_Integration_Supplement_Report.md'
+const plan = 'docs/test-plan/F1_F8_Independent_Integration_Supplement.md'
+const files = []
+async function walk(dir) { for (const e of await readdir(dir, { withFileTypes: true })) { const p = `${dir}/${e.name}`; if (e.isDirectory()) await walk(p); else files.push(p) } }
+await walk(root)
+const rawMetadataPath = 'output/playwright/integration-supplement/delivered-pre-normalization.json'
+let rawMetadata = {}
+try { rawMetadata = JSON.parse(await readFile(rawMetadataPath, 'utf8')) } catch { /* first delivery normalization */ }
+for (const path of files.filter(p => !p.endsWith('/artifact-manifest.json') && !p.endsWith('/closeout-checks.json'))) {
+  const bytes = await readFile(path)
+  rawMetadata[path] ??= { sha256: createHash('sha256').update(bytes).digest('hex'), bytes: bytes.length }
+  if (!path.endsWith('.png')) await writeFile(path, bytes.toString('utf8').replace(/^\uFEFF/, '').replace(/\r\n/g, '\n').replace(/[\t ]+$/gm, '').trimEnd() + '\n')
+}
+await writeFile(rawMetadataPath, JSON.stringify(rawMetadata, null, 2))
+const json = async p => JSON.parse((await readFile(p, 'utf8')).replace(/^\uFEFF/, ''))
+const known = []
+for (const path of ['output/playwright/f7/f7-1792063196451-private-credentials.json', 'output/playwright/f8/f8-1792063222888-integration-20261015-private-credentials.json']) {
+  try { const d = await json(path); known.push(...d.map(a => a.password)) } catch { /* already removed after first successful scan */ }
+}
+let links = 0, jsonFiles = 0
+for (const path of files.concat(report, plan, 'playwright.integration-supplement.config.ts', 'tests/e2e/integration-supplement.spec.ts')) {
+  assert.ok(!/private-credentials|storageState|trace\.zip/i.test(path))
+  const bytes = await readFile(path), text = bytes.toString('utf8')
+  for (const secret of known) assert.ok(!text.includes(secret), `Known credential leaked: ${path}`)
+  assert.ok(!/eyJ[A-Za-z\d_-]{16,}\.[A-Za-z\d_-]{12,}\.[A-Za-z\d_-]{16,}/.test(text), `JWT-like value: ${path}`)
+  assert.ok(!/"(?:password|signingKey)"\s*:\s*"[^"\r\n]+"/i.test(text), `Literal secret field: ${path}`)
+  if (path.endsWith('.json')) { await json(path); jsonFiles++ }
+}
+for (const path of [report, plan]) {
+  const body = await readFile(path, 'utf8')
+  for (const match of body.matchAll(/\]\(([^)]+)\)/g)) {
+    if (/^https?:/.test(match[1])) continue
+    await stat(resolve(dirname(path), match[1].split('#')[0])); links++
+  }
+}
+execFileSync('git', ['diff', '--check'])
+assert.equal(execFileSync('git', ['diff', '--name-only', '2f6dc4929e310c7e0ac1ef825dd1aefe63c97ab9', '--', 'app', 'package.json', 'package-lock.json', 'nuxt.config.ts', 'AGENTS.md', '.agents', 'docs/specs', 'docs/review', 'docs/implementation', 'backend-ref'], { encoding: 'utf8' }), '')
+const status = execFileSync('git', ['status', '--short'], { encoding: 'utf8' })
+const closeout = { at: new Date().toISOString(), baseline: '2f6dc4929e310c7e0ac1ef825dd1aefe63c97ab9', result: 'PASS', checkedJsonFiles: jsonFiles, reportAndPlanLinks: links, scannedNewFiles: files.length + 4, knownCredentialScan: 'PASS; in-memory comparisons only, values omitted', jwtAndLiteralSecretScan: 'PASS', screenshots: 'Desktop list, mobile cards and cleared Latest viewed; all retained captures contain synthetic non-secret data', protectedDiff: 'PASS; existing product/specs/review/development history/dependencies/AGENTS/skills unchanged', remainingGitStateBeforeStage: status, findings: [], accepted: 'unchanged', formalAiAcceptance: 'NOT RUN', manualAcceptance: 'NOT RUN', push: 'NOT RUN', f9: 'NOT RUN', stop: '獨立整合補驗完成、待 Owner 確認', localCommit: 'Full SHA supplied in final delivery / git log; omitted here to avoid self-reference' }
+await writeFile(`${root}/closeout-checks.json`, JSON.stringify(closeout, null, 2) + '\n')
+const manifestFiles = []
+for (const path of files.filter(f => !f.endsWith('/artifact-manifest.json') && !f.endsWith('/closeout-checks.json')).concat(`${root}/closeout-checks.json`)) {
+  const bytes = await readFile(path); manifestFiles.push({ path: path.slice(root.length + 1), bytes: bytes.length, sha256: createHash('sha256').update(bytes).digest('hex'), ...(rawMetadata[path] ? { capturedBeforeTextNormalization: rawMetadata[path] } : {}) })
+}
+await writeFile(`${root}/artifact-manifest.json`, JSON.stringify({ encoding: 'Delivered text: UTF-8 LF, BOM/trailing whitespace/extra EOF blank lines removed. Original ignored raw files unchanged; captured-before-normalization hashes retained. PNG original bytes.', files: manifestFiles }, null, 2) + '\n')
+console.log(JSON.stringify({ result: 'PASS', jsonFiles, links, scannedFiles: files.length + 4, evidenceManifestFiles: manifestFiles.length, knownCredentialValuesExported: 0 }))

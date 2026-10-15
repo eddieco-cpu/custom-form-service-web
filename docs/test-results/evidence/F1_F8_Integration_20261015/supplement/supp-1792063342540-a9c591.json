@@ -1,0 +1,238 @@
+{
+  "runId": "supp-1792063342540-a9c591",
+  "title": "Supplement A01-A04: real Profile readback, dirty logout and login return",
+  "browser": "chromium",
+  "api": "real; no route interception",
+  "accounts": [
+    {
+      "alias": "auth-owner",
+      "email": "supp-1792063342540-a9c591-auth-owner@example.test",
+      "id": "1c628459-64a9-41aa-81a7-dbb7adaa8087"
+    }
+  ],
+  "steps": [
+    {
+      "id": "A01 UI register/login return; Cookie flags",
+      "status": "PASS"
+    },
+    {
+      "id": "A02 Profile PATCH / independent GET; SPA me count",
+      "status": "PASS"
+    },
+    {
+      "id": "A04 full reload/new tab each one bootstrap",
+      "status": "PASS"
+    },
+    {
+      "id": "A03 dirty logout cancel zero POST / accept 204 / login return",
+      "status": "PASS"
+    },
+    {
+      "id": "A diagnostics / real credentialed CORS",
+      "status": "PASS"
+    }
+  ],
+  "resources": [],
+  "wires": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/register",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/logout",
+      "status": 204,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    }
+  ],
+  "routes": [
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/login?redirect=/profile?from=supplement%23name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/login",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?return=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?return=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?return=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/login?redirect=/profile?return=supplement%23name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?return=supplement#name",
+      "page": "owner"
+    }
+  ],
+  "dialogs": [
+    {
+      "type": "confirm",
+      "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+      "accepted": false
+    },
+    {
+      "type": "confirm",
+      "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+      "accepted": true
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "expectedErrors": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ]
+}

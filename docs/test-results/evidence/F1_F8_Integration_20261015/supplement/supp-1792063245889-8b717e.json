@@ -1,0 +1,176 @@
+{
+  "runId": "supp-1792063245889-8b717e",
+  "title": "Supplement A01-A04: real Profile readback, dirty logout and login return",
+  "browser": "chromium",
+  "api": "real; no route interception",
+  "accounts": [
+    {
+      "alias": "auth-owner",
+      "email": "supp-1792063245889-8b717e-auth-owner@example.test",
+      "id": "259ea4af-891d-456b-be19-a993e428ae44"
+    }
+  ],
+  "steps": [
+    {
+      "id": "A01 UI register/login return; Cookie flags",
+      "status": "PASS"
+    },
+    {
+      "id": "A02 Profile PATCH / independent GET; SPA me count",
+      "status": "PASS"
+    },
+    {
+      "id": "A04 full reload/new tab each one bootstrap",
+      "status": "PASS"
+    },
+    {
+      "id": "A03 dirty logout cancel zero POST / accept 204 / login return",
+      "status": "FAIL",
+      "detail": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登出', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 w-full justify-center ring ring-inset ring-accented text-default bg-default hover:bg-elevated active:bg-elevated disabled:bg-default aria-disabled:bg-default outline-inverted/25 focus-visible:outline-3 focus-visible:ring-inverted\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n"
+    }
+  ],
+  "resources": [],
+  "wires": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/register",
+      "status": 201,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    }
+  ],
+  "routes": [
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/login?redirect=/profile?from=supplement%23name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile?from=supplement#name",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "owner"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    },
+    {
+      "url": "http://localhost:3000/profile",
+      "page": "second-tab"
+    }
+  ],
+  "dialogs": [
+    {
+      "type": "confirm",
+      "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+      "accepted": false
+    }
+  ],
+  "errors": [],
+  "failedRequests": [],
+  "consoleErrors": [
+    {
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "expectedErrors": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ]
+}

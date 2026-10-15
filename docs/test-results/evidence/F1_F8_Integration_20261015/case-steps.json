@@ -1,0 +1,231 @@
+[
+  {
+    "runId": "supp-1792063245889-8b717e",
+    "title": "Supplement A01-A04: real Profile readback, dirty logout and login return",
+    "steps": [
+      {
+        "id": "A01 UI register/login return; Cookie flags",
+        "status": "PASS"
+      },
+      {
+        "id": "A02 Profile PATCH / independent GET; SPA me count",
+        "status": "PASS"
+      },
+      {
+        "id": "A04 full reload/new tab each one bootstrap",
+        "status": "PASS"
+      },
+      {
+        "id": "A03 dirty logout cancel zero POST / accept 204 / login return",
+        "status": "FAIL",
+        "detail": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('button', { name: '登出', exact: true })\u001b[22m\n\u001b[2m    - locator resolved to <button type=\"button\" data-slot=\"base\" class=\"rounded-md font-medium inline-flex items-center disabled:cursor-not-allowed aria-disabled:cursor-not-allowed disabled:opacity-75 aria-disabled:opacity-75 transition-colors px-2.5 py-1.5 text-sm gap-1.5 w-full justify-center ring ring-inset ring-accented text-default bg-default hover:bg-elevated active:bg-elevated disabled:bg-default aria-disabled:bg-default outline-inverted/25 focus-visible:outline-3 focus-visible:ring-inverted\">…</button>\u001b[22m\n\u001b[2m  - attempting click action\u001b[22m\n\u001b[2m    2 × waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m      - element is not stable\u001b[22m\n\u001b[2m    - retrying click action\u001b[22m\n\u001b[2m    - waiting 20ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m    - element is not stable\u001b[22m\n\u001b[2m  - retrying click action\u001b[22m\n\u001b[2m    - waiting 100ms\u001b[22m\n\u001b[2m    - waiting for element to be visible, enabled and stable\u001b[22m\n\u001b[2m  - element was detached from the DOM, retrying\u001b[22m\n"
+      }
+    ],
+    "dialogs": [
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": false
+      }
+    ],
+    "resourceIds": []
+  },
+  {
+    "runId": "supp-1792063259103-8ae966",
+    "title": "Supplement L01-L05: real 21 Forms, UI pagination/filter/shrink and full role-route matrix",
+    "steps": [
+      {
+        "id": "L01 prepare 21 dedicated Forms through normal API",
+        "status": "PASS"
+      },
+      {
+        "id": "L02 filter resets page1; actual row links / refresh keeps condition",
+        "status": "PASS"
+      },
+      {
+        "id": "L03 predeclared list-shrink Delete / page3 refresh aligns once to page2",
+        "status": "PASS"
+      },
+      {
+        "id": "L04 six role/status pairs x Form and edit URL",
+        "status": "PASS"
+      },
+      {
+        "id": "L05 deleted / missing / invalid UUID retain URL",
+        "status": "PASS"
+      },
+      {
+        "id": "L diagnostics / no intercepted business APIs",
+        "status": "PASS"
+      }
+    ],
+    "dialogs": [],
+    "resourceIds": [
+      "e5b35e82-151e-4aba-b141-b056ab3ff565",
+      "501361df-0101-4cbd-a68a-81964c13a27b",
+      "f186d369-065e-4285-b2ab-3e11c0c65cca",
+      "23433ae1-0e25-4314-a80d-4b26ebfafda6",
+      "352cd2cf-f828-4323-8076-8512c78e0eaf",
+      "89e221cb-68ad-41e4-a250-dbe7b6909103",
+      "8a1ec2a9-30dd-4d65-b5fa-b0a6953871f9",
+      "c55c0828-f241-406e-8f07-7244dfde0e8b",
+      "8563decf-d836-4540-a111-c56caaf1e68b",
+      "64a51058-442d-4a0c-849e-1be521575951",
+      "0d6c3083-9ae8-4d86-9b21-f5f63aab7cd5",
+      "1386a834-a7ba-4270-9483-ccedec3c8bf4",
+      "9ebf4c9c-6d74-410a-b431-e3cdb4cf8c20",
+      "3486c859-c744-4351-adc2-eb92d1f69c94",
+      "4bf9edf4-46c4-484d-b89f-8a8cf06c7475",
+      "f6135095-172f-4cd0-9fbb-6bb4b458e455",
+      "9e21ccf2-30a2-4661-89d4-b7d27a35539f",
+      "dbcc17f6-b378-4cbb-a176-6abdbd8a4f84",
+      "f2e2863e-b739-4b2b-8774-29cdbea05c05",
+      "cfa9f083-73e7-4b58-a6e1-04eb37f28748",
+      "6f90aa1e-2bee-4bac-b7e8-43ae9901785e"
+    ]
+  },
+  {
+    "runId": "supp-1792063342540-a9c591",
+    "title": "Supplement A01-A04: real Profile readback, dirty logout and login return",
+    "steps": [
+      {
+        "id": "A01 UI register/login return; Cookie flags",
+        "status": "PASS"
+      },
+      {
+        "id": "A02 Profile PATCH / independent GET; SPA me count",
+        "status": "PASS"
+      },
+      {
+        "id": "A04 full reload/new tab each one bootstrap",
+        "status": "PASS"
+      },
+      {
+        "id": "A03 dirty logout cancel zero POST / accept 204 / login return",
+        "status": "PASS"
+      },
+      {
+        "id": "A diagnostics / real credentialed CORS",
+        "status": "PASS"
+      }
+    ],
+    "dialogs": [
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": false
+      },
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": true
+      }
+    ],
+    "resourceIds": []
+  },
+  {
+    "runId": "supp-1792063345458-e2ba36",
+    "title": "Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent",
+    "steps": [
+      {
+        "id": "D02 UI sort persists IDs, no-op remains disabled",
+        "status": "PASS"
+      },
+      {
+        "id": "D03 Preview independent answers; reopen empty; dirty SPA cancel/accept",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 Range untouched / focus is no answer; first receipt empty",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 all six answers including number0 Stars0 Range0",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 optional clear all types produces [] / independent Latest",
+        "status": "FAIL",
+        "detail": "TimeoutError: locator.click: Timeout 10000ms exceeded.\nCall log:\n\u001b[2m  - waiting for locator('[data-renderer-key]').filter({ has: getByText('星級題', { exact: true }) }).getByRole('button', { name: '清除答案', exact: true })\u001b[22m\n"
+      }
+    ],
+    "dialogs": [
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": false
+      },
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": true
+      }
+    ],
+    "resourceIds": [
+      "371c30cd-ebca-469c-973e-f287be14cae7"
+    ]
+  },
+  {
+    "runId": "supp-1792063402459-5e93d2",
+    "title": "Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear and Latest consent",
+    "steps": [
+      {
+        "id": "D02 UI sort persists IDs, no-op remains disabled",
+        "status": "PASS"
+      },
+      {
+        "id": "D03 Preview independent answers; reopen empty; dirty SPA cancel/accept",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 Range untouched / focus is no answer; first receipt empty",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 all six answers including number0 Stars0 Range0",
+        "status": "PASS"
+      },
+      {
+        "id": "R03 optional clear all types produces [] / independent Latest",
+        "status": "PASS"
+      },
+      {
+        "id": "R05 Latest dirty cancel retains; consent completely clears",
+        "status": "PASS"
+      },
+      {
+        "id": "M07 real Clipboard URLs / Closed Statistics link route",
+        "status": "PASS"
+      },
+      {
+        "id": "D/R diagnostics / real credentialed CORS",
+        "status": "PASS"
+      }
+    ],
+    "dialogs": [
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": false
+      },
+      {
+        "type": "confirm",
+        "message": "離開或取代目前資料將丟棄未保存內容，是否繼續？",
+        "accepted": true
+      },
+      {
+        "type": "confirm",
+        "message": "載入最近一次答案將取代目前輸入，是否繼續？",
+        "accepted": false
+      },
+      {
+        "type": "confirm",
+        "message": "載入最近一次答案將取代目前輸入，是否繼續？",
+        "accepted": true
+      }
+    ],
+    "resourceIds": [
+      "440eaea4-7d06-4878-9613-c4ebc4f49a89"
+    ]
+  }
+]

@@ -1,0 +1,73 @@
+{
+  "dotnet": "10.0.400",
+  "node": "v24.21.0",
+  "backendWorktree": [
+    "?? SNAPSHOT.md"
+  ],
+  "backendPath": "C:/Users/user/Desktop/custom-form-service",
+  "frontendHead": "2f6dc4929e310c7e0ac1ef825dd1aefe63c97ab9",
+  "docker": [
+    "e8f01e2c1bee custom-form-service-postgres-1 postgres:17.11-alpine Up About an hour (healthy) 127.0.0.1:5432->5432/tcp"
+  ],
+  "observedAt": "2026-10-15T19:19:37.2792061+08:00",
+  "npm": "11.19.0",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "dll": {
+    "sha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+    "productVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "path": "C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll"
+  },
+  "dbIdentity": "UNCONFIRMED: no SQL identity/migration probe; existing container only",
+  "process": [
+    {
+      "ProcessId": 34068,
+      "ParentProcessId": 31696,
+      "CreationDate": "2026-10-15T18:42:10.256995+08:00",
+      "ExecutablePath": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "CommandLine": "\"dotnet\" exec \"C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll\""
+    }
+  ],
+  "health": [
+    {
+      "url": "http://localhost:5000/health",
+      "status": 200,
+      "body": "{\"status\":\"healthy\"}"
+    },
+    {
+      "url": "http://localhost:5000/health/ready",
+      "status": 200,
+      "body": "Healthy"
+    },
+    {
+      "url": "http://localhost:5000/openapi/v1.json",
+      "status": 200,
+      "body": {
+        "paths": [
+          "/api/v1/auth/register",
+          "/api/v1/auth/login",
+          "/api/v1/auth/logout",
+          "/api/v1/forms",
+          "/api/v1/forms/{formId}/respondent-count",
+          "/api/v1/forms/{formId}",
+          "/api/v1/forms/{formId}/publish",
+          "/api/v1/forms/{formId}/close",
+          "/api/v1/forms/{formId}/result-visibility",
+          "/health",
+          "/api/v1/forms/{formId}/responses/me/latest",
+          "/api/v1/forms/{formId}/responses",
+          "/api/v1/forms/{formId}/statistics",
+          "/api/v1/users/me"
+        ],
+        "openapi": "3.1.1",
+        "info": {
+          "title": "CustomFormService.Api | v1",
+          "version": "1.0.0"
+        }
+      }
+    }
+  ],
+  "mounts": [
+    "[{\"Type\":\"volume\",\"Name\":\"custom-form-service-postgres-data\",\"Source\":\"/var/lib/docker/volumes/custom-form-service-postgres-data/_data\",\"Destination\":\"/var/lib/postgresql/data\",\"Driver\":\"local\",\"Mode\":\"rw\",\"RW\":true,\"Propagation\":\"\"}]"
+  ],
+  "servicesStartedByThisRun": []
+}
