@@ -1,5 +1,11 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
+最新授權（2026-10-16）：**Owner 通過完整F10驗收計畫，授權局部補正後直接執行AI驗收。** 現行[計畫v1.1](docs/test-plan/F10_Acceptance_Test.md)已補E03五組命令／注入階段／固定URL、E03／M03引用及固定統計10題；[Plan Lock](docs/test-plan/v1-acceptance/Plan_Lock.json)鎖定計畫檔SHA256。先本機提交計畫，再按資料狀態順序執行；缺特殊前置／設備逐案BLOCKED並繼續。產品缺陷先回報、首敗與重驗保留、人工不代填，accepted不變、不推送部署。先前規劃交付及未提交敘述保留下列歷史。
+
+最新進度（2026-10-16）：**Owner 採納 F9 集中 review，確認 F9 code review 通過；完整前端驗收計畫待 Owner review。** 以指定 `0e5a6dcadb4a52c184cef5fe46aff39eab6d40c6` 接手，交付 [前端 V1 獨立驗收計畫 v1.0](docs/test-plan/F10_Acceptance_Test.md)，涵蓋 F1～F9，供審查後於 F10 執行；附需求覆蓋矩陣、固定測資與獨立統計預期、六項特殊前置／實機與其他缺口、歷史證據適用範圍、AI／人工分欄結果空表及唯讀盤點。
+
+本次只準備文件與唯讀盤點，沒有正式驗收、業務 API、Browser、DB 或測資變更；原報告、首次失敗與既有缺口保留，accepted 不變。文件留工作樹供 review、未提交，不推送、不部署；HEAD 維持接手基準。以下保留歷史交付與當時停止點。
+
 最新開發進度（2026-10-15）：**F9 開發完成、待集中 review。** Owner 通過 [F9 精簡實作計畫 v1.0](docs/implementation/F9_Implementation_Plan.md)，以指定 `e25fe36ce887ce9a74fcbc66ee14e9edb4b7adf0` 授權整輪開發、自測、範圍內修正、受影響回歸、正常 API 測資準備與單一目的本機提交；原三份規劃文件一併核准。已完成獨立 Statistics GET／Header me 並行、九欄位 Root、五題型與完整分布／合法名單、精確 Number／Deadline、獨立錯誤／登入返回與舊回應隔離；Auth 僅補 App 私有的 bootstrap／credential-change 通知。
 
 見 [F9 開發報告](docs/implementation/F9_Development_Report.md)／[逐案結果](docs/implementation/evidence/F9_20261015/case-results.json)／[測資索引](docs/implementation/evidence/F9_20261015/resource-index.json)。lint／strict typecheck／fresh build／harness strict PASS；unit **185／185**、F9 Chromium Browser **31**、受影響跨輪 **24**、Chrome／Edge smoke 各 **2** 最終 PASS。L01 24 格真實權限矩陣、L02 固定輸入／完整統計 Body／UI／獨立 GET、L03 零資料與狀態優先序共 **42 分案 PASS**，六個特殊 Cookie／停用／故障前置各 **BLOCKED**。三 Run 去重後 **3 個帳號／13 份 Form／14 份 Response 全保留**；首敗、修正及重測分列，未刪歷史資料、未改 SQL／DB／volume。
@@ -65,7 +71,7 @@ npm ci
 npm run dev
 ```
 
-前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；F4 提供本人表單清單與 Form 根資訊讀取／角色狀態路由；F6～F8 已提供 new／Draft編輯保存、Preview、生命週期與Owner管理、正式填答／Receipt／本人Latest。F9 已提供獨立 Statistics、完整分布與合法名單、公開／私有存取與登入返回，開發完成待集中 review。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
+前端固定 `http://localhost:3000`；公開 API Base URL 預設 `http://localhost:5000/api/v1`，可由 `NUXT_PUBLIC_API_BASE_URL` 覆寫（安全範例見 `.env.example`）。F3 已提供登入／註冊、Header／手機導覽、首頁與 Profile 修改姓名；F4 提供本人表單清單與 Form 根資訊讀取／角色狀態路由；F6～F8 已提供 new／Draft編輯保存、Preview、生命週期與Owner管理、正式填答／Receipt／本人Latest。F9 已提供獨立 Statistics、完整分布與合法名單、公開／私有存取與登入返回；Owner 已確認 code review 通過，完整前端驗收計畫待 review，正式驗收尚未完成。`ssr=false`，無 BFF。圖示含 UI 內建狀態／關閉圖示全部來自 client bundle，沒有圖示 API fallback；字體用 system font。
 
 ```powershell
 npm run lint

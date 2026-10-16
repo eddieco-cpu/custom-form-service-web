@@ -680,6 +680,22 @@ lint／strict typecheck／fresh build／harness strict PASS，unit185／185；F9
 
 **停止於「F9 開發完成、待集中 review」。** 本輪產品、已核准規劃、測試、報告及去敏證據作單一目的本機提交；完整SHA／提交後Git狀態見交付訊息。完整前端驗收計畫於F9收尾後另行交付、審查，再於F10執行；本次集中review／正式AI／人工驗收NOT RUN，不更新accepted、不推送、不展開F10。§9.34保留規劃交付歷史。
 
+### 9.36 F9 Owner review 結案與完整前端驗收計畫交付（2026-10-16）
+
+Owner 明確採納 [F9 集中 review](../review/F9_Independent_Code_Review_Report_20261016.md)，確認 **F9 code review 通過**。原報告、首次失敗、既有缺口與歷史狀態保留；正式驗收尚未完成，accepted 不變。本次指定接手 master／HEAD **`0e5a6dcadb4a52c184cef5fe46aff39eab6d40c6`**，起始工作樹乾淨。
+
+依最新 AGENTS／驗收 skill、前端00～07與正式後端八契約，交付 [完整前端 V1 獨立驗收計畫 v1.0](../test-plan/F10_Acceptance_Test.md)，涵蓋F1～F9，供Owner審查後於F10執行。先由正式需求推導可觀察預期及覆蓋矩陣，再核現有tests／歷史證據；核心要求真Browser＋真API、實際wire／保存／獨立GET，Statistics以固定測資獨立計算。伴檔列六項特殊前置、實機與其他缺口的方案／權限／阻塞／交付判準，逐案AI與人工欄初始均NOT RUN，保留首敗與修正重驗鏈。
+
+本次唯讀Node24.21.0／npm11.19.0、15項declared／lock／installed相符，backend-ref108／108、F9 review交付manifest62／62及source93／93、F8交付manifest56／56相符。2026-10-16 11:17:56台北時間起，實際後端checkout仍`7591633137c5a6f57c1fce8e1ba19ab394015880`，PID34068／DLL綁定及八份正式契約bytes相符；health／ready／OpenAPI200只屬metadata，不代業務驗收。DB本次未查；前次補驗只讀identity／migration證據保留，runtime DI來源與特殊前置等缺口未解除。詳[唯讀盤點](../test-plan/v1-acceptance/Read_Only_Inventory.md)。
+
+**停止於「完整前端驗收計畫待 Owner review」。** 本次沒有正式驗收、產品修改、業務API讀寫、Browser、SQL、測資建立或變更、服務啟停；install／ci／audit／lint／typecheck／build／unit及真人驗收NOT RUN。僅新增計畫／必要伴檔與追加本節／README進度，文件留工作樹、未提交，HEAD不變；不更新accepted、不推送、不部署、不先執行F10。
+
+### 9.37 F10 計畫核准、局部補正與執行授權（2026-10-16）
+
+Owner通過完整F10計畫，明確要求補齊E03五組命令／變數階段／固定API URL、修正E03／M03引用與固定統計10題後，鎖定版本及commit／hash並直接執行F10 AI驗收。已交付[計畫v1.1](../test-plan/F10_Acceptance_Test.md)及[E03命令伴檔](../test-plan/v1-acceptance/E03_Commands.md)，相關矩陣／CSV同步；產品預期與83群／248執行記錄不變。
+
+本次授權包含必要驗證工具、正常API新Run測資及四份白名單soft delete；不需再停review。特殊前置／設備不足逐案BLOCKED並繼續可執行項，首敗／重驗鏈保留、發現產品缺陷先回報，不代填人工或accepted、不推送部署。先提交本版計畫並以[Plan Lock](../test-plan/v1-acceptance/Plan_Lock.json)記檔案hash，執行報告另記該提交SHA與實際版本；使用者另留`docs/test-plan.zip`不修改、不納提交。結果交付停止點為「正式驗收結果待人工驗收／Owner確認」。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：
