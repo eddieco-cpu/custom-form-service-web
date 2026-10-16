@@ -1,0 +1,46 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:28896) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:29984) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:6132) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT FAIL B02:msedge true UI register/save/publish/multiple/Latest/close/public-private: page.waitForResponse: Timeout 12000ms exceeded while waiting for event "response"
+CHECKPOINT PASS B02:msedge true UI register/save/publish/multiple/Latest/close/public-private
+  x  1 [msedge] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API smoke msedge-a1 (16.3s)
+
+
+  1) [msedge] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API smoke msedge-a1 
+
+    Error: Failed checkpoints (see sanitized per-attempt evidence)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "B02:msedge true UI register/save/publish/multiple/Latest/close/public-private",
+    + ]
+
+      467 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])
+      468 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)
+    > 469 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])
+          |                                                                            ^
+      470 | })
+      471 |
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:469:76
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-msedge-msedge-a1\canonical-F10-canonical-true-Browser-API-smoke-msedge-a1-msedge\error-context.md
+
+  1 failed
+    [msedge] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API smoke msedge-a1 

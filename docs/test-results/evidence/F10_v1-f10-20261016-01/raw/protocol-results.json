@@ -1,0 +1,131 @@
+{
+  "realApi": true,
+  "interception": false,
+  "cookieHeaders": [
+    {
+      "operation": "login",
+      "present": true,
+      "name": "access_token",
+      "httpOnly": true,
+      "sameSiteLax": true,
+      "pathRoot": true,
+      "expires": true,
+      "maxAge": false,
+      "domain": false,
+      "secure": false
+    },
+    {
+      "operation": "logout",
+      "present": true,
+      "name": "access_token",
+      "httpOnly": true,
+      "sameSiteLax": true,
+      "pathRoot": true,
+      "expires": true,
+      "maxAge": false,
+      "domain": false,
+      "secure": false
+    }
+  ],
+  "reads": [
+    {
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T05:08:49.789447+00:00\"}"
+    },
+    {
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "method": "PATCH",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "path": "/users/me",
+      "method": "GET",
+      "status": 401,
+      "body": "{\"error\":{\"code\":\"AUTH_REQUIRED\",\"message\":\"Authentication is required.\"}}"
+    },
+    {
+      "path": "/auth/logout",
+      "method": "POST",
+      "status": 204,
+      "body": ""
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": "{\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"options\":[{\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]}]}"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/logout"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/logout"
+    }
+  ],
+  "pageErrors": [],
+  "sameLabel": {
+    "questionId": "30cfbd20-423c-44d5-887d-7de73c015255",
+    "options": [
+      {
+        "id": "d38fdb42-636f-48a6-bdba-f6b1185cbae5",
+        "label": "同標籤",
+        "value": "same_label_A",
+        "sortOrder": 0
+      },
+      {
+        "id": "f73b3931-289c-4d91-8fb9-a7becd44317f",
+        "label": "同標籤",
+        "value": "same_label_B",
+        "sortOrder": 1
+      }
+    ],
+    "selectedServerIds": [
+      "d38fdb42-636f-48a6-bdba-f6b1185cbae5",
+      "f73b3931-289c-4d91-8fb9-a7becd44317f"
+    ],
+    "zeroResponsePost": true
+  }
+}

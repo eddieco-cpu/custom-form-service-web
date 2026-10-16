@@ -1,0 +1,303 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-a4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "canonical.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a4",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "canonical.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-a4-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "canonical.spec.mjs",
+      "file": "canonical.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F10 canonical true Browser/API additional a4",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 51895,
+                  "error": {
+                    "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A03:real duplicate email and credential failure remain on login/register\",\u001b[39m\n\u001b[31m+   \"A02:client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server\",\u001b[39m\n\u001b[31m+   \"A05:same SPA once, full refresh once, same-cookie new tab has own initialization\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A03:real duplicate email and credential failure remain on login/register\",\u001b[39m\n\u001b[31m+   \"A02:client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server\",\u001b[39m\n\u001b[31m+   \"A05:same SPA once, full refresh once, same-cookie new tab has own initialization\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:433:76",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                      "column": 76,
+                      "line": 433
+                    },
+                    "snippet": "  431 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  432 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 433 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  434 | })\n  435 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                        "column": 76,
+                        "line": 433
+                      },
+                      "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 5\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A03:real duplicate email and credential failure remain on login/register\",\u001b[39m\n\u001b[31m+   \"A02:client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server\",\u001b[39m\n\u001b[31m+   \"A05:same SPA once, full refresh once, same-cookie new tab has own initialization\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  431 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  432 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 433 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  434 | })\n  435 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:433:76"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "CHECKPOINT PASS A02:real email compatibility, 10/128 Code Point untrimmed passwords, 100 CP displayName\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL A03:real duplicate email and credential failure remain on login/register: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('tab', { name: '註冊', exact: true })\nExpected: \u001b[32m\"true\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('tab', { name: '註冊', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('tab', { name: '註冊', ex\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL A02:client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server: locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: '註冊', exact: true })\u001b[22m\n\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL A05:same SPA once, full refresh once, same-cookie new tab has own initialization: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /歡迎/ })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: /歡迎/ }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /歡迎/ })\u001b[22m\n\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D01:new visibility is unselected and required; empty Preview is local only\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03:additional natural-expiry prerequisite retained as Published\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-DELTA:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-PUBLISH:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-CLOSE:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-VIS:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-COUNT:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07-COUNT:true403 no mutation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D04:UI Choice type/config linkage cancel/confirm and independent saved reads\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D06:real UI title200/201 CP and long Q/label save without invented max length\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D08:real dirty SPA cancel/accept and saved model reentry\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M08-DRAFT-CLOSE:true illegal Draft Close rejected\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M08-NOT-EDITABLE:stale UI save after other tab publishes, input retained and conflict code\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M08-ALREADY-PUBLISHED:true lifecycle conflict\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M08-ALREADY-CLOSED:true lifecycle conflict\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M08-CLOSED-PUBLISH:true lifecycle conflict\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-T-A:naturally expired Published hides or unavailable; not automatically Closed\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-T-X:naturally expired Published hides or unavailable; not automatically Closed\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-T-G:naturally expired Published hides or unavailable; not automatically Closed\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-DEL-A:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-DEL-X:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-DEL-G:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-NONE-A:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-NONE-X:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-NONE-G:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-BAD-A:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-BAD-X:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-BAD-G:UUID/existence precedes conditional Auth\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS P01:approved isolated malformed Cookie: real invalid/private/public/Draft/Published/logout\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS P01:approved isolated malformed Cookie: real invalid/private/public/Draft/Published/logout\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:51:36.260Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a4\\canonical-F10-canonical-true-Browser-API-additional-a4-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                    "column": 76,
+                    "line": 433
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4c313817ac08c9fc1aeb-d9fa1a0150fe37bb209b",
+          "file": "canonical.spec.mjs",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:51:30.517Z",
+    "duration": 58641.223999999995,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

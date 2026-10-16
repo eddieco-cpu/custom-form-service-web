@@ -1,0 +1,91 @@
+import { test, expect } from '@playwright/test'
+
+// Isolated product build. Every business request is intercepted, never forwarded.
+const api='http://localhost:5000/api/v1',id='00000000-0000-4000-8000-000000000050',uid='00000000-0000-4000-8000-000000000051',qid='00000000-0000-4000-8000-000000000001'
+const root=api+'/forms/'+id,view='/forms/'+id,edit=view+'/edit'
+const user={id:uid,email:'f10-fixture@example.test',displayName:'隔離合成建立者',avatarUrl:null}
+const form=(status='draft')=>({id,userId:uid,creatorDisplayName:user.displayName,title:'隔離合成表單',description:null,status,responseMode:'multiple',responseIdentity:'anonymous',resultVisibility:'public',submissionDeadlineAt:null,createdAt:'2026-10-10T00:00:00Z',updatedAt:'2026-10-11T00:00:00Z',questions:[{id:qid,type:'text',title:'文字',description:null,required:false,sortOrder:0,config:{variant:'input'},options:[]}]})
+const receipt={id:'00000000-0000-4000-8000-000000000080',formId:id,submittedAt:'2026-10-16T00:00:00Z',answers:[]}
+const stats={formId:id,title:'隔離合成表單',description:null,creatorDisplayName:user.displayName,responseMode:'multiple',resultVisibility:'public',submissionDeadlineAt:null,count:0,questions:[{questionId:qid,title:'文字',description:null,type:'text',count:0,statistics:[]}]}
+const headers={'access-control-allow-origin':'http://localhost:3000','access-control-allow-credentials':'true'}
+const error={error:{code:'INTERNAL_SERVER_ERROR',message:'事前宣告的合成500'}}
+const reply=(r,body,status=200)=>r.fulfill({status,headers,json:body})
+const states=new WeakMap()
+test.afterEach(async({page},info)=>{const s=states.get(page);if(s)await info.attach('isolated-fixed-expectation-evidence',{body:JSON.stringify({simulated:true,...s}),contentType:'application/json'})})
+
+async function setup(page,{status='draft',guest=false,target,kind,payload}={}){
+  const s={expected:{target,kind,status,guest},requests:[],targetCalls:0,errors:[],unexpected:[],elapsedMs:null},dto=form(status)
+  states.set(page,s);page.on('pageerror',e=>s.errors.push(e.message))
+  await page.route(api+'/**',async r=>{
+    const req=r.request(),path=new URL(req.url()).pathname,method=req.method()
+    if(method==='OPTIONS'){await r.fulfill({status:204,headers:{...headers,'access-control-allow-methods':'GET,POST,PATCH,DELETE','access-control-allow-headers':'content-type'}});return}
+    // Do not retain password fields even for synthetic mocked authentication.
+    s.requests.push({method,path,...(path.startsWith('/api/v1/forms')?{body:req.postData()}: {})})
+    if(target&&`${method} ${req.url()}`===target){
+      s.targetCalls++
+      if(kind==='NET')await r.abort('failed')
+      else if(kind==='TIME')await new Promise(resolve=>setTimeout(resolve,33000)).then(()=>r.abort('timedout').catch(()=>{}))
+      else if(kind==='500')await reply(r,error,500)
+      else await reply(r,payload,method==='POST'?201:200)
+      return
+    }
+    if(path==='/api/v1/users/me'&&method==='GET'){await reply(r,guest?{error:{code:'AUTH_REQUIRED',message:'合成未登入'}}:user,guest?401:200);return}
+    if(path==='/api/v1/forms'&&method==='GET'){await reply(r,{items:[],pagination:{page:1,pageSize:10,totalItems:0,totalPages:0}});return}
+    if(req.url()===root&&method==='GET'){await reply(r,dto);return}
+    if(req.url()===root+'/responses/me/latest'&&method==='GET'){await reply(r,receipt);return}
+    if(req.url()===root+'/statistics'&&method==='GET'){await reply(r,stats);return}
+    s.unexpected.push(`${method} ${req.url()}`);await reply(r,error,500)
+  })
+  return s
+}
+const btn=(p,name)=>p.getByRole('button',{name,exact:true})
+async function close(p){await p.getByRole('dialog',{name:'操作訊息'}).getByRole('button',{name:'關閉',exact:true}).last().click()}
+async function inputAuth(p,register=false){if(register){await p.getByRole('tab',{name:'註冊',exact:true}).click();await p.getByRole('textbox',{name:'姓名'}).fill('合成輸入')}await p.getByRole('textbox',{name:'Email'}).fill('fixture@example.test');await p.getByLabel('密碼',{exact:true}).fill('Synthetic-only-fixture-input')}
+async function prepareWrite(p,op){
+  if(['REGISTER','LOGIN'].includes(op)){await p.goto('/login');await inputAuth(p,op==='REGISTER');return()=>btn(p,op==='REGISTER'?'註冊':'登入').click()}
+  if(op==='LOGOUT'){await p.goto('/');await btn(p,'使用者選單').click();return()=>btn(p,'登出').click()}
+  if(op==='PROFILE'){await p.goto('/profile');await p.getByRole('textbox',{name:'姓名'}).fill('保留Profile輸入');return()=>btn(p,'保存').click()}
+  if(op==='CREATE'){await p.goto('/forms/new');await p.getByLabel('表單標題',{exact:true}).fill('保留建立輸入');await p.getByLabel('結果可見範圍（必選）').selectOption('public');return()=>btn(p,'保存草稿').click()}
+  await p.goto(op==='DELTA'||op==='PUBLISH'?edit:view)
+  if(op==='DELTA'){await p.getByLabel('表單標題',{exact:true}).fill('保留Delta輸入');return()=>btn(p,'保存').click()}
+  if(op==='VIS')return()=>p.getByRole('radio',{name:'僅建立者',exact:true}).click()
+  if(op==='RESPONSE'){await p.getByLabel('文字',{exact:true}).fill('保留填答輸入');return()=>btn(p,'提交表單').click()}
+  const labels={PUBLISH:['發布','確認發布'],CLOSE:['關閉表單','確認關閉'],DELETE:['刪除表單','確認刪除']}
+  await btn(p,labels[op][0]).click();return()=>btn(p,labels[op][1]).click()
+}
+const operations={REGISTER:'POST '+api+'/auth/register',LOGIN:'POST '+api+'/auth/login',LOGOUT:'POST '+api+'/auth/logout',PROFILE:'PATCH '+api+'/users/me',CREATE:'POST '+api+'/forms',DELTA:'PATCH '+root,PUBLISH:'POST '+root+'/publish',CLOSE:'POST '+root+'/close',VIS:'PATCH '+root+'/result-visibility',DELETE:'DELETE '+root,RESPONSE:'POST '+root+'/responses'}
+async function assertUnknown(p,s,op){
+  await expect(p.getByRole('dialog',{name:'操作訊息'})).toContainText('未能確認操作結果',{timeout:35000});await close(p)
+  expect(s.targetCalls).toBe(1);await p.waitForTimeout(220);expect(s.targetCalls).toBe(1)
+  if(op==='REGISTER'){await expect(p.getByRole('tab',{name:'註冊',exact:true})).toHaveAttribute('aria-selected','true');await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('合成輸入');await expect(p.getByText('註冊結果尚未確認',{exact:false})).toBeVisible();await p.getByRole('tab',{name:'登入',exact:true}).click()}
+  if(op==='LOGIN'){await expect(p).toHaveURL('http://localhost:3000/login');await expect(btn(p,'核對登入狀態')).toBeVisible()}
+  if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+  if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+  if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}
+  if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+  if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+  if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+  expect(s.errors).toEqual([]);expect(s.unexpected).toEqual([])
+}
+for(const [op,target] of Object.entries(operations))for(const kind of ['NET','TIME','500'])test(`F02-${op}-${kind} product build isolated unknown write`,async({page})=>{
+  const s=await setup(page,{status:['CLOSE','VIS','DELETE','RESPONSE'].includes(op)?'published':'draft',guest:['REGISTER','LOGIN'].includes(op),target,kind}),action=await prepareWrite(page,op),start=Date.now()
+  await action();await assertUnknown(page,s,op);s.elapsedMs=Date.now()-start;if(kind==='TIME')expect(s.elapsedMs).toBeGreaterThanOrEqual(29500)
+})
+
+const readTargets={ME:api+'/users/me',LIST:api+'/forms?page=1&pageSize=10',FORM:root,LATEST:root+'/responses/me/latest',STATS:root+'/statistics'}
+for(const [resource,url]of Object.entries(readTargets))for(const kind of ['NET','TIME','500','BODY'])test(`F01-${resource}-${kind} product build isolated read`,async({page})=>{
+  const s=await setup(page,{status:resource==='STATS'?'closed':'published',target:'GET '+url,kind,payload:{invalid:true}}),start=Date.now()
+  await page.goto(resource==='ME'?'/profile':resource==='LIST'?'/forms':resource==='STATS'?view+'/statistics':view)
+  if(resource==='LATEST'){await page.getByLabel('文字',{exact:true}).fill('讀取失敗保留本地');await btn(page,'查看我的填答').click();await expect(page.getByRole('dialog')).toContainText('載入失敗',{timeout:35000});await close(page);await expect(page.getByLabel('文字',{exact:true})).toHaveValue('讀取失敗保留本地')}
+  else await expect(page.getByRole('alert')).toContainText('載入失敗',{timeout:35000})
+  expect(s.targetCalls).toBe(1);await page.waitForTimeout(150);expect(s.targetCalls).toBe(1);s.elapsedMs=Date.now()-start;if(kind==='TIME')expect(s.elapsedMs).toBeGreaterThanOrEqual(29500)
+  expect(s.errors).toEqual([]);expect(s.unexpected).toEqual([])
+})
+
+for(const op of ['CREATE','DELTA','RESPONSE'])for(const variant of ['MALFORMED','INVALID_UUID',...(op==='CREATE'?[]:['WRONG_RESOURCE'])])test(`F05-${op}-${variant} unreliable success never adopted`,async({page})=>{
+  const dto=op==='RESPONSE'?structuredClone(receipt):form(op==='CREATE'?'draft':'draft')
+  if(variant==='INVALID_UUID')dto.id='invalid-uuid'
+  if(variant==='WRONG_RESOURCE')dto[op==='RESPONSE'?'formId':'id']='00000000-0000-4000-8000-000000009999'
+  const s=await setup(page,{status:op==='RESPONSE'?'published':'draft',target:operations[op],kind:'BODY',payload:variant==='MALFORMED'?{invalid:true}:dto}),action=await prepareWrite(page,op)
+  await action();await assertUnknown(page,s,op);await expect(page.getByRole('dialog',{name:'提交成功'})).toHaveCount(0)
+})

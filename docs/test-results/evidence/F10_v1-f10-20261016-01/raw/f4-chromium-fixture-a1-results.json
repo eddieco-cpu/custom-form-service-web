@@ -1,0 +1,1049 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/f4-chromium-fixture-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f4-browser.spec.ts"
+        ],
+        "timeout": 90000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "f4-browser.spec.ts"
+        ],
+        "timeout": 90000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/f4-chromium-fixture-a1-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "node output/playwright/f4/harness-output/server/index.mjs",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "f4-browser.spec.ts",
+      "file": "f4-browser.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F4-B01 list pagination/filter/refresh retention and desktop/mobile fields",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 827,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:20.217Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-8ca2edb28975be4d45ff",
+          "file": "f4-browser.spec.ts",
+          "line": 56,
+          "column": 1
+        },
+        {
+          "title": "F4-B02 shrinking pagination aligns once, repeated shrink stops, zero returns 1 without GET loop",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 927,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:21.219Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-b69042d3c33751e0c27e",
+          "file": "f4-browser.spec.ts",
+          "line": 96,
+          "column": 1
+        },
+        {
+          "title": "F4-B03 draft owner form route uses replace and readonly root",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5382,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'draft 合成表單', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'draft 合成表單', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'draft 合成表單', exact: true })\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'draft 合成表單', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'draft 合成表單', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'draft 合成表單', exact: true })\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:133:86",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 86,
+                      "line": 133
+                    },
+                    "snippet": "  131 |     await page.goto(`/forms/${ids[status]}${source === 'edit' ? '/edit' : ''}`)\n  132 |     await expect(page).toHaveURL(`http://localhost:3000/forms/${ids[status]}${status === 'draft' ? '/edit' : ''}`)\n> 133 |     await expect(page.getByRole('heading', { name: `${status} 合成表單`, exact: true })).toBeVisible()\n      |                                                                                      ^\n  134 |     expect(state.forms.length).toBe(2)\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 86,
+                        "line": 133
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: 'draft 合成表單', exact: true })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: 'draft 合成表單', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: 'draft 合成表單', exact: true })\u001b[22m\n\n\n  131 |     await page.goto(`/forms/${ids[status]}${source === 'edit' ? '/edit' : ''}`)\n  132 |     await expect(page).toHaveURL(`http://localhost:3000/forms/${ids[status]}${status === 'draft' ? '/edit' : ''}`)\n> 133 |     await expect(page.getByRole('heading', { name: `${status} 合成表單`, exact: true })).toBeVisible()\n      |                                                                                      ^\n  134 |     expect(state.forms.length).toBe(2)\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:133:86"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:22.154Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B03-draft-ow-87c1a-s-replace-and-readonly-root-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 86,
+                    "line": 133
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-06317de3c2bf86231df2",
+          "file": "f4-browser.spec.ts",
+          "line": 129,
+          "column": 3
+        },
+        {
+          "title": "F4-B03 published owner edit route uses replace and readonly root",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5439,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 70,
+                      "line": 137
+                    },
+                    "snippet": "  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 70,
+                        "line": 137
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry.\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:28.257Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B03-publishe-766c3-s-replace-and-readonly-root-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 70,
+                    "line": 137
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-d2a20e6f730100ce88a0",
+          "file": "f4-browser.spec.ts",
+          "line": 129,
+          "column": 3
+        },
+        {
+          "title": "F4-B03 published other edit route uses replace and readonly root",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5411,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 70,
+                      "line": 137
+                    },
+                    "snippet": "  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 70,
+                        "line": 137
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry.\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:34.605Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B03-publishe-57e53-s-replace-and-readonly-root-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 70,
+                    "line": 137
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-e6fda8d68c2a8c18a355",
+          "file": "f4-browser.spec.ts",
+          "line": 129,
+          "column": 3
+        },
+        {
+          "title": "F4-B03 closed owner edit route uses replace and readonly root",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5532,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 70,
+                      "line": 137
+                    },
+                    "snippet": "  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 70,
+                        "line": 137
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry.\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:40.926Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B03-closed-o-a232e-s-replace-and-readonly-root-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 70,
+                    "line": 137
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-253e1c8817f3849af74a",
+          "file": "f4-browser.spec.ts",
+          "line": 129,
+          "column": 3
+        },
+        {
+          "title": "F4-B03 closed other edit route uses replace and readonly root",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5510,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 70,
+                      "line": 137
+                    },
+                    "snippet": "  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry."
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 70,
+                        "line": 137
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByText('表單設定目前以唯讀方式呈現。')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByText('表單設定目前以唯讀方式呈現。') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByText('表單設定目前以唯讀方式呈現。')\u001b[22m\n\n\n  135 |     await expect(page.getByText(`建立者：${owner.displayName}`, { exact: true })).toBeVisible()\n  136 |     await expect(page.getByText('第一行\\n第二行', { exact: true })).toBeVisible()\n> 137 |     await expect(page.getByText('表單設定目前以唯讀方式呈現。', { exact: false })).toBeVisible()\n      |                                                                      ^\n  138 |     await expect(page.getByRole('textbox')).toHaveCount(0)\n  139 |     await expect(page.getByLabel('表單次要資訊')).toHaveCount(user.id === owner.id ? 1 : 0)\n  140 |     // A replaced URL does not remain as an extra SPA history entry.\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:137:70"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:47.403Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B03-closed-o-f8b9a-s-replace-and-readonly-root-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 70,
+                    "line": 137
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-7778925813c57bf4aa4c",
+          "file": "f4-browser.spec.ts",
+          "line": 129,
+          "column": 3
+        },
+        {
+          "title": "F4-B04 draft hidden, invalid UUID, expired published, read faults/disabled stay at original URL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 948,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:53.738Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-274b268320146a4a14ec",
+          "file": "f4-browser.spec.ts",
+          "line": 149,
+          "column": 1
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 頁尾關閉 returns full URL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 822,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:54.885Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-7547834a09738f0a43ed",
+          "file": "f4-browser.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "F4-B05 manual Auth invalidation preserves Dialog through own revision, 關閉圖示 returns full URL",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 914,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:55.718Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-af2878a7ddba2526473b",
+          "file": "f4-browser.spec.ts",
+          "line": 176,
+          "column": 3
+        },
+        {
+          "title": "F4-B06 stale filter Auth cannot mutate data/User/URL or end next loading",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 504,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:56.643Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-357726b9cfb019936a9b",
+          "file": "f4-browser.spec.ts",
+          "line": 193,
+          "column": 1
+        },
+        {
+          "title": "F4-B07 same mounted product loader clears prior session/ID data; late callbacks cannot navigate or end loading",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5492,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:225:47",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                      "column": 47,
+                      "line": 225
+                    },
+                    "snippet": "  223 |   await page.getByRole('button', { name: '重新載入表單' }).click()\n  224 |   await page.getByRole('button', { name: '合成切換身分' }).click()\n> 225 |   await expect.poll(() => state.forms.length).toBe(3)\n      |                                               ^\n  226 |   await expect(page.getByRole('heading', { name: 'published 合成表單', exact: true })).toHaveCount(0)\n  227 |   old.release(); await expect(page.getByText('正在載入表單…')).toBeVisible()\n  228 |   await page.getByRole('link', { name: '合成切換 Form ID' }).click()"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                        "column": 47,
+                        "line": 225
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m2\u001b[39m\n\nCall Log:\n- Timeout 5000ms exceeded while waiting on the predicate\n\n  223 |   await page.getByRole('button', { name: '重新載入表單' }).click()\n  224 |   await page.getByRole('button', { name: '合成切換身分' }).click()\n> 225 |   await expect.poll(() => state.forms.length).toBe(3)\n      |                                               ^\n  226 |   await expect(page.getByRole('heading', { name: 'published 合成表單', exact: true })).toHaveCount(0)\n  227 |   old.release(); await expect(page.getByText('正在載入表單…')).toBeVisible()\n  228 |   await page.getByRole('link', { name: '合成切換 Form ID' }).click()\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts:225:47"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:44:57.157Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\f4-chromium-fixture-a1\\f4-browser-F4-B07-same-mou-41ef7-not-navigate-or-end-loading-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e\\f4-browser.spec.ts",
+                    "column": 47,
+                    "line": 225
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-3e61b6afd5ddcba28cfb",
+          "file": "f4-browser.spec.ts",
+          "line": 213,
+          "column": 1
+        },
+        {
+          "title": "F4-B08 unknown bootstrap waits for explicit retry; stale unmount and initial resource Auth redirect",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 738,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:03.426Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-77b0e48af45f935203af",
+          "file": "f4-browser.spec.ts",
+          "line": 238,
+          "column": 1
+        },
+        {
+          "title": "F4-B09 long root text and owner UUID remain readable on mobile; reload is keyboard usable",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 531,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:04.351Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-400c0581060d2e545644",
+          "file": "f4-browser.spec.ts",
+          "line": 254,
+          "column": 1
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_REQUIRED keeps Dialog until footer",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1048,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:04.888Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-auth-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfUkVRVUlSRUQiLAogICJmaW5pc2giOiAiZm9vdGVyIiwKICAiYmVmb3JlQXV0aCI6IHsKICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Zvcm1zP3Byb2JlPWFsaWdubWVudCN0YXJnZXQiLAogICAgInByaXZhdGVUYWJsZUNvdW50IjogMCwKICAgICJ1c2VyVmlzaWJsZSI6IHRydWUsCiAgICAibG9hZGluZyI6IHRydWUsCiAgICAiZGlhbG9nQ291bnQiOiAwCiAgfSwKICAiYWZ0ZXJBdXRoIjogewogICAgInVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvZm9ybXM/cHJvYmU9YWxpZ25tZW50I3RhcmdldCIsCiAgICAicHJpdmF0ZVRhYmxlQ291bnQiOiAwLAogICAgInByaXZhdGVDYXJkQ291bnQiOiAwLAogICAgInVzZXJDb3VudCI6IDAsCiAgICAiZGlhbG9nQ291bnQiOiAxCiAgfSwKICAicmVxdWVzdHMiOiBbCiAgICAiL2FwaS92MS9mb3Jtcz9wYWdlPTMmcGFnZVNpemU9MTAiLAogICAgIi9hcGkvdjEvZm9ybXM/cGFnZT0yJnBhZ2VTaXplPTEwIgogIF0KfQ=="
+                    },
+                    {
+                      "name": "alignment-final-navigation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfUkVRVUlSRUQiLAogICJmaW5pc2giOiAiZm9vdGVyIiwKICAidXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9sb2dpbj9yZWRpcmVjdD0vZm9ybXM/cHJvYmU9YWxpZ25tZW50JTIzdGFyZ2V0IiwKICAiZGlhbG9nQ291bnQiOiAwCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-db2a9aaebb6fe954eac4",
+          "file": "f4-browser.spec.ts",
+          "line": 288,
+          "column": 3
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_INVALID keeps Dialog until icon",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1027,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:05.943Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-auth-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfVE9LRU5fSU5WQUxJRCIsCiAgImZpbmlzaCI6ICJpY29uIiwKICAiYmVmb3JlQXV0aCI6IHsKICAgICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDozMDAwL2Zvcm1zP3Byb2JlPWFsaWdubWVudCN0YXJnZXQiLAogICAgInByaXZhdGVUYWJsZUNvdW50IjogMCwKICAgICJ1c2VyVmlzaWJsZSI6IHRydWUsCiAgICAibG9hZGluZyI6IHRydWUsCiAgICAiZGlhbG9nQ291bnQiOiAwCiAgfSwKICAiYWZ0ZXJBdXRoIjogewogICAgInVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvZm9ybXM/cHJvYmU9YWxpZ25tZW50I3RhcmdldCIsCiAgICAicHJpdmF0ZVRhYmxlQ291bnQiOiAwLAogICAgInByaXZhdGVDYXJkQ291bnQiOiAwLAogICAgInVzZXJDb3VudCI6IDAsCiAgICAiZGlhbG9nQ291bnQiOiAxCiAgfSwKICAicmVxdWVzdHMiOiBbCiAgICAiL2FwaS92MS9mb3Jtcz9wYWdlPTMmcGFnZVNpemU9MTAiLAogICAgIi9hcGkvdjEvZm9ybXM/cGFnZT0yJnBhZ2VTaXplPTEwIgogIF0KfQ=="
+                    },
+                    {
+                      "name": "alignment-final-navigation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfVE9LRU5fSU5WQUxJRCIsCiAgImZpbmlzaCI6ICJpY29uIiwKICAidXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9sb2dpbj9yZWRpcmVjdD0vZm9ybXM/cHJvYmU9YWxpZ25tZW50JTIzdGFyZ2V0IiwKICAiZGlhbG9nQ291bnQiOiAwCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-c559ea17b20447e8156f",
+          "file": "f4-browser.spec.ts",
+          "line": 288,
+          "column": 3
+        },
+        {
+          "title": "F4-R1-B10 alignment second GET AUTH_TOKEN_EXPIRED keeps Dialog until route",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1013,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:06.977Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-auth-observation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfVE9LRU5fRVhQSVJFRCIsCiAgImZpbmlzaCI6ICJyb3V0ZSIsCiAgImJlZm9yZUF1dGgiOiB7CiAgICAidXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9mb3JtcyIsCiAgICAicHJpdmF0ZVRhYmxlQ291bnQiOiAwLAogICAgInVzZXJWaXNpYmxlIjogdHJ1ZSwKICAgICJsb2FkaW5nIjogdHJ1ZSwKICAgICJkaWFsb2dDb3VudCI6IDAKICB9LAogICJhZnRlckF1dGgiOiB7CiAgICAidXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9mb3JtcyIsCiAgICAicHJpdmF0ZVRhYmxlQ291bnQiOiAwLAogICAgInByaXZhdGVDYXJkQ291bnQiOiAwLAogICAgInVzZXJDb3VudCI6IDAsCiAgICAiZGlhbG9nQ291bnQiOiAxCiAgfSwKICAicmVxdWVzdHMiOiBbCiAgICAiL2FwaS92MS9mb3Jtcz9wYWdlPTMmcGFnZVNpemU9MTAiLAogICAgIi9hcGkvdjEvZm9ybXM/cGFnZT0yJnBhZ2VTaXplPTEwIgogIF0KfQ=="
+                    },
+                    {
+                      "name": "alignment-final-navigation",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjb2RlIjogIkFVVEhfVE9LRU5fRVhQSVJFRCIsCiAgImZpbmlzaCI6ICJyb3V0ZSIsCiAgInVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvbG9naW4/cmVkaXJlY3Q9LyIsCiAgImRpYWxvZ0NvdW50IjogMAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-3a532e6509fb86add256",
+          "file": "f4-browser.spec.ts",
+          "line": 288,
+          "column": 3
+        },
+        {
+          "title": "F4-R1-B11 external filter revokes pending automatic alignment Auth policy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 908,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:08.002Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-revoked",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjaGFuZ2UiOiAiZmlsdGVyIiwKICAidXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6MzAwMC9mb3JtcyIsCiAgInJlcXVlc3RzIjogWwogICAgIi9hcGkvdjEvZm9ybXM/cGFnZT0zJnBhZ2VTaXplPTEwIiwKICAgICIvYXBpL3YxL2Zvcm1zP3BhZ2U9MiZwYWdlU2l6ZT0xMCIsCiAgICAiL2FwaS92MS9mb3Jtcz9wYWdlPTEmcGFnZVNpemU9MTAmc3RhdHVzPWRyYWZ0IgogIF0sCiAgImxvZ291dCI6IDAsCiAgImRpYWxvZ0NvdW50IjogMAp9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-6b91c47a3ebcef92f726",
+          "file": "f4-browser.spec.ts",
+          "line": 342,
+          "column": 3
+        },
+        {
+          "title": "F4-R1-B11 external route revokes pending automatic alignment Auth policy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 922,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:08.921Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-revoked",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjaGFuZ2UiOiAicm91dGUiLAogICJ1cmwiOiAiaHR0cDovL2xvY2FsaG9zdDozMDAwLyIsCiAgInJlcXVlc3RzIjogWwogICAgIi9hcGkvdjEvZm9ybXM/cGFnZT0zJnBhZ2VTaXplPTEwIiwKICAgICIvYXBpL3YxL2Zvcm1zP3BhZ2U9MiZwYWdlU2l6ZT0xMCIKICBdLAogICJsb2dvdXQiOiAwLAogICJkaWFsb2dDb3VudCI6IDAKfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-af7617eab30a1a548b40",
+          "file": "f4-browser.spec.ts",
+          "line": 342,
+          "column": 3
+        },
+        {
+          "title": "F4-R1-B11 external session revokes pending automatic alignment Auth policy",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 90000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 6,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1055,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:45:09.851Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "alignment-revoked",
+                      "contentType": "application/json",
+                      "body": "ewogICJzaW11bGF0ZWQiOiB0cnVlLAogICJjaGFuZ2UiOiAic2Vzc2lvbiIsCiAgInVybCI6ICJodHRwOi8vbG9jYWxob3N0OjMwMDAvbG9naW4iLAogICJyZXF1ZXN0cyI6IFsKICAgICIvYXBpL3YxL2Zvcm1zP3BhZ2U9MyZwYWdlU2l6ZT0xMCIsCiAgICAiL2FwaS92MS9mb3Jtcz9wYWdlPTImcGFnZVNpemU9MTAiCiAgXSwKICAibG9nb3V0IjogMSwKICAiZGlhbG9nQ291bnQiOiAwCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "0ebe8546f4c2bd971753-8884a6b958a52b03604d",
+          "file": "f4-browser.spec.ts",
+          "line": 342,
+          "column": 3
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:44:19.190Z",
+    "duration": 52410.462999999996,
+    "expected": 14,
+    "skipped": 0,
+    "unexpected": 6,
+    "flaky": 0
+  }
+}

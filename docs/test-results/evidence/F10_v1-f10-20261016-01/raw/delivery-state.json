@@ -1,0 +1,21 @@
+{
+  "observedAt": "2026-10-16T16:37:44.1362846+08:00",
+  "frontendHead": "bc98f85309ef55ee1015e5727157e8d5fb9ba5ae",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendStatus": [
+    "?? SNAPSHOT.md"
+  ],
+  "pid": {
+    "ProcessId": 34068,
+    "ExecutablePath": "C:\\Program Files\\dotnet\\dotnet.exe"
+  },
+  "dllVersion": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "dllSha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180",
+  "zipSha256": "48A4EE96F69EBBD4D6D7BE9F8562F844D585DAA7AB3E7691ED8B798C5E1F9897",
+  "caseData": {
+    "accounts": 11,
+    "forms": 45,
+    "expectedResponses": 34,
+    "softDeleted": 4
+  }
+}

@@ -1,0 +1,51 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] (node:41504) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 38 tests using 1 worker
+
+(node:29716) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f3-browser.spec.ts:35:1 › F3-B01 shared bootstrap/SPA, normalized no-op, whitelist PATCH and desktop/mobile avatar fallback (1.2s)
+  ok  2 [chromium] › tests\e2e\f3-browser.spec.ts:66:1 › F3-B02 bootstrap 401 returns full URL and anonymous Header nav chooses clicked target without more me (676ms)
+  ok  3 [chromium] › tests\e2e\f3-browser.spec.ts:78:1 › F3-B03 unknown bootstrap retries only explicitly and never builds a writable blank Profile (622ms)
+  ok  4 [chromium] › tests\e2e\f3-browser.spec.ts:90:3 › F3-B04 public fixture independent of me pending (533ms)
+  ok  5 [chromium] › tests\e2e\f3-browser.spec.ts:90:3 › F3-B04 public fixture independent of me disabled (416ms)
+  ok  6 [chromium] › tests\e2e\f3-browser.spec.ts:90:3 › F3-B04 public fixture independent of me 401 (400ms)
+  ok  7 [chromium] › tests\e2e\f3-browser.spec.ts:90:3 › F3-B04 public fixture independent of me 500 (462ms)
+  ok  8 [chromium] › tests\e2e\f3-browser.spec.ts:107:1 › F3-B05 tabs/Code Point validation, first error focus, duplicate email/details and credentials remain on login (1.1s)
+  ok  9 [chromium] › tests\e2e\f3-browser.spec.ts:129:1 › F3-B06 dirty SPA, history/back, refresh beforeunload and Header logout cancellation/single permit (2.1s)
+  ok 10 [chromium] › tests\e2e\f3-browser.spec.ts:150:1 › F3-B07 operation Auth 401 Dialog ignores Esc/backdrop; × → dirty cancellation leaves input/invalid session (896ms)
+  ok 11 [chromium] › tests\e2e\f3-browser.spec.ts:167:1 › F3-B08 disabled login/bootstrap/actions retain original URL/User/input and allow logout (1.2s)
+  ok 12 [chromium] › tests\e2e\f3-browser.spec.ts:182:3 › F3-B09 Profile 500 unknown locks write; failed read/cancel preserve data; adoption unlocks (968ms)
+  ok 13 [chromium] › tests\e2e\f3-browser.spec.ts:182:3 › F3-B09 Profile network unknown locks write; failed read/cancel preserve data; adoption unlocks (918ms)
+  ok 14 [chromium] › tests\e2e\f3-browser.spec.ts:182:3 › F3-B09 Profile malformed unknown locks write; failed read/cancel preserve data; adoption unlocks (970ms)
+  ok 15 [chromium] › tests\e2e\f3-browser.spec.ts:182:3 › F3-B09 Profile timeout unknown locks write; failed read/cancel preserve data; adoption unlocks (961ms)
+  ok 16 [chromium] › tests\e2e\f3-browser.spec.ts:214:1 › F3-B10 Login/Register/Logout unknown preserve state and offer explicit safe checks/retries (1.9s)
+  ok 17 [chromium] › tests\e2e\f3-browser.spec.ts:234:1 › F3-B11 late explicit me / PATCH after leaving have no User, toast or route effects (691ms)
+  ok 18 [chromium] › tests\e2e\f3-browser.spec.ts:249:1 › F3-B13 late reconciliation after leaving preserves the newer page and shared User (1.0s)
+  ok 19 [chromium] › tests\e2e\f3-browser.spec.ts:264:1 › F3-B14 disabled bootstrap creates no Profile model and offers logout; pending logout cannot change later route (797ms)
+  ok 20 [chromium] › tests\e2e\f3-browser.spec.ts:279:1 › F3-B12 guest redirect rejects external/unknown/login loops and keeps a valid query/hash (652ms)
+  ok 21 [chromium] › tests\e2e\f3-corrections.spec.ts:23:3 › F3-R1 GET adopts B; next unknown B write remains locked after SPA remount (1.4s)
+  ok 22 [chromium] › tests\e2e\f3-corrections.spec.ts:23:3 › F3-R1 PATCH adopts B; next unknown B write remains locked after SPA remount (1.1s)
+  ok 23 [chromium] › tests\e2e\f3-corrections.spec.ts:64:3 › F3-R2 Profile footer restores the enabled save trigger (682ms)
+  ok 24 [chromium] › tests\e2e\f3-corrections.spec.ts:64:3 › F3-R2 Profile × restores the enabled save trigger (738ms)
+  ok 25 [chromium] › tests\e2e\f3-corrections.spec.ts:80:5 › F3-R2 Auth footer dirty cancel focuses available heading (751ms)
+  ok 26 [chromium] › tests\e2e\f3-corrections.spec.ts:80:5 › F3-R2 Auth footer dirty accept focuses destination (737ms)
+  ok 27 [chromium] › tests\e2e\f3-corrections.spec.ts:80:5 › F3-R2 Auth × dirty cancel focuses available heading (707ms)
+  ok 28 [chromium] › tests\e2e\f3-corrections.spec.ts:80:5 › F3-R2 Auth × dirty accept focuses destination (790ms)
+  ok 29 [chromium] › tests\e2e\f3-corrections.spec.ts:102:3 › F3-R2 登入 Dialog restores submit trigger and preserves input (686ms)
+  ok 30 [chromium] › tests\e2e\f3-corrections.spec.ts:102:3 › F3-R2 註冊 Dialog restores submit trigger and preserves input (782ms)
+  ok 31 [chromium] › tests\e2e\f3-corrections.spec.ts:118:3 › F3-R2 Logout footer restores original popover trigger (808ms)
+  ok 32 [chromium] › tests\e2e\f3-corrections.spec.ts:118:3 › F3-R2 Logout × restores fallback after trigger unmount (832ms)
+  ok 33 [chromium] › tests\e2e\f3-corrections.spec.ts:137:1 › F3-R2 unknown Profile focuses reconciliation when save is disabled (712ms)
+  ok 34 [chromium] › tests\e2e\f3-corrections.spec.ts:147:1 › F3-R2 keyboard submit returns focus to the original input (656ms)
+  ok 35 [chromium] › tests\e2e\f3-corrections.spec.ts:155:1 › F3-R1 cancelled candidate B cannot switch key or clear unknown on SPA remount (998ms)
+  ok 36 [chromium] › tests\e2e\f3-corrections.spec.ts:175:1 › F3-R1 Profile bootstrap retry adopts a session before unknown write and SPA remount (941ms)
+  ok 37 [chromium] › tests\e2e\f3-reconciliation.spec.ts:2:1 › F3-B15 explicit Profile verification Auth 401 invalidates session and uses Dialog → dirty → login (1.1s)
+  ok 38 [chromium] › tests\e2e\f3-reconciliation.spec.ts:27:1 › F3-B16 verified different User is adopted once and releases the Profile unknown gate (749ms)
+
+  38 passed (36.7s)

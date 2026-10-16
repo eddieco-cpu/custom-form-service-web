@@ -1,0 +1,5 @@
+
+> test:unit
+> vitest run tests/unit/f10-acceptance-boundaries.spec.ts --reporter=json --outputFile=output/playwright/v1-acceptance/v1-f10-20261016-01/raw/U02-boundaries-final-results.json
+
+JSON report written to C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/raw/U02-boundaries-final-results.json

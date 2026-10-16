@@ -1,0 +1,136 @@
+"""Bind the approved 248 executable records to observed evidence; never edit plan CSV."""
+import csv,json
+from pathlib import Path
+from collections import Counter
+P=Path.cwd();D=P/'docs/test-results/evidence/F10_v1-f10-20261016-01';R=P/'output/playwright/v1-acceptance/v1-f10-20261016-01'
+rows=list(csv.DictReader((P/'docs/test-plan/v1-acceptance/Case_Results.csv').open(encoding='utf-8-sig',newline='')))
+checks=json.loads((D/'Checkpoints.json').read_text(encoding='utf-8'))
+browsers=json.loads((D/'Browser_Checks.json').read_text(encoding='utf-8'))
+observations={
+'E02':('raw/E02-lint-final.log;raw/E02-typecheck-tool-retest.log;Unit_Checks.json;raw/E03-default-restore-build.log','lint／app+tools strict通過；原17檔505測試及新增15個固定CP邊界通過；產品fresh build及static後恢復default build通過。新增工具import／readonly首敗另保留。'),
+'E04':('raw/E04-boundary-scan.json;raw/ui-layout-results.json;raw/protocol-results.json','CSR／strict／public config／零持久化與BFF來源核對；產品產物四種測試route字串零命中；18組真實頁面寬度、320／390無水平溢位、Header1023／1024與登入440px通過；零外部請求、Google隱藏。限明列掃描範圍，非全機秘密稽核。'),
+'U01':('Unit_Checks.json;raw/oracle-results.json','exact-number-gate／api-client固定literal逐項通過；另以Decimal核wire／Receipt／Latest及統計，數字不經JS Number重建。'),
+'U02':('Unit_Checks.json;raw/U02-boundaries-final-results.json','White_Space全集／FEFF／ZWSP／CP／password原樣與ASCII email規則通過；補99/100/101、199/200/201、254/255/256與email254/255完整固定邊界15案；非ASCII最終相容另見真實EC1～4。'),
+'U03':('Unit_Checks.json;raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','微秒／同瞬間／台北時間／清null模型通過；真實title-only PATCH省略deadline並讀回微秒，另以UI修改台北時間及清除null獨立讀回。'),
+'U04':('Unit_Checks.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','Delta／省略config／Server IDs／id-only刪／tmp不出wire／本地增刪／稀疏no-op模型通過；真實保存、拖曳及ID讀回補證。'),
+'U06':('Unit_Checks.json;Browser_Checks.json','auth／scoped-state／F6～F9 deferred純模型與薄harness通過；bootstrap、credential-change、session／route晚回、互斥與unknown保護分開驗證。'),
+'A01':('raw/canonical-a2-all.json;raw/canonical-a4-additional.json;raw/protocol-results.json','A/B/C/X/L及EC1～4經真UI註冊／主動登入；201不設登入Cookie、不自登入，Tab／email／密碼／redirect；200 Cookie flags、HttpOnly不可由document.cookie讀出。另實際Set-Cookie只保flags：Expires有、Max-Age與Domain無、Lax／Path=/／HttpOnly、Secure=false。'),
+'A02':('raw/canonical-a4-additional.json;raw/canonical-a5-authRetest.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Unit_Checks.json','EC1 single-label／EC2 quoted／EC3 Unicode／EC4 İ四帳號真UI註冊登入；含空白10／128CP密碼與100CP姓名。101CP姓名／9、129CP密碼零註冊POST；invalid email真400 details.email保輸入。'),
+'A03':('raw/canonical-a5-authRetest.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','重複email真409 USER_EMAIL_ALREADY_EXISTS；錯密碼與未知email真401 AUTH_INVALID_CREDENTIALS，關Dialog後留正確Tab與email，可修正。a4工具在modal inert期間找Tab首敗保留。'),
+'A04':('raw/canonical-a2-all.json;raw/canonical-a8-latestAndReturn.json;Browser_Checks.json','真實保護頁完整redirect、Form/edit guest兩格、已登入返回及重新登入重讀；query/hash返回已於R11兩關閉方式驗證。合法／非法redirect守門另有F3 Browser與unit固定集合。'),
+'A05':('raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','同SPA三次nav不增加GET me；完整reload恰+1，同Cookie新tab自己的App恰1；Login/PATCH採User不補me。guest/public初始化另由真實Stats及隔離先後順序證明。'),
+'A06':('Browser_Checks.json;Unit_Checks.json','F3 bootstrap未知／停用／network／timeout／500與手動retry、F9 public先後於me完整隔離通過；這些是FAULT，沒有解除真實P02/P03。'),
+'A07':('raw/ui-layout-results.json;Browser_Checks.json;screenshots/form-320.png','真Header四nav順序、首頁三入口、1023/1024高度56/64與手機導覽鍵盤操作、guest點目標返回通過。avatar壞圖fallback是F3 fixture；視覺核對是AI，沒有代填實機人工。'),
+'A08':('raw/canonical-a3-recheck.json;raw/canonical-a2-all.json','Profile真PATCH僅displayName、Header更新、獨立GET me及改回基準／no-op；初次工具錯把PATCH計成GET，a3更正計數後重驗。'),
+'A09':('raw/canonical-a3-recheck.json;raw/protocol-results.json;Browser_Checks.json','真dirty登出取消零POST、確認204／login、缺Cookie再logout204；無body與Cookie清除另由protocol證明，unknown三種FAULT另列。a2前置姓名未恢復導致斷言失敗保留。'),
+'A10':('Unit_Checks.json;Browser_Checks.json','F3-B12 Browser及safeRedirect純模型對外部／斜線／編碼／非法percent／login循環／未知route拒絕，合法query/hash保留，無外部導航。'),
+'L01':('raw/canonical-a9-lastReadbacks.json','沿用本Run EC1原0 Form，先核全部空／pages0，再正常建立保留EMPTY-D，真UI Published filter空及API items=[]／pages0；此補驗增加1份正常Draft，不刪資料。'),
+'L02':('raw/canonical-a2-all.json;raw/evidence-audit-results.json;screenshots/list-390.png','LIST21當時三頁10/10/1全部實際wire；獨立從21份detail讀回及固定提交事件計算各列全部summary欄位、count與updatedAt/id DESC，完整比對通過。現行20份不冒充仍21。'),
+'L03':('raw/canonical-a2-all.json;Browser_Checks.json','三態各7時逐filter回1、刷新、點三種實際row至Draft edit／其他Form；mobile10卡片無overflow。縮減後資料狀態另記，不重寫當時結果。'),
+'L04':('raw/canonical-a2-all.json;raw/evidence-audit-results.json;Browser_Checks.json','LIST-SHRINK唯一DELETE204，page3刷新GET頁3空後只補頁2，總20／2頁，獨立GET404；重複縮減／0頁循環為明列fixture補證。'),
+'L06':('raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','Form/edit對deleted／合法不存在／bad UUID六個真路由，404/400保原URL、錯誤訊息；初次／手動失敗保留與重試由F4及F01明列攔截補證。'),
+'L07':('Browser_Checks.json;Unit_Checks.json','F4-B06／R1 stale filter/route/session與F4純loader、F6/F8/F9同組件scope通過。F4-B07舊「切身分自動第三GET」已不適用F8明確核身流程，舊FAIL保留，未改產品求舊測試PASS。'),
+'D01':('raw/canonical-a4-additional.json;Browser_Checks.json','真new零Form讀寫、空題／無發布、visibility沒有有效選值且未選擋POST。以語意檢查重驗；HTML placeholder原始value必須空字串／disabled屬工具誤加條件，兩次首敗保留。'),
+'D02':('raw/canonical-a2-all.json','真UI填根設定、五題型六題→一次POST201，push edit；Server正式Form/Q/Option IDs、無tmp、獨立GET/reload。發布是後續獨立動作。'),
+'D03':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','UI增題／增option後採Server ID二次更新、id-only刪題／刪option、description null、暫存增刪no-op；真拖曳題／option後保存G核順序與IDs／values，鍵盤上下移動還原no-op。'),
+'D04':('raw/canonical-a4-additional.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','真UI SC↔MC保IDs/default variant、Choice→text取消／確認清options、回Choice新IDs；rating range/stars保0..5並逐次保存G；text改variant再回省略baseline。'),
+'D05':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','原EDIT sparse／omitted variant／微秒載入no-op、title-only不補送；D05-RECHECK逐案補placeholder完整config仍省略variant、改回no-op、台北改UTC與清null，全部獨立G。'),
+'D06':('raw/canonical-a4-additional.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Unit_Checks.json','201CP title與min>max零PATCH；200CP title及Q/label2000CP真保存G；空Q/過去deadline Draft、無Choice options／缺rating bounds能存，Publish本地拒絕無偷存／偷補。'),
+'D07':('raw/canonical-a2-all.json;raw/canonical-a4-additional.json;Browser_Checks.json','真Preview試填／重開清空、Esc不關、未送Response／不改dirty；snapshot／焦點trap／遮罩／geometry／缺bounds用同產品built與薄harness量測，明列為隔離UI；實機H02未驗。'),
+'D08':('raw/canonical-a4-additional.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','真SPA cancel/accept與Server reentry、真beforeunload取消保model、clean reload不恢復；history/back/forward／同組件hash與single permit在隔離Browser通過。'),
+'D09':('Browser_Checks.json;Unit_Checks.json','F6 sparse Delta path／unknown摘要／unknown寫入鎖到可靠重讀與取消保資料，network/timeout/500另F02-DELTA逐案；皆明列攔截。'),
+'M01':('raw/canonical-a2-all.json;Browser_Checks.json','真dirty擋Publish、取消不POST、保存後獨立確認POST無body→200／Form與G published、definition凍結。'),
+'M02':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','真Close取消再確認、200留Form／G closed；自然Deadline後仍Published、可Close不重判過期deadline，不能再Submit。'),
+'M04':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','真UI distinct0→1→1→2，兩次B不同Response不多算人；Owner Draft0及Closed2 API正常、X403另M07；列表獨立固定事件count及統計root另oracle。'),
+'M05':('raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','真Clipboard讀回完整origin＋Published填答／Closed統計URL，真點統計入口；Clipboard reject／晚回及資格文案在built fixture通過。'),
+'R01':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','真single/multiple首次／reload空白無自動Latest；真自然截止與Closed readonly、非Owner無管理。換id／同組件重新初始化在Browser隔離補證。'),
+'R02':('raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json;Unit_Checks.json','真錯Question歸屬、錯Option UUID、錯value type均400 VALIDATION_ERROR且獨立Latest不變；前端required／bounds／未操作rating零POST及首錯焦點以產品Browser隔離與domain固定案例補證。'),
+'R04':('raw/canonical-a2-all.json','真MULTI B先全答／同內容再答／第三份省略text，每次新201與獨立Latest；A自己的份不借B，成功仍可編輯／再提交。'),
+'R05':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','真OPT空answers[]201＋G[]、0數字／stars／range實際wire及空text省略；各optional清除與MC[]省略在同產品renderer Browser補證，無額外提交湊數。'),
+'R06':('raw/canonical-a2-all.json;Browser_Checks.json','真Latest每按一次GET，成功後才dirty cancel/confirm，取消保本地，確認缺optional清空，主動再GET為完整最新份；pending freeze由Browser補證。'),
+'R07':('raw/canonical-a2-all.json;raw/canonical-a8-latestAndReturn.json','X無Response真404且Dialog保dirty；Draft Owner RESPONSE_NOT_FOUND／非Owner FORM_NOT_FOUND；B本人對Closed、deadline及owner_only表的Latest正常，與其他User各自隔離。'),
+'R08':('Browser_Checks.json;raw/canonical-a2-all.json','stars0..5已真提交0／2／5；100星、min20、hover/focus不答、清除／required／readonly與同key隔離為明列Browser fixture，不作實機PASS。'),
+'R09':('Browser_Checks.json;raw/canonical-a2-all.json','range真保存0／10，初值不作答、點min、鍵盤／drag／清除及min>0由固定產品Browser fixture，空optional不默取min；H03仍缺實機。'),
+'R10':('raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;Browser_Checks.json','真Deadline自然過、POST409、status仍Published／Latest可讀；另一tab Close後舊UI POST409 FORM_NOT_SUBMITTABLE→候選GET→dirty取消保本地／不可再送。確認導首頁、timer/晚201時序是明列FAULT，不冒充真Server延期。'),
+'R11':('raw/canonical-a8-latestAndReturn.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','真清專用Cookie後Submit與Latest分別401；Esc/遮罩不關，footer/×各取消保readonly本地；明確核身後另一關閉方式確認，login完整query/hash返回、空白重讀與零自動重送。不是EXPIRED。'),
+'R12':('raw/oracle-results.json;raw/canonical-a2-all.json','Decimal另核EDIT A長小數與B0的POST/Receipt/獨立Latest，ST固定大整數相鄰／長小數／科學記號數值分組及完整Stats；文本trim／大小寫／換行依固定輸入。'),
+'R13':('raw/canonical-a2-all.json;raw/protocol-results.json;Browser_Checks.json','真EDIT input/radio/checkbox及MULTI textarea/select/multi_select保存Receipt/Latest；同標籤以正常API準備於D05-RECHECK，真Preview分別選兩個正式Server IDs、單選互斥，零Response，readonly與Renderer隔離另built補證。'),
+'S01':('raw/oracle-results.json;raw/canonical-a3-recheck.json;raw/canonical-a2-all.json','獨立Decimal從固定10題／8份提交推完整Body與UI／獨立GET；a3六份ST P0/P1/P2全部通過，連同16份POL／ZERO共22 snapshot。a2錯誤姓名前置的oracle首敗保留、不改預期。'),
+'S04':('raw/oracle-results.json;raw/canonical-a3-recheck.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','ZERO兩Identity完整五型0與rating全範圍0、identified[]／anonymous無名單；另OPT真Closed Root1而六題count全0，區分零Respondent。'),
+'S05':('raw/oracle-results.json;raw/canonical-a3-recheck.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','P0→P1 Creator改名、P2 B改名；完整固定oracle比目前姓名、name/id排序及同名不去重，anonymous無respondents。public→private後guest真401撤內容，再恢復public；未當成cache授權。'),
+'S06':('Browser_Checks.json;Unit_Checks.json','F9 built23／harness8全部通過；retry先清私有內容、初次/手動Auth、me先後、late200/401/403/finally、外部身份與unmount，攔截／deferred邊界保留。'),
+'S07':('Browser_Checks.json;raw/large-a1.log','固定30Q/200items/120名/2000CP/101rating在1440/390/320末題可達／無overflow；獨立Z:2與Apple/apple/e+combining/é等六組合法預排，UI保順序、雙空白/換行與純文字，未NFC合併；H04仍未驗。'),
+'F03':('Browser_Checks.json;Unit_Checks.json','F6 Delta sparse index／F7 Publish saved complete index／F8 omitted Answer index及Question UUID分別定位，未知path完整摘要；error code層級與Request namespace不混。'),
+'F04':('Browser_Checks.json;Unit_Checks.json','F6/F7/F8/F9 pending freeze、互斥／舊GET跨已知寫入、晚success/error/finally、scope/session更換與discard一次授權全部有新隔離實跑；真交易／受控並行不以此替P05/P06/G07。'),
+'B01':('raw/canonical-chrome-a1-smoke.json;raw/canonical-chrome-a2-smokeRetest.json','Chrome156.0.8078.12真UI新帳號／single Form保存發布、201／Latest／Close／public及private返回；a1同URL沒有reload的工具timeout保留，a2明確reload補權限、無重建或重複提交。'),
+'B02':('raw/canonical-msedge-a1-smoke.json;raw/canonical-msedge-a2-smokeRetest.json','Edge155.0.4283.45真UI新帳號／multiple兩份不同201、Latest第二份、Close／public及private；a1工具timeout與a2補驗保留，未以Chromium冒充。'),
+}
+
+def assign(row,status,evidence,observed,gap='',defect=''):
+    row.update(ai_result=status,human_result='NOT RUN',precondition_state=('BLOCKED: '+gap) if status=='BLOCKED' else 'OBSERVED: Run index / environment and per-attempt records',attempt='v1-f10-20261016-01 / see evidence',frontend_sha='bc98f85309ef55ee1015e5727157e8d5fb9ba5ae',backend_sha='7591633137c5a6f57c1fce8e1ba19ab394015880',evidence=evidence,observed_result=observed,defect_id=defect)
+    if gap:row['gap_ids']=';'.join(filter(None,[row['gap_ids'],gap]))
+    row['first_result']=status
+    failed=[c for c in checks if c['id']==row['case_id'] and c['status']=='FAIL']
+    if failed:row['first_result']='FAIL';row['retest_of']=';'.join(dict.fromkeys(c['attempt'] for c in failed))+' → current evidence (first failures retained)'
+
+for row in rows:
+    cid=row['case_id']
+    if row['record_type']=='parent':continue
+    if cid in observations:
+        refs,note=observations[cid];assign(row,'PASS',refs,note);continue
+    if cid=='E01':assign(row,'FAIL','raw/E01-ci-first.log;raw/E01-ci-normal-retest.log;raw/E01-ci-clean-copy.log;raw/E01-restore-install.log','原目錄npm ci在sandbox及正常權限均EPERM unlink resolver native；exit -4048。乾淨git archive副本同lock ci PASS及原目錄ignore-scripts恢復install PASS不解除原目錄FAIL，lock未變。','G08','ENV-01');continue
+    if cid=='E05':assign(row,'BLOCKED','raw/environment.json;raw/E05-db-readonly.log;raw/E05-run-id-db-readonly.log;raw/E05-final-counts-readonly.log;raw/E05-delivery-counts-readonly.log;raw/delivery-state.json','checkout→PID34068→DLL版本/hash、health/ready/OpenAPI、DB/user17.11/migration及本Run已知UUID/softDelete相關性均已核；effective config來源provider與runtime DbContext非秘密診斷仍未取得，不自行關G01。','G01');continue
+    if cid=='E06':assign(row,'BLOCKED','raw/E06-audit.json;Prerequisites_Results.md','npm audit已實跑exit1；15 affected package nodes（2critical/12high/1low），7獨立advisory；依賴鏈／本機runtime可達性評估已交，Owner處置尚未確認，未audit fix或改lock。','G09');continue
+    if cid=='U05':assign(row,'BLOCKED','Unit_Checks.json;raw/canonical-a2-all.json;Prerequisites_Results.md','Answers五型／required／optional／0／完整Latest先清空與path映射均有unit/Browser/真實證據；同timestamp Server Latest依id DESC選份沒有新受控前置，後端R11歷史無原artifact可新核，不以單份DTO或前端陣列模擬冒充Server tie-break。','G07');continue
+    if cid=='M07-DELETE':assign(row,'BLOCKED','raw/canonical-a4-additional.json;raw/evidence-audit-results.json;Failures_and_Retests.md','執行排程遺漏刪除前的非Owner DELETE403；四份白名單已各成功soft delete。現在缺未刪白名單前置，無新增刪除授權；不重刪／不擴白名單／不拿404抵403。','RUN-ORDER-01');continue
+    if cid.startswith('P0') and not cid.startswith('P01'):
+        gap={'P02':'G03','P03':'G04','P04':'G05','P05':'G06a/G07','P06':'G06b'}[cid[:3]]
+        notes={'P02':'缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。','P03':'缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。','P04':'缺另一專用Creator受控停用及六表對照；與Caller停用不同。','P05':'缺真Server read/precommit/postcommit單request hooks與維護者交易證據。','P06':'缺真Server >30000ms單request延遲及完成點證據。'}
+        assign(row,'BLOCKED','Prerequisites_Results.md',notes[cid[:3]]+' 此子情境未執行；對應FAULT不抵銷。',gap);continue
+    if cid.startswith('H0'):assign(row,'BLOCKED','Prerequisites_Results.md','未有Android實機／操作者／localhost安全連線安排；AI可整理證據但不能做真人touch／軟鍵盤／safe-area／體驗。人工結果NOT RUN，viewport及AI截圖不代填。','G10');continue
+    if cid.startswith('E03-'):assign(row,'PASS','Browser_Checks.json;raw/'+f'v1-f10-20261016-01-{cid}-a1-results.json','依v1.1 E03命令逐模式新跑；固定URL精確比對、Toast/Dialog/local SVG與焦點通過；generate與default恢復build另有log。無業務API整合宣稱。');continue
+    if cid.startswith('L05-'):assign(row,'PASS','raw/canonical-a2-all.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;raw/canonical-a7-routeDiagnostics.json','此角色×狀態×入口真Browser/API路由已新跑，按矩陣404原URL或replace edit/Form；guest保完整返回。X-D兩筆a2未登錄診斷清單，a7於發送前宣告404重驗，原紀錄不追補白名單。');continue
+    if cid.startswith('M03-'):assign(row,'PASS','raw/canonical-a2-all.json;raw/canonical-a10-managementNoop.json','此狀態／policy真UI PATCH200僅resultVisibility、G同policy與status；Draft dirty定義保留，無覆蓋。三態same-value UI零PATCH且API no-op updatedAt原值；互斥另built fixture。');continue
+    if cid.startswith('M06-'):assign(row,'PASS','raw/canonical-a2-all.json;raw/canonical-a3-recheck.json;raw/canonical-a9-lastReadbacks.json;raw/evidence-audit-results.json','此專用三態Form取消零DELETE、確認唯一204及/forms導航；a3補獨立detail/Latest/Count/Stats/Submit404與list排除；a9補兩個真Form/edit路由404。204-body工具首敗保留，未重DELETE。');continue
+    if cid.startswith('M07-'):assign(row,'PASS','raw/canonical-a4-additional.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json','此管理API對非Owner真403 FORM_ACCESS_DENIED、獨立GET未改；舊Owner UI換真X Cookie後保存403撤管理並保dirty，不以記憶體Owner重開權限。DELETE另列BLOCKED。');continue
+    if cid.startswith('M08-'):assign(row,'PASS','raw/canonical-a4-additional.json;Browser_Checks.json','此真狀態衝突code已逐案確認；另tab發布後舊UI保存409保輸入，候選GET取消／確認、失敗不恢復資格另有built攔截補證。');continue
+    if cid.startswith('R03-'):assign(row,'PASS','raw/canonical-a2-all.json;raw/oracle-results.json','此Owner／Respondent各自真single第一次UI201、成功Dialog不自關、保存wire/Receipt/獨立Latest；reload空白後真409撤submit並保本地，沒有自動恢復Server答案。');continue
+    if cid.startswith('S02-'):assign(row,'PASS','raw/canonical-a3-recheck.json;raw/oracle-results.json;raw/evidence-audit-results.json','此identity×policy×角色格真Browser GET；200完整固定POL Root1／答案／名單由獨立oracle核，401/403 code與URL／隱私清除另核。a3固定P0姓名前置正確，未沿用a2錯誤P0作oracle。');continue
+    if cid.startswith('S03-'):assign(row,'PASS','raw/canonical-a2-all.json;raw/canonical-a4-additional.json;raw/evidence-audit-results.json','此Draft/Published/自然到期/Deleted/不存在/bad UUID×身分格真UI/API，按計畫409/404/400及error.code/details保原URL；guest先判Stats path/存在性，沒有被Header me401搶導login。');continue
+    if cid.startswith('F01-') or cid.startswith('F02-'):
+        matches=[b for b in browsers if cid+' ' in b['title']]
+        assert matches and any(b['status']=='passed' for b in matches),cid
+        assign(row,'PASS','Browser_Checks.json;raw/fault-a1.log;raw/fault-a2.log','此資源/操作×故障為產品build逐格攔截，正式Envelope500或network或實際30000ms client timeout（未改timeout）；loading結束／輸入政策／單請求零自重送，手動核對與unknown限制明列。不是真Server故障／交易PASS。')
+        if any(b['status']=='failed' for b in matches):row['first_result']='FAIL';row['retest_of']='fault-a1 原生confirm工具錯誤 → fault-a2（預期不變）'
+        continue
+    if cid.startswith('F05-'):
+        variants=['MALFORMED','INVALID_UUID']+([] if cid.endswith('CREATE') else ['WRONG_RESOURCE'])
+        for v in variants:assert any(cid+'-'+v+' ' in b['title'] and b['status']=='passed' for b in browsers),(cid,v)
+        assign(row,'PASS','Browser_Checks.json;raw/fault-a1.log;raw/fault-a2.log','malformed成功Body與非法UUID全做；Delta/Response另做錯資源ID。HTTP表面成功不採為可靠201/200，不假成功／不自重送，unknown重讀／duplicateRisk限制保留。Create原生confirm首敗另留。')
+        if cid=='F05-CREATE':row['first_result']='FAIL';row['retest_of']='fault-a1 → fault-a2'
+        continue
+    if cid.startswith('P01-'):assign(row,'PASS','raw/canonical-a4-additional.json;raw/canonical-a6-authRetest,completionProbes,editorProbes.json;raw/evidence-audit-results.json','已採本計畫核准的隔離context合成無效Cookie安排；此protected/private/public/Draft/Published/logout觀察真實執行。me/Form/private401 INVALID、public200、D/P404、logout204清Cookie；另真操作中dirty取消保本地，不是缺Cookie代替。');continue
+    raise AssertionError('Unmapped approved case '+cid)
+
+# First failures of added tools/fixtures are retained even when the product passed.
+for row in rows:
+    if row['case_id'] in ['E02','U02','L02','S01','S04','S05','E04','A07','L05-X-D-F','L05-X-D-E']:
+        row['first_result']='FAIL';row['retest_of']='見 Failures_and_Retests.md；原輸出/工具版均保留，修正工具/前置後以相同產品預期重驗'
+for row in rows:
+    if row['record_type']!='parent':continue
+    children=[r for r in rows if r['parent_id']==row['case_id']]
+    assert children
+    statuses={r['ai_result'] for r in children}
+    result=next(s for s in ['FAIL','BLOCKED','NOT RUN','PASS'] if s in statuses)
+    row.update(ai_result=result,human_result='NOT RUN',precondition_state='SUMMARY: children only, excluded from counts',attempt='aggregate',frontend_sha='bc98f85309ef55ee1015e5727157e8d5fb9ba5ae',evidence='Case_Results.csv;Checkpoints.json;Browser_Checks.json',observed_result='僅彙總展開子案，不額外計PASS；任一阻塞/未驗不由其他PASS抵銷。',first_result='FAIL' if any(c['first_result']=='FAIL' for c in children) else result)
+
+target=D/'Case_Results.csv'
+with target.open('w',encoding='utf-8-sig',newline='') as f:
+    writer=csv.DictWriter(f,fieldnames=rows[0].keys());writer.writeheader();writer.writerows(rows)
+executables=[r for r in rows if r['record_type']!='parent']
+assert len(rows)==266 and len(executables)==248
+stats=Counter(r['ai_result'] for r in executables)
+assert all(r['human_result']=='NOT RUN' for r in rows)
+summary={'planVersion':'1.1','planCommit':'bc98f85309ef55ee1015e5727157e8d5fb9ba5ae','rows':len(rows),'parentSummaries':18,'executableRecords':248,'aiResults':dict(stats),'humanResults':'All NOT RUN; required H01-H04 no device/operator','completeAcceptance':'NOT PASSED: unresolved FAIL/BLOCKED and required human not run','unverified':[{'id':r['case_id'],'result':r['ai_result'],'gap':r['gap_ids'],'reason':r['observed_result']} for r in executables if r['ai_result']!='PASS']}
+(D/'Result_Summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'rows':len(rows),'executableRecords':248,'aiResults':dict(stats),'human':'NOT RUN'},ensure_ascii=False))

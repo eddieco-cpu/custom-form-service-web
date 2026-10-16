@@ -1,0 +1,635 @@
+{
+  "L02": {
+    "independentDetailDtos": 21,
+    "pages": [
+      1,
+      2,
+      3
+    ],
+    "sizes": [
+      10,
+      10,
+      1
+    ],
+    "fixedStatusAndDistinctCount": true,
+    "updatedAtThenIdDescending": true,
+    "allSummaryFieldsMatch": true
+  },
+  "errorCodeChecks": [
+    {
+      "attempt": "a2",
+      "case": "L05-X-D-F",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a2",
+      "case": "L05-X-D-E",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-AN-O-B",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-AN-O-X",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-AN-O-G",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-AN-R-X",
+      "url": "http://localhost:5000/api/v1/forms/1b94701a-a7ff-4e43-91d6-355498b8a098/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-AN-R-G",
+      "url": "http://localhost:5000/api/v1/forms/1b94701a-a7ff-4e43-91d6-355498b8a098/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-ID-O-B",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-ID-O-X",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-ID-O-G",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-ID-R-X",
+      "url": "http://localhost:5000/api/v1/forms/e6ac274b-cceb-4cd0-a05d-17c654d25b6d/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S02-ID-R-G",
+      "url": "http://localhost:5000/api/v1/forms/e6ac274b-cceb-4cd0-a05d-17c654d25b6d/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-D-A",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-D-X",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-D-G",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-P-A",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-P-X",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a2",
+      "case": "S03-P-G",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6/responses/me/latest",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6/respondent-count",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6/responses",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839/responses/me/latest",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839/respondent-count",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839/responses",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/responses/me/latest",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/respondent-count",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/responses",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-AN-O-B",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-AN-O-X",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-AN-O-G",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-AN-R-X",
+      "url": "http://localhost:5000/api/v1/forms/1b94701a-a7ff-4e43-91d6-355498b8a098/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-AN-R-G",
+      "url": "http://localhost:5000/api/v1/forms/1b94701a-a7ff-4e43-91d6-355498b8a098/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-ID-O-B",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-ID-O-X",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-ID-O-G",
+      "url": "http://localhost:5000/api/v1/forms/a81faa35-c38e-496c-b0da-61afc748fa2c/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-ID-R-X",
+      "url": "http://localhost:5000/api/v1/forms/e6ac274b-cceb-4cd0-a05d-17c654d25b6d/statistics",
+      "status": 403,
+      "expectedCode": "STATISTICS_ACCESS_DENIED",
+      "actualCode": "STATISTICS_ACCESS_DENIED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S02-ID-R-G",
+      "url": "http://localhost:5000/api/v1/forms/e6ac274b-cceb-4cd0-a05d-17c654d25b6d/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_REQUIRED",
+      "actualCode": "AUTH_REQUIRED"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-D-A",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-D-X",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-D-G",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-P-A",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-P-X",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a3",
+      "case": "S03-P-G",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-T-A",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-T-X",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e/statistics",
+      "status": 409,
+      "expectedCode": "FORM_STATISTICS_NOT_AVAILABLE",
+      "actualCode": "FORM_STATISTICS_NOT_AVAILABLE"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-T-G",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-DEL-A",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-DEL-X",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-DEL-G",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-NONE-A",
+      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-ffffffffffff/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-NONE-X",
+      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-ffffffffffff/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-NONE-G",
+      "url": "http://localhost:5000/api/v1/forms/00000000-0000-4000-8000-ffffffffffff/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-BAD-A",
+      "url": "http://localhost:5000/api/v1/forms/bad-uuid/statistics",
+      "status": 400,
+      "expectedCode": "VALIDATION_ERROR",
+      "actualCode": "VALIDATION_ERROR"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-BAD-X",
+      "url": "http://localhost:5000/api/v1/forms/bad-uuid/statistics",
+      "status": 400,
+      "expectedCode": "VALIDATION_ERROR",
+      "actualCode": "VALIDATION_ERROR"
+    },
+    {
+      "attempt": "a4",
+      "case": "S03-BAD-G",
+      "url": "http://localhost:5000/api/v1/forms/bad-uuid/statistics",
+      "status": 400,
+      "expectedCode": "VALIDATION_ERROR",
+      "actualCode": "VALIDATION_ERROR"
+    },
+    {
+      "attempt": "a4",
+      "case": "P01",
+      "url": "http://localhost:5000/api/v1/forms/18ba4e17-e66e-45d7-a219-3acd68c0796b/statistics",
+      "status": 401,
+      "expectedCode": "AUTH_TOKEN_INVALID",
+      "actualCode": "AUTH_TOKEN_INVALID"
+    },
+    {
+      "attempt": "a4",
+      "case": "P01",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a4",
+      "case": "P01",
+      "url": "http://localhost:5000/api/v1/forms/4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d/statistics",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a6",
+      "case": "P01-PROTECTED",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "status": 401,
+      "expectedCode": "AUTH_TOKEN_INVALID",
+      "actualCode": "AUTH_TOKEN_INVALID"
+    },
+    {
+      "attempt": "a6",
+      "case": "P01-PROTECTED",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses",
+      "status": 401,
+      "expectedCode": "AUTH_TOKEN_INVALID",
+      "actualCode": "AUTH_TOKEN_INVALID"
+    },
+    {
+      "attempt": "a7",
+      "case": "L05-X-D-F",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a7",
+      "case": "L05-X-D-E",
+      "url": "http://localhost:5000/api/v1/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-D",
+      "url": "http://localhost:5000/api/v1/forms/4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-P",
+      "url": "http://localhost:5000/api/v1/forms/0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    },
+    {
+      "attempt": "a9",
+      "case": "M06-C",
+      "url": "http://localhost:5000/api/v1/forms/7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "status": 404,
+      "expectedCode": "FORM_NOT_FOUND",
+      "actualCode": "FORM_NOT_FOUND"
+    }
+  ],
+  "actualDeleteRequests": [
+    {
+      "attempt": "a2",
+      "alias": "LIST-SHRINK",
+      "status": 204
+    },
+    {
+      "attempt": "a2",
+      "alias": "DEL-D",
+      "status": 204
+    },
+    {
+      "attempt": "a2",
+      "alias": "DEL-P",
+      "status": 204
+    },
+    {
+      "attempt": "a2",
+      "alias": "DEL-C",
+      "status": 204
+    }
+  ],
+  "result": "PASS"
+}

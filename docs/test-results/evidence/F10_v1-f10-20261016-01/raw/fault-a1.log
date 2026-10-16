@@ -1,0 +1,225 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:42656) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:44236) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 61 tests using 1 worker
+
+(node:40064) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-REGISTER-NET product build isolated unknown write (1.1s)
+  ok  2 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-REGISTER-TIME product build isolated unknown write (31.0s)
+  ok  3 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-REGISTER-500 product build isolated unknown write (1.0s)
+  ok  4 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGIN-NET product build isolated unknown write (890ms)
+  ok  5 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGIN-TIME product build isolated unknown write (31.0s)
+  ok  6 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGIN-500 product build isolated unknown write (1.0s)
+  ok  7 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGOUT-NET product build isolated unknown write (1.1s)
+  ok  8 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGOUT-TIME product build isolated unknown write (31.1s)
+  ok  9 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-LOGOUT-500 product build isolated unknown write (1.2s)
+  ok 10 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PROFILE-NET product build isolated unknown write (940ms)
+  ok 11 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PROFILE-TIME product build isolated unknown write (30.9s)
+  ok 12 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PROFILE-500 product build isolated unknown write (919ms)
+  x  13 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-NET product build isolated unknown write (6.0s)
+(node:1604) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  14 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-TIME product build isolated unknown write (36.0s)
+(node:42472) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  15 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-500 product build isolated unknown write (6.0s)
+(node:38460) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 16 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELTA-NET product build isolated unknown write (1.1s)
+  ok 17 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELTA-TIME product build isolated unknown write (31.2s)
+  ok 18 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELTA-500 product build isolated unknown write (1.1s)
+  ok 19 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PUBLISH-NET product build isolated unknown write (1.3s)
+  ok 20 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PUBLISH-TIME product build isolated unknown write (31.4s)
+  ok 21 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-PUBLISH-500 product build isolated unknown write (1.4s)
+  ok 22 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CLOSE-NET product build isolated unknown write (1.4s)
+  ok 23 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CLOSE-TIME product build isolated unknown write (31.3s)
+  ok 24 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CLOSE-500 product build isolated unknown write (1.3s)
+  ok 25 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-VIS-NET product build isolated unknown write (1.0s)
+  ok 26 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-VIS-TIME product build isolated unknown write (31.0s)
+  ok 27 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-VIS-500 product build isolated unknown write (1.0s)
+  ok 28 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELETE-NET product build isolated unknown write (1.3s)
+  ok 29 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELETE-TIME product build isolated unknown write (31.2s)
+  ok 30 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-DELETE-500 product build isolated unknown write (1.2s)
+  ok 31 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-RESPONSE-NET product build isolated unknown write (1.1s)
+  ok 32 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-RESPONSE-TIME product build isolated unknown write (31.1s)
+  ok 33 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-RESPONSE-500 product build isolated unknown write (1.2s)
+  ok 34 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-ME-NET product build isolated read (393ms)
+  ok 35 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-ME-TIME product build isolated read (30.5s)
+  ok 36 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-ME-500 product build isolated read (424ms)
+  ok 37 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-ME-BODY product build isolated read (447ms)
+  ok 38 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LIST-NET product build isolated read (521ms)
+  ok 39 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LIST-TIME product build isolated read (30.5s)
+  ok 40 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LIST-500 product build isolated read (565ms)
+  ok 41 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LIST-BODY product build isolated read (530ms)
+  ok 42 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-FORM-NET product build isolated read (645ms)
+  ok 43 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-FORM-TIME product build isolated read (30.6s)
+  ok 44 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-FORM-500 product build isolated read (666ms)
+  ok 45 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-FORM-BODY product build isolated read (723ms)
+  ok 46 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LATEST-NET product build isolated read (1.0s)
+  ok 47 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LATEST-TIME product build isolated read (31.0s)
+  ok 48 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LATEST-500 product build isolated read (960ms)
+  ok 49 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-LATEST-BODY product build isolated read (921ms)
+  ok 50 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-STATS-NET product build isolated read (557ms)
+  ok 51 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-STATS-TIME product build isolated read (30.6s)
+  ok 52 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-STATS-500 product build isolated read (544ms)
+  ok 53 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:76:102 › F01-STATS-BODY product build isolated read (557ms)
+  x  54 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-MALFORMED unreliable success never adopted (6.0s)
+(node:7316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  55 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-INVALID_UUID unreliable success never adopted (6.0s)
+(node:43004) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 56 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-DELTA-MALFORMED unreliable success never adopted (1.0s)
+  ok 57 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-DELTA-INVALID_UUID unreliable success never adopted (1.0s)
+  ok 58 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-DELTA-WRONG_RESOURCE unreliable success never adopted (1.1s)
+  ok 59 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-RESPONSE-MALFORMED unreliable success never adopted (1.1s)
+  ok 60 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-RESPONSE-INVALID_UUID unreliable success never adopted (1.1s)
+  ok 61 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-RESPONSE-WRONG_RESOURCE unreliable success never adopted (1.2s)
+
+
+  1) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-NET product build isolated unknown write 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog') with timeout 5000ms
+      - waiting for getByRole('dialog')
+
+
+      62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+      63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+    > 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}
+         |                                                                                                                                                                                                                             ^
+      65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+      66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+      67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+        at assertUnknown (C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:64:221)
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:72:18
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-fault-a1\fault-F02-CREATE-NET-product-build-isolated-unknown-write-chromium\error-context.md
+
+  2) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-TIME product build isolated unknown write 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog') with timeout 5000ms
+      - waiting for getByRole('dialog')
+
+
+      62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+      63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+    > 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}
+         |                                                                                                                                                                                                                             ^
+      65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+      66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+      67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+        at assertUnknown (C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:64:221)
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:72:18
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-fault-a1\fault-F02-CREATE-TIME-product-build-isolated-unknown-write-chromium\error-context.md
+
+  3) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-500 product build isolated unknown write 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog') with timeout 5000ms
+      - waiting for getByRole('dialog')
+
+
+      62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+      63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+    > 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}
+         |                                                                                                                                                                                                                             ^
+      65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+      66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+      67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+        at assertUnknown (C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:64:221)
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:72:18
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-fault-a1\fault-F02-CREATE-500-product-build-isolated-unknown-write-chromium\error-context.md
+
+  4) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-MALFORMED unreliable success never adopted 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog') with timeout 5000ms
+      - waiting for getByRole('dialog')
+
+
+      62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+      63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+    > 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}
+         |                                                                                                                                                                                                                             ^
+      65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+      66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+      67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+        at assertUnknown (C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:64:221)
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:90:18
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-fault-a1\fault-F05-CREATE-MALFORMED-unreliable-success-never-adopted-chromium\error-context.md
+
+  5) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-INVALID_UUID unreliable success never adopted 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: getByRole('dialog')
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" getByRole('dialog') with timeout 5000ms
+      - waiting for getByRole('dialog')
+
+
+      62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}
+      63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}
+    > 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}
+         |                                                                                                                                                                                                                             ^
+      65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}
+      66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}
+      67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}
+        at assertUnknown (C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:64:221)
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:90:18
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-fault-a1\fault-F05-CREATE-INVALID-U-6ea81-iable-success-never-adopted-chromium\error-context.md
+
+  5 failed
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-NET product build isolated unknown write 
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-TIME product build isolated unknown write 
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-500 product build isolated unknown write 
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-MALFORMED unreliable success never adopted 
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-INVALID_UUID unreliable success never adopted 
+  56 passed (9.6m)

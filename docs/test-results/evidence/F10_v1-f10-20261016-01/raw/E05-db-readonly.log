@@ -1,0 +1,12 @@
+BEGIN
+  current_database   |    current_user     | current_setting 
+---------------------+---------------------+-----------------
+ custom_form_service | custom_form_service | 17.11
+(1 row)
+
+          MigrationId           
+--------------------------------
+ 20260928122537_InitialV1Schema
+(1 row)
+
+ROLLBACK

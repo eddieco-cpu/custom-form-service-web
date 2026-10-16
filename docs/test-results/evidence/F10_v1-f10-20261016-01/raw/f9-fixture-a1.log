@@ -1,0 +1,45 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] (node:42316) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 31 tests using 1 worker
+
+(node:30900) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  -   1 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=true independent parallel public
+  -   2 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 200 statsFirst=false independent parallel public
+  -   3 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=true independent parallel public
+  -   4 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 401 statsFirst=false independent parallel public
+  -   5 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=true independent parallel public
+  -   6 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 403 statsFirst=false independent parallel public
+  -   7 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=true independent parallel public
+  -   8 [chromium] › tests\e2e\f9-browser.spec.ts:53:45 › product fresh build › F9-B01 me 500 statsFirst=false independent parallel public
+  -   9 [chromium] › tests\e2e\f9-browser.spec.ts:66:3 › product fresh build › F9-B01/B03 complete roots, five types, exact values, literal text, same names/labels, optional zero and privacy
+  -  10 [chromium] › tests\e2e\f9-browser.spec.ts:85:3 › product fresh build › F9-B01 large content 30/200/120/2000/101 complete and readable at 390px; keyboard retry/link
+  -  11 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 400 VALIDATION_ERROR retains URL/details and retry
+  -  12 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 404 FORM_NOT_FOUND retains URL/details and retry
+  -  13 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 409 FORM_STATISTICS_NOT_AVAILABLE retains URL/details and retry
+  -  14 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 STATISTICS_ACCESS_DENIED retains URL/details and retry
+  -  15 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 403 AUTH_USER_DISABLED retains URL/details and retry
+  -  16 [chromium] › tests\e2e\f9-browser.spec.ts:103:5 › product fresh build › F9-B01 500 INTERNAL_SERVER_ERROR retains URL/details and retry
+  -  17 [chromium] › tests\e2e\f9-browser.spec.ts:111:3 › product fresh build › F9-B01 network, timeout and malformed never retain private content; no automatic retries
+  -  18 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_REQUIRED initial full return then Login, manual Dialog and logout
+  -  19 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_INVALID initial full return then Login, manual Dialog and logout
+  -  20 [chromium] › tests\e2e\f9-browser.spec.ts:123:85 › product fresh build › F9-B01 private AUTH_TOKEN_EXPIRED initial full return then Login, manual Dialog and logout
+  -  21 [chromium] › tests\e2e\f9-browser.spec.ts:135:3 › product fresh build › F9-B02 guest Header clicked target, public logout has no statistics refetch; history uses push
+  -  22 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_INVALID remains readable (fixture)
+  -  23 [chromium] › tests\e2e\f9-browser.spec.ts:146:68 › product fresh build › F9-B01 public bad-Cookie AUTH_TOKEN_EXPIRED remains readable (fixture)
+  ok 24 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 draft dirty cancels then confirms statistics navigation (484ms)
+  ok 25 [chromium] › tests\e2e\f9-browser.spec.ts:156:52 › thin fixture control build › F9-B02 F6/F8 closed dirty cancels then confirms statistics navigation (469ms)
+  ok 26 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 200, B loading/finally, Session switch and unmount (387ms)
+  ok 27 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 401, B loading/finally, Session switch and unmount (434ms)
+  ok 28 [chromium] › tests\e2e\f9-browser.spec.ts:166:48 › thin fixture control build › F9-B02 same component A late 403, B loading/finally, Session switch and unmount (431ms)
+  ok 29 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after login cannot restore names or change Header/route (382ms)
+  ok 30 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after verify cannot restore names or change Header/route (340ms)
+  ok 31 [chromium] › tests\e2e\f9-browser.spec.ts:185:64 › thin fixture control build › F9-B02 pending private response after unmount cannot restore names or change Header/route (388ms)
+
+  23 skipped
+  8 passed (5.4s)

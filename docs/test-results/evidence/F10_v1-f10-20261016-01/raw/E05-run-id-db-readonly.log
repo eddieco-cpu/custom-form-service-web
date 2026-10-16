@@ -1,0 +1,18 @@
+BEGIN
+  current_database   |    current_user     | current_setting 
+---------------------+---------------------+-----------------
+ custom_form_service | custom_form_service | 17.11
+(1 row)
+
+                  id                  |               user_id                |  status   | soft_deleted 
+--------------------------------------+--------------------------------------+-----------+--------------
+ 0a02546e-c571-4aa9-8db9-6f604c5b9839 | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | published | t
+ 1b9132a0-3e00-4d6b-9023-92faa80ad8da | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | closed    | f
+ 24f39f8c-65d1-44df-ae4b-06abf790e19a | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | closed    | f
+ 4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6 | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | draft     | t
+ 7863d44f-5dcd-44c6-8ff7-6e105a5d90c4 | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | closed    | t
+ 875ecae6-a393-4a62-9074-c66f304cde77 | 0bfeae96-e8b6-4e5f-954f-460a421ce359 | draft     | t
+ c6a6da23-b420-452a-8905-9d9bba56cb50 | 4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7 | closed    | f
+(7 rows)
+
+ROLLBACK

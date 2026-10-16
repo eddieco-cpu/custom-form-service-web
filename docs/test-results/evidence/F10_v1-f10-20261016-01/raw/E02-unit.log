@@ -1,0 +1,5 @@
+
+> test:unit
+> vitest run --reporter=json --outputFile=output/playwright/v1-acceptance/v1-f10-20261016-01/raw/E02-unit-results.json
+
+JSON report written to C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/raw/E02-unit-results.json

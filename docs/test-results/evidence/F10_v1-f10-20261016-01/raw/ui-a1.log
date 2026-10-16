@@ -1,0 +1,45 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:30000) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:30228) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:33052) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  x  1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\ui.spec.mjs:4:1 › E04 A07 real Browser read-only layout, Header, public and production boundaries (5.8s)
+
+
+  1) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\ui.spec.mjs:4:1 › E04 A07 real Browser read-only layout, Header, public and production boundaries 
+
+    Error: expect(locator).toBeVisible() failed
+
+    Locator: locator('main > section').first()
+    Expected: visible
+    Timeout: 5000ms
+    Error: element(s) not found
+
+    Call log:
+      - Expect "toBeVisible" locator('main > section').first() with timeout 5000ms
+      - waiting for locator('main > section').first()
+
+
+      10 |   try{
+      11 |     for(const width of [1440,390,320])for(const [name,path,max]of pages){
+    > 12 |       await p.setViewportSize({width,height:width===320?740:900});await p.goto(path);const section=p.locator('main > section').first();await expect(section).toBeVisible();if(name==='statistics')await expect(p.locator('[data-statistics-count]')).toBeVisible();if(name==='list')await expect(p.getByRole('list',{name:'我的表單卡片'}).or(p.getByRole('table',{name:'我的表單'})).first()).toBeAttached()
+         |                                                                                                                                                              ^
+      13 |       const layout=await section.evaluate(e=>{const r=e.getBoundingClientRect(),m=document.querySelector('main').getBoundingClientRect(),h=document.querySelector('header > div').getBoundingClientRect();return{sectionWidth:r.width,left:r.left,mainWidth:m.width,headerHeight:h.height,scrollWidth:document.documentElement.scrollWidth,viewport:innerWidth}});out.layouts.push({name,width,expectedMax:max,...layout});expect(layout.sectionWidth).toBeLessThanOrEqual(max+1);expect(layout.mainWidth).toBeLessThanOrEqual(1281);expect(layout.scrollWidth).toBeLessThanOrEqual(width+1);expect(layout.headerHeight).toBe(width<1024?56:64);if(width<1024)expect(layout.left).toBeGreaterThanOrEqual(15)
+      14 |       if((width===1440&&name==='editor')||(width===390&&['list','statistics'].includes(name))||(width===320&&name==='form'))await p.screenshot({path:dir+`/raw/screenshots/${name}-${width}.png`,fullPage:true})
+      15 |     }
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\ui.spec.mjs:12:158
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-ui-a1\ui-E04-A07-real-Browser-re-d7267-c-and-production-boundaries-chromium\error-context.md
+
+  1 failed
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\ui.spec.mjs:4:1 › E04 A07 real Browser read-only layout, Header, public and production boundaries 

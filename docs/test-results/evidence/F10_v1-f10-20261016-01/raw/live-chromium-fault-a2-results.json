@@ -1,0 +1,338 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts",
+      "--grep",
+      "F02-CREATE|F05-CREATE"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-fault-a2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "fault.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "fault.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-fault-a2-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "fault.spec.mjs",
+      "file": "fault.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F02-CREATE-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:43.959Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZnlu7rnq4vovLjlhaVcIixcImRlc2NyaXB0aW9uXCI6bnVsbCxcInJlc3BvbnNlTW9kZVwiOlwic2luZ2xlXCIsXCJyZXNwb25zZUlkZW50aXR5XCI6XCJhbm9ueW1vdXNcIixcInJlc3VsdFZpc2liaWxpdHlcIjpcInB1YmxpY1wiLFwic3VibWlzc2lvbkRlYWRsaW5lQXRcIjpudWxsLFwicXVlc3Rpb25zXCI6W119In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NjU2fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-13bb839c8f93c850efb2",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CREATE-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31017,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:45.164Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNjUzfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-0a7382c4e5790a84bb45",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CREATE-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1030,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:08:16.192Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZnlu7rnq4vovLjlhaVcIixcImRlc2NyaXB0aW9uXCI6bnVsbCxcInJlc3BvbnNlTW9kZVwiOlwic2luZ2xlXCIsXCJyZXNwb25zZUlkZW50aXR5XCI6XCJhbm9ueW1vdXNcIixcInJlc3VsdFZpc2liaWxpdHlcIjpcInB1YmxpY1wiLFwic3VibWlzc2lvbkRlYWRsaW5lQXRcIjpudWxsLFwicXVlc3Rpb25zXCI6W119In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NjM2fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-8793660db19c3c764cc8",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F05-CREATE-MALFORMED unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1054,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:08:17.233Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOm51bGx9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-8648676c36b92905dd20",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-CREATE-INVALID_UUID unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1101,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:08:18.296Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOm51bGx9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-c94153706db36bc3354c",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T05:07:39.286Z",
+    "duration": 40818.341,
+    "expected": 5,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

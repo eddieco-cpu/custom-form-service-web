@@ -1,0 +1,280 @@
+{
+  "planVersion": "1.1",
+  "planCommit": "bc98f85309ef55ee1015e5727157e8d5fb9ba5ae",
+  "rows": 266,
+  "parentSummaries": 18,
+  "executableRecords": 248,
+  "aiResults": {
+    "FAIL": 1,
+    "PASS": 204,
+    "BLOCKED": 43
+  },
+  "humanResults": "All NOT RUN; required H01-H04 no device/operator",
+  "completeAcceptance": "NOT PASSED: unresolved FAIL/BLOCKED and required human not run",
+  "unverified": [
+    {
+      "id": "E01",
+      "result": "FAIL",
+      "gap": "G08;G08",
+      "reason": "原目錄npm ci在sandbox及正常權限均EPERM unlink resolver native；exit -4048。乾淨git archive副本同lock ci PASS及原目錄ignore-scripts恢復install PASS不解除原目錄FAIL，lock未變。"
+    },
+    {
+      "id": "E05",
+      "result": "BLOCKED",
+      "gap": "G01;G12;G01",
+      "reason": "checkout→PID34068→DLL版本/hash、health/ready/OpenAPI、DB/user17.11/migration及本Run已知UUID/softDelete相關性均已核；effective config來源provider與runtime DbContext非秘密診斷仍未取得，不自行關G01。"
+    },
+    {
+      "id": "E06",
+      "result": "BLOCKED",
+      "gap": "G09;G09",
+      "reason": "npm audit已實跑exit1；15 affected package nodes（2critical/12high/1low），7獨立advisory；依賴鏈／本機runtime可達性評估已交，Owner處置尚未確認，未audit fix或改lock。"
+    },
+    {
+      "id": "U05",
+      "result": "BLOCKED",
+      "gap": "G07",
+      "reason": "Answers五型／required／optional／0／完整Latest先清空與path映射均有unit/Browser/真實證據；同timestamp Server Latest依id DESC選份沒有新受控前置，後端R11歷史無原artifact可新核，不以單份DTO或前端陣列模擬冒充Server tie-break。"
+    },
+    {
+      "id": "M07-DELETE",
+      "result": "BLOCKED",
+      "gap": "G11;G12;RUN-ORDER-01",
+      "reason": "執行排程遺漏刪除前的非Owner DELETE403；四份白名單已各成功soft delete。現在缺未刪白名單前置，無新增刪除授權；不重刪／不擴白名單／不拿404抵403。"
+    },
+    {
+      "id": "P02-PROTECTED",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-PRIVATE",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-PUBLIC",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-DRAFT",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-PUBLISHED",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-LOGOUT",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P02-DIRTY-RETURN",
+      "result": "BLOCKED",
+      "gap": "G03;G03",
+      "reason": "缺真正Server簽發且到期後仍送達的受控Cookie／時間安排；未改OS時間、未讀簽章key。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-LOGIN-CORRECT",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-LOGIN-WRONG",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-BOOTSTRAP",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-EXISTING-USER",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-PRIVATE",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-PUBLIC",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-DRAFT",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-PUBLISHED",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P03-LOGOUT",
+      "result": "BLOCKED",
+      "gap": "G04;G04",
+      "reason": "缺本Run Caller受控停用與既有Cookie前置，沒有V1停用API／SQL修改授權。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-AN-PUBLIC-G",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-ID-PUBLIC-G",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-AN-RESP-B",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-ID-RESP-B",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-RESP-X",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-OWNER-ONLY-X",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P04-DISABLED-OWNER",
+      "result": "BLOCKED",
+      "gap": "G05;G05",
+      "reason": "缺另一專用Creator受控停用及六表對照；與Caller停用不同。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-READ-FORM",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-READ-STATS",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-CREATE-PRECOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-CREATE-POSTCOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-DELTA-PRECOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-DELTA-POSTCOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-SUBMIT-PRECOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P05-SUBMIT-POSTCOMMIT",
+      "result": "BLOCKED",
+      "gap": "G06a;G07;G06a/G07",
+      "reason": "缺真Server read/precommit/postcommit單request hooks與維護者交易證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P06-GET",
+      "result": "BLOCKED",
+      "gap": "G06b;G06b",
+      "reason": "缺真Server >30000ms單request延遲及完成點證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P06-DELTA",
+      "result": "BLOCKED",
+      "gap": "G06b;G06b",
+      "reason": "缺真Server >30000ms單request延遲及完成點證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P06-SINGLE",
+      "result": "BLOCKED",
+      "gap": "G06b;G06b",
+      "reason": "缺真Server >30000ms單request延遲及完成點證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "P06-MULTIPLE",
+      "result": "BLOCKED",
+      "gap": "G06b;G06b",
+      "reason": "缺真Server >30000ms單request延遲及完成點證據。 此子情境未執行；對應FAULT不抵銷。"
+    },
+    {
+      "id": "H01",
+      "result": "BLOCKED",
+      "gap": "G10;G10",
+      "reason": "未有Android實機／操作者／localhost安全連線安排；AI可整理證據但不能做真人touch／軟鍵盤／safe-area／體驗。人工結果NOT RUN，viewport及AI截圖不代填。"
+    },
+    {
+      "id": "H02",
+      "result": "BLOCKED",
+      "gap": "G10;G10",
+      "reason": "未有Android實機／操作者／localhost安全連線安排；AI可整理證據但不能做真人touch／軟鍵盤／safe-area／體驗。人工結果NOT RUN，viewport及AI截圖不代填。"
+    },
+    {
+      "id": "H03",
+      "result": "BLOCKED",
+      "gap": "G10;G10",
+      "reason": "未有Android實機／操作者／localhost安全連線安排；AI可整理證據但不能做真人touch／軟鍵盤／safe-area／體驗。人工結果NOT RUN，viewport及AI截圖不代填。"
+    },
+    {
+      "id": "H04",
+      "result": "BLOCKED",
+      "gap": "G10;G10",
+      "reason": "未有Android實機／操作者／localhost安全連線安排；AI可整理證據但不能做真人touch／軟鍵盤／safe-area／體驗。人工結果NOT RUN，viewport及AI截圖不代填。"
+    }
+  ]
+}

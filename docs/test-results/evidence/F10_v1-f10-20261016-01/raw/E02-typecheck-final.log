@@ -1,0 +1,9 @@
+
+> typecheck
+> nuxt typecheck && tsc --noEmit -p tsconfig.tools.json
+
+[nuxt] i Compiled #build/router.options.mjs in 669.51ms
+i Nuxt Icon client bundle consist of 44 icons with 10.63KB(uncompressed) in size
+[nuxt] i Compiled #build/nuxt-icon-client-bundle.mjs in 1917.09ms
+[nuxt] i Compiled #build/nuxt.config.mjs in 1939.44ms
+tests/unit/f10-acceptance-boundaries.spec.ts(20,42): error TS2540: Cannot assign to 'value' because it is a read-only property.

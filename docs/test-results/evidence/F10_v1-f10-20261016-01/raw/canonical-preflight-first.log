@@ -1,0 +1,8 @@
+C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:227
+      await p.reload();await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled();await qfield(p,'form.title').fill(title('EDIT')+' title-only')
+      ^^^^^
+
+SyntaxError: Unexpected reserved word
+    at checkSyntax (node:internal/main/check_syntax:84:5)
+
+Node.js v24.21.0

@@ -696,6 +696,16 @@ Owner通過完整F10計畫，明確要求補齊E03五組命令／變數階段／
 
 本次授權包含必要驗證工具、正常API新Run測資及四份白名單soft delete；不需再停review。特殊前置／設備不足逐案BLOCKED並繼續可執行項，首敗／重驗鏈保留、發現產品缺陷先回報，不代填人工或accepted、不推送部署。先提交本版計畫並以[Plan Lock](../test-plan/v1-acceptance/Plan_Lock.json)記檔案hash，執行報告另記該提交SHA與實際版本；使用者另留`docs/test-plan.zip`不修改、不納提交。結果交付停止點為「正式驗收結果待人工驗收／Owner確認」。
 
+### 9.38 F10 正式 AI 驗收結果交付（2026-10-16）
+
+依Owner本次核准／直接執行授權，先完成E03命令／變數階段／固定URL、E03/M03引用與固定統計10題局部補正，以`bc98f85309ef55ee1015e5727157e8d5fb9ba5ae`鎖定計畫v1.1及七檔hash後執行。產品仍為`0e5a6dcadb4a52c184cef5fe46aff39eab6d40c6`同bytes，後端`7591633137c5a6f57c1fce8e1ba19ab394015880`既有服務；沒有產品修正或重啟／重建後端DB。
+
+交付[F10執行報告](../test-results/F10_Acceptance_Execution_Report.md)／[逐案CSV](../test-results/evidence/F10_v1-f10-20261016-01/Case_Results.csv)／[前置與未驗清單](../test-results/evidence/F10_v1-f10-20261016-01/Prerequisites_Results.md)／[首敗重驗](../test-results/evidence/F10_v1-f10-20261016-01/Failures_and_Retests.md)：248筆執行記錄204PASS／1FAIL／43BLOCKED，18父項不重複算數，人工全NOT RUN。真註冊／登入／Profile、Editor／Delta／拖曳／微秒、21筆分頁與角色路由、Lifecycle／Visibility／Count、single/multiple／Latest／401dirty返回、固定10題完整獨立統計與政策矩陣、四份專用Delete都有新Browser/API/wire／保存／獨立讀回。原505unit及新增15固定邊界、工程／五模式與Chrome/Edge、必要攔截故障／scope亦分方法記錄，不能抵銷特殊真實前置。
+
+原目錄ci EPERM仍FAIL；effective config provider、audit Owner決議、同timestamp Server Latest、P02～P06的35子案、H01～H04及非Owner DELETE排程漏驗仍BLOCKED。P01依核准isolated invalid Cookie方案新跑PASS，歷史BLOCKED不覆寫。保留11帳號／45Form／34Response，只有DEL-D/DEL-P/DEL-C/LIST-SHRINK各一次soft delete；缺前置時繼續其他案例，未擴白名單／SQL改業務資料。原報告、失敗及重驗鏈均留，沒有已確認產品缺陷，未驗不代表沒有缺陷。
+
+**停止於「正式驗收結果待人工驗收／Owner確認」；整體未通過、accepted不變。** 本次工具／結果／文件作單一目的本機提交，SHA見Git log及交付訊息；使用者`docs/test-plan.zip`保持原樣、不納提交。不推送、不部署，不自行解除殘餘風險或開始產品修正。§9.36／9.37及所有歷史停止點保留。
+
 ## 10. 本文件產製檢查紀錄
 
 本文件依已交付的八份規格編寫。v1.1 依 Owner 本次指示加入分輪工程提醒；02 §6.1 明確既有省略 variant 的呈現／dirty／Delta，06 §7 補 Email 相容要求。未新增功能或改 API 契約。交付前核對：

@@ -1,0 +1,175 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.engineering.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.engineering.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/v1-f10-20261016-01-E03-DEV-DEFAULT-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/tests/e2e",
+        "testIgnore": [],
+        "testMatch": [
+          "foundation-smoke.spec.ts"
+        ],
+        "timeout": 60000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\v1-f10-20261016-01-E03-DEV-DEFAULT-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\tests\\e2e",
+        "testIgnore": [],
+        "testMatch": "foundation-smoke.spec.ts",
+        "timeout": 60000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/v1-f10-20261016-01-E03-DEV-DEFAULT-a1-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run dev",
+      "url": "http://localhost:3000",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "foundation-smoke.spec.ts",
+      "file": "foundation-smoke.spec.ts",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "built CSR shell and product Toast/Dialog lifecycle, focus, local icons and network (synthetic API)",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 60000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 7850,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:32:21.379Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "public-config-and-network",
+                      "contentType": "application/json",
+                      "body": "ewogICJleHBlY3RlZFVybCI6ICJodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxIiwKICAiYWN0dWFsVXJsIjogImh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEiLAogICJtZSI6IDEsCiAgInBhdGNoIjogMywKICAiZXJyb3JzIjogW10sCiAgImV4cGVjdGVkSHR0cEVycm9ycyI6IFsKICAgICJGYWlsZWQgdG8gbG9hZCByZXNvdXJjZTogdGhlIHNlcnZlciByZXNwb25kZWQgd2l0aCBhIHN0YXR1cyBvZiA0MDMgKEZvcmJpZGRlbikiLAogICAgIkZhaWxlZCB0byBsb2FkIHJlc291cmNlOiB0aGUgc2VydmVyIHJlc3BvbmRlZCB3aXRoIGEgc3RhdHVzIG9mIDQwMyAoRm9yYmlkZGVuKSIKICBdLAogICJ1bmV4cGVjdGVkIjogW10sCiAgImljb25TdHlsZXMiOiBbCiAgICB7CiAgICAgICJtYXNrIjogInVybChcImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCclM0UlM0NnIGZpbGw9J25vbmUnIHN0cm9rZT0nYmxhY2snIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgc3Ryb2tlLXdpZHRoPScyJyUzRSUzQ2NpcmNsZSBjeD0nMTInIGN5PSc4JyByPSc1Jy8lM0UlM0NwYXRoIGQ9J00yMCAyMWE4IDggMCAwIDAtMTYgMCcvJTNFJTNDL2clM0UlM0Mvc3ZnJTNFXCIpIiwKICAgICAgIndpZHRoIjogMjAsCiAgICAgICJoZWlnaHQiOiAyMAogICAgfQogIF0sCiAgImZlZWRiYWNrSWNvbnMiOiBbCiAgICB7CiAgICAgICJraW5kIjogInRvYXN0IiwKICAgICAgIm1hc2siOiAidXJsKFwiZGF0YTppbWFnZS9zdmcreG1sLCUzQ3N2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHZpZXdCb3g9JzAgMCAyNCAyNCcgd2lkdGg9JzI0JyBoZWlnaHQ9JzI0JyUzRSUzQ3BhdGggZmlsbD0nbm9uZScgc3Ryb2tlPSdibGFjaycgc3Ryb2tlLWxpbmVjYXA9J3JvdW5kJyBzdHJva2UtbGluZWpvaW49J3JvdW5kJyBzdHJva2Utd2lkdGg9JzInIGQ9J00xOCA2TDYgMThNNiA2bDEyIDEyJy8lM0UlM0Mvc3ZnJTNFXCIpIiwKICAgICAgIndpZHRoIjogMjAsCiAgICAgICJoZWlnaHQiOiAyMAogICAgfSwKICAgIHsKICAgICAgImtpbmQiOiAiZGlhbG9nLWZvb3RlciIsCiAgICAgICJtYXNrIjogInVybChcImRhdGE6aW1hZ2Uvc3ZnK3htbCwlM0NzdmcgeG1sbnM9J2h0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnJyB2aWV3Qm94PScwIDAgMjQgMjQnIHdpZHRoPScyNCcgaGVpZ2h0PScyNCclM0UlM0NwYXRoIGZpbGw9J25vbmUnIHN0cm9rZT0nYmxhY2snIHN0cm9rZS1saW5lY2FwPSdyb3VuZCcgc3Ryb2tlLWxpbmVqb2luPSdyb3VuZCcgc3Ryb2tlLXdpZHRoPScyJyBkPSdNMTggNkw2IDE4TTYgNmwxMiAxMicvJTNFJTNDL3N2ZyUzRVwiKSIsCiAgICAgICJ3aWR0aCI6IDE5LjQ0MjA3NzYzNjcxODc1LAogICAgICAiaGVpZ2h0IjogMTkuNDQyMTA4MTU0Mjk2ODc1CiAgICB9LAogICAgewogICAgICAia2luZCI6ICJkaWFsb2ctw5ciLAogICAgICAibWFzayI6ICJ1cmwoXCJkYXRhOmltYWdlL3N2Zyt4bWwsJTNDc3ZnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zycgdmlld0JveD0nMCAwIDI0IDI0JyB3aWR0aD0nMjQnIGhlaWdodD0nMjQnJTNFJTNDcGF0aCBmaWxsPSdub25lJyBzdHJva2U9J2JsYWNrJyBzdHJva2UtbGluZWNhcD0ncm91bmQnIHN0cm9rZS1saW5lam9pbj0ncm91bmQnIHN0cm9rZS13aWR0aD0nMicgZD0nTTE4IDZMNiAxOE02IDZsMTIgMTInLyUzRSUzQy9zdmclM0VcIikiLAogICAgICAid2lkdGgiOiAxOS4yNjM5NzcwNTA3ODEyNSwKICAgICAgImhlaWdodCI6IDE5LjI2Mzk0NjUzMzIwMzEyNQogICAgfQogIF0sCiAgImJyb3dzZXIiOiAiMTU2LjAuODA3OC40IiwKICAiYXBpIjogImlzb2xhdGVkIHN5bnRoZXRpYyBpbnRlcmNlcHRpb24iCn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "9511545ef56970029c24-095fd8fc4c35c7c460f9",
+          "file": "foundation-smoke.spec.ts",
+          "line": 3,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:32:09.843Z",
+    "duration": 20267.039,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

@@ -1,0 +1,53 @@
+"""Independent checks over retained actual wires, not product mappers."""
+import json
+from pathlib import Path
+from datetime import datetime
+from urllib.parse import urlparse,parse_qs
+R=Path('output/playwright/v1-acceptance/v1-f10-20261016-01')
+states=[json.loads(p.read_text(encoding='utf-8-sig')) for p in (R/'raw').glob('canonical-*.json')]
+first=next(s for s in states if s['attempt']=='a2')
+api='http://localhost:5000/api/v1'
+details={}
+for r in first['reads']:
+    if r['case'].startswith('L02:') and r['method']=='GET' and r['path'].startswith('/forms/') and r['status']==200:
+        dto=json.loads(r['body'])
+        if 'questions' in dto: details[dto['id']]=dto
+expected=[]
+for f in first['forms']:
+    alias=f['alias']
+    if not alias.startswith('LIST-'):continue
+    n=1 if alias=='LIST-SHRINK' else int(alias.split('-')[1])
+    status='draft' if n<=7 else 'published' if n<=14 else 'closed'
+    dto=details[f['id']]
+    assert dto['status']==status and dto['title']=='v1-f10-20261016-01 '+alias
+    assert dto['responseMode']=='multiple' and dto['responseIdentity']=='anonymous' and dto['resultVisibility']=='owner_only'
+    expected.append({k:dto[k] for k in ['id','title','status','responseMode','responseIdentity','resultVisibility','submissionDeadlineAt','createdAt','updatedAt']}|{'count':1 if status=='published' else 0})
+expected.sort(key=lambda f:(datetime.fromisoformat(f['updatedAt'].replace('Z','+00:00')),f['id']),reverse=True)
+assert len(expected)==21
+pages=[]
+for r in first['outcomes']:
+    if r['case'].startswith('L02:') and r['method']=='GET' and '/forms?' in r['url']:
+        dto=json.loads(r['response']);page=int(parse_qs(urlparse(r['url']).query)['page'][0]);assert dto['pagination']==dict(page=page,pageSize=10,totalItems=21,totalPages=3)
+        assert dto['items']==expected[(page-1)*10:page*10], 'L02 independent resource detail/status/event-count/order comparison'
+        pages.append(page)
+assert pages==[1,2,3]
+errors=[];deletes=[]
+for s in states:
+    aliases={f['id']:f['alias'] for f in s['forms']}
+    for r in s['outcomes']:
+        if r['method']=='DELETE':deletes.append({'attempt':s['attempt'],'alias':aliases.get(r['url'].split('/')[-1]),'status':r['status']})
+        if r['status']<400 or not r.get('response') or r['response']=='<body unavailable>':continue
+        code=json.loads(r['response'])['error']['code'];case=r['case'].split(':')[0];expected_code=None
+        if case.startswith('S02-'):expected_code='AUTH_REQUIRED' if case.endswith('-G') else 'STATISTICS_ACCESS_DENIED'
+        if case.startswith('S03-'):expected_code='VALIDATION_ERROR' if '-BAD-' in case else 'FORM_STATISTICS_NOT_AVAILABLE' if r['status']==409 else 'FORM_NOT_FOUND'
+        if case.startswith('M06-'):expected_code='FORM_NOT_FOUND'
+        if case.startswith('L05-X-D'):expected_code='FORM_NOT_FOUND'
+        if case.startswith('P01'):expected_code='AUTH_TOKEN_INVALID' if r['status']==401 else 'FORM_NOT_FOUND'
+        if expected_code:
+            assert code==expected_code,(s['attempt'],case,code,expected_code)
+            if code=='VALIDATION_ERROR':assert any(d['path']=='formId' for d in json.loads(r['response'])['error']['details'])
+            errors.append(dict(attempt=s['attempt'],case=case,url=r['url'],status=r['status'],expectedCode=expected_code,actualCode=code))
+assert len(deletes)==4 and {d['alias'] for d in deletes}=={'DEL-D','DEL-P','DEL-C','LIST-SHRINK'} and all(d['status']==204 for d in deletes)
+out={'L02':{'independentDetailDtos':21,'pages':pages,'sizes':[10,10,1],'fixedStatusAndDistinctCount':True,'updatedAtThenIdDescending':True,'allSummaryFieldsMatch':True},'errorCodeChecks':errors,'actualDeleteRequests':deletes,'result':'PASS'}
+(R/'raw/evidence-audit-results.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'result':'PASS','independentListItems':21,'errorCodeChecks':len(errors),'whitelistDeletes':4}))

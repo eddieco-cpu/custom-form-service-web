@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\oracle.py", line 132, in <module>
+    equivalent(load(snap['body']),expected,alias+'.body')
+  File "C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\oracle.py", line 18, in equivalent
+    for k in expected: equivalent(actual[k], expected[k], path+'.'+k)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\oracle.py", line 25, in equivalent
+    assert actual == expected, f'{path}: {actual!r} != {expected!r}'
+           ^^^^^^^^^^^^^^^^^^
+AssertionError: ST-I.body.creatorDisplayName: '�إߪ̷s�W' != '�إߪ̭�W'

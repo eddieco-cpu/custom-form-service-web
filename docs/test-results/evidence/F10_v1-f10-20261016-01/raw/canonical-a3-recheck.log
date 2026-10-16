@@ -1,0 +1,89 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:44780) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:44428) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:9892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT PASS A08:profile independent PATCH/GET and shared Header
+CHECKPOINT PASS A09:dirty logout cancel/confirm and fresh login
+CHECKPOINT FAIL D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes: expect(received).toBe(expected) // Object.is equality
+
+Expected: true
+Received: false
+CHECKPOINT PASS M06-D:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE
+CHECKPOINT PASS M06-P:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE
+CHECKPOINT PASS M06-C:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE
+CHECKPOINT PASS S01:ST-I full Body/UI/readback fixed oracle input
+CHECKPOINT PASS S01:ST-A full Body/UI/readback fixed oracle input
+CHECKPOINT PASS S02-AN-O-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-O-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-O-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-O-G:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-R-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-R-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-R-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-R-G:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-P-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-P-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-P-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-AN-P-G:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-O-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-O-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-O-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-O-G:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-R-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-R-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-R-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-R-G:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-P-A:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-P-B:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-P-X:closed policy/identity/role matrix
+CHECKPOINT PASS S02-ID-P-G:closed policy/identity/role matrix
+CHECKPOINT PASS S04:ZERO-I zero response complete
+CHECKPOINT PASS S04:ZERO-A zero response complete
+CHECKPOINT PASS S05:currently named Creator/respondent observed by new GET
+CHECKPOINT PASS S03-D-A:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-D-X:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-D-G:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-P-A:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-P-X:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection
+CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection
+  x  1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API recheck a3 (13.9s)
+
+
+  1) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API recheck a3 
+
+    Error: Failed checkpoints (see sanitized per-attempt evidence)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes",
+    + ]
+
+      358 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])
+      359 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)
+    > 360 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])
+          |                                                                            ^
+      361 | })
+      362 |
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:360:76
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-a3\canonical-F10-canonical-true-Browser-API-recheck-a3-chromium\error-context.md
+
+  1 failed
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API recheck a3 

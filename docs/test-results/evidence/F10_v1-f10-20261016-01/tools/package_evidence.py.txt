@@ -1,0 +1,95 @@
+"""Copy only this run's safe evidence; raw credentials/storage never leave ignored root."""
+from pathlib import Path
+import base64,csv,hashlib,json,re,shutil,subprocess
+from collections import Counter
+
+ROOT=Path.cwd()
+RUN=ROOT/'output/playwright/v1-acceptance/v1-f10-20261016-01'
+DEST=ROOT/'docs/test-results/evidence/F10_v1-f10-20261016-01'
+DEST.mkdir(parents=True,exist_ok=True)
+private=json.loads((RUN/'private-state.json').read_text(encoding='utf-8-sig'))
+secrets=[a['password'] for a in private['accounts'].values()]
+sha=lambda b:hashlib.sha256(b).hexdigest()
+provenance=[]
+
+def scrub(s):
+    for secret in secrets:
+        s=s.replace(secret,'<REDACTED>')
+    s=re.sub(r'eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+','<REDACTED_JWT>',s)
+    return s
+
+def copy_text(src,relative):
+    data=src.read_bytes()
+    value=scrub(data.decode('utf-16' if data[:2] in [b'\xff\xfe',b'\xfe\xff'] else 'utf-8-sig',errors='replace')).replace('\x00','<NUL>').replace('\x1b','<ESC>')
+    target=DEST/relative;target.parent.mkdir(parents=True,exist_ok=True)
+    target.write_text(value,encoding='utf-8',newline='')
+    provenance.append(dict(path=relative,rawSource=str(src.relative_to(ROOT)).replace('\\','/'),rawSha256=sha(data),deliveredSha256=sha(target.read_bytes()),transformation='UTF-8 normalization / known credential and JWT redaction / actual NUL and ESC escaped as visible markers'))
+
+def write(relative,value):
+    target=DEST/relative;target.parent.mkdir(parents=True,exist_ok=True)
+    target.write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+
+for source in sorted((RUN/'raw').glob('*')):
+    if source.is_file() and source.suffix in ['.json','.log','.txt']:
+        copy_text(source,'raw/'+source.name)
+for source in sorted((RUN/'tools').glob('*')):
+    if source.suffix in ['.mjs','.py']:copy_text(source,'tools/'+source.name+'.txt')
+for source in sorted((RUN/'raw/screenshots').glob('*.png')):
+    target=DEST/'screenshots'/source.name;target.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(source,target)
+    provenance.append(dict(path='screenshots/'+source.name,rawSource=str(source.relative_to(ROOT)).replace('\\','/'),rawSha256=sha(source.read_bytes()),deliveredSha256=sha(target.read_bytes()),transformation='none; synthetic resource pages; visually inspected'))
+
+browser=[]
+def descend(suites,filename,prefix,report):
+    for suite in suites:
+        path=suite.get('file',filename)
+        for spec in suite.get('specs',[]):
+            for t in spec.get('tests',[]):
+                for n,r in enumerate(t.get('results',[])):
+                    attachments=[]
+                    for attachment in r.get('attachments',[]):
+                        if attachment.get('contentType')=='application/json' and attachment.get('body'):
+                            attachments.append({'name':attachment['name'],'content':json.loads(base64.b64decode(attachment['body']))})
+                    browser.append({'report':report,'file':spec.get('file',path),'line':spec.get('line'),'title':' / '.join(prefix+[suite.get('title',''),spec['title']]),'expectedStatus':t.get('expectedStatus'),'status':r['status'],'durationMs':r.get('duration'),'errors':r.get('errors',[]),'attachments':attachments})
+        descend(suite.get('suites',[]),path,prefix+[suite.get('title','')],report)
+
+for source in sorted((RUN/'raw').glob('*results.json')):
+    data=json.loads(source.read_text(encoding='utf-8-sig'))
+    if 'suites' in data:descend(data['suites'],'',[],source.name)
+write('Browser_Checks.json',browser)
+units=[]
+for name in ['E02-unit-results.json','U02-boundaries-first-results.json','U02-boundaries-retest-results.json','U02-boundaries-final-results.json']:
+    data=json.loads((RUN/'raw'/name).read_text(encoding='utf-8-sig'))
+    units.append({'report':name,'success':data['success'],'tests':data['numTotalTests'],'passed':data['numPassedTests'],'files':len(data['testResults']),'assertions':[{'file':r['name'],'name':a['fullName'],'status':a['status'],'failureMessages':a['failureMessages']} for r in data['testResults'] for a in r['assertionResults']]})
+write('Unit_Checks.json',units)
+
+states=[]
+for source in sorted((RUN/'raw').glob('canonical-*.json')):
+    data=json.loads(source.read_text(encoding='utf-8-sig'))
+    states.append((source.name,data))
+network=[];responses={};checkpoints=[]
+for name,s in states:
+    declared={(x['method'],x['url'],x['status']) for x in s['expectedErrors']}
+    unmatched=[{'sequence':r.get('sequence'),'method':r['method'],'url':r['url'],'status':r['status'],'case':r['case']} for r in s['outcomes'] if r['status']>=400 and (r['method'],r['url'],r['status']) not in declared]
+    cors=[{'method':r['method'],'url':r['url'],'status':r['status'],'origin':r['origin'],'credentials':r['credentials']} for r in s['outcomes'] if r['origin']!='http://localhost:3000' or r['credentials']!='true']
+    vue=[d for d in s['diagnostics'] if '[Vue warn]' in d['text']]
+    network.append({'source':name,'attempt':s['attempt'],'phase':s['phase'],'browser':s['browser'],'api':'real; no interception','requests':len(s['requests']),'outcomes':len(s['outcomes']),'unexpectedHttp':unmatched,'corsMismatch':cors,'pageErrors':s['pageErrors'],'vueWarnings':vue,'deleteViolations':s['deleteViolations']})
+    for r in s['responses']:
+        dto=json.loads(r['receipt']);responses[dto['id']]={'id':dto['id'],'formAlias':r['formAlias'],'formId':dto['formId'],'userAlias':r['userAlias'],'submittedAt':dto['submittedAt'],'source':name}
+    checkpoints.extend([{'source':name,'attempt':s['attempt'],'phase':s['phase'],**c} for c in s['checkpoints'] if c['id']!='PHASE'])
+write('Network_Review.json',network)
+write('Checkpoints.json',checkpoints)
+accounts=[{'alias':alias,'id':a['id'],'email':a['email']} for alias,a in private['accounts'].items() if a.get('id')]
+forms=[{'alias':alias,'id':f['id'],'ownerAlias':f['owner'],'purpose':f['purpose'],'status':f['status'],'allowedDelete':alias in ['DEL-D','DEL-P','DEL-C','LIST-SHRINK'],'deleted':bool(f.get('deleted'))} for alias,f in private['forms'].items()]
+write('Resource_Index.json',{'runId':'v1-f10-20261016-01','retention':'All accounts, Forms including soft-deleted rows and Responses retained. No cleanup authorization beyond four named DELETEs. Credentials only in ignored private-state.','accounts':accounts,'forms':forms,'responses':list(responses.values()),'counts':{'accounts':len(accounts),'forms':len(forms),'softDeleted':sum(f['deleted'] for f in forms),'responses':len(responses)}})
+
+lock=json.loads((ROOT/'docs/test-plan/v1-acceptance/Plan_Lock.json').read_text(encoding='utf-8-sig'))
+checks=[{**f,'actualSha256':sha((ROOT/f['path']).read_bytes()),'match':f['sha256']==sha((ROOT/f['path']).read_bytes()),'gitBlobSha256':sha(subprocess.check_output(['git','show','bc98f85309ef55ee1015e5727157e8d5fb9ba5ae:'+f['path']]))} for f in lock['files']]
+assert all(f['match'] and f['gitBlobSha256']==f['sha256'] for f in checks)
+write('Plan_Lock_Check.json',{'planCommit':'bc98f85309ef55ee1015e5727157e8d5fb9ba5ae','version':'1.1','files':checks,'Plan_Lock_json_sha256':sha((ROOT/'docs/test-plan/v1-acceptance/Plan_Lock.json').read_bytes())})
+source_files=subprocess.check_output(['git','ls-files','app'],text=True).splitlines()
+source_manifest=[{'path':p,'sha256':sha((ROOT/p).read_bytes())} for p in source_files]
+build_manifest=[{'path':str(p.relative_to(ROOT)).replace('\\','/'),'sha256':sha(p.read_bytes())} for p in sorted((ROOT/'.output').rglob('*')) if p.is_file()]
+root_manifest=[{'path':p,'sha256':sha((ROOT/p).read_bytes())} for p in ['nuxt.config.ts','package.json','package-lock.json']]
+write('Source_Build_Manifest.json',{'productBaseline':'0e5a6dcadb4a52c184cef5fe46aff39eab6d40c6','productLastImplementation':'20381116101824aeccca405eaaf4336f6fea9784','planCommit':'bc98f85309ef55ee1015e5727157e8d5fb9ba5ae','packageLockSha256':sha((ROOT/'package-lock.json').read_bytes()),'appFiles':source_manifest,'rootFiles':root_manifest,'buildFiles':build_manifest})
+write('Copy_Provenance.json',provenance)
+print(json.dumps({'copied':len(provenance),'browserAssertions':len(browser),'resources':{'accounts':len(accounts),'forms':len(forms),'responses':len(responses)},'unmatchedHttp':sum(len(s['unexpectedHttp']) for s in network),'corsMismatch':sum(len(s['corsMismatch']) for s in network),'pageErrors':sum(len(s['pageErrors']) for s in network),'vueWarnings':sum(len(s['vueWarnings']) for s in network)},ensure_ascii=False))

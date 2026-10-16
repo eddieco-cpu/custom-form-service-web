@@ -1,0 +1,215 @@
+{
+  "runId": "v1-f10-20261016-01",
+  "attempt": "a1",
+  "phase": "all",
+  "browser": "156.0.8078.4",
+  "api": "real, no route interception",
+  "checkpoints": [
+    {
+      "id": "A01",
+      "label": "register-login-A",
+      "status": "FAIL",
+      "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+      "startedAt": "2026-10-16T04:34:28.370Z",
+      "finishedAt": "2026-10-16T04:34:40.792Z"
+    },
+    {
+      "id": "A01",
+      "label": "register-login-B",
+      "status": "FAIL",
+      "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+      "startedAt": "2026-10-16T04:34:40.801Z",
+      "finishedAt": "2026-10-16T04:34:53.250Z"
+    },
+    {
+      "id": "A01",
+      "label": "register-login-C",
+      "status": "FAIL",
+      "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+      "startedAt": "2026-10-16T04:34:53.255Z",
+      "finishedAt": "2026-10-16T04:35:05.659Z"
+    }
+  ],
+  "accounts": [
+    {
+      "alias": "A",
+      "email": "v1-f10-20261016-01-a@example.test"
+    },
+    {
+      "alias": "B",
+      "email": "v1-f10-20261016-01-b@example.test"
+    },
+    {
+      "alias": "C",
+      "email": "v1-f10-20261016-01-c@example.test"
+    },
+    {
+      "alias": "X",
+      "email": "v1-f10-20261016-01-x@example.test"
+    }
+  ],
+  "forms": [],
+  "responses": [],
+  "reads": [],
+  "statistics": [],
+  "requests": [
+    {
+      "sequence": 1,
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 2,
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 3,
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "outcomes": [
+    {
+      "sequence": 1,
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 2,
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 3,
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    }
+  ],
+  "diagnostics": [
+    {
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "pageErrors": [],
+  "expectedErrors": [
+    {
+      "case": "A01:register-login-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "A01:register-login-B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "A01:register-login-C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ],
+  "deleteViolations": [],
+  "routes": [
+    {
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fprofile%3Ffrom%3Dv1%23name"
+    },
+    {
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fprofile%3Ffrom%3Dv1%23name"
+    },
+    {
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fprofile%3Ffrom%3Dv1%23name"
+    },
+    {
+      "case": "A01:register-login-A",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=/profile?from=v1%23name"
+    },
+    {
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-B",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "A01:register-login-C",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    }
+  ],
+  "timings": []
+}

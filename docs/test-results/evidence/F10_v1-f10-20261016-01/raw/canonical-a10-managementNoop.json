@@ -1,0 +1,1471 @@
+{
+  "runId": "v1-f10-20261016-01",
+  "attempt": "a10",
+  "phase": "managementNoop",
+  "browser": "156.0.8078.4",
+  "api": "real, no route interception",
+  "checkpoints": [
+    {
+      "id": "M03",
+      "label": "real draft same-value UI zero request and API no-op updatedAt",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:21:30.641Z",
+      "finishedAt": "2026-10-16T08:21:30.951Z"
+    },
+    {
+      "id": "M03",
+      "label": "real published same-value UI zero request and API no-op updatedAt",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:21:30.956Z",
+      "finishedAt": "2026-10-16T08:21:31.228Z"
+    },
+    {
+      "id": "M03",
+      "label": "real closed same-value UI zero request and API no-op updatedAt",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:21:31.232Z",
+      "finishedAt": "2026-10-16T08:21:31.527Z"
+    },
+    {
+      "id": "PHASE",
+      "label": "managementNoop",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:21:30.641Z",
+      "finishedAt": "2026-10-16T08:21:31.532Z"
+    }
+  ],
+  "accounts": [
+    {
+      "alias": "A",
+      "id": "4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7",
+      "email": "v1-f10-20261016-01-a@example.test"
+    },
+    {
+      "alias": "B",
+      "id": "1e25af87-c6c8-49f7-8259-a482628271d3",
+      "email": "v1-f10-20261016-01-b@example.test"
+    },
+    {
+      "alias": "C",
+      "id": "c18c8e27-3927-473d-aa5e-783e595f7f9a",
+      "email": "v1-f10-20261016-01-c@example.test"
+    },
+    {
+      "alias": "X",
+      "id": "2c7ec1e0-06d9-4ae8-92fc-213211364c2f",
+      "email": "v1-f10-20261016-01-x@example.test"
+    },
+    {
+      "alias": "L",
+      "id": "0bfeae96-e8b6-4e5f-954f-460a421ce359",
+      "email": "v1-f10-20261016-01-l@example.test"
+    },
+    {
+      "alias": "EC1",
+      "id": "ebca3550-2492-4e62-b207-8a469de62fae",
+      "email": "v1-f10-20261016-01-ec1@localhost"
+    },
+    {
+      "alias": "EC2",
+      "id": "0773cd5f-60c2-4754-8c45-68a0a16a3fcd",
+      "email": "\"v1-f10-20261016-01 a\"@example.test"
+    },
+    {
+      "alias": "EC3",
+      "id": "8d138219-f559-4508-8dc5-ed5044a21dec",
+      "email": "測試v1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "EC4",
+      "id": "932c9121-bade-469d-8402-73957bc8b550",
+      "email": "İv1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "CH-A",
+      "id": "59045caf-2417-4903-a2ff-78c562074f34",
+      "email": "v1-f10-20261016-01-ch@example.test"
+    },
+    {
+      "alias": "ED-A",
+      "id": "51e869a2-8dfc-49d1-84d1-56a241eeca80",
+      "email": "v1-f10-20261016-01-ed@example.test"
+    }
+  ],
+  "forms": [
+    {
+      "alias": "EDIT",
+      "id": "c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "owner": "A",
+      "purpose": "EDIT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "MULTI",
+      "id": "757ca4ae-03dd-43e4-a53f-4e9d744d363f",
+      "owner": "A",
+      "purpose": "MULTI",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "OPT",
+      "id": "e60323b3-7e90-48ac-8739-9e67dc168607",
+      "owner": "A",
+      "purpose": "OPT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-I",
+      "id": "1b9132a0-3e00-4d6b-9023-92faa80ad8da",
+      "owner": "A",
+      "purpose": "ST-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-A",
+      "id": "24f39f8c-65d1-44df-ae4b-06abf790e19a",
+      "owner": "A",
+      "purpose": "ST-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-owner_only",
+      "id": "18ba4e17-e66e-45d7-a219-3acd68c0796b",
+      "owner": "A",
+      "purpose": "POL-anonymous-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-respondents",
+      "id": "1b94701a-a7ff-4e43-91d6-355498b8a098",
+      "owner": "A",
+      "purpose": "POL-anonymous-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-public",
+      "id": "572aa4d1-ab38-49e5-b4bc-4e67a02f7bfa",
+      "owner": "A",
+      "purpose": "POL-anonymous-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-owner_only",
+      "id": "a81faa35-c38e-496c-b0da-61afc748fa2c",
+      "owner": "A",
+      "purpose": "POL-identified-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-respondents",
+      "id": "e6ac274b-cceb-4cd0-a05d-17c654d25b6d",
+      "owner": "A",
+      "purpose": "POL-identified-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-public",
+      "id": "0f90992e-1645-4d38-80f3-c9c26c5aea09",
+      "owner": "A",
+      "purpose": "POL-identified-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-I",
+      "id": "8995a7a1-439c-4286-8bdb-d20d4d6c094a",
+      "owner": "A",
+      "purpose": "ZERO-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-A",
+      "id": "1fe9e1ec-dc9f-42ad-8793-dea0595f1701",
+      "owner": "A",
+      "purpose": "ZERO-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEL-D",
+      "id": "4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "owner": "A",
+      "purpose": "DEL-D",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-P",
+      "id": "0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "owner": "A",
+      "purpose": "DEL-P",
+      "status": "published",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-C",
+      "id": "7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "owner": "A",
+      "purpose": "DEL-C",
+      "status": "closed",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-SHRINK",
+      "id": "875ecae6-a393-4a62-9074-c66f304cde77",
+      "owner": "L",
+      "purpose": "LIST-SHRINK",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-02",
+      "id": "3964443c-963d-4df7-8637-8b0049a02bbb",
+      "owner": "L",
+      "purpose": "LIST-02",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-03",
+      "id": "1f1d6f9d-62e7-42f7-9bf8-92ed35a182ac",
+      "owner": "L",
+      "purpose": "LIST-03",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-04",
+      "id": "9962027c-f232-4b93-b98e-2512d74231b4",
+      "owner": "L",
+      "purpose": "LIST-04",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-05",
+      "id": "7e8d24c5-a6ae-4068-b5a9-9aa87c0c927a",
+      "owner": "L",
+      "purpose": "LIST-05",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-06",
+      "id": "778fcbec-6c46-425b-91a6-92eecef4d3c5",
+      "owner": "L",
+      "purpose": "LIST-06",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-07",
+      "id": "f745832c-7755-488f-9c0a-d06b33430821",
+      "owner": "L",
+      "purpose": "LIST-07",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-08",
+      "id": "1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "owner": "L",
+      "purpose": "LIST-08",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-09",
+      "id": "6a43b608-4b85-4f71-9a46-4a7e02c5c801",
+      "owner": "L",
+      "purpose": "LIST-09",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-10",
+      "id": "52c685e7-066f-4bf2-bd05-030bd9257273",
+      "owner": "L",
+      "purpose": "LIST-10",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-11",
+      "id": "9d58eb4e-ff21-4bdf-bf24-90749cf85fc5",
+      "owner": "L",
+      "purpose": "LIST-11",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-12",
+      "id": "c38cc4c9-5165-4193-b4b3-a02d9adf7a67",
+      "owner": "L",
+      "purpose": "LIST-12",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-13",
+      "id": "19294089-785d-48c1-8c3c-23df46f0103c",
+      "owner": "L",
+      "purpose": "LIST-13",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-14",
+      "id": "f8178095-3035-414a-bdc2-32665e058c54",
+      "owner": "L",
+      "purpose": "LIST-14",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-15",
+      "id": "602f8259-4931-4da4-bac0-7403ee3ab0a3",
+      "owner": "L",
+      "purpose": "LIST-15",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-16",
+      "id": "c9846c02-8219-4dec-bebd-7444f3c10cea",
+      "owner": "L",
+      "purpose": "LIST-16",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-17",
+      "id": "7a35cdff-d806-4ce6-bfb4-640e7297cc39",
+      "owner": "L",
+      "purpose": "LIST-17",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-18",
+      "id": "889143fa-be81-4bfc-be75-690947292b57",
+      "owner": "L",
+      "purpose": "LIST-18",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-19",
+      "id": "4987f864-7907-48ec-a8ae-0b059fd8a20c",
+      "owner": "L",
+      "purpose": "LIST-19",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-20",
+      "id": "0bd74f05-5bc2-410d-8c35-a2c60b5af790",
+      "owner": "L",
+      "purpose": "LIST-20",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-21",
+      "id": "ca7b7c13-14da-4369-abb3-062b3dea6703",
+      "owner": "L",
+      "purpose": "LIST-21",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD",
+      "id": "fd1e1382-9e71-4724-9b73-4cfb5139ae7b",
+      "owner": "A",
+      "purpose": "DEAD",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD-RECHECK",
+      "id": "74d430ea-b763-4657-966f-160123cdce5e",
+      "owner": "A",
+      "purpose": "DEAD-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "EDIT-RECHECK",
+      "id": "4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d",
+      "owner": "A",
+      "purpose": "EDIT-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "CH-F",
+      "id": "8d719179-5998-40dd-9644-bfaa0509c382",
+      "owner": "CH-A",
+      "purpose": "chrome smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ED-F",
+      "id": "454c637e-558f-4e09-bdfe-395c5e484b38",
+      "owner": "ED-A",
+      "purpose": "msedge smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "D05-RECHECK",
+      "id": "50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "owner": "A",
+      "purpose": "D05-RECHECK",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "INCOMPLETE",
+      "id": "b39abf58-547d-4dbc-9d32-2a489fc22307",
+      "owner": "A",
+      "purpose": "retained incomplete Draft validation",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "EMPTY-D",
+      "id": "328e5528-dd7c-4fa0-8adf-7913f0283539",
+      "owner": "EC1",
+      "purpose": "EMPTY-D",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    }
+  ],
+  "responses": [],
+  "reads": [
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/result-visibility",
+      "method": "PATCH",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/74d430ea-b763-4657-966f-160123cdce5e/result-visibility",
+      "method": "PATCH",
+      "status": 200,
+      "body": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/result-visibility",
+      "method": "PATCH",
+      "status": 200,
+      "body": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    }
+  ],
+  "statistics": [],
+  "requests": [
+    {
+      "sequence": 1,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 2,
+      "case": "initial",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 3,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 4,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 5,
+      "case": "initial",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 6,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 7,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 8,
+      "case": "initial",
+      "actor": "C",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 9,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 10,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 11,
+      "case": "initial",
+      "actor": "X",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 12,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 13,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 14,
+      "case": "initial",
+      "actor": "L",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 15,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 16,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "sequence": 17,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 18,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "sequence": 19,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}"
+    },
+    {
+      "sequence": 20,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null
+    },
+    {
+      "sequence": 21,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null
+    },
+    {
+      "sequence": 22,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 23,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null
+    },
+    {
+      "sequence": 24,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}"
+    },
+    {
+      "sequence": 25,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null
+    },
+    {
+      "sequence": 26,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null
+    },
+    {
+      "sequence": 27,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 28,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null
+    },
+    {
+      "sequence": 29,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/result-visibility",
+      "body": "{\"resultVisibility\":\"public\"}"
+    },
+    {
+      "sequence": 30,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null
+    }
+  ],
+  "outcomes": [
+    {
+      "sequence": 1,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 2,
+      "case": "initial",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 3,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"},{\"id\":\"757ca4ae-03dd-43e4-a53f-4e9d744d363f\",\"title\":\"v1-f10-20261016-01 MULTI\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":2,\"createdAt\":\"2026-10-16T04:36:37.612626+00:00\",\"updatedAt\":\"2026-10-16T05:08:45.521982+00:00\"},{\"id\":\"e60323b3-7e90-48ac-8739-9e67dc168607\",\"title\":\"v1-f10-20261016-01 OPT\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:37.712099+00:00\",\"updatedAt\":\"2026-10-16T05:08:45.122457+00:00\"},{\"id\":\"0f90992e-1645-4d38-80f3-c9c26c5aea09\",\"title\":\"v1-f10-20261016-01 POL-identified-public\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"identified\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:41.933194+00:00\",\"updatedAt\":\"2026-10-16T05:08:44.951484+00:00\"},{\"id\":\"b39abf58-547d-4dbc-9d32-2a489fc22307\",\"title\":\"v1-f10-20261016-01 INCOMPLETE\",\"status\":\"draft\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2019-12-31T16:00:00+00:00\",\"count\":0,\"createdAt\":\"2026-10-16T05:08:42.725422+00:00\",\"updatedAt\":\"2026-10-16T05:08:42.725422+00:00\"},{\"id\":\"4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d\",\"title\":\"v1-f10-20261016-01 EDIT-RECHECK\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:52:10.566456+00:00\",\"updatedAt\":\"2026-10-16T04:52:13.519908+00:00\"},{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"count\":0,\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"},{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"title\":\"v1-f10-20261016-01 EDIT\",\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"count\":2,\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"},{\"id\":\"fd1e1382-9e71-4724-9b73-4cfb5139ae7b\",\"title\":\"v1-f10-20261016-01 DEAD\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:37:13.672+00:00\",\"count\":1,\"createdAt\":\"2026-10-16T04:36:55.680504+00:00\",\"updatedAt\":\"2026-10-16T04:37:14.943128+00:00\"},{\"id\":\"1fe9e1ec-dc9f-42ad-8793-dea0595f1701\",\"title\":\"v1-f10-20261016-01 ZERO-A\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:42.803771+00:00\",\"updatedAt\":\"2026-10-16T04:36:42.897309+00:00\"}],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":18,\"totalPages\":2}}"
+    },
+    {
+      "sequence": 4,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 5,
+      "case": "initial",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 6,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 7,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 8,
+      "case": "initial",
+      "actor": "C",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 9,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 10,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 11,
+      "case": "initial",
+      "actor": "X",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 12,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 13,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 14,
+      "case": "initial",
+      "actor": "L",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 15,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[{\"id\":\"ca7b7c13-14da-4369-abb3-062b3dea6703\",\"title\":\"v1-f10-20261016-01 LIST-21\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.837156+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.930983+00:00\"},{\"id\":\"0bd74f05-5bc2-410d-8c35-a2c60b5af790\",\"title\":\"v1-f10-20261016-01 LIST-20\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.696703+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.787792+00:00\"},{\"id\":\"4987f864-7907-48ec-a8ae-0b059fd8a20c\",\"title\":\"v1-f10-20261016-01 LIST-19\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.542816+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.6352+00:00\"},{\"id\":\"889143fa-be81-4bfc-be75-690947292b57\",\"title\":\"v1-f10-20261016-01 LIST-18\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.434496+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.504458+00:00\"},{\"id\":\"7a35cdff-d806-4ce6-bfb4-640e7297cc39\",\"title\":\"v1-f10-20261016-01 LIST-17\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.311231+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.388304+00:00\"},{\"id\":\"c9846c02-8219-4dec-bebd-7444f3c10cea\",\"title\":\"v1-f10-20261016-01 LIST-16\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.15359+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.251253+00:00\"},{\"id\":\"602f8259-4931-4da4-bac0-7403ee3ab0a3\",\"title\":\"v1-f10-20261016-01 LIST-15\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.010529+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.104114+00:00\"},{\"id\":\"f8178095-3035-414a-bdc2-32665e058c54\",\"title\":\"v1-f10-20261016-01 LIST-14\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.851279+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.905685+00:00\"},{\"id\":\"19294089-785d-48c1-8c3c-23df46f0103c\",\"title\":\"v1-f10-20261016-01 LIST-13\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.669398+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.726918+00:00\"},{\"id\":\"c38cc4c9-5165-4193-b4b3-a02d9adf7a67\",\"title\":\"v1-f10-20261016-01 LIST-12\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.483979+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.536693+00:00\"}],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":20,\"totalPages\":2}}"
+    },
+    {
+      "sequence": 16,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "sequence": 17,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 18,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "sequence": 19,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "sequence": 20,
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"description\":null,\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"30cfbd20-423c-44d5-887d-7de73c015255\",\"type\":\"single_choice\",\"title\":\"排序與選項\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"d38fdb42-636f-48a6-bdba-f6b1185cbae5\",\"label\":\"同標籤\",\"value\":\"same_label_A\",\"sortOrder\":0},{\"id\":\"f73b3931-289c-4d91-8fb9-a7becd44317f\",\"label\":\"同標籤\",\"value\":\"same_label_B\",\"sortOrder\":1}]},{\"id\":\"8f96e5ca-1e29-4f8d-b6ce-86d6de188a7b\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":1,\"config\":{\"placeholder\":\"合成placeholder\"},\"options\":[]},{\"id\":\"caca6f89-f88e-4140-b2c9-2ee22562b900\",\"type\":\"rating\",\"title\":\"評分設定\",\"description\":null,\"required\":false,\"sortOrder\":2,\"config\":{\"variant\":\"stars\"},\"options\":[]}],\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T08:18:00.542766+00:00\"}"
+    },
+    {
+      "sequence": 21,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "<body unavailable>"
+    },
+    {
+      "sequence": 22,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 23,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "sequence": 24,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "sequence": 25,
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/74d430ea-b763-4657-966f-160123cdce5e",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"questions\":[{\"id\":\"9cd83cfc-c76b-4652-a3bb-ba8f33d9dfd4\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"}"
+    },
+    {
+      "sequence": 26,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "<body unavailable>"
+    },
+    {
+      "sequence": 27,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 28,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    },
+    {
+      "sequence": 29,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/result-visibility",
+      "body": "{\"resultVisibility\":\"public\"}",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    },
+    {
+      "sequence": 30,
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"userId\":\"4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7\",\"creatorDisplayName\":\"建立者新名\",\"title\":\"v1-f10-20261016-01 EDIT\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"questions\":[{\"id\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":true,\"sortOrder\":10,\"config\":{},\"options\":[]},{\"id\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"type\":\"number\",\"title\":\"數字\",\"description\":null,\"required\":false,\"sortOrder\":20,\"config\":{\"max\":9007199254740993.12345678901234567890123456789},\"options\":[]},{\"id\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"type\":\"single_choice\",\"title\":\"單選\",\"description\":null,\"required\":false,\"sortOrder\":30,\"config\":{\"variant\":\"radio\"},\"options\":[{\"id\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\",\"label\":\"選項 1\",\"value\":\"opt_7c54191c-43ee-4da8-bf69-3eeba2b4e5d7\",\"sortOrder\":0},{\"id\":\"8540d02d-0c4d-45ba-86ec-08b7dfc1db09\",\"label\":\"選項 2\",\"value\":\"opt_f43f7bd2-1ddf-455c-82c6-b3cad6ca5718\",\"sortOrder\":1},{\"id\":\"7b268405-926f-44cb-9ef4-d57f46e03e52\",\"label\":\"正式ID改名\",\"value\":\"opt_85362a5e-b197-44d9-964b-ead6f14d056b\",\"sortOrder\":2}]},{\"id\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"type\":\"multiple_choice\",\"title\":\"多選\",\"description\":null,\"required\":false,\"sortOrder\":40,\"config\":{\"variant\":\"checkbox\"},\"options\":[{\"id\":\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\",\"label\":\"選項 1\",\"value\":\"opt_b26af2a3-e833-4d14-ace4-50cd44a671ff\",\"sortOrder\":0},{\"id\":\"cafb3a96-6cb4-4748-9057-72b1dd7b42fa\",\"label\":\"選項 2\",\"value\":\"opt_a40cdd97-b849-49e6-bca5-beb855b51400\",\"sortOrder\":1}]},{\"id\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"type\":\"rating\",\"title\":\"星級\",\"description\":null,\"required\":false,\"sortOrder\":50,\"config\":{\"max\":5,\"min\":0,\"variant\":\"stars\"},\"options\":[]},{\"id\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"type\":\"rating\",\"title\":\"滑桿\",\"description\":null,\"required\":false,\"sortOrder\":60,\"config\":{\"max\":10,\"min\":0,\"variant\":\"range\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"}"
+    }
+  ],
+  "diagnostics": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "pageErrors": [],
+  "expectedErrors": [
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ],
+  "deleteViolations": [],
+  "routes": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/edit"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/edit"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/edit"
+    },
+    {
+      "case": "M03:real draft same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/edit"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/74d430ea-b763-4657-966f-160123cdce5e"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/74d430ea-b763-4657-966f-160123cdce5e"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/74d430ea-b763-4657-966f-160123cdce5e"
+    },
+    {
+      "case": "M03:real published same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/74d430ea-b763-4657-966f-160123cdce5e"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "case": "M03:real closed same-value UI zero request and API no-op updatedAt",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    }
+  ],
+  "timings": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    }
+  ]
+}

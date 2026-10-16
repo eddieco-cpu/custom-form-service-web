@@ -1,0 +1,579 @@
+import { test, expect } from '@playwright/test'
+import { mkdir, readFile, writeFile } from 'node:fs/promises'
+import { randomUUID } from 'node:crypto'
+
+const root = 'output/playwright/v1-acceptance/v1-f10-20261016-01'
+const api = 'http://localhost:5000/api/v1'
+const origin = 'http://localhost:3000'
+const runId = 'v1-f10-20261016-01'
+const attempt = process.env.F10_ATTEMPT ?? 'a1'
+const phase = process.env.F10_PHASE ?? 'all'
+const title = alias => `${runId} ${alias}`
+const qfield = (p, field) => p.locator(`[data-editor-field="${field}"]`)
+const parsed = r => JSON.parse(r.body)
+
+test(`F10 canonical true Browser/API ${phase} ${attempt}`, async ({ browser }, info) => {
+  await mkdir(`${root}/raw`, { recursive: true })
+  let old
+  try { old = JSON.parse(await readFile(`${root}/private-state.json`, 'utf8')) } catch { /* new run */ }
+  const privateState = old ?? { accounts: {}, forms: {} }
+  const state = { runId, attempt, phase, browser: browser.version(), api: 'real, no route interception', checkpoints: [], accounts: [], forms: [], responses: [], reads: [], statistics: [], requests: [], outcomes: [], diagnostics: [], pageErrors: [], expectedErrors: [], deleteViolations: [], routes: [], timings: [] }
+  const actors = {}, pending = [], secrets = []
+  let current = 'initial', sequence = 0
+  const tickets = new WeakMap()
+  const allowedDelete = new Set(['DEL-D', 'DEL-P', 'DEL-C', 'LIST-SHRINK'])
+  function clean(s) { let v = String(s); for (const secret of secrets) v = v.split(secret).join('<REDACTED>'); return v.replace(/eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+/g, '<REDACTED_JWT>') }
+  async function flush() {
+    await Promise.allSettled(pending.splice(0))
+    state.accounts = Object.entries(privateState.accounts).map(([alias, a]) => ({ alias, id: a.id, email: a.email }))
+    state.forms = Object.entries(privateState.forms).map(([alias, f]) => ({ alias, id: f.id, owner: f.owner, purpose: f.purpose, status: f.status, allowedDelete: allowedDelete.has(alias), deleted: !!f.deleted }))
+    await writeFile(`${root}/private-state.json`, JSON.stringify(privateState, null, 2))
+    await writeFile(`${root}/raw/canonical-${attempt}-${phase}.json`, JSON.stringify(state, null, 2))
+  }
+  async function checkpoint(id, label, fn) {
+    current = `${id}:${label}`
+    const startedAt = new Date().toISOString()
+    try { const value = await fn(); state.checkpoints.push({ id, label, status: 'PASS', startedAt, finishedAt: new Date().toISOString() }); console.log(`CHECKPOINT PASS ${current}`); return value }
+    catch (e) { state.checkpoints.push({ id, label, status: 'FAIL', detail: clean(e.message), startedAt, finishedAt: new Date().toISOString() }); console.log(`CHECKPOINT FAIL ${current}: ${clean(e.message).slice(0,400)}`); return undefined }
+    finally { await flush() }
+  }
+  const allow = (method, path, status) => { if (status >= 400) state.expectedErrors.push({ case: current, method, url: api + path, status }) }
+  function observe(actor) {
+    const p = actor.page
+    p.on('framenavigated', f => { if (f === p.mainFrame()) state.routes.push({ case: current, actor: actor.alias, url: f.url() }) })
+    p.on('pageerror', e => state.pageErrors.push({ case: current, actor: actor.alias, message: clean(e.message) }))
+    p.on('console', m => { if (m.type() === 'error' || m.text().includes('[Vue warn]')) state.diagnostics.push({ case: current, actor: actor.alias, text: clean(m.text()), url: m.location().url }) })
+    p.on('request', req => {
+      if (!req.url().startsWith(api + '/')) return
+      const t = { sequence: ++sequence, case: current, actor: actor.alias, method: req.method(), url: req.url(), ...(new URL(req.url()).pathname.startsWith('/api/v1/forms') ? { body: req.postData() } : {}) }
+      tickets.set(req, t); state.requests.push(t)
+      if (req.method() === 'DELETE') { const id = new URL(req.url()).pathname.split('/').at(-1); if (!Object.entries(privateState.forms).some(([alias, f]) => allowedDelete.has(alias) && f.id === id)) state.deleteViolations.push({ case: current, id }) }
+    })
+    p.on('response', res => {
+      if (!res.url().startsWith(api + '/')) return
+      const t = tickets.get(res.request()) ?? { case: current, actor: actor.alias, method: res.request().method(), url: res.url() }
+      pending.push((async () => { const h = await res.allHeaders(); const r = { ...t, status: res.status(), origin: h['access-control-allow-origin'] ?? '', credentials: h['access-control-allow-credentials'] ?? '' }; if (new URL(res.url()).pathname.startsWith('/api/v1/forms')) r.response = await res.text().catch(() => '<body unavailable>'); state.outcomes.push(r) })())
+    })
+  }
+  async function actor(alias) {
+    if (actors[alias]) return actors[alias]
+    const context = await browser.newContext({ viewport: { width: 1440, height: 900 }, permissions: ['clipboard-read', 'clipboard-write'] })
+    const a = { alias, context, page: await context.newPage(), loggedIn: false }; actors[alias] = a; observe(a); return a
+  }
+  async function navigate(a, target) { if (!a.loggedIn) allow('GET', '/users/me', 401); await a.page.goto(target); await a.page.locator('main').waitFor() }
+  async function call(a, path, method = 'GET', body, expected = 200, label = 'API check') {
+    if (method === 'DELETE') { const f = Object.entries(privateState.forms).find(([, v]) => v.id === path.split('/').at(-1)); expect(f && allowedDelete.has(f[0]), 'DELETE must be in dedicated whitelist').toBeTruthy() }
+    allow(method, path, expected)
+    const raw = body === undefined ? undefined : typeof body === 'string' ? body : JSON.stringify(body)
+    const r = await a.page.evaluate(async ({ url, method, raw }) => { const res = await fetch(url, { method, credentials: 'include', ...(raw === undefined ? {} : { headers: { 'content-type': 'application/json' }, body: raw }) }); return { status: res.status, body: await res.text() } }, { url: api + path, method, raw })
+    state.reads.push({ case: current, label, actor: a.alias, path, method, ...r })
+    expect(r.status, `${label}: ${method} ${path}`).toBe(expected); return r
+  }
+  async function response(a, path, method, action, status = 200) { allow(method, path, status); const waiting = a.page.waitForResponse(r => r.url() === api + path && r.request().method() === method); await action(); const r = await waiting; expect(r.status()).toBe(status); return { status: r.status(), body: status === 204 ? '' : await r.text(), requestBody: r.request().postData() } }
+  async function native(a, yes, action) { const done = a.page.waitForEvent('dialog').then(async d => { state.timings.push({ case: current, dialog: d.type(), accepted: yes }); if (yes) await d.accept(); else await d.dismiss() }); await action(); await done }
+  async function errorClose(a) { await a.page.getByRole('dialog').getByRole('button', { name: '關閉', exact: true }).last().click() }
+  async function register(alias, email, password, name, target = '/forms') {
+    const known = privateState.accounts[alias]
+    if (known) { email = known.email; password = known.password; name = known.name }
+    const a = await actor(alias); secrets.push(password)
+    privateState.accounts[alias] ??= { email, password, name }
+    await flush()
+    await navigate(a, `/login?redirect=${encodeURIComponent(target)}`)
+    await a.page.getByRole('tab', { name: '註冊', exact: true }).click()
+    await a.page.getByRole('textbox', { name: '姓名' }).fill(name)
+    await a.page.getByRole('textbox', { name: 'Email' }).fill(email)
+    await a.page.getByLabel('密碼', { exact: true }).fill(password)
+    const reg = await response(a, '/auth/register', 'POST', () => a.page.getByRole('button', { name: '註冊', exact: true }).click(), 201)
+    const user = parsed(reg); privateState.accounts[alias].id = user.id; privateState.accounts[alias].email = user.email
+    expect((await a.context.cookies()).some(c => c.name === 'access_token')).toBe(false)
+    await expect(a.page.getByRole('tab', { name: '登入', exact: true })).toHaveAttribute('aria-selected', 'true')
+    await expect(a.page.getByLabel('密碼', { exact: true })).toHaveValue('')
+    await expect(a.page.getByRole('textbox', { name: 'Email' })).toHaveValue(user.email)
+    await login(a, target)
+    return a
+  }
+  async function login(a, target = '/forms') {
+    const v = privateState.accounts[a.alias]; secrets.push(v.password)
+    if (new URL(a.page.url()).pathname !== '/login' || new URL(a.page.url()).searchParams.get('redirect') !== target) await navigate(a, `/login?redirect=${encodeURIComponent(target)}`)
+    await a.page.getByRole('textbox', { name: 'Email' }).fill(v.email)
+    await a.page.getByLabel('密碼', { exact: true }).fill(v.password)
+    const r = await response(a, '/auth/login', 'POST', () => a.page.getByRole('button', { name: '登入', exact: true }).click())
+    expect(parsed(r).id).toBe(v.id); a.loggedIn = true; await expect(a.page).toHaveURL(origin + target)
+    const cookie = (await a.context.cookies()).find(c => c.name === 'access_token')
+    expect(cookie?.httpOnly).toBe(true); expect(cookie?.sameSite).toBe('Lax'); expect(cookie?.path).toBe('/'); expect(cookie?.secure).toBe(false); expect(cookie?.domain).toBe('localhost')
+    expect(await a.page.evaluate(() => document.cookie.includes('access_token'))).toBe(false)
+    state.timings.push({ case: current, actor: a.alias, cookie: { present: !!cookie, httpOnly: cookie.httpOnly, sameSite: cookie.sameSite, path: cookie.path, secure: cookie.secure, domain: cookie.domain, absoluteExpiry: cookie.expires > 0 } })
+  }
+  async function ensureActors() {
+    for (const alias of ['A', 'B', 'C', 'X', 'L']) {
+      if (!privateState.accounts[alias]?.id) await checkpoint('A01', `register-login-${alias}`, () => register(alias, `${runId}-${alias.toLowerCase()}@example.test`, ` ${randomUUID()} `, alias === 'A' ? '建立者原名' : ['B','C'].includes(alias) ? '同名' : `${runId} ${alias}`, alias === 'A' ? '/profile?from=v1#name' : '/forms'))
+      else { const a = await actor(alias); await navigate(a, '/login?redirect=%2Fforms'); await login(a) }
+    }
+  }
+  const simple = (alias, extra = {}) => ({ title: title(alias), responseMode: 'multiple', responseIdentity: 'anonymous', resultVisibility: 'owner_only', questions: [{ type: 'text', title: '文字', sortOrder: 0, config: { variant: 'input' } }], ...extra })
+  async function create(a, alias, body, status = 'draft') {
+    if (privateState.forms[alias]) return parsed(await call(a, `/forms/${privateState.forms[alias].id}`, 'GET', undefined, 200, `${alias} existing independent readback`))
+    const r = await call(a, '/forms', 'POST', body, 201, `${alias} setup Create`), dto = parsed(r)
+    privateState.forms[alias] = { id: dto.id, owner: a.alias, purpose: alias, status: 'draft', definitionBody: typeof body === 'string' ? body : JSON.stringify(body), createResponse: r.body }; await flush()
+    if (status !== 'draft') { await call(a, `/forms/${dto.id}/publish`, 'POST'); privateState.forms[alias].status = 'published' }
+    if (status === 'closed') { await call(a, `/forms/${dto.id}/close`, 'POST'); privateState.forms[alias].status = 'closed' }
+    return parsed(await call(a, `/forms/${dto.id}`, 'GET', undefined, 200, `${alias} independent readback`))
+  }
+  async function managed(a, alias, command, cancel = false) {
+    const f = privateState.forms[alias], button = command === 'publish' ? '發布' : command === 'close' ? '關閉表單' : '刪除表單'
+    if (command === 'delete') expect(allowedDelete.has(alias)).toBe(true)
+    await a.page.getByRole('button', { name: button, exact: true }).click()
+    if (cancel) { await a.page.getByRole('button', { name: '取消', exact: true }).click(); return }
+    const method = command === 'delete' ? 'DELETE' : 'POST', path = `/forms/${f.id}${command === 'delete' ? '' : '/' + command}`
+    await response(a, path, method, () => a.page.getByRole('button', { name: `確認${command === 'publish' ? '發布' : command === 'close' ? '關閉' : '刪除'}`, exact: true }).click(), command === 'delete' ? 204 : 200)
+    if (command === 'delete') { f.deleted = true; await expect(a.page).toHaveURL(origin + '/forms') }
+    else { f.status = command === 'publish' ? 'published' : 'closed'; await expect(a.page).toHaveURL(`${origin}/forms/${f.id}`) }
+    await flush()
+  }
+  async function policy(a, alias, status) {
+    const f = privateState.forms[alias]
+    await navigate(a, `/forms/${f.id}${status === 'draft' ? '/edit' : ''}`)
+    if ((await call(a, `/forms/${f.id}`)).body.includes('"resultVisibility":"owner_only"')) await call(a, `/forms/${f.id}/result-visibility`, 'PATCH', { resultVisibility: 'public' })
+    await a.page.reload()
+    if (status === 'draft') await a.page.getByLabel('表單標題', { exact: true }).fill(title(alias) + ' dirty-policy')
+    for (const [value, label] of [['owner_only','僅建立者'],['respondents','填答者'],['public','所有人']]) await checkpoint(`M03-${status === 'draft' ? 'D' : status === 'published' ? 'P' : 'C'}-${value === 'owner_only' ? 'O' : value === 'respondents' ? 'R' : 'P'}`, `policy-${alias}-${value}`, async () => {
+      const r = await response(a, `/forms/${f.id}/result-visibility`, 'PATCH', () => a.page.getByRole('radio', { name: label, exact: true }).click())
+      expect(JSON.parse(r.requestBody)).toEqual({ resultVisibility: value })
+      const dto = parsed(await call(a, `/forms/${f.id}`, 'GET', undefined, 200, 'visibility independent readback')); expect(dto.resultVisibility).toBe(value); expect(dto.status).toBe(status)
+      if (status === 'draft') { await expect(a.page.getByLabel('表單標題', { exact: true })).toHaveValue(title(alias) + ' dirty-policy'); expect(dto.title).not.toBe(title(alias) + ' dirty-policy') }
+      await expect(a.page.getByText('正在更新結果可見性…')).toHaveCount(0)
+    })
+    if (status === 'draft') { await a.page.getByLabel('表單標題', { exact: true }).fill(title(alias)); await expect(a.page.getByRole('button',{name:'保存',exact:true})).toBeDisabled() }
+  }
+  async function uiSubmit(a, alias) {
+    const f = privateState.forms[alias], r = await response(a, `/forms/${f.id}/responses`, 'POST', () => a.page.getByRole('button',{name:'提交表單',exact:true}).click(), 201)
+    const receipt = parsed(r); state.responses.push({ case: current, formAlias: alias, userAlias: a.alias, body: r.requestBody, receipt: r.body }); await flush()
+    await expect(a.page.getByRole('dialog', { name: '提交成功' })).toBeVisible()
+    await a.page.waitForTimeout(250); await expect(a.page.getByRole('dialog', { name: '提交成功' })).toBeVisible()
+    await a.page.getByRole('button', { name: '完成', exact: true }).click()
+    const latest = await call(a, `/forms/${f.id}/responses/me/latest`, 'GET', undefined, 200, 'independent Latest after UI 201'); expect(parsed(latest).id).toBe(receipt.id)
+    return receipt
+  }
+  async function setupSubmit(a, alias, body, event) {
+    const r = await call(a, `/forms/${privateState.forms[alias].id}/responses`, 'POST', body, 201, 'setup ' + event)
+    state.responses.push({ case: current, formAlias: alias, userAlias: a.alias, event, body: typeof body === 'string' ? body : JSON.stringify(body), receipt: r.body }); await flush(); return parsed(r)
+  }
+  async function fill(a, alias, textValue = ' 合成 😀\n第二行 ', number = '0') {
+    const p = a.page, dto = parsed(await call(a, `/forms/${privateState.forms[alias].id}`))
+    await p.getByLabel('文字', { exact: true }).fill(textValue); await p.getByLabel('數字', { exact: true }).fill(number)
+    const sc = dto.questions.find(q => q.type === 'single_choice'), mc = dto.questions.find(q => q.type === 'multiple_choice')
+    const one = p.locator(`[data-renderer-key="${sc.id}"]`), multi = p.locator(`[data-renderer-key="${mc.id}"]`)
+    if (sc.config.variant === 'select') await one.locator('select').selectOption(sc.options[0].id); else await one.locator('input[type=radio]').first().check()
+    if (mc.config.variant === 'multi_select') await multi.locator('select').selectOption([mc.options[0].id,mc.options[1].id]); else await multi.locator('input[type=checkbox]').first().check()
+    await p.getByRole('radio', { name:'0 分', exact:true }).check()
+    const range = p.getByRole('slider', { name:'滑桿', exact:true }); if(await range.count()) { await range.focus(); await range.press('Home') }
+  }
+  async function profiles() {
+    const a = actors.A, p = a.page
+    await checkpoint('A08','profile independent PATCH/GET and shared Header', async()=>{
+      await navigate(a,'/profile'); await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('建立者原名'); const meBefore=state.requests.filter(r=>r.actor==='A'&&r.method==='GET'&&r.url.endsWith('/users/me')).length
+      await p.getByRole('textbox',{name:'姓名'}).fill('建立者新名')
+      await response(a,'/users/me','PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click())
+      expect(parsed(await call(a,'/users/me','GET',undefined,200,'Profile independent GET')).displayName).toBe('建立者新名')
+      await p.getByRole('button',{name:'使用者選單'}).click(); await expect(p.getByText('建立者新名',{exact:true}).first()).toBeVisible(); await p.keyboard.press('Escape')
+      await p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'首頁',exact:true}).click(); await expect(p).toHaveURL(origin+'/')
+      expect(state.requests.filter(r=>r.actor==='A'&&r.method==='GET'&&r.url.endsWith('/users/me')).length).toBe(meBefore+1)
+      await call(a,'/users/me','PATCH',{displayName:'建立者原名'}); await navigate(a,'/profile')
+    })
+    await checkpoint('A09','dirty logout cancel/confirm and fresh login',async()=>{
+      await navigate(a,'/profile');await p.getByRole('textbox',{name:'姓名'}).fill('未保存姓名')
+      await p.getByRole('button',{name:'使用者選單'}).click();const before=state.requests.filter(r=>r.url.endsWith('/auth/logout')).length
+      await native(a,false,()=>p.getByRole('button',{name:'登出',exact:true}).click());expect(state.requests.filter(r=>r.url.endsWith('/auth/logout')).length).toBe(before)
+      if(await p.getByRole('button',{name:'使用者選單'}).getAttribute('aria-expanded')!=='true')await p.getByRole('button',{name:'使用者選單'}).click()
+      await native(a,true,()=>p.getByRole('button',{name:'登出',exact:true}).click());a.loggedIn=false;await expect(p).toHaveURL(origin+'/login');await login(a,'/forms')
+      await navigate(a,'/profile');await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('建立者原名')
+    })
+  }
+  async function editor() {
+    const a=actors.A,p=a.page
+    await checkpoint('D01','new initial model and Preview without API writes',async()=>{
+      await navigate(a,'/forms/new');await expect(p.getByRole('button',{name:'發布',exact:true})).toHaveCount(0);await expect(p.locator('[data-question-key]')).toHaveCount(0)
+      await expect(p.getByLabel('結果可見範圍（必選）')).toHaveValue('');await expect(p.getByLabel('填答次數')).toHaveValue('single')
+      await p.getByRole('button',{name:'預覽',exact:true}).click();await expect(p.getByRole('dialog')).toBeVisible();await p.keyboard.press('Escape');await expect(p.getByRole('dialog')).toBeVisible();await p.getByRole('button',{name:'關閉預覽',exact:true}).click()
+    })
+    await checkpoint('D02','first UI save six controls and independent readback',async()=>{
+      await qfield(p,'form.title').fill(title('EDIT'));await p.getByLabel('結果可見範圍（必選）').selectOption('owner_only')
+      const types=['text','number','single_choice','multiple_choice','rating','rating'],names=['文字','數字','單選','多選','星級','滑桿']
+      for(let i=0;i<types.length;i++){await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByLabel(`題型 ${i+1}`,{exact:true}).selectOption(types[i]);await p.getByLabel(`題目 ${i+1} 標題`,{exact:true}).fill(names[i])}
+      await p.locator('[data-question-key]').nth(0).locator('input[type=checkbox]').first().check()
+      await p.locator('[data-question-key]').nth(1).getByLabel('最大值（未設定可留空）').fill('9007199254740993.12345678901234567890123456789')
+      for(const i of [4,5])await p.locator('[data-question-key]').nth(i).getByLabel('最小值（未設定可留空）').fill('0')
+      await p.locator('[data-question-key]').nth(5).getByLabel('呈現方式',{exact:true}).selectOption('range');await p.locator('[data-question-key]').nth(5).getByLabel('最大值（未設定可留空）').fill('10')
+      const r=await response(a,'/forms','POST',()=>p.getByRole('button',{name:'保存草稿',exact:true}).click(),201),dto=parsed(r)
+      privateState.forms.EDIT={id:dto.id,owner:'A',purpose:'EDIT',status:'draft',definitionBody:r.requestBody,createResponse:r.body};await flush()
+      await expect(p).toHaveURL(`${origin}/forms/${dto.id}/edit`);await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled()
+      expect(parsed(await call(a,`/forms/${dto.id}`,'GET',undefined,200,'UI Create independent GET')).questions.map(q=>q.type)).toEqual(types)
+      expect(r.requestBody).not.toContain('tmp_')
+    })
+    if(!privateState.forms.EDIT)return
+    const id=privateState.forms.EDIT.id
+    await checkpoint('D03','UI delta new IDs, id-only delete, stable option values and order',async()=>{
+      let dto=parsed(await call(a,`/forms/${id}`)),sc=dto.questions[2],values=sc.options.map(o=>o.value)
+      await p.locator(`[data-question-key="${sc.id}"]`).getByRole('button',{name:'增加選項',exact:true}).click();await p.locator(`[data-question-key="${sc.id}"]`).getByLabel('選項 3',{exact:true}).fill('新增選項')
+      await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByLabel('題目 7 標題',{exact:true}).fill('暫時題')
+      await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());dto=parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'Delta added IDs readback'))
+      const added=dto.questions[6],opt=dto.questions[2].options[2];expect(dto.questions[2].options.slice(0,2).map(o=>o.value)).toEqual(values)
+      await qfield(p,`${opt.id}.label`).fill('正式ID改名');await p.getByRole('button',{name:'刪除題目 7',exact:true}).click();await qfield(p,'form.description').fill('')
+      const r=await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());expect(JSON.parse(r.requestBody).questions).toContainEqual({id:added.id})
+      dto=parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'Delta update/delete readback'));expect(dto.questions).toHaveLength(6);expect(dto.description).toBeNull()
+      await p.getByRole('button',{name:'題目 6 上移',exact:true}).click();await p.getByRole('button',{name:'題目 5 下移',exact:true}).click()
+      await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled()
+    })
+    await checkpoint('D05','omitted variant, sparse order and original microseconds no dirty',async()=>{
+      const dto=parsed(await call(a,`/forms/${id}`));await call(a,`/forms/${id}`,'PATCH',{submissionDeadlineAt:'2030-12-31T10:30:00.123456Z',questions:dto.questions.map((q,i)=>({id:q.id,sortOrder:(i+1)*10,...(i===0?{config:{}}:{})}))})
+      await p.reload();await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled();await qfield(p,'form.title').fill(title('EDIT')+' title-only')
+      const r=await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());expect(JSON.parse(r.requestBody)).toEqual({title:title('EDIT')+' title-only'})
+      const back=parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'microsecond independent GET'));expect(back.submissionDeadlineAt).toMatch(/\.123456(?:Z|\+00:00)$/);expect(back.questions[0].config).toEqual({})
+      await qfield(p,'form.title').fill(title('EDIT'));await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click())
+    })
+    await checkpoint('D07','Preview snapshot reset, focus and size',async()=>{
+      await p.getByRole('button',{name:'預覽',exact:true}).click();const d=p.getByRole('dialog');await expect(d).toBeVisible();await d.getByLabel('文字',{exact:true}).fill('試填不保存');await p.keyboard.press('Escape');await expect(d).toBeVisible();await p.getByRole('button',{name:'關閉預覽',exact:true}).click()
+      await p.getByRole('button',{name:'預覽',exact:true}).click();await expect(d.getByLabel('文字',{exact:true})).toHaveValue('');await p.getByRole('button',{name:'關閉預覽',exact:true}).click();await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled()
+    })
+    await policy(a,'EDIT','draft')
+    await checkpoint('M01','dirty blocks Publish, cancel zero POST and confirmed Publish/G',async()=>{
+      await qfield(p,'form.title').fill(title('EDIT')+' dirty');await expect(p.getByRole('button',{name:'發布',exact:true})).toBeDisabled();await qfield(p,'form.title').fill(title('EDIT'));await managed(a,'EDIT','publish',true);await managed(a,'EDIT','publish');expect(parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'Publish independent GET')).status).toBe('published')
+    })
+    if(privateState.forms.EDIT.status==='published')await policy(a,'EDIT','published')
+  }
+  async function setup() {
+    const a=actors.A
+    await checkpoint('R13','normal setup MULTI/OPT full variants',async()=>{
+      const questions=[{type:'text',title:'文字',sortOrder:0,config:{variant:'textarea'}},{type:'number',title:'數字',sortOrder:1,config:{}},{type:'single_choice',title:'單選',sortOrder:2,config:{variant:'select'},options:[{label:'單選1',value:'s1',sortOrder:0},{label:'單選2',value:'s2',sortOrder:1}]},{type:'multiple_choice',title:'多選',sortOrder:3,config:{variant:'multi_select'},options:[{label:'多選1',value:'m1',sortOrder:0},{label:'多選2',value:'m2',sortOrder:1}]},{type:'rating',title:'星級',sortOrder:4,config:{variant:'stars',min:0,max:5}},{type:'rating',title:'滑桿',sortOrder:5,config:{variant:'range',min:0,max:10}}]
+      for(const alias of ['MULTI','OPT'])await create(a,alias,simple(alias,{questions}),'published')
+    })
+    await checkpoint('S01','fixed ten-question definitions and four input events each',async()=>{
+      for(const identity of ['identified','anonymous']){
+        const alias=identity==='identified'?'ST-I':'ST-A',questions=[{type:'text',title:'T',description:'第一行\n第二行',sortOrder:0,config:{variant:'textarea'}},...['N','ND','NE'].map((t,i)=>({type:'number',title:t,sortOrder:i+1,config:{}})),{type:'single_choice',title:'SC',sortOrder:4,config:{variant:'radio'},options:[{label:'相同標籤',value:'Case',sortOrder:0},{label:'相同標籤',value:'case',sortOrder:1},{label:'零票',value:'zero',sortOrder:2}]},{type:'multiple_choice',title:'MC',sortOrder:5,config:{variant:'checkbox'},options:[{label:'一',value:'m1',sortOrder:0},{label:'二',value:'m2',sortOrder:1},{label:'零票',value:'m3',sortOrder:2}]},{type:'rating',title:'S',sortOrder:6,config:{variant:'stars',min:0,max:5}},{type:'rating',title:'R',sortOrder:7,config:{variant:'range',min:0,max:10}},{type:'text',title:'OLD',sortOrder:8,config:{variant:'input'}},{type:'text',title:'TC',sortOrder:9,config:{variant:'input'}}]
+        const dto=await create(a,alias,{title:`${runId} 固定統計`,description:'第一行\n第二行',responseMode:'multiple',responseIdentity:identity,resultVisibility:'public',submissionDeadlineAt:'2030-12-31T10:30:00.123456Z',questions},'published')
+        const q=dto.questions,sc=q[4].options,mc=q[5].options
+        const rows=[['A','A1',['舊值',-99,-99,2,sc[2].id,[mc[2].id],5,10,'舊optional','舊分組']],['B','B1',[' Apple ',{n:'9007199254740992'},{n:'0.12345678901234567890123456789'},{n:'1.0'},sc[0].id,[mc[0].id,mc[1].id],2,0,undefined,'Z']],['C','C1',['apple',{n:'9007199254740993'},{n:'0.12345678901234567890123456790'},{n:'1e0'},sc[1].id,[mc[1].id],5,10,undefined,'Apple']],['A','A2',[undefined,0,{n:'0.12345678901234567890123456789'},{n:'1'},sc[0].id,[mc[0].id,mc[1].id],0,0,undefined,'Z']]]
+        for(const [user,event,values]of rows){const body='{"answers":['+values.flatMap((v,i)=>v===undefined?[]:[`{"questionId":${JSON.stringify(q[i].id)},"value":${v&&typeof v==='object'&&!Array.isArray(v)&&'n'in v?v.n:JSON.stringify(v)}}`]).join(',')+']}';await setupSubmit(actors[user],alias,body,event);await call(actors[user],`/forms/${dto.id}/responses/me/latest`,'GET',undefined,200,`${alias} ${event} independent Latest`)}
+        await call(a,`/forms/${dto.id}/close`,'POST');privateState.forms[alias].status='closed'
+      }
+    })
+    await checkpoint('S02','POL six forms B true UI submit then Close',async()=>{
+      for(const identity of ['anonymous','identified'])for(const policy of ['owner_only','respondents','public']){const alias=`POL-${identity}-${policy}`;await create(a,alias,simple(alias,{responseIdentity:identity,resultVisibility:policy,questions:[{type:'text',title:'POL題',required:true,sortOrder:0,config:{}}]}),'published');await navigate(actors.B,`/forms/${privateState.forms[alias].id}`);await actors.B.page.getByLabel('POL題',{exact:true}).fill('POL固定答案');await uiSubmit(actors.B,alias);await call(a,`/forms/${privateState.forms[alias].id}/close`,'POST');privateState.forms[alias].status='closed'}
+    })
+    await checkpoint('S04','zero-response Closed definitions both identities',async()=>{for(const identity of ['identified','anonymous']){const alias=identity==='identified'?'ZERO-I':'ZERO-A';const multi=parsed(await call(a,`/forms/${privateState.forms.MULTI.id}`));const questions=multi.questions.map(q=>({type:q.type,title:q.title,sortOrder:q.sortOrder,config:q.type==='rating'?{...q.config,min:0,max:5}:q.config,options:q.options.map(o=>({label:o.label,value:o.value,sortOrder:o.sortOrder}))}));await create(a,alias,simple(alias,{responseIdentity:identity,resultVisibility:'public',questions}),'closed')}})
+    await checkpoint('M06','dedicated Delete setup; whitelist persisted before any DELETE',async()=>{await create(a,'DEL-D',simple('DEL-D'));for(const alias of ['DEL-P','DEL-C']){const dto=await create(a,alias,simple(alias),'published');await setupSubmit(actors.B,alias,{answers:[{questionId:dto.questions[0].id,value:'專用刪除保留答案'}]},alias);if(alias==='DEL-C'){await call(a,`/forms/${dto.id}/close`,'POST');privateState.forms[alias].status='closed'}}})
+  }
+  async function lists() {
+    const a=actors.L,p=a.page
+    await checkpoint('L01','empty owner list / filter empty before bulk setup',async()=>{await navigate(a,'/forms');const r=parsed(await call(a,'/forms?page=1&pageSize=10'));expect(r.items).toEqual([]);expect(r.pagination.totalPages).toBe(0);await expect(p.getByText('建立表單',{exact:true}).last()).toBeVisible()})
+    await checkpoint('L02','setup 21 forms three states, seven published responses',async()=>{
+      for(let i=0;i<21;i++){const alias=i===0?'LIST-SHRINK':`LIST-${String(i+1).padStart(2,'0')}`,status=i<7?'draft':i<14?'published':'closed';const dto=await create(a,alias,simple(alias),status);if(status==='published')await setupSubmit(actors.B,alias,{answers:[{questionId:dto.questions[0].id,value:'列表人數合成答案'}]},alias)}
+      await navigate(a,'/forms');const table=p.getByRole('table',{name:'我的表單'});await expect(table.locator('tbody tr')).toHaveCount(10)
+      for(const n of [1,2,3]){if(n>1)await p.getByRole('button',{name:'下一頁',exact:true}).click();await expect(table.locator('tbody tr')).toHaveCount(n===3?1:10);await expect(p.getByRole('navigation',{name:'表單分頁'})).toContainText(`第 ${n} 頁`)}
+    })
+    await checkpoint('L03','filters and actual row links / mobile list',async()=>{
+      const table=p.getByRole('table',{name:'我的表單'})
+      for(const status of ['draft','published','closed']){await p.getByLabel('狀態篩選',{exact:true}).selectOption(status);await expect(table.locator('tbody tr')).toHaveCount(7);await expect(p.getByRole('navigation',{name:'表單分頁'})).toContainText('第 1 頁');await p.getByRole('button',{name:'刷新',exact:true}).click();const alias=Object.keys(privateState.forms).find(k=>k.startsWith('LIST-')&&k!=='LIST-SHRINK'&&privateState.forms[k].status===status);await table.getByRole('link',{name:title(alias),exact:true}).click();await expect(p).toHaveURL(`${origin}/forms/${privateState.forms[alias].id}${status==='draft'?'/edit':''}`);await navigate(a,'/forms')}
+      await p.setViewportSize({width:390,height:844});await expect(p.getByRole('list',{name:'我的表單卡片'}).locator(':scope > li')).toHaveCount(10);expect(await p.evaluate(()=>document.documentElement.scrollWidth<=innerWidth)).toBe(true);await p.screenshot({path:`${root}/raw/list-mobile-${attempt}.png`,fullPage:true});await p.setViewportSize({width:1440,height:900})
+    })
+    await checkpoint('L05','role status direct URL matrix',async()=>{for(const role of ['L','X'])for(const status of ['draft','published','closed'])for(const kind of ['F','E']){const alias=Object.keys(privateState.forms).find(k=>k.startsWith('LIST-')&&k!=='LIST-SHRINK'&&privateState.forms[k].status===status),f=privateState.forms[alias],url=`/forms/${f.id}${kind==='E'?'/edit':''}`;const id=`L05-${role==='L'?'O':'X'}-${status[0].toUpperCase()}-${kind}`;await checkpoint(id,url,async()=>{const aa=actors[role];await navigate(aa,url);if(role==='X'&&status==='draft'){await expect(aa.page.getByText('找不到表單',{exact:true})).toBeVisible();expect(new URL(aa.page.url()).pathname).toBe(url)}else await expect(aa.page).toHaveURL(`${origin}/forms/${f.id}${status==='draft'?'/edit':''}`)})}})
+    await checkpoint('L04','whitelist list-shrink then page3 empty aligns once to page2',async()=>{
+      await navigate(a,'/forms');await p.getByRole('button',{name:'下一頁',exact:true}).click();await expect(p.getByRole('navigation',{name:'表單分頁'})).toContainText('第 2 頁');await p.getByRole('button',{name:'下一頁',exact:true}).click();await expect(p.getByRole('navigation',{name:'表單分頁'})).toContainText('第 3 頁')
+      const f=privateState.forms['LIST-SHRINK'];await call(a,`/forms/${f.id}`,'DELETE',undefined,204);f.deleted=true;await flush();const before=state.requests.length;await p.getByRole('button',{name:'刷新',exact:true}).click();await expect(p.getByRole('navigation',{name:'表單分頁'})).toContainText('第 2 頁 · 共 2 頁／20 筆');const queries=state.requests.slice(before).filter(r=>r.method==='GET'&&new URL(r.url).pathname==='/api/v1/forms');expect(queries.map(r=>new URL(r.url).searchParams.get('page'))).toEqual(['3','2']);await call(a,`/forms/${f.id}`,'GET',undefined,404,'list shrink independent404')
+    })
+  }
+  async function responses() {
+    if(privateState.forms.EDIT?.status==='published')for(const who of ['A','B'])await checkpoint(`R03-${who}`,'single UI 201/readonly/independent Latest and duplicate409',async()=>{
+      const a=actors[who],p=a.page,id=privateState.forms.EDIT.id;await navigate(a,`/forms/${id}`);await expect(p.getByLabel('文字',{exact:true})).toHaveValue('');await fill(a,'EDIT',`${who} 合成 😀`,who==='A'?'9007199254740993.12345678901234567890123456789':'0');await uiSubmit(a,'EDIT');await expect(p.getByRole('button',{name:'提交表單',exact:true})).toHaveCount(0);await p.reload();await expect(p.getByLabel('文字',{exact:true})).toHaveValue('');await p.getByLabel('文字',{exact:true}).fill('不是已保存的輸入');await response(a,`/forms/${id}/responses`,'POST',()=>p.getByRole('button',{name:'提交表單',exact:true}).click(),409);await errorClose(a);await expect(p.getByRole('button',{name:'提交表單',exact:true})).toHaveCount(0)
+    })
+    await checkpoint('M04','Count explicit distinct 0/1/1/2',async()=>{
+      const a=actors.A,b=actors.B,p=a.page,id=privateState.forms.MULTI.id;await navigate(a,`/forms/${id}`)
+      const count=async n=>{await response(a,`/forms/${id}/respondent-count`,'GET',()=>p.getByRole('button',{name:'查看填答人數',exact:true}).click());await expect(p.getByText(`不同填答者人數：${n}`,{exact:true})).toBeVisible()}
+      await count(0);await navigate(b,`/forms/${id}`);await fill(b,'MULTI');const first=await uiSubmit(b,'MULTI');await count(1);const second=await uiSubmit(b,'MULTI');expect(second.id).not.toBe(first.id);await count(1);await fill(a,'MULTI','Owner自己的multiple');await uiSubmit(a,'MULTI');await count(2)
+    })
+    await checkpoint('R06','Latest after dirty GET cancel/confirm, then omitted latest complete response',async()=>{
+      const a=actors.B,p=a.page,id=privateState.forms.MULTI.id;await p.getByLabel('文字',{exact:true}).fill('保留本地dirty');await native(a,false,()=>p.getByRole('button',{name:'查看我的填答',exact:true}).click());await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留本地dirty');await native(a,true,()=>p.getByRole('button',{name:'查看我的填答',exact:true}).click());await expect(p.getByLabel('文字',{exact:true})).toHaveValue('合成 😀\n第二行')
+      await p.getByLabel('文字',{exact:true}).fill('');await uiSubmit(a,'MULTI');await p.getByLabel('文字',{exact:true}).fill('應被最新整份清除');await native(a,true,()=>p.getByRole('button',{name:'查看我的填答',exact:true}).click());await expect(p.getByLabel('文字',{exact:true})).toHaveValue('');expect(parsed(await call(a,`/forms/${id}/responses/me/latest`)).answers.some(q=>q.value==='合成 😀\n第二行')).toBe(false)
+    })
+    await checkpoint('R05','all optional blank saves answers[]',async()=>{const a=actors.B;await navigate(a,`/forms/${privateState.forms.OPT.id}`);const r=await uiSubmit(a,'OPT');expect(r.answers).toEqual([])})
+    await checkpoint('R07','Latest missing retains dirty input',async()=>{const a=actors.X;await navigate(a,`/forms/${privateState.forms.MULTI.id}`);await a.page.getByLabel('文字',{exact:true}).fill('尚未送出的X');allow('GET',`/forms/${privateState.forms.MULTI.id}/responses/me/latest`,404);await a.page.getByRole('button',{name:'查看我的填答',exact:true}).click();await expect(a.page.getByRole('dialog')).toContainText('您從未填答過');await errorClose(a);await expect(a.page.getByLabel('文字',{exact:true})).toHaveValue('尚未送出的X');await native(a,true,()=>a.page.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'首頁',exact:true}).click())})
+    await checkpoint('R10','natural deadline + true deadline409, Published preserved then UI Close',async()=>{
+      const a=actors.A,b=actors.B,deadline=new Date(Date.now()+18000).toISOString(),dto=await create(a,'DEAD',simple('DEAD',{submissionDeadlineAt:deadline}),'published');await navigate(b,`/forms/${dto.id}`);await uiSubmit(b,'DEAD');await expect.poll(()=>Date.now(),{timeout:25000}).toBeGreaterThanOrEqual(Date.parse(deadline));expect(parsed(await call(a,`/forms/${dto.id}`)).status).toBe('published');await call(b,`/forms/${dto.id}/responses`,'POST',{answers:[]},409,'real expired POST');await call(a,`/forms/${dto.id}/statistics`,'GET',undefined,409,'expired Published not Statistics');await call(b,`/forms/${dto.id}/responses/me/latest`);await navigate(a,`/forms/${dto.id}`);await managed(a,'DEAD','close')
+    })
+    if(privateState.forms.EDIT?.status==='published'){
+      await checkpoint('M02','UI Close canceled then confirmed independent readback',async()=>{const a=actors.A;await navigate(a,`/forms/${privateState.forms.EDIT.id}`);await managed(a,'EDIT','close',true);await managed(a,'EDIT','close');expect(parsed(await call(a,`/forms/${privateState.forms.EDIT.id}`)).status).toBe('closed')})
+      await policy(actors.A,'EDIT','closed')
+    }
+  }
+  async function statsRead(a,alias,status=200) {
+    const f=privateState.forms[alias],p=a.page;allow('GET',`/forms/${f.id}/statistics`,status)
+    const start=state.requests.length,wait=p.waitForResponse(r=>r.url()===`${api}/forms/${f.id}/statistics`)
+    const target=`/forms/${f.id}/statistics?from=f10#result`;if(p.url()===origin+target)await p.reload();else await navigate(a,target);const r=await wait;expect(r.status()).toBe(status)
+    if(status===200){await expect(p.locator('[data-statistics-count]')).toBeVisible();const dto=JSON.parse(await r.text());expect(Object.keys(dto).sort()).toEqual(['formId','title','description','creatorDisplayName','responseMode','resultVisibility','submissionDeadlineAt','count','questions'].sort());const qs=p.locator('[data-statistics-question]');await expect(qs).toHaveCount(dto.questions.length);for(const [i,q]of dto.questions.entries()){await expect(qs.nth(i).locator('[data-statistics-question-count]')).toHaveText(`本題填答人數：${q.count} 人`);await expect(qs.nth(i).locator('[data-statistics-item]')).toHaveCount(q.statistics.length)}
+      const own=state.requests.slice(start).filter(x=>x.url.includes('/forms/'));expect(own.map(x=>new URL(x.url).pathname)).toEqual([`/api/v1/forms/${f.id}/statistics`]);const back=await call(a,`/forms/${f.id}/statistics`,'GET',undefined,200,'independent Statistics GET');state.statistics.push({case:current,alias,viewer:a.alias,status,body:await r.text(),readback:back.body,ui:await qs.evaluateAll(es=>es.map(e=>({questionId:e.getAttribute('data-statistics-question'),count:e.querySelector('[data-statistics-question-count]')?.textContent,items:[...e.querySelectorAll('[data-statistics-item]')].map(i=>({value:i.querySelector('[data-statistics-value]')?.textContent,count:i.querySelector('[data-statistics-item-count]')?.textContent,names:[...i.querySelectorAll('[data-statistics-respondent]')].map(n=>n.textContent)}))}))),namePhase:privateState.namePhase??'P0'});await flush()
+    }else if(status===401)await expect(p).toHaveURL(/\/login\?redirect=/)
+    else {await expect(p.locator('[data-statistics-question]')).toHaveCount(0);expect(new URL(p.url()).pathname).toBe(`/forms/${f.id}/statistics`)}
+    return r
+  }
+  async function statistics() {
+    const guest=await actor('G'),a=actors.A
+    for(const alias of ['ST-I','ST-A'])await checkpoint('S01',`${alias} full Body/UI/readback fixed oracle input`,()=>statsRead(guest,alias))
+    for(const identity of ['anonymous','identified'])for(const policyName of ['owner_only','respondents','public'])for(const role of ['A','B','X','G']){
+      const short=`S02-${identity==='anonymous'?'AN':'ID'}-${policyName==='owner_only'?'O':policyName==='respondents'?'R':'P'}-${role}`,status=policyName==='public'?200:role==='G'?401:role==='A'||(policyName==='respondents'&&role==='B')?200:403
+      await checkpoint(short,'closed policy/identity/role matrix',()=>statsRead(actors[role]??guest,`POL-${identity}-${policyName}`,status))
+    }
+    for(const alias of ['ZERO-I','ZERO-A'])await checkpoint('S04',alias+' zero response complete',async()=>{const r=await statsRead(guest,alias);expect(JSON.parse(await r.text()).count).toBe(0)})
+    await checkpoint('S05','currently named Creator/respondent observed by new GET',async()=>{await call(a,'/users/me','PATCH',{displayName:'建立者新名'});expect(parsed(await call(a,'/users/me')).displayName).toBe('建立者新名');privateState.namePhase='P1';for(const alias of ['ST-I','ST-A'])await statsRead(guest,alias);await call(actors.B,'/users/me','PATCH',{displayName:'新名B'});expect(parsed(await call(actors.B,'/users/me')).displayName).toBe('新名B');privateState.namePhase='P2';for(const alias of ['ST-I','ST-A'])await statsRead(guest,alias)})
+    const find=s=>Object.keys(privateState.forms).find(k=>k.startsWith('LIST-')&&k!=='LIST-SHRINK'&&privateState.forms[k].status===s)
+    for(const statusName of ['draft','published'])for(const role of ['A','X','G'])await checkpoint(`S03-${statusName[0].toUpperCase()}-${role}`,'non-Closed Statistics existence protection',()=>statsRead(role==='A'?actors.L:actors[role]??guest,find(statusName),statusName==='draft'?role==='A'?409:404:role==='G'?404:409))
+  }
+  async function deletes() {
+    const a=actors.A
+    for(const [alias,code]of [['DEL-D','D'],['DEL-P','P'],['DEL-C','C']])await checkpoint(`M06-${code}`,'dedicated UI cancel/confirm + six independent nonexistent boundaries',async()=>{
+      const f=privateState.forms[alias];await navigate(a,`/forms/${f.id}${code==='D'?'/edit':''}`);if(code==='D')await a.page.getByLabel('表單標題',{exact:true}).fill(title(alias)+' local dirty');await managed(a,alias,'delete',true);await managed(a,alias,'delete');for(const suffix of ['','/responses/me/latest','/respondent-count','/statistics'])await call(a,`/forms/${f.id}${suffix}`,'GET',undefined,404,'Delete independent boundary');await call(a,`/forms/${f.id}/responses`,'POST',{answers:[]},404,'Delete forbids Submit');const list=parsed(await call(a,'/forms?page=1&pageSize=10'));expect(list.items.some(x=>x.id===f.id)).toBe(false)
+    })
+  }
+  async function recheck() {
+    await call(actors.A,'/users/me','PATCH',{displayName:'建立者原名'});await call(actors.B,'/users/me','PATCH',{displayName:'同名'});await call(actors.C,'/users/me','PATCH',{displayName:'同名'});privateState.namePhase='P0'
+    await profiles()
+    await checkpoint('D01','unselected visibility semantic placeholder and empty Preview, no initial Form writes',async()=>{
+      const a=actors.A,p=a.page;const before=state.requests.length;await navigate(a,'/forms/new');await expect(p.locator('[data-question-key]')).toHaveCount(0);await expect(p.getByRole('button',{name:'發布',exact:true})).toHaveCount(0)
+      const initial=await p.getByLabel('結果可見範圍（必選）').evaluate(s=>({index:s.selectedIndex,text:s.selectedOptions[0].textContent,value:s.value}));expect(initial.index).toBe(0);expect(initial.text).toBe('請選擇');expect(['owner_only','respondents','public']).not.toContain(initial.value)
+      await qfield(p,'form.title').fill(title('unselected-visibility-no-create'));const writes=state.requests.filter(r=>r.method==='POST'&&r.url===api+'/forms').length;await p.getByRole('button',{name:'保存草稿',exact:true}).click();await p.waitForTimeout(150);expect(state.requests.filter(r=>r.method==='POST'&&r.url===api+'/forms')).toHaveLength(writes);await qfield(p,'form.title').fill('')
+      await p.getByRole('button',{name:'預覽',exact:true}).click();await expect(p.getByRole('dialog')).toContainText('尚未選擇');await p.keyboard.press('Escape');await expect(p.getByRole('dialog')).toBeVisible();await p.getByRole('button',{name:'關閉預覽',exact:true}).click();expect(state.requests.slice(before).some(r=>r.url.includes('/forms')&&r.method==='POST')).toBe(false)
+    })
+    const first=JSON.parse(await readFile(`${root}/raw/canonical-a2-all.json`,'utf8'))
+    for(const [alias,code]of [['DEL-D','D'],['DEL-P','P'],['DEL-C','C']])await checkpoint(`M06-${code}`,'a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE',async()=>{
+      const a=actors.A,f=privateState.forms[alias],old=first.outcomes.filter(x=>x.method==='DELETE'&&x.url===api+`/forms/${f.id}`);expect(old).toHaveLength(1);expect(old[0].status).toBe(204)
+      for(const suffix of ['','/responses/me/latest','/respondent-count','/statistics'])await call(a,`/forms/${f.id}${suffix}`,'GET',undefined,404,'post204 independent boundary')
+      await call(a,`/forms/${f.id}/responses`,'POST',{answers:[]},404,'deleted Submit boundary');f.deleted=true;const list=parsed(await call(a,'/forms?page=1&pageSize=10'));expect(list.items.some(x=>x.id===f.id)).toBe(false)
+      const start=first.routes.findIndex(x=>x.url.includes(`/forms/${f.id}`));expect(start).toBeGreaterThanOrEqual(0);expect(first.routes.slice(start).some(x=>x.url===origin+'/forms')).toBe(true)
+    })
+    await statistics()
+  }
+  async function additional() {
+    const a=actors.A,p=a.page,x=actors.X,guest=await actor('G')
+    await checkpoint('A02','real email compatibility, 10/128 Code Point untrimmed passwords, 100 CP displayName',async()=>{
+      for(const [alias,kind]of [['EC1','single'],['EC2','quoted'],['EC3','unicode'],['EC4','casing']]){
+        const email=kind==='single'?`${runId}-ec1@localhost`:kind==='quoted'?`"${runId} a"@example.test`:kind==='unicode'?`測試${runId}@example.test`:`İ${runId}@EXAMPLE.TEST`
+        const password=alias==='EC1'?' '+ '😀'.repeat(8)+' ':alias==='EC2'?' '+ '😀'.repeat(126)+' ':randomUUID()
+        if(!privateState.accounts[alias]?.id)await register(alias,email,password,alias==='EC3'?'😀'.repeat(100):`${runId} ${alias}`,'/profile')
+      }
+    })
+    await checkpoint('A03','real duplicate email and credential failure remain on login/register',async()=>{
+      const v=await actor('VAL'),vp=v.page;await navigate(v,'/login');await vp.getByRole('tab',{name:'註冊',exact:true}).click();await vp.getByRole('textbox',{name:'姓名'}).fill('有效合成姓名');await vp.getByRole('textbox',{name:'Email'}).fill(privateState.accounts.A.email);const pass=randomUUID();secrets.push(pass);await vp.getByLabel('密碼',{exact:true}).fill(pass)
+      const r=await response(v,'/auth/register','POST',()=>vp.getByRole('button',{name:'註冊',exact:true}).click(),409);expect(parsed(r).error.code).toBe('USER_EMAIL_ALREADY_EXISTS');await expect(vp.getByRole('tab',{name:'註冊',exact:true})).toHaveAttribute('aria-selected','true');await errorClose(v)
+      await vp.getByRole('tab',{name:'登入',exact:true}).click()
+      for(const email of [privateState.accounts.A.email,`${runId}-no-user@example.test`]){await vp.getByRole('textbox',{name:'Email'}).fill(email);await vp.getByLabel('密碼',{exact:true}).fill(pass);const rr=await response(v,'/auth/login','POST',()=>vp.getByRole('button',{name:'登入',exact:true}).click(),401);expect(parsed(rr).error.code).toBe('AUTH_INVALID_CREDENTIALS');await errorClose(v);expect(new URL(vp.url()).pathname).toBe('/login')}
+    })
+    await checkpoint('A02','client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server',async()=>{
+      const v=actors.VAL,vp=v.page;await vp.getByRole('tab',{name:'註冊',exact:true}).click();await vp.getByRole('textbox',{name:'Email'}).fill(`${runId}-boundary@example.test`)
+      for(const [n,pw]of [[101,10],[3,9],[3,129]]){await vp.getByRole('textbox',{name:'姓名'}).fill('😀'.repeat(n));const secret='😀'.repeat(pw);secrets.push(secret);await vp.getByLabel('密碼',{exact:true}).fill(secret);const before=state.requests.filter(r=>r.actor==='VAL'&&r.url.endsWith('/auth/register')).length;await vp.getByRole('button',{name:'註冊',exact:true}).click();await vp.waitForTimeout(100);expect(state.requests.filter(r=>r.actor==='VAL'&&r.url.endsWith('/auth/register'))).toHaveLength(before)}
+      await vp.getByRole('textbox',{name:'姓名'}).fill('格式驗證');await vp.getByLabel('密碼',{exact:true}).fill(privateState.accounts.A.password);await vp.getByRole('textbox',{name:'Email'}).fill('a@@example.test');const rr=await response(v,'/auth/register','POST',()=>vp.getByRole('button',{name:'註冊',exact:true}).click(),400);expect(parsed(rr).error.details.some(d=>d.path==='email')).toBe(true);await errorClose(v)
+    })
+    await checkpoint('A05','same SPA once, full refresh once, same-cookie new tab has own initialization',async()=>{
+      await navigate(a,'/profile');await expect(p.getByRole('textbox',{name:'姓名'})).toBeVisible();const count=()=>state.requests.filter(r=>r.actor==='A'&&r.method==='GET'&&r.url.endsWith('/users/me')).length;const before=count()
+      for(const name of ['首頁','個人資訊','首頁'])await p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name,exact:true}).click();expect(count()).toBe(before)
+      await p.reload();await expect(p.getByRole('heading',{name:/歡迎/})).toBeVisible();expect(count()).toBe(before+1)
+      const tab={alias:'A-tab',context:a.context,page:await a.context.newPage(),loggedIn:true};observe(tab);await tab.page.goto('/profile');await expect(tab.page.getByRole('textbox',{name:'姓名'})).toBeVisible();expect(state.requests.filter(r=>r.actor==='A-tab'&&r.method==='GET'&&r.url.endsWith('/users/me'))).toHaveLength(1);await tab.page.close()
+    })
+    await checkpoint('D01','new visibility is unselected and required; empty Preview is local only',async()=>{
+      await navigate(a,'/forms/new');const choice=p.getByLabel('結果可見範圍（必選）');expect(['owner_only','respondents','public']).not.toContain(await choice.inputValue());await qfield(p,'form.title').fill(title('visibility-no-save'));const before=state.requests.filter(r=>r.method==='POST'&&r.url===api+'/forms').length;await p.getByRole('button',{name:'保存草稿',exact:true}).click();await p.waitForTimeout(150);expect(state.requests.filter(r=>r.method==='POST'&&r.url===api+'/forms')).toHaveLength(before);await qfield(p,'form.title').fill('');await p.getByRole('button',{name:'預覽',exact:true}).click();await expect(p.getByRole('dialog')).toContainText('尚未選擇');await p.keyboard.press('Escape');await expect(p.getByRole('dialog')).toBeVisible();await p.getByRole('button',{name:'關閉預覽',exact:true}).click()
+    })
+    await checkpoint('S03','additional natural-expiry prerequisite retained as Published',async()=>{await create(a,'DEAD-RECHECK',simple('DEAD-RECHECK',{submissionDeadlineAt:new Date(Date.now()+15000).toISOString()}),'published')})
+    const dto=await create(a,'EDIT-RECHECK',simple('EDIT-RECHECK',{questions:[{type:'text',title:'文字',sortOrder:0,config:{}},{type:'single_choice',title:'單選',sortOrder:1,config:{variant:'radio'},options:[{label:'一',value:'one',sortOrder:0},{label:'二',value:'two',sortOrder:1}]},{type:'rating',title:'星級',sortOrder:2,config:{variant:'stars',min:0,max:5}}]}));const id=dto.id
+    await checkpoint('M07','verified nonOwner management denial before lifecycle, dedicated retained Draft',async()=>{
+      expect(parsed(await call(x,'/users/me')).id).toBe(privateState.accounts.X.id);expect(dto.userId).toBe(privateState.accounts.A.id)
+      for(const [command,method,path,body]of [['DELTA','PATCH',`/forms/${id}`,{title:'不得寫入'}],['PUBLISH','POST',`/forms/${id}/publish`],['CLOSE','POST',`/forms/${id}/close`],['VIS','PATCH',`/forms/${id}/result-visibility`,{resultVisibility:'public'}],['COUNT','GET',`/forms/${id}/respondent-count`]])await checkpoint(`M07-${command}`,'true403 no mutation',async()=>{const r=await call(x,path,method,body,403);expect(parsed(r).error.code).toBe('FORM_ACCESS_DENIED');expect(parsed(await call(a,`/forms/${id}`)).title).toBe(dto.title)})
+      // DELETE denial is covered only on an authorized non-deleted whitelist resource.
+      // The original four have already been deleted; do not broaden destructive scope.
+      state.checkpoints.push({id:'M07-DELETE',label:'Original four whitelist resources already deleted before this negative checkpoint; no extra DELETE authorized',status:'BLOCKED',gap:'execution-order / dedicated non-deleted whitelist precondition unavailable'})
+    })
+    await checkpoint('D04','UI Choice type/config linkage cancel/confirm and independent saved reads',async()=>{
+      await navigate(a,`/forms/${id}/edit`);const q=dto.questions[1],old=q.options.map(o=>o.id);const type=qfield(p,`${q.id}.type`)
+      const save=async()=>{await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());return parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'type independent readback'))}
+      await type.selectOption('multiple_choice');let back=await save();expect(back.questions[1].options.map(o=>o.id)).toEqual(old);expect(back.questions[1].config.variant).toBe('checkbox')
+      await type.selectOption('single_choice');back=await save();expect(back.questions[1].options.map(o=>o.id)).toEqual(old)
+      await type.selectOption('text');await p.getByRole('dialog').getByRole('button',{name:'取消',exact:true}).click();await expect(type).toHaveValue('single_choice');await type.selectOption('text');await p.getByRole('button',{name:'確認切換',exact:true}).click();back=await save();expect(back.questions[1].options).toEqual([])
+      await type.selectOption('single_choice');back=await save();expect(back.questions[1].options).toHaveLength(2);expect(back.questions[1].options.every(o=>!old.includes(o.id))).toBe(true)
+    })
+    await checkpoint('D06','real UI title200/201 CP and long Q/label save without invented max length',async()=>{
+      const save=async()=>{await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());return parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'validation independent GET'))}
+      await qfield(p,'form.title').fill('😀'.repeat(201));const before=state.requests.length;await p.getByRole('button',{name:'保存',exact:true}).click();await p.waitForTimeout(100);expect(state.requests.slice(before).some(r=>r.method==='PATCH')).toBe(false)
+      await qfield(p,'form.title').fill('😀'.repeat(200));expect([...((await save()).title)]).toHaveLength(200)
+      await qfield(p,'form.title').fill(title('EDIT-RECHECK'));await p.getByLabel('題目 1 標題',{exact:true}).fill('長'.repeat(2000));await p.locator('[data-question-key]').nth(1).getByLabel('選項 1',{exact:true}).fill('標'.repeat(2000));const back=await save();expect([...back.questions[0].title]).toHaveLength(2000);expect([...back.questions[1].options[0].label]).toHaveLength(2000)
+      await p.getByLabel('題目 1 標題',{exact:true}).fill('文字');await p.locator('[data-question-key]').nth(1).getByLabel('選項 1',{exact:true}).fill('一');await save()
+    })
+    await checkpoint('D08','real dirty SPA cancel/accept and saved model reentry',async()=>{
+      await qfield(p,'form.title').fill(title('EDIT-RECHECK')+' unsaved');await native(a,false,()=>p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'我的表單',exact:true}).click());await expect(qfield(p,'form.title')).toHaveValue(title('EDIT-RECHECK')+' unsaved');await native(a,true,()=>p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'我的表單',exact:true}).click());await expect(p).toHaveURL(origin+'/forms');await navigate(a,`/forms/${id}/edit`);await expect(qfield(p,'form.title')).toHaveValue(title('EDIT-RECHECK'))
+    })
+    await checkpoint('M08-DRAFT-CLOSE','true illegal Draft Close rejected',async()=>{const r=await call(a,`/forms/${id}/close`,'POST',undefined,409);expect(parsed(r).error.code).toBe('FORM_INVALID_STATE_TRANSITION')})
+    await checkpoint('M08-NOT-EDITABLE','stale UI save after other tab publishes, input retained and conflict code',async()=>{
+      await qfield(p,'form.title').fill(title('EDIT-RECHECK')+' stale');const another={...a,page:await a.context.newPage()};observe(another);await another.page.goto('/');await call(another,`/forms/${id}/publish`,'POST');privateState.forms['EDIT-RECHECK'].status='published';await another.page.close()
+      const r=await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click(),409);expect(parsed(r).error.code).toBe('FORM_NOT_EDITABLE');await expect(p.getByRole('dialog')).toBeVisible();await errorClose(a);await expect(qfield(p,'form.title')).toHaveValue(title('EDIT-RECHECK')+' stale');await native(a,true,()=>p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'首頁',exact:true}).click())
+    })
+    for(const [caseId,path]of [['M08-ALREADY-PUBLISHED',`/forms/${id}/publish`],['M08-ALREADY-CLOSED',`/forms/${privateState.forms.EDIT.id}/close`],['M08-CLOSED-PUBLISH',`/forms/${privateState.forms.EDIT.id}/publish`]])await checkpoint(caseId,'true lifecycle conflict',async()=>{const r=await call(a,path,'POST',undefined,409);expect(parsed(r).error.code).toBe(caseId.endsWith('ALREADY-PUBLISHED')?'FORM_ALREADY_PUBLISHED':caseId.endsWith('ALREADY-CLOSED')?'FORM_ALREADY_CLOSED':'FORM_INVALID_STATE_TRANSITION')})
+    const expired=privateState.forms['DEAD-RECHECK'];await expect.poll(()=>Date.now(),{timeout:20000}).toBeGreaterThan(Date.parse(parsed(await call(a,`/forms/${expired.id}`)).submissionDeadlineAt))
+    for(const role of ['A','X','G'])await checkpoint(`S03-T-${role}`,'naturally expired Published hides or unavailable; not automatically Closed',()=>statsRead(role==='G'?guest:actors[role],'DEAD-RECHECK',role==='G'?404:409))
+    for(const kind of ['DEL','NONE','BAD'])for(const role of ['A','X','G'])await checkpoint(`S03-${kind}-${role}`,'UUID/existence precedes conditional Auth',async()=>{
+      const who=role==='G'?guest:actors[role],formId=kind==='DEL'?privateState.forms['DEL-C'].id:kind==='NONE'?'00000000-0000-4000-8000-ffffffffffff':'bad-uuid',code=kind==='BAD'?400:404;allow('GET',`/forms/${formId}/statistics`,code);const wait=who.page.waitForResponse(r=>r.url()===api+`/forms/${formId}/statistics`);await navigate(who,`/forms/${formId}/statistics`);expect((await wait).status()).toBe(code);expect(new URL(who.page.url()).pathname).toBe(`/forms/${formId}/statistics`);await expect(who.page.locator('[data-statistics-question]')).toHaveCount(0)
+    })
+    await checkpoint('P01','approved isolated malformed Cookie: real invalid/private/public/Draft/Published/logout',async()=>{
+      const bad=await actor('BADCOOKIE');await bad.context.addCookies([{name:'access_token',value:'f10-intentionally-invalid-cookie',domain:'localhost',path:'/',httpOnly:true,sameSite:'Lax',secure:false}]);await navigate(bad,'/login');const me=await call(bad,'/users/me','GET',undefined,401,'real invalid Cookie me');expect(parsed(me).error.code).toBe('AUTH_TOKEN_INVALID')
+      const alias='POL-anonymous-owner_only';await statsRead(bad,alias,401);await statsRead(bad,'ST-A',200);const draftAlias=Object.keys(privateState.forms).find(k=>k.startsWith('LIST-')&&privateState.forms[k].status==='draft'&&!privateState.forms[k].deleted);await statsRead(bad,draftAlias,404);await statsRead(bad,'EDIT-RECHECK',404);await call(bad,'/auth/logout','POST',undefined,204);expect((await bad.context.cookies()).some(c=>c.name==='access_token')).toBe(false)
+    })
+  }
+  async function authRetest() {
+    const v=await actor('VAL'),vp=v.page,a=actors.A,p=a.page
+    await checkpoint('A03','a4 tool correction: close modal before inspecting inert Tabs; true409/401',async()=>{
+      await navigate(v,'/login');await vp.getByRole('tab',{name:'註冊',exact:true}).click();await vp.getByRole('textbox',{name:'姓名'}).fill('有效合成姓名');await vp.getByRole('textbox',{name:'Email'}).fill(privateState.accounts.A.email);const pass=randomUUID();secrets.push(pass);await vp.getByLabel('密碼',{exact:true}).fill(pass)
+      const r=await response(v,'/auth/register','POST',()=>vp.getByRole('button',{name:'註冊',exact:true}).click(),409);expect(parsed(r).error.code).toBe('USER_EMAIL_ALREADY_EXISTS');await errorClose(v);await expect(vp.getByRole('tab',{name:'註冊',exact:true})).toHaveAttribute('aria-selected','true');await vp.getByRole('tab',{name:'登入',exact:true}).click()
+      for(const email of [privateState.accounts.A.email,`${runId}-no-user@example.test`]){await vp.getByRole('textbox',{name:'Email'}).fill(email);await vp.getByLabel('密碼',{exact:true}).fill(pass);const rr=await response(v,'/auth/login','POST',()=>vp.getByRole('button',{name:'登入',exact:true}).click(),401);expect(parsed(rr).error.code).toBe('AUTH_INVALID_CREDENTIALS');await errorClose(v);expect(new URL(vp.url()).pathname).toBe('/login');await expect(vp.getByRole('textbox',{name:'Email'})).toHaveValue(email)}
+    })
+    await checkpoint('A02','a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400',async()=>{
+      await navigate(v,'/login');await vp.getByRole('tab',{name:'註冊',exact:true}).click();await vp.getByRole('textbox',{name:'Email'}).fill(`${runId}-boundary@example.test`)
+      for(const [n,pw]of [[101,10],[3,9],[3,129]]){await vp.getByRole('textbox',{name:'姓名'}).fill('😀'.repeat(n));const secret='😀'.repeat(pw);secrets.push(secret);await vp.getByLabel('密碼',{exact:true}).fill(secret);const before=state.requests.length;await vp.getByRole('button',{name:'註冊',exact:true}).click();await vp.waitForTimeout(100);expect(state.requests.slice(before).some(r=>r.url.endsWith('/auth/register'))).toBe(false)}
+      await vp.getByRole('textbox',{name:'姓名'}).fill('格式驗證');await vp.getByLabel('密碼',{exact:true}).fill(privateState.accounts.A.password);await vp.getByRole('textbox',{name:'Email'}).fill('a@@example.test');const rr=await response(v,'/auth/register','POST',()=>vp.getByRole('button',{name:'註冊',exact:true}).click(),400);expect(parsed(rr).error.details.some(d=>d.path==='email')).toBe(true);await errorClose(v)
+    })
+    await checkpoint('A05','a4 tool correction waits for SPA navigation commit before reload',async()=>{
+      await navigate(a,'/profile');await expect(p.getByRole('textbox',{name:'姓名'})).toBeVisible();const count=()=>state.requests.filter(r=>r.actor==='A'&&r.method==='GET'&&r.url.endsWith('/users/me')).length,before=count()
+      for(const [name,path]of [['首頁','/'],['個人資訊','/profile'],['首頁','/']]){await p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name,exact:true}).click();await expect(p).toHaveURL(origin+path)}expect(count()).toBe(before)
+      await p.reload();await expect(p.getByRole('heading',{name:/歡迎/})).toBeVisible();expect(count()).toBe(before+1)
+      const tab={alias:'A-tab',context:a.context,page:await a.context.newPage(),loggedIn:true};observe(tab);await tab.page.goto('/profile');await expect(tab.page.getByRole('textbox',{name:'姓名'})).toBeVisible();expect(state.requests.filter(r=>r.actor==='A-tab'&&r.method==='GET'&&r.url.endsWith('/users/me'))).toHaveLength(1);await tab.page.close()
+    })
+    for(const suffix of ['', '/edit'])await checkpoint(`L05-G-${suffix?'E':'F'}`,'guest protected URL preserves full redirect',async()=>{await navigate(v,`/forms/${privateState.forms.MULTI.id}${suffix}?from=f10#answer`);await expect(vp).toHaveURL(/\/login\?redirect=/);expect(new URL(vp.url()).searchParams.get('redirect')).toBe(`/forms/${privateState.forms.MULTI.id}${suffix}?from=f10#answer`)})
+    await checkpoint('R11','true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry',async()=>{
+      const id=privateState.forms.MULTI.id;await navigate(a,`/forms/${id}?from=f10#answer`);await p.getByLabel('文字',{exact:true}).fill('保留未保存的真實Auth失效答案');await a.context.clearCookies();a.loggedIn=false
+      const r=await response(a,`/forms/${id}/responses`,'POST',()=>p.getByRole('button',{name:'提交表單',exact:true}).click(),401);expect(parsed(r).error.code).toBe('AUTH_REQUIRED');await native(a,false,()=>errorClose(a));await expect(p.locator('[data-renderer-key]').first()).toContainText('保留未保存的真實Auth失效答案');expect(new URL(p.url()).pathname).toBe(`/forms/${id}`)
+      const writes=state.requests.filter(r=>r.actor==='A'&&r.url.endsWith('/responses')&&r.method==='POST').length;await native(a,true,()=>p.getByRole('navigation',{name:'主要導覽',exact:true}).getByRole('button',{name:'首頁',exact:true}).click());await expect(p).toHaveURL(/\/login/);const target=new URL(p.url()).searchParams.get('redirect')??'/';await login(a,target);expect(state.requests.filter(r=>r.actor==='A'&&r.url.endsWith('/responses')&&r.method==='POST')).toHaveLength(writes)
+    })
+  }
+  async function smoke() {
+    const channel=process.env.F10_CHANNEL,code=channel==='chrome'?'CH':'ED',caseId=code==='CH'?'B01':'B02',alias=code+'-A',formAlias=code+'-F',mode=code==='CH'?'single':'multiple'
+    await checkpoint(caseId,`${channel} true UI register/save/publish/${mode}/Latest/close/public-private`,async()=>{
+      const a=await register(alias,`${runId}-${code.toLowerCase()}@example.test`,randomUUID(),`${runId} ${code}`,'/forms/new'),p=a.page
+      await qfield(p,'form.title').fill(title(formAlias));await p.getByLabel('填答次數').selectOption(mode);await p.getByLabel('結果可見範圍（必選）').selectOption('public');await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByLabel('題目 1 標題',{exact:true}).fill('文字')
+      const r=await response(a,'/forms','POST',()=>p.getByRole('button',{name:'保存草稿',exact:true}).click(),201),dto=parsed(r);privateState.forms[formAlias]={id:dto.id,owner:alias,purpose:`${channel} smoke`,status:'draft',definitionBody:r.requestBody,createResponse:r.body};await flush();await expect(p).toHaveURL(origin+`/forms/${dto.id}/edit`);expect(parsed(await call(a,`/forms/${dto.id}`)).title).toBe(title(formAlias));await managed(a,formAlias,'publish')
+      await p.getByLabel('文字',{exact:true}).fill('真實瀏覽器Smoke');await uiSubmit(a,formAlias);if(mode==='multiple'){await p.getByLabel('文字',{exact:true}).fill('第二份Smoke');await uiSubmit(a,formAlias)}
+      await p.getByRole('button',{name:'查看我的填答',exact:true}).click();expect(parsed(await call(a,`/forms/${dto.id}/responses/me/latest`)).answers[0].value).toBe(mode==='single'?'真實瀏覽器Smoke':'第二份Smoke');await managed(a,formAlias,'close')
+      const g=await actor(code+'-G');await statsRead(g,formAlias);const stat=parsed(await call(g,`/forms/${dto.id}/statistics`));expect(stat.count).toBe(1);expect(stat.questions[0].statistics).toEqual([{value:mode==='single'?'真實瀏覽器Smoke':'第二份Smoke',count:1}]);await navigate(a,`/forms/${dto.id}`);await response(a,`/forms/${dto.id}/result-visibility`,'PATCH',()=>p.getByRole('radio',{name:'僅建立者',exact:true}).click());expect(parsed(await call(a,`/forms/${dto.id}`)).resultVisibility).toBe('owner_only');await statsRead(g,formAlias,401)
+    })
+  }
+  async function completionProbes() {
+    const a=actors.A,p=a.page,b=actors.B,x=actors.X,g=await actor('G')
+    await create(a,'D05-RECHECK',simple('D05-RECHECK',{submissionDeadlineAt:'2030-12-31T10:30:00.123456Z',questions:[{type:'text',title:'文字',sortOrder:10,config:{}}]}))
+    await checkpoint('M05','real Clipboard complete Published and Closed links plus actual navigation',async()=>{
+      const id=privateState.forms.MULTI.id;await navigate(a,`/forms/${id}`);await p.getByRole('button',{name:'複製填答連結',exact:true}).click();expect(await p.evaluate(()=>navigator.clipboard.readText())).toBe(origin+`/forms/${id}`)
+      const closed=privateState.forms.EDIT.id;await navigate(a,`/forms/${closed}`);await p.getByRole('button',{name:'複製統計連結',exact:true}).click();expect(await p.evaluate(()=>navigator.clipboard.readText())).toBe(origin+`/forms/${closed}/statistics`);await p.getByRole('link',{name:'查看統計',exact:true}).click();await expect(p).toHaveURL(origin+`/forms/${closed}/statistics`)
+    })
+    await checkpoint('R02','real invalid answer ownership/type rejected with no new Latest',async()=>{
+      const f=privateState.forms.MULTI,id=f.id,dto=parsed(await call(b,`/forms/${id}`)),before=parsed(await call(b,`/forms/${id}/responses/me/latest`))
+      for(const answers of [[{questionId:randomUUID(),value:'錯題'}],[{questionId:dto.questions[0].id,value:{invalid:true}}],[{questionId:dto.questions[2].id,value:randomUUID()}]]){const r=await call(b,`/forms/${id}/responses`,'POST',{answers},400);expect(parsed(r).error.code).toBe('VALIDATION_ERROR');expect(parsed(await call(b,`/forms/${id}/responses/me/latest`)).id).toBe(before.id)}
+    })
+    await checkpoint('M04','Owner Count normal API in Draft0 and Closed2 without automatic polling',async()=>{
+      expect(parsed(await call(a,`/forms/${privateState.forms['D05-RECHECK'].id}/respondent-count`)).count).toBe(0);expect(parsed(await call(a,`/forms/${privateState.forms.EDIT.id}/respondent-count`)).count).toBe(2)
+    })
+    await checkpoint('D05','microseconds omission, full config placeholder, actual Taipei change and clear',async()=>{
+      const f=privateState.forms['D05-RECHECK'],id=f.id;await navigate(a,`/forms/${id}/edit`);const save=async()=>{const r=await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());return{wire:JSON.parse(r.requestBody),dto:parsed(await call(a,`/forms/${id}`))}}
+      const before=parsed(await call(a,`/forms/${id}`)),q=before.questions[0],article=p.locator('[data-question-key]').first();await article.getByLabel('輸入提示（未設定可留空）',{exact:true}).fill('合成placeholder');let r=await save();expect(r.wire.questions[0].config).toEqual({placeholder:'合成placeholder'});expect(r.dto.submissionDeadlineAt).toBe(before.submissionDeadlineAt)
+      const date=p.getByLabel('截止日期時間（台北；未設定可留空）',{exact:true});await date.fill('2031-01-02 03:04:05');r=await save();expect(Date.parse(r.dto.submissionDeadlineAt)).toBe(Date.parse('2031-01-01T19:04:05Z'));await date.fill('');r=await save();expect(r.wire.submissionDeadlineAt).toBe(null);expect(r.dto.submissionDeadlineAt).toBe(null)
+    })
+    await checkpoint('D06','real incomplete Draft persists, Publish refuses without silent save/default',async()=>{
+      await navigate(a,'/forms/new');await qfield(p,'form.title').fill(title('INCOMPLETE'));await p.getByLabel('結果可見範圍（必選）').selectOption('public');await p.getByLabel('截止日期時間（台北；未設定可留空）',{exact:true}).fill('2020-01-01 00:00:00');const r=await response(a,'/forms','POST',()=>p.getByRole('button',{name:'保存草稿',exact:true}).click(),201),dto=parsed(r);privateState.forms.INCOMPLETE={id:dto.id,owner:'A',purpose:'retained incomplete Draft validation',status:'draft',createResponse:r.body,definitionBody:r.requestBody};await flush();expect(parsed(await call(a,`/forms/${dto.id}`)).questions).toEqual([]);const before=state.requests.length;await p.getByRole('button',{name:'發布',exact:true}).click();await p.waitForTimeout(120);expect(state.requests.slice(before).some(r=>r.method!=='GET')).toBe(false);expect(parsed(await call(a,`/forms/${dto.id}`)).status).toBe('draft')
+    })
+    await checkpoint('M07','stale Owner UI with true other-User Cookie revokes ability after403, preserves dirty content',async()=>{
+      const f=privateState.forms['D05-RECHECK'],id=f.id,who=await actor('STALE'),s=who.page;await navigate(who,'/login');const cred=privateState.accounts.A;secrets.push(cred.password);await s.getByRole('textbox',{name:'Email'}).fill(cred.email);await s.getByLabel('密碼',{exact:true}).fill(cred.password);await response(who,'/auth/login','POST',()=>s.getByRole('button',{name:'登入',exact:true}).click());who.loggedIn=true;await navigate(who,`/forms/${id}/edit`);await qfield(s,'form.title').fill('保留舊Owner輸入');await who.context.clearCookies();await who.context.addCookies(await x.context.cookies());const rr=await response(who,`/forms/${id}`,'PATCH',()=>s.getByRole('button',{name:'保存',exact:true}).click(),403);expect(parsed(rr).error.code).toBe('FORM_ACCESS_DENIED');await errorClose(who);await expect(qfield(s,'form.title')).toHaveValue('保留舊Owner輸入');await expect(s.getByRole('button',{name:'保存',exact:true})).toBeDisabled();expect(parsed(await call(a,`/forms/${id}`)).title).not.toBe('保留舊Owner輸入')
+    })
+    await checkpoint('S05','real public→private revokes guest previously rendered stats then restores canonical policy',async()=>{
+      const alias='POL-identified-public',id=privateState.forms[alias].id;await statsRead(g,alias);await navigate(a,`/forms/${id}`);await response(a,`/forms/${id}/result-visibility`,'PATCH',()=>p.getByRole('radio',{name:'僅建立者',exact:true}).click());expect(parsed(await call(a,`/forms/${id}`)).resultVisibility).toBe('owner_only');await statsRead(g,alias,401);await expect(g.page.locator('[data-statistics-respondent]')).toHaveCount(0);await response(a,`/forms/${id}/result-visibility`,'PATCH',()=>p.getByRole('radio',{name:'所有人',exact:true}).click());expect(parsed(await call(a,`/forms/${id}`)).resultVisibility).toBe('public')
+    })
+    await checkpoint('S04','all-optional empty submission is Root1 with every question0, distinct from zero-response forms',async()=>{
+      const id=privateState.forms.OPT.id;await call(a,`/forms/${id}/close`,'POST');privateState.forms.OPT.status='closed';await call(a,`/forms/${id}/result-visibility`,'PATCH',{resultVisibility:'public'});const r=await statsRead(g,'OPT'),dto=JSON.parse(await r.text());expect(dto.count).toBe(1);expect(dto.questions.map(q=>q.count)).toEqual([0,0,0,0,0,0]);expect(dto.questions[0].statistics).toEqual([]);expect(dto.questions[1].statistics).toEqual([]);for(const q of dto.questions.slice(2))expect(q.statistics.every(i=>i.count===0&&!('respondents' in i))).toBe(true)
+    })
+    await checkpoint('R10','true stale Published UI after independent Close:409, dirty consent, readonly',async()=>{
+      const id=privateState.forms.MULTI.id;await navigate(x,`/forms/${id}`);await x.page.getByLabel('文字',{exact:true}).fill('另一分頁Close前的答案');await call(a,`/forms/${id}/close`,'POST');privateState.forms.MULTI.status='closed';const rr=await response(x,`/forms/${id}/responses`,'POST',()=>x.page.getByRole('button',{name:'提交表單',exact:true}).click(),409);expect(parsed(rr).error.code).toBe('FORM_NOT_SUBMITTABLE');await native(x,false,()=>errorClose(x));await expect(x.page.locator('[data-renderer-key]').first()).toContainText('另一分頁Close前的答案');expect(parsed(await call(a,`/forms/${id}`)).status).toBe('closed')
+    })
+    await checkpoint('L06','real deleted/nonexistent/bad UUID on Form and edit remain original URLs',async()=>{
+      for(const fid of [privateState.forms['DEL-D'].id,'00000000-0000-4000-8000-ffffffffffff','bad-uuid'])for(const suffix of ['', '/edit']){const status=fid==='bad-uuid'?400:404;allow('GET',`/forms/${fid}`,status);const waiting=x.page.waitForResponse(r=>r.url()===api+`/forms/${fid}`);await navigate(x,`/forms/${fid}${suffix}`);expect((await waiting).status()).toBe(status);await expect(x.page.getByRole('alert')).toContainText(status===400?'連結無效':'找不到表單');expect(new URL(x.page.url()).pathname).toBe(`/forms/${fid}${suffix}`)}
+    })
+    await checkpoint('P01-PROTECTED','real invalid Cookie protected Form in addition to a4 me/private/public checks',async()=>{
+      const bad=await actor('BADCOOKIE'),cookie={name:'access_token',value:'f10-intentionally-invalid-cookie',domain:'localhost',path:'/',httpOnly:true,sameSite:'Lax',secure:false};await bad.context.addCookies([cookie]);await navigate(bad,'/login');const rr=await call(bad,`/forms/${privateState.forms.EDIT.id}`,'GET',undefined,401);expect(parsed(rr).error.code).toBe('AUTH_TOKEN_INVALID');await call(bad,'/auth/logout','POST',undefined,204)
+      await navigate(bad,'/login');const cred=privateState.accounts.B;secrets.push(cred.password);await bad.page.getByRole('textbox',{name:'Email'}).fill(cred.email);await bad.page.getByLabel('密碼',{exact:true}).fill(cred.password);await response(bad,'/auth/login','POST',()=>bad.page.getByRole('button',{name:'登入',exact:true}).click());bad.loggedIn=true;const f=Object.entries(privateState.forms).find(([alias,f])=>alias.startsWith('LIST-')&&f.status==='published')[1];await navigate(bad,`/forms/${f.id}`);await bad.page.getByLabel('文字',{exact:true}).fill('invalid Cookie前保留的本地答案');await bad.context.clearCookies();await bad.context.addCookies([cookie]);const res=await response(bad,`/forms/${f.id}/responses`,'POST',()=>bad.page.getByRole('button',{name:'提交表單',exact:true}).click(),401);expect(parsed(res).error.code).toBe('AUTH_TOKEN_INVALID');await native(bad,false,()=>errorClose(bad));await expect(bad.page.locator('[data-renderer-key]').first()).toContainText('invalid Cookie前保留的本地答案');await call(bad,'/auth/logout','POST',undefined,204)
+    })
+  }
+  async function smokeRetest(){
+    const code=process.env.F10_CHANNEL==='chrome'?'CH':'ED',caseId=code==='CH'?'B01':'B02',a=await actor(code+'-A'),alias=code+'-F',id=privateState.forms[alias].id,g=await actor(code+'-G')
+    await checkpoint(caseId,'a1 retained full core evidence; explicit reload of same statistics URL verifies public→private',async()=>{
+      await navigate(a,'/login');await login(a,`/forms/${id}`);expect(parsed(await call(a,`/forms/${id}`)).status).toBe('closed');await statsRead(g,alias,401)
+      await response(a,`/forms/${id}/result-visibility`,'PATCH',()=>a.page.getByRole('radio',{name:'所有人',exact:true}).click());expect(parsed(await call(a,`/forms/${id}`)).resultVisibility).toBe('public');await statsRead(g,alias,200)
+      await response(a,`/forms/${id}/result-visibility`,'PATCH',()=>a.page.getByRole('radio',{name:'僅建立者',exact:true}).click());expect(parsed(await call(a,`/forms/${id}`)).resultVisibility).toBe('owner_only');await statsRead(g,alias,401);expect(new URL(g.page.url()).searchParams.get('redirect')).toBe(`/forms/${id}/statistics?from=f10#result`)
+    })
+  }
+  async function editorProbes(){
+    const a=actors.A,p=a.page,id=privateState.forms['D05-RECHECK'].id
+    await navigate(a,`/forms/${id}/edit`)
+    const save=async()=>{const r=await response(a,`/forms/${id}`,'PATCH',()=>p.getByRole('button',{name:'保存',exact:true}).click());return{wire:JSON.parse(r.requestBody),dto:parsed(await call(a,`/forms/${id}`,'GET',undefined,200,'editor supplemental independent GET'))}}
+    await checkpoint('D05','effective variant change back restores omitted baseline without PATCH',async()=>{const first=p.locator('[data-question-key]').first();await first.getByLabel('呈現方式',{exact:true}).selectOption('textarea');await first.getByLabel('呈現方式',{exact:true}).selectOption('input');await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled()})
+    await checkpoint('D03','real temporary local deletes, drag question/option and ID-only persisted option delete',async()=>{
+      await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByRole('button',{name:'刪除題目 2',exact:true}).click();await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled()
+      await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByLabel('題目 2 標題',{exact:true}).fill('排序與選項');await p.getByLabel('題型 2',{exact:true}).selectOption('single_choice');let choice=p.locator('[data-question-key]').nth(1);await choice.getByRole('button',{name:'增加選項',exact:true}).click();await choice.getByRole('button',{name:'刪除選項 3',exact:true}).click();let r=await save();const firstId=r.dto.questions[0].id,choiceId=r.dto.questions[1].id,optionIds=r.dto.questions[1].options.map(o=>o.id),newQuestion=r.wire.questions.find(q=>!('id' in q));expect(newQuestion).toBeTruthy();expect(newQuestion.options).toHaveLength(2)
+      await p.setViewportSize({width:1440,height:1800});const drag=async(from,to)=>{await from.scrollIntoViewIfNeeded();const f=await from.boundingBox(),t=await to.boundingBox();await p.mouse.move(f.x+10,f.y+10);await p.mouse.down();await p.mouse.move(t.x+10,t.y+30,{steps:15});await p.mouse.up()}
+      await drag(p.getByRole('button',{name:'拖曳題目 1',exact:true}),p.getByRole('button',{name:'拖曳題目 2',exact:true}));await expect(p.locator('[data-question-key]').first()).toHaveAttribute('data-question-key',choiceId);r=await save();expect(r.dto.questions.map(q=>q.id)).toEqual([choiceId,firstId]);expect(r.dto.questions.map(q=>q.sortOrder)).toEqual([0,1])
+      choice=p.locator(`[data-question-key="${choiceId}"]`);await drag(choice.getByRole('button',{name:'拖曳選項 1',exact:true}),choice.getByRole('button',{name:'拖曳選項 2',exact:true}));await expect(choice.locator('[data-option-key]').first()).toHaveAttribute('data-option-key',optionIds[1]);r=await save();expect(r.dto.questions[0].options.map(o=>o.id)).toEqual([...optionIds].reverse());await choice.getByRole('button',{name:'刪除選項 1',exact:true}).click();r=await save();expect(r.wire.questions[0].options).toContainEqual({id:optionIds[1]});expect(r.dto.questions[0].options).toHaveLength(1);await p.setViewportSize({width:1440,height:900})
+    })
+    await checkpoint('D04','text/rating variants through actual Delta preserve applicable bounds',async()=>{
+      await p.getByRole('button',{name:'新增題目',exact:true}).click();await p.getByLabel('題目 3 標題',{exact:true}).fill('評分設定');await p.getByLabel('題型 3',{exact:true}).selectOption('rating');const last=p.locator('[data-question-key]').nth(2);await last.getByLabel('最小值（未設定可留空）').fill('0');await last.getByLabel('最大值（未設定可留空）').fill('5');await last.getByLabel('呈現方式',{exact:true}).selectOption('range');let r=await save();expect(r.dto.questions[2].config).toEqual({variant:'range',min:0,max:5});await last.getByLabel('呈現方式',{exact:true}).selectOption('stars');r=await save();expect(r.dto.questions[2].config).toEqual({variant:'stars',min:0,max:5})
+    })
+    await checkpoint('D06','min>max rejects UI save; legal Draft permits missing bounds and no Choice options',async()=>{
+      const rating=p.locator('[data-question-key]').nth(2);await rating.getByLabel('最小值（未設定可留空）').fill('6');let n=state.requests.length;await p.getByRole('button',{name:'保存',exact:true}).click();await p.waitForTimeout(120);expect(state.requests.slice(n).some(r=>r.method==='PATCH')).toBe(false);await rating.getByLabel('最小值（未設定可留空）').fill('');await rating.getByLabel('最大值（未設定可留空）').fill('');const choice=p.locator('[data-question-key]').first();await choice.getByRole('button',{name:'刪除選項 1',exact:true}).click();const r=await save();expect(r.dto.questions[0].options).toEqual([]);expect(r.dto.questions[2].config).toEqual({variant:'stars'});n=state.requests.length;await p.getByRole('button',{name:'發布',exact:true}).click();await p.waitForTimeout(120);expect(state.requests.slice(n).some(r=>r.method==='POST')).toBe(false)
+    })
+    await checkpoint('D08','real beforeunload cancellation preserves dirty model; clean reload has no recovery',async()=>{
+      const base=parsed(await call(a,`/forms/${id}`)).title;await qfield(p,'form.title').fill(base+' beforeunload');await native(a,false,()=>p.reload({timeout:1500}).catch(()=>{}));await expect(qfield(p,'form.title')).toHaveValue(base+' beforeunload');await qfield(p,'form.title').fill(base);await expect(p.getByRole('button',{name:'保存',exact:true})).toBeDisabled();await p.reload();await expect(qfield(p,'form.title')).toHaveValue(base)
+    })
+  }
+  async function routeDiagnostics(){
+    const x=actors.X,f=Object.values(privateState.forms).find(f=>f.owner==='L'&&f.status==='draft'&&!f.deleted)
+    for(const suffix of ['', '/edit'])await checkpoint(`L05-X-D-${suffix?'E':'F'}`,'retest a2 diagnostic declaration omission; required404 registered before request',async()=>{
+      allow('GET',`/forms/${f.id}`,404);const wait=x.page.waitForResponse(r=>r.url()===api+`/forms/${f.id}`);await navigate(x,`/forms/${f.id}${suffix}`);expect((await wait).status()).toBe(404);await expect(x.page.getByRole('alert')).toContainText('找不到表單');expect(new URL(x.page.url()).pathname).toBe(`/forms/${f.id}${suffix}`)
+    })
+  }
+  async function latestAndReturn(){
+    await checkpoint('R07','real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access',async()=>{
+      const a=actors.A,b=actors.B,x=actors.X,draft=privateState.forms['D05-RECHECK'].id
+      expect(parsed(await call(a,`/forms/${draft}/responses/me/latest`,'GET',undefined,404)).error.code).toBe('RESPONSE_NOT_FOUND');expect(parsed(await call(x,`/forms/${draft}/responses/me/latest`,'GET',undefined,404)).error.code).toBe('FORM_NOT_FOUND')
+      for(const alias of ['EDIT','DEAD','MULTI']){const f=privateState.forms[alias],r=parsed(await call(b,`/forms/${f.id}/responses/me/latest`));expect(r.formId).toBe(f.id);expect(r.id).toMatch(/^[0-9a-f-]{36}$/)}
+    })
+    const f=Object.values(privateState.forms).find(f=>f.owner==='L'&&f.status==='published')
+    for(const [role,initialClose]of [['A','footer'],['B','icon']])await checkpoint('R11',`real ${initialClose} cancel then explicit verification and opposite close returns original query/hash`,async()=>{
+      const a=actors[role],p=a.page,target=`/forms/${f.id}?from=return-${role}#answer`;await navigate(a,target);await p.getByLabel('文字',{exact:true}).fill('真實401後的本地保留答案');await a.context.clearCookies();a.loggedIn=false
+      const latest=role==='B',path=`/forms/${f.id}/${latest?'responses/me/latest':'responses'}`,method=latest?'GET':'POST';await response(a,path,method,()=>p.getByRole('button',{name:latest?'查看我的填答':'提交表單',exact:true}).click(),401)
+      const dialog=p.getByRole('dialog',{name:'操作訊息'});await p.keyboard.press('Escape');await expect(dialog).toBeVisible();await p.mouse.click(2,Math.max(100,(await p.viewportSize()).height-2));await expect(dialog).toBeVisible();const close=method=>{const buttons=dialog.getByRole('button',{name:'關閉',exact:true});return(method==='footer'?buttons.last():buttons.first()).click()}
+      await native(a,false,()=>close(initialClose));expect(p.url()).toBe(origin+target);await expect(p.locator('[data-renderer-key]').first()).toContainText('真實401後的本地保留答案')
+      allow('GET','/users/me',401);await native(a,true,()=>p.getByRole('button',{name:'核對登入與填答資格',exact:true}).click());await expect(dialog).toBeVisible();const confirm=async d=>{state.timings.push({case:current,dialog:d.type(),accepted:true,label:'explicit verification return'});await d.accept()};p.on('dialog',confirm);await close(initialClose==='footer'?'icon':'footer');await expect(p).toHaveURL(/\/login\?redirect=/);p.off('dialog',confirm);expect(new URL(p.url()).searchParams.get('redirect')).toBe(target)
+      const count=state.requests.filter(r=>r.actor===role&&r.method==='POST'&&r.url.endsWith('/responses')).length;await login(a,target);await expect(p.getByLabel('文字',{exact:true})).toHaveValue('');expect(state.requests.filter(r=>r.actor===role&&r.method==='POST'&&r.url.endsWith('/responses'))).toHaveLength(count)
+    })
+  }
+  async function lastReadbacks(){
+    const e=await actor('EC1');await navigate(e,'/login');await login(e,'/forms')
+    await checkpoint('L01','real all-empty and Published-filter-empty while only one Draft exists',async()=>{
+      const p=e.page,before=parsed(await call(e,'/forms?page=1&pageSize=10'));expect(before.items).toEqual([]);expect(before.pagination).toEqual({page:1,pageSize:10,totalItems:0,totalPages:0});await expect(p.getByRole('link',{name:'建立第一份表單'})).toBeVisible();await create(e,'EMPTY-D',simple('EMPTY-D'));await p.reload();await expect(p.getByRole('table').locator('tbody tr')).toHaveCount(1);await p.getByLabel('狀態篩選',{exact:true}).selectOption('published');await expect(p.getByText('目前條件沒有表單。',{exact:true})).toBeVisible();const filtered=parsed(await call(e,'/forms?page=1&pageSize=10&status=published'));expect(filtered.items).toEqual([]);expect(filtered.pagination.totalPages).toBe(0)
+    })
+    for(const [alias,code]of [['DEL-D','D'],['DEL-P','P'],['DEL-C','C']])await checkpoint(`M06-${code}`,'both real Form and edit routes after retained original204; no repeat deletion',async()=>{
+      const a=actors.A,f=privateState.forms[alias];for(const suffix of ['', '/edit']){allow('GET',`/forms/${f.id}`,404);const wait=a.page.waitForResponse(r=>r.url()===api+`/forms/${f.id}`);await navigate(a,`/forms/${f.id}${suffix}`);expect((await wait).status()).toBe(404);await expect(a.page.getByRole('alert')).toContainText('找不到表單');expect(new URL(a.page.url()).pathname).toBe(`/forms/${f.id}${suffix}`)}
+    })
+  }
+  async function managementNoop(){
+    const a=actors.A,p=a.page
+    for(const [alias,status]of [['D05-RECHECK','draft'],['DEAD-RECHECK','published'],['EDIT','closed']])await checkpoint('M03',`real ${status} same-value UI zero request and API no-op updatedAt`,async()=>{
+      const id=privateState.forms[alias].id,before=parsed(await call(a,`/forms/${id}`));await navigate(a,`/forms/${id}${status==='draft'?'/edit':''}`);const name={owner_only:'僅建立者',respondents:'填答者',public:'所有人'}[before.resultVisibility],n=state.requests.length;await p.getByRole('radio',{name,exact:true}).click();await p.waitForTimeout(130);expect(state.requests.slice(n).some(r=>r.method==='PATCH')).toBe(false);const same=parsed(await call(a,`/forms/${id}/result-visibility`,'PATCH',{resultVisibility:before.resultVisibility}));expect(same.updatedAt).toBe(before.updatedAt);const back=parsed(await call(a,`/forms/${id}`));expect(back.updatedAt).toBe(before.updatedAt);expect(back.status).toBe(status)
+    })
+  }
+  try {
+    if(!['smoke','smokeRetest'].includes(phase))await ensureActors()
+    const selected=s=>phase==='all'||phase.split(',').includes(s)
+    for (const [name, action] of [['profiles',profiles],['editor',editor],['setup',setup],['list',lists],['responses',responses],['stats',statistics],['delete',deletes],['recheck',recheck],['additional',additional],['authRetest',authRetest],['smoke',smoke],['completionProbes',completionProbes],['smokeRetest',smokeRetest],['editorProbes',editorProbes],['routeDiagnostics',routeDiagnostics],['latestAndReturn',latestAndReturn],['lastReadbacks',lastReadbacks],['managementNoop',managementNoop]]) if(selected(name)) await checkpoint('PHASE',name,action)
+  } finally { await flush();for(const a of Object.values(actors))await a.context.close() }
+  expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])
+  const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)
+  expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])
+})

@@ -1,0 +1,1058 @@
+{
+  "runId": "v1-f10-20261016-01",
+  "attempt": "chrome-a2",
+  "phase": "smokeRetest",
+  "browser": "156.0.8078.12",
+  "api": "real, no route interception",
+  "checkpoints": [
+    {
+      "id": "B01",
+      "label": "a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "status": "PASS",
+      "startedAt": "2026-10-16T05:08:59.263Z",
+      "finishedAt": "2026-10-16T05:09:00.516Z"
+    },
+    {
+      "id": "PHASE",
+      "label": "smokeRetest",
+      "status": "PASS",
+      "startedAt": "2026-10-16T05:08:58.938Z",
+      "finishedAt": "2026-10-16T05:09:00.520Z"
+    }
+  ],
+  "accounts": [
+    {
+      "alias": "A",
+      "id": "4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7",
+      "email": "v1-f10-20261016-01-a@example.test"
+    },
+    {
+      "alias": "B",
+      "id": "1e25af87-c6c8-49f7-8259-a482628271d3",
+      "email": "v1-f10-20261016-01-b@example.test"
+    },
+    {
+      "alias": "C",
+      "id": "c18c8e27-3927-473d-aa5e-783e595f7f9a",
+      "email": "v1-f10-20261016-01-c@example.test"
+    },
+    {
+      "alias": "X",
+      "id": "2c7ec1e0-06d9-4ae8-92fc-213211364c2f",
+      "email": "v1-f10-20261016-01-x@example.test"
+    },
+    {
+      "alias": "L",
+      "id": "0bfeae96-e8b6-4e5f-954f-460a421ce359",
+      "email": "v1-f10-20261016-01-l@example.test"
+    },
+    {
+      "alias": "EC1",
+      "id": "ebca3550-2492-4e62-b207-8a469de62fae",
+      "email": "v1-f10-20261016-01-ec1@localhost"
+    },
+    {
+      "alias": "EC2",
+      "id": "0773cd5f-60c2-4754-8c45-68a0a16a3fcd",
+      "email": "\"v1-f10-20261016-01 a\"@example.test"
+    },
+    {
+      "alias": "EC3",
+      "id": "8d138219-f559-4508-8dc5-ed5044a21dec",
+      "email": "測試v1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "EC4",
+      "id": "932c9121-bade-469d-8402-73957bc8b550",
+      "email": "İv1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "CH-A",
+      "id": "59045caf-2417-4903-a2ff-78c562074f34",
+      "email": "v1-f10-20261016-01-ch@example.test"
+    },
+    {
+      "alias": "ED-A",
+      "id": "51e869a2-8dfc-49d1-84d1-56a241eeca80",
+      "email": "v1-f10-20261016-01-ed@example.test"
+    }
+  ],
+  "forms": [
+    {
+      "alias": "EDIT",
+      "id": "c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "owner": "A",
+      "purpose": "EDIT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "MULTI",
+      "id": "757ca4ae-03dd-43e4-a53f-4e9d744d363f",
+      "owner": "A",
+      "purpose": "MULTI",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "OPT",
+      "id": "e60323b3-7e90-48ac-8739-9e67dc168607",
+      "owner": "A",
+      "purpose": "OPT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-I",
+      "id": "1b9132a0-3e00-4d6b-9023-92faa80ad8da",
+      "owner": "A",
+      "purpose": "ST-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-A",
+      "id": "24f39f8c-65d1-44df-ae4b-06abf790e19a",
+      "owner": "A",
+      "purpose": "ST-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-owner_only",
+      "id": "18ba4e17-e66e-45d7-a219-3acd68c0796b",
+      "owner": "A",
+      "purpose": "POL-anonymous-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-respondents",
+      "id": "1b94701a-a7ff-4e43-91d6-355498b8a098",
+      "owner": "A",
+      "purpose": "POL-anonymous-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-public",
+      "id": "572aa4d1-ab38-49e5-b4bc-4e67a02f7bfa",
+      "owner": "A",
+      "purpose": "POL-anonymous-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-owner_only",
+      "id": "a81faa35-c38e-496c-b0da-61afc748fa2c",
+      "owner": "A",
+      "purpose": "POL-identified-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-respondents",
+      "id": "e6ac274b-cceb-4cd0-a05d-17c654d25b6d",
+      "owner": "A",
+      "purpose": "POL-identified-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-public",
+      "id": "0f90992e-1645-4d38-80f3-c9c26c5aea09",
+      "owner": "A",
+      "purpose": "POL-identified-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-I",
+      "id": "8995a7a1-439c-4286-8bdb-d20d4d6c094a",
+      "owner": "A",
+      "purpose": "ZERO-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-A",
+      "id": "1fe9e1ec-dc9f-42ad-8793-dea0595f1701",
+      "owner": "A",
+      "purpose": "ZERO-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEL-D",
+      "id": "4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "owner": "A",
+      "purpose": "DEL-D",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-P",
+      "id": "0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "owner": "A",
+      "purpose": "DEL-P",
+      "status": "published",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-C",
+      "id": "7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "owner": "A",
+      "purpose": "DEL-C",
+      "status": "closed",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-SHRINK",
+      "id": "875ecae6-a393-4a62-9074-c66f304cde77",
+      "owner": "L",
+      "purpose": "LIST-SHRINK",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-02",
+      "id": "3964443c-963d-4df7-8637-8b0049a02bbb",
+      "owner": "L",
+      "purpose": "LIST-02",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-03",
+      "id": "1f1d6f9d-62e7-42f7-9bf8-92ed35a182ac",
+      "owner": "L",
+      "purpose": "LIST-03",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-04",
+      "id": "9962027c-f232-4b93-b98e-2512d74231b4",
+      "owner": "L",
+      "purpose": "LIST-04",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-05",
+      "id": "7e8d24c5-a6ae-4068-b5a9-9aa87c0c927a",
+      "owner": "L",
+      "purpose": "LIST-05",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-06",
+      "id": "778fcbec-6c46-425b-91a6-92eecef4d3c5",
+      "owner": "L",
+      "purpose": "LIST-06",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-07",
+      "id": "f745832c-7755-488f-9c0a-d06b33430821",
+      "owner": "L",
+      "purpose": "LIST-07",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-08",
+      "id": "1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "owner": "L",
+      "purpose": "LIST-08",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-09",
+      "id": "6a43b608-4b85-4f71-9a46-4a7e02c5c801",
+      "owner": "L",
+      "purpose": "LIST-09",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-10",
+      "id": "52c685e7-066f-4bf2-bd05-030bd9257273",
+      "owner": "L",
+      "purpose": "LIST-10",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-11",
+      "id": "9d58eb4e-ff21-4bdf-bf24-90749cf85fc5",
+      "owner": "L",
+      "purpose": "LIST-11",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-12",
+      "id": "c38cc4c9-5165-4193-b4b3-a02d9adf7a67",
+      "owner": "L",
+      "purpose": "LIST-12",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-13",
+      "id": "19294089-785d-48c1-8c3c-23df46f0103c",
+      "owner": "L",
+      "purpose": "LIST-13",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-14",
+      "id": "f8178095-3035-414a-bdc2-32665e058c54",
+      "owner": "L",
+      "purpose": "LIST-14",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-15",
+      "id": "602f8259-4931-4da4-bac0-7403ee3ab0a3",
+      "owner": "L",
+      "purpose": "LIST-15",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-16",
+      "id": "c9846c02-8219-4dec-bebd-7444f3c10cea",
+      "owner": "L",
+      "purpose": "LIST-16",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-17",
+      "id": "7a35cdff-d806-4ce6-bfb4-640e7297cc39",
+      "owner": "L",
+      "purpose": "LIST-17",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-18",
+      "id": "889143fa-be81-4bfc-be75-690947292b57",
+      "owner": "L",
+      "purpose": "LIST-18",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-19",
+      "id": "4987f864-7907-48ec-a8ae-0b059fd8a20c",
+      "owner": "L",
+      "purpose": "LIST-19",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-20",
+      "id": "0bd74f05-5bc2-410d-8c35-a2c60b5af790",
+      "owner": "L",
+      "purpose": "LIST-20",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-21",
+      "id": "ca7b7c13-14da-4369-abb3-062b3dea6703",
+      "owner": "L",
+      "purpose": "LIST-21",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD",
+      "id": "fd1e1382-9e71-4724-9b73-4cfb5139ae7b",
+      "owner": "A",
+      "purpose": "DEAD",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD-RECHECK",
+      "id": "74d430ea-b763-4657-966f-160123cdce5e",
+      "owner": "A",
+      "purpose": "DEAD-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "EDIT-RECHECK",
+      "id": "4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d",
+      "owner": "A",
+      "purpose": "EDIT-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "CH-F",
+      "id": "8d719179-5998-40dd-9644-bfaa0509c382",
+      "owner": "CH-A",
+      "purpose": "chrome smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ED-F",
+      "id": "454c637e-558f-4e09-bdfe-395c5e484b38",
+      "owner": "ED-A",
+      "purpose": "msedge smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "D05-RECHECK",
+      "id": "50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "owner": "A",
+      "purpose": "D05-RECHECK",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "INCOMPLETE",
+      "id": "b39abf58-547d-4dbc-9d32-2a489fc22307",
+      "owner": "A",
+      "purpose": "retained incomplete Draft validation",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    }
+  ],
+  "responses": [],
+  "reads": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "label": "API check",
+      "actor": "CH-A",
+      "path": "/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T04:56:40.626612+00:00\"}"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "label": "API check",
+      "actor": "CH-A",
+      "path": "/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.15487+00:00\"}"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "label": "independent Statistics GET",
+      "actor": "CH-G",
+      "path": "/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"formId\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"responseMode\":\"single\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"questions\":[{\"questionId\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"title\":\"文字\",\"description\":null,\"type\":\"text\",\"count\":1,\"statistics\":[{\"value\":\"真實瀏覽器Smoke\",\"count\":1}]}]}"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "label": "API check",
+      "actor": "CH-A",
+      "path": "/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.385184+00:00\"}"
+    }
+  ],
+  "statistics": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "alias": "CH-F",
+      "viewer": "CH-G",
+      "status": 200,
+      "body": "{\"formId\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"responseMode\":\"single\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"questions\":[{\"questionId\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"title\":\"文字\",\"description\":null,\"type\":\"text\",\"count\":1,\"statistics\":[{\"value\":\"真實瀏覽器Smoke\",\"count\":1}]}]}",
+      "readback": "{\"formId\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"responseMode\":\"single\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"questions\":[{\"questionId\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"title\":\"文字\",\"description\":null,\"type\":\"text\",\"count\":1,\"statistics\":[{\"value\":\"真實瀏覽器Smoke\",\"count\":1}]}]}",
+      "ui": [
+        {
+          "questionId": "59fe1b24-a1ff-43c8-91aa-cfc0524f73be",
+          "count": "本題填答人數：1 人",
+          "items": [
+            {
+              "value": "真實瀏覽器Smoke",
+              "count": "1 人",
+              "names": []
+            }
+          ]
+        }
+      ],
+      "namePhase": "P2"
+    }
+  ],
+  "requests": [
+    {
+      "sequence": 1,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 2,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 3,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 4,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null
+    },
+    {
+      "sequence": 5,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null
+    },
+    {
+      "sequence": 6,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 7,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null
+    },
+    {
+      "sequence": 8,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/result-visibility",
+      "body": "{\"resultVisibility\":\"public\"}"
+    },
+    {
+      "sequence": 9,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null
+    },
+    {
+      "sequence": 10,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 11,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null
+    },
+    {
+      "sequence": 12,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null
+    },
+    {
+      "sequence": 13,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}"
+    },
+    {
+      "sequence": 14,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null
+    },
+    {
+      "sequence": 15,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 16,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null
+    }
+  ],
+  "outcomes": [
+    {
+      "sequence": 1,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 2,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 3,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 4,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T04:56:40.626612+00:00\"}"
+    },
+    {
+      "sequence": 5,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T04:56:40.626612+00:00\"}"
+    },
+    {
+      "sequence": 6,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 7,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null,
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"AUTH_REQUIRED\",\"message\":\"Authentication is required.\"}}"
+    },
+    {
+      "sequence": 8,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/result-visibility",
+      "body": "{\"resultVisibility\":\"public\"}",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.15487+00:00\"}"
+    },
+    {
+      "sequence": 9,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.15487+00:00\"}"
+    },
+    {
+      "sequence": 10,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 11,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"formId\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"responseMode\":\"single\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"questions\":[{\"questionId\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"title\":\"文字\",\"description\":null,\"type\":\"text\",\"count\":1,\"statistics\":[{\"value\":\"真實瀏覽器Smoke\",\"count\":1}]}]}"
+    },
+    {
+      "sequence": 12,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"formId\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"responseMode\":\"single\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"questions\":[{\"questionId\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"title\":\"文字\",\"description\":null,\"type\":\"text\",\"count\":1,\"statistics\":[{\"value\":\"真實瀏覽器Smoke\",\"count\":1}]}]}"
+    },
+    {
+      "sequence": 13,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "PATCH",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/result-visibility",
+      "body": "{\"resultVisibility\":\"owner_only\"}",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.385184+00:00\"}"
+    },
+    {
+      "sequence": 14,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"8d719179-5998-40dd-9644-bfaa0509c382\",\"userId\":\"59045caf-2417-4903-a2ff-78c562074f34\",\"creatorDisplayName\":\"v1-f10-20261016-01 CH\",\"title\":\"v1-f10-20261016-01 CH-F\",\"description\":null,\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"59fe1b24-a1ff-43c8-91aa-cfc0524f73be\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:56:38.644387+00:00\",\"updatedAt\":\"2026-10-16T05:09:00.385184+00:00\"}"
+    },
+    {
+      "sequence": 15,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 16,
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "body": null,
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"AUTH_REQUIRED\",\"message\":\"Authentication is required.\"}}"
+    }
+  ],
+  "diagnostics": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics"
+    }
+  ],
+  "pageErrors": [],
+  "expectedErrors": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "status": 401
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics",
+      "status": 401
+    }
+  ],
+  "deleteViolations": [],
+  "routes": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms%2F8d719179-5998-40dd-9644-bfaa0509c382"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms%2F8d719179-5998-40dd-9644-bfaa0509c382"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms%2F8d719179-5998-40dd-9644-bfaa0509c382"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/login?redirect=/forms/8d719179-5998-40dd-9644-bfaa0509c382"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/login?redirect=/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10%23result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10#result"
+    },
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-G",
+      "url": "http://localhost:3000/login?redirect=/forms/8d719179-5998-40dd-9644-bfaa0509c382/statistics?from=f10%23result"
+    }
+  ],
+  "timings": [
+    {
+      "case": "B01:a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+      "actor": "CH-A",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    }
+  ]
+}

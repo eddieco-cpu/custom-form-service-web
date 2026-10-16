@@ -1,0 +1,5 @@
+{
+  "purpose": "restore existing locked dependencies after ci unlink failure",
+  "exitCode": 0,
+  "lockSha256": "514545E78546B99DACD0B3B8C49E89D0F7DAB5B26ACB3DA725D58C8551DBB1A2"
+}

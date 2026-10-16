@@ -1,0 +1,221 @@
+{
+  "oracle": "independent Python stdlib Decimal; fixed ten-question plan inputs, not imported product/test expected builder",
+  "definitions": 2,
+  "receiptsAndPostWires": 8,
+  "R12NumericTransmissions": [
+    {
+      "attempt": "a2",
+      "userAlias": "A",
+      "postAndSavedReceipt": "PASS",
+      "independentLatest": "PASS",
+      "expectedDecimal": "9007199254740993.12345678901234567890123456789"
+    },
+    {
+      "attempt": "a2",
+      "userAlias": "B",
+      "postAndSavedReceipt": "PASS",
+      "independentLatest": "PASS",
+      "expectedDecimal": "0"
+    }
+  ],
+  "statisticsSnapshots": [
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-I",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-A",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-owner_only",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-respondents",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-respondents",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-anonymous-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-owner_only",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-respondents",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-respondents",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "POL-identified-public",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ZERO-I",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ZERO-A",
+      "namePhase": "P0",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-I",
+      "namePhase": "P1",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-A",
+      "namePhase": "P1",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-I",
+      "namePhase": "P2",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    },
+    {
+      "attempt": "a3",
+      "phase": "recheck",
+      "alias": "ST-A",
+      "namePhase": "P2",
+      "body": "PASS",
+      "readback": "PASS",
+      "ui": "PASS"
+    }
+  ]
+}

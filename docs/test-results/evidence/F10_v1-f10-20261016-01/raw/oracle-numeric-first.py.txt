@@ -1,0 +1,180 @@
+"""Independent F10 fixed-input oracle: stdlib only, no product/test mapper imports."""
+import json
+import sys
+import argparse
+from decimal import Decimal
+from datetime import datetime, timezone
+from pathlib import Path
+
+ROOT = Path('output/playwright/v1-acceptance/v1-f10-20261016-01')
+load = lambda s: json.loads(s, parse_float=Decimal, parse_int=Decimal)
+run = 'v1-f10-20261016-01'
+results = []
+precision_results=[]
+parser=argparse.ArgumentParser()
+parser.add_argument('--statistics-attempt',required=True)
+args=parser.parse_args()
+
+def equivalent(actual, expected, path='$'):
+    if path.endswith('.submissionDeadlineAt') and actual is not None and expected is not None:
+        assert datetime.fromisoformat(actual.replace('Z', '+00:00')).astimezone(timezone.utc) == datetime.fromisoformat(expected.replace('Z', '+00:00')).astimezone(timezone.utc), path
+    elif isinstance(expected, dict):
+        assert isinstance(actual, dict) and set(actual) == set(expected), f'{path} keys {set(actual) if isinstance(actual,dict) else type(actual)} != {set(expected)}'
+        for k in expected: equivalent(actual[k], expected[k], path+'.'+k)
+    elif isinstance(expected, list):
+        assert isinstance(actual, list) and len(actual) == len(expected), f'{path} length'
+        for i,(a,e) in enumerate(zip(actual,expected)): equivalent(a,e,f'{path}[{i}]')
+    elif isinstance(expected, (int, Decimal)) and not isinstance(expected, bool):
+        assert not isinstance(actual,bool) and isinstance(actual,(int,Decimal)) and actual == expected, f'{path}: {actual!r} != {expected!r}'
+    else:
+        assert actual == expected, f'{path}: {actual!r} != {expected!r}'
+
+def input_questions():
+    def question(t,title,order,config,description=None,options=None):
+        return dict(type=t,title=title,description=description,required=False,sortOrder=order,config=config,options=options or [])
+    def option(label,value,order): return dict(label=label,value=value,sortOrder=order)
+    return [question('text','T',0,{'variant':'textarea'},'第一行\n第二行'),
+        *[question('number',t,i+1,{}) for i,t in enumerate(['N','ND','NE'])],
+        question('single_choice','SC',4,{'variant':'radio'},options=[option('相同標籤','Case',0),option('相同標籤','case',1),option('零票','zero',2)]),
+        question('multiple_choice','MC',5,{'variant':'checkbox'},options=[option('一','m1',0),option('二','m2',1),option('零票','m3',2)]),
+        question('rating','S',6,{'variant':'stars','min':0,'max':5}),
+        question('rating','R',7,{'variant':'range','min':0,'max':10}),question('text','OLD',8,{'variant':'input'}),question('text','TC',9,{'variant':'input'})]
+
+def strip_ids(question):
+    q={k:v for k,v in question.items() if k!='id'}
+    q['options']=[{k:v for k,v in o.items() if k!='id'} for o in q['options']]
+    return q
+
+def expected_answers(dto,event):
+    q=dto['questions']; sc=q[4]['options']; mc=q[5]['options']
+    d=Decimal
+    fixed={
+      'A1':['舊值',-99,-99,2,sc[2]['id'],[mc[2]['id']],5,10,'舊optional','舊分組'],
+      'B1':['Apple',d('9007199254740992'),d('0.12345678901234567890123456789'),d('1.0'),sc[0]['id'],[mc[0]['id'],mc[1]['id']],2,0,None,'Z'],
+      'C1':['apple',d('9007199254740993'),d('0.12345678901234567890123456790'),d('1e0'),sc[1]['id'],[mc[1]['id']],5,10,None,'Apple'],
+      'A2':[None,0,d('0.12345678901234567890123456789'),d('1'),sc[0]['id'],[mc[0]['id'],mc[1]['id']],0,0,None,'Z']}
+    return [{'questionId':q[i]['id'],'value':v} for i,v in enumerate(fixed[event]) if v is not None]
+
+def names_for(phase,ids):
+    names={'A':'建立者原名','B':'同名','C':'同名'}
+    if phase in ['P1','P2']: names['A']='建立者新名'
+    if phase=='P2': names['B']='新名B'
+    return {alias:dict(id=ids[alias],displayName=name) for alias,name in names.items()}
+
+def expected_stats(dto,identity,phase,ids):
+    q=dto['questions']; names=names_for(phase,ids)
+    def item(fields,users):
+        out={**fields,'count':len(users)}
+        if identity=='identified': out['respondents']=sorted([names[u] for u in users],key=lambda v:(v['displayName'],v['id']))
+        return out
+    def opt(index,j,users):
+        o=q[index]['options'][j]
+        return item(dict(optionId=o['id'],label=o['label'],value=o['value']),users)
+    d=Decimal
+    groups=[
+      [item({'value':'Apple'},['B']),item({'value':'apple'},['C'])],
+      [item({'value':0},['A']),item({'value':d('9007199254740992')},['B']),item({'value':d('9007199254740993')},['C'])],
+      [item({'value':d('0.12345678901234567890123456789')},['A','B']),item({'value':d('0.12345678901234567890123456790')},['C'])],
+      [item({'value':1},['A','B','C'])],
+      [opt(4,0,['A','B']),opt(4,1,['C']),opt(4,2,[])],
+      [opt(5,0,['A','B']),opt(5,1,['A','B','C']),opt(5,2,[])],
+      [item({'value':v},{0:['A'],2:['B'],5:['C']}.get(v,[])) for v in range(6)],
+      [item({'value':v},{0:['A','B'],10:['C']}.get(v,[])) for v in range(11)],[],
+      [item({'value':'Z'},['A','B']),item({'value':'Apple'},['C'])]]
+    counts=[2,3,3,3,3,3,3,3,0,3]
+    questions=[dict(questionId=qq['id'],title=qq['title'],description=qq['description'],type=qq['type'],count=counts[i],statistics=groups[i]) for i,qq in enumerate(q)]
+    return dict(formId=dto['id'],title=run+' 固定統計',description='第一行\n第二行',creatorDisplayName=names['A']['displayName'],responseMode='multiple',resultVisibility='public',submissionDeadlineAt='2030-12-31T10:30:00.123456Z',count=3,questions=questions)
+
+def check_ui(ui,expected):
+    assert len(ui)==len(expected['questions']), 'UI complete question count'
+    for actual,q in zip(ui,expected['questions']):
+        assert actual['questionId']==q['questionId']
+        assert actual['count'].strip()==f"本題填答人數：{q['count']} 人"
+        assert len(actual['items'])==len(q['statistics'])
+        for a,e in zip(actual['items'],q['statistics']):
+            value=a['value'].strip()
+            if q['type'] in ['number','rating']: assert Decimal(value)==e['value'], 'UI precise numeric value'
+            else: assert value==(e['label'] if 'label' in e else e['value']), 'UI full text/option label'
+            assert a['count'].strip()==f"{e['count']} 人"
+            assert a['names']==[n['displayName'] for n in e.get('respondents',[])], 'UI complete names and same-name identities'
+
+states=[load(p.read_text(encoding='utf-8-sig')) for p in sorted((ROOT/'raw').glob('canonical-*.json'))]
+ids={a['alias']:a['id'] for s in states for a in s['accounts'] if a.get('id')}
+definitions={}
+all_definitions={}
+events={}
+for s in states:
+    form_alias={f['id']:f['alias'] for f in s['forms']}
+    for r in s['outcomes']:
+        if r['method']=='POST' and r['url'].endswith('/forms') and r['status']==201 and r.get('response'):
+            dto=load(r['response']); alias=form_alias.get(dto['id'])
+            if alias: all_definitions[alias]=dto
+            if alias in ['ST-I','ST-A']:
+                identity='identified' if alias=='ST-I' else 'anonymous'
+                equivalent([strip_ids(q) for q in dto['questions']],input_questions(),alias+'.definition')
+                request=load(r['body'])
+                assert len(request['questions'])==10 and request['responseIdentity']==identity
+                assert request['submissionDeadlineAt']=='2030-12-31T10:30:00.123456Z'
+                definitions[alias]=dto
+    for event in s['responses']:
+        if event['formAlias'] in ['ST-I','ST-A'] and event.get('event'):
+            events[(event['formAlias'],event['event'])]=event
+
+for alias,dto in definitions.items():
+    for event in ['A1','B1','C1','A2']:
+        record=events[(alias,event)]
+        receipt=load(record['receipt']); expected=expected_answers(dto,event)
+        equivalent(receipt['answers'],expected,alias+'.'+event+'.receipt')
+        wire=load(record['body'])['answers']
+        if event=='B1': wire[0]['value']=wire[0]['value'].strip(' ')
+        equivalent(wire,expected,alias+'.'+event+'.wire')
+        assert set(receipt)=={'id','formId','submittedAt','answers'} and receipt['formId']==dto['id']
+    assert datetime.fromisoformat(load(events[(alias,'A2')]['receipt'])['submittedAt'].replace('Z','+00:00')) > datetime.fromisoformat(load(events[(alias,'A1')]['receipt'])['submittedAt'].replace('Z','+00:00'))
+
+for s in states:
+    for event in s['responses']:
+        if event['formAlias']!='EDIT': continue
+        body=load(event['body'])['answers']; saved=load(event['receipt'])['answers']
+        nums=[a['value'] for a in body if isinstance(a['value'],Decimal)]
+        saved_nums=[a['value'] for a in saved if isinstance(a['value'],Decimal)]
+        expected=Decimal('9007199254740993.12345678901234567890123456789') if event['userAlias']=='A' else Decimal(0)
+        assert nums==[expected] and saved_nums==[expected], 'R12 exact numeric POST and saved Receipt'
+        precision_results.append({'attempt':s['attempt'],'userAlias':event['userAlias'],'postAndSavedReceipt':'PASS','expectedDecimal':str(expected)})
+assert len(precision_results)==2
+
+for s in states:
+    if s['attempt'] != args.statistics_attempt: continue
+    for snap in s['statistics']:
+        alias=snap['alias']
+        if alias in ['ST-I','ST-A']:
+            expected=expected_stats(definitions[alias],'identified' if alias=='ST-I' else 'anonymous',snap['namePhase'],ids)
+        elif alias.startswith('POL-') or alias.startswith('ZERO-'):
+            dto=all_definitions[alias]
+            is_identified=dto['responseIdentity']=='identified'
+            names=names_for(snap['namePhase'],ids)
+            expected=dict(formId=dto['id'],title=run+' '+alias,description=None,creatorDisplayName=names['A']['displayName'],responseMode='multiple',resultVisibility=dto['resultVisibility'],submissionDeadlineAt=None,count=1 if alias.startswith('POL-') else 0,questions=[])
+            for q in dto['questions']:
+                items=[]
+                if alias.startswith('POL-'):
+                    assert len(dto['questions'])==1 and q['title']=='POL題' and q['type']=='text'
+                    items=[dict(value='POL固定答案',count=1)]
+                    if is_identified: items[0]['respondents']=[names['B']]
+                elif q['type'] in ['single_choice','multiple_choice']:
+                    items=[dict(optionId=o['id'],label=o['label'],value=o['value'],count=0) for o in q['options']]
+                elif q['type']=='rating':
+                    assert q['config']['min']==0 and q['config']['max']==5
+                    items=[dict(value=v,count=0) for v in range(6)]
+                if alias.startswith('ZERO-') and is_identified:
+                    for i in items: i['respondents']=[]
+                expected['questions'].append(dict(questionId=q['id'],title=q['title'],description=None,type=q['type'],count=expected['count'],statistics=items))
+        else: continue
+        equivalent(load(snap['body']),expected,alias+'.body')
+        equivalent(load(snap['readback']),expected,alias+'.independentGET')
+        check_ui(snap['ui'],expected)
+        results.append({'attempt':s['attempt'],'phase':s['phase'],'alias':alias,'namePhase':snap['namePhase'],'body':'PASS','readback':'PASS','ui':'PASS'})
+assert len(definitions)==2, 'Need both fixed Identity definitions'
+assert len(events)==8, 'Need eight fixed successful response events'
+assert len(results)>=2, 'Need at least one complete Body/UI/readback per Identity'
+out={'oracle':'independent Python stdlib Decimal; fixed ten-question plan inputs, not imported product/test expected builder','definitions':len(definitions),'receiptsAndPostWires':len(events),'R12NumericTransmissions':precision_results,'statisticsSnapshots':results}
+(ROOT/'raw'/'oracle-results.json').write_text(json.dumps(out,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'definitions':len(definitions),'receiptsAndPostWires':len(events),'successfulStatisticsSnapshots':len(results)}))

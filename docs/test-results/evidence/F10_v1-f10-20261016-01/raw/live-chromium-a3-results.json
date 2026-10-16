@@ -1,0 +1,327 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-a3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "canonical.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a3",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "canonical.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-a3-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "canonical.spec.mjs",
+      "file": "canonical.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F10 canonical true Browser/API recheck a3",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 13880,
+                  "error": {
+                    "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:360:76",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                      "column": 76,
+                      "line": 360
+                    },
+                    "snippet": "  358 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  359 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 360 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  361 | })\n  362 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                        "column": 76,
+                        "line": 360
+                      },
+                      "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 3\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  358 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  359 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 360 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  361 | })\n  362 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:360:76"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "CHECKPOINT PASS A08:profile independent PATCH/GET and shared Header\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A09:dirty logout cancel/confirm and fresh login\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL D01:unselected visibility semantic placeholder and empty Preview, no initial Form writes: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06-D:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06-P:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06-C:a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S01:ST-I full Body/UI/readback fixed oracle input\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S01:ST-A full Body/UI/readback fixed oracle input\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:ZERO-I zero response complete\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:ZERO-A zero response complete\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S05:currently named Creator/respondent observed by new GET\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-A:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-X:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-G:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-A:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-X:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:42:27.612Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a3\\canonical-F10-canonical-true-Browser-API-recheck-a3-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                    "column": 76,
+                    "line": 360
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4c313817ac08c9fc1aeb-919514bd12fe57629b69",
+          "file": "canonical.spec.mjs",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:42:21.743Z",
+    "duration": 20779.391000000003,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

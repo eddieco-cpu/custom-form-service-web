@@ -1,0 +1,344 @@
+{
+  "method": "real Browser/API reads; UI Login only; no Form writes",
+  "browser": "156.0.8078.4",
+  "layouts": [
+    {
+      "name": "home",
+      "width": 1440,
+      "expectedMax": 1280,
+      "sectionWidth": 1280,
+      "left": 96,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "list",
+      "width": 1440,
+      "expectedMax": 1280,
+      "sectionWidth": 1248,
+      "left": 96,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "profile",
+      "width": 1440,
+      "expectedMax": 640,
+      "sectionWidth": 640,
+      "left": 400,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "editor",
+      "width": 1440,
+      "expectedMax": 960,
+      "sectionWidth": 960,
+      "left": 240,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "form",
+      "width": 1440,
+      "expectedMax": 800,
+      "sectionWidth": 800,
+      "left": 320,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "statistics",
+      "width": 1440,
+      "expectedMax": 800,
+      "sectionWidth": 800,
+      "left": 320,
+      "mainWidth": 1280,
+      "headerHeight": 64,
+      "scrollWidth": 1440,
+      "viewport": 1440
+    },
+    {
+      "name": "home",
+      "width": 390,
+      "expectedMax": 1280,
+      "sectionWidth": 390,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "list",
+      "width": 390,
+      "expectedMax": 1280,
+      "sectionWidth": 358,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "profile",
+      "width": 390,
+      "expectedMax": 640,
+      "sectionWidth": 358,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "editor",
+      "width": 390,
+      "expectedMax": 960,
+      "sectionWidth": 358,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "form",
+      "width": 390,
+      "expectedMax": 800,
+      "sectionWidth": 358,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "statistics",
+      "width": 390,
+      "expectedMax": 800,
+      "sectionWidth": 358,
+      "left": 16,
+      "mainWidth": 390,
+      "headerHeight": 56,
+      "scrollWidth": 390,
+      "viewport": 390
+    },
+    {
+      "name": "home",
+      "width": 320,
+      "expectedMax": 1280,
+      "sectionWidth": 320,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "name": "list",
+      "width": 320,
+      "expectedMax": 1280,
+      "sectionWidth": 288,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "name": "profile",
+      "width": 320,
+      "expectedMax": 640,
+      "sectionWidth": 288,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "name": "editor",
+      "width": 320,
+      "expectedMax": 960,
+      "sectionWidth": 288,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "name": "form",
+      "width": 320,
+      "expectedMax": 800,
+      "sectionWidth": 288,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    },
+    {
+      "name": "statistics",
+      "width": 320,
+      "expectedMax": 800,
+      "sectionWidth": 288,
+      "left": 16,
+      "mainWidth": 320,
+      "headerHeight": 56,
+      "scrollWidth": 320,
+      "viewport": 320
+    }
+  ],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1b9132a0-3e00-4d6b-9023-92faa80ad8da/statistics"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1b9132a0-3e00-4d6b-9023-92faa80ad8da/statistics"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1b9132a0-3e00-4d6b-9023-92faa80ad8da/statistics"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

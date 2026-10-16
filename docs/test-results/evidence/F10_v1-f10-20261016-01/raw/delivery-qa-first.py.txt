@@ -1,0 +1,43 @@
+"""Read-only artifact QA plus manifest; does not call business endpoints."""
+import csv,hashlib,json,re,subprocess
+from pathlib import Path
+from datetime import datetime,timezone
+P=Path.cwd();R=P/'output/playwright/v1-acceptance/v1-f10-20261016-01';D=P/'docs/test-results/evidence/F10_v1-f10-20261016-01'
+sha=lambda b:hashlib.sha256(b).hexdigest()
+private=json.loads((R/'private-state.json').read_text(encoding='utf-8-sig'))
+secrets=[a['password'] for a in private['accounts'].values()]
+files=list(D.rglob('*'))
+for f in files:
+    if not f.is_file() or f.suffix=='.png':continue
+    value=f.read_text(encoding='utf-8-sig')
+    assert all(s not in value for s in secrets),'Private credential found: '+str(f)
+    assert not re.search(r'eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+\.[A-Za-z0-9_-]+',value),'JWT found: '+str(f)
+    if f.suffix=='.json':json.loads(value)
+    if f.suffix=='.md':
+        for link in re.findall(r'\]\(([^)]+)\)',value):
+            if re.match(r'^(https?://|#)',link):continue
+            assert (f.parent/link.split('#')[0]).exists(),(f,link)
+report=P/'docs/test-results/F10_Acceptance_Execution_Report.md'
+for link in re.findall(r'\]\(([^)]+)\)',report.read_text(encoding='utf-8')):
+    if re.match(r'^(https?://|#)',link):continue
+    assert (report.parent/link.split('#')[0]).exists(),('report',link)
+locked=list(csv.DictReader((P/'docs/test-plan/v1-acceptance/Case_Results.csv').open(encoding='utf-8-sig',newline='')))
+actual=list(csv.DictReader((D/'Case_Results.csv').open(encoding='utf-8-sig',newline='')))
+assert len(actual)==len(locked)==266
+immutable=['plan_version','case_id','parent_id','record_type','requirement_round','method','data_preconditions','steps','expected','planned_evidence','ai_applicability','human_applicability']
+for old,new in zip(locked,actual):
+    assert all(old[k]==new[k] for k in immutable),new['case_id']
+    assert new['human_result']=='NOT RUN'
+    assert new['ai_result'] in ['PASS','FAIL','BLOCKED','NOT RUN']
+    assert new['observed_result'] and new['evidence']
+    for ref in new['evidence'].split(';'):assert (D/ref).exists(),(new['case_id'],ref)
+lock=json.loads((P/'docs/test-plan/v1-acceptance/Plan_Lock.json').read_text(encoding='utf-8-sig'))
+assert all(sha((P/f['path']).read_bytes())==f['sha256'] for f in lock['files'])
+changed=subprocess.check_output(['git','diff','--name-only','bc98f85309ef55ee1015e5727157e8d5fb9ba5ae','--','app','scripts','package.json','package-lock.json','nuxt.config.ts','.env.example','docs/specs'],text=True).strip()
+assert not changed,changed
+qa={'observedAt':datetime.now(timezone.utc).isoformat(),'planHashes':'7/7 match','matrixExpectedAndSteps':'266/266 unchanged','humanResults':'266 NOT RUN','credentialAndJwtScan':'PASS over all delivered text files; no issued credentials','relativeLinks':'PASS','csvEvidencePaths':'PASS','productDiffFromPlanCommit':'empty','sourceBoundaries':'90 app files + 3 root config/lock; 158 built files','limits':'Secret scan matches known private passwords and JWT shape, not a claim to have audited all possible machine secrets. PNGs are explicit synthetic non-login resource pages and were visually inspected.'}
+(D/'Delivery_QA.json').write_text(json.dumps(qa,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+entries=[{'path':str(f.relative_to(D)).replace('\\','/'),'bytes':f.stat().st_size,'sha256':sha(f.read_bytes())} for f in sorted(D.rglob('*')) if f.is_file() and f.name!='Evidence_Manifest.json']
+manifest={'runId':'v1-f10-20261016-01','planCommit':'bc98f85309ef55ee1015e5727157e8d5fb9ba5ae','excluded':'This manifest itself; main report / README / progress are bound by final Git commit','files':entries}
+(D/'Evidence_Manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+print(json.dumps({'qa':'PASS','files':len(entries),'manifestSha256':sha((D/'Evidence_Manifest.json').read_bytes())}))

@@ -1,0 +1,56 @@
+{
+  "observedAt": "2026-10-16T12:20:36.6530254+08:00",
+  "backendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "backendStatus": [
+    "?? SNAPSHOT.md"
+  ],
+  "process": [
+    {
+      "ProcessId": 34068,
+      "ExecutablePath": "C:\\Program Files\\dotnet\\dotnet.exe",
+      "CommandLine": "\"dotnet\" exec \"C:\\Users\\user\\Desktop\\custom-form-service\\src\\CustomFormService.Api\\bin\\Debug\\net10.0\\CustomFormService.Api.dll\""
+    }
+  ],
+  "dll": {
+    "path": "C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/bin/Debug/net10.0/CustomFormService.Api.dll",
+    "version": "1.0.0+7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "sha256": "06E2A62DB9C4376701E75B0CE3E7283D34B129D378C884E33FB1CB764A0AF180"
+  },
+  "metadata": [
+    {
+      "path": "/health",
+      "status": 200,
+      "body": "{\"status\":\"healthy\"}"
+    },
+    {
+      "path": "/health/ready",
+      "status": 200,
+      "body": "Healthy"
+    },
+    {
+      "path": "/openapi/v1.json",
+      "status": 200,
+      "openapi": "3.1.1",
+      "version": "1.0.0",
+      "paths": [
+        "/api/v1/auth/register",
+        "/api/v1/auth/login",
+        "/api/v1/auth/logout",
+        "/api/v1/forms",
+        "/api/v1/forms/{formId}/respondent-count",
+        "/api/v1/forms/{formId}",
+        "/api/v1/forms/{formId}/publish",
+        "/api/v1/forms/{formId}/close",
+        "/api/v1/forms/{formId}/result-visibility",
+        "/health",
+        "/api/v1/forms/{formId}/responses/me/latest",
+        "/api/v1/forms/{formId}/responses",
+        "/api/v1/forms/{formId}/statistics",
+        "/api/v1/users/me"
+      ]
+    }
+  ],
+  "docker": [
+    "custom-form-service-postgres-1 postgres:17.11-alpine Up 18 hours (healthy) 127.0.0.1:5432->5432/tcp"
+  ]
+}

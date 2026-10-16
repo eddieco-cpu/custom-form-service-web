@@ -1,0 +1,2137 @@
+[
+  {
+    "source": "canonical-a1-all.json",
+    "attempt": "a1",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-A",
+    "status": "FAIL",
+    "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:34:28.370Z",
+    "finishedAt": "2026-10-16T04:34:40.792Z"
+  },
+  {
+    "source": "canonical-a1-all.json",
+    "attempt": "a1",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-B",
+    "status": "FAIL",
+    "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:34:40.801Z",
+    "finishedAt": "2026-10-16T04:34:53.250Z"
+  },
+  {
+    "source": "canonical-a1-all.json",
+    "attempt": "a1",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-C",
+    "status": "FAIL",
+    "detail": "locator.fill: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名', exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:34:53.255Z",
+    "finishedAt": "2026-10-16T04:35:05.659Z"
+  },
+  {
+    "source": "canonical-a10-managementNoop.json",
+    "attempt": "a10",
+    "phase": "managementNoop",
+    "id": "M03",
+    "label": "real draft same-value UI zero request and API no-op updatedAt",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:21:30.641Z",
+    "finishedAt": "2026-10-16T08:21:30.951Z"
+  },
+  {
+    "source": "canonical-a10-managementNoop.json",
+    "attempt": "a10",
+    "phase": "managementNoop",
+    "id": "M03",
+    "label": "real published same-value UI zero request and API no-op updatedAt",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:21:30.956Z",
+    "finishedAt": "2026-10-16T08:21:31.228Z"
+  },
+  {
+    "source": "canonical-a10-managementNoop.json",
+    "attempt": "a10",
+    "phase": "managementNoop",
+    "id": "M03",
+    "label": "real closed same-value UI zero request and API no-op updatedAt",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:21:31.232Z",
+    "finishedAt": "2026-10-16T08:21:31.527Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-A",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:12.882Z",
+    "finishedAt": "2026-10-16T04:36:16.324Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-B",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:16.330Z",
+    "finishedAt": "2026-10-16T04:36:17.530Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-C",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:17.540Z",
+    "finishedAt": "2026-10-16T04:36:18.591Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-X",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:18.595Z",
+    "finishedAt": "2026-10-16T04:36:19.759Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A01",
+    "label": "register-login-L",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:19.765Z",
+    "finishedAt": "2026-10-16T04:36:20.922Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A08",
+    "label": "profile independent PATCH/GET and shared Header",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m4\u001b[39m",
+    "startedAt": "2026-10-16T04:36:20.926Z",
+    "finishedAt": "2026-10-16T04:36:21.280Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "A09",
+    "label": "dirty logout cancel/confirm and fresh login",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: '姓名' })\nExpected: \u001b[32m\"建立者\u001b[7m原\u001b[27m名\"\u001b[39m\nReceived: \u001b[31m\"建立者\u001b[7m新\u001b[27m名\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByRole('textbox', { name: '姓名' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名' })\u001b[22m\n\u001b[2m    14 × locator resolved to <input id=\"v-0-3\" type=\"text\" value=\"建立者新名\" data-slot=\"base\" name=\"displayName\" autocomplete=\"name\" aria-invalid=\"false\" class=\"w-full rounded-md border-0 appearance-none placeholder:text-dimmed disabled:cursor-not-allowed disabled:opacity-75 transition-colors px-2.5 py-1.5 text-base/5 gap-1.5 text-highlighted bg-default ring ring-inset ring-accented outline-primary/25 focus-visible:outline-3 focus-visible:ring-primary md:text-sm\"/>\u001b[22m\n\u001b[2m       - unexpected value \"建立者新名\"\u001b[22m\n",
+    "startedAt": "2026-10-16T04:36:21.286Z",
+    "finishedAt": "2026-10-16T04:36:27.256Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "D01",
+    "label": "new initial model and Preview without API writes",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('結果可見範圍（必選）')\nExpected: \u001b[32m\"\"\u001b[39m\nReceived: \u001b[31m\"請選擇\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('結果可見範圍（必選）') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('結果可見範圍（必選）')\u001b[22m\n\u001b[2m    14 × locator resolved to <select id=\"visibility\" class=\"editor-control\" data-editor-field=\"form.resultVisibility\">…</select>\u001b[22m\n\u001b[2m       - unexpected value \"請選擇\"\u001b[22m\n",
+    "startedAt": "2026-10-16T04:36:27.272Z",
+    "finishedAt": "2026-10-16T04:36:32.419Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "D02",
+    "label": "first UI save six controls and independent readback",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:32.424Z",
+    "finishedAt": "2026-10-16T04:36:33.339Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "D03",
+    "label": "UI delta new IDs, id-only delete, stable option values and order",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:33.343Z",
+    "finishedAt": "2026-10-16T04:36:33.979Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "D05",
+    "label": "omitted variant, sparse order and original microseconds no dirty",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:33.983Z",
+    "finishedAt": "2026-10-16T04:36:34.453Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "D07",
+    "label": "Preview snapshot reset, focus and size",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:34.457Z",
+    "finishedAt": "2026-10-16T04:36:35.179Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-D-O",
+    "label": "policy-EDIT-owner_only",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:35.603Z",
+    "finishedAt": "2026-10-16T04:36:35.727Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-D-R",
+    "label": "policy-EDIT-respondents",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:35.733Z",
+    "finishedAt": "2026-10-16T04:36:35.893Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-D-P",
+    "label": "policy-EDIT-public",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:35.899Z",
+    "finishedAt": "2026-10-16T04:36:36.027Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M01",
+    "label": "dirty blocks Publish, cancel zero POST and confirmed Publish/G",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:36.058Z",
+    "finishedAt": "2026-10-16T04:36:36.946Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-P-O",
+    "label": "policy-EDIT-owner_only",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:37.097Z",
+    "finishedAt": "2026-10-16T04:36:37.323Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-P-R",
+    "label": "policy-EDIT-respondents",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:37.330Z",
+    "finishedAt": "2026-10-16T04:36:37.475Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-P-P",
+    "label": "policy-EDIT-public",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:37.481Z",
+    "finishedAt": "2026-10-16T04:36:37.595Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R13",
+    "label": "normal setup MULTI/OPT full variants",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:37.605Z",
+    "finishedAt": "2026-10-16T04:36:37.825Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S01",
+    "label": "fixed ten-question definitions and four input events each",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:37.832Z",
+    "finishedAt": "2026-10-16T04:36:38.511Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02",
+    "label": "POL six forms B true UI submit then Close",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:38.520Z",
+    "finishedAt": "2026-10-16T04:36:42.597Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S04",
+    "label": "zero-response Closed definitions both identities",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:42.606Z",
+    "finishedAt": "2026-10-16T04:36:42.941Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M06",
+    "label": "dedicated Delete setup; whitelist persisted before any DELETE",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:42.955Z",
+    "finishedAt": "2026-10-16T04:36:43.339Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L01",
+    "label": "empty owner list / filter empty before bulk setup",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:43.363Z",
+    "finishedAt": "2026-10-16T04:36:43.473Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L02",
+    "label": "setup 21 forms three states, seven published responses",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:43.481Z",
+    "finishedAt": "2026-10-16T04:36:46.307Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L03",
+    "label": "filters and actual row links / mobile list",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:46.318Z",
+    "finishedAt": "2026-10-16T04:36:47.424Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-D-F",
+    "label": "/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.433Z",
+    "finishedAt": "2026-10-16T04:36:47.563Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-D-E",
+    "label": "/forms/3964443c-963d-4df7-8637-8b0049a02bbb/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.571Z",
+    "finishedAt": "2026-10-16T04:36:47.643Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-P-F",
+    "label": "/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.652Z",
+    "finishedAt": "2026-10-16T04:36:47.731Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-P-E",
+    "label": "/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.738Z",
+    "finishedAt": "2026-10-16T04:36:47.859Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-C-F",
+    "label": "/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.867Z",
+    "finishedAt": "2026-10-16T04:36:47.943Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-O-C-E",
+    "label": "/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.950Z",
+    "finishedAt": "2026-10-16T04:36:48.088Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-D-F",
+    "label": "/forms/3964443c-963d-4df7-8637-8b0049a02bbb",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.097Z",
+    "finishedAt": "2026-10-16T04:36:48.195Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-D-E",
+    "label": "/forms/3964443c-963d-4df7-8637-8b0049a02bbb/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.204Z",
+    "finishedAt": "2026-10-16T04:36:48.279Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-P-F",
+    "label": "/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.289Z",
+    "finishedAt": "2026-10-16T04:36:48.358Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-P-E",
+    "label": "/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.366Z",
+    "finishedAt": "2026-10-16T04:36:48.474Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-C-F",
+    "label": "/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.483Z",
+    "finishedAt": "2026-10-16T04:36:48.555Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05-X-C-E",
+    "label": "/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3/edit",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.562Z",
+    "finishedAt": "2026-10-16T04:36:48.672Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L05",
+    "label": "role status direct URL matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:47.433Z",
+    "finishedAt": "2026-10-16T04:36:48.681Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "L04",
+    "label": "whitelist list-shrink then page3 empty aligns once to page2",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:48.690Z",
+    "finishedAt": "2026-10-16T04:36:49.085Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R03-A",
+    "label": "single UI 201/readonly/independent Latest and duplicate409",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:49.103Z",
+    "finishedAt": "2026-10-16T04:36:50.406Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R03-B",
+    "label": "single UI 201/readonly/independent Latest and duplicate409",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:50.417Z",
+    "finishedAt": "2026-10-16T04:36:51.717Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M04",
+    "label": "Count explicit distinct 0/1/1/2",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:51.731Z",
+    "finishedAt": "2026-10-16T04:36:53.714Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R06",
+    "label": "Latest after dirty GET cancel/confirm, then omitted latest complete response",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:53.724Z",
+    "finishedAt": "2026-10-16T04:36:54.481Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R05",
+    "label": "all optional blank saves answers[]",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:54.493Z",
+    "finishedAt": "2026-10-16T04:36:55.035Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R07",
+    "label": "Latest missing retains dirty input",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:55.047Z",
+    "finishedAt": "2026-10-16T04:36:55.653Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "R10",
+    "label": "natural deadline + true deadline409, Published preserved then UI Close",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:36:55.671Z",
+    "finishedAt": "2026-10-16T04:37:15.000Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M02",
+    "label": "UI Close canceled then confirmed independent readback",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:15.011Z",
+    "finishedAt": "2026-10-16T04:37:15.893Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-C-O",
+    "label": "policy-EDIT-owner_only",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:16.044Z",
+    "finishedAt": "2026-10-16T04:37:16.242Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-C-R",
+    "label": "policy-EDIT-respondents",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:16.252Z",
+    "finishedAt": "2026-10-16T04:37:16.353Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M03-C-P",
+    "label": "policy-EDIT-public",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:16.362Z",
+    "finishedAt": "2026-10-16T04:37:16.463Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S01",
+    "label": "ST-I full Body/UI/readback fixed oracle input",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:16.558Z",
+    "finishedAt": "2026-10-16T04:37:16.890Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S01",
+    "label": "ST-A full Body/UI/readback fixed oracle input",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:16.904Z",
+    "finishedAt": "2026-10-16T04:37:17.103Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-O-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.113Z",
+    "finishedAt": "2026-10-16T04:37:17.270Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-O-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.282Z",
+    "finishedAt": "2026-10-16T04:37:17.371Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-O-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.382Z",
+    "finishedAt": "2026-10-16T04:37:17.461Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-O-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.473Z",
+    "finishedAt": "2026-10-16T04:37:17.589Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-R-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.613Z",
+    "finishedAt": "2026-10-16T04:37:17.783Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-R-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.805Z",
+    "finishedAt": "2026-10-16T04:37:17.981Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-R-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:17.992Z",
+    "finishedAt": "2026-10-16T04:37:18.070Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-R-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.081Z",
+    "finishedAt": "2026-10-16T04:37:18.189Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-P-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.200Z",
+    "finishedAt": "2026-10-16T04:37:18.342Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-P-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.358Z",
+    "finishedAt": "2026-10-16T04:37:18.483Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-P-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.496Z",
+    "finishedAt": "2026-10-16T04:37:18.623Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-AN-P-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.633Z",
+    "finishedAt": "2026-10-16T04:37:18.769Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-O-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.782Z",
+    "finishedAt": "2026-10-16T04:37:18.963Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-O-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:18.976Z",
+    "finishedAt": "2026-10-16T04:37:19.060Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-O-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.073Z",
+    "finishedAt": "2026-10-16T04:37:19.153Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-O-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.169Z",
+    "finishedAt": "2026-10-16T04:37:19.251Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-R-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.265Z",
+    "finishedAt": "2026-10-16T04:37:19.432Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-R-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.449Z",
+    "finishedAt": "2026-10-16T04:37:19.615Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-R-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.625Z",
+    "finishedAt": "2026-10-16T04:37:19.689Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-R-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.701Z",
+    "finishedAt": "2026-10-16T04:37:19.772Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-P-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.786Z",
+    "finishedAt": "2026-10-16T04:37:19.938Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-P-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:19.947Z",
+    "finishedAt": "2026-10-16T04:37:20.080Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-P-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:20.092Z",
+    "finishedAt": "2026-10-16T04:37:20.243Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S02-ID-P-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:20.262Z",
+    "finishedAt": "2026-10-16T04:37:20.420Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S04",
+    "label": "ZERO-I zero response complete",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:20.436Z",
+    "finishedAt": "2026-10-16T04:37:20.622Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S04",
+    "label": "ZERO-A zero response complete",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:20.635Z",
+    "finishedAt": "2026-10-16T04:37:20.801Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S05",
+    "label": "currently named Creator/respondent observed by new GET",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:20.813Z",
+    "finishedAt": "2026-10-16T04:37:21.747Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-D-A",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:21.760Z",
+    "finishedAt": "2026-10-16T04:37:21.854Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-D-X",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:21.865Z",
+    "finishedAt": "2026-10-16T04:37:21.938Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-D-G",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:21.952Z",
+    "finishedAt": "2026-10-16T04:37:22.020Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-P-A",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:22.033Z",
+    "finishedAt": "2026-10-16T04:37:22.108Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-P-X",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:22.120Z",
+    "finishedAt": "2026-10-16T04:37:22.188Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "S03-P-G",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:37:22.202Z",
+    "finishedAt": "2026-10-16T04:37:22.267Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M06-D",
+    "label": "dedicated UI cancel/confirm + six independent nonexistent boundaries",
+    "status": "FAIL",
+    "detail": "response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+    "startedAt": "2026-10-16T04:37:22.293Z",
+    "finishedAt": "2026-10-16T04:37:23.122Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M06-P",
+    "label": "dedicated UI cancel/confirm + six independent nonexistent boundaries",
+    "status": "FAIL",
+    "detail": "response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+    "startedAt": "2026-10-16T04:37:23.135Z",
+    "finishedAt": "2026-10-16T04:37:23.885Z"
+  },
+  {
+    "source": "canonical-a2-all.json",
+    "attempt": "a2",
+    "phase": "all",
+    "id": "M06-C",
+    "label": "dedicated UI cancel/confirm + six independent nonexistent boundaries",
+    "status": "FAIL",
+    "detail": "response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.",
+    "startedAt": "2026-10-16T04:37:23.900Z",
+    "finishedAt": "2026-10-16T04:37:24.680Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "A08",
+    "label": "profile independent PATCH/GET and shared Header",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:33.730Z",
+    "finishedAt": "2026-10-16T04:42:34.284Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "A09",
+    "label": "dirty logout cancel/confirm and fresh login",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:34.291Z",
+    "finishedAt": "2026-10-16T04:42:35.287Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "D01",
+    "label": "unselected visibility semantic placeholder and empty Preview, no initial Form writes",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32mtrue\u001b[39m\nReceived: \u001b[31mfalse\u001b[39m",
+    "startedAt": "2026-10-16T04:42:35.293Z",
+    "finishedAt": "2026-10-16T04:42:35.404Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "M06-D",
+    "label": "a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:35.419Z",
+    "finishedAt": "2026-10-16T04:42:35.545Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "M06-P",
+    "label": "a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:35.553Z",
+    "finishedAt": "2026-10-16T04:42:35.650Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "M06-C",
+    "label": "a2 actual UI204/cancel/route evidence plus new independent readbacks, NO repeat DELETE",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:35.665Z",
+    "finishedAt": "2026-10-16T04:42:35.774Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S01",
+    "label": "ST-I full Body/UI/readback fixed oracle input",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:35.882Z",
+    "finishedAt": "2026-10-16T04:42:36.264Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S01",
+    "label": "ST-A full Body/UI/readback fixed oracle input",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:36.281Z",
+    "finishedAt": "2026-10-16T04:42:36.505Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-O-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:36.513Z",
+    "finishedAt": "2026-10-16T04:42:36.676Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-O-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:36.679Z",
+    "finishedAt": "2026-10-16T04:42:36.779Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-O-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:36.788Z",
+    "finishedAt": "2026-10-16T04:42:36.884Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-O-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:36.891Z",
+    "finishedAt": "2026-10-16T04:42:37.006Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-R-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.015Z",
+    "finishedAt": "2026-10-16T04:42:37.188Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-R-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.197Z",
+    "finishedAt": "2026-10-16T04:42:37.389Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-R-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.397Z",
+    "finishedAt": "2026-10-16T04:42:37.484Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-R-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.491Z",
+    "finishedAt": "2026-10-16T04:42:37.606Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-P-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.616Z",
+    "finishedAt": "2026-10-16T04:42:37.799Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-P-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.808Z",
+    "finishedAt": "2026-10-16T04:42:37.974Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-P-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:37.980Z",
+    "finishedAt": "2026-10-16T04:42:38.172Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-AN-P-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.179Z",
+    "finishedAt": "2026-10-16T04:42:38.321Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-O-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.326Z",
+    "finishedAt": "2026-10-16T04:42:38.484Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-O-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.490Z",
+    "finishedAt": "2026-10-16T04:42:38.563Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-O-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.569Z",
+    "finishedAt": "2026-10-16T04:42:38.647Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-O-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.653Z",
+    "finishedAt": "2026-10-16T04:42:38.730Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-R-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.737Z",
+    "finishedAt": "2026-10-16T04:42:38.897Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-R-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:38.903Z",
+    "finishedAt": "2026-10-16T04:42:39.054Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-R-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.061Z",
+    "finishedAt": "2026-10-16T04:42:39.146Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-R-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.154Z",
+    "finishedAt": "2026-10-16T04:42:39.262Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-P-A",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.269Z",
+    "finishedAt": "2026-10-16T04:42:39.416Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-P-B",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.422Z",
+    "finishedAt": "2026-10-16T04:42:39.580Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-P-X",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.587Z",
+    "finishedAt": "2026-10-16T04:42:39.765Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S02-ID-P-G",
+    "label": "closed policy/identity/role matrix",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.771Z",
+    "finishedAt": "2026-10-16T04:42:39.925Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S04",
+    "label": "ZERO-I zero response complete",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:39.932Z",
+    "finishedAt": "2026-10-16T04:42:40.123Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S04",
+    "label": "ZERO-A zero response complete",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:40.133Z",
+    "finishedAt": "2026-10-16T04:42:40.307Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S05",
+    "label": "currently named Creator/respondent observed by new GET",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:40.315Z",
+    "finishedAt": "2026-10-16T04:42:41.181Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-D-A",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.189Z",
+    "finishedAt": "2026-10-16T04:42:41.298Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-D-X",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.308Z",
+    "finishedAt": "2026-10-16T04:42:41.384Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-D-G",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.393Z",
+    "finishedAt": "2026-10-16T04:42:41.464Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-P-A",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.474Z",
+    "finishedAt": "2026-10-16T04:42:41.541Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-P-X",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.550Z",
+    "finishedAt": "2026-10-16T04:42:41.624Z"
+  },
+  {
+    "source": "canonical-a3-recheck.json",
+    "attempt": "a3",
+    "phase": "recheck",
+    "id": "S03-P-G",
+    "label": "non-Closed Statistics existence protection",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:42:41.632Z",
+    "finishedAt": "2026-10-16T04:42:41.696Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "A02",
+    "label": "real email compatibility, 10/128 Code Point untrimmed passwords, 100 CP displayName",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:51:42.282Z",
+    "finishedAt": "2026-10-16T04:51:47.010Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "A03",
+    "label": "real duplicate email and credential failure remain on login/register",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveAttribute\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('tab', { name: '註冊', exact: true })\nExpected: \u001b[32m\"true\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveAttribute\" getByRole('tab', { name: '註冊', exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('tab', { name: '註冊', exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:51:47.016Z",
+    "finishedAt": "2026-10-16T04:51:52.492Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "A02",
+    "label": "client boundary rejects 101 CP name / 9 and 129 CP password; invalid email reaches real Server",
+    "status": "FAIL",
+    "detail": "locator.click: Timeout 12000ms exceeded.\nCall log:\n\u001b[2m  - waiting for getByRole('tab', { name: '註冊', exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:51:52.498Z",
+    "finishedAt": "2026-10-16T04:52:04.505Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "A05",
+    "label": "same SPA once, full refresh once, same-cookie new tab has own initialization",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('heading', { name: /歡迎/ })\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('heading', { name: /歡迎/ }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('heading', { name: /歡迎/ })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:52:04.511Z",
+    "finishedAt": "2026-10-16T04:52:09.777Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "D01",
+    "label": "new visibility is unselected and required; empty Preview is local only",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:09.787Z",
+    "finishedAt": "2026-10-16T04:52:10.460Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03",
+    "label": "additional natural-expiry prerequisite retained as Published",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.464Z",
+    "finishedAt": "2026-10-16T04:52:10.551Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-DELTA",
+    "label": "true403 no mutation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.622Z",
+    "finishedAt": "2026-10-16T04:52:10.663Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-PUBLISH",
+    "label": "true403 no mutation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.670Z",
+    "finishedAt": "2026-10-16T04:52:10.721Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-CLOSE",
+    "label": "true403 no mutation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.731Z",
+    "finishedAt": "2026-10-16T04:52:10.787Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-VIS",
+    "label": "true403 no mutation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.796Z",
+    "finishedAt": "2026-10-16T04:52:10.841Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-COUNT",
+    "label": "true403 no mutation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.847Z",
+    "finishedAt": "2026-10-16T04:52:10.881Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07-DELETE",
+    "label": "Original four whitelist resources already deleted before this negative checkpoint; no extra DELETE authorized",
+    "status": "BLOCKED",
+    "gap": "execution-order / dedicated non-deleted whitelist precondition unavailable"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M07",
+    "label": "verified nonOwner management denial before lifecycle, dedicated retained Draft",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.610Z",
+    "finishedAt": "2026-10-16T04:52:10.886Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "D04",
+    "label": "UI Choice type/config linkage cancel/confirm and independent saved reads",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:10.891Z",
+    "finishedAt": "2026-10-16T04:52:12.249Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "D06",
+    "label": "real UI title200/201 CP and long Q/label save without invented max length",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:12.255Z",
+    "finishedAt": "2026-10-16T04:52:13.002Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "D08",
+    "label": "real dirty SPA cancel/accept and saved model reentry",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:13.011Z",
+    "finishedAt": "2026-10-16T04:52:13.280Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M08-DRAFT-CLOSE",
+    "label": "true illegal Draft Close rejected",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:13.294Z",
+    "finishedAt": "2026-10-16T04:52:13.318Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M08-NOT-EDITABLE",
+    "label": "stale UI save after other tab publishes, input retained and conflict code",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:13.327Z",
+    "finishedAt": "2026-10-16T04:52:14.049Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M08-ALREADY-PUBLISHED",
+    "label": "true lifecycle conflict",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:14.057Z",
+    "finishedAt": "2026-10-16T04:52:14.084Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M08-ALREADY-CLOSED",
+    "label": "true lifecycle conflict",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:14.094Z",
+    "finishedAt": "2026-10-16T04:52:14.127Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "M08-CLOSED-PUBLISH",
+    "label": "true lifecycle conflict",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:14.139Z",
+    "finishedAt": "2026-10-16T04:52:14.175Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-T-A",
+    "label": "naturally expired Published hides or unavailable; not automatically Closed",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.220Z",
+    "finishedAt": "2026-10-16T04:52:26.360Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-T-X",
+    "label": "naturally expired Published hides or unavailable; not automatically Closed",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.368Z",
+    "finishedAt": "2026-10-16T04:52:26.467Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-T-G",
+    "label": "naturally expired Published hides or unavailable; not automatically Closed",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.476Z",
+    "finishedAt": "2026-10-16T04:52:26.670Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-DEL-A",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.679Z",
+    "finishedAt": "2026-10-16T04:52:26.773Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-DEL-X",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.778Z",
+    "finishedAt": "2026-10-16T04:52:26.848Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-DEL-G",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.853Z",
+    "finishedAt": "2026-10-16T04:52:26.932Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-NONE-A",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:26.938Z",
+    "finishedAt": "2026-10-16T04:52:27.019Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-NONE-X",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.025Z",
+    "finishedAt": "2026-10-16T04:52:27.103Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-NONE-G",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.112Z",
+    "finishedAt": "2026-10-16T04:52:27.183Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-BAD-A",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.190Z",
+    "finishedAt": "2026-10-16T04:52:27.264Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-BAD-X",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.272Z",
+    "finishedAt": "2026-10-16T04:52:27.348Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "S03-BAD-G",
+    "label": "UUID/existence precedes conditional Auth",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.355Z",
+    "finishedAt": "2026-10-16T04:52:27.429Z"
+  },
+  {
+    "source": "canonical-a4-additional.json",
+    "attempt": "a4",
+    "phase": "additional",
+    "id": "P01",
+    "label": "approved isolated malformed Cookie: real invalid/private/public/Draft/Published/logout",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:52:27.437Z",
+    "finishedAt": "2026-10-16T04:52:28.301Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "A03",
+    "label": "a4 tool correction: close modal before inspecting inert Tabs; true409/401",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:56:17.595Z",
+    "finishedAt": "2026-10-16T04:56:19.474Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "A02",
+    "label": "a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:56:19.484Z",
+    "finishedAt": "2026-10-16T04:56:20.680Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "A05",
+    "label": "a4 tool correction waits for SPA navigation commit before reload",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:56:20.684Z",
+    "finishedAt": "2026-10-16T04:56:21.348Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "L05-G-F",
+    "label": "guest protected URL preserves full redirect",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:56:21.355Z",
+    "finishedAt": "2026-10-16T04:56:21.459Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "L05-G-E",
+    "label": "guest protected URL preserves full redirect",
+    "status": "PASS",
+    "startedAt": "2026-10-16T04:56:21.464Z",
+    "finishedAt": "2026-10-16T04:56:21.547Z"
+  },
+  {
+    "source": "canonical-a5-authRetest.json",
+    "attempt": "a5",
+    "phase": "authRetest",
+    "id": "R11",
+    "label": "true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry",
+    "status": "FAIL",
+    "detail": "\u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator: getByLabel('文字', { exact: true })\nExpected: \u001b[32m\"保留未保存的真實Auth失效答案\"\u001b[39m\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('文字', { exact: true }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('文字', { exact: true })\u001b[22m\n",
+    "startedAt": "2026-10-16T04:56:21.552Z",
+    "finishedAt": "2026-10-16T04:56:27.018Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "A03",
+    "label": "a4 tool correction: close modal before inspecting inert Tabs; true409/401",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:33.926Z",
+    "finishedAt": "2026-10-16T05:08:35.801Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "A02",
+    "label": "a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:35.809Z",
+    "finishedAt": "2026-10-16T05:08:36.938Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "A05",
+    "label": "a4 tool correction waits for SPA navigation commit before reload",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:36.945Z",
+    "finishedAt": "2026-10-16T05:08:37.722Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "L05-G-F",
+    "label": "guest protected URL preserves full redirect",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:37.732Z",
+    "finishedAt": "2026-10-16T05:08:37.832Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "L05-G-E",
+    "label": "guest protected URL preserves full redirect",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:37.838Z",
+    "finishedAt": "2026-10-16T05:08:37.921Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "R11",
+    "label": "true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:37.929Z",
+    "finishedAt": "2026-10-16T05:08:38.969Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "M05",
+    "label": "real Clipboard complete Published and Closed links plus actual navigation",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:39.164Z",
+    "finishedAt": "2026-10-16T05:08:39.634Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "R02",
+    "label": "real invalid answer ownership/type rejected with no new Latest",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:39.641Z",
+    "finishedAt": "2026-10-16T05:08:41.912Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "M04",
+    "label": "Owner Count normal API in Draft0 and Closed2 without automatic polling",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:41.924Z",
+    "finishedAt": "2026-10-16T05:08:41.967Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D05",
+    "label": "microseconds omission, full config placeholder, actual Taipei change and clear",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:41.983Z",
+    "finishedAt": "2026-10-16T05:08:42.549Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D06",
+    "label": "real incomplete Draft persists, Publish refuses without silent save/default",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:42.561Z",
+    "finishedAt": "2026-10-16T05:08:43.014Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "M07",
+    "label": "stale Owner UI with true other-User Cookie revokes ability after403, preserves dirty content",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:43.023Z",
+    "finishedAt": "2026-10-16T05:08:44.280Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "S05",
+    "label": "real public→private revokes guest previously rendered stats then restores canonical policy",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:44.289Z",
+    "finishedAt": "2026-10-16T05:08:45.024Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "S04",
+    "label": "all-optional empty submission is Root1 with every question0, distinct from zero-response forms",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:45.038Z",
+    "finishedAt": "2026-10-16T05:08:45.341Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "R10",
+    "label": "true stale Published UI after independent Close:409, dirty consent, readonly",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:45.362Z",
+    "finishedAt": "2026-10-16T05:08:45.940Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "L06",
+    "label": "real deleted/nonexistent/bad UUID on Form and edit remain original URLs",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:45.948Z",
+    "finishedAt": "2026-10-16T05:08:46.444Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "P01-PROTECTED",
+    "label": "real invalid Cookie protected Form in addition to a4 me/private/public checks",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:46.452Z",
+    "finishedAt": "2026-10-16T05:08:47.696Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D05",
+    "label": "effective variant change back restores omitted baseline without PATCH",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:47.792Z",
+    "finishedAt": "2026-10-16T05:08:47.840Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D03",
+    "label": "real temporary local deletes, drag question/option and ID-only persisted option delete",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:47.846Z",
+    "finishedAt": "2026-10-16T05:08:49.047Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D04",
+    "label": "text/rating variants through actual Delta preserve applicable bounds",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:49.054Z",
+    "finishedAt": "2026-10-16T05:08:49.457Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D06",
+    "label": "min>max rejects UI save; legal Draft permits missing bounds and no Choice options",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:49.466Z",
+    "finishedAt": "2026-10-16T05:08:50.038Z"
+  },
+  {
+    "source": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+    "attempt": "a6",
+    "phase": "authRetest,completionProbes,editorProbes",
+    "id": "D08",
+    "label": "real beforeunload cancellation preserves dirty model; clean reload has no recovery",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:50.045Z",
+    "finishedAt": "2026-10-16T05:08:51.735Z"
+  },
+  {
+    "source": "canonical-a7-routeDiagnostics.json",
+    "attempt": "a7",
+    "phase": "routeDiagnostics",
+    "id": "L05-X-D-F",
+    "label": "retest a2 diagnostic declaration omission; required404 registered before request",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:13:25.282Z",
+    "finishedAt": "2026-10-16T08:13:25.355Z"
+  },
+  {
+    "source": "canonical-a7-routeDiagnostics.json",
+    "attempt": "a7",
+    "phase": "routeDiagnostics",
+    "id": "L05-X-D-E",
+    "label": "retest a2 diagnostic declaration omission; required404 registered before request",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:13:25.360Z",
+    "finishedAt": "2026-10-16T08:13:25.427Z"
+  },
+  {
+    "source": "canonical-a8-latestAndReturn.json",
+    "attempt": "a8",
+    "phase": "latestAndReturn",
+    "id": "R07",
+    "label": "real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:15:30.790Z",
+    "finishedAt": "2026-10-16T08:15:30.846Z"
+  },
+  {
+    "source": "canonical-a8-latestAndReturn.json",
+    "attempt": "a8",
+    "phase": "latestAndReturn",
+    "id": "R11",
+    "label": "real footer cancel then explicit verification and opposite close returns original query/hash",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:15:30.852Z",
+    "finishedAt": "2026-10-16T08:15:31.930Z"
+  },
+  {
+    "source": "canonical-a8-latestAndReturn.json",
+    "attempt": "a8",
+    "phase": "latestAndReturn",
+    "id": "R11",
+    "label": "real icon cancel then explicit verification and opposite close returns original query/hash",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:15:31.934Z",
+    "finishedAt": "2026-10-16T08:15:32.912Z"
+  },
+  {
+    "source": "canonical-a9-lastReadbacks.json",
+    "attempt": "a9",
+    "phase": "lastReadbacks",
+    "id": "L01",
+    "label": "real all-empty and Published-filter-empty while only one Draft exists",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:20:24.510Z",
+    "finishedAt": "2026-10-16T08:20:24.659Z"
+  },
+  {
+    "source": "canonical-a9-lastReadbacks.json",
+    "attempt": "a9",
+    "phase": "lastReadbacks",
+    "id": "M06-D",
+    "label": "both real Form and edit routes after retained original204; no repeat deletion",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:20:24.664Z",
+    "finishedAt": "2026-10-16T08:20:24.794Z"
+  },
+  {
+    "source": "canonical-a9-lastReadbacks.json",
+    "attempt": "a9",
+    "phase": "lastReadbacks",
+    "id": "M06-P",
+    "label": "both real Form and edit routes after retained original204; no repeat deletion",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:20:24.799Z",
+    "finishedAt": "2026-10-16T08:20:24.930Z"
+  },
+  {
+    "source": "canonical-a9-lastReadbacks.json",
+    "attempt": "a9",
+    "phase": "lastReadbacks",
+    "id": "M06-C",
+    "label": "both real Form and edit routes after retained original204; no repeat deletion",
+    "status": "PASS",
+    "startedAt": "2026-10-16T08:20:24.934Z",
+    "finishedAt": "2026-10-16T08:20:25.051Z"
+  },
+  {
+    "source": "canonical-chrome-a1-smoke.json",
+    "attempt": "chrome-a1",
+    "phase": "smoke",
+    "id": "B01",
+    "label": "chrome true UI register/save/publish/single/Latest/close/public-private",
+    "status": "FAIL",
+    "detail": "page.waitForResponse: Timeout 12000ms exceeded while waiting for event \"response\"",
+    "startedAt": "2026-10-16T04:56:35.674Z",
+    "finishedAt": "2026-10-16T04:56:52.682Z"
+  },
+  {
+    "source": "canonical-chrome-a2-smokeRetest.json",
+    "attempt": "chrome-a2",
+    "phase": "smokeRetest",
+    "id": "B01",
+    "label": "a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:08:59.263Z",
+    "finishedAt": "2026-10-16T05:09:00.516Z"
+  },
+  {
+    "source": "canonical-msedge-a1-smoke.json",
+    "attempt": "msedge-a1",
+    "phase": "smoke",
+    "id": "B02",
+    "label": "msedge true UI register/save/publish/multiple/Latest/close/public-private",
+    "status": "FAIL",
+    "detail": "page.waitForResponse: Timeout 12000ms exceeded while waiting for event \"response\"",
+    "startedAt": "2026-10-16T04:57:01.304Z",
+    "finishedAt": "2026-10-16T04:57:17.493Z"
+  },
+  {
+    "source": "canonical-msedge-a2-smokeRetest.json",
+    "attempt": "msedge-a2",
+    "phase": "smokeRetest",
+    "id": "B02",
+    "label": "a1 retained full core evidence; explicit reload of same statistics URL verifies public→private",
+    "status": "PASS",
+    "startedAt": "2026-10-16T05:09:08.036Z",
+    "finishedAt": "2026-10-16T05:09:09.550Z"
+  }
+]

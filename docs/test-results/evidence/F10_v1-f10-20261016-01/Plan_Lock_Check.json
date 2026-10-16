@@ -1,0 +1,56 @@
+{
+  "planCommit": "bc98f85309ef55ee1015e5727157e8d5fb9ba5ae",
+  "version": "1.1",
+  "files": [
+    {
+      "path": "docs/test-plan/F10_Acceptance_Test.md",
+      "sha256": "53f20db8c3bdec54bc6fe4a604bda38e727c55d4f670487e7adc9b0fd4aabeca",
+      "actualSha256": "53f20db8c3bdec54bc6fe4a604bda38e727c55d4f670487e7adc9b0fd4aabeca",
+      "match": true,
+      "gitBlobSha256": "53f20db8c3bdec54bc6fe4a604bda38e727c55d4f670487e7adc9b0fd4aabeca"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/Case_Results.csv",
+      "sha256": "747684eef8ccc5a193c6724e12598cee51d4336a125744fb3c095d85545f122b",
+      "actualSha256": "747684eef8ccc5a193c6724e12598cee51d4336a125744fb3c095d85545f122b",
+      "match": true,
+      "gitBlobSha256": "747684eef8ccc5a193c6724e12598cee51d4336a125744fb3c095d85545f122b"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/Coverage_Matrix.md",
+      "sha256": "098ed3b39d18a43b18b608dadba385a088405b55ad1006219ff7b057a75eae75",
+      "actualSha256": "098ed3b39d18a43b18b608dadba385a088405b55ad1006219ff7b057a75eae75",
+      "match": true,
+      "gitBlobSha256": "098ed3b39d18a43b18b608dadba385a088405b55ad1006219ff7b057a75eae75"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/Data_and_Oracle.md",
+      "sha256": "39c8d37188bfba1ec5a8d222737b3db51c33c3e8bfc5685716cb41501a9abee3",
+      "actualSha256": "39c8d37188bfba1ec5a8d222737b3db51c33c3e8bfc5685716cb41501a9abee3",
+      "match": true,
+      "gitBlobSha256": "39c8d37188bfba1ec5a8d222737b3db51c33c3e8bfc5685716cb41501a9abee3"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/E03_Commands.md",
+      "sha256": "7f116e40879bd2f688c94bb7786cccb55a4cd44e069ef2ffd10f3d69205035ed",
+      "actualSha256": "7f116e40879bd2f688c94bb7786cccb55a4cd44e069ef2ffd10f3d69205035ed",
+      "match": true,
+      "gitBlobSha256": "7f116e40879bd2f688c94bb7786cccb55a4cd44e069ef2ffd10f3d69205035ed"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/Prerequisites_and_History.md",
+      "sha256": "d7a7b5b2b82eeeaefe7036a1f4b244551f24c2b421ec9fc1c8f123aad6b8d39b",
+      "actualSha256": "d7a7b5b2b82eeeaefe7036a1f4b244551f24c2b421ec9fc1c8f123aad6b8d39b",
+      "match": true,
+      "gitBlobSha256": "d7a7b5b2b82eeeaefe7036a1f4b244551f24c2b421ec9fc1c8f123aad6b8d39b"
+    },
+    {
+      "path": "docs/test-plan/v1-acceptance/Read_Only_Inventory.md",
+      "sha256": "4e232d650c4fa370d577ab4d6cb2177ecc682931d8ca635b3b80cd59112e2d28",
+      "actualSha256": "4e232d650c4fa370d577ab4d6cb2177ecc682931d8ca635b3b80cd59112e2d28",
+      "match": true,
+      "gitBlobSha256": "4e232d650c4fa370d577ab4d6cb2177ecc682931d8ca635b3b80cd59112e2d28"
+    }
+  ],
+  "Plan_Lock_json_sha256": "460f9647f036302bcf00687da94e7fa96219e302ec51740a1bc7694f2f38b2e0"
+}

@@ -1,0 +1,22 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts --grep F02-CREATE|F05-CREATE
+
+[WebServer] 
+[WebServer]  ERROR  (node:27368) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:24732) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 5 tests using 1 worker
+
+(node:37580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok 1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-NET product build isolated unknown write (1.0s)
+  ok 2 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-TIME product build isolated unknown write (31.0s)
+  ok 3 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:70:92 › F02-CREATE-500 product build isolated unknown write (1.0s)
+  ok 4 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-MALFORMED unreliable success never adopted (1.1s)
+  ok 5 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\fault.spec.mjs:85:138 › F05-CREATE-INVALID_UUID unreliable success never adopted (1.1s)
+
+  5 passed (40.8s)

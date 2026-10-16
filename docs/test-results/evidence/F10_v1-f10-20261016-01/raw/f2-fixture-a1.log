@@ -1,0 +1,33 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:38660) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+
+Running 18 tests using 1 worker
+
+(node:36392) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f2-common.spec.ts:18:1 › numeric gate: native fetch raw DTOs and exact outgoing tokens (6.2s)
+  ok  2 [chromium] › tests\e2e\f2-common.spec.ts:42:1 › pending mutual exclusion, unknown lock, cancelled adoption and modal close paths (3.3s)
+  ok  3 [chromium] › tests\e2e\f2-common.spec.ts:85:1 › stale response/error/session and old finally do not update current page (1.9s)
+  ok  4 [chromium] › tests\e2e\f2-common.spec.ts:106:1 › dirty route updates, replacement, one action redirect, history and reload prompts (7.3s)
+  ok  5 [chromium] › tests\e2e\f2-common.spec.ts:131:1 › native network failure and 30000ms timeout preserve input and never retry write (32.8s)
+  ok  6 [chromium] › tests\e2e\f2-common.spec.ts:151:1 › read failure keeps page and manual retry recovers (1.1s)
+  ok  7 [chromium] › tests\e2e\f2-common.spec.ts:160:3 › Latest network preserves answers and allows manual read retry (1.7s)
+  ok  8 [chromium] › tests\e2e\f2-common.spec.ts:160:3 › Latest 500 preserves answers and allows manual read retry (1.8s)
+  ok  9 [chromium] › tests\e2e\f2-common.spec.ts:160:3 › Latest malformed preserves answers and allows manual read retry (1.7s)
+  ok 10 [chromium] › tests\e2e\f2-common.spec.ts:182:1 › Latest retains Auth and RESPONSE_NOT_FOUND classifications without replacing answers (2.2s)
+  ok 11 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write success after session cannot apply callbacks (1.1s)
+  ok 12 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write auth after session cannot apply callbacks (1.1s)
+  ok 13 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write success after resource cannot apply callbacks (1.1s)
+  ok 14 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write auth after resource cannot apply callbacks (1.2s)
+  ok 15 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write success after unmount cannot apply callbacks (1.1s)
+  ok 16 [chromium] › tests\e2e\f2-common.spec.ts:197:5 › supplement: late write auth after unmount cannot apply callbacks (1.2s)
+  ok 17 [chromium] › tests\e2e\f2-common.spec.ts:226:1 › supplement: dirty native back and forward cancellation restores history and asks again (1.2s)
+  ok 18 [chromium] › tests\e2e\f2-common.spec.ts:251:1 › supplement: Latest native 30000ms timeout preserves answers and permits manual retry (31.7s)
+
+  18 passed (1.8m)

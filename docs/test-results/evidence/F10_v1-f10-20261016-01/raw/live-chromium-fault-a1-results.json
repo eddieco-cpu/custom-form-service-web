@@ -1,0 +1,2721 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-fault-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "fault.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "fault.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-fault-a1-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "fault.spec.mjs",
+      "file": "fault.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F02-REGISTER-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1117,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:57:47.671Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL3JlZ2lzdGVyIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOnRydWV9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9hdXRoL3JlZ2lzdGVyIn1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NjQ4fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-a08208d45cd67fb30911",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-REGISTER-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30958,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:57:49.023Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL3JlZ2lzdGVyIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0Ijp0cnVlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvYXV0aC9yZWdpc3RlciJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNTc3fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-906a32f5c6ad34d84f88",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-REGISTER-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1003,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:19.993Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL3JlZ2lzdGVyIiwia2luZCI6IjUwMCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOnRydWV9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9hdXRoL3JlZ2lzdGVyIn1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NjIzfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-2263bff1d854c2fde7a0",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGIN-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 890,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:21.014Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOnRydWV9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9hdXRoL2xvZ2luIn1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NTc4fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-854e6e3e1fdc7ff5c3e1",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGIN-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30967,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:21.914Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0Ijp0cnVlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvYXV0aC9sb2dpbiJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNjA2fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-78aa5285525cc3d1f50e",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGIN-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1015,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:52.892Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ2luIiwia2luZCI6IjUwMCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOnRydWV9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9hdXRoL2xvZ2luIn1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NjIxfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-fe1a51c4a5a1bd24e92e",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGOUT-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1072,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:53.915Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ291dCIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2F1dGgvbG9nb3V0In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NzI4fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-072aef90312713965281",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGOUT-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31129,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:58:54.994Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ291dCIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9hdXRoL2xvZ291dCJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNjkzfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-ddb7c2c76c3a2562c334",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-LOGOUT-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1161,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:59:26.136Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9hdXRoL2xvZ291dCIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2F1dGgvbG9nb3V0In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6Njk5fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-0bfa1d3c57a06f9ccdd6",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PROFILE-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 940,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:59:27.308Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUiLCJraW5kIjoiTkVUIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBBVENIIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo2NTR9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-805efb0582ae6d227bea",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PROFILE-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30875,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:59:28.259Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUiLCJraW5kIjoiVElNRSIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6MzA1NTR9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-f29012e101a79783a66f",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PROFILE-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 919,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:59:59.144Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvdXNlcnMvbWUiLCJraW5kIjoiNTAwIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBBVENIIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo1OTd9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-e24388d0815603188e75",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CREATE-NET product build isolated unknown write",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 5960,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                      "column": 221,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                        "column": 221,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n\n  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:00:00.073Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZnlu7rnq4vovLjlhaVcIixcImRlc2NyaXB0aW9uXCI6bnVsbCxcInJlc3BvbnNlTW9kZVwiOlwic2luZ2xlXCIsXCJyZXNwb25zZUlkZW50aXR5XCI6XCJhbm9ueW1vdXNcIixcInJlc3VsdFZpc2liaWxpdHlcIjpcInB1YmxpY1wiLFwic3VibWlzc2lvbkRlYWRsaW5lQXRcIjpudWxsLFwicXVlc3Rpb25zXCI6W119In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6bnVsbH0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1\\fault-F02-CREATE-NET-product-build-isolated-unknown-write-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                    "column": 221,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-13bb839c8f93c850efb2",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CREATE-TIME product build isolated unknown write",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 1,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 35995,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                      "column": 221,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                        "column": 221,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n\n  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:00:06.684Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOm51bGx9"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1\\fault-F02-CREATE-TIME-product-build-isolated-unknown-write-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                    "column": 221,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-0a7382c4e5790a84bb45",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CREATE-500 product build isolated unknown write",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 2,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6003,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                      "column": 221,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                        "column": 221,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n\n  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();await btn(p,'保存草稿').click();await expect(p.getByRole('dialog')).toBeVisible();expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:72:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:00:43.579Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZnlu7rnq4vovLjlhaVcIixcImRlc2NyaXB0aW9uXCI6bnVsbCxcInJlc3BvbnNlTW9kZVwiOlwic2luZ2xlXCIsXCJyZXNwb25zZUlkZW50aXR5XCI6XCJhbm9ueW1vdXNcIixcInJlc3VsdFZpc2liaWxpdHlcIjpcInB1YmxpY1wiLFwic3VibWlzc2lvbkRlYWRsaW5lQXRcIjpudWxsLFwicXVlc3Rpb25zXCI6W119In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6bnVsbH0="
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1\\fault-F02-CREATE-500-product-build-isolated-unknown-write-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                    "column": 221,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-8793660db19c3c764cc8",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELTA-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1108,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:00:50.404Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IlBBVENIIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZlEZWx0Yei8uOWFpVwifSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjY2NX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-5a3140b290a6c015de8a",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELTA-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31201,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:00:51.713Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZRGVsdGHovLjlhaVcIn0ifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozMDczM30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-432abe1d76d34afbac34",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELTA-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1053,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:22.925Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6IjUwMCIsInN0YXR1cyI6ImRyYWZ0IiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IlBBVENIIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6IntcInRpdGxlXCI6XCLkv53nlZlEZWx0Yei8uOWFpVwifSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjYxNn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-8cd3e27a964fbee67124",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PUBLISH-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1286,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:23.993Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcHVibGlzaCIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3B1Ymxpc2giLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo4Mjh9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-329f9c9d2a9a0be8e132",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PUBLISH-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31389,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:25.292Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcHVibGlzaCIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9wdWJsaXNoIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6MzA4Nzh9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-3c375432b4798a472dfa",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-PUBLISH-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1408,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:56.695Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcHVibGlzaCIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3B1Ymxpc2giLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo4Mzh9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-52062d910e93f7620cfd",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CLOSE-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1399,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:58.118Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJraW5kIjoiTkVUIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo4Mzh9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-23fdbf9daadeae8b99bb",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CLOSE-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31337,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:01:59.530Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJraW5kIjoiVElNRSIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL2Nsb3NlIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6MzA4MDh9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-bce4677ff5352b845081",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-CLOSE-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1263,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:02:30.875Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJraW5kIjoiNTAwIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvY2xvc2UiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo4MTR9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-2812cb321eac3cff7280",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-VIS-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1001,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:02:32.145Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5Iiwia2luZCI6Ik5FVCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSIsImJvZHkiOiJ7XCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJvd25lcl9vbmx5XCJ9In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6ODU5fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-2a7509ce592fb0cc6dfa",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-VIS-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31017,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:02:33.152Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5Iiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUEFUQ0giLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzdWx0LXZpc2liaWxpdHkiLCJib2R5Ijoie1wicmVzdWx0VmlzaWJpbGl0eVwiOlwib3duZXJfb25seVwifSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwODMzfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-9f3eace9d6bab00a9374",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-VIS-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1010,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:04.180Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3VsdC12aXNpYmlsaXR5Iiwia2luZCI6IjUwMCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXN1bHQtdmlzaWJpbGl0eSIsImJvZHkiOiJ7XCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJvd25lcl9vbmx5XCJ9In1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6ODU0fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-d896e68cfdbae9187555",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELETE-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1266,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:05.195Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkRFTEVURSBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiREVMRVRFIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NzgyfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-bad9338f121e0848c89c",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELETE-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31187,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:06.468Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkRFTEVURSBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfSx7Im1ldGhvZCI6IkRFTEVURSIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNzY0fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-02aeb9ca30011d42a783",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-DELETE-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1202,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:37.662Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkRFTEVURSBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiREVMRVRFIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6Nzg0fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-744307059b81227dcb47",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-RESPONSE-NET product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1114,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:38.872Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcyIsImJvZHkiOiJ7XCJhbnN3ZXJzXCI6W3tcInF1ZXN0aW9uSWRcIjpcIjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMVwiLFwidmFsdWVcIjpcIuS/neeVmeWhq+etlOi8uOWFpVwifV19In0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzL21lL2xhdGVzdCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjY5N30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-6262817754c1e14cad15",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-RESPONSE-TIME product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 31140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:03:39.996Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOlt7XCJxdWVzdGlvbklkXCI6XCIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMDFcIixcInZhbHVlXCI6XCLkv53nlZnloavnrZTovLjlhaVcIn1dfSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozMDcwMH0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-b8000e0f4479c6c3e543",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F02-RESPONSE-500 product build isolated unknown write",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1158,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:11.143Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6IjUwMCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQT1NUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcyIsImJvZHkiOiJ7XCJhbnN3ZXJzXCI6W3tcInF1ZXN0aW9uSWRcIjpcIjAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDAwMVwiLFwidmFsdWVcIjpcIuS/neeVmeWhq+etlOi8uOWFpVwifV19In0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzL21lL2xhdGVzdCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjczOX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-7f5660ec182be935f209",
+          "file": "fault.spec.mjs",
+          "line": 70,
+          "column": 92
+        },
+        {
+          "title": "F01-ME-NET product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 393,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:12.307Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMxMH0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-f5a95d280e8fd5ad1d0c",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-ME-TIME product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30476,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:12.709Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozMDM4Mn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-67be7721bb8232820e15",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-ME-500 product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 424,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:43.196Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwia2luZCI6IjUwMCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMxNX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-81664be237c829ae2788",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-ME-BODY product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 447,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:43.628Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL3VzZXJzL21lIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozNTN9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-80d7362ecaa740ea0bbb",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LIST-NET product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 521,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:44.086Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zP3BhZ2U9MSZwYWdlU2l6ZT0xMCIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6Mzg5fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-4cb2b742b86a80a9a930",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LIST-TIME product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30522,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:04:44.618Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zP3BhZ2U9MSZwYWdlU2l6ZT0xMCIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjMwNDI4fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-433169fa58d5ce5fe395",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LIST-500 product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 565,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:15.149Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zP3BhZ2U9MSZwYWdlU2l6ZT0xMCIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NDQ5fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-a0b60daa65f123d7d8b7",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LIST-BODY product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 530,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:15.724Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zP3BhZ2U9MSZwYWdlU2l6ZT0xMCIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjQyNX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-704090b61e8e0409be08",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-FORM-NET product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 645,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:16.263Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiJORVQiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjUzN30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-820283d96605caf2aad1",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-FORM-TIME product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30563,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:16.922Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiJUSU1FIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozMDQyOX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-aba1b49eac6c5a726128",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-FORM-500 product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 666,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:47.495Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiI1MDAiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjU1Mn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-55b1147871c6f3017a44",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-FORM-BODY product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 723,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:48.175Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoicHVibGlzaGVkIiwiZ3Vlc3QiOmZhbHNlfSwicmVxdWVzdHMiOlt7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL3VzZXJzL21lIn0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo1NzF9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-59d58117717b510a0560",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LATEST-NET product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1032,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:48.914Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMvbWUvbGF0ZXN0Iiwia2luZCI6Ik5FVCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzL21lL2xhdGVzdCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjkyMX0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-69d4b0eee50db94f1bf3",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LATEST-TIME product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30981,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:05:49.958Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMvbWUvbGF0ZXN0Iiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjozMDg4Mn0="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-69958ef00e6e9cae947f",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LATEST-500 product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 960,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:20.951Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMvbWUvbGF0ZXN0Iiwia2luZCI6IjUwMCIsInN0YXR1cyI6InB1Ymxpc2hlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzL21lL2xhdGVzdCIsImJvZHkiOm51bGx9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOjg0N30="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-235617e5417c5fa677b3",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-LATEST-BODY product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 921,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:21.924Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMvbWUvbGF0ZXN0Iiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo4Mjl9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-fd800f113f9b4005106d",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-STATS-NET product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:22.856Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwia2luZCI6Ik5FVCIsInN0YXR1cyI6ImNsb3NlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo0MzV9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-e895b425a0a5d1ecfa68",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-STATS-TIME product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 30583,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:23.423Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwia2luZCI6IlRJTUUiLCJzdGF0dXMiOiJjbG9zZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6MzA0ODB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-45495d59a565ad77e5b1",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-STATS-500 product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 544,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:54.015Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwia2luZCI6IjUwMCIsInN0YXR1cyI6ImNsb3NlZCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3N0YXRpc3RpY3MiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjo0MzB9"
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-1bb4cc7feecc3707dbfa",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F01-STATS-BODY product build isolated read",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 557,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:54.574Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IkdFVCBodHRwOi8vbG9jYWxob3N0OjUwMDAvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJjbG9zZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9zdGF0aXN0aWNzIiwiYm9keSI6bnVsbH1dLCJ0YXJnZXRDYWxscyI6MSwiZXJyb3JzIjpbXSwidW5leHBlY3RlZCI6W10sImVsYXBzZWRNcyI6NDI4fQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-164182b6eedb9eab8ec6",
+          "file": "fault.spec.mjs",
+          "line": 76,
+          "column": 102
+        },
+        {
+          "title": "F05-CREATE-MALFORMED unreliable success never adopted",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 3,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6038,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:90:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                      "column": 221,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                        "column": 221,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n\n  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:90:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:06:55.142Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOm51bGx9"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1\\fault-F05-CREATE-MALFORMED-unreliable-success-never-adopted-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                    "column": 221,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-8648676c36b92905dd20",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-CREATE-INVALID_UUID unreliable success never adopted",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 4,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 6009,
+                  "error": {
+                    "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n",
+                    "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:90:18",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                      "column": 221,
+                      "line": 64
+                    },
+                    "snippet": "  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                        "column": 221,
+                        "line": 64
+                      },
+                      "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoBeVisible\u001b[2m(\u001b[22m\u001b[2m)\u001b[22m failed\n\nLocator: getByRole('dialog')\nExpected: visible\nTimeout: 5000ms\nError: element(s) not found\n\nCall log:\n\u001b[2m  - Expect \"toBeVisible\" getByRole('dialog') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('dialog')\u001b[22m\n\n\n  62 |   if(op==='LOGOUT'){await expect(btn(p,'使用者選單')).toBeVisible();expect(new URL(p.url()).pathname).toBe('/')}\n  63 |   if(op==='PROFILE'){await expect(p.getByRole('textbox',{name:'姓名'})).toHaveValue('保留Profile輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'核對目前個人資訊')).toBeVisible()}\n> 64 |   if(op==='CREATE'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留建立輸入');await expect(p.getByRole('link',{name:'前往我的表單核對'})).toBeVisible();let nativeConfirm=0;p.once('dialog',async d=>{expect(d.type()).toBe('confirm');nativeConfirm++;await d.dismiss()});await btn(p,'保存草稿').click();expect(nativeConfirm).toBe(1);expect(s.targetCalls).toBe(1)}\n     |                                                                                                                                                                                                                             ^\n  65 |   if(op==='DELTA'){await expect(p.getByLabel('表單標題',{exact:true})).toHaveValue('保留Delta輸入');await expect(btn(p,'保存')).toBeDisabled();await expect(btn(p,'發布')).toBeDisabled();await expect(btn(p,'重新載入表單')).toBeEnabled()}\n  66 |   if(['PUBLISH','CLOSE','DELETE','VIS'].includes(op)){await expect(btn(p,'重新載入並核對')).toBeVisible();if(op==='VIS')await expect(p.getByRole('radio',{name:'所有人',exact:true})).toBeChecked()}\n  67 |   if(op==='RESPONSE'){await expect(p.getByLabel('文字',{exact:true})).toHaveValue('保留填答輸入');p.once('dialog',d=>d.accept());await btn(p,'查看我的填答').click();await p.getByLabel('文字',{exact:true}).fill('核對後仍有重複風險');p.once('dialog',d=>d.dismiss());await btn(p,'提交表單').click();expect(s.targetCalls).toBe(1)}\n    at assertUnknown (C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:64:221)\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs:90:18"
+                    }
+                  ],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:01.913Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3JtcyIsImtpbmQiOiJCT0RZIiwic3RhdHVzIjoiZHJhZnQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IlBPU1QiLCJwYXRoIjoiL2FwaS92MS9mb3JtcyIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZ5bu656uL6Ly45YWlXCIsXCJkZXNjcmlwdGlvblwiOm51bGwsXCJyZXNwb25zZU1vZGVcIjpcInNpbmdsZVwiLFwicmVzcG9uc2VJZGVudGl0eVwiOlwiYW5vbnltb3VzXCIsXCJyZXN1bHRWaXNpYmlsaXR5XCI6XCJwdWJsaWNcIixcInN1Ym1pc3Npb25EZWFkbGluZUF0XCI6bnVsbCxcInF1ZXN0aW9uc1wiOltdfSJ9XSwidGFyZ2V0Q2FsbHMiOjEsImVycm9ycyI6W10sInVuZXhwZWN0ZWQiOltdLCJlbGFwc2VkTXMiOm51bGx9"
+                    },
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-fault-a1\\fault-F05-CREATE-INVALID-U-6ea81-iable-success-never-adopted-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\fault.spec.mjs",
+                    "column": 221,
+                    "line": 64
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-c94153706db36bc3354c",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-DELTA-MALFORMED unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1027,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:08.826Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZRGVsdGHovLjlhaVcIn0ifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-cc1654ee763a1914b370",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-DELTA-INVALID_UUID unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1037,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:10.054Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZRGVsdGHovLjlhaVcIn0ifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-5a84151fa27d7649a4cf",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-DELTA-WRONG_RESOURCE unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1085,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:11.101Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBBVENIIGh0dHA6Ly9sb2NhbGhvc3Q6NTAwMC9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJkcmFmdCIsImd1ZXN0IjpmYWxzZX0sInJlcXVlc3RzIjpbeyJtZXRob2QiOiJHRVQiLCJwYXRoIjoiL2FwaS92MS91c2Vycy9tZSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwIiwiYm9keSI6bnVsbH0seyJtZXRob2QiOiJQQVRDSCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOiJ7XCJ0aXRsZVwiOlwi5L+d55WZRGVsdGHovLjlhaVcIn0ifV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-414fc1d7d61c0b384d9e",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-RESPONSE-MALFORMED unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1120,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:12.200Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOlt7XCJxdWVzdGlvbklkXCI6XCIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMDFcIixcInZhbHVlXCI6XCLkv53nlZnloavnrZTovLjlhaVcIn1dfSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-db06d63139b1776d81d7",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-RESPONSE-INVALID_UUID unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1140,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:13.329Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOlt7XCJxdWVzdGlvbklkXCI6XCIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMDFcIixcInZhbHVlXCI6XCLkv53nlZnloavnrZTovLjlhaVcIn1dfSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-aa84bad1cd0a08fe4121",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        },
+        {
+          "title": "F05-RESPONSE-WRONG_RESOURCE unreliable success never adopted",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 5,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 1168,
+                  "errors": [],
+                  "stdout": [],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:07:14.478Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "isolated-fixed-expectation-evidence",
+                      "contentType": "application/json",
+                      "body": "eyJzaW11bGF0ZWQiOnRydWUsImV4cGVjdGVkIjp7InRhcmdldCI6IlBPU1QgaHR0cDovL2xvY2FsaG9zdDo1MDAwL2FwaS92MS9mb3Jtcy8wMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwNTAvcmVzcG9uc2VzIiwia2luZCI6IkJPRFkiLCJzdGF0dXMiOiJwdWJsaXNoZWQiLCJndWVzdCI6ZmFsc2V9LCJyZXF1ZXN0cyI6W3sibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvdXNlcnMvbWUifSx7Im1ldGhvZCI6IkdFVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MCIsImJvZHkiOm51bGx9LHsibWV0aG9kIjoiUE9TVCIsInBhdGgiOiIvYXBpL3YxL2Zvcm1zLzAwMDAwMDAwLTAwMDAtNDAwMC04MDAwLTAwMDAwMDAwMDA1MC9yZXNwb25zZXMiLCJib2R5Ijoie1wiYW5zd2Vyc1wiOlt7XCJxdWVzdGlvbklkXCI6XCIwMDAwMDAwMC0wMDAwLTQwMDAtODAwMC0wMDAwMDAwMDAwMDFcIixcInZhbHVlXCI6XCLkv53nlZnloavnrZTovLjlhaVcIn1dfSJ9LHsibWV0aG9kIjoiR0VUIiwicGF0aCI6Ii9hcGkvdjEvZm9ybXMvMDAwMDAwMDAtMDAwMC00MDAwLTgwMDAtMDAwMDAwMDAwMDUwL3Jlc3BvbnNlcy9tZS9sYXRlc3QiLCJib2R5IjpudWxsfV0sInRhcmdldENhbGxzIjoxLCJlcnJvcnMiOltdLCJ1bmV4cGVjdGVkIjpbXSwiZWxhcHNlZE1zIjpudWxsfQ=="
+                    }
+                  ]
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "b88dab8715d00dc917ef-e4633fd2050c9b91ca25",
+          "file": "fault.spec.mjs",
+          "line": 85,
+          "column": 138
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:57:43.005Z",
+    "duration": 573366.381,
+    "expected": 56,
+    "skipped": 0,
+    "unexpected": 5,
+    "flaky": 0
+  }
+}

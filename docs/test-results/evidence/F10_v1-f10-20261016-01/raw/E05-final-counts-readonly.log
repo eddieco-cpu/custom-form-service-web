@@ -1,0 +1,12 @@
+BEGIN
+ run_forms | soft_deleted 
+-----------+--------------
+        44 |            4
+(1 row)
+
+ run_responses 
+---------------
+            34
+(1 row)
+
+ROLLBACK

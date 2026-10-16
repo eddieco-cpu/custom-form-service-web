@@ -1,0 +1,3350 @@
+[
+  {
+    "report": "E02-unit-results.json",
+    "success": true,
+    "tests": 505,
+    "passed": 505,
+    "files": 17,
+    "assertions": [
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) includes credentials, serializes exact numbers, and decodes direct receipt",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) handles 204 without reading the body",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) accepts typed request interfaces and classifies failed 204 decoders as contract failures",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 400",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 401",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 403",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 404",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 409",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) retains status/Envelope and never routes or retries 500",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: ",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: <html>error</html>",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"data\":{\"count\":1}}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":\"1\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":null}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) fails contract instead of inventing data: {\"count\":2147483648}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) rejects local lossy body and base escape before any fetch",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) times out body reads, aborts signal, finishes timer, and retries zero times",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "direct-resource client (mock fetch) network and abort results distinguish sent from never dispatched",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: transport-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: contract-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest failure is a retryable read, not an unknown write: api-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest retains AUTH_REQUIRED routing classification",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors Latest retains AUTH_USER_DISABLED routing classification",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors decodes text definition / receipt / statistic without changing semantics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors decodes number definition / receipt / statistic without changing semantics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors decodes rating definition / receipt / statistic without changing semantics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors decodes single_choice definition / receipt / statistic without changing semantics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors decodes multiple_choice definition / receipt / statistic without changing semantics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors validates resource nullable, enums, raw config, page and zero count",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors preserves anonymous absence / identified empty array and rejects null/missing roots",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors different contexts keep Auth, normal no-response, statistics and form absence distinct",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/api-client.spec.ts",
+        "name": "DTO / contextual errors maps immutable request positions by namespace, preserving unmapped details",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/common-adapters.spec.ts",
+        "name": "Unicode / candidate semantics trims only White_Space edges, preserving internal spaces, FEFF and ZWSP",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/common-adapters.spec.ts",
+        "name": "Unicode / candidate semantics counts code points without normalization and keeps passwords byte-for-byte",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/common-adapters.spec.ts",
+        "name": "Unicode / candidate semantics ASCII email lowercases while non-ASCII casing belongs to server",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/common-adapters.spec.ts",
+        "name": "exact datetime / baseline retains fraction and compares offset-equivalent instants",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/common-adapters.spec.ts",
+        "name": "exact datetime / baseline crosses days and validates leap years without JS rollover",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 9007199254740993 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0.123456789012345678901234567890123456789 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e80 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-101 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e400 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted -1e401 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e131071 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 1e-16383 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) round-trips unquoted 0e1073741823 without native numbers",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) numeric equality 1 = 1.0",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) numeric equality 1.0 = 1e0",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) numeric equality -0 = 0",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) numeric equality 1000e-3 = 1",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order 9007199254740993 < 9007199254740994",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order 1e80 < 100000000000000000000000000000000000000000000000000000000000000000000000000000001",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order 0 < 1e-101",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order 1e400 < 1e401",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order -1e401 < -1e400",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order -2 < -1",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) fixed expected order 0.1 < 0.1000000000000000000001",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) compares inclusive bounds precisely and distinguishes unanswered from zero",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 01",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding +1",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding .1",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1.",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding NaN",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding Infinity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1,2",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e131072",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 1e-16384",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e1073741824",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0e-1073741824",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) rejects invalid or capacity-exceeding 0.00e-16382",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) checks original fractional capacity before trimming trailing zeros",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/exact-number-gate.spec.ts",
+        "name": "F2 exact number feasibility gate (synthetic) only converts validated native integers; prevents accidental lossy serialization",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations shares the first Promise and keeps settled null across SPA navigation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations settles formal AUTH_REQUIRED as anonymous",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations settles formal AUTH_TOKEN_INVALID as anonymous",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations settles formal AUTH_TOKEN_EXPIRED as anonymous",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (api-error)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (transport-error)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations retains old presentation on disabled/unknown and never retries implicitly (contract-error)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations late bootstrap cannot overwrite login and settled navigation does not await it",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations late bootstrap cannot overwrite logout and settled navigation does not await it",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations late bootstrap cannot overwrite profile and settled navigation does not await it",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations only the latest explicit candidate may be adopted; profile keeps the session revision",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 session and generations a different User returned by PATCH advances the session revision (shared Cookie changed in another tab)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /profile?from=x#name",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /forms",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /forms/new",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /forms/invalid-id/edit?x=1",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect keeps known route /forms/11111111-1111-4111-8111-111111111111/statistics#result",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"https://evil.test/profile\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"//evil.test\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/\\\\evil.test\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/%5cevil.test\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/%2f%2fevil.test\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/profile%2funknown\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/profile?x=%zz\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/%00profile\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/login\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/login?redirect=/profile\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/unknown\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/forms/a/unknown\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects \"/profile\"",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 redirect rejects null",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics allows a@localhost through basic registration gate for final server validation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics allows \"a b\"@example.test through basic registration gate for final server validation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics allows 中文@example.test through basic registration gate for final server validation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics allows İ@example.test through basic registration gate for final server validation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics allows a@@example.test through basic registration gate for final server validation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for password length 9 without trimming",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for password length 10 without trimming",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for password length 128 without trimming",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for password length 129 without trimming",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for name length 100",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics uses Code Points for name length 101",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics login does not apply register email/password constraints and builders whitelist keys",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f3-auth.spec.ts",
+        "name": "F3 input semantics normalized no-op and editing back to baseline are clean",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing sends only fixed pagination/status query fields",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 1 / 0 with reload budget true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 3 / 0 with reload budget true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 1 / 1 with reload budget true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 2 / 2 with reload budget true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 3 / 2 with reload budget true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing aligns page 2 / 1 with reload budget false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing routes draft using fresh detail and actual owner ID",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing routes published using fresh detail and actual owner ID",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing routes closed using fresh detail and actual owner ID",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing maps only formId validation to invalid link, retaining details",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 read contract and routing uses real service/client lossless decode, preserves datetime, signal and rejects wrong resource",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late success after key, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after key, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after key, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late success after session, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after session, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after session, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late success after dispose, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after dispose, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership ignores late api-error after dispose, including Auth/navigation/finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership retains a reliable snapshot on read failure, then manual retry replaces it",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership first AUTH_REQUIRED navigates after own revision invalidation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership first AUTH_TOKEN_INVALID navigates after own revision invalidation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership first AUTH_TOKEN_EXPIRED navigates after own revision invalidation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership manual Auth keeps the Dialog outside invalidated resource scope until close",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external session",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership revokes an adopted Auth flow on external dispose",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4 controller side effects and Auth flow ownership disabled resource failure retains User and never initiates logout/login",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment carries only the presentation through cleared query data and own Auth invalidation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment retains initial automatic-read redirect policy through alignment",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment does not turn manual retry without loaded data into a Dialog",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment a captured Dialog policy does not leak to a later external query read",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external query",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external query, including late close",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external route",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external route, including late close",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external session",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external session, including late close",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment rejects the uncancellable aligned Auth response after external dispose",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f4-form-read.spec.ts",
+        "name": "F4-R1 operation Auth presentation through automatic alignment revokes an aligned Auth Dialog after external dispose, including late close",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain initializes every type explicitly unanswered and optional blanks produce answers []",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain required text empty blocks submission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain required number empty blocks submission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain required single_choice empty blocks submission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain required multiple_choice empty blocks submission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain required rating empty blocks submission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain keeps number 0 and Rating 0, distinguishes Range visual min from explicit answer, clearing restores empty",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain five valid values use only Server Question/Option IDs, with a fixed expected wire",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 0.123456789012345678901234567890123456789 without rounding or strings",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 9007199254740993 without rounding or strings",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain exact builder -> F2 serializer/parser retains 1e-100 without rounding or strings",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain 1 / 1.0 / 1e0 are equal in dirty; stale cached exact cannot override raw input",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number bad blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number NaN blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number Infinity blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number   blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number 01 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number -0.1 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional number 9007199254740993.123456789012345679 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain bounds compare exactly at the final decimal digit",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain text trim/codepoint rules preserve case and inner whitespace; optional nonempty out-of-range blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain rejects foreign Choice keys, value/label impostors, duplicate multiple selections and wrong input type",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating -1 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating 6 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating 1.5 blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating NaN blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating Infinity blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain invalid nonempty optional Rating null blocks",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain multiple selection is a set for dirty; clearing and snapshot independence are preserved",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain omission-aware map locates request index, missing Question ID and multi index; unknown paths stay summary",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain Preview supports local keys and independent empty sessions, but formal builder refuses missing IDs",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain rejects missing Option IDs and unknown model questions instead of leaking keys into formal Body",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-answer.spec.ts",
+        "name": "F5 five-type Answer domain incomplete Rating has no invented bound or valid trial answer",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[minLength] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[maxLength] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[placeholder] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[variant] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[min] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[max] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice config[variant] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency multiple_choice config[variant] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[variant] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[min] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[max] undefined: Draft valid, Delta noop, dirty=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[minLength] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[maxLength] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[placeholder] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[variant] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[placeholder] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[min] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[max] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice config[variant] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency multiple_choice config[variant] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[variant] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[min] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[max] cleared: dirty=true and full replacement removes only that key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[minLength] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[maxLength] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[placeholder] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[placeholder] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[variant] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[min] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[max] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice config[variant] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency multiple_choice config[variant] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[variant] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[min] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[max] null stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text unknown unknown=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number unknown unknown=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice unknown unknown=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency multiple_choice unknown unknown=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating unknown unknown=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text unknown unknown= stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text unknown min= stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number unknown variant=undefined stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice unknown placeholder=   stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[minLength] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[maxLength] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[placeholder] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[placeholder] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency text config[variant] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[min] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency number config[max] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency single_choice config[variant] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency multiple_choice config[variant] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[variant] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[min] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency rating config[max] illegal nonempty input stays dirty and is rejected",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-config-omission.spec.ts",
+        "name": "F5-R1 optional config omission consistency generic comparison still distinguishes an unknown undefined key from omission",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta new requires Visibility; valid minimum Create is a whitelisted normalized body",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta Create sends new complete questions/options without local keys or readonly metadata",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta unchanged loaded model produces noop; editing only title never fills config or sparse order",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta config replacement keeps original settings and omitted variant",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta fallback variant roundtrip and empty optional keys are noops",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta sparse reorder sends dense sortOrder, preserves ID/value and undo is noop",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta new then local delete emits nothing; existing option delete is id-only plus final sibling order",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta whole question removal sends one id-only delete without nested option deletion",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta Choice -> text sends type and complete target config without nonempty Option Delta",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta fixed expected: existing single_choice -> confirmed text -> single_choice explicitly deletes original IDs and creates new Options",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta Choice interchange preserves Options without fabricated deletion; nonChoice -> Choice creates them",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta description clearing uses null, deadline preserves subsecond precision until actually edited",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta number config equivalence is noop and changed bounds survive the exact wire",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta rejects forged tmp IDs, foreign-parent Option IDs and duplicate IDs before building",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta Body/path snapshot is immutable, indexes locate third screen question and unknown/deleted controls remain summary",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 fixed expected Create and Draft Delta saved response establishes new Server IDs and clean baseline only on explicit adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation Draft permits empty questions, Choice options and missing Rating bounds; Publish rejects each",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation past/equal deadline saves Draft; Publish compares exact ticks with injected time",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config null",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config undefined",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":null}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"broken\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"-1\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"1.0\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"2147483648\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"variant\":\"stars\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"unknown\":\"\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided text config {\"minLength\":\"2\",\"maxLength\":\"1\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"NaN\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"Infinity\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\" \"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":\"2\",\"max\":\"1\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"min\":null}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided number config {\"variant\":\"input\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"-1\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"101\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"1.5\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":\"0\",\"max\":\"0\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"min\":null}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects illegal provided Rating config {\"max\":\"100.0\"}",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation normalizes optional config empties but never null and validates Unicode codepoint lengths",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation label duplicates are allowed; duplicate normalized values, blank labels and nonChoice Options fail",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-definition-request.spec.ts",
+        "name": "F5 Draft / Publish validation rejects invalid, duplicate saved sortOrder and out-of-range Option values",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations new initial state is clean, unsaved and contains no automatic question or Visibility",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations decoded detail loads clean with raw omission, sparse order, exact bounds and deadline precision",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations DTO, editable model, baseline and preview snapshots are independent",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations creates text with explicit type defaults and local identity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations creates number with explicit type defaults and local identity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations creates single_choice with explicit type defaults and local identity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations creates multiple_choice with explicit type defaults and local identity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations creates rating with explicit type defaults and local identity",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations new labels fill the first unused number and values stay stable through label edits and reorder",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations Choice -> non-Choice requires confirmation; cancel does not change any data",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations Choice round trip through text never resurrects removed Options",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations Choice interchange preserves identity and values while changing variant",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations non-Choice switches use complete target defaults and retain common fields",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations variant changes retain compatible settings and reverting effective fallback clears dirty",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations sparse question and option order is restored from final membership, not operation history",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations add then remove clears dirty, existing visibility is excluded and invalid raw numeric input stays dirty",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f5-editor.spec.ts",
+        "name": "F5 Editor models and operations existing Rating missing bounds stays missing without fallback 1/5",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions new initialization is local and invalid/noop definition never sends",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions Create adopts Server IDs and baseline; later save uses delta with no temporary key",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions locks inputs/duplicate submit while pending and snapshots the payload",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions stale success never adopts/navigates/toasts and loading is released",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions switching resource during a read starts the new read and stale finally cannot clear its loading",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions Auth lapse preserves local input but cancels write eligibility (saved=false)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions Auth lapse preserves local input but cancels write eligibility (saved=true)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions new account change requires fresh me plus explicit consent, without creating or discarding input",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions edit account change cannot use old Owner grant and preserves content when access is denied",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions PATCH unknown only unlocks after a permitted current GET adoption; cancel/failed GET retains lock",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions a rejected reload permit cannot adopt even after a GET response",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions Create unknown requires every retry confirmation and list lookup is not success",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions wrong Owner success is uncertain, never a saved baseline (saved=false)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions wrong Owner success is uncertain, never a saved baseline (saved=true)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 editor page transitions FORM_NOT_EDITABLE candidate GET does not overwrite dirty input",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-editor-page.spec.ts",
+        "name": "F6 rating interaction focus leaves undefined, score 0 is answered, optional clear resets and readonly never writes",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing allows only exact expected HTTP and network outcomes/diagnostics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects unrelated resource 404 even when console matches its actual response",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects unexpected requestfailed even when console matches the actual failure",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects wrong method",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects wrong URL",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects wrong status",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects wrong failure reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing rejects missing or extra requests and duplicate diagnostics",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing counts repeated intentional failures exactly",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing allows an explicitly expected cancellation without console diagnostic",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f6-network-diagnostics.spec.ts",
+        "name": "F6-R2 declared request/diagnostic pairing does not allow Vue warning, different diagnostic or a diagnostic without its request",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 FORM_NOT_FOUND also revokes F6 save until reliable current adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 FORM_NOT_EDITABLE also revokes F6 save until reliable current adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 FORM_ALREADY_PUBLISHED also revokes F6 save until reliable current adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 FORM_ALREADY_CLOSED also revokes F6 save until reliable current adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 FORM_INVALID_STATE_TRANSITION also revokes F6 save until reliable current adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R4 ordinary validation does not revoke Draft save qualification",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R1 repeats complete saved Publish issues without saving or requesting Publish",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after dispose",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after resource",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after id",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after session",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after denial",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after status",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 late Clipboard success/reject is isolated after generation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior R2 current Clipboard success and manual fallback retain captured Closed URL",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Owner draft qualification follows lifecycle",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Owner published qualification follows lifecycle",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Owner closed qualification follows lifecycle",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior dirty publication sends nothing, clean publication confirms and pushes a frozen resource",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior confirmation revision and Session changes revoke the old command",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Visibility preserves edits during pending, baseline, exact config, keys and microsecond deadline",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior policy no-op never sends, explicit failure and unknown keep definition and restore selection",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior a policy success does not reconcile an unknown Delta; Publish and save stay gated",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Publish maps full saved definition indices and preserves unknown details",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Delete authorizes once only after confirmation, 204 clears then replaces",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior unknown Delete locks all writes and does not clear, navigate or toast",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior old Form GET after a successful policy write cannot overwrite policy or baseline",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior old GET after unknown visibility cannot adopt or reconcile",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior old GET after unknown lifecycle cannot adopt or reconcile",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior old GET after unknown delete cannot adopt or reconcile",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior old qualification me cannot adopt Session after a write; old qualification Form cannot rebase",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior current authoritative 404 after unknown Delete discards and clears the gate without a second permit",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior same Form serializes all writes and a GET captured during pending stays stale",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Count is explicit, zero is success, repeats read and stale late result is ignored",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior Count failure is a read failure, preserves old count and never acquires an unknown lock",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior management denial revokes ability; stale write on changed resource has no effects",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior management AUTH_REQUIRED closing owns the current login flow",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior management AUTH_TOKEN_INVALID closing owns the current login flow",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior management AUTH_TOKEN_EXPIRED closing owns the current login flow",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior denial survives a new page operation and normal GET reconciliation until explicit identity verification",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f7-form-management.spec.ts",
+        "name": "F7 management behavior permission denial invalidates an already pending qualification/read even without a mutation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt maps reordered five types with exact values, Option IDs, Rating zero and missing optional blank",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 0 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 1 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 2 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 3 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 4 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 5 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 6 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 7 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 8 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 9 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 10 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects malformed/mismatched complete receipt case 11 without partial adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects missing required, wrong form and duplicate question at the decoder boundary",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1.0 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 1e0 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 0 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 9007199254740993 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt round trips precise JSON token 0.12345678901234567890123456789 and validates submitted semantic equality",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 Definition-aware complete Receipt rejects a decoded 201 whose normalized saved answers differ from the request",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation single enters empty, no Latest prequery; reliable 201 preserves raw and clean",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation multiple enters empty, no Latest prequery; reliable 201 preserves raw and clean",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation single Latest obtains success before replacement confirmation; cancel preserves model/baseline",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation multiple Latest obtains success before replacement confirmation; cancel preserves model/baseline",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation RESPONSE_NOT_FOUND Latest preserves input, baseline and known state",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation INTERNAL_SERVER_ERROR Latest preserves input, baseline and known state",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation multiple unknown followed by Latest and Form GET keeps duplicate risk; cancel retry sends zero POST",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation single unknown can be manually retried; AlreadySubmitted freezes local values until explicit Latest",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation invalid decoded 201 remains unknown with old baseline and no success Dialog",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation normal published expired/Closed enters blank without navigation, Latest stays available",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation normal closed expired/Closed enters blank without navigation, Latest stays available",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation deadline expires during pending but a current legitimate 201 still adopts success",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation AUTH_REQUIRED preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation AUTH_TOKEN_INVALID preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation AUTH_TOKEN_EXPIRED preserves answers and revokes grant; explicit me+Form verification restores nonOwner access",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation disabled retains User and answers; missing form/Closed conflicts wait for explicit discard/navigation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation management metadata preserves AnswerModel, baseline and dirty; owner denial is distinct from respondent eligibility",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation lifecycle unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation delete unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation visibility unknown affects Submit only when state/existence is uncertain; Latest does not release its lock",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation submit late responses after context change cannot adopt/error/navigate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation latest late responses after context change cannot adopt/error/navigate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation form late responses after context change cannot adopt/error/navigate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation verify late responses after context change cannot adopt/error/navigate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation Latest started before a management success stays stale after lease ends",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation Latest started before a management unknown stays stale after lease ends",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation shared lease blocks concurrent Submit and management; submit freeze ends in finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation qualification GET at me stays stale after a management unknown; cannot clear its gate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation qualification GET at form stays stale after a management unknown; cannot clear its gate",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation verified different respondent ends local single/duplicate context without borrowing previous completion",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation reliable current Form 404 adopts missing after confirmation and releases Delete gate only",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation malformed Draft ownership does not throw or grant a usable response page",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation closing a not-submittable Dialog before its status GET resolves still follows confirmed Closed flow",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation status lookup AUTH_REQUIRED is a fresh read error, not a guessed Closed result",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation status lookup FORM_NOT_FOUND is a fresh read error, not a guessed Closed result",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation status lookup INTERNAL_SERVER_ERROR is a fresh read error, not a guessed Closed result",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f8-response-page.spec.ts",
+        "name": "F8 page transitions and request isolation manual Form/qualification read failures remain inline and keep policy lock; fresh success clears old read error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me success ; stats first=true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me success ; stats first=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 401; stats first=true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 401; stats first=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 403; stats first=true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me api-error 403; stats first=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me transport-error ; stats first=true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects public read is independent of me transport-error ; stats first=false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true login changes and preserves reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true logout changes and preserves reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true verify changes and preserves reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true invalidate changes and preserves reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects clears private data only for true profile changes and preserves reason",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects same-ID Profile rename does not clear or refetch; obsolete bootstrap cannot report a change",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (route) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (session) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (retry) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late success never changes a new context (dispose) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (route) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (session) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (retry) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (dispose) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (route) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (session) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (retry) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects late api-error never changes a new context (dispose) or its finally",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_REQUIRED redirects once, keeps full path and never reload loops",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_TOKEN_INVALID redirects once, keeps full path and never reload loops",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects own AUTH_TOKEN_EXPIRED redirects once, keeps full path and never reload loops",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects manual refresh retracts names before pending; Auth dialog closes once and external login revokes navigation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-read.spec.ts",
+        "name": "F9 U02 separate bootstrap, credential epochs and current read effects retry failure cannot keep old names or leave loading pending; details survive",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary uses only one credentialed GET, no Body, and rejects another resource",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary retains all nine root meanings, nullable fields and exact numeric tokens",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary keeps zero success and anonymous omission / identified empty lists (false)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary keeps zero success and anonymous omission / identified empty lists (true)",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary never truncates questions, distributions, rating range, names or multiline Code Points",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable missing-root",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable null-people",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable mixed-people",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable bad-count",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable duplicate-people",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable unknown-root",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f9-statistics-view.spec.ts",
+        "name": "F9 U01 independent display expectations and service boundary rejects unreliable bad-type",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "request ownership ignores late data/errors and old finally cannot clear new loading",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "request ownership invalidates resource even when fetch ignores abort",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "request ownership invalidates session even when fetch ignores abort",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "request ownership invalidates unmount even when fetch ignores abort",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: transport-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: api-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle shares Delta uncertainty across same-Form saves/publish: contract-error",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle does not extend Delta uncertainty to unrelated scopes or clear it on another operation success",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle locks same Form, permits another Form, snapshots before async, releases on all exits",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle keeps unknown lock across rejected/cancelled/stale reconciliation, unlocks only adoption",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle Latest/list adoption does not clear multiple/create duplicate risk",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "write lifecycle does not apply stale outcomes; local snapshot errors release loading and lease",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits completed logout cleanup transfers its false dirty permit once to the intended navigation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits completed logout cleanup transfers its true dirty permit once to the intended navigation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits external content changes before completion prohibit cleanup, and later changes reject the reserved navigation without reauthorizing",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits external session changes reject completed logout navigation without a second confirmation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits external request changes reject completed logout navigation without a second confirmation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits external write changes reject completed logout navigation without a second confirmation",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits a failed completion does not create a navigation permit or allow its old action to run twice",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/scoped-state.spec.ts",
+        "name": "discard permits cancel blocks; redirect shares one permit; next navigation/action asks again",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/tooling-smoke.spec.ts",
+        "name": "Zod / Vitest tooling smoke parses a typed synthetic fixture and reports the invalid field path",
+        "status": "passed",
+        "failureMessages": []
+      }
+    ]
+  },
+  {
+    "report": "U02-boundaries-first-results.json",
+    "success": false,
+    "tests": 15,
+    "passed": 9,
+    "files": 1,
+    "assertions": [
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 99 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 100 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 101 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 199 CP => true",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:16:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 200 CP => true",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:16:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 201 CP => false",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:16:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 254 CP => true",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:21:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 255 CP => true",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:21:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 256 CP => false",
+        "status": "failed",
+        "failureMessages": [
+          "TypeError: (0 , __vite_ssr_import_3__.validateDraft) is not a function\n    at C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts:21:12\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2868:91\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:1628:35\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:2783:26\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3321:20\n    at new Promise (<anonymous>)\n    at runWithCancel (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3316:10)\n    at file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3301:20\n    at new Promise (<anonymous>)\n    at runWithTimeout (file:///C:/Users/user/Desktop/custom-form-service-web/node_modules/vitest/dist/chunks/run.BTlFXlnv.js:3259:10)"
+        ]
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 254 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 255 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 9 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 10 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 128 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 129 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      }
+    ]
+  },
+  {
+    "report": "U02-boundaries-retest-results.json",
+    "success": true,
+    "tests": 15,
+    "passed": 15,
+    "files": 1,
+    "assertions": [
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 99 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 100 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 101 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 199 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 200 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 201 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 254 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 255 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 256 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 254 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 255 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 9 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 10 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 128 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 129 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      }
+    ]
+  },
+  {
+    "report": "U02-boundaries-final-results.json",
+    "success": true,
+    "tests": 15,
+    "passed": 15,
+    "files": 1,
+    "assertions": [
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 99 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 100 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors displayName 101 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 199 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 200 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Form title 201 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 254 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 255 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Option value 256 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 254 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors Email candidate 255 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 9 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 10 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 128 CP => true",
+        "status": "passed",
+        "failureMessages": []
+      },
+      {
+        "file": "C:/Users/user/Desktop/custom-form-service-web/tests/unit/f10-acceptance-boundaries.spec.ts",
+        "name": "F10 U02 independent Code Point boundary vectors untrimmed password 129 CP => false",
+        "status": "passed",
+        "failureMessages": []
+      }
+    ]
+  }
+]

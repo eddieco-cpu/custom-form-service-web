@@ -1,0 +1,43 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:44820) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:6892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:29240) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT PASS A03:a4 tool correction: close modal before inspecting inert Tabs; true409/401
+CHECKPOINT PASS A02:a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400
+CHECKPOINT PASS A05:a4 tool correction waits for SPA navigation commit before reload
+CHECKPOINT PASS L05-G-F:guest protected URL preserves full redirect
+CHECKPOINT PASS L05-G-E:guest protected URL preserves full redirect
+CHECKPOINT PASS R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry
+CHECKPOINT PASS R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry
+CHECKPOINT PASS M05:real Clipboard complete Published and Closed links plus actual navigation
+CHECKPOINT PASS R02:real invalid answer ownership/type rejected with no new Latest
+CHECKPOINT PASS M04:Owner Count normal API in Draft0 and Closed2 without automatic polling
+CHECKPOINT PASS D05:microseconds omission, full config placeholder, actual Taipei change and clear
+CHECKPOINT PASS D06:real incomplete Draft persists, Publish refuses without silent save/default
+CHECKPOINT PASS M07:stale Owner UI with true other-User Cookie revokes ability after403, preserves dirty content
+CHECKPOINT PASS S05:real public→private revokes guest previously rendered stats then restores canonical policy
+CHECKPOINT PASS S04:all-optional empty submission is Root1 with every question0, distinct from zero-response forms
+CHECKPOINT PASS R10:true stale Published UI after independent Close:409, dirty consent, readonly
+CHECKPOINT PASS L06:real deleted/nonexistent/bad UUID on Form and edit remain original URLs
+CHECKPOINT PASS P01-PROTECTED:real invalid Cookie protected Form in addition to a4 me/private/public checks
+CHECKPOINT PASS P01-PROTECTED:real invalid Cookie protected Form in addition to a4 me/private/public checks
+CHECKPOINT PASS D05:effective variant change back restores omitted baseline without PATCH
+CHECKPOINT PASS D03:real temporary local deletes, drag question/option and ID-only persisted option delete
+CHECKPOINT PASS D04:text/rating variants through actual Delta preserve applicable bounds
+CHECKPOINT PASS D06:min>max rejects UI save; legal Draft permits missing bounds and no Choice options
+CHECKPOINT PASS D08:real beforeunload cancellation preserves dirty model; clean reload has no recovery
+CHECKPOINT PASS D08:real beforeunload cancellation preserves dirty model; clean reload has no recovery
+  ok 1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API authRetest,completionProbes,editorProbes a6 (23.8s)
+
+  1 passed (30.8s)

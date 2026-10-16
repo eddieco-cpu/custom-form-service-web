@@ -1,0 +1,40 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] (node:44884) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 27 tests using 1 worker
+
+(node:5336) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+  ok  1 [chromium] › tests\e2e\f6-browser.spec.ts:61:1 › F6-B01/B04 local new, validation, pending freeze, server IDs, clean no-op and second delta (784ms)
+  ok  2 [chromium] › tests\e2e\f6-browser.spec.ts:77:1 › F6-B02/B03 five types, Choice confirmation/cancel, stable values, keyboard moves and drag (1.4s)
+  ok  3 [chromium] › tests\e2e\f6-browser.spec.ts:94:1 › F6-B05 sparse Delta error map locates changed option after dialog, unknown detail retained (847ms)
+  ok  4 [chromium] › tests\e2e\f6-browser.spec.ts:101:1 › F6-B06 dirty cancel/confirm, history, reload beforeunload and same-component id guard (962ms)
+  ok  5 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (new) (940ms)
+  ok  6 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_REQUIRED cancel keeps content but fresh session/Owner required (edit) (1.4s)
+  ok  7 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (new) (926ms)
+  ok  8 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_INVALID cancel keeps content but fresh session/Owner required (edit) (1.3s)
+  ok  9 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (new) (827ms)
+  ok 10 [chromium] › tests\e2e\f6-browser.spec.ts:115:118 › F6-B07 AUTH_TOKEN_EXPIRED cancel keeps content but fresh session/Owner required (edit) (1.3s)
+  ok 11 [chromium] › tests\e2e\f6-browser.spec.ts:134:1 › F6-B08 PATCH unknown stays locked on revert/cancel/failed read; successful current adoption unlocks (1.4s)
+  ok 12 [chromium] › tests\e2e\f6-browser.spec.ts:143:1 › F6-B08 Create unknown retains input and every retry prompts duplicate risk (834ms)
+  ok 13 [chromium] › tests\e2e\f6-browser.spec.ts:149:1 › F6-B09 conflict candidate retained, explicit reload replaces URL; late response ignored (1.4s)
+  ok 14 [chromium] › tests\e2e\f6-browser.spec.ts:157:1 › F6-B10/B12 Preview isolation/reset/keyboard focus, desktop and mobile layout, exact raw Number (3.7s)
+  ok 15 [chromium] › tests\e2e\f6-browser.spec.ts:178:1 › F6-B11 Stars/Range unoperated vs zero, min>1, 100 stars/10 columns, clearing/required (2.2s)
+  ok 16 [chromium] › tests\e2e\f6-browser.spec.ts:189:1 › F6-B12 empty preview does not require Draft validation or write placeholders (812ms)
+  ok 17 [chromium] › tests\e2e\f6-browser.spec.ts:193:1 › F6 Renderer readonly keeps exact answers and offers no write/clear controls (321ms)
+  ok 18 [chromium] › tests\e2e\f6-browser.spec.ts:197:1 › F6-B03 sparse order move and undo preserves clean baseline, Option label/value stays stable (780ms)
+  ok 19 [chromium] › tests\e2e\f6-browser.spec.ts:202:1 › F6-B05 Create error map points to newly added Option and retains unknown detail (847ms)
+  ok 20 [chromium] › tests\e2e\f6-browser.spec.ts:205:1 › F6-B06 same-component ID update is guarded and old response cannot replace current resource (581ms)
+  ok 21 [chromium] › tests\e2e\f6-browser.spec.ts:211:1 › F6-B07/B09 disabled preserves Header and content; access denied/not-found never restores writes (1.7s)
+  ok 22 [chromium] › tests\e2e\f6-browser.spec.ts:217:1 › F6-B09 pending old GET cannot suppress or overwrite a new resource read (875ms)
+  ok 23 [chromium] › tests\e2e\f6-browser.spec.ts:228:1 › F6 new disabled bootstrap has a read error and explicit retry, never an empty page or automatic Create (406ms)
+  ok 24 [chromium] › tests\e2e\f6-browser.spec.ts:235:1 › F6-R1 same-title Stars zero labels, radio groups and answer models stay isolated (969ms)
+  ok 25 [chromium] › tests\e2e\f6-browser.spec.ts:252:49 › F6-R2 rejects unrelated resource 404 (542ms)
+  ok 26 [chromium] › tests\e2e\f6-browser.spec.ts:252:49 › F6-R2 rejects unrelated resource requestfailed (606ms)
+  ok 27 [chromium] › tests\e2e\f6-browser.spec.ts:267:1 › F6-R1 Renderer instances isolate identical keys, stable IDs survive rename/reorder and models agree (777ms)
+
+  27 passed (31.6s)

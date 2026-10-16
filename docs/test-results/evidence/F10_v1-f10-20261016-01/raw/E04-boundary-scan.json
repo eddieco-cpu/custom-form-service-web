@@ -1,0 +1,28 @@
+{
+  "observedAt": "2026-10-16T16:24:26.3453905+08:00",
+  "checks": [
+    {
+      "pattern": "/f3-public",
+      "matchedFiles": [],
+      "expectedMatches": 0
+    },
+    {
+      "pattern": "/f4-session/",
+      "matchedFiles": [],
+      "expectedMatches": 0
+    },
+    {
+      "pattern": "/f6-scope",
+      "matchedFiles": [],
+      "expectedMatches": 0
+    },
+    {
+      "pattern": "/f9-session/",
+      "matchedFiles": [],
+      "expectedMatches": 0
+    }
+  ],
+  "productStorageMatches": [],
+  "backendRoutesExist": false,
+  "nuxtConfigSha256": "B55FC24A2587A2104B814CB7650CFFC4D490CB4F6CCF861084C8F49C8C397499"
+}

@@ -1,0 +1,22 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:45536) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:29932) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:19580) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT PASS M03:real draft same-value UI zero request and API no-op updatedAt
+CHECKPOINT PASS M03:real published same-value UI zero request and API no-op updatedAt
+CHECKPOINT PASS M03:real closed same-value UI zero request and API no-op updatedAt
+CHECKPOINT PASS M03:real closed same-value UI zero request and API no-op updatedAt
+  ok 1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API managementNoop a10 (3.3s)
+
+  1 passed (7.5s)

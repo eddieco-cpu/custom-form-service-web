@@ -1,0 +1,61 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:19548) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:34252) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:21892) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT PASS A03:a4 tool correction: close modal before inspecting inert Tabs; true409/401
+CHECKPOINT PASS A02:a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400
+CHECKPOINT PASS A05:a4 tool correction waits for SPA navigation commit before reload
+CHECKPOINT PASS L05-G-F:guest protected URL preserves full redirect
+CHECKPOINT PASS L05-G-E:guest protected URL preserves full redirect
+CHECKPOINT FAIL R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry: expect(locator).toHaveValue(expected) failed
+
+Locator: getByLabel('文字', { exact: true })
+Expected: "保留未保存的真實Auth失效答案"
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toHaveValue" getByLabel('文字', { exact: true }) with timeout 5000ms
+  - waiting for getByLabel('文字', { exact: true })
+
+CHECKPOINT PASS R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry
+  x  1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API authRetest a5 (13.2s)
+
+
+  1) [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API authRetest a5 
+
+    Error: Failed checkpoints (see sanitized per-attempt evidence)
+
+    expect(received).toEqual(expected) // deep equality
+
+    - Expected  - 1
+    + Received  + 3
+
+    - Array []
+    + Array [
+    +   "R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry",
+    + ]
+
+      467 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])
+      468 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)
+    > 469 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])
+          |                                                                            ^
+      470 | })
+      471 |
+        at C:\Users\user\Desktop\custom-form-service-web\output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:469:76
+
+    Error Context: output\playwright\v1-acceptance\v1-f10-20261016-01\artifacts\live-chromium-a5\canonical-F10-canonical-true-Browser-API-authRetest-a5-chromium\error-context.md
+
+  1 failed
+    [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API authRetest a5 

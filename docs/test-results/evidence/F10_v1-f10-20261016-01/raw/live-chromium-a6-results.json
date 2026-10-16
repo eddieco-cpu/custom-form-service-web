@@ -1,0 +1,246 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-a6",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "canonical.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a6",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "canonical.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-a6-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "canonical.spec.mjs",
+      "file": "canonical.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F10 canonical true Browser/API authRetest,completionProbes,editorProbes a6",
+          "ok": true,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "passed",
+                  "duration": 23819,
+                  "errors": [],
+                  "stdout": [
+                    {
+                      "text": "CHECKPOINT PASS A03:a4 tool correction: close modal before inspecting inert Tabs; true409/401\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A02:a4 dependent check rerun: 101CP name,9/129CP passwords blocked; server email400\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A05:a4 tool correction waits for SPA navigation commit before reload\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-G-F:guest protected URL preserves full redirect\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-G-E:guest protected URL preserves full redirect\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R11:true missing Cookie after dirty Submit: Dialog then dirty cancellation and login return, no auto retry\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M05:real Clipboard complete Published and Closed links plus actual navigation\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R02:real invalid answer ownership/type rejected with no new Latest\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M04:Owner Count normal API in Draft0 and Closed2 without automatic polling\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D05:microseconds omission, full config placeholder, actual Taipei change and clear\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D06:real incomplete Draft persists, Publish refuses without silent save/default\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M07:stale Owner UI with true other-User Cookie revokes ability after403, preserves dirty content\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S05:real public→private revokes guest previously rendered stats then restores canonical policy\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:all-optional empty submission is Root1 with every question0, distinct from zero-response forms\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R10:true stale Published UI after independent Close:409, dirty consent, readonly\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L06:real deleted/nonexistent/bad UUID on Form and edit remain original URLs\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS P01-PROTECTED:real invalid Cookie protected Form in addition to a4 me/private/public checks\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS P01-PROTECTED:real invalid Cookie protected Form in addition to a4 me/private/public checks\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D05:effective variant change back restores omitted baseline without PATCH\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D03:real temporary local deletes, drag question/option and ID-only persisted option delete\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D04:text/rating variants through actual Delta preserve applicable bounds\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D06:min>max rejects UI save; legal Draft permits missing bounds and no Choice options\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D08:real beforeunload cancellation preserves dirty model; clean reload has no recovery\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D08:real beforeunload cancellation preserves dirty model; clean reload has no recovery\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T05:08:27.749Z",
+                  "annotations": [],
+                  "attachments": []
+                }
+              ],
+              "status": "expected"
+            }
+          ],
+          "id": "4c313817ac08c9fc1aeb-71fe56da663b112116b1",
+          "file": "canonical.spec.mjs",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T05:08:21.673Z",
+    "duration": 30841.481,
+    "expected": 1,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  }
+}

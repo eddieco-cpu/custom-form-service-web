@@ -1,0 +1,492 @@
+{
+  "config": {
+    "argv": [
+      "C:\\nvm4w\\nodejs\\node.exe",
+      "C:\\Users\\user\\Desktop\\custom-form-service-web\\node_modules\\@playwright\\test\\cli.js",
+      "test",
+      "--config=playwright.f10.config.ts"
+    ],
+    "configFile": "C:\\Users\\user\\Desktop\\custom-form-service-web\\playwright.f10.config.ts",
+    "rootDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": false,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 1
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/artifacts/live-chromium-a2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "id": "chromium",
+        "name": "chromium",
+        "testDir": "C:/Users/user/Desktop/custom-form-service-web/output/playwright/v1-acceptance/v1-f10-20261016-01/tools",
+        "testIgnore": [],
+        "testMatch": [
+          "canonical.spec.mjs"
+        ],
+        "timeout": 1800000
+      }
+    ],
+    "filteredProjects": [
+      {
+        "grep": {},
+        "grepInvert": null,
+        "outputDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a2",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 1
+        },
+        "name": "chromium",
+        "testDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "snapshotDir": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools",
+        "testIgnore": [],
+        "testMatch": "canonical.spec.mjs",
+        "timeout": 1800000,
+        "use": {
+          "baseURL": "http://localhost:3000",
+          "actionTimeout": 12000,
+          "trace": "off",
+          "video": "off",
+          "screenshot": "off",
+          "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/156.0.8078.4 Safari/537.36",
+          "viewport": {
+            "width": 1280,
+            "height": 720
+          },
+          "screen": {
+            "width": 1920,
+            "height": 1080
+          },
+          "deviceScaleFactor": 1,
+          "isMobile": false,
+          "hasTouch": false,
+          "defaultBrowserType": "chromium"
+        },
+        "dependencies": [],
+        "ignoreSnapshots": false,
+        "__projectId": "chromium"
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "json",
+        {
+          "outputFile": "output/playwright/v1-acceptance/v1-f10-20261016-01/raw/live-chromium-a2-results.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "default",
+    "updateSourceMethod": "patch",
+    "version": "1.64.0",
+    "workers": 1,
+    "webServer": {
+      "command": "npm run preview",
+      "url": "http://localhost:3000/login",
+      "reuseExistingServer": false,
+      "timeout": 120000,
+      "env": {
+        "HOST": "127.0.0.1",
+        "PORT": "3000"
+      }
+    }
+  },
+  "suites": [
+    {
+      "title": "canonical.spec.mjs",
+      "file": "canonical.spec.mjs",
+      "column": 0,
+      "line": 0,
+      "specs": [
+        {
+          "title": "F10 canonical true Browser/API all a2",
+          "ok": false,
+          "tags": [],
+          "tests": [
+            {
+              "timeout": 1800000,
+              "annotations": [],
+              "expectedStatus": "passed",
+              "projectId": "chromium",
+              "projectName": "chromium",
+              "results": [
+                {
+                  "workerIndex": 0,
+                  "parallelIndex": 0,
+                  "status": "failed",
+                  "duration": 71940,
+                  "error": {
+                    "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A08:profile independent PATCH/GET and shared Header\",\u001b[39m\n\u001b[31m+   \"A09:dirty logout cancel/confirm and fresh login\",\u001b[39m\n\u001b[31m+   \"D01:new initial model and Preview without API writes\",\u001b[39m\n\u001b[31m+   \"M06-D:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-P:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-C:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+ ]\u001b[39m",
+                    "stack": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A08:profile independent PATCH/GET and shared Header\",\u001b[39m\n\u001b[31m+   \"A09:dirty logout cancel/confirm and fresh login\",\u001b[39m\n\u001b[31m+   \"D01:new initial model and Preview without API writes\",\u001b[39m\n\u001b[31m+   \"M06-D:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-P:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-C:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:343:76",
+                    "location": {
+                      "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                      "column": 76,
+                      "line": 343
+                    },
+                    "snippet": "  341 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  342 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 343 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  344 | })\n  345 |"
+                  },
+                  "errors": [
+                    {
+                      "location": {
+                        "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                        "column": 76,
+                        "line": 343
+                      },
+                      "message": "Error: Failed checkpoints (see sanitized per-attempt evidence)\n\n\u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoEqual\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // deep equality\u001b[22m\n\n\u001b[32m- Expected  - 1\u001b[39m\n\u001b[31m+ Received  + 8\u001b[39m\n\n\u001b[32m- Array []\u001b[39m\n\u001b[31m+ Array [\u001b[39m\n\u001b[31m+   \"A08:profile independent PATCH/GET and shared Header\",\u001b[39m\n\u001b[31m+   \"A09:dirty logout cancel/confirm and fresh login\",\u001b[39m\n\u001b[31m+   \"D01:new initial model and Preview without API writes\",\u001b[39m\n\u001b[31m+   \"M06-D:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-P:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+   \"M06-C:dedicated UI cancel/confirm + six independent nonexistent boundaries\",\u001b[39m\n\u001b[31m+ ]\u001b[39m\n\n  341 |   expect(state.deleteViolations,'No out-of-whitelist DELETE').toEqual([])\n  342 |   const failed=state.checkpoints.filter(x=>x.status==='FAIL').map(x=>`${x.id}:${x.label}`)\n> 343 |   expect(failed,'Failed checkpoints (see sanitized per-attempt evidence)').toEqual([])\n      |                                                                            ^\n  344 | })\n  345 |\n    at C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs:343:76"
+                    }
+                  ],
+                  "stdout": [
+                    {
+                      "text": "CHECKPOINT PASS A01:register-login-A\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A01:register-login-B\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A01:register-login-C\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A01:register-login-X\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A01:register-login-L\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL A08:profile independent PATCH/GET and shared Header: \u001b[2mexpect(\u001b[22m\u001b[31mreceived\u001b[39m\u001b[2m).\u001b[22mtoBe\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m) // Object.is equality\u001b[22m\n\nExpected: \u001b[32m3\u001b[39m\nReceived: \u001b[31m4\u001b[39m\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL A09:dirty logout cancel/confirm and fresh login: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByRole('textbox', { name: '姓名' })\nExpected: \u001b[32m\"建立者\u001b[7m原\u001b[27m名\"\u001b[39m\nReceived: \u001b[31m\"建立者\u001b[7m新\u001b[27m名\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByRole('textbox', { name: '姓名' }) with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByRole('textbox', { name: '姓名' })\u001b[\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS A09:dirty logout cancel/confirm and fresh login\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL D01:new initial model and Preview without API writes: \u001b[2mexpect(\u001b[22m\u001b[31mlocator\u001b[39m\u001b[2m).\u001b[22mtoHaveValue\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nLocator:  getByLabel('結果可見範圍（必選）')\nExpected: \u001b[32m\"\"\u001b[39m\nReceived: \u001b[31m\"請選擇\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveValue\" getByLabel('結果可見範圍（必選）') with timeout 5000ms\u001b[22m\n\u001b[2m  - waiting for getByLabel('結果可見範圍（必選）')\u001b[22m\n\u001b[2m    14 × locator resolved to <select id=\"visibility\" \n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D02:first UI save six controls and independent readback\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D03:UI delta new IDs, id-only delete, stable option values and order\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D05:omitted variant, sparse order and original microseconds no dirty\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS D07:Preview snapshot reset, focus and size\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-D-O:policy-EDIT-owner_only\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-D-R:policy-EDIT-respondents\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-D-P:policy-EDIT-public\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M01:dirty blocks Publish, cancel zero POST and confirmed Publish/G\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-P-O:policy-EDIT-owner_only\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-P-R:policy-EDIT-respondents\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-P-P:policy-EDIT-public\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-P-P:policy-EDIT-public\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R13:normal setup MULTI/OPT full variants\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S01:fixed ten-question definitions and four input events each\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02:POL six forms B true UI submit then Close\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:zero-response Closed definitions both identities\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06:dedicated Delete setup; whitelist persisted before any DELETE\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06:dedicated Delete setup; whitelist persisted before any DELETE\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L01:empty owner list / filter empty before bulk setup\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L02:setup 21 forms three states, seven published responses\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L03:filters and actual row links / mobile list\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-D-F:/forms/3964443c-963d-4df7-8637-8b0049a02bbb\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-D-E:/forms/3964443c-963d-4df7-8637-8b0049a02bbb/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-P-F:/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-P-E:/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-C-F:/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-O-C-E:/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-D-F:/forms/3964443c-963d-4df7-8637-8b0049a02bbb\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-D-E:/forms/3964443c-963d-4df7-8637-8b0049a02bbb/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-P-F:/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-P-E:/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-C-F:/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-C-E:/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L05-X-C-E:/forms/602f8259-4931-4da4-bac0-7403ee3ab0a3/edit\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L04:whitelist list-shrink then page3 empty aligns once to page2\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS L04:whitelist list-shrink then page3 empty aligns once to page2\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R03-A:single UI 201/readonly/independent Latest and duplicate409\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R03-B:single UI 201/readonly/independent Latest and duplicate409\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M04:Count explicit distinct 0/1/1/2\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R06:Latest after dirty GET cancel/confirm, then omitted latest complete response\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R05:all optional blank saves answers[]\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R07:Latest missing retains dirty input\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS R10:natural deadline + true deadline409, Published preserved then UI Close\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M02:UI Close canceled then confirmed independent readback\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-C-O:policy-EDIT-owner_only\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-C-R:policy-EDIT-respondents\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-C-P:policy-EDIT-public\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M03-C-P:policy-EDIT-public\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S01:ST-I full Body/UI/readback fixed oracle input\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S01:ST-A full Body/UI/readback fixed oracle input\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-O-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-R-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-AN-P-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-O-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-R-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-A:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-B:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-X:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S02-ID-P-G:closed policy/identity/role matrix\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:ZERO-I zero response complete\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S04:ZERO-A zero response complete\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S05:currently named Creator/respondent observed by new GET\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-A:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-X:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-D-G:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-A:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-X:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS S03-P-G:non-Closed Statistics existence protection\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL M06-D:dedicated UI cancel/confirm + six independent nonexistent boundaries: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL M06-P:dedicated UI cancel/confirm + six independent nonexistent boundaries: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n"
+                    },
+                    {
+                      "text": "CHECKPOINT FAIL M06-C:dedicated UI cancel/confirm + six independent nonexistent boundaries: response.text: Protocol error (Network.getResponseBody): No data found for resource with given identifier\nResponse body is not available for a response that was navigated away from. Read response.body() before triggering any navigation.\n"
+                    },
+                    {
+                      "text": "CHECKPOINT PASS M06-C:dedicated UI cancel/confirm + six independent nonexistent boundaries\n"
+                    }
+                  ],
+                  "stderr": [],
+                  "retry": 0,
+                  "startTime": "2026-10-16T04:36:12.687Z",
+                  "annotations": [],
+                  "attachments": [
+                    {
+                      "name": "error-context",
+                      "contentType": "text/markdown",
+                      "path": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\artifacts\\live-chromium-a2\\canonical-F10-canonical-true-Browser-API-all-a2-chromium\\error-context.md"
+                    }
+                  ],
+                  "errorLocation": {
+                    "file": "C:\\Users\\user\\Desktop\\custom-form-service-web\\output\\playwright\\v1-acceptance\\v1-f10-20261016-01\\tools\\canonical.spec.mjs",
+                    "column": 76,
+                    "line": 343
+                  }
+                }
+              ],
+              "status": "unexpected"
+            }
+          ],
+          "id": "4c313817ac08c9fc1aeb-aa7f2b5fba65aca105eb",
+          "file": "canonical.spec.mjs",
+          "line": 15,
+          "column": 1
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-10-16T04:36:07.948Z",
+    "duration": 77532.456,
+    "expected": 0,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

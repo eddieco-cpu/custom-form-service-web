@@ -1,5 +1,7 @@
 # 自建表單設計服務 — V1 前端規格與實作計畫
 
+最新結果（2026-10-16）：**F10 AI驗收結果已交付，正式驗收結果待人工驗收／Owner確認。** Owner核准後的[計畫v1.1](docs/test-plan/F10_Acceptance_Test.md)先鎖定於`bc98f85309ef55ee1015e5727157e8d5fb9ba5ae`再執行；[執行報告](docs/test-results/F10_Acceptance_Execution_Report.md)／[逐案CSV](docs/test-results/evidence/F10_v1-f10-20261016-01/Case_Results.csv)記248筆：204 PASS／1 FAIL／43 BLOCKED，18父項不重複計數、人工全NOT RUN。完整真Browser＋真API核心、固定10題獨立oracle、五模式組態及Chrome/Edge已新跑；原目錄ci EPERM、特殊前置／實機、DI provider、audit決議、同timestamp及非Owner DELETE排程缺口保留，**整體未通過**。11帳號／45 Form／34 Response全保留，只有四份白名單soft delete各一次；原報告／首敗與重驗鏈保留，產品未修改、accepted不變、不推送部署。以下保留歷史授權與進度。
+
 最新授權（2026-10-16）：**Owner 通過完整F10驗收計畫，授權局部補正後直接執行AI驗收。** 現行[計畫v1.1](docs/test-plan/F10_Acceptance_Test.md)已補E03五組命令／注入階段／固定URL、E03／M03引用及固定統計10題；[Plan Lock](docs/test-plan/v1-acceptance/Plan_Lock.json)鎖定計畫檔SHA256。先本機提交計畫，再按資料狀態順序執行；缺特殊前置／設備逐案BLOCKED並繼續。產品缺陷先回報、首敗與重驗保留、人工不代填，accepted不變、不推送部署。先前規劃交付及未提交敘述保留下列歷史。
 
 最新進度（2026-10-16）：**Owner 採納 F9 集中 review，確認 F9 code review 通過；完整前端驗收計畫待 Owner review。** 以指定 `0e5a6dcadb4a52c184cef5fe46aff39eab6d40c6` 接手，交付 [前端 V1 獨立驗收計畫 v1.0](docs/test-plan/F10_Acceptance_Test.md)，涵蓋 F1～F9，供審查後於 F10 執行；附需求覆蓋矩陣、固定測資與獨立統計預期、六項特殊前置／實機與其他缺口、歷史證據適用範圍、AI／人工分欄結果空表及唯讀盤點。

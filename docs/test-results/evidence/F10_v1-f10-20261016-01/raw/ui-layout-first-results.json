@@ -1,0 +1,21 @@
+{
+  "method": "real Browser/API reads; UI Login only; no Form writes",
+  "browser": "156.0.8078.4",
+  "layouts": [],
+  "requests": [
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "errors": [],
+  "external": []
+}

@@ -1,0 +1,21 @@
+
+> test:e2e
+> playwright test --config=playwright.f10.config.ts
+
+[WebServer] 
+[WebServer]  ERROR  (node:39048) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use node --trace-warnings ... to show where the warning was created)
+[WebServer] 
+[WebServer] (node:37988) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+[WebServer] (Use `node --trace-warnings ...` to show where the warning was created)
+
+Running 1 test using 1 worker
+
+(node:41028) Warning: The 'NO_COLOR' env is ignored due to the 'FORCE_COLOR' env being set.
+(Use `node --trace-warnings ...` to show where the warning was created)
+CHECKPOINT PASS L05-X-D-F:retest a2 diagnostic declaration omission; required404 registered before request
+CHECKPOINT PASS L05-X-D-E:retest a2 diagnostic declaration omission; required404 registered before request
+CHECKPOINT PASS L05-X-D-E:retest a2 diagnostic declaration omission; required404 registered before request
+  ok 1 [chromium] › output\playwright\v1-acceptance\v1-f10-20261016-01\tools\canonical.spec.mjs:15:1 › F10 canonical true Browser/API routeDiagnostics a7 (4.7s)
+
+  1 passed (9.0s)

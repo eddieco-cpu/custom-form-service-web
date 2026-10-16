@@ -1,0 +1,1587 @@
+{
+  "runId": "v1-f10-20261016-01",
+  "attempt": "a8",
+  "phase": "latestAndReturn",
+  "browser": "156.0.8078.4",
+  "api": "real, no route interception",
+  "checkpoints": [
+    {
+      "id": "R07",
+      "label": "real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:15:30.790Z",
+      "finishedAt": "2026-10-16T08:15:30.846Z"
+    },
+    {
+      "id": "R11",
+      "label": "real footer cancel then explicit verification and opposite close returns original query/hash",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:15:30.852Z",
+      "finishedAt": "2026-10-16T08:15:31.930Z"
+    },
+    {
+      "id": "R11",
+      "label": "real icon cancel then explicit verification and opposite close returns original query/hash",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:15:31.934Z",
+      "finishedAt": "2026-10-16T08:15:32.912Z"
+    },
+    {
+      "id": "PHASE",
+      "label": "latestAndReturn",
+      "status": "PASS",
+      "startedAt": "2026-10-16T08:15:30.790Z",
+      "finishedAt": "2026-10-16T08:15:32.916Z"
+    }
+  ],
+  "accounts": [
+    {
+      "alias": "A",
+      "id": "4f0d7ee9-19ce-4950-9fee-c40a7e5cbcc7",
+      "email": "v1-f10-20261016-01-a@example.test"
+    },
+    {
+      "alias": "B",
+      "id": "1e25af87-c6c8-49f7-8259-a482628271d3",
+      "email": "v1-f10-20261016-01-b@example.test"
+    },
+    {
+      "alias": "C",
+      "id": "c18c8e27-3927-473d-aa5e-783e595f7f9a",
+      "email": "v1-f10-20261016-01-c@example.test"
+    },
+    {
+      "alias": "X",
+      "id": "2c7ec1e0-06d9-4ae8-92fc-213211364c2f",
+      "email": "v1-f10-20261016-01-x@example.test"
+    },
+    {
+      "alias": "L",
+      "id": "0bfeae96-e8b6-4e5f-954f-460a421ce359",
+      "email": "v1-f10-20261016-01-l@example.test"
+    },
+    {
+      "alias": "EC1",
+      "id": "ebca3550-2492-4e62-b207-8a469de62fae",
+      "email": "v1-f10-20261016-01-ec1@localhost"
+    },
+    {
+      "alias": "EC2",
+      "id": "0773cd5f-60c2-4754-8c45-68a0a16a3fcd",
+      "email": "\"v1-f10-20261016-01 a\"@example.test"
+    },
+    {
+      "alias": "EC3",
+      "id": "8d138219-f559-4508-8dc5-ed5044a21dec",
+      "email": "測試v1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "EC4",
+      "id": "932c9121-bade-469d-8402-73957bc8b550",
+      "email": "İv1-f10-20261016-01@example.test"
+    },
+    {
+      "alias": "CH-A",
+      "id": "59045caf-2417-4903-a2ff-78c562074f34",
+      "email": "v1-f10-20261016-01-ch@example.test"
+    },
+    {
+      "alias": "ED-A",
+      "id": "51e869a2-8dfc-49d1-84d1-56a241eeca80",
+      "email": "v1-f10-20261016-01-ed@example.test"
+    }
+  ],
+  "forms": [
+    {
+      "alias": "EDIT",
+      "id": "c6a6da23-b420-452a-8905-9d9bba56cb50",
+      "owner": "A",
+      "purpose": "EDIT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "MULTI",
+      "id": "757ca4ae-03dd-43e4-a53f-4e9d744d363f",
+      "owner": "A",
+      "purpose": "MULTI",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "OPT",
+      "id": "e60323b3-7e90-48ac-8739-9e67dc168607",
+      "owner": "A",
+      "purpose": "OPT",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-I",
+      "id": "1b9132a0-3e00-4d6b-9023-92faa80ad8da",
+      "owner": "A",
+      "purpose": "ST-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ST-A",
+      "id": "24f39f8c-65d1-44df-ae4b-06abf790e19a",
+      "owner": "A",
+      "purpose": "ST-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-owner_only",
+      "id": "18ba4e17-e66e-45d7-a219-3acd68c0796b",
+      "owner": "A",
+      "purpose": "POL-anonymous-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-respondents",
+      "id": "1b94701a-a7ff-4e43-91d6-355498b8a098",
+      "owner": "A",
+      "purpose": "POL-anonymous-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-anonymous-public",
+      "id": "572aa4d1-ab38-49e5-b4bc-4e67a02f7bfa",
+      "owner": "A",
+      "purpose": "POL-anonymous-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-owner_only",
+      "id": "a81faa35-c38e-496c-b0da-61afc748fa2c",
+      "owner": "A",
+      "purpose": "POL-identified-owner_only",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-respondents",
+      "id": "e6ac274b-cceb-4cd0-a05d-17c654d25b6d",
+      "owner": "A",
+      "purpose": "POL-identified-respondents",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "POL-identified-public",
+      "id": "0f90992e-1645-4d38-80f3-c9c26c5aea09",
+      "owner": "A",
+      "purpose": "POL-identified-public",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-I",
+      "id": "8995a7a1-439c-4286-8bdb-d20d4d6c094a",
+      "owner": "A",
+      "purpose": "ZERO-I",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ZERO-A",
+      "id": "1fe9e1ec-dc9f-42ad-8793-dea0595f1701",
+      "owner": "A",
+      "purpose": "ZERO-A",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEL-D",
+      "id": "4a266ef1-13fb-45ab-8fb8-fd4a01f8e6e6",
+      "owner": "A",
+      "purpose": "DEL-D",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-P",
+      "id": "0a02546e-c571-4aa9-8db9-6f604c5b9839",
+      "owner": "A",
+      "purpose": "DEL-P",
+      "status": "published",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "DEL-C",
+      "id": "7863d44f-5dcd-44c6-8ff7-6e105a5d90c4",
+      "owner": "A",
+      "purpose": "DEL-C",
+      "status": "closed",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-SHRINK",
+      "id": "875ecae6-a393-4a62-9074-c66f304cde77",
+      "owner": "L",
+      "purpose": "LIST-SHRINK",
+      "status": "draft",
+      "allowedDelete": true,
+      "deleted": true
+    },
+    {
+      "alias": "LIST-02",
+      "id": "3964443c-963d-4df7-8637-8b0049a02bbb",
+      "owner": "L",
+      "purpose": "LIST-02",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-03",
+      "id": "1f1d6f9d-62e7-42f7-9bf8-92ed35a182ac",
+      "owner": "L",
+      "purpose": "LIST-03",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-04",
+      "id": "9962027c-f232-4b93-b98e-2512d74231b4",
+      "owner": "L",
+      "purpose": "LIST-04",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-05",
+      "id": "7e8d24c5-a6ae-4068-b5a9-9aa87c0c927a",
+      "owner": "L",
+      "purpose": "LIST-05",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-06",
+      "id": "778fcbec-6c46-425b-91a6-92eecef4d3c5",
+      "owner": "L",
+      "purpose": "LIST-06",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-07",
+      "id": "f745832c-7755-488f-9c0a-d06b33430821",
+      "owner": "L",
+      "purpose": "LIST-07",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-08",
+      "id": "1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "owner": "L",
+      "purpose": "LIST-08",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-09",
+      "id": "6a43b608-4b85-4f71-9a46-4a7e02c5c801",
+      "owner": "L",
+      "purpose": "LIST-09",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-10",
+      "id": "52c685e7-066f-4bf2-bd05-030bd9257273",
+      "owner": "L",
+      "purpose": "LIST-10",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-11",
+      "id": "9d58eb4e-ff21-4bdf-bf24-90749cf85fc5",
+      "owner": "L",
+      "purpose": "LIST-11",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-12",
+      "id": "c38cc4c9-5165-4193-b4b3-a02d9adf7a67",
+      "owner": "L",
+      "purpose": "LIST-12",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-13",
+      "id": "19294089-785d-48c1-8c3c-23df46f0103c",
+      "owner": "L",
+      "purpose": "LIST-13",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-14",
+      "id": "f8178095-3035-414a-bdc2-32665e058c54",
+      "owner": "L",
+      "purpose": "LIST-14",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-15",
+      "id": "602f8259-4931-4da4-bac0-7403ee3ab0a3",
+      "owner": "L",
+      "purpose": "LIST-15",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-16",
+      "id": "c9846c02-8219-4dec-bebd-7444f3c10cea",
+      "owner": "L",
+      "purpose": "LIST-16",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-17",
+      "id": "7a35cdff-d806-4ce6-bfb4-640e7297cc39",
+      "owner": "L",
+      "purpose": "LIST-17",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-18",
+      "id": "889143fa-be81-4bfc-be75-690947292b57",
+      "owner": "L",
+      "purpose": "LIST-18",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-19",
+      "id": "4987f864-7907-48ec-a8ae-0b059fd8a20c",
+      "owner": "L",
+      "purpose": "LIST-19",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-20",
+      "id": "0bd74f05-5bc2-410d-8c35-a2c60b5af790",
+      "owner": "L",
+      "purpose": "LIST-20",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "LIST-21",
+      "id": "ca7b7c13-14da-4369-abb3-062b3dea6703",
+      "owner": "L",
+      "purpose": "LIST-21",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD",
+      "id": "fd1e1382-9e71-4724-9b73-4cfb5139ae7b",
+      "owner": "A",
+      "purpose": "DEAD",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "DEAD-RECHECK",
+      "id": "74d430ea-b763-4657-966f-160123cdce5e",
+      "owner": "A",
+      "purpose": "DEAD-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "EDIT-RECHECK",
+      "id": "4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d",
+      "owner": "A",
+      "purpose": "EDIT-RECHECK",
+      "status": "published",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "CH-F",
+      "id": "8d719179-5998-40dd-9644-bfaa0509c382",
+      "owner": "CH-A",
+      "purpose": "chrome smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "ED-F",
+      "id": "454c637e-558f-4e09-bdfe-395c5e484b38",
+      "owner": "ED-A",
+      "purpose": "msedge smoke",
+      "status": "closed",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "D05-RECHECK",
+      "id": "50285f0c-76f7-4d5c-adf4-4b0f5ca70592",
+      "owner": "A",
+      "purpose": "D05-RECHECK",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    },
+    {
+      "alias": "INCOMPLETE",
+      "id": "b39abf58-547d-4dbc-9d32-2a489fc22307",
+      "owner": "A",
+      "purpose": "retained incomplete Draft validation",
+      "status": "draft",
+      "allowedDelete": false,
+      "deleted": false
+    }
+  ],
+  "responses": [],
+  "reads": [
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "label": "API check",
+      "actor": "A",
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "method": "GET",
+      "status": 404,
+      "body": "{\"error\":{\"code\":\"RESPONSE_NOT_FOUND\",\"message\":\"The response was not found.\"}}"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "label": "API check",
+      "actor": "X",
+      "path": "/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "method": "GET",
+      "status": 404,
+      "body": "{\"error\":{\"code\":\"FORM_NOT_FOUND\",\"message\":\"The form was not found.\"}}"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "label": "API check",
+      "actor": "B",
+      "path": "/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/responses/me/latest",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"84af6f84-7157-4218-a5d9-ab455d0f51b3\",\"formId\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"submittedAt\":\"2026-10-16T04:36:50.813354+00:00\",\"answers\":[{\"questionId\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"value\":\"B 合成 \\uD83D\\uDE00\"},{\"questionId\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"value\":0},{\"questionId\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"value\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\"},{\"questionId\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"value\":[\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\"]},{\"questionId\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"value\":0},{\"questionId\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"value\":0}]}"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "label": "API check",
+      "actor": "B",
+      "path": "/forms/fd1e1382-9e71-4724-9b73-4cfb5139ae7b/responses/me/latest",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"db06334c-6a31-41ec-9944-f2075718d835\",\"formId\":\"fd1e1382-9e71-4724-9b73-4cfb5139ae7b\",\"submittedAt\":\"2026-10-16T04:36:55.958017+00:00\",\"answers\":[]}"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "label": "API check",
+      "actor": "B",
+      "path": "/forms/757ca4ae-03dd-43e4-a53f-4e9d744d363f/responses/me/latest",
+      "method": "GET",
+      "status": 200,
+      "body": "{\"id\":\"aead2928-e37d-4120-92ee-f2da8100696d\",\"formId\":\"757ca4ae-03dd-43e4-a53f-4e9d744d363f\",\"submittedAt\":\"2026-10-16T04:36:53.96171+00:00\",\"answers\":[{\"questionId\":\"a464c4e9-b41d-4990-865e-0a8a3a853a27\",\"value\":0},{\"questionId\":\"0fdb88d5-9e87-4da4-a2ce-51be9e64499d\",\"value\":\"123832b0-762b-43c8-aa09-046d1de86abe\"},{\"questionId\":\"2ef8f87f-6ca1-43b6-acb0-d84cc2abcb66\",\"value\":[\"48b57048-fdb0-4f6c-8ddb-3d11214fb226\",\"c7b9dc8e-56af-40d3-9a39-2f827258d885\"]},{\"questionId\":\"6de0faed-765d-46c7-828a-7045b1e9cc6b\",\"value\":0},{\"questionId\":\"6a52ebe8-a044-4127-9c88-5d2d3271e5a4\",\"value\":0}]}"
+    }
+  ],
+  "statistics": [],
+  "requests": [
+    {
+      "sequence": 1,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 2,
+      "case": "initial",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 3,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 4,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 5,
+      "case": "initial",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 6,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 7,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 8,
+      "case": "initial",
+      "actor": "C",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 9,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 10,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 11,
+      "case": "initial",
+      "actor": "X",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 12,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 13,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 14,
+      "case": "initial",
+      "actor": "L",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 15,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null
+    },
+    {
+      "sequence": 16,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 17,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 18,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 19,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/fd1e1382-9e71-4724-9b73-4cfb5139ae7b/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 20,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/757ca4ae-03dd-43e4-a53f-4e9d744d363f/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 21,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 22,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null
+    },
+    {
+      "sequence": 23,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses",
+      "body": "{\"answers\":[{\"questionId\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"value\":\"真實401後的本地保留答案\"}]}"
+    },
+    {
+      "sequence": 24,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 25,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 26,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null
+    },
+    {
+      "sequence": 27,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 28,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null
+    },
+    {
+      "sequence": 29,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses/me/latest",
+      "body": null
+    },
+    {
+      "sequence": 30,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "sequence": 31,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login"
+    },
+    {
+      "sequence": 32,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null
+    }
+  ],
+  "outcomes": [
+    {
+      "sequence": 1,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 2,
+      "case": "initial",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 3,
+      "case": "initial",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[{\"id\":\"50285f0c-76f7-4d5c-adf4-4b0f5ca70592\",\"title\":\"v1-f10-20261016-01 D05-RECHECK\",\"status\":\"draft\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T05:08:39.106539+00:00\",\"updatedAt\":\"2026-10-16T05:08:49.789447+00:00\"},{\"id\":\"757ca4ae-03dd-43e4-a53f-4e9d744d363f\",\"title\":\"v1-f10-20261016-01 MULTI\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":2,\"createdAt\":\"2026-10-16T04:36:37.612626+00:00\",\"updatedAt\":\"2026-10-16T05:08:45.521982+00:00\"},{\"id\":\"e60323b3-7e90-48ac-8739-9e67dc168607\",\"title\":\"v1-f10-20261016-01 OPT\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:37.712099+00:00\",\"updatedAt\":\"2026-10-16T05:08:45.122457+00:00\"},{\"id\":\"0f90992e-1645-4d38-80f3-c9c26c5aea09\",\"title\":\"v1-f10-20261016-01 POL-identified-public\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"identified\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:41.933194+00:00\",\"updatedAt\":\"2026-10-16T05:08:44.951484+00:00\"},{\"id\":\"b39abf58-547d-4dbc-9d32-2a489fc22307\",\"title\":\"v1-f10-20261016-01 INCOMPLETE\",\"status\":\"draft\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2019-12-31T16:00:00+00:00\",\"count\":0,\"createdAt\":\"2026-10-16T05:08:42.725422+00:00\",\"updatedAt\":\"2026-10-16T05:08:42.725422+00:00\"},{\"id\":\"4f3ea0a0-95a3-4517-80b9-045a0b3d1d8d\",\"title\":\"v1-f10-20261016-01 EDIT-RECHECK\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:52:10.566456+00:00\",\"updatedAt\":\"2026-10-16T04:52:13.519908+00:00\"},{\"id\":\"74d430ea-b763-4657-966f-160123cdce5e\",\"title\":\"v1-f10-20261016-01 DEAD-RECHECK\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:52:25.464+00:00\",\"count\":0,\"createdAt\":\"2026-10-16T04:52:10.473996+00:00\",\"updatedAt\":\"2026-10-16T04:52:10.513938+00:00\"},{\"id\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"title\":\"v1-f10-20261016-01 EDIT\",\"status\":\"closed\",\"responseMode\":\"single\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":\"2030-12-31T10:30:00.123456+00:00\",\"count\":2,\"createdAt\":\"2026-10-16T04:36:33.081096+00:00\",\"updatedAt\":\"2026-10-16T04:37:16.414441+00:00\"},{\"id\":\"fd1e1382-9e71-4724-9b73-4cfb5139ae7b\",\"title\":\"v1-f10-20261016-01 DEAD\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":\"2026-10-16T04:37:13.672+00:00\",\"count\":1,\"createdAt\":\"2026-10-16T04:36:55.680504+00:00\",\"updatedAt\":\"2026-10-16T04:37:14.943128+00:00\"},{\"id\":\"1fe9e1ec-dc9f-42ad-8793-dea0595f1701\",\"title\":\"v1-f10-20261016-01 ZERO-A\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"public\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:42.803771+00:00\",\"updatedAt\":\"2026-10-16T04:36:42.897309+00:00\"}],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":18,\"totalPages\":2}}"
+    },
+    {
+      "sequence": 4,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 5,
+      "case": "initial",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 6,
+      "case": "initial",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 7,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 8,
+      "case": "initial",
+      "actor": "C",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 9,
+      "case": "initial",
+      "actor": "C",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 10,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 11,
+      "case": "initial",
+      "actor": "X",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 12,
+      "case": "initial",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":0,\"totalPages\":0}}"
+    },
+    {
+      "sequence": 13,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 14,
+      "case": "initial",
+      "actor": "L",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 15,
+      "case": "initial",
+      "actor": "L",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms?page=1&pageSize=10",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"items\":[{\"id\":\"ca7b7c13-14da-4369-abb3-062b3dea6703\",\"title\":\"v1-f10-20261016-01 LIST-21\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.837156+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.930983+00:00\"},{\"id\":\"0bd74f05-5bc2-410d-8c35-a2c60b5af790\",\"title\":\"v1-f10-20261016-01 LIST-20\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.696703+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.787792+00:00\"},{\"id\":\"4987f864-7907-48ec-a8ae-0b059fd8a20c\",\"title\":\"v1-f10-20261016-01 LIST-19\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.542816+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.6352+00:00\"},{\"id\":\"889143fa-be81-4bfc-be75-690947292b57\",\"title\":\"v1-f10-20261016-01 LIST-18\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.434496+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.504458+00:00\"},{\"id\":\"7a35cdff-d806-4ce6-bfb4-640e7297cc39\",\"title\":\"v1-f10-20261016-01 LIST-17\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.311231+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.388304+00:00\"},{\"id\":\"c9846c02-8219-4dec-bebd-7444f3c10cea\",\"title\":\"v1-f10-20261016-01 LIST-16\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.15359+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.251253+00:00\"},{\"id\":\"602f8259-4931-4da4-bac0-7403ee3ab0a3\",\"title\":\"v1-f10-20261016-01 LIST-15\",\"status\":\"closed\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":0,\"createdAt\":\"2026-10-16T04:36:45.010529+00:00\",\"updatedAt\":\"2026-10-16T04:36:45.104114+00:00\"},{\"id\":\"f8178095-3035-414a-bdc2-32665e058c54\",\"title\":\"v1-f10-20261016-01 LIST-14\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.851279+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.905685+00:00\"},{\"id\":\"19294089-785d-48c1-8c3c-23df46f0103c\",\"title\":\"v1-f10-20261016-01 LIST-13\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.669398+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.726918+00:00\"},{\"id\":\"c38cc4c9-5165-4193-b4b3-a02d9adf7a67\",\"title\":\"v1-f10-20261016-01 LIST-12\",\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"count\":1,\"createdAt\":\"2026-10-16T04:36:44.483979+00:00\",\"updatedAt\":\"2026-10-16T04:36:44.536693+00:00\"}],\"pagination\":{\"page\":1,\"pageSize\":10,\"totalItems\":20,\"totalPages\":2}}"
+    },
+    {
+      "sequence": 16,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "body": null,
+      "status": 404,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"RESPONSE_NOT_FOUND\",\"message\":\"The response was not found.\"}}"
+    },
+    {
+      "sequence": 17,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "X",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "body": null,
+      "status": 404,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"FORM_NOT_FOUND\",\"message\":\"The form was not found.\"}}"
+    },
+    {
+      "sequence": 18,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/c6a6da23-b420-452a-8905-9d9bba56cb50/responses/me/latest",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"84af6f84-7157-4218-a5d9-ab455d0f51b3\",\"formId\":\"c6a6da23-b420-452a-8905-9d9bba56cb50\",\"submittedAt\":\"2026-10-16T04:36:50.813354+00:00\",\"answers\":[{\"questionId\":\"576db9be-069b-40aa-83ad-aaf411e2129e\",\"value\":\"B 合成 \\uD83D\\uDE00\"},{\"questionId\":\"7a97461c-f6a7-4752-98ad-6cb086824811\",\"value\":0},{\"questionId\":\"3e14b452-fb62-4e10-b917-e345370579bb\",\"value\":\"808efa63-0e4d-4402-bc99-a5c1755e247d\"},{\"questionId\":\"1e875a88-01c8-4db6-ae5d-da66286a1540\",\"value\":[\"8e22013b-8ae5-41c4-996c-46070b1dd5ab\"]},{\"questionId\":\"ce96593e-cd12-48c7-8fef-69a5d2a01a57\",\"value\":0},{\"questionId\":\"cd2c889f-4bc7-48dc-a9e6-a1e8adfcf31a\",\"value\":0}]}"
+    },
+    {
+      "sequence": 19,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/fd1e1382-9e71-4724-9b73-4cfb5139ae7b/responses/me/latest",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"db06334c-6a31-41ec-9944-f2075718d835\",\"formId\":\"fd1e1382-9e71-4724-9b73-4cfb5139ae7b\",\"submittedAt\":\"2026-10-16T04:36:55.958017+00:00\",\"answers\":[]}"
+    },
+    {
+      "sequence": 20,
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/757ca4ae-03dd-43e4-a53f-4e9d744d363f/responses/me/latest",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"aead2928-e37d-4120-92ee-f2da8100696d\",\"formId\":\"757ca4ae-03dd-43e4-a53f-4e9d744d363f\",\"submittedAt\":\"2026-10-16T04:36:53.96171+00:00\",\"answers\":[{\"questionId\":\"a464c4e9-b41d-4990-865e-0a8a3a853a27\",\"value\":0},{\"questionId\":\"0fdb88d5-9e87-4da4-a2ce-51be9e64499d\",\"value\":\"123832b0-762b-43c8-aa09-046d1de86abe\"},{\"questionId\":\"2ef8f87f-6ca1-43b6-acb0-d84cc2abcb66\",\"value\":[\"48b57048-fdb0-4f6c-8ddb-3d11214fb226\",\"c7b9dc8e-56af-40d3-9a39-2f827258d885\"]},{\"questionId\":\"6de0faed-765d-46c7-828a-7045b1e9cc6b\",\"value\":0},{\"questionId\":\"6a52ebe8-a044-4127-9c88-5d2d3271e5a4\",\"value\":0}]}"
+    },
+    {
+      "sequence": 21,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 22,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"1a7478e1-7bff-449a-96c4-f5c279fcc612\",\"userId\":\"0bfeae96-e8b6-4e5f-954f-460a421ce359\",\"creatorDisplayName\":\"v1-f10-20261016-01 L\",\"title\":\"v1-f10-20261016-01 LIST-08\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:43.903215+00:00\",\"updatedAt\":\"2026-10-16T04:36:43.946162+00:00\"}"
+    },
+    {
+      "sequence": 23,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses",
+      "body": "{\"answers\":[{\"questionId\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"value\":\"真實401後的本地保留答案\"}]}",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"AUTH_REQUIRED\",\"message\":\"Authentication is required.\"}}"
+    },
+    {
+      "sequence": 24,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 25,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 26,
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"1a7478e1-7bff-449a-96c4-f5c279fcc612\",\"userId\":\"0bfeae96-e8b6-4e5f-954f-460a421ce359\",\"creatorDisplayName\":\"v1-f10-20261016-01 L\",\"title\":\"v1-f10-20261016-01 LIST-08\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:43.903215+00:00\",\"updatedAt\":\"2026-10-16T04:36:43.946162+00:00\"}"
+    },
+    {
+      "sequence": 27,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 28,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"1a7478e1-7bff-449a-96c4-f5c279fcc612\",\"userId\":\"0bfeae96-e8b6-4e5f-954f-460a421ce359\",\"creatorDisplayName\":\"v1-f10-20261016-01 L\",\"title\":\"v1-f10-20261016-01 LIST-08\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:43.903215+00:00\",\"updatedAt\":\"2026-10-16T04:36:43.946162+00:00\"}"
+    },
+    {
+      "sequence": 29,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses/me/latest",
+      "body": null,
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"error\":{\"code\":\"AUTH_REQUIRED\",\"message\":\"Authentication is required.\"}}"
+    },
+    {
+      "sequence": 30,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 31,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/auth/login",
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true"
+    },
+    {
+      "sequence": 32,
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612",
+      "body": null,
+      "status": 200,
+      "origin": "http://localhost:3000",
+      "credentials": "true",
+      "response": "{\"id\":\"1a7478e1-7bff-449a-96c4-f5c279fcc612\",\"userId\":\"0bfeae96-e8b6-4e5f-954f-460a421ce359\",\"creatorDisplayName\":\"v1-f10-20261016-01 L\",\"title\":\"v1-f10-20261016-01 LIST-08\",\"description\":null,\"status\":\"published\",\"responseMode\":\"multiple\",\"responseIdentity\":\"anonymous\",\"resultVisibility\":\"owner_only\",\"submissionDeadlineAt\":null,\"questions\":[{\"id\":\"c9d2cd6a-a6bb-4a9d-a8f7-4b056de35e94\",\"type\":\"text\",\"title\":\"文字\",\"description\":null,\"required\":false,\"sortOrder\":0,\"config\":{\"variant\":\"input\"},\"options\":[]}],\"createdAt\":\"2026-10-16T04:36:43.903215+00:00\",\"updatedAt\":\"2026-10-16T04:36:43.946162+00:00\"}"
+    }
+  ],
+  "diagnostics": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest"
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "actor": "X",
+      "text": "Failed to load resource: the server responded with a status of 404 (Not Found)",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses/me/latest"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "text": "Failed to load resource: the server responded with a status of 401 (Unauthorized)",
+      "url": "http://localhost:5000/api/v1/users/me"
+    }
+  ],
+  "pageErrors": [],
+  "expectedErrors": [
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "initial",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "status": 404
+    },
+    {
+      "case": "R07:real Draft Owner/nonOwner Latest and Closed/deadline/private own-response access",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/50285f0c-76f7-4d5c-adf4-4b0f5ca70592/responses/me/latest",
+      "status": 404
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "method": "POST",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses",
+      "status": 401
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612/responses/me/latest",
+      "status": 401
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "method": "GET",
+      "url": "http://localhost:5000/api/v1/users/me",
+      "status": 401
+    }
+  ],
+  "deleteViolations": [],
+  "routes": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "A",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=%2Fforms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/login?redirect=/forms"
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "url": "http://localhost:3000/forms"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A#answer"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A#answer"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A#answer"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A#answer"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/login?redirect=/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A%23answer"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-A#answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B#answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B#answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B#answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B#answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/login?redirect=/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B%23answer"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "url": "http://localhost:3000/forms/1a7478e1-7bff-449a-96c4-f5c279fcc612?from=return-B#answer"
+    }
+  ],
+  "timings": [
+    {
+      "case": "initial",
+      "actor": "A",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "B",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "C",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "X",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "initial",
+      "actor": "L",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": false
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": true
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": true,
+      "label": "explicit verification return"
+    },
+    {
+      "case": "R11:real footer cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "A",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": false
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": true
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "dialog": "confirm",
+      "accepted": true,
+      "label": "explicit verification return"
+    },
+    {
+      "case": "R11:real icon cancel then explicit verification and opposite close returns original query/hash",
+      "actor": "B",
+      "cookie": {
+        "present": true,
+        "httpOnly": true,
+        "sameSite": "Lax",
+        "path": "/",
+        "secure": false,
+        "domain": "localhost",
+        "absoluteExpiry": true
+      }
+    }
+  ]
+}
