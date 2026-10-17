@@ -1,0 +1,81 @@
+{
+  "date": "2026-10-17",
+  "baselineHead": "975ef8b2e78221a18956972dc762fda4005aae2f",
+  "scope": "precommit staged index and actual runtime-image /app/.output copied from owned Docker container",
+  "stagedFileCount": 1101,
+  "changedPaths": [
+    ""
+  ],
+  "distinctPrivateSecretValuesComparedInMemory": 18,
+  "secretFindings": [],
+  "redactions": [
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a10-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a4-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a5-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a6-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a7-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a8-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a9-tools.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt",
+      "originalBlobMatches": true,
+      "backupShaMatches": true,
+      "stagedRedactedShaMatches": false,
+      "markers": 0
+    }
+  ],
+  "protectedOriginalFileCount": 346,
+  "protectedMismatches": [],
+  "actualRuntimeImageFilesScanned": 158,
+  "trackedIgnored": [],
+  "deletions": [],
+  "diffCachedCheck": true,
+  "dockerStatic": {
+    "requiredBuildFiles": 99,
+    "excludedProductionFiles": []
+  },
+  "history": "Owner approved retention; history and author metadata not rewritten; S01 historical disclosure remains accessible to authorized repository readers",
+  "pass": false
+}

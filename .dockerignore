@@ -1,0 +1,59 @@
+# Production source build context only; Git retains docs, tests and evidence.
+.git
+.agents
+.codex
+.aws
+AGENTS.md
+README.md
+docs
+tests
+backend-ref
+
+# Dependencies, local builds, caches and execution output are rebuilt as needed.
+**/node_modules
+**/.nuxt
+**/.output
+**/dist
+**/.cache
+**/.vite
+**/.npm
+**/*.tsbuildinfo
+output
+playwright-report
+blob-report
+test-results
+coverage
+.nyc_output
+playwright*.config.ts
+vitest.config.ts
+
+# No local credentials, authenticated browser state or raw sensitive evidence.
+**/.env
+**/.env.*
+**/.envrc
+**/.npmrc.local
+**/.netrc
+**/.secrets
+**/secrets
+**/.ssh
+**/.certs
+**/.auth
+**/storageState*.json
+**/storage-state*.json
+**/*-private-credentials.json
+**/private-state.json
+**/*.sensitive.*
+
+# Local temporary files.
+tmp
+temp
+**/*.tmp
+**/*.swp
+**/*.swo
+**/*~
+**/.DS_Store
+**/Thumbs.db
+**/Desktop.ini
+
+# Keep app/, server/, public/, scripts/, package*.json, .nvmrc, nuxt.config.ts,
+# tsconfig*.json and eslint.config.mjs for the existing npm/Nuxt build.

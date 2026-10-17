@@ -1,0 +1,12 @@
+
+> test:unit
+> vitest run tests/unit/production-api-url.spec.ts tests/unit/api-client.spec.ts tests/unit/f3-auth.spec.ts
+
+
+ RUN  v5.0.3 C:/Users/user/Desktop/custom-form-service-web
+
+
+ Test Files  3 passed (3)
+      Tests  106 passed (106)
+   Start at  18:22:17
+   Duration  566ms (transform 48%, import 40%, tests 9%, worker 3%)

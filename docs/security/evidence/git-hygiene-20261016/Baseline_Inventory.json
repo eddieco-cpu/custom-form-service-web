@@ -1,0 +1,23 @@
+{
+  "head": "975ef8b2e78221a18956972dc762fda4005aae2f",
+  "trackedFiles": 1101,
+  "untrackedFiles": [],
+  "ignoredDirectories": [
+    ".nuxt/",
+    ".output/",
+    "backend-ref/",
+    "dist/",
+    "node_modules/",
+    "output/f6/",
+    "output/f7/",
+    "output/playwright/",
+    "tests/fixtures/f2/browser/node_modules/",
+    "tests/fixtures/f3/browser/node_modules/",
+    "tests/fixtures/f4/browser/node_modules/",
+    "tests/fixtures/f6/browser/node_modules/",
+    "tests/fixtures/f9/browser/node_modules/"
+  ],
+  "trackedFileInventory": "Tracked_Files.csv",
+  "targetedIgnoredLocalFileCount": 5723,
+  "fullLocalWorkingInventory": "output/hygiene-audit-20261016/inventory.json (ignored, local only)"
+}

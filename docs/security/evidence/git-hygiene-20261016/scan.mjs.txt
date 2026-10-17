@@ -1,0 +1,89 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { execFileSync } from 'node:child_process'
+
+const root = process.cwd()
+const out = path.join(root, 'output/hygiene-audit-20261016')
+fs.mkdirSync(out, { recursive: true })
+const git = (...args) => execFileSync('git', args, { cwd: root, maxBuffer: 256 * 1024 * 1024 })
+const list = (...args) => git(...args).toString('utf8').split('\0').filter(Boolean)
+const tracked = list('ls-files', '-z')
+const untracked = list('ls-files', '--others', '--exclude-standard', '-z').filter(p => !p.startsWith('output/hygiene-audit-20261016/'))
+const ignoredDirectories = list('ls-files', '--others', '--ignored', '--exclude-standard', '--directory', '-z')
+const ignoredFiles = list('ls-files', '--others', '--ignored', '--exclude-standard', '-z')
+const localFiles = ignoredFiles.filter(p => !/^(?:node_modules|\.nuxt|\.output|dist|backend-ref)\//.test(p) && !p.includes('/node_modules/') && !p.startsWith('output/hygiene-audit-20261016/'))
+const placeholder = v => /^(?:\s*|\[.*\]|<.*>|\$\{.*\}|\{\{.*\}\}|redacted|masked|null|undefined|true|false|none|\*+|\.+)$/i.test(v) || /^(?:replace[-_ ]|your[-_ ]|placeholder|REDACTED|MASKED)/i.test(v)
+const rules = [
+  ['private-key', /-----BEGIN (?:RSA |EC |OPENSSH |DSA |PGP )?PRIVATE KEY(?: BLOCK)?-----/g],
+  ['jwt', /\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\b/g],
+  ['provider-token', /\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[A-Z0-9]{16}|ASIA[A-Z0-9]{16}|xox[baprs]-[A-Za-z0-9-]{16,}|sk-(?:proj-|svcacct-)?[A-Za-z0-9_-]{20,}|npm_[A-Za-z0-9]{30,}|AIza[A-Za-z0-9_-]{30,}|glpat-[A-Za-z0-9_-]{20,})\b/g],
+  ['credential-uri', /\b(?:postgres(?:ql)?|mysql|mongodb(?:\+srv)?|redis|rediss|https?):\/\/[^\s/@:"'`]+:[^\s/@"'`]+@[^\s"'`<>]+/gi],
+  ['connection-password', /\b(?:Password|Pwd)\s*=\s*([^;\r\n"'`]+)/gi],
+  ['cookie-value', /\b(?:access_token|sessionid|session_id|connect\.sid|__Secure-[\w-]+)\s*=\s*([^\s;,"'`\\]+)/gi],
+  ['authorization-value', /\b(?:Bearer|Basic)\s+([A-Za-z0-9_+/.=-]{8,})/gi],
+  ['credential-literal', /(?:["']?\b(?:password|passwd|pwd|pw|pass|api[_-]?key|access[_-]?token|refresh[_-]?token|jwt[_-]?secret|signing[_-]?key|client[_-]?secret|secret|authorization|cookie|token|DB_PASSWORD|POSTGRES_PASSWORD)["']?)\s*[:=]\s*(["'`])([^"'`\r\n]+)\1/gi, 2],
+  ['credential-env-fallback', /\b(?:[A-Z_]*(?:PASSWORD|SECRET|TOKEN|API_KEY|SIGNING_KEY)[A-Z_]*)[^\r\n]{0,100}?(?:\?\?|\|\|)\s*(["'`])([^"'`\r\n]+)\1/g, 2],
+  ['password-fill-literal', /(?:[Pp]assword|密碼)[^\r\n]{0,100}?\.fill\(\s*(["'`])([^"'`\r\n]+)\1/g, 2],
+  ['email', /\b[A-Za-z0-9.!#$%&*+/=?^_`{|}~-]+@[A-Za-z0-9](?:[A-Za-z0-9.-]*[A-Za-z0-9])?\.[A-Za-z]{2,}\b/g],
+  ['taiwan-id-candidate', /\b[A-Z][12][0-9]{8}\b/g],
+  ['taiwan-mobile-candidate', /(?<![0-9])(?:\+886[- ]?9[0-9]{2}[- ]?[0-9]{3}[- ]?[0-9]{3}|09[0-9]{2}[- ]?[0-9]{3}[- ]?[0-9]{3})(?![0-9])/g],
+  ['sensitive-header-context', /\b(?:set-cookie|authorization|cookie)\b\s*["']?\s*[:=]/gi],
+]
+const binary = []
+const errors = []
+const emailDomains = new Map()
+function scan(buf, file, scope, oid) {
+  if (buf.includes(0)) { binary.push({ scope, path: file, oid, bytes: buf.length }); return [] }
+  const content = buf.toString('utf8')
+  const rows = []
+  const lines = content.split(/\r?\n/)
+  for (let i = 0; i < lines.length; i++) {
+    for (const [rule, regex, group] of rules) {
+      regex.lastIndex = 0
+      for (const match of lines[i].matchAll(regex)) {
+        const value = match[group ?? 1] ?? match[0]
+        if (rule === 'email') {
+          const domain = value.split('@').at(-1).toLowerCase()
+          emailDomains.set(domain, (emailDomains.get(domain) ?? 0) + 1)
+          if (/(?:^|\.)(?:example\.(?:com|net|org|test)|test|invalid|localhost)$/.test(domain)) continue
+        }
+        const classification = rule === 'sensitive-header-context' ? 'context-only' : placeholder(value) ? 'placeholder' : 'review'
+        const row = { scope, path: file, line: i + 1, rule, classification, length: value.length }
+        if (oid) row.oid = oid
+        if (rule === 'jwt') {
+          try {
+            const payload = JSON.parse(Buffer.from(value.split('.')[1], 'base64url').toString('utf8'))
+            row.jwt = { hasIdentity: Boolean(payload.sub || payload.email || payload.unique_name), exp: typeof payload.exp === 'number' ? payload.exp : null, expiredAtAudit: typeof payload.exp === 'number' ? payload.exp * 1000 < Date.now() : null }
+          } catch { row.jwt = { parseable: false } }
+        }
+        rows.push(row)
+      }
+    }
+  }
+  return rows
+}
+const findings = []
+for (const [scope, files] of [['tracked', tracked], ['untracked', untracked], ['ignored-local', localFiles]]) {
+  for (const file of files) {
+    try { findings.push(...scan(fs.readFileSync(path.join(root, file)), file, scope)) }
+    catch (error) { errors.push({ scope, path: file, code: error.code }) }
+  }
+}
+const objects = git('rev-list', '--objects', '--all', '--reflog').toString('utf8').trim().split('\n').map(l => { const i = l.indexOf(' '); return { oid: i < 0 ? l : l.slice(0, i), path: i < 0 ? '' : l.slice(i + 1) } })
+const meta = execFileSync('git', ['cat-file', '--batch-check=%(objectname) %(objecttype) %(objectsize)'], { cwd: root, input: objects.map(o => o.oid).join('\n') + '\n', maxBuffer: 256 * 1024 * 1024 }).toString('utf8').trim().split('\n')
+const historyFindings = []
+let historyBlobs = 0
+let historyCommits = 0
+for (let i = 0; i < objects.length; i++) {
+  const type = meta[i].split(' ')[1]
+  if (type !== 'blob' && type !== 'commit') continue
+  if (type === 'blob') historyBlobs++; else historyCommits++
+  const object = objects[i]
+  historyFindings.push(...scan(git('cat-file', type, object.oid), object.path || '(commit-metadata)', type === 'blob' ? 'history-blob' : 'history-commit', object.oid))
+}
+const counts = rows => Object.fromEntries([...new Set(rows.map(r => r.rule))].sort().map(rule => [rule, rows.filter(r => r.rule === rule).length]))
+const inventory = { baselineHead: git('rev-parse', 'HEAD').toString().trim(), tracked, untracked, ignoredDirectories, ignoredLocalScanned: localFiles, excludedIgnoredRoots: ['node_modules/', '.nuxt/', '.output/', 'dist/', 'backend-ref/', '**/node_modules/'], trackedBytes: tracked.reduce((n, p) => n + fs.statSync(path.join(root, p)).size, 0) }
+const result = { timestamp: new Date().toISOString(), trackedCount: tracked.length, untrackedCount: untracked.length, localIgnoredScannedCount: localFiles.length, historyCommits, historyBlobs, counts: counts(findings), historyCounts: counts(historyFindings), emailDomains: Object.fromEntries(emailDomains), findings, historyFindings, binary, errors }
+fs.writeFileSync(path.join(out, 'inventory.json'), JSON.stringify(inventory, null, 2) + '\n')
+fs.writeFileSync(path.join(out, 'scan-results.json'), JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify({ ...result, findings: undefined, historyFindings: undefined, binary: { tracked: binary.filter(b => b.scope === 'tracked').length, history: binary.filter(b => b.scope === 'history-blob').length, local: binary.filter(b => b.scope === 'ignored-local').length } }, null, 2))

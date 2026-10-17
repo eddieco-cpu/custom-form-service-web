@@ -1,0 +1,449 @@
+{
+  "buildReusedWithoutRebuilding": true,
+  "realBackendIntegration": "NOT RUN",
+  "browserHydrationOrReload": "NOT VERIFIED BY HTTP PROBE",
+  "docker": "NOT RUN: daemon inaccessible",
+  "cases": [
+    {
+      "label": "missing-override",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "(unset)",
+      "port": 4321,
+      "checks": [
+        {
+          "name": "reject-invalid-config-before-listening",
+          "pass": true
+        }
+      ],
+      "lastConnectionError": {
+        "name": "TypeError",
+        "causeCode": "ECONNREFUSED",
+        "message": "fetch failed"
+      },
+      "pass": true,
+      "serverLog": "file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4662\r\n  const invalid = () => new Error(\"NUXT_PUBLIC_API_BASE_URL must be an absolute HTTPS API URL without credentials, query, fragment, or a loopback host.\");\r\n                        ^\r\n\r\nError: NUXT_PUBLIC_API_BASE_URL must be an absolute HTTPS API URL without credentials, query, fragment, or a loopback host.\r\n    at invalid (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4662:25)\r\n    at assertProductionApiBaseUrl (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4671:312)\r\n    at file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4676:5\r\n    at runNitroPlugins (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:5397:7)\r\n    at file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:5408:1\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\r\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n    at async node:internal/modules/esm/loader:647:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\r\n\r\nNode.js v24.21.0\r\n",
+      "exitCode": 1
+    },
+    {
+      "label": "localhost-override",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://localhost/api/v1",
+      "port": 4322,
+      "checks": [
+        {
+          "name": "reject-invalid-config-before-listening",
+          "pass": true
+        }
+      ],
+      "lastConnectionError": {
+        "name": "TypeError",
+        "causeCode": "ECONNREFUSED",
+        "message": "fetch failed"
+      },
+      "pass": true,
+      "serverLog": "file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4662\r\n  const invalid = () => new Error(\"NUXT_PUBLIC_API_BASE_URL must be an absolute HTTPS API URL without credentials, query, fragment, or a loopback host.\");\r\n                        ^\r\n\r\nError: NUXT_PUBLIC_API_BASE_URL must be an absolute HTTPS API URL without credentials, query, fragment, or a loopback host.\r\n    at invalid (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4662:25)\r\n    at assertProductionApiBaseUrl (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4671:312)\r\n    at file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:4676:5\r\n    at runNitroPlugins (file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:5397:7)\r\n    at file:///C:/Users/user/Desktop/custom-form-service-web/.output/server/chunks/_/nitro.mjs:5408:1\r\n    at ModuleJob.run (node:internal/modules/esm/module_job:561:25)\r\n    at process.processTicksAndRejections (node:internal/process/task_queues:104:5)\r\n    at async node:internal/modules/esm/loader:647:26\r\n    at async asyncRunEntryPointWithESMLoader (node:internal/modules/run_main:101:5)\r\n\r\nNode.js v24.21.0\r\n",
+      "exitCode": 1
+    },
+    {
+      "label": "runtime-override-A",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://api-a.deploy-smoke.example.test/api/v1",
+      "port": 4323,
+      "checks": [
+        {
+          "name": "custom-PORT-and-0.0.0.0",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/login:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/login:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/login:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/login:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/edit:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/edit:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:request-2",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/entry.Dv04f7sy.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Ri9R2uCj.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/MNQ1Xzy4.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/g3KELcAE.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DFzJzEx7.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/B7ko0e5v.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BmDtUo4K.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BSyP4YEz.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DK3Fl9T5.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/s5LFNtkh.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DP5y-68_.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CeydEC4j.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BZPRtX7B.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CTpMkH0w.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BU-Vieej.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CLF355rT.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BZCTSBer.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/ClSRzxfS.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/D55XGH9e.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BX57FN7F.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/C-odFBx-.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Bd-YC6_K.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BeaBI-c4.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BDNMzG2s.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/error-404.DpKY_dMl.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CMJCu_ak.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/error-500.CmR4p1fc.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Hgm0JKzj.js",
+          "pass": true
+        },
+        {
+          "name": "favicon",
+          "pass": true
+        }
+      ],
+      "lastConnectionError": {
+        "name": "TypeError",
+        "causeCode": "ECONNREFUSED",
+        "message": "fetch failed"
+      },
+      "pass": true,
+      "serverLog": "Listening on http://0.0.0.0:4323\n",
+      "exitCode": null
+    },
+    {
+      "label": "runtime-override-B-same-build",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://api-b.deploy-smoke.example.test/api/v1",
+      "port": 4324,
+      "checks": [
+        {
+          "name": "custom-PORT-and-0.0.0.0",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/login:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/login:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/login:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/login:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:request-2",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/edit:request-1",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:request-1",
+          "pass": true
+        },
+        {
+          "name": "direct-HTTP-shell:/forms/00000000-0000-4000-8000-000000000001/edit:request-2",
+          "pass": true
+        },
+        {
+          "name": "runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:request-2",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/entry.Dv04f7sy.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Ri9R2uCj.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/MNQ1Xzy4.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/g3KELcAE.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DFzJzEx7.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/B7ko0e5v.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BmDtUo4K.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BSyP4YEz.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DK3Fl9T5.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/s5LFNtkh.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/DP5y-68_.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CeydEC4j.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BZPRtX7B.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CTpMkH0w.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BU-Vieej.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CLF355rT.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BZCTSBer.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/ClSRzxfS.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/D55XGH9e.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BX57FN7F.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/C-odFBx-.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Bd-YC6_K.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BeaBI-c4.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/BDNMzG2s.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/error-404.DpKY_dMl.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/CMJCu_ak.js",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/error-500.CmR4p1fc.css",
+          "pass": true
+        },
+        {
+          "name": "static-asset:/_nuxt/Hgm0JKzj.js",
+          "pass": true
+        },
+        {
+          "name": "favicon",
+          "pass": true
+        }
+      ],
+      "lastConnectionError": {
+        "name": "TypeError",
+        "causeCode": "ECONNREFUSED",
+        "message": "fetch failed"
+      },
+      "pass": true,
+      "serverLog": "Listening on http://0.0.0.0:4324\n",
+      "exitCode": null
+    }
+  ],
+  "pass": true
+}

@@ -1,0 +1,61 @@
+{
+  "buildReusedWithoutRebuilding": true,
+  "realBackendIntegration": "NOT RUN",
+  "browserHydrationOrReload": "NOT VERIFIED BY HTTP PROBE",
+  "docker": "NOT RUN: daemon inaccessible",
+  "cases": [
+    {
+      "label": "missing-override",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "(unset)",
+      "port": 4321,
+      "checks": [
+        {
+          "name": "reject-invalid-config-before-listening",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "label": "localhost-override",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://localhost/api/v1",
+      "port": 4322,
+      "checks": [
+        {
+          "name": "reject-invalid-config-before-listening",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "label": "runtime-override-A",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://api-a.deploy-smoke.example.test/api/v1",
+      "port": 4323,
+      "checks": [
+        {
+          "name": "custom-PORT-and-0.0.0.0",
+          "pass": false
+        }
+      ],
+      "pass": false
+    },
+    {
+      "label": "runtime-override-B-same-build",
+      "mode": "native Node production artifact; NOT Docker",
+      "override": "https://api-b.deploy-smoke.example.test/api/v1",
+      "port": 4324,
+      "checks": [
+        {
+          "name": "custom-PORT-and-0.0.0.0",
+          "pass": false
+        }
+      ],
+      "pass": false
+    }
+  ],
+  "pass": false
+}

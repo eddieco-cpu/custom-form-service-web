@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-17",
+  "originalsRetainedLocally": true,
+  "existingF10EvidenceModified": false,
+  "entries": [
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/build-final-retest.log",
+      "localOriginal": "output/docker-prep-20261017/build-final-retest.log",
+      "originalSha256": "cc9b13080d94de9a0e4cf4adee0032749a055badbfd08da0278ac5f57df697b3",
+      "trackedCopySha256": "a4c31b6fc60e0bd2b7d28ebe97efe3f0534a4b05c36f207f2d209b8294440065",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/build-final.log",
+      "localOriginal": "output/docker-prep-20261017/build-final.log",
+      "originalSha256": "5f8cb7c149b1c0e272bdedea36a61668a94da27a2c8468b59adf9d61185f49f7",
+      "trackedCopySha256": "583d01e1255c6f9f8eb73a0d68c97e8e7f0a2d56369ee795905eee2ab51706ea",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/docker-build-authorized.log",
+      "localOriginal": "output/docker-prep-20261017/docker-build-authorized.log",
+      "originalSha256": "5f804fb9ebb56e26d011454d4dba26c10381f9eb088b35c20df891863fa99a65",
+      "trackedCopySha256": "e5fdb009e3d66347c7ab59c43cbdda689d8c8c2d40f6b781893fb5cca38d8007",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/docker-build-final.log",
+      "localOriginal": "output/docker-prep-20261017/docker-build-final.log",
+      "originalSha256": "0ba215b4d3130b6a26fa1196317261df7949100dd31649c493655edff1c430e3",
+      "trackedCopySha256": "58a9b32c1c94c3fb3b15e969dc9bab48ce7016f052e6f859717847084f0adfaa",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/docker-build-local-config.log",
+      "localOriginal": "output/docker-prep-20261017/docker-build-local-config.log",
+      "originalSha256": "f4fe2ab9d54be7da12a22bff8afcfc46d7a5a19b50d8edc27ad6bb00191cef19",
+      "trackedCopySha256": "bd1b1d9b25d573989f728f61fe7eb811e3d4cbcdcb8f02c51a6c216137c2c123",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/docker-build.log",
+      "localOriginal": "output/docker-prep-20261017/docker-build.log",
+      "originalSha256": "252b43f02bd31266bc270be907d624668197567063fbb368f65f060acd19205f",
+      "trackedCopySha256": "def0d60f6f7c3b6956547dd088bb4c0fccf35a89c4e148a9f96966c1b693357d",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/lint-final.log",
+      "localOriginal": "output/docker-prep-20261017/lint-final.log",
+      "originalSha256": "9e26cc9ff4b569e5db90454732fd10fd7539c03822105285e1736826ed26fc0f",
+      "trackedCopySha256": "b936abfefef25d5e5df6d3cf22f9c47bdbe3d5199b0917b5aa280965a10b8d45",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/node-image-manifest.json",
+      "localOriginal": "output/docker-prep-20261017/node-image-manifest.json",
+      "originalSha256": "8ff66a2b5092fce27c0dbd567c24c4fbdeb4e97322d8fb143fa648e93960c245",
+      "trackedCopySha256": "f11e98fb41013fe71720c9cfb7a486131eead93682ab22910e7d650bd0734234",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/typecheck-final.log",
+      "localOriginal": "output/docker-prep-20261017/typecheck-final.log",
+      "originalSha256": "4c4a27e9a63becf5cf53dd339dab7957843dbe05431ca7d7c73d0746b4730977",
+      "trackedCopySha256": "661a51678462eaf61937166469a0223d4baa0c379927b8b9111a0df47ce0283c",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    },
+    {
+      "path": "docs/security/evidence/docker-prep-20261017/execution/unit-final.log",
+      "localOriginal": "output/docker-prep-20261017/unit-final.log",
+      "originalSha256": "0e93cfa4b5528756b91b35496f395b7da6370aafb59e246e940b299fe25cb386",
+      "trackedCopySha256": "aa532e083a3f869dad3528e47a7f8a06019b0e2269303dfd74604077aa9accb8",
+      "transformation": "CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved"
+    }
+  ]
+}

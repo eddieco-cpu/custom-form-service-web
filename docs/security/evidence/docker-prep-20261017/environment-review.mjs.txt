@@ -1,0 +1,44 @@
+import fs from 'node:fs'
+import ts from 'typescript'
+import crypto from 'node:crypto'
+const dir = 'docs/security/evidence/docker-prep-20261017'
+const privateState = JSON.parse(fs.readFileSync('output/playwright/v1-acceptance/v1-f10-20261016-01/private-state.json', 'utf8'))
+const source = fs.readFileSync('output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt', 'utf8')
+const ast = ts.createSourceFile('canonical.mjs', source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS)
+const endpointVariables = []
+function visit(node) {
+  if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && /api|base|origin/i.test(node.name.text) && node.initializer && ts.isStringLiteral(node.initializer)) {
+    try { const url = new URL(node.initializer.text); if (['http:', 'https:'].includes(url.protocol) && !url.username && !url.password) endpointVariables.push({ variable: node.name.text, origin: url.origin, pathname: url.pathname }) } catch { /* not URL */ }
+  }
+  ts.forEachChild(node, visit)
+}
+visit(ast)
+const records = []
+for (const p of fs.readdirSync('docs/test-results/evidence/F10_v1-f10-20261016-01/raw').filter(p => /^canonical.*\.json$/.test(p))) {
+  const data = JSON.parse(fs.readFileSync('docs/test-results/evidence/F10_v1-f10-20261016-01/raw/' + p, 'utf8'))
+  const walk = (value, keyPath = '') => {
+    if (!value || typeof value !== 'object') return
+    if ((value.actor === 'EC1' || value.actor === 'EC2') && typeof value.url === 'string' && value.url.includes('/auth/register')) {
+      try { const url = new URL(value.url); records.push({ file: p, keyPath, alias: value.actor, method: value.method, origin: url.origin, path: url.pathname, status: value.status ?? null }) } catch { /* not absolute */ }
+    }
+    if (value.alias === 'EC1' || value.alias === 'EC2') records.push({ file: p, keyPath, alias: value.alias, hasServerId: Boolean(value.id), status: value.status ?? null })
+    for (const [k, v] of Object.entries(value)) if (v && typeof v === 'object') walk(v, keyPath + '.' + k)
+  }
+  walk(data)
+}
+const backendCookiePath = 'C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/Authentication/AccessTokenCookie.cs'
+const backendCookie = fs.readFileSync(backendCookiePath)
+const result = {
+  date: '2026-10-17', localSourceApiVariables: endpointVariables,
+  localPrivateStateMetadata: ['EC1', 'EC2'].map(alias => ({ alias, credentialRecorded: typeof privateState.accounts[alias]?.password === 'string', serverIdRecorded: Boolean(privateState.accounts[alias]?.id) })),
+  recordedRegistrationObservations: records,
+  originalEnvironmentEvidence: 'docs/test-results/evidence/F10_v1-f10-20261016-01/raw/environment.json',
+  historicalBackendHead: '7591633137c5a6f57c1fce8e1ba19ab394015880',
+  currentBackendSourceRead: { path: backendCookiePath, sha256: crypto.createHash('sha256').update(backendCookie).digest('hex'), sameSiteLax: backendCookie.toString('utf8').includes('SameSiteMode.Lax'), gitHead: 'UNCONFIRMED: git -C permission denied' },
+  railwayBackendDeployment: 'Owner reports deployed; endpoint, deployed commit, deployed configuration and DB migration/copy provenance unavailable in this frontend workspace',
+  onlyLocalAssertion: 'UNCONFIRMED. Recorded traffic is local; cannot prove database/accounts were never copied to Railway or another environment. No account or DB operations performed.',
+  futureRailwayTesting: 'Use newly created synthetic accounts and fresh cryptographically random passwords; retain raw credentials only in ignored local storage. Do not reuse EC1/EC2.',
+}
+fs.mkdirSync(dir, { recursive: true })
+fs.writeFileSync(`${dir}/EC1_EC2_Environment_Review.json`, JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify({ endpointVariables, accounts: result.localPrivateStateMetadata, registrationRecordCount: records.length, observedOrigins: [...new Set(records.filter(r => r.origin).map(r => r.origin))], onlyLocalAssertion: 'UNCONFIRMED' }, null, 2))

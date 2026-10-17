@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-17",
+  "stopped": [
+    {
+      "name": "docker-prep-20261017-d342b1fc-a",
+      "stopped": true,
+      "removedByRunRm": true,
+      "volumesUsed": false
+    },
+    {
+      "name": "docker-prep-20261017-d342b1fc-b",
+      "stopped": true,
+      "removedByRunRm": true,
+      "volumesUsed": false
+    }
+  ],
+  "unrelatedContainersTouched": false,
+  "databaseOperations": false,
+  "imageRetainedForLocalInspection": "custom-form-service-web:prep-20261017",
+  "pass": true
+}

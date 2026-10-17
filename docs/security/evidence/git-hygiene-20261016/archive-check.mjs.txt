@@ -1,0 +1,41 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { inflateRawSync } from 'node:zlib'
+import { execFileSync } from 'node:child_process'
+const dir = 'output/hygiene-audit-20261016'
+const oid = '642ef7e318ded5240fbc4c18be41d8d6f894a74b'
+const buffer = execFileSync('git', ['cat-file', 'blob', oid], { maxBuffer: 128 * 1024 * 1024 })
+fs.writeFileSync(`${dir}/history-test-plan.zip`, buffer)
+const entries = []
+const findings = []
+const outputRoot = path.resolve(dir, 'history-test-plan')
+for (let offset = 0; offset < buffer.length - 46; offset++) {
+  if (buffer.readUInt32LE(offset) !== 0x02014b50) continue
+  const method = buffer.readUInt16LE(offset + 10), compressedSize = buffer.readUInt32LE(offset + 20), size = buffer.readUInt32LE(offset + 24)
+  const nameLength = buffer.readUInt16LE(offset + 28), extraLength = buffer.readUInt16LE(offset + 30), commentLength = buffer.readUInt16LE(offset + 32), localOffset = buffer.readUInt32LE(offset + 42)
+  const name = buffer.subarray(offset + 46, offset + 46 + nameLength).toString('utf8')
+  offset += 45 + nameLength + extraLength + commentLength
+  if (name.endsWith('/')) continue
+  if (size > 16 * 1024 * 1024 || ![0, 8].includes(method)) throw new Error('Unsupported archive entry')
+  const start = localOffset + 30 + buffer.readUInt16LE(localOffset + 26) + buffer.readUInt16LE(localOffset + 28)
+  const compressed = buffer.subarray(start, start + compressedSize)
+  const content = method === 8 ? inflateRawSync(compressed) : compressed
+  if (content.length !== size) throw new Error('Archive size mismatch')
+  const target = path.resolve(outputRoot, name)
+  if (!target.startsWith(outputRoot + path.sep)) throw new Error('Archive path outside audit directory')
+  fs.mkdirSync(path.dirname(target), { recursive: true }); fs.writeFileSync(target, content)
+  entries.push({ name, bytes: size, binary: content.includes(0) })
+  if (content.includes(0)) continue
+  const lines = content.toString('utf8').split(/\r?\n/)
+  const rules = [
+    ['private-key', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY/],
+    ['jwt', /\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}/],
+    ['provider-token', /\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[A-Z0-9]{16}|sk-[A-Za-z0-9_-]{20,})/],
+    ['credential-or-header-context', /password|signingkey|secret|token|authorization|set-cookie|connectionstring/i],
+    ['email', /[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/],
+  ]
+  for (let i = 0; i < lines.length; i++) for (const [rule, regex] of rules) if (regex.test(lines[i])) findings.push({ entry: name, line: i + 1, rule })
+}
+const result = { historyPath: 'docs/test-plan.zip', oid, entries, findings }
+fs.writeFileSync(`${dir}/archive-results.json`, JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify({ entries, candidateCounts: findings.reduce((counts, f) => { counts[f.rule] = (counts[f.rule] ?? 0) + 1; return counts }, {}) }, null, 2))

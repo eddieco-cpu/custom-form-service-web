@@ -1,0 +1,27 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import { execFileSync, spawnSync } from 'node:child_process'
+const dir = 'output/hygiene-audit-20261016'
+const inventory = JSON.parse(fs.readFileSync(`${dir}/inventory.json`, 'utf8'))
+const ignored = ['.env', '.env.local', '.env.production', 'tests/fixtures/f2/browser/.env.local', 'node_modules/example/index.js', 'tests/fixtures/f2/browser/.nuxt/types.d.ts', '.nuxt/a.json', '.output/server/index.mjs', 'dist/index.html', '.cache/tool/data', '.vite/results.json', '.npm/_logs/install.log', 'output/test/trace.zip', 'playwright-report/index.html', 'blob-report/report.zip', 'test-results/run/output.json', 'coverage/lcov.info', '.nyc_output/data.json', '.secrets/local.json', '.aws/credentials', 'playwright/.auth/state.json', 'docs/test-results/evidence/.auth/state.json', 'docs/test-results/evidence/storageState.json', 'docs/test-results/evidence/private-state.json', 'docs/test-results/evidence/run-private-credentials.json', 'docs/test-results/evidence/session.sensitive.json', 'tmp/a.txt', 'temp/a.txt', 'notes.tmp', 'editor.swp']
+const kept = ['.env.example', 'AGENTS.md', '.agents/skills/v1-frontend-round-development/SKILL.md', '.agents/skills/v1-frontend-acceptance-testing/SKILL.md', 'docs/specs/00-v1-frontend-overview.md', 'docs/implementation/F9_Development_Report.md', 'docs/review/F9_Code_Review_Report_20261016.md', 'docs/test-plan/F10_Acceptance_Test.md', 'docs/test-results/evidence/new-run/raw/first-failure.log', 'docs/test-results/evidence/new-run/sanitized.json', 'docs/test-results/evidence/new-run/screenshots/form.png', 'docs/test-results/evidence/new-run/tools/reproduce.mjs.txt', 'tests/e2e/f9-live.spec.ts', 'tests/fixtures/f9/payloads.ts', 'tests/unit/f3-auth.spec.ts', 'package-lock.json', 'app/pages/login.vue']
+const checked = spawnSync('git', ['check-ignore', '--no-index', '--stdin', '-z'], { input: [...ignored, ...kept].join('\0') + '\0', encoding: 'utf8' })
+if (![0, 1].includes(checked.status)) throw new Error('git check-ignore failed')
+const matches = new Set(checked.stdout.split('\0').filter(Boolean))
+const ignoreFailures = [...ignored.filter(p => !matches.has(p)).map(path => ({ path, expected: 'ignored' })), ...kept.filter(p => matches.has(p)).map(path => ({ path, expected: 'kept' }))]
+const trackedIgnored = execFileSync('git', ['ls-files', '-ci', '--exclude-standard', '-z'], { encoding: 'utf8' }).split('\0').filter(Boolean)
+const patterns = fs.readFileSync('.dockerignore', 'utf8').split(/\r?\n/).map(p => p.trim()).filter(p => p && !p.startsWith('#'))
+// This file has only positive exclusions. This helper checks this subset of
+// Docker syntax against file paths and their parents; it is not a Docker build.
+if (patterns.some(p => p.startsWith('!'))) throw new Error('Unsupported negation')
+function dockerExcluded(file) {
+  const segments = file.split('/')
+  const parents = segments.map((_, i) => segments.slice(0, i + 1).join('/'))
+  return patterns.some(pattern => parents.some(p => path.posix.matchesGlob(p, pattern)))
+}
+const productionFiles = inventory.tracked.filter(p => p.startsWith('app/') || p.startsWith('public/') || p.startsWith('scripts/') || ['package.json', 'package-lock.json', '.nvmrc', 'nuxt.config.ts', 'tsconfig.json', 'tsconfig.tools.json', 'eslint.config.mjs'].includes(p))
+const dockerFailures = productionFiles.filter(dockerExcluded)
+const result = { git: { ignoredProbeCount: ignored.length, keptProbeCount: kept.length, failures: ignoreFailures, trackedNewlyIgnored: trackedIgnored }, dockerStatic: { productionFileCount: productionFiles.length, excludedProductionFiles: dockerFailures, includedTrackedCount: inventory.tracked.filter(p => !dockerExcluded(p)).length, excludedTrackedCount: inventory.tracked.filter(dockerExcluded).length, docsExcluded: inventory.tracked.filter(p => p.startsWith('docs/')).every(dockerExcluded), testsExcluded: inventory.tracked.filter(p => p.startsWith('tests/')).every(dockerExcluded), exampleEnvExcluded: dockerExcluded('.env.example'), engineBuild: 'NOT RUN: Docker daemon access denied' }, diffCheck: spawnSync('git', ['diff', '--check'], { encoding: 'utf8' }).status === 0 }
+fs.writeFileSync(`${dir}/validation-results.json`, JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify(result, null, 2))
+if (ignoreFailures.length || trackedIgnored.length || dockerFailures.length || !result.diffCheck) process.exitCode = 1

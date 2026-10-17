@@ -1,0 +1,14 @@
+import fs from 'node:fs'
+import crypto from 'node:crypto'
+const root = 'docs/security/evidence/docker-prep-20261017/execution'
+const rawRoot = 'output/docker-prep-20261017'
+const sha = bytes => crypto.createHash('sha256').update(bytes).digest('hex')
+const entries = []
+for (const file of fs.readdirSync(root).filter(p => p.endsWith('.log') || p === 'node-image-manifest.json')) {
+  const original = fs.readFileSync(`${rawRoot}/${file}`)
+  const normalized = Buffer.from(original.toString('utf8').replaceAll('\r\n', '\n').split('\n').map(line => line.replace(/[ \t]+$/, '')).join('\n').replace(/\n+$/, '') + '\n')
+  fs.writeFileSync(`${root}/${file}`, normalized)
+  entries.push({ path: `${root}/${file}`, localOriginal: `${rawRoot}/${file}`, originalSha256: sha(original), trackedCopySha256: sha(normalized), transformation: 'CRLF to LF; trailing spaces/tabs and extra final blank lines removed; textual results/errors preserved' })
+}
+fs.writeFileSync('docs/security/evidence/docker-prep-20261017/Log_Copy_Provenance.json', JSON.stringify({ date: '2026-10-17', originalsRetainedLocally: true, existingF10EvidenceModified: false, entries }, null, 2) + '\n')
+console.log(JSON.stringify({ normalizedNewLogCopies: entries.length, rawOriginalsRetained: true }))

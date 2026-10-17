@@ -1,0 +1,211 @@
+{
+  "date": "2026-10-17",
+  "authorization": "Owner explicitly approved local originals plus redacted copies at original tracked paths; retain history and metadata; private GitHub repository",
+  "status": "COMPLETED",
+  "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+  "originalEvidenceManifest": "docs/test-results/evidence/F10_v1-f10-20261016-01/Evidence_Manifest.json",
+  "integrityPolicy": "Original manifest and recorded test results unchanged; use original hashes for local originals and this additive mapping for redacted copies",
+  "history": "RETAINED WITHOUT REWRITE; historical credential reconstruction remains accessible to repository readers",
+  "entries": [
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a10-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "0136a42fdc4eeb2a60ab915d0f480c2b86019911",
+      "originalSha256": "72b7eb43883b744449ca05ea7889cc12796dd7aff7aac5b6e916a85a923dfbcf",
+      "originalBytes": 93829,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a10-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "d9d03f88d496b77da4ec92c411283054d15cfcc54d8b73b134e912050fce93b0",
+      "redactedBytes": 94069,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a4-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "39285d307e67d55f47dd48f86b469c0c9871e4fe",
+      "originalSha256": "b36cf71fe58d45c970280f0799867a5808fc11d1537d286eb4d59d244d777877",
+      "originalBytes": 62687,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a4-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "8d62993a61152cd6b42c4b28579b63303d743ce67ffd3f04cdf4418f3e25b4f0",
+      "redactedBytes": 62927,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a5-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "b4489351b0abd938f34682fa5bd2cbb682598e47",
+      "originalSha256": "ed2386d169c9c1b27fe8ae5ed36d77608145296afc3dc3e1278b98669ecd5bc3",
+      "originalBytes": 70432,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a5-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "5c62bf6648061fb1f2a33cbb77e0047adb6c1bb4370e2b7092bc0e3fec0fbc5d",
+      "redactedBytes": 70672,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a6-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "6602ff9edc19585ce7307f75cf9e3fdcca573cd9",
+      "originalSha256": "c67f5baa30401e8ed3e34811f6504c1ac25458b09f452a72a6693f976a080acf",
+      "originalBytes": 87463,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a6-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "3962d47dbff0e7c3bdb8c5e41082a21816c34de312231673b4c2033383693280",
+      "redactedBytes": 87703,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a7-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "cb4332ffbf4f4c7db4dfeca104a6aed1f985ca7a",
+      "originalSha256": "3ca72a17460c67d717882b8dc7dd7651732ccfbc95e8f2c92f8d89c664951304",
+      "originalBytes": 88175,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a7-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "15685d2b80d3af8fdd5097781fbec533bb196e6d1cd66fcb956d9eac884a5af6",
+      "redactedBytes": 88415,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a8-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "5f5317567bf1d4f83ec70c331240d81418b44906",
+      "originalSha256": "0695cddabb5512e2d0be8f2a6ffc0ed5cf40f23afe8085d8dd27aa7cae698287",
+      "originalBytes": 91174,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a8-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "372222609e059e90a832bfebaf29296971340511165554fa65cfc6a726e4d8f0",
+      "redactedBytes": 91414,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a9-tools.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "2e905f961894d79005c4f4e6fef19157a4765830",
+      "originalSha256": "ba12534b681ce02ed166c679c9a539247c507d87494068c92ffd7927e54cb061",
+      "originalBytes": 92788,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a9-tools.mjs.txt",
+      "originalLine": 359,
+      "redactedSha256": "11f620f4778fa5af34f319035afafd2bea4cdf123db49d6da2b64ee6cbc60658",
+      "redactedBytes": 93028,
+      "redactedLine": 360,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 359,
+          "redactedLine": 360
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 359,
+          "redactedLine": 360
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    },
+    {
+      "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt",
+      "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+      "sourceBlob": "382208b471d9629c70dd65604648e82139fbcf71",
+      "originalSha256": "f066cf546913116de85631d49f8a88d0f114c59877e64439ddc95369f6375a9a",
+      "originalBytes": 94149,
+      "localBackup": "output/hygiene-private-originals-20261016/S01/docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt",
+      "originalLine": 360,
+      "redactedSha256": "474d6f0b9142c3219100a411b14decb5028d126029b19286c036cfc605559cee",
+      "redactedBytes": 94389,
+      "redactedLine": 361,
+      "redactedBranches": [
+        {
+          "alias": "EC1",
+          "originalLine": 360,
+          "redactedLine": 361
+        },
+        {
+          "alias": "EC2",
+          "originalLine": 360,
+          "redactedLine": 361
+        }
+      ],
+      "unrelatedHistoricalContentBytePreserved": true
+    }
+  ]
+}

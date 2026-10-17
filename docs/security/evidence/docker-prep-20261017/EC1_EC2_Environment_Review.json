@@ -1,0 +1,230 @@
+{
+  "date": "2026-10-17",
+  "localSourceApiVariables": [
+    {
+      "variable": "api",
+      "origin": "http://localhost:5000",
+      "pathname": "/api/v1"
+    },
+    {
+      "variable": "origin",
+      "origin": "http://localhost:3000",
+      "pathname": "/"
+    }
+  ],
+  "localPrivateStateMetadata": [
+    {
+      "alias": "EC1",
+      "credentialRecorded": true,
+      "serverIdRecorded": true
+    },
+    {
+      "alias": "EC2",
+      "credentialRecorded": true,
+      "serverIdRecorded": true
+    }
+  ],
+  "recordedRegistrationObservations": [
+    {
+      "file": "canonical-a10-managementNoop.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a10-managementNoop.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".requests.16",
+      "alias": "EC1",
+      "method": "POST",
+      "origin": "http://localhost:5000",
+      "path": "/api/v1/auth/register",
+      "status": null
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".requests.19",
+      "alias": "EC2",
+      "method": "POST",
+      "origin": "http://localhost:5000",
+      "path": "/api/v1/auth/register",
+      "status": null
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".outcomes.16",
+      "alias": "EC1",
+      "method": "POST",
+      "origin": "http://localhost:5000",
+      "path": "/api/v1/auth/register",
+      "status": 201
+    },
+    {
+      "file": "canonical-a4-additional.json",
+      "keyPath": ".outcomes.19",
+      "alias": "EC2",
+      "method": "POST",
+      "origin": "http://localhost:5000",
+      "path": "/api/v1/auth/register",
+      "status": 201
+    },
+    {
+      "file": "canonical-a5-authRetest.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a5-authRetest.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a6-authRetest,completionProbes,editorProbes.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a7-routeDiagnostics.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a7-routeDiagnostics.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a8-latestAndReturn.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a8-latestAndReturn.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a9-lastReadbacks.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-a9-lastReadbacks.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-chrome-a1-smoke.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-chrome-a1-smoke.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-chrome-a2-smokeRetest.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-chrome-a2-smokeRetest.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-msedge-a1-smoke.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-msedge-a1-smoke.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-msedge-a2-smokeRetest.json",
+      "keyPath": ".accounts.5",
+      "alias": "EC1",
+      "hasServerId": true,
+      "status": null
+    },
+    {
+      "file": "canonical-msedge-a2-smokeRetest.json",
+      "keyPath": ".accounts.6",
+      "alias": "EC2",
+      "hasServerId": true,
+      "status": null
+    }
+  ],
+  "originalEnvironmentEvidence": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/environment.json",
+  "historicalBackendHead": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+  "currentBackendSourceRead": {
+    "path": "C:/Users/user/Desktop/custom-form-service/src/CustomFormService.Api/Authentication/AccessTokenCookie.cs",
+    "sha256": "22bdd4e7f8df1372e18423db1dc8dc5fc6f2700539c675e727e1374d0da70310",
+    "sameSiteLax": true,
+    "gitHead": "UNCONFIRMED: git -C permission denied"
+  },
+  "railwayBackendDeployment": "Owner reports deployed; endpoint, deployed commit, deployed configuration and DB migration/copy provenance unavailable in this frontend workspace",
+  "onlyLocalAssertion": "UNCONFIRMED. Recorded traffic is local; cannot prove database/accounts were never copied to Railway or another environment. No account or DB operations performed.",
+  "futureRailwayTesting": "Use newly created synthetic accounts and fresh cryptographically random passwords; retain raw credentials only in ignored local storage. Do not reuse EC1/EC2."
+}

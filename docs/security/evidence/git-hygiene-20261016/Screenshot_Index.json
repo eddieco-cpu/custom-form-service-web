@@ -1,0 +1,492 @@
+[
+  {
+    "number": 1,
+    "path": "docs/implementation/evidence/F1/foundation-mobile.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 1
+  },
+  {
+    "number": 2,
+    "path": "docs/implementation/evidence/F6_20261013/editor-desktop.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 1
+  },
+  {
+    "number": 3,
+    "path": "docs/implementation/evidence/F6_20261013/editor-mobile.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 1
+  },
+  {
+    "number": 4,
+    "path": "docs/implementation/evidence/F6_20261013/preview-mobile.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 1
+  },
+  {
+    "number": 5,
+    "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/renderer-instances.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 1
+  },
+  {
+    "number": 6,
+    "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/stars-after.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 1
+  },
+  {
+    "number": 7,
+    "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/stars-before.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 1
+  },
+  {
+    "number": 8,
+    "path": "docs/implementation/evidence/F7_20261014/images/closed-mobile.png",
+    "width": 320,
+    "height": 2007,
+    "sheet": 1
+  },
+  {
+    "number": 9,
+    "path": "docs/implementation/evidence/F7_20261014/images/visibility-mobile.png",
+    "width": 390,
+    "height": 4957,
+    "sheet": 1
+  },
+  {
+    "number": 10,
+    "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/closed-mobile.png",
+    "width": 320,
+    "height": 2007,
+    "sheet": 1
+  },
+  {
+    "number": 11,
+    "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/publish-local-focus.png",
+    "width": 1440,
+    "height": 1520,
+    "sheet": 1
+  },
+  {
+    "number": 12,
+    "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/visibility-mobile.png",
+    "width": 390,
+    "height": 4957,
+    "sheet": 1
+  },
+  {
+    "number": 13,
+    "path": "docs/implementation/evidence/F7_R3_N1_Correction_20261014/images/logout-unknown-login.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 2
+  },
+  {
+    "number": 14,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-complete-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 15,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-corrected-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 16,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-delivery-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 17,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-final-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 18,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-first-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 19,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-reader-final-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 20,
+    "path": "docs/implementation/evidence/F8_20261014/images/built-status-final-results-mobile-answer.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 2
+  },
+  {
+    "number": 21,
+    "path": "docs/implementation/evidence/F8_20261014/images/live-final-results-live-multiple.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 2
+  },
+  {
+    "number": 22,
+    "path": "docs/implementation/evidence/F8_20261014/images/live-first-results-live-multiple.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 2
+  },
+  {
+    "number": 23,
+    "path": "docs/implementation/evidence/F8_20261014/images/live-reader-final-results-live-multiple.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 2
+  },
+  {
+    "number": 24,
+    "path": "docs/implementation/evidence/F9_20261015/images/live-current-names.png",
+    "width": 1280,
+    "height": 3718,
+    "sheet": 2
+  },
+  {
+    "number": 25,
+    "path": "docs/implementation/evidence/F9_20261015/images/mobile-long-names.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 3
+  },
+  {
+    "number": 26,
+    "path": "docs/review/evidence/F6_Independent_Duplicate_Rating_20261013.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 3
+  },
+  {
+    "number": 27,
+    "path": "docs/review/evidence/F6_R1_R2_Renderer_Spotcheck_20261014.png",
+    "width": 1440,
+    "height": 1800,
+    "sheet": 3
+  },
+  {
+    "number": 28,
+    "path": "docs/review/evidence/F7_20261014/clipboard-after-denial.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 3
+  },
+  {
+    "number": 29,
+    "path": "docs/review/evidence/F7_20261014/clipboard-after-leave.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 3
+  },
+  {
+    "number": 30,
+    "path": "docs/review/evidence/F7_20261014/publish-local-validation.png",
+    "width": 1440,
+    "height": 1520,
+    "sheet": 3
+  },
+  {
+    "number": 31,
+    "path": "docs/review/evidence/F7_20261014/save-after-management-404.png",
+    "width": 1440,
+    "height": 1560,
+    "sheet": 3
+  },
+  {
+    "number": 32,
+    "path": "docs/review/evidence/F7_20261014/save-after-publish-conflict.png",
+    "width": 1440,
+    "height": 1560,
+    "sheet": 3
+  },
+  {
+    "number": 33,
+    "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/accepted-logout-unknown.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 3
+  },
+  {
+    "number": 34,
+    "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r1-original-focus.png",
+    "width": 1440,
+    "height": 1520,
+    "sheet": 3
+  },
+  {
+    "number": 35,
+    "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r1-summary-generation.png",
+    "width": 1440,
+    "height": 1975,
+    "sheet": 3
+  },
+  {
+    "number": 36,
+    "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r4-original-404.png",
+    "width": 1440,
+    "height": 1694,
+    "sheet": 3
+  },
+  {
+    "number": 37,
+    "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r4-original-conflict.png",
+    "width": 1440,
+    "height": 1670,
+    "sheet": 4
+  },
+  {
+    "number": 38,
+    "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-closed-clean.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 4
+  },
+  {
+    "number": 39,
+    "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-closed-unknown.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 4
+  },
+  {
+    "number": 40,
+    "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-published-clean.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 4
+  },
+  {
+    "number": 41,
+    "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-published-unknown.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 4
+  },
+  {
+    "number": 42,
+    "path": "docs/review/evidence/F8_20261015/images/independent-readonly-320.png",
+    "width": 320,
+    "height": 640,
+    "sheet": 4
+  },
+  {
+    "number": 43,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-1-first.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 44,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-1.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 45,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-2-first.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 46,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-2.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 47,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-3-first.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 48,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-3.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 4
+  },
+  {
+    "number": 49,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-4-first.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 5
+  },
+  {
+    "number": 50,
+    "path": "docs/review/evidence/F8_20261015/images/probe-fail-4.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 5
+  },
+  {
+    "number": 51,
+    "path": "docs/review/evidence/F9_Independent_20261016/images/live-current-names.png",
+    "width": 1280,
+    "height": 3746,
+    "sheet": 5
+  },
+  {
+    "number": 52,
+    "path": "docs/review/evidence/F9_Independent_20261016/images/mobile-long-names.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 5
+  },
+  {
+    "number": 53,
+    "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/editor-1440.png",
+    "width": 1440,
+    "height": 2476,
+    "sheet": 5
+  },
+  {
+    "number": 54,
+    "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/form-320.png",
+    "width": 320,
+    "height": 1931,
+    "sheet": 5
+  },
+  {
+    "number": 55,
+    "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/list-390.png",
+    "width": 390,
+    "height": 4342,
+    "sheet": 5
+  },
+  {
+    "number": 56,
+    "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/statistics-390.png",
+    "width": 390,
+    "height": 5718,
+    "sheet": 5
+  },
+  {
+    "number": 57,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063245889-8b717e-profile.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 5
+  },
+  {
+    "number": 58,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-aligned-page2.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 5
+  },
+  {
+    "number": 59,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-desktop-list.png",
+    "width": 1280,
+    "height": 1177,
+    "sheet": 5
+  },
+  {
+    "number": 60,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-mobile-list.png",
+    "width": 390,
+    "height": 4342,
+    "sheet": 5
+  },
+  {
+    "number": 61,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-page3.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 6
+  },
+  {
+    "number": 62,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063342540-a9c591-profile.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 6
+  },
+  {
+    "number": 63,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063345458-e2ba36-first-failure.png",
+    "width": 1280,
+    "height": 2115,
+    "sheet": 6
+  },
+  {
+    "number": 64,
+    "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063402459-5e93d2-latest-cleared.png",
+    "width": 1280,
+    "height": 2115,
+    "sheet": 6
+  },
+  {
+    "number": 65,
+    "path": "docs/test-results/evidence/F3_20261012/desktop.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 6
+  },
+  {
+    "number": 66,
+    "path": "docs/test-results/evidence/F3_20261012/mobile.png",
+    "width": 390,
+    "height": 844,
+    "sheet": 6
+  },
+  {
+    "number": 67,
+    "path": "docs/test-results/evidence/F4_20261012/list-desktop.png",
+    "width": 1440,
+    "height": 900,
+    "sheet": 6
+  },
+  {
+    "number": 68,
+    "path": "docs/test-results/evidence/F4_20261012/list-mobile.png",
+    "width": 390,
+    "height": 940,
+    "sheet": 6
+  },
+  {
+    "number": 69,
+    "path": "docs/test-results/evidence/F4_20261012/root-mobile.png",
+    "width": 390,
+    "height": 1439,
+    "sheet": 6
+  },
+  {
+    "number": 70,
+    "path": "docs/test-results/evidence/F4_R1_Correction_20261012/alignment-auth-dialog.png",
+    "width": 1280,
+    "height": 720,
+    "sheet": 6
+  }
+]

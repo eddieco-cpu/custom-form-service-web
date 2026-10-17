@@ -1,0 +1,445 @@
+{
+  "image": "custom-form-service-web:prep-20261017",
+  "imageId": "sha256:36eacaec5d4e7663e7cf2b2ec3a601249cbddbb2f4a1996285fdf5dbf5c45631",
+  "imageCreated": "2026-10-17T10:22:28.377607957Z",
+  "baseImage": "node:24.21.0-bookworm-slim",
+  "configuredCommand": [
+    "node",
+    ".output/server/index.mjs"
+  ],
+  "runtimeUser": "node",
+  "runtimeFacts": {
+    "node": "v24.21.0",
+    "npm": "11.19.0",
+    "uid": 1000,
+    "appEntries": [
+      ".output"
+    ],
+    "host": "0.0.0.0",
+    "port": "3000",
+    "nodeEnv": "production",
+    "commandReady": true
+  },
+  "checks": [
+    {
+      "label": "missing-api-url",
+      "pass": true,
+      "exitCode": 1
+    },
+    {
+      "label": "loopback-api-url",
+      "pass": true,
+      "exitCode": 1
+    },
+    {
+      "label": "container-a",
+      "container": "docker-prep-20261017-d342b1fc-a",
+      "apiBaseUrl": "https://api-a.deploy-smoke.example.test/api/v1",
+      "hostPort": 4330,
+      "checks": [
+        {
+          "name": "container-ready",
+          "pass": true
+        },
+        {
+          "name": "accepts-custom-PORT-and-binds-all-interfaces",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/login:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/login:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/login:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/login:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/edit:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/edit:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:2",
+          "pass": true
+        },
+        {
+          "name": "static-assets-present",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/entry.Dv04f7sy.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Ri9R2uCj.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/MNQ1Xzy4.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/g3KELcAE.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DFzJzEx7.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/B7ko0e5v.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BmDtUo4K.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BSyP4YEz.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DK3Fl9T5.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/s5LFNtkh.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DP5y-68_.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CeydEC4j.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BZPRtX7B.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CTpMkH0w.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BU-Vieej.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CLF355rT.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BZCTSBer.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/ClSRzxfS.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/D55XGH9e.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BX57FN7F.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/C-odFBx-.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Bd-YC6_K.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BeaBI-c4.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BDNMzG2s.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/error-404.DpKY_dMl.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CMJCu_ak.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/error-500.CmR4p1fc.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Hgm0JKzj.js",
+          "pass": true
+        },
+        {
+          "name": "favicon",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    {
+      "label": "container-b",
+      "container": "docker-prep-20261017-d342b1fc-b",
+      "apiBaseUrl": "https://api-b.deploy-smoke.example.test/api/v1",
+      "hostPort": 4331,
+      "checks": [
+        {
+          "name": "container-ready",
+          "pass": true
+        },
+        {
+          "name": "accepts-custom-PORT-and-binds-all-interfaces",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/login:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/login:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/login:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/login:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/statistics:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/statistics:2",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/edit:1",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:1",
+          "pass": true
+        },
+        {
+          "name": "direct-shell:/forms/00000000-0000-4000-8000-000000000001/edit:2",
+          "pass": true
+        },
+        {
+          "name": "public-runtime-config:/forms/00000000-0000-4000-8000-000000000001/edit:2",
+          "pass": true
+        },
+        {
+          "name": "static-assets-present",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/entry.Dv04f7sy.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Ri9R2uCj.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/MNQ1Xzy4.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/g3KELcAE.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DFzJzEx7.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/B7ko0e5v.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BmDtUo4K.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BSyP4YEz.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DK3Fl9T5.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/s5LFNtkh.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/DP5y-68_.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CeydEC4j.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BZPRtX7B.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CTpMkH0w.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BU-Vieej.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CLF355rT.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BZCTSBer.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/ClSRzxfS.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/D55XGH9e.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BX57FN7F.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/C-odFBx-.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Bd-YC6_K.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BeaBI-c4.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/BDNMzG2s.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/error-404.DpKY_dMl.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/CMJCu_ak.js",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/error-500.CmR4p1fc.css",
+          "pass": true
+        },
+        {
+          "name": "static:/_nuxt/Hgm0JKzj.js",
+          "pass": true
+        },
+        {
+          "name": "favicon",
+          "pass": true
+        }
+      ],
+      "pass": true
+    }
+  ],
+  "sameImageForBothOverrides": true,
+  "backendIntegration": "NOT RUN: synthetic public API endpoints; no account/DB operations",
+  "browserHydration": "separate browser probe required",
+  "pass": true,
+  "retainedContainers": [
+    "docker-prep-20261017-d342b1fc-a",
+    "docker-prep-20261017-d342b1fc-b"
+  ]
+}

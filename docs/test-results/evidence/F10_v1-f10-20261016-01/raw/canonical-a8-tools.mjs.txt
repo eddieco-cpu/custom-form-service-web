@@ -1,3 +1,4 @@
+// S01 SANITIZED HISTORICAL COPY (2026-10-17): only credential reconstruction branches redacted; not the original executable evidence. See docs/security/evidence/docker-prep-20261017/S01_Redaction_Manifest.json.
 import { test, expect } from '@playwright/test'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { randomUUID } from 'node:crypto'
@@ -356,7 +357,7 @@ test(`F10 canonical true Browser/API ${phase} ${attempt}`, async ({ browser }, i
     await checkpoint('A02','real email compatibility, 10/128 Code Point untrimmed passwords, 100 CP displayName',async()=>{
       for(const [alias,kind]of [['EC1','single'],['EC2','quoted'],['EC3','unicode'],['EC4','casing']]){
         const email=kind==='single'?`${runId}-ec1@localhost`:kind==='quoted'?`"${runId} a"@example.test`:kind==='unicode'?`測試${runId}@example.test`:`İ${runId}@EXAMPLE.TEST`
-        const password=alias==='EC1'?' '+ '😀'.repeat(8)+' ':alias==='EC2'?' '+ '😀'.repeat(126)+' ':randomUUID()
+        const password=alias==='EC1'?'[REDACTED:S01:EC1:local-original-only]':alias==='EC2'?'[REDACTED:S01:EC2:local-original-only]':randomUUID()
         if(!privateState.accounts[alias]?.id)await register(alias,email,password,alias==='EC3'?'😀'.repeat(100):`${runId} ${alias}`,'/profile')
       }
     })

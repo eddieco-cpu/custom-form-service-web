@@ -1,0 +1,77 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync } from 'node:child_process'
+import ts from 'typescript'
+
+const base = '975ef8b2e78221a18956972dc762fda4005aae2f'
+const prior = JSON.parse(fs.readFileSync('output/hygiene-audit-20261016/boundary-results.json', 'utf8'))
+const backupRoot = 'output/hygiene-private-originals-20261016/S01'
+const manifestPath = 'docs/security/evidence/docker-prep-20261017/S01_Redaction_Manifest.json'
+const header = '// S01 SANITIZED HISTORICAL COPY (2026-10-17): only credential reconstruction branches redacted; not the original executable evidence. See docs/security/evidence/docker-prep-20261017/S01_Redaction_Manifest.json.\n'
+const sha = buf => crypto.createHash('sha256').update(buf).digest('hex')
+function evaluate(node, alias) {
+  if (ts.isParenthesizedExpression(node)) return evaluate(node.expression, alias)
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text
+  if (ts.isNumericLiteral(node)) return Number(node.text)
+  if (ts.isIdentifier(node) && node.text === 'alias') return alias
+  if (ts.isBinaryExpression(node)) {
+    const l = evaluate(node.left, alias), r = evaluate(node.right, alias)
+    if (l === undefined || r === undefined) return undefined
+    if (node.operatorToken.kind === ts.SyntaxKind.PlusToken) return l + r
+    if (node.operatorToken.kind === ts.SyntaxKind.EqualsEqualsEqualsToken) return l === r
+  }
+  if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) && node.expression.name.text === 'repeat') {
+    const value = evaluate(node.expression.expression, alias), count = evaluate(node.arguments[0], alias)
+    if (typeof value === 'string' && Number.isInteger(count) && count >= 0 && count <= 128) return value.repeat(count)
+  }
+  return undefined
+}
+const entries = []
+// Complete and verify every backup before modifying any tracked evidence.
+for (const file of prior.grouped) {
+  const original = fs.readFileSync(file.path)
+  const blob = execFileSync('git', ['rev-parse', `${base}:${file.path}`], { encoding: 'utf8' }).trim()
+  const gitBytes = execFileSync('git', ['cat-file', 'blob', blob])
+  if (!original.equals(gitBytes)) throw new Error('Source differs from approved original: ' + file.path)
+  const backup = path.join(backupRoot, file.path)
+  fs.mkdirSync(path.dirname(backup), { recursive: true })
+  if (fs.existsSync(backup)) { if (!fs.readFileSync(backup).equals(original)) throw new Error('Existing backup mismatch') }
+  else fs.writeFileSync(backup, original, { flag: 'wx' })
+  if (!fs.readFileSync(backup).equals(original)) throw new Error('Backup verification failed')
+  entries.push({ path: file.path, sourceCommit: base, sourceBlob: blob, originalSha256: sha(original), originalBytes: original.length, localBackup: backup.replaceAll('\\', '/'), originalLine: file.line })
+}
+for (const entry of entries) {
+  const source = fs.readFileSync(entry.localBackup, 'utf8')
+  const ast = ts.createSourceFile(entry.path, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS)
+  const replacements = []
+  const visit = node => {
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.name.text === 'password') {
+      const branch = expr => {
+        if (!expr || !ts.isConditionalExpression(expr)) return
+        for (const alias of ['EC1', 'EC2']) {
+          if (evaluate(expr.condition, alias) === true && typeof evaluate(expr.whenTrue, alias) === 'string') {
+            replacements.push({ start: expr.whenTrue.getStart(ast), end: expr.whenTrue.end, alias, line: ast.getLineAndCharacterOfPosition(expr.whenTrue.getStart(ast)).line + 1 })
+          }
+        }
+        branch(expr.whenFalse)
+      }
+      branch(node.initializer)
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(ast)
+  if (replacements.length !== 2 || new Set(replacements.map(r => r.alias)).size !== 2) throw new Error('Unexpected branch count')
+  let redacted = source
+  for (const r of replacements.toSorted((a, b) => b.start - a.start)) redacted = redacted.slice(0, r.start) + `'[REDACTED:S01:${r.alias}:local-original-only]'` + redacted.slice(r.end)
+  // Restoring only these replacements proves all other historical bytes remain.
+  let restored = redacted
+  for (const r of replacements) restored = restored.replace(`'[REDACTED:S01:${r.alias}:local-original-only]'`, source.slice(r.start, r.end))
+  if (restored !== source) throw new Error('Unexpected non-redaction change')
+  const newBytes = Buffer.from(header + redacted)
+  fs.writeFileSync(entry.path, newBytes)
+  Object.assign(entry, { redactedSha256: sha(newBytes), redactedBytes: newBytes.length, redactedLine: entry.originalLine + 1, redactedBranches: replacements.map(r => ({ alias: r.alias, originalLine: r.line, redactedLine: r.line + 1 })), unrelatedHistoricalContentBytePreserved: true })
+}
+fs.mkdirSync(path.dirname(manifestPath), { recursive: true })
+fs.writeFileSync(manifestPath, JSON.stringify({ date: '2026-10-17', authorization: 'Owner explicitly approved local originals plus redacted copies at original tracked paths; retain history and metadata; private GitHub repository', status: 'COMPLETED', sourceCommit: base, originalEvidenceManifest: 'docs/test-results/evidence/F10_v1-f10-20261016-01/Evidence_Manifest.json', integrityPolicy: 'Original manifest and recorded test results unchanged; use original hashes for local originals and this additive mapping for redacted copies', history: 'RETAINED WITHOUT REWRITE; historical credential reconstruction remains accessible to repository readers', entries }, null, 2) + '\n')
+console.log(JSON.stringify({ backedUpAndVerified: entries.length, redactedFiles: entries.length, redactedBranches: entries.length * 2, unrelatedContentPreserved: entries.every(e => e.unrelatedHistoricalContentBytePreserved), manifest: manifestPath }))

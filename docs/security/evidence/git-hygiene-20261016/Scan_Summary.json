@@ -1,0 +1,617 @@
+{
+  "date": "2026-10-16",
+  "timezone": "Asia/Taipei",
+  "baselineHead": "975ef8b2e78221a18956972dc762fda4005aae2f",
+  "baseline": {
+    "trackedFiles": 1101,
+    "untrackedFiles": 0,
+    "trackedBytes": 23479148,
+    "docsFiles": 918,
+    "testFiles": 61,
+    "skillsFiles": 4
+  },
+  "coverage": {
+    "trackedText": 1031,
+    "trackedPngPaths": 70,
+    "historyCommits": 46,
+    "historyBlobs": 1224,
+    "historyTextBlobs": 1166,
+    "historyPngBlobs": 57,
+    "historyZipBlobs": 1,
+    "historicalArchiveEntriesScanned": 8,
+    "ignoredLocalFilesExamined": 5723,
+    "readErrors": 0,
+    "excludedRoots": [
+      "node_modules/",
+      ".nuxt/",
+      ".output/",
+      "dist/",
+      "backend-ref/",
+      "**/node_modules/"
+    ]
+  },
+  "automatedCandidateCounts": {
+    "tracked": {
+      "connection-password": 32,
+      "credential-literal": 44,
+      "sensitive-header-context": 179,
+      "taiwan-mobile-candidate": 2,
+      "password-fill-literal": 47,
+      "authorization-value": 56,
+      "email": 3
+    },
+    "ignoredLocal": {
+      "connection-password": 46,
+      "credential-literal": 99,
+      "email": 7,
+      "sensitive-header-context": 196,
+      "password-fill-literal": 113,
+      "taiwan-mobile-candidate": 4,
+      "authorization-value": 81
+    },
+    "history": {
+      "authorization-value": 56,
+      "connection-password": 34,
+      "credential-literal": 47,
+      "email": 96,
+      "password-fill-literal": 52,
+      "sensitive-header-context": 181,
+      "taiwan-mobile-candidate": 2
+    }
+  },
+  "knownLocalCredentials": {
+    "files": 10,
+    "distinctSecretValuesComparedInMemory": 18,
+    "directTrackedOrHistoryTextMatches": 0
+  },
+  "confirmedRisk": {
+    "id": "S01",
+    "type": "reconstructable-local-synthetic-account-passwords",
+    "aliases": [
+      "EC1",
+      "EC2"
+    ],
+    "affectedFileCount": 8,
+    "files": [
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a10-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a4-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a5-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a6-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a7-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a8-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a9-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt",
+        "line": 360,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ]
+      }
+    ],
+    "passwordValuesOrFormula": "WITHHELD",
+    "credentialValidity": "NOT TESTED; no login or account mutation performed",
+    "accountIdentifierVisibility": [
+      {
+        "alias": "EC1",
+        "trackedExactEmailOccurrencesByFile": 12
+      },
+      {
+        "alias": "EC2",
+        "trackedExactEmailOccurrencesByFile": 0
+      }
+    ]
+  },
+  "historyRisk": {
+    "sourceCommit": "975ef8b2e78221a18956972dc762fda4005aae2f",
+    "affectedPaths": [
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a10-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a4-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a5-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a6-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a7-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a8-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/raw/canonical-a9-tools.mjs.txt",
+        "line": 359,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/tools/canonical.spec.mjs.txt",
+        "line": 360,
+        "aliases": [
+          "EC1",
+          "EC2"
+        ],
+        "commitsTouchingPath": [
+          "975ef8b2e78221a18956972dc762fda4005aae2f"
+        ]
+      }
+    ],
+    "personalEmailMetadataOccurrences": 92,
+    "values": "WITHHELD",
+    "historyModification": "NOT PERFORMED",
+    "remoteScan": "NOT RUN; no configured remote"
+  },
+  "archive": {
+    "path": "docs/test-plan.zip",
+    "oid": "642ef7e318ded5240fbc4c18be41d8d6f894a74b",
+    "entries": [
+      {
+        "name": "test-plan/F10_Acceptance_Test.md",
+        "bytes": 17965,
+        "binary": false
+      },
+      {
+        "name": "test-plan/F1_F8_Independent_Integration_Supplement.md",
+        "bytes": 8811,
+        "binary": false
+      },
+      {
+        "name": "test-plan/F2_Supplemental_Test_Plan.md",
+        "bytes": 3818,
+        "binary": false
+      },
+      {
+        "name": "test-plan/v1-acceptance/Case_Results.csv",
+        "bytes": 201596,
+        "binary": false
+      },
+      {
+        "name": "test-plan/v1-acceptance/Coverage_Matrix.md",
+        "bytes": 47098,
+        "binary": false
+      },
+      {
+        "name": "test-plan/v1-acceptance/Data_and_Oracle.md",
+        "bytes": 13525,
+        "binary": false
+      },
+      {
+        "name": "test-plan/v1-acceptance/Prerequisites_and_History.md",
+        "bytes": 18843,
+        "binary": false
+      },
+      {
+        "name": "test-plan/v1-acceptance/Read_Only_Inventory.md",
+        "bytes": 7594,
+        "binary": false
+      }
+    ],
+    "strongTokenPatternHits": 0,
+    "literalCredentialAssignmentHits": 0
+  },
+  "images": {
+    "paths": [
+      {
+        "path": "docs/implementation/evidence/F1/foundation-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_20261013/editor-desktop.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_20261013/editor-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_20261013/preview-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/renderer-instances.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/stars-after.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F6_R1_R2_Correction_20261013/stars-before.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_20261014/images/closed-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_20261014/images/visibility-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/closed-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/publish-local-focus.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_R1_R4_Correction_20261014/images/visibility-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F7_R3_N1_Correction_20261014/images/logout-unknown-login.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-complete-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-corrected-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-delivery-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-final-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-first-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-reader-final-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/built-status-final-results-mobile-answer.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/live-final-results-live-multiple.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/live-first-results-live-multiple.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F8_20261014/images/live-reader-final-results-live-multiple.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F9_20261015/images/live-current-names.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/implementation/evidence/F9_20261015/images/mobile-long-names.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F6_Independent_Duplicate_Rating_20261013.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F6_R1_R2_Renderer_Spotcheck_20261014.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_20261014/clipboard-after-denial.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_20261014/clipboard-after-leave.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_20261014/publish-local-validation.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_20261014/save-after-management-404.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_20261014/save-after-publish-conflict.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/accepted-logout-unknown.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r1-original-focus.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r1-summary-generation.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r4-original-404.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R1_R4_ReReview_20261014/r4-original-conflict.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-closed-clean.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-closed-unknown.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-published-clean.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F7_R3_N1_ReReview_20261014/logout-published-unknown.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/independent-readonly-320.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-1-first.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-1.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-2-first.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-2.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-3-first.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-3.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-4-first.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F8_20261015/images/probe-fail-4.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F9_Independent_20261016/images/live-current-names.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/review/evidence/F9_Independent_20261016/images/mobile-long-names.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/editor-1440.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/form-320.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/list-390.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F10_v1-f10-20261016-01/screenshots/statistics-390.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063245889-8b717e-profile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-aligned-page2.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-desktop-list.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-mobile-list.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063259103-8ae966-page3.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063342540-a9c591-profile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063345458-e2ba36-first-failure.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F1_F8_Integration_20261015/execution/supp-1792063402459-5e93d2-latest-cleared.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F3_20261012/desktop.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F3_20261012/mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F4_20261012/list-desktop.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F4_20261012/list-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F4_20261012/root-mobile.png",
+        "textOrExifChunkPresent": false
+      },
+      {
+        "path": "docs/test-results/evidence/F4_R1_Correction_20261012/alignment-auth-dialog.png",
+        "textOrExifChunkPresent": false
+      }
+    ],
+    "contactSheetScreening": "70 paths screened in six local contact sheets; selected originals inspected",
+    "limitations": "No exhaustive OCR; small text in long screenshots is not certified. Historical PNG contents are represented among current tracked image blobs."
+  },
+  "validation": {
+    "git": {
+      "ignoredProbeCount": 30,
+      "keptProbeCount": 17,
+      "failures": [],
+      "trackedNewlyIgnored": []
+    },
+    "dockerStatic": {
+      "productionFileCount": 99,
+      "excludedProductionFiles": [],
+      "includedTrackedCount": 100,
+      "excludedTrackedCount": 1001,
+      "docsExcluded": true,
+      "testsExcluded": true,
+      "exampleEnvExcluded": true,
+      "engineBuild": "NOT RUN: Docker daemon access denied"
+    },
+    "diffCheck": true
+  },
+  "versions": {
+    "node": "v24.21.0",
+    "git": "git version 2.51.2.windows.1",
+    "backendReferenceCommit": "7591633137c5a6f57c1fce8e1ba19ab394015880",
+    "backendRuntime": "NOT CHECKED; no API/DB operations"
+  },
+  "limitations": [
+    "Purpose-built pattern scan and manual triage, not a proof that arbitrary or encoded secrets are absent",
+    "No external/provider credential validity checks",
+    "Ignored raw archives and videos not exhaustively inspected; remain excluded",
+    "Unreachable objects outside refs/reflogs and GitHub remote/server state not scanned",
+    "No product acceptance results changed"
+  ]
+}

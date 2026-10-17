@@ -1,0 +1,17 @@
+import fs from 'node:fs'
+import { execFileSync, spawnSync } from 'node:child_process'
+const dir = 'output/docker-prep-20261017'
+const probe = JSON.parse(fs.readFileSync(`${dir}/docker-probe-results.json`, 'utf8'))
+const prefix = ['--config', `${dir}/docker-client-config`, '--host', 'npipe:////./pipe/dockerDesktopLinuxEngine']
+const stopped = []
+for (const name of probe.retainedContainers) {
+  const state = JSON.parse(execFileSync('docker', [...prefix, 'inspect', name], { encoding: 'utf8' }))[0]
+  const expectedLabel = name.slice(0, -2)
+  if (!/^docker-prep-20261017-[a-f0-9]{8}-[ab]$/.test(name) || state.Config.Labels['codex.prep'] !== expectedLabel || state.Config.Image !== probe.image) throw new Error('Refusing to stop unowned container')
+  execFileSync('docker', [...prefix, 'stop', name], { encoding: 'utf8' })
+  const remaining = spawnSync('docker', [...prefix, 'inspect', name], { encoding: 'utf8' })
+  stopped.push({ name, stopped: true, removedByRunRm: remaining.status !== 0, volumesUsed: false })
+}
+const result = { date: '2026-10-17', stopped, unrelatedContainersTouched: false, databaseOperations: false, imageRetainedForLocalInspection: probe.image, pass: stopped.every(r => r.stopped && r.removedByRunRm) }
+fs.writeFileSync('docs/security/evidence/docker-prep-20261017/Container_Cleanup.json', JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify(result, null, 2))

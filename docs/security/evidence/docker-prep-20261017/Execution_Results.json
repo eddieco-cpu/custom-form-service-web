@@ -1,0 +1,100 @@
+{
+  "date": "2026-10-17",
+  "baselineHead": "975ef8b2e78221a18956972dc762fda4005aae2f",
+  "lint": "PASS",
+  "typecheck": "PASS",
+  "build": {
+    "initial": "PASS",
+    "finalWindowsAttempt": "FAIL: EPERM creating .output/server/node_modules/@vue/shared",
+    "finalRetest": "PASS"
+  },
+  "unit": {
+    "files": 3,
+    "tests": 106,
+    "status": "PASS"
+  },
+  "docker": {
+    "build": "PASS",
+    "freshNpmCi": "PASS",
+    "baseTag": "node:24.21.0-bookworm-slim",
+    "resolvedBaseDigest": "sha256:d6aa754f16b3197301076f047b5def2f02ea1dbbc2ca920407d46d7ec7f87b20",
+    "imageId": "sha256:36eacaec5d4e7663e7cf2b2ec3a601249cbddbb2f4a1996285fdf5dbf5c45631",
+    "checks": 98,
+    "status": "PASS",
+    "initialRestrictions": [
+      "buildx lock access denied",
+      "daemon access denied",
+      "registry DNS failed in sandbox"
+    ],
+    "rerun": "Succeeded using authorized daemon/network access; no security settings modified"
+  },
+  "nativeRuntimeChecks": 94,
+  "browser": {
+    "date": "2026-10-17",
+    "tool": "Codex in-app browser via cua_repl",
+    "target": "Actual Docker image served on loopback ports 4330 and 4331",
+    "status": "PASS within scope",
+    "checks": [
+      {
+        "name": "container A login page CSR",
+        "url": "http://localhost:4330/login",
+        "observed": "Header/nav, 帳號 heading, login/register tabs, email/password controls",
+        "pass": true
+      },
+      {
+        "name": "container A public API URL in DOM script",
+        "observed": "https://api-a.deploy-smoke.example.test/api/v1 present; localhost:5000 absent",
+        "pass": true
+      },
+      {
+        "name": "statistics direct deep URL",
+        "url": "http://localhost:4330/forms/00000000-0000-4000-8000-000000000001/statistics",
+        "observed": "表單統計 heading; no server 404; original URL retained",
+        "pass": true
+      },
+      {
+        "name": "statistics hard reload",
+        "observed": "Same URL and 表單統計 heading after tab.reload()",
+        "pass": true
+      },
+      {
+        "name": "container B login/public API URL",
+        "url": "http://localhost:4331/login",
+        "observed": "Login controls rendered; api-b public config present; localhost:5000 absent",
+        "pass": true
+      },
+      {
+        "name": "container B home CSR",
+        "url": "http://localhost:4331/",
+        "observed": "Header/nav and auth initialization failure UI rendered",
+        "pass": true
+      }
+    ],
+    "expectedApiFailure": "Synthetic non-resolvable API URLs deliberately used. 身分未知／載入失敗 observed; no real backend credentials or account operations.",
+    "limitations": [
+      "No real Railway API/Cookie/CORS integration",
+      "Browser read-only evaluate did not expose resource timing; actual request-origin capture NOT VERIFIED; DOM runtime URL and application config reads checked",
+      "Initial sandbox native Node browser navigation timed out; actual Docker-served pages subsequently loaded"
+    ]
+  },
+  "dependencyAudit": {
+    "current": {
+      "low": 1,
+      "high": 12,
+      "critical": 2,
+      "total": 15
+    },
+    "sameAsF10RecordedAudit": true,
+    "dependencyChanges": "NONE; existing risk decision pending"
+  },
+  "realRailwayIntegration": "NOT RUN",
+  "accountOrDbOperations": "NONE",
+  "formalAcceptance": "NOT RUN; previous results/accepted unchanged",
+  "pushOrRailwayUi": "NOT PERFORMED",
+  "containerCleanup": {
+    "status": "PASS",
+    "ownedTemporaryContainersRemoved": 2,
+    "unrelatedContainersTouched": false,
+    "databaseOperations": false
+  }
+}

@@ -1,0 +1,71 @@
+import fs from 'node:fs'
+import { spawn } from 'node:child_process'
+import { setTimeout as pause } from 'node:timers/promises'
+
+const results = []
+const previous = 'output/docker-prep-20261017/runtime-probe-results.json'
+if (fs.existsSync(previous) && !fs.existsSync(previous.replace('.json', '-first.json'))) fs.copyFileSync(previous, previous.replace('.json', '-first.json'))
+async function runCase(label, override, port, shouldStart) {
+  const env = { ...process.env, NODE_ENV: 'production', HOST: '0.0.0.0', PORT: String(port), REQUIRE_PUBLIC_API_BASE_URL: 'true' }
+  delete env.NITRO_PUBLIC_API_BASE_URL
+  if (override === undefined) delete env.NUXT_PUBLIC_API_BASE_URL
+  else env.NUXT_PUBLIC_API_BASE_URL = override
+  const child = spawn(process.execPath, ['.output/server/index.mjs'], { env, stdio: ['ignore', 'pipe', 'pipe'], windowsHide: true })
+  let log = '', exitCode
+  child.stdout.on('data', b => { log += b })
+  child.stderr.on('data', b => { log += b })
+  child.on('exit', code => { exitCode = code })
+  const row = { label, mode: 'native Node production artifact; NOT Docker', override: override ?? '(unset)', port, checks: [] }
+  try {
+    const root = `http://127.0.0.1:${port}`
+    let ready = false
+    for (let i = 0; i < 100 && exitCode === undefined; i++) {
+      try { const r = await fetch(root, { signal: AbortSignal.timeout(200) }); if (r.ok) { ready = true; break } } catch (error) { row.lastConnectionError = { name: error.name, causeCode: error.cause?.code, message: error.message } }
+      await pause(50)
+    }
+    if (!shouldStart) {
+      for (let i = 0; i < 20 && exitCode === undefined; i++) await pause(50)
+      row.checks.push({ name: 'reject-invalid-config-before-listening', pass: !ready && exitCode !== undefined && exitCode !== 0 && log.includes('NUXT_PUBLIC_API_BASE_URL') })
+    }
+    else {
+      row.checks.push({ name: 'custom-PORT-and-0.0.0.0', pass: ready && log.includes(`0.0.0.0:${port}`) })
+      if (ready) {
+        const routes = ['/', '/login', '/forms/00000000-0000-4000-8000-000000000001/statistics', '/forms/00000000-0000-4000-8000-000000000001/edit']
+        let home = ''
+        for (const route of routes) {
+          for (const attempt of [1, 2]) {
+            const response = await fetch(root + route)
+            const html = await response.text()
+            if (route === '/') home = html
+            row.checks.push({ name: `direct-HTTP-shell:${route}:request-${attempt}`, pass: response.status === 200 && response.headers.get('content-type')?.includes('text/html') && html.includes('id="__nuxt"') })
+            row.checks.push({ name: `runtime-config:${route}:request-${attempt}`, pass: html.includes(override) && !html.includes('http://localhost:5000/api/v1') })
+          }
+        }
+        const assetPaths = [...new Set([...home.matchAll(/(?:src|href)="([^"<>]*\/_nuxt\/[^"<>]+\.(?:js|css))"/g)].map(m => m[1]))]
+        if (!assetPaths.length) row.checks.push({ name: 'asset-references-present', pass: false })
+        for (const asset of assetPaths) {
+          const response = await fetch(root + asset)
+          row.checks.push({ name: `static-asset:${asset}`, pass: response.status === 200 && (await response.arrayBuffer()).byteLength > 0 })
+        }
+        const icon = await fetch(root + '/favicon.svg')
+        row.checks.push({ name: 'favicon', pass: icon.status === 200 && (await icon.text()).includes('<svg') })
+      }
+    }
+    row.pass = row.checks.every(c => c.pass)
+    row.serverLog = log
+    row.exitCode = exitCode ?? null
+    results.push(row)
+  }
+  finally {
+    if (exitCode === undefined) child.kill()
+    await Promise.race([new Promise(resolve => child.once('exit', resolve)), pause(1000)])
+  }
+}
+await runCase('missing-override', undefined, 4321, false)
+await runCase('localhost-override', 'https://localhost/api/v1', 4322, false)
+await runCase('runtime-override-A', 'https://api-a.deploy-smoke.example.test/api/v1', 4323, true)
+await runCase('runtime-override-B-same-build', 'https://api-b.deploy-smoke.example.test/api/v1', 4324, true)
+const summary = { buildReusedWithoutRebuilding: true, realBackendIntegration: 'NOT RUN', browserHydrationOrReload: 'NOT VERIFIED BY HTTP PROBE', docker: 'NOT RUN: daemon inaccessible', cases: results, pass: results.every(r => r.pass) }
+fs.writeFileSync('output/docker-prep-20261017/runtime-probe-results.json', JSON.stringify(summary, null, 2) + '\n')
+console.log(JSON.stringify({ pass: summary.pass, cases: results.map(r => ({ label: r.label, checks: r.checks.length, pass: r.pass, failures: r.checks.filter(c => !c.pass) })) }, null, 2))
+if (!summary.pass) process.exitCode = 1

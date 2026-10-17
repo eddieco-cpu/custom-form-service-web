@@ -1,0 +1,56 @@
+import fs from 'node:fs'
+import ts from 'typescript'
+import { execFileSync } from 'node:child_process'
+const dir = 'output/hygiene-audit-20261016'
+const inventory = JSON.parse(fs.readFileSync(`${dir}/inventory.json`, 'utf8'))
+const privateState = JSON.parse(fs.readFileSync('output/playwright/v1-acceptance/v1-f10-20261016-01/private-state.json', 'utf8'))
+function constant(node, alias) {
+  if (!node) return undefined
+  if (ts.isParenthesizedExpression(node)) return constant(node.expression, alias)
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text
+  if (ts.isNumericLiteral(node)) return Number(node.text)
+  if (ts.isIdentifier(node) && node.text === 'alias') return alias
+  if (ts.isBinaryExpression(node)) {
+    const left = constant(node.left, alias), right = constant(node.right, alias)
+    if (left === undefined || right === undefined) return undefined
+    if (node.operatorToken.kind === ts.SyntaxKind.PlusToken) return left + right
+    if (node.operatorToken.kind === ts.SyntaxKind.EqualsEqualsEqualsToken) return left === right
+  }
+  if (ts.isConditionalExpression(node)) {
+    const condition = constant(node.condition, alias)
+    if (condition === undefined) return undefined
+    return constant(condition ? node.whenTrue : node.whenFalse, alias)
+  }
+  if (ts.isCallExpression(node) && ts.isPropertyAccessExpression(node.expression) && node.expression.name.text === 'repeat') {
+    const value = constant(node.expression.expression, alias), count = constant(node.arguments[0], alias)
+    if (typeof value === 'string' && Number.isInteger(count) && count >= 0 && count <= 128) return value.repeat(count)
+  }
+  return undefined
+}
+const candidates = inventory.tracked.filter(p => /canonical.*(?:mjs|txt)$/.test(p))
+const matches = []
+for (const file of candidates) {
+  const source = fs.readFileSync(file, 'utf8')
+  const ast = ts.createSourceFile(file, source, ts.ScriptTarget.Latest, true, ts.ScriptKind.JS)
+  const visit = node => {
+    if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.name.text === 'password') {
+      for (const [alias, account] of Object.entries(privateState.accounts)) {
+        const value = constant(node.initializer, alias)
+        if (typeof value === 'string' && value === account.password) {
+          const publicEmailPaths = inventory.tracked.filter(p => {
+            if (p.endsWith('.png')) return false
+            return fs.readFileSync(p, 'utf8').includes(account.email)
+          })
+          matches.push({ path: file, line: ast.getLineAndCharacterOfPosition(node.getStart(ast)).line + 1, alias, matchesRetainedPrivateCredential: true, emailPresentInTrackedFiles: publicEmailPaths.length, emailPaths: publicEmailPaths })
+        }
+      }
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(ast)
+}
+const grouped = [...new Map(matches.map(m => [m.path, { path: m.path, line: m.line, aliases: matches.filter(x => x.path === m.path).map(x => x.alias) }])).values()]
+const history = grouped.map(m => ({ ...m, commitsTouchingPath: execFileSync('git', ['log', '--all', '--format=%H', '--', m.path], { encoding: 'utf8' }).trim().split('\n').filter(Boolean) }))
+const result = { kind: 'deterministic-live-synthetic-password', uniqueAccounts: [...new Set(matches.map(m => m.alias))], affectedFileCount: grouped.length, grouped, matches, history }
+fs.writeFileSync(`${dir}/boundary-results.json`, JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify({ uniqueAccounts: result.uniqueAccounts, affectedFileCount: grouped.length, files: grouped, emailPresence: matches.slice(0, 2).map(m => ({ alias: m.alias, files: m.emailPresentInTrackedFiles })), commits: [...new Set(history.flatMap(h => h.commitsTouchingPath))] }, null, 2))

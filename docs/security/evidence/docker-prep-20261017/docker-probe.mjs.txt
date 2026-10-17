@@ -1,0 +1,62 @@
+import fs from 'node:fs'
+import { execFileSync, spawnSync } from 'node:child_process'
+import { setTimeout as pause } from 'node:timers/promises'
+import crypto from 'node:crypto'
+const out = 'output/docker-prep-20261017'
+const image = 'custom-form-service-web:prep-20261017'
+const prefix = ['--config', `${out}/docker-client-config`, '--host', 'npipe:////./pipe/dockerDesktopLinuxEngine']
+const docker = (...args) => execFileSync('docker', [...prefix, ...args], { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 })
+const label = `docker-prep-20261017-${crypto.randomUUID().slice(0, 8)}`
+const imageInfo = JSON.parse(docker('image', 'inspect', image))[0]
+const results = []
+const containers = []
+const runtimeFacts = JSON.parse(docker('run', '--rm', '--entrypoint', 'node', image, '-e', 'const fs=require("node:fs"),cp=require("node:child_process");console.log(JSON.stringify({node:process.version,npm:cp.execFileSync("npm",["--version"],{encoding:"utf8"}).trim(),uid:process.getuid(),appEntries:fs.readdirSync("/app"),host:process.env.HOST,port:process.env.PORT,nodeEnv:process.env.NODE_ENV,commandReady:fs.existsSync("/app/.output/server/index.mjs")}))'))
+for (const [caseName, args] of [['missing-api-url', []], ['loopback-api-url', ['-e', 'NUXT_PUBLIC_API_BASE_URL=https://localhost/api/v1']]]) {
+  const r = spawnSync('docker', [...prefix, 'run', '--rm', ...args, image], { encoding: 'utf8', timeout: 15_000 })
+  results.push({ label: caseName, pass: r.status !== 0 && (r.stdout + r.stderr).includes('NUXT_PUBLIC_API_BASE_URL'), exitCode: r.status })
+}
+try {
+  for (const [suffix, hostPort, api] of [['a', 4330, 'https://api-a.deploy-smoke.example.test/api/v1'], ['b', 4331, 'https://api-b.deploy-smoke.example.test/api/v1']]) {
+    const name = `${label}-${suffix}`
+    docker('run', '--detach', '--rm', '--name', name, '--label', `codex.prep=${label}`, '--publish', `127.0.0.1:${hostPort}:4320`, '--env', 'PORT=4320', '--env', `NUXT_PUBLIC_API_BASE_URL=${api}`, image)
+    containers.push(name)
+    const root = `http://127.0.0.1:${hostPort}`
+    let ready = false
+    for (let i = 0; i < 100; i++) {
+      try { const r = await fetch(root, { signal: AbortSignal.timeout(300) }); if (r.ok) { ready = true; break } } catch { /* waiting for owned container */ }
+      await pause(100)
+    }
+    const checks = [{ name: 'container-ready', pass: ready }, { name: 'accepts-custom-PORT-and-binds-all-interfaces', pass: docker('logs', name).includes('0.0.0.0:4320') }]
+    let html = ''
+    if (ready) {
+      for (const route of ['/', '/login', '/forms/00000000-0000-4000-8000-000000000001/statistics', '/forms/00000000-0000-4000-8000-000000000001/edit']) {
+        for (const attempt of [1, 2]) {
+          const r = await fetch(root + route); const body = await r.text(); if (route === '/') html = body
+          checks.push({ name: `direct-shell:${route}:${attempt}`, pass: r.status === 200 && r.headers.get('content-type')?.includes('text/html') && body.includes('id="__nuxt"') })
+          checks.push({ name: `public-runtime-config:${route}:${attempt}`, pass: body.includes(api) && !body.includes('http://localhost:5000/api/v1') })
+        }
+      }
+      const assets = [...new Set([...html.matchAll(/(?:src|href)="([^"<>]*\/_nuxt\/[^"<>]+\.(?:js|css))"/g)].map(m => m[1]))]
+      checks.push({ name: 'static-assets-present', pass: assets.length > 0 })
+      for (const asset of assets) { const r = await fetch(root + asset); checks.push({ name: `static:${asset}`, pass: r.status === 200 && (await r.arrayBuffer()).byteLength > 0 }) }
+      const icon = await fetch(root + '/favicon.svg'); checks.push({ name: 'favicon', pass: icon.status === 200 && (await icon.text()).includes('<svg') })
+    }
+    results.push({ label: `container-${suffix}`, container: name, apiBaseUrl: api, hostPort, checks, pass: checks.every(c => c.pass) })
+    if (suffix === 'a') {
+      fs.mkdirSync(`${out}/image-artifact`, { recursive: true })
+      docker('cp', `${name}:/app/.output`, `${out}/image-artifact/`)
+    }
+  }
+  const summary = { image, imageId: imageInfo.Id, imageCreated: imageInfo.Created, baseImage: 'node:24.21.0-bookworm-slim', configuredCommand: imageInfo.Config.Cmd, runtimeUser: imageInfo.Config.User, runtimeFacts, checks: results, sameImageForBothOverrides: true, backendIntegration: 'NOT RUN: synthetic public API endpoints; no account/DB operations', browserHydration: 'separate browser probe required', pass: runtimeFacts.node === 'v24.21.0' && runtimeFacts.npm === '11.19.0' && runtimeFacts.uid !== 0 && runtimeFacts.appEntries.length === 1 && runtimeFacts.appEntries[0] === '.output' && results.every(r => r.pass), retainedContainers: process.env.KEEP_PREP_CONTAINER === 'true' ? containers : [] }
+  fs.writeFileSync(`${out}/docker-probe-results.json`, JSON.stringify(summary, null, 2) + '\n')
+  console.log(JSON.stringify({ pass: summary.pass, imageId: summary.imageId, runtimeFacts, cases: results.map(r => ({ label: r.label, pass: r.pass, checks: r.checks?.length ?? 1 })), retainedContainers: summary.retainedContainers }, null, 2))
+  if (!summary.pass) process.exitCode = 1
+}
+finally {
+  if (process.env.KEEP_PREP_CONTAINER !== 'true') {
+    for (const name of containers) {
+      const state = JSON.parse(docker('inspect', name))[0]
+      if (state.Config.Labels['codex.prep'] === label) docker('stop', name)
+    }
+  }
+}

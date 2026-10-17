@@ -1,0 +1,57 @@
+import fs from 'node:fs'
+import path from 'node:path'
+import crypto from 'node:crypto'
+import { execFileSync, spawnSync } from 'node:child_process'
+const git = (...args) => execFileSync('git', args, { maxBuffer: 128 * 1024 * 1024 })
+const base = '975ef8b2e78221a18956972dc762fda4005aae2f'
+const manifestPath = 'docs/security/evidence/docker-prep-20261017/S01_Redaction_Manifest.json'
+const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+const sha = value => crypto.createHash('sha256').update(value).digest('hex')
+const secretValues = new Set()
+const localSummary = JSON.parse(fs.readFileSync('output/hygiene-audit-20261016/known-secret-results.json', 'utf8'))
+function gather(v, key = '') {
+  if (typeof v === 'string' && /^(?:password|passwd|token|access_token|accessToken|signingKey|clientSecret)$/i.test(key) && v.length >= 8) secretValues.add(v)
+  if (v && typeof v === 'object') for (const [k, value] of Object.entries(v)) gather(value, k)
+}
+for (const file of localSummary.privateSummary) gather(JSON.parse(fs.readFileSync(file.path, 'utf8')))
+const findings = []
+const primary = [
+  ['private-key', /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/],
+  ['jwt', /\beyJ[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}\.[A-Za-z0-9_-]{8,}/],
+  ['provider-token', /\b(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,}|AKIA[A-Z0-9]{16}|sk-(?:proj-)?[A-Za-z0-9_-]{24,}|xox[baprs]-[A-Za-z0-9-]{16,})\b/],
+  ['credential-uri', /\b(?:postgres(?:ql)?|mysql|mongodb|rediss?|https?):\/\/[^\s/@:"'`]+:[^\s/@"'`]+@/],
+]
+function scan(buf, file, scope) {
+  for (const value of secretValues) if (buf.includes(Buffer.from(value))) findings.push({ path: file, scope, rule: 'known-private-secret-value', value: 'WITHHELD' })
+  if (buf.includes(0)) return
+  const text = buf.toString('utf8')
+  for (const [rule, regex] of primary) if (regex.test(text)) findings.push({ path: file, scope, rule, value: 'WITHHELD' })
+}
+const index = git('ls-files', '-s', '-z').toString('utf8').split('\0').filter(Boolean).map(row => ({ oid: row.split(' ')[1], path: row.slice(row.indexOf('\t') + 1) }))
+const batch = execFileSync('git', ['cat-file', '--batch'], { input: index.map(e => e.oid).join('\n') + '\n', maxBuffer: 128 * 1024 * 1024 })
+const indexBytes = new Map(); let offset = 0
+for (const entry of index) {
+  const end = batch.indexOf(10, offset), size = Number(batch.subarray(offset, end).toString('utf8').split(' ')[2])
+  const bytes = batch.subarray(end + 1, end + 1 + size); offset = end + 2 + size
+  indexBytes.set(entry.path, bytes); scan(bytes, entry.path, 'staged-index')
+}
+const redactions = manifest.entries.map(e => ({ path: e.path, originalBlobMatches: git('hash-object', e.localBackup).toString('utf8').trim() === e.sourceBlob, backupShaMatches: sha(fs.readFileSync(e.localBackup)) === e.originalSha256, stagedRedactedShaMatches: sha(indexBytes.get(e.path)) === e.redactedSha256, markers: (indexBytes.get(e.path).toString('utf8').match(/\[REDACTED:S01:EC[12]:local-original-only\]/g) ?? []).length }))
+const protectedPaths = ['package-lock.json', ...git('ls-tree', '-r', '--name-only', base, 'app', 'docs/test-plan', 'docs/test-results').toString('utf8').trim().split('\n').filter(p => !manifest.entries.some(e => e.path === p))]
+const originalBlobs = new Map(git('ls-tree', '-r', '-z', base).toString('utf8').split('\0').filter(Boolean).map(row => [row.slice(row.indexOf('\t') + 1), row.split(' ')[2].split('\t')[0]]))
+const stagedBlobs = new Map(index.map(e => [e.path, e.oid]))
+const protectedMismatches = protectedPaths.filter(p => originalBlobs.get(p) !== stagedBlobs.get(p))
+function walk(dir) { return fs.readdirSync(dir, { withFileTypes: true }).flatMap(e => e.isDirectory() ? walk(path.join(dir, e.name)) : [path.join(dir, e.name)]) }
+const imageFiles = walk('output/docker-prep-20261017/image-artifact/.output')
+for (const p of imageFiles) scan(fs.readFileSync(p), p, 'actual-runtime-image-artifact')
+const trackedIgnored = git('ls-files', '-ci', '--exclude-standard', '-z').toString('utf8').split('\0').filter(Boolean)
+const deletions = git('diff', '--cached', '--name-only', '--diff-filter=D').toString('utf8').trim().split('\n').filter(Boolean)
+const stagedCheck = spawnSync('git', ['diff', '--cached', '--check'], { encoding: 'utf8' })
+const patterns = fs.readFileSync('.dockerignore', 'utf8').split(/\r?\n/).map(x => x.trim()).filter(x => x && !x.startsWith('#'))
+const dockerExcluded = file => patterns.some(pattern => file.split('/').some((_, i, parts) => path.posix.matchesGlob(parts.slice(0, i + 1).join('/'), pattern)))
+const productionPaths = index.map(e => e.path).filter(p => /^(?:app|server|public|scripts)\//.test(p) || ['package.json', 'package-lock.json', '.nvmrc', 'nuxt.config.ts', 'tsconfig.json', 'tsconfig.tools.json', 'eslint.config.mjs'].includes(p))
+const dockerExcludedProduction = productionPaths.filter(dockerExcluded)
+const pass = !findings.length && redactions.every(r => r.originalBlobMatches && r.backupShaMatches && r.stagedRedactedShaMatches && r.markers === 2) && !protectedMismatches.length && !trackedIgnored.length && !deletions.length && stagedCheck.status === 0 && !dockerExcludedProduction.length
+const result = { date: '2026-10-17', baselineHead: base, scope: 'precommit staged index and actual runtime-image /app/.output copied from owned Docker container', stagedFileCount: index.length, changedPaths: git('diff', '--cached', '--name-status').toString('utf8').trim().split('\n'), distinctPrivateSecretValuesComparedInMemory: secretValues.size, secretFindings: findings, redactions, protectedOriginalFileCount: protectedPaths.length, protectedMismatches, actualRuntimeImageFilesScanned: imageFiles.length, trackedIgnored, deletions, diffCachedCheck: stagedCheck.status === 0, dockerStatic: { requiredBuildFiles: productionPaths.length, excludedProductionFiles: dockerExcludedProduction }, history: 'Owner approved retention; history and author metadata not rewritten; S01 historical disclosure remains accessible to authorized repository readers', pass }
+if (!process.argv.includes('--verify-only')) fs.writeFileSync('docs/security/evidence/docker-prep-20261017/Staged_Safety_Review.json', JSON.stringify(result, null, 2) + '\n')
+console.log(JSON.stringify({ pass, stagedFileCount: index.length, secretFindings: findings, redactedFiles: redactions.length, originalResultsOrAppMismatches: protectedMismatches.length, imageFilesScanned: imageFiles.length, newlyIgnored: trackedIgnored.length, deletions: deletions.length, diffCachedCheck: stagedCheck.status === 0, requiredBuildFiles: productionPaths.length, excludedProductionFiles: dockerExcludedProduction }, null, 2))
+if (!pass) process.exitCode = 1

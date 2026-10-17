@@ -1,20 +1,52 @@
-# 僅作為本地開發使用，不應提交到版本控制系統
-## 為本專案的參考資料，請勿修改或刪除
+# 本機唯讀後端參考快照；保留原件，不提交。
+/backend-ref/
 
-backend-ref/
-
+# 套件、Nuxt／fixture 建置產物及工具快取。
 node_modules/
 .nuxt/
 .output/
 dist/
+.cache/
+.vite/
+.npm/
+*.tsbuildinfo
+
+# 本機秘密設定；公開、去敏的組態範例仍可追蹤。
 .env
 .env.*
 !.env.example
-output/playwright/
-output/f6/
-output/f7/
-playwright-report/
-test-results/
-!docs/test-results/
-!docs/test-results/**
-*.tsbuildinfo
+.envrc
+.npmrc.local
+.netrc
+/.secrets/
+/secrets/
+/.ssh/
+/.aws/
+/.certs/
+
+# 原始執行輸出只留本機；可交付的去敏證據保留在 docs。
+/output/
+/playwright-report/
+/blob-report/
+/test-results/
+/coverage/
+/.nyc_output/
+
+# 登入狀態與明確標記的敏感原件；不忽略整個 evidence 或 raw 目錄。
+.auth/
+storageState*.json
+storage-state*.json
+*-private-credentials.json
+private-state.json
+*.sensitive.*
+
+# 暫存／編輯器交換檔；不以 *.log 忽略歷史驗證紀錄。
+/tmp/
+/temp/
+*.tmp
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+Desktop.ini
