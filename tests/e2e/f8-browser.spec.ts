@@ -71,7 +71,7 @@ for (const mode of ['single', 'multiple'] as const) test(`F8-B01/B03 ${mode} bla
   await article(page, 2).getByLabel('單選1').check(); await article(page, 3).getByLabel('多選2').check(); await article(page, 4).getByRole('slider').click({ position: { x: 0, y: 8 } })
   await submit(page).click(); await expect(page.getByRole('dialog', { name: '提交成功' })).toBeVisible(); await page.keyboard.press('Escape'); await expect(page.getByRole('dialog', { name: '提交成功' })).toBeVisible()
   await complete(page); expect(posts(s)).toHaveLength(1); expect(posts(s)[0]!.body).toContain('9007199254740993.1234567890123456789')
-  if (mode === 'single') { await expect(submit(page)).toHaveCount(0); await expect(article(page, 0)).toContainText('合成'); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible() }
+  if (mode === 'single') { await expect(submit(page)).toHaveCount(0); await expect(article(page, 0)).toContainText('合成'); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible() }
   else { await expect(page.getByLabel('文字', { exact: true })).toHaveValue('  合成 😀\n文字  '); await submit(page).click(); await complete(page, true); expect(posts(s)).toHaveLength(2) }
   await page.reload(); await expect(page.getByLabel('文字', { exact: true })).toHaveValue(''); expect(s.requests.filter(r => r.path.endsWith('/latest'))).toHaveLength(0); await expect(submit(page)).toBeEnabled()
 })
@@ -128,11 +128,11 @@ test('F8-B07 Latest started before Visibility stays stale; metadata/Close preser
   await page.getByLabel('文字', { exact: true }).fill('dirty'); await latest(page).click(); await expect(page.getByLabel('文字', { exact: true })).toBeDisabled()
   await page.getByRole('radio', { name: '所有人', exact: true }).click(); await expect(page.getByRole('radio', { name: '所有人', exact: true })).toBeChecked(); wait.release()
   await expect(latest(page)).toBeEnabled(); await expect(page.getByLabel('文字', { exact: true })).toHaveValue('dirty')
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(article(page, 0)).toContainText('dirty'); await expect(submit(page)).toHaveCount(0)
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(article(page, 0)).toContainText('dirty'); await expect(submit(page)).toHaveCount(0)
 })
 test('F8-B07 Submit pending freezes controls/management; late reply after navigation does not update new page', async ({ page }) => {
   const s = await start(page), wait = gate(), replied = gate(); s.post = async r => { const body = parseExactJson(r.request().postData()!) as SubmitRequest; await wait.promise; await reply(r, { id: uuid(80), formId: uuid(50), submittedAt: '2026-10-14T10:00:00Z', answers: body.answers }, 201); replied.release() }
-  await page.getByLabel('文字', { exact: true }).fill('dirty'); await submit(page).click(); await expect(page.getByLabel('文字', { exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(latest(page)).toBeDisabled()
+  await page.getByLabel('文字', { exact: true }).fill('dirty'); await submit(page).click(); await expect(page.getByLabel('文字', { exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); await expect(latest(page)).toBeDisabled()
   await confirmNext(page, true, () => page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click()); wait.release(); await replied.promise; await expect(page).toHaveURL('http://localhost:3000/'); await expect(page.getByRole('dialog', { name: '提交成功' })).toHaveCount(0)
 })
 test('F8-B08 dirty navigation/beforeunload cancel, clean submit no reminder, Header logout and Delete single permit', async ({ page }) => {
@@ -190,7 +190,7 @@ test('F8-B07 verified new respondent context clears previous duplicate risk and 
   await submit(page).click(); await closeError(page); s.expected.push(expectedHttp('POST', `${root}/responses`, 401, 1)); s.post = r => reply(r, error('AUTH_REQUIRED'), 401)
   await confirmNext(page, true, () => submit(page).click()); await confirmNext(page, false, () => closeError(page))
   s.user = { ...owner, id: uuid(52) }; s.post = undefined
-  await confirmNext(page, true, () => page.getByRole('button', { name: '核對登入與填答資格', exact: true }).click()); await expect(submit(page)).toBeEnabled(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0)
+  await confirmNext(page, true, () => page.getByRole('button', { name: '核對登入與填答資格', exact: true }).click()); await expect(submit(page)).toBeEnabled(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0)
   let native = 0; page.on('dialog', async d => { native++; await d.dismiss() }); await submit(page).click(); await complete(page); expect(native).toBe(0); expect(posts(s)).toHaveLength(3)
 })
 
@@ -210,6 +210,6 @@ test('F8-B05 early error close waits for current status GET; Closed then uses di
   const s = await start(page), wait = gate(); await page.getByLabel('文字', { exact: true }).fill('需要保留')
   s.expected.push(expectedHttp('POST', `${root}/responses`, 409, 1)); s.post = r => reply(r, error('FORM_NOT_SUBMITTABLE'), 409); s.get = async r => { await wait.promise; await reply(r, { ...s.dto, status: 'closed' }) }
   await submit(page).click(); await expect(page.getByRole('dialog')).toBeVisible(); const native = page.waitForEvent('dialog').then(d => d.dismiss())
-  await closeError(page); await expect(page.getByRole('dialog')).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); wait.release(); await native
+  await closeError(page); await expect(page.getByRole('dialog')).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0); wait.release(); await native
   await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(article(page, 0)).toContainText('需要保留'); await expect(submit(page)).toBeDisabled()
 })

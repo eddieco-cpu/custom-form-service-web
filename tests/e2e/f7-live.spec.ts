@@ -59,7 +59,7 @@ test('F7-L01..L06 real Cookie/CORS, saved lifecycle, policy, Count, role and ded
   async function managed(command: 'publish' | 'close' | 'delete') {
     const url = page.url(), id = /\/forms\/([^/]+)/.exec(url)?.[1]; expect(id).toBeTruthy()
     if (command === 'delete') expect(resources.some(v => v.id === id && v.deletionAuthorized)).toBe(true)
-    const button = command === 'publish' ? '發布' : command === 'close' ? '關閉表單' : '刪除表單'
+    const button = command === 'publish' ? '發布' : command === 'close' ? '關閉表單以查看統計' : '刪除表單'
     await page.getByRole('button', { name: button, exact: true }).click()
     const method = command === 'delete' ? 'DELETE' : 'POST', path = command === 'delete' ? `${api}/forms/${id}` : `${api}/forms/${id}/${command}`
     const response = page.waitForResponse(r => r.url() === path && r.request().method() === method)
@@ -191,22 +191,22 @@ test('F7-L06 real cached Owner versus current Cookie role denial, SPA persistenc
     await page.getByRole('radio', { name: '所有人', exact: true }).click(); const res = await r; expect(res.status()).toBe(403)
     expect((parseExactJson(await res.text()) as { error: { code: string } }).error.code).toBe('FORM_ACCESS_DENIED')
     await page.getByRole('dialog', { name: '操作訊息' }).getByRole('button', { name: '關閉', exact: true }).filter({ hasText: '關閉' }).click()
-    await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0)
+    await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0)
   }
   try {
     await page.goto('/login'); await page.getByRole('textbox', { name: 'Email' }).fill(owner.email); await page.getByLabel('密碼', { exact: true }).fill(owner.password); await page.getByRole('button', { name: '登入', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/')
     const r = await exchange('/forms', 'POST', { title: runId, resultVisibility: 'owner_only', questions: [{ type: 'text', title: '身分核對合成題', sortOrder: 0 }] }); expect(r.status).toBe(201); id = decodeFormDetail(parseExactJson(r.body)).id
-    expect((await exchange(`/forms/${id}/publish`, 'POST')).status).toBe(200); await page.goto(`/forms/${id}`); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible()
+    expect((await exchange(`/forms/${id}/publish`, 'POST')).status).toBe(200); await page.goto(`/forms/${id}`); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible()
     expected.push(expectedHttp('PATCH', `${api}/forms/${id}/result-visibility`, 403, 2)); const meBefore = meRequests
-    await deny(); await cookieLogin(owner); await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible()
+    await deny(); await cookieLogin(owner); await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible()
     expect(meRequests).toBe(meBefore + 1); observations.push({ label: 'explicit Owner me plus successful Form GET recovered', meRequests, ownerCommands: 1 })
     await deny(); const beforeSpa = meRequests
     await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect(page).toHaveURL('http://localhost:3000/'); await page.goBack(); await expect(page).toHaveURL(`http://localhost:3000/forms/${id}`)
-    await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa)
+    await expect(page.getByRole('button', { name: '核對登入與管理資格' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa)
     observations.push({ label: 'SPA return did not restore cached Owner', meRequests, ownerCommands: 0 })
-    await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '使用者選單' })).toContainText('other'); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa + 1)
+    await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '使用者選單' })).toContainText('other'); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0); expect(meRequests).toBe(beforeSpa + 1)
     observations.push({ label: 'explicit current other identity has no Owner commands', meRequests, ownerCommands: 0 })
-    await cookieLogin(owner); await page.reload(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); expect(meRequests).toBe(beforeSpa + 2)
+    await cookieLogin(owner); await page.reload(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible(); expect(meRequests).toBe(beforeSpa + 2)
     observations.push({ label: 'full App restart verified Owner again', meRequests, ownerCommands: 1 })
     expect(errors).toEqual([]); expect(verifyNetworkDiagnostics(expected, outcomes, diagnostics)).toEqual([]); completed = true
   } finally {

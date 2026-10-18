@@ -5,6 +5,7 @@ import { validateConfig } from '../../domain/definition-validation'
 import type { ConfigByType } from '../../domain/api/form'
 import type { FieldIssue } from '../../domain/models'
 import { trimWhiteSpace } from '../../utils/unicode'
+import { answerRules } from '../../domain/question-presentation'
 const props = defineProps<{ definition: AnswerDefinition; readonly?: boolean; disabled?: boolean; preview?: boolean; issues?: readonly FieldIssue[] }>()
 const root = useTemplateRef('root')
 const model = defineModel<AnswerModel>('model', { required: true })
@@ -30,13 +31,14 @@ defineExpose({ focusIssue })
     <article v-for="(q, index) in definition.questions" :key="q.key" tabindex="-1" class="min-w-0 space-y-3 rounded-lg border border-gray-200 p-4" :data-renderer-key="q.key" :aria-invalid="issues?.some(i => i.targetKey === q.key) ? 'true' : undefined" :aria-describedby="issues?.some(i => i.targetKey === q.key) ? `${inputId(q.key)}-errors` : undefined">
       <h3 class="whitespace-pre-wrap break-words font-semibold">{{ index + 1 }}. {{ q.title || (preview ? '（暫無內容）' : '') }} <span v-if="q.required" class="text-sm text-red-700">必填</span></h3>
       <p v-if="q.description" class="whitespace-pre-wrap break-words text-sm text-gray-600">{{ q.description }}</p>
+      <ul :id="`${inputId(q.key)}-rules`" class="space-y-1 text-sm text-gray-600 [overflow-wrap:anywhere]" aria-label="作答規則"><li v-for="rule in answerRules(q)" :key="rule">{{ rule }}</li></ul>
       <ul v-if="issues?.some(i => i.targetKey === q.key)" :id="`${inputId(q.key)}-errors`" class="space-y-1 text-sm text-red-700" role="alert"><li v-for="(issue, i) in issues.filter(i => i.targetKey === q.key)" :key="i">{{ issue.message }}</li></ul>
       <template v-if="q.type === 'text' || q.type === 'number'">
         <p v-if="readonly" class="whitespace-pre-wrap break-words">{{ (q.type === 'text' ? !!trimWhiteSpace(text(q.key)) : text(q.key) !== '') ? text(q.key) : '尚未作答' }}</p>
         <template v-else>
           <label class="sr-only" :for="inputId(q.key)">{{ q.title || `題目 ${index + 1}` }}</label>
-          <textarea v-if="q.type === 'text' && (('variant' in q.config ? q.config.variant : undefined)) === 'textarea'" :id="inputId(q.key)" :value="text(q.key)" :placeholder="'placeholder' in q.config ? q.config.placeholder : undefined" :disabled="disabled" class="editor-control" rows="3" @input="update(q.key, { type: 'text', raw: ($event.target as HTMLTextAreaElement).value })" />
-          <input v-else :id="inputId(q.key)" :value="text(q.key)" type="text" :inputmode="q.type === 'number' ? 'decimal' : undefined" :placeholder="'placeholder' in q.config ? q.config.placeholder : undefined" :disabled="disabled" class="editor-control" @input="update(q.key, q.type === 'number' ? numberAnswer(($event.target as HTMLInputElement).value) : { type: 'text', raw: ($event.target as HTMLInputElement).value })">
+          <textarea v-if="q.type === 'text' && (('variant' in q.config ? q.config.variant : undefined)) === 'textarea'" :id="inputId(q.key)" :aria-describedby="`${inputId(q.key)}-rules`" :value="text(q.key)" :placeholder="'placeholder' in q.config ? q.config.placeholder : undefined" :disabled="disabled" class="editor-control" rows="3" @input="update(q.key, { type: 'text', raw: ($event.target as HTMLTextAreaElement).value })" />
+          <input v-else :id="inputId(q.key)" :aria-describedby="`${inputId(q.key)}-rules`" :value="text(q.key)" type="text" :inputmode="q.type === 'number' ? 'decimal' : undefined" :placeholder="'placeholder' in q.config ? q.config.placeholder : undefined" :disabled="disabled" class="editor-control" @input="update(q.key, q.type === 'number' ? numberAnswer(($event.target as HTMLInputElement).value) : { type: 'text', raw: ($event.target as HTMLInputElement).value })">
         </template>
       </template>
       <template v-else-if="q.type === 'single_choice' || q.type === 'multiple_choice'">

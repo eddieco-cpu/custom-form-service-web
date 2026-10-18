@@ -227,7 +227,7 @@ test('Supplement L01-L05: real 21 Forms, UI pagination/filter/shrink and full ro
             if (state === 'draft') await expect(p.getByLabel('表單標題', { exact: true })).toHaveValue(form.title)
             else await expect(p.getByRole('heading', { name: form.title, exact: true })).toBeVisible()
           }
-          if (p === other) { await expect(p.getByRole('button', { name: '刪除表單', exact: true })).toHaveCount(0); await expect(p.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0) }
+          if (p === other) { await expect(p.getByRole('button', { name: '刪除表單', exact: true })).toHaveCount(0); await expect(p.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0) }
         }
       }
     })
@@ -331,7 +331,7 @@ test('Supplement D02-D03 M07 R03-R05: persisted sort, Preview, Range zero, clear
       await context.grantPermissions(['clipboard-read', 'clipboard-write'], { origin: 'http://localhost:3000' })
       await page.getByRole('button', { name: '複製填答連結', exact: true }).click()
       expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`http://localhost:3000/forms/${dto.id}`)
-      await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉', exact: true }).click()
+      await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉', exact: true }).click()
       await expect(page.getByRole('button', { name: '複製統計連結', exact: true })).toBeVisible()
       await page.getByRole('button', { name: '複製統計連結', exact: true }).click()
       expect(await page.evaluate(() => navigator.clipboard.readText())).toBe(`http://localhost:3000/forms/${dto.id}/statistics`)
