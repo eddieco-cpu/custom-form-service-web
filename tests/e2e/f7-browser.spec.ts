@@ -62,12 +62,12 @@ test('F7-B01 saved publish is separate, confirmed, pushes and freezes; dirty/can
   await save(page).click(); await expect(save(page)).toBeDisabled(); await page.getByRole('button', { name: '發布', exact: true }).click(); await page.getByRole('button', { name: '取消', exact: true }).click()
   expect(s.requests.filter(r => r.path.endsWith('/publish'))).toHaveLength(0)
   await page.getByRole('button', { name: '發布', exact: true }).click(); await expect(page.getByRole('dialog', { name: '發布表單' })).toContainText('凍結'); await page.getByRole('button', { name: '確認發布' }).click()
-  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); await expect(save(page)).toHaveCount(0)
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible(); await expect(save(page)).toHaveCount(0)
   expect(s.requests.find(r => r.path.endsWith('/publish'))?.body).toBeNull(); expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1); clean(s)
 })
 test('F7-B02 deadline remains Published; Close stays, reveals Closed links and removes Count', async ({ page }) => {
   const s = await start(page, { ...form(), status: 'published', submissionDeadlineAt: '2020-01-01T00:00:00Z' }); await expect(page.getByText('已截止', { exact: true })).toBeVisible()
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await expect(page.getByRole('dialog', { name: '關閉表單' })).toContainText('不能重新開啟'); await page.getByRole('button', { name: '確認關閉' }).click()
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await expect(page.getByRole('dialog', { name: '關閉表單' })).toContainText('不能重新開啟'); await page.getByRole('button', { name: '確認關閉' }).click()
   await expect(page.getByRole('link', { name: '查看統計' })).toHaveAttribute('href', `${view}/statistics`); await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(page.getByRole('button', { name: '查看填答人數' })).toHaveCount(0)
   expect(s.requests.find(r => r.path.endsWith('/close'))?.body).toBeNull(); clean(s)
 })
@@ -139,17 +139,17 @@ test('F7-B10 old Form GET after Close success stays stale after pending ends', a
   const s = await start(page, { ...form(), status: 'published' }), pending = gate(); let reading = false
   s.get = async r => { reading = true; await pending.promise; await reply(r, { ...form(), status: 'published', resultVisibility: 'owner_only' }) }
   await page.getByRole('button', { name: '重新載入表單', exact: true }).click(); await expect.poll(() => reading).toBe(true)
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(page.getByRole('button', { name: '複製統計連結' })).toBeVisible()
-  pending.release(); await expect(page.getByText('正在載入表單…')).toHaveCount(0); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0); await expect(page.getByText('查看資格：建立者及填答者')).toBeVisible(); clean(s)
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(page.getByRole('button', { name: '複製統計連結' })).toBeVisible()
+  pending.release(); await expect(page.getByText('正在載入表單…')).toHaveCount(0); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0); await expect(page.getByText('查看資格：建立者及填答者')).toBeVisible(); clean(s)
 })
 test('F7-B11 old GET after Close unknown cannot unlock; a fresh GET reconciles', async ({ page }) => {
   const s = await start(page, { ...form(), status: 'published' }), pending = gate(); let reading = false
   s.get = async r => { reading = true; await pending.promise; await reply(r, s.dto) }
   await page.getByRole('button', { name: '重新載入表單', exact: true }).click(); await expect.poll(() => reading).toBe(true)
   s.expected.push(expectedNetwork('POST', `${root}/close`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page); pending.release(); await expect(page.getByText('正在載入表單…')).toHaveCount(0)
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible()
-  s.get = undefined; page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeEnabled(); clean(s)
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page); pending.release(); await expect(page.getByText('正在載入表單…')).toHaveCount(0)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible()
+  s.get = undefined; page.once('dialog', d => d.accept()); await page.getByRole('button', { name: '重新載入並核對' }).click(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeEnabled(); clean(s)
 })
 test('F7-B12 Delete unknown retains dirty data; current 404 consumes reload consent once', async ({ page }) => {
   const s = await start(page); await field(page, 'form.title').fill('刪除不明保留')
@@ -181,8 +181,8 @@ test('F7-B16 readonly qualification must adopt a successful Form GET; failure ca
   await page.getByRole('radio', { name: '所有人', exact: true }).click(); await closeError(page)
   s.expected.push(expectedHttp('GET', root, 500, 1)); s.get = r => reply(r, error('INTERNAL_SERVER_ERROR'), 500)
   await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByText('載入失敗，請手動重試。')).toBeVisible()
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toHaveCount(0)
-  s.get = undefined; await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); clean(s)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toHaveCount(0)
+  s.get = undefined; await page.getByRole('button', { name: '核對登入與管理資格' }).click(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible(); clean(s)
 })
 
 // The seven independently failing reviewer scenarios retain their original expectations.
@@ -242,15 +242,15 @@ test('F7-R2 reviewer Clipboard reject after management denial creates no late fa
 async function unknownClose(page: Page) {
   const s = await start(page, { ...form(), status: 'published' })
   s.expected.push(expectedNetwork('POST', `${root}/close`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page)
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); return s
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await closeError(page)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); return s
 }
 test('F7-R3 reviewer unknown Close cancels SPA leave and preserves the reconciliation lock', async ({ page }) => {
   const s = await unknownClose(page); let prompts = 0
   page.on('dialog', async d => { expect(d.type()).toBe('confirm'); prompts++; await d.dismiss() })
   await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click()
   await expect.poll(() => prompts).toBe(1); await expect(page).toHaveURL(`http://localhost:3000${view}`)
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
 })
 test('F7-R3 reviewer unknown Close cancels beforeunload without reinitializing App or unlocking', async ({ page }) => {
   const s = await unknownClose(page); let prompts = 0
@@ -259,7 +259,7 @@ test('F7-R3 reviewer unknown Close cancels beforeunload without reinitializing A
   void page.reload().catch(() => {}); await unload
   await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(prompts).toBe(1)
   expect(s.requests.filter(r => r.path.endsWith('/users/me'))).toHaveLength(1)
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); await expect(page.getByRole('button', { name: '重新載入並核對' })).toBeVisible(); clean(s)
 })
 test('F7-R4 reviewer management 404 cancel retains dirty content but revokes F6 PATCH', async ({ page }) => {
   const s = await start(page); await field(page, 'form.title').fill('404 本地保留')
@@ -283,7 +283,7 @@ test('F7-R4 reviewer Publish conflict and failed candidate/current GET prohibit 
   await expect(save(page)).toBeDisabled(); await expect(field(page, 'form.title')).toHaveAttribute('readonly', ''); await expect(field(page, 'form.title')).toHaveValue(form().title)
   expect(s.requests.filter(r => r.method === 'PATCH' && r.path === new URL(root).pathname)).toHaveLength(0)
   s.get = undefined; s.dto = { ...s.dto, status: 'published' }; await page.getByRole('button', { name: '重新載入並核對' }).click()
-  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(save(page)).toHaveCount(0); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeVisible(); clean(s)
+  await expect(page).toHaveURL(`http://localhost:3000${view}`); await expect(save(page)).toHaveCount(0); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeVisible(); clean(s)
 })
 for (const status of ['published', 'closed'] as const) test(`F7-R3 ${status} Visibility unknown: cancel/failure retain lock, current adoption clears dirty`, async ({ page }) => {
   const s = await start(page, { ...form(), status }); s.expected.push(expectedNetwork('PATCH', `${root}/result-visibility`, 'net::ERR_FAILED', 1, 1)); s.write = r => r.abort('failed')
@@ -322,11 +322,11 @@ test('F7-R3 ActiveDirtyScope prevents logout request when unknown discard is can
   const s = await unknownClose(page); let prompts = 0; page.on('dialog', async d => { prompts++; await d.dismiss() })
   await page.getByRole('button', { name: '使用者選單' }).click(); await page.getByRole('button', { name: '登出', exact: true }).click()
   expect(prompts).toBe(1); expect(s.requests.filter(r => r.path.endsWith('/logout'))).toHaveLength(0); await expect(page).toHaveURL(`http://localhost:3000${view}`)
-  await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled(); clean(s)
+  await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled(); clean(s)
 })
 test('F7-R2 status change isolates old copy; current Closed copy and latest generation fallback work', async ({ page }) => {
   await pendingClipboard(page); const s = await start(page, { ...form(), status: 'published' }); await page.getByRole('button', { name: '複製填答連結' }).click()
-  await page.getByRole('button', { name: '關閉表單', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(page.getByRole('button', { name: '複製統計連結' })).toBeVisible()
+  await page.getByRole('button', { name: '關閉表單以查看統計', exact: true }).click(); await page.getByRole('button', { name: '確認關閉' }).click(); await expect(page.getByRole('button', { name: '複製統計連結' })).toBeVisible()
   await settleClipboard(page); await expect(page.getByText('填答連結已複製', { exact: true })).toHaveCount(0); await expect(page.getByText('統計連結已複製', { exact: true })).toHaveCount(0)
   await page.getByRole('button', { name: '複製統計連結' }).click(); await page.getByRole('button', { name: '複製統計連結' }).click()
   await settleClipboard(page, true, 2); await expect(page.getByLabel('完整分享連結')).toHaveValue(`http://localhost:3000${view}/statistics`)
@@ -367,7 +367,7 @@ for (const failure of ['http', 'network'] as const) test(`F7-R3-N1 unknown logou
   if (failure === 'http') { s.expected.push(expectedHttp('POST', `${api}/auth/logout`, 400, 1)); s.logout = r => reply(r, error('VALIDATION_ERROR'), 400) }
   else { s.expected.push(expectedNetwork('POST', `${api}/auth/logout`, 'net::ERR_FAILED', 1, 1)); s.logout = r => r.abort('failed') }
   await headerLogout(page); await expect(page.getByRole('dialog', { name: '操作訊息' })).toBeVisible(); await closeError(page)
-  await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單', exact: true })).toBeDisabled()
+  await expect(page.getByRole('button', { name: '使用者選單' })).toBeVisible(); await expect(page.getByRole('button', { name: '關閉表單以查看統計', exact: true })).toBeDisabled()
   await page.getByRole('navigation', { name: '主要導覽', exact: true }).getByRole('button', { name: '首頁', exact: true }).click(); await expect.poll(() => prompts).toBe(2)
   await expect(page).toHaveURL(`http://localhost:3000${view}`); expect(s.requests.filter(r => r.path.endsWith('/auth/logout'))).toHaveLength(1); clean(s)
 })
