@@ -35,7 +35,8 @@ function typeChange(event: Event) { const select = event.target as HTMLSelectEle
         <FormsEditorField v-model="question.description" :name="`${question.key}.description`" :label="`題目 ${index + 1} 說明`" multiline :rows="1" placeholder="選填，可輸入多行" :disabled="disabled" />
         <FormsEditorField v-if="['text', 'number'].includes(question.type)" :model-value="config.placeholder ?? ''" :name="`${question.key}.config.placeholder`" label="輸入提示（選填）" :disabled="disabled" @update:model-value="config.placeholder = $event" />
       </div>
-      <div v-if="numericFields.length" class="grid grid-cols-2 gap-3"><FormsEditorField v-for="field in numericFields" :key="field" :model-value="config[field] ?? ''" :name="`${question.key}.config.${field}`" :label="question.type === 'rating' ? (field === 'min' ? '最低分數' : '最高分數') : fieldLabels[field]!" :placeholder="question.type === 'rating' ? '發布時必填' : '不限'" numeric :disabled="disabled" @update:model-value="config[field] = $event" /></div>
+      <div v-if="numericFields.length" class="grid grid-cols-2 gap-3"><FormsEditorField v-for="field in numericFields" :key="field" :model-value="config[field] ?? ''" :name="`${question.key}.config.${field}`" :label="question.type === 'rating' ? (field === 'min' ? '最低分數' : '最高分數') : fieldLabels[field]!" :placeholder="question.type === 'rating' ? '發布時必填' : question.type === 'number' ? (field === 'min' ? '無下限（−∞）' : '無上限（∞）') : '不限'" numeric :disabled="disabled" @update:model-value="config[field] = $event" /></div>
+      <p v-if="question.type === 'number'" class="text-xs text-gray-600">上下限留空表示不限制；設定限制請填有限數值，不需輸入 Infinity 或 ∞。</p>
       <template v-if="isChoice(question.type)">
         <p class="text-sm font-medium">填答選項</p>
         <VueDraggable v-model="orderedOptions" handle=".option-handle" :disabled="disabled" :animation="150" class="space-y-2">
