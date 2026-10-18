@@ -17,8 +17,9 @@ export function answerRules(question: Pick<AnswerQuestion, 'key' | 'type' | 'con
     }
     case 'number': {
       const config = parsed.candidate as ConfigByType['number']
-      const limits = [config.min === undefined ? '' : `最小值 ${config.min}`, config.max === undefined ? '' : `最大值 ${config.max}`].filter(Boolean)
-      rules.push(limits.length ? `數值範圍：${limits.join('，')}（包含邊界值）。` : '數值範圍不限。')
+      const min = config.min === undefined ? '無下限（−∞）' : `${config.min}（含）`
+      const max = config.max === undefined ? '無上限（∞）' : `${config.max}（含）`
+      rules.push(`最小值：${min}。`, `最大值：${max}。`, '請輸入有限數值。')
       if (config.placeholder) rules.push(`輸入提示：${config.placeholder}`)
       break
     }

@@ -11,12 +11,14 @@ describe('visible answer rules', () => {
   it('does not invent omitted or blank limits', () => {
     expect(rules('text', { minLength: '', maxLength: '5' })).toEqual(['文字長度：最多 5 字。'])
     expect(rules('text')).toEqual(['文字長度不限。'])
-    expect(rules('number')).toEqual(['數值範圍不限。'])
+    expect(rules('number')).toEqual(['最小值：無下限（−∞）。', '最大值：無上限（∞）。', '請輸入有限數值。'])
+    expect(rules('number', { min: '', max: '' })).toEqual(rules('number'))
   })
   it('preserves exact large and fractional bounds without Number conversion', () => {
     const max = '9007199254740993.1234567890123456789'
-    expect(rules('number', { min: '0', max })).toEqual([`數值範圍：最小值 0，最大值 ${max}（包含邊界值）。`])
-    expect(rules('number', { min: '-0.0000000000000000001' })).toEqual(['數值範圍：最小值 -0.0000000000000000001（包含邊界值）。'])
+    expect(rules('number', { min: '0', max })).toEqual(['最小值：0（含）。', `最大值：${max}（含）。`, '請輸入有限數值。'])
+    expect(rules('number', { min: '-0.0000000000000000001' })).toEqual(['最小值：-0.0000000000000000001（含）。', '最大值：無上限（∞）。', '請輸入有限數值。'])
+    expect(rules('number', { max: '0' })).toEqual(['最小值：無下限（−∞）。', '最大值：0（含）。', '請輸入有限數值。'])
   })
   it('shows zero as a real rating bound and requires integer scores', () => {
     expect(rules('rating', { min: '0', max: '100' })).toEqual(['評分範圍：0～100 分，請選擇整數分數。'])
@@ -29,5 +31,7 @@ describe('visible answer rules', () => {
   it('does not show invalid preview limits as accepted rules', () => {
     expect(rules('text', { minLength: '10', maxLength: '2' })).toEqual(['作答限制設定有誤，請先檢查題目設定。'])
     expect(rules('number', { min: 'oops' })).toEqual(['作答限制設定有誤，請先檢查題目設定。'])
+    expect(rules('number', { max: 'Infinity' })).toEqual(['作答限制設定有誤，請先檢查題目設定。'])
+    expect(rules('number', { max: '∞' })).toEqual(['作答限制設定有誤，請先檢查題目設定。'])
   })
 })
